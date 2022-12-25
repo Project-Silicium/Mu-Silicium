@@ -6,14 +6,16 @@
 
 ## Status
 
-| Device                  | SOC     | Display | Clocks | UFS/eMMC | Buttons | USB | Windows Status | Tester                                    |
-|-------------------------|---------|---------|--------|----------|---------|-----|----------------|-------------------------------------------|
-| Xiaomi 11T Pro          | SM8350  | ✅     | ✅     | ✅      | ✅      | ⚠️ | ❌             | [Robotix22](https://github.com/Robotix22) |
-| Redmi Note 8            | SM6125  | ✅     | ❌     | ❌      | ✅      | ❌ | ❌             | [SwedMlite](https://github.com/SwedMlite), [VAVANESKA](https://github.com/VAVANESKA), [Vicente Cortes](https://github.com/vicenteicc2008) |
-| Redmi 9T                | SM6115  | ✅     | ❌     | ❌      | ✅      | ❌ | ❌             | [Xhelowrk](https://github.com/Xhelowrk)   |
-| Mi Note 10              | SDM730  | ❔     | ❔     | ❔      | ❔      | ❔ | ❔             | None                                      |
-| Sony Xperia XZ1 Compact | MSM8998 | ❔     | ❔     | ❔      | ❔      | ❔ | ❔             | None                                      |
+### UEFI Status
+| Device | SOC | Display | Clocks | UFS/eMMC | Buttons | USB | Tester |
+|--------|-----|---------|--------|----------|---------|-----|--------|
+| Xiaomi 11T Pro | SM8350 |✅|✅|✅|✅|⚠️|[Robotix22](https://github.com/Robotix22)|
+| Redmi Note 8 | SM6125 |✅|❌|❌|✅|❌|[SwedMlite](https://github.com/SwedMlite), [VAVANESKA](https://github.com/VAVANESKA), [Vicente Cortes](https://github.com/vicenteicc2008) |
+| Redmi 9T | SM6115 |✅|❌|❌|✅|❌|[Xhelowrk](https://github.com/Xhelowrk)
+| Mi Note 10 | SDM730 |❔|❔|❔|❔|❔| None |
+| Sony Xperia XZ1 Compact | MSM8998 |❔|❔|❔|❔|❔| None |
 
+✅ = Working  ❌ = Not Working  ⚠️ = Problematic  ❔ = Unknown
 
 ## Building
 (NOTE: you NEED to use Ubuntu 20.04 to Build!)
