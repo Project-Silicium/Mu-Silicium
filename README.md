@@ -4,7 +4,22 @@
 
 [Discord Server](https://discord.gg/Gb4KAqAQdm)
 
-## [Status](https://github.com/Robotix22/MU-msm/blob/main/Status.md)
+## Status
+|✅|Working|
+|--|--------|
+|⚠️|Problematic|
+|❌|Not Working|
+|❔|Unknown|
+
+## UEFI Status
+
+| Device | SOC | Display | Clocks | UFS/eMMC | Buttons | USB | SD Card |
+|--------|-----|---------|--------|----------|---------|-----|---------|
+|Xiaomi 11T Pro|SM8350|✅|✅|✅|✅|⚠️|❌|
+|Redmi Note 8/8T|SM6125|✅|❌|❌|✅|❌|❌|
+|Redmi 9T|SM6115|✅|❌|❌|✅|❌|❌|
+|Mi Note 10|SDM730|❔|❔|❔|❔|❔|❔|
+|Sony Xperia XZ1 Compact|MSM8998|❔|❔|❔|❔|❔|❔|
 
 ## Building
 (NOTE: you NEED to use Ubuntu 20.04 to Build!)
@@ -29,7 +44,7 @@ pip install --upgrade -r pip-requirements.txt
 
 ### 4. Build the UEFI
 ```
-./build_uefi.sh -s <SOC> -d <Device>-r <Build Mode>
+./build_uefi.sh -s <SOC> -d <Device> -b <Build Mode>
 ```
 
 After that You will find `MU-<Device>.img` on the root of this repo.
@@ -37,6 +52,14 @@ After that You will find `MU-<Device>.img` on the root of this repo.
 ## Credits
 
 This repo is based on [SurfaceDuoPkg](https://github.com/WOA-Project/SurfaceDuoPkg)
+
+Thanks to these People for Testing on Devices I don´t own.
+
+[SwedMlite](https://github.com/SwedMlite): Redmi Note 8 <br />
+[VAVANESKA](https://github.com/VAVANESKA): Redmi Note 8 <br />
+[Vicente Cortes](https://github.com/vicenteicc2008): Redmi Note 8 <br />
+[kubawis128](https://github.com/kubawis128): Redmi Note 8T <br />
+[Xhelowrk](https://github.com/Xhelowrk): Redmi 9T
 
 ## License
 
