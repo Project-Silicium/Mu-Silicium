@@ -2,7 +2,7 @@
 
 ## Resources
 
-~~[Discord Server](https://discord.gg/Gb4KAqAQdm)~~ Is under construction
+[Discord Server](https://discord.gg/Dx2QgMx7Sv)
 
 ## Status
 |✅|Working|
