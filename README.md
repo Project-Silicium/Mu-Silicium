@@ -16,9 +16,9 @@
 | Device | SOC | Display | Clocks | UFS/eMMC | Buttons | USB | SD Card |
 |--------|-----|---------|--------|----------|---------|-----|---------|
 |Xiaomi 11T Pro|SM8350|✅|✅|✅|✅|⚠️|❌|
+|Mi Note 10|SM7150|❔|❔|❔|❔|❔|❔|
 |Redmi Note 8/8T|SM6125|✅|❌|❌|✅|❌|❌|
 |Redmi 9T|SM6115|✅|❌|❌|✅|❌|❌|
-|Mi Note 10|SDM730|❔|❔|❔|❔|❔|❔|
 |Sony Xperia XZ1 Compact|MSM8998|❔|❔|❔|❔|❔|❔|
 
 ## Building
