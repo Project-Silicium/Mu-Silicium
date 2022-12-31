@@ -57,7 +57,7 @@ SOC: The SOC of your Device you want to build. <br />
 Device: The Codename of your Device. <br />
 Build Mode: The Mode you want to use to build the UEFI.
 
-When then Build is done you will find a .img File in the root of the repo.
+When then Build is done you will find a `.img` File in the root of the repo.
 
 ## Booting
 
@@ -77,6 +77,7 @@ fastboot boot [Path to UEFI Image]
 ```
 or flash it:
 ```
+(NOTE: If you still want to boot Android then make a backup of boot before flashing the UEFI Image)
 fastboot flash boot [Path to UEFI Image]
 ```
 
