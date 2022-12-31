@@ -11,7 +11,7 @@
 |❌|Not Working|
 |❔|Unknown|
 
-## UEFI Status
+### UEFI Status
 
 |Device|SOC|Display|Clocks|UFS/eMMC|Buttons|USB|SD Card|ACPI|
 |------|---|-------|------|--------|-------|---|-------|----|
@@ -24,30 +24,74 @@
 ## Building
 (NOTE: you NEED to use Ubuntu 20.04 to Build!)
 
-### 1. Clone the Repo
+### Step 1:
 
+First of you need the sourcecode to compile a UEFI Image. <br />
+Clone the Repo by using:
 ```
 git clone https://github.com/Robotix22/MU-msm.git --recursive
 cd MU-msm
 ```
 
-### 2. Setup Base environment
+### Step 2:
+
+After Cloning the repo we can now continue on Setting up the Environment. <br />
+First we need to install the needed Packages:
 ```
 ./setup_env.sh
-pip install --upgrade -r pip-requirements.txt
 ```
 
-### 3. Stamp the build
+Now We Stamp the Build:
 ```
 ./build_releaseinfo.ps1
 ```
 
-### 4. Build the UEFI
+### Step 3:
+
+So now we are able to begin the real UEFI build:
 ```
-./build_uefi.sh -s <SOC> -d <Device> -b <Build Mode>
+./build_uefi.sh -s [SOC] -d [Device] -r [Build Mode]
 ```
 
-After that You will find `MU-<Device>.img` on the root of this repo.
+SOC: The SOC of your Device you want to build. <br />
+Device: The Codename of your Device. <br />
+Build Mode: The Mode you want to use to build the UEFI.
+
+When then Build is done you will find a .img File in the root of the repo.
+
+## Booting
+
+### PC/Laptop:
+
+To boot a UEFI Image with PC/Laptop you need ADB and Fastboot. <br />
+if you haven´t set up ADB/Fastboot yet use [this](https://wiki.lineageos.org/adb_fastboot_guide). <br />
+After Setting up ADB/Fastboot you can now boot your Phone to fastboot with keycombo or ADB:
+```
+(Make sure to enable USB Debbugin in Developer Settings)
+adb reboot bootloader
+```
+
+Now download or compile a UEFI Image and use Fastboot to boot it:
+```
+fastboot boot [Path to UEFI Image]
+```
+or flash it:
+```
+fastboot flash boot [Path to UEFI Image]
+```
+
+Now your Phone should boot UEFI.
+
+### Phone:
+
+To Flash a UEFI Image you need a custom recovery like [TWRP](https://twrp.me/). <br />
+Download a UEFI Image on your Phone and save it somewhere you can find it again. <br />
+
+(NOTE: If you still want to boot Android then make a backup of boot before flashing the UEFI Image)
+
+Now boot into TWRP, When in TWRP Chosse Install -> Install Image -> [Path to UEFI Image] -> Boot <br />
+
+After that Reboot the Device and it should boot the UEFI Image
 
 ## Credits
 
