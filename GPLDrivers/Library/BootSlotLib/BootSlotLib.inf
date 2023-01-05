@@ -34,7 +34,7 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  viliPkg/vili.dec
+  QcomPkg/Qcom.dec
 
 [LibraryClasses]
   UefiLib

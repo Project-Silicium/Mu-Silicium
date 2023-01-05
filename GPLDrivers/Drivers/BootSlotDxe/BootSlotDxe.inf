@@ -34,7 +34,7 @@
   MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  viliPkg/vili.dec
+  QcomPkg/Qcom.dec
 
 [Depex]
   TRUE
