@@ -76,7 +76,7 @@
   INF Binaries/vili/SPMI/SPMI.inf
   INF Binaries/vili/PmicDxe/PmicDxe.inf
 
-  INF viliPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
+  INF QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
   INF MdeModulePkg/Universal/TimestampDxe/TimestampDxe.inf
 
   INF Binaries/vili/SdccDxe/SdccDxe.inf
@@ -84,7 +84,10 @@
   INF Binaries/vili/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/vili/MinidumpTADxe/MinidumpTADxe.inf
 
-  INF viliPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!if $(USE_DISPLAYDXE) == FALSE
+  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!endif
+
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
   INF CryptoPkg/Driver/CryptoDxe.inf
