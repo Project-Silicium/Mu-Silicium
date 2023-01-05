@@ -1,0 +1,15 @@
+[submodule "Common/MU"]
+	path = Common/MU
+	url = https://github.com/microsoft/mu_plus.git
+[submodule "Common/MU_OEM_SAMPLE"]
+	path = Common/MU_OEM_SAMPLE
+	url = https://github.com/microsoft/mu_oem_sample.git
+[submodule "Common/MU_TIANO"]
+	path = Common/MU_TIANO
+	url = https://github.com/microsoft/mu_tiano_plus.git
+[submodule "MU_BASECORE"]
+	path = MU_BASECORE
+	url = https://github.com/microsoft/mu_basecore.git
+[submodule "Silicon/ARM/TIANO"]
+	path = Silicon/ARM/TIANO
+	url = https://github.com/microsoft/mu_silicon_arm_tiano.git
