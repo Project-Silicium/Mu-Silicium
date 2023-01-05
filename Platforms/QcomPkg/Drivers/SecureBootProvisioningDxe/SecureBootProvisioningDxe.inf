@@ -16,7 +16,7 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MsCorePkg/MsCorePkg.dec
-  viliPkg/vili.dec
+  QcomPkg/Qcom.dec
 
 [LibraryClasses]
   BaseLib
