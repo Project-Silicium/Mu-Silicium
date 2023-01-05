@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = UsbConfigDxe
+  FILE_GUID      = cd823a4d-7dec-4531-ae5d-4134fa4127b8
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|UsbConfigDxe.depex|*
+   PE32|UsbConfigDxe.patched.efi|*
+
+[Depex]
+   TRUE

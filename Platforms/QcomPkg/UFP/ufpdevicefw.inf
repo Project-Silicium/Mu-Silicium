@@ -1,0 +1,13 @@
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = ufpdevicefw
+  FILE_GUID      = 643D4788-63C8-40D2-BD7A-6842E66850D1
+  MODULE_TYPE    = UEFI_APPLICATION
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.Arm]
+   PE32|ufpdevicefw.efi|RELEASE
+
+[Binaries.AARCH64]
+   PE32|ufpdevicefw.efi|RELEASE

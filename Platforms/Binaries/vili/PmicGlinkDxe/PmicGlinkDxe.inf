@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = PmicGlinkDxe
+  FILE_GUID      = 6d4a9cf7-cc0c-42b0-aa89-f6a6a8d99273
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|PmicGlinkDxe.depex|*
+   PE32|PmicGlinkDxe.efi|*
+
+[Depex]
+  TRUE

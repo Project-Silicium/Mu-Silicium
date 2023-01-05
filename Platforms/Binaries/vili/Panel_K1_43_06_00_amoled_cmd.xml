@@ -1,0 +1,70 @@
+<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<PanelDescription>K1 43 06 00 Single DSI Cmd Mode AMOLED Panel (126x294 24bpp)</PanelDescription>
+<Group id=\"Active Timing\">
+ <HorizontalActive>126</HorizontalActive>
+ <HorizontalFrontPorch>16</HorizontalFrontPorch>
+ <HorizontalBackPorch>8</HorizontalBackPorch>
+ <HorizontalSyncPulse>8</HorizontalSyncPulse>
+ <HorizontalSyncSkew>0</HorizontalSyncSkew>
+ <HorizontalLeftBorder>0</HorizontalLeftBorder>
+ <HorizontalRightBorder>0</HorizontalRightBorder>
+ <VerticalActive>294</VerticalActive>
+ <VerticalFrontPorch>32</VerticalFrontPorch>
+ <VerticalBackPorch>32</VerticalBackPorch>
+ <VerticalSyncPulse>32</VerticalSyncPulse>
+ <VerticalSyncSkew>0</VerticalSyncSkew>
+ <VerticalTopBorder>0</VerticalTopBorder>
+ <VerticalBottomBorder>0</VerticalBottomBorder>
+ <InvertDataPolarity>False</InvertDataPolarity>
+ <InvertVsyncPolairty>False</InvertVsyncPolairty>
+ <InvertHsyncPolarity>False</InvertHsyncPolarity>
+ <BorderColor>0x0</BorderColor>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType>11</InterfaceType>
+ <InterfaceColorFormat>3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId>2</DSIChannelId>
+ <DSIVirtualId>0</DSIVirtualId>
+ <DSIColorFormat>36</DSIColorFormat>
+ <DSITrafficMode>1</DSITrafficMode>
+ <DSILanes>1</DSILanes>
+ <DSIRefreshRate>0x3C0000</DSIRefreshRate>
+ <DSIBitClockFrequency>88730000</DSIBitClockFrequency>
+ <DSICmdSwapInterface>False</DSICmdSwapInterface>
+ <DSICmdUsingTrigger>False</DSICmdUsingTrigger>
+ <DSIEnableAutoRefresh>True</DSIEnableAutoRefresh>
+ <DSIAutoRefreshFrameNumDiv>2</DSIAutoRefreshFrameNumDiv>
+ <DSITECheckEnable>True</DSITECheckEnable>
+ <DSITEUsingDedicatedTEPin>True</DSITEUsingDedicatedTEPin>
+ <DSITEvSyncStartPos>294</DSITEvSyncStartPos>
+ <DSITEvSyncInitVal>294</DSITEvSyncInitVal>
+ <DSILP11AtInit>True</DSILP11AtInit>
+ <DSITEvSyncSelect>1</DSITEvSyncSelect>
+ <DSIControllerMapping>
+  01
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+ 15 FE 0A
+ 15 3A 06
+ 15 FE 00
+ 39 2A 00 00 00 7D
+ 15 35 00
+ 15 51 FF
+ 05 11
+ FF 3C
+ 05 29
+</DSIInitSequence>
+<DSITermSequence>
+ 05 28
+ 05 10
+ FF 78
+</DSITermSequence>
+<Group id='Backlight Configuration'>
+ <BacklightType>3</BacklightType>
+ <BacklightBitWidth>8</BacklightBitWidth>
+ <BacklightDefault>50</BacklightDefault>
+ <DisplayResetInfo>0 1000 1000 20000 0</DisplayResetInfo>
+/Group>
