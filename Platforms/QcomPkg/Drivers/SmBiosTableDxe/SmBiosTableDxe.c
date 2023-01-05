@@ -1,6 +1,6 @@
 /** @file
  *
- *  Static SMBIOS Table for the Qualcomm SDM845 Platform
+ *  Static SMBIOS Table for the Qualcomm Snapdragon Platform
  *  Derived from EmulatorPkg package
  *
  *  Copyright (c) 2017-2018, Andrey Warkentin <andrey.warkentin@gmail.com>
@@ -135,15 +135,13 @@ SMBIOS_TABLE_TYPE1 mSysInfoType1 = {
 CHAR8 mSysInfoManufName[128];
 CHAR8 mSysInfoProductName[128];
 CHAR8 mSysInfoVersionName[128];
-CHAR8 mSysInfoSerial[sizeof(UINT64) * 2 + 1] = "Serial Not Set";
-CHAR8 mSysInfoSKU[sizeof(UINT64) * 2 + 1]    = "SKU Not Set";
 
 CHAR8 *mSysInfoType1Strings[] = {
     mSysInfoManufName,
     mSysInfoProductName,
     mSysInfoVersionName,
-    mSysInfoSerial,
-    mSysInfoSKU,
+    "Not Specified",
+    "Not Specified",
     "Qualcom Snapdragon Device",
     NULL};
 
@@ -173,14 +171,12 @@ SMBIOS_TABLE_TYPE2 mBoardInfoType2 = {
     {0}                       // ContainedObjectHandles[1];
 };
 
-CHAR8 mChassisAssetTag[128];
-
 CHAR8 *mBoardInfoType2Strings[] = {
     mSysInfoManufName,
     mSysInfoProductName,
     mSysInfoVersionName,
-    mSysInfoSerial,
-    mChassisAssetTag,
+    "Not Specified",
+    "Not Specified",
     "Portable",
     NULL};
 
@@ -206,7 +202,7 @@ SMBIOS_TABLE_TYPE3 mEnclosureInfoType3 = {
     {{0}},                     // ContainedElements[1];
 };
 CHAR8 *mEnclosureInfoType3Strings[] = {
-    mSysInfoManufName, mSysInfoProductName, mSysInfoSerial, mChassisAssetTag,
+    mSysInfoManufName, mSysInfoProductName, "Not Specified", "Not Specified",
     NULL};
 
 /***********************************************************************
