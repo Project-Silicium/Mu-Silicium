@@ -6,11 +6,11 @@
 
 [Includes.common]
   Include                             # Root include for the package
-  GPLDrivers/Include
 
 [Guids.common]
   gQcomTokenSpaceGuid                 = { 0x882f8c2b, 0x9646, 0x435f, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc1, 0xbd } }
   gSwitchSlotsAppFileGuid             = { 0xD5BC0FB1, 0xA833, 0x4607, { 0xB7, 0xB6, 0x5E, 0xF9, 0xD1, 0x0B, 0xEE, 0xB7 } }
+  gLinuxSimpleMassStorageGuid         = { 0x2a24787e, 0xe09c, 0x43ce, { 0xb5, 0xcf, 0xd0, 0x30, 0x66, 0xf6, 0x09, 0x2f } }
 
   # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.14.r1-20200.01-LAHAINA.QSSI12.0
 
@@ -86,6 +86,11 @@
   gEfiClockProtocolGuid               = { 0x241afae6, 0x885f, 0x4f6c, { 0xa7, 0xea, 0xc2, 0x8e, 0xab, 0x79, 0xc3, 0xe5 } }
 
 [PcdsFixedAtBuild.common]
+  # Device Info
+  gQcomTokenSpaceGuid.PcdDeviceVendor|"Qualcomm"|VOID*|0x0000a301
+  gQcomTokenSpaceGuid.PcdDeviceProduct|"Qualcomm Snapdragon Device"|VOID*|0x0000a302
+  gQcomTokenSpaceGuid.PcdDeviceCodeName|"QSD"|VOID*|0x0000a303
+
   # Simple FrameBuffer
   gQcomTokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x0000a400
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
@@ -97,4 +102,4 @@
   ## This PCD points to the file name GUID of the UFPMenuApp
   #  Platform can customize the PCD to point to different application for UFP Menu
   # @Prompt UFP Menu File
-  gviliTokenSpaceGuid.PcdUFPMenuFile|{ 0x88, 0x47, 0x3D, 0x64, 0xC8, 0x63, 0xD2, 0x40, 0xBD, 0x7A, 0x68, 0x42, 0xE6, 0x68, 0x50, 0xD1 }|VOID*|0x00000a602
+  gQcomTokenSpaceGuid.PcdUFPMenuFile|{ 0x88, 0x47, 0x3D, 0x64, 0xC8, 0x63, 0xD2, 0x40, 0xBD, 0x7A, 0x68, 0x42, 0xE6, 0x68, 0x50, 0xD1 }|VOID*|0x00000a602
