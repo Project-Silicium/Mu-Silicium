@@ -20,7 +20,7 @@
   ENTRY_POINT                    = SmBiosTableDriverEntryPoint
 
 [Sources]
-  PlatformSmbiosDxe.c
+  SmBiosTableDxe.c
 
 [Packages]
   MdePkg/MdePkg.dec
