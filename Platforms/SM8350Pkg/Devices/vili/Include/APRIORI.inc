@@ -35,7 +35,7 @@ APRIORI DXE {
     INF Binaries/vili/ClockDxe/ClockDxe.inf
     
     # Used to speed up booting. must be loaded after ClockDxe
-    INF viliPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
+    INF QcomPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
 
     INF Binaries/vili/ICBDxe/ICBDxe.inf
     INF Binaries/vili/ShmBridgeDxeLA/ShmBridgeDxeLA.inf
@@ -65,7 +65,9 @@ APRIORI DXE {
     INF Binaries/vili/ResetRuntimeDxe/ResetRuntimeDxe.inf
     INF Binaries/vili/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-    INF viliPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!if $(USE_DISPLAYDXE) == FALSE
+    INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!endif
 
     INF Binaries/vili/FvDxe/FvDxe.inf
     INF Binaries/vili/PILProxyDxe/PILProxyDxe.inf
