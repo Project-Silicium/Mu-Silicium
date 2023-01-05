@@ -145,9 +145,9 @@
   DebugAgentLib|MdeModulePkg/Library/DebugAgentLibNull/DebugAgentLibNull.inf
   DevicePathLib|MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
   DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
-!ifdef $(AB_SLOTS_SUPPORT)
+!if $(SWITCHSLOT_SUPPORT) == TRUE
   BootSlotLib|GPLDrivers/Library/BootSlotLib/BootSlotLib.inf
-!endif #$(AB_SLOTS_SUPPORT)
+!endif
   BootSlotLib|GPLDrivers/Library/BootSlotLib/BootSlotLib.inf
   DebugPrintErrorLevelLib|MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
   DxeServicesLib|MdePkg/Library/DxeServicesLib/DxeServicesLib.inf
@@ -469,10 +469,10 @@
 
   QcomPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
 
-!ifdef $(AB_SLOTS_SUPPORT)
+!if $(SWITCHSLOT_SUPPORT) == TRUE
   GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   GPLDrivers/Application/SwitchSlotsApp/SwitchSlotsApp.inf
-!endif #$(AB_SLOTS_SUPPORT)
+!endif
 
 !if $(MASS_STORAGE_SUPPORT) == TRUE
   QcomPkg/Applications/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
