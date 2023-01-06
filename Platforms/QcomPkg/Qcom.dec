@@ -92,12 +92,11 @@
   gQcomTokenSpaceGuid.PcdDeviceCodeName|"QSD"|VOID*|0x0000a303
 
   # Simple FrameBuffer
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferAddress|0x00400000|UINT32|0x0000a400
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a401
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2160|UINT32|0x0000a402
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x0000a403
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1080|UINT32|0x0000a404
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2160|UINT32|0x0000a405
+  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a400
+  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2160|UINT32|0x0000a401
+  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32|UINT32|0x0000a402
+  gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1080|UINT32|0x0000a403
+  gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2160|UINT32|0x0000a404
 
   ## This PCD points to the file name GUID of the UFPMenuApp
   #  Platform can customize the PCD to point to different application for UFP Menu
