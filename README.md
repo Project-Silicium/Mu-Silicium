@@ -39,21 +39,12 @@ First we need to install the needed Packages:
 ./setup_env.sh
 ```
 
-Now We Stamp the Build:
-```
-./build_releaseinfo.ps1
-```
-
 ### Step 3:
 
 So now we are able to begin the real UEFI build:
 ```
-./build_uefi.sh -s [SOC] -d [Device] -r [Build Mode]
+./build_uefi.sh -d [Codename]
 ```
-
-SOC: The SOC of your Device you want to build. <br />
-Device: The Codename of your Device. <br />
-Build Mode: The Mode you want to use to build the UEFI.
 
 When then Build is done you will find a `.img` File in the root of the repo.
 
