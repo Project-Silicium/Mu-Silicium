@@ -508,6 +508,27 @@ LogSmbiosData(
   return Status;
 }
 
+/***********************************************************************
+        SMBIOS data update  TYPE19  Memory Array Map Information
+************************************************************************/
+VOID MemArrMapInfoUpdateSmbiosType19(VOID)
+{
+  mMemArrMapInfoType19.StartingAddress =
+      FixedPcdGet64(PcdSystemMemoryBase) / 1024;
+  mMemArrMapInfoType19.EndingAddress =
+      (FixedPcdGet64(PcdSystemMemorySize) + FixedPcdGet64(PcdSystemMemoryBase) -
+       1) /
+      1024;
+
+  LogSmbiosData(
+      (EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19,
+      mMemArrMapInfoType19Strings, NULL);
+}
+
+/***********************************************************************
+        Driver Entry
+************************************************************************/
+
 EFI_STATUS
 EFIAPI
 SmBiosTableDriverEntryPoint(
@@ -577,6 +598,8 @@ SmBiosTableDriverEntryPoint(
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mBootInfoType32, mBootInfoType32Strings,
       NULL);
+
+  MemArrMapInfoUpdateSmbiosType19();
 
   return EFI_SUCCESS;
 }
