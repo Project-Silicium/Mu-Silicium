@@ -11,15 +11,13 @@
 |❌|Not Working|
 |❔|Unknown|
 
-### UEFI Status
-
-|Device|Display|Clocks|UFS/eMMC|Buttons|USB|SD Card|ACPI|Mass Storage|
-|------|-------|------|--------|-------|---|-------|----|------------|
-|Xiaomi 11T Pro|✅|✅|✅|✅|⚠️|❌|⚠️|❌|
-|Mi Note 10|❔|❔|❔|❔|❔|❔|❔|❔|
-|Redmi Note 8/8T|✅|❌|❌|✅|❌|❌|❌|❌|
-|Redmi 9T|✅|❌|❌|✅|❌|❌|❌|❌|
-|Xperia XZ1 Compact|❔|❔|❔|❔|❔|❔|❔|❔|
+|Devices|
+|-------|
+|[Xiaomi 11T Pro](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-11T-Pro.md)|
+|[Mi Note 10](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Mi-Note-10.md)|
+|[Redmi Note 8/8T](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Redmi-Note-8.md)|
+|[Redmi 9T](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Redmi-9T.md)|
+|[Xperia XZ1 Compact](https://github.com/Robotix22/MU-msm/blob/main/Status/Sony-Xperia-XZ1-Compact.md)|
 
 ## Building
 (NOTE: you NEED to use Ubuntu 20.04 to Build!)
@@ -59,52 +57,9 @@ Build Mode: The Mode you want to use to build the UEFI.
 
 When then Build is done you will find a `.img` File in the root of the repo.
 
-## Booting
-
-### PC/Laptop:
-
-To boot a UEFI Image with PC/Laptop you need ADB and Fastboot. <br />
-if you haven´t set up ADB/Fastboot yet use [this](https://wiki.lineageos.org/adb_fastboot_guide). <br />
-After Setting up ADB/Fastboot you can now boot your Phone to fastboot with keycombo or ADB:
-```
-(Make sure to enable USB Debbugin in Developer Settings)
-adb reboot bootloader
-```
-
-Now download or compile a UEFI Image and use Fastboot to boot it:
-```
-fastboot boot [Path to UEFI Image]
-```
-or flash it:
-```
-(NOTE: If you still want to boot Android then make a backup of boot before flashing the UEFI Image)
-fastboot flash boot [Path to UEFI Image]
-```
-
-Now your Phone should boot UEFI.
-
-### Phone:
-
-To Flash a UEFI Image you need a custom recovery like [TWRP](https://twrp.me/). <br />
-Download a UEFI Image on your Phone and save it somewhere you can find it again. <br />
-
-(NOTE: If you still want to boot Android then make a backup of boot before flashing the UEFI Image)
-
-Now boot into TWRP, When in TWRP Chosse Install -> Install Image -> [Path to UEFI Image] -> Boot <br />
-
-After that Reboot the Device and it should boot the UEFI Image
-
 ## Credits
 
 This repo is based on [SurfaceDuoPkg](https://github.com/WOA-Project/SurfaceDuoPkg)
-
-Thanks to these People for Testing on Devices I don´t own.
-
-[SwedMlite](https://github.com/SwedMlite): Redmi Note 8 <br />
-[VAVANESKA](https://github.com/VAVANESKA): Redmi Note 8 <br />
-[Vicente Cortes](https://github.com/vicenteicc2008): Redmi Note 8 <br />
-[kubawis128](https://github.com/kubawis128): Redmi Note 8T <br />
-[Xhelowrk](https://github.com/Xhelowrk): Redmi 9T
 
 ## License
 
