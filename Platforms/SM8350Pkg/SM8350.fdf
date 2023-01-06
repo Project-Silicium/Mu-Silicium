@@ -183,7 +183,7 @@ READ_LOCK_STATUS   = TRUE
 
   INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
 
-!ifdef $(SWITCHSLOT_SUPPORT)
+!if $(SWITCHSLOT_SUPPORT) == TRUE
   INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   INF GPLDrivers/Application/SwitchSlotsApp/SwitchSlotsApp.inf
 !endif
