@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = SM6125
+  PACKAGE_GUID                        = e2b3780c-ed78-4c34-ad58-c66d806f7ec5
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                             # Root include for the package
+
+[Guids.common]
+  gSM6125TokenSpaceGuid                 = { 0x882f8c2b, 0x9646, 0x435f, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc1, 0xbd } }
