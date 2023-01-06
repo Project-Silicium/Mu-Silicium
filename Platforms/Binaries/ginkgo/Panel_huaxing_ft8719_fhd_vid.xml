@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PanelName>FT8719 Video</PanelName>
+<PanelDescription>FT8719 video mode dsi huaxing panel</PanelDescription>
+<Group id="Active Timing">
+ <HorizontalActive>1080</HorizontalActive>
+ <HorizontalFrontPorch>72</HorizontalFrontPorch>
+ <HorizontalBackPorch>80</HorizontalBackPorch>
+ <HorizontalSyncPulse>4</HorizontalSyncPulse>
+ <HorizontalSyncSkew>0</HorizontalSyncSkew>
+ <HorizontalLeftBorder>0</HorizontalLeftBorder>
+ <HorizontalRightBorder>0</HorizontalRightBorder>
+ <VerticalActive>2340</VerticalActive>
+ <VerticalFrontPorch>112</VerticalFrontPorch>
+ <VerticalBackPorch>12</VerticalBackPorch>
+ <VerticalSyncPulse>4</VerticalSyncPulse>
+ <VerticalSyncSkew>0</VerticalSyncSkew>
+ <VerticalTopBorder>0</VerticalTopBorder>
+ <VerticalBottomBorder>0</VerticalBottomBorder>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType>8</InterfaceType>
+ <InterfaceColorFormat>3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId>1</DSIChannelId>
+ <DSIVirtualId>0</DSIVirtualId>
+ <DSIColorFormat>36</DSIColorFormat>
+ <DSITrafficMode>1</DSITrafficMode>
+ <DSILanes>4</DSILanes>
+ <DSILowPowerModeInBLLPEOF>True</DSILowPowerModeInBLLPEOF>
+ <DSILowPowerModeInBLLP>True</DSILowPowerModeInBLLP>
+ <DSIRefreshRate>0x3C0000</DSIRefreshRate>
+ <DSIDynamicRefreshRates>0x3B0000 0x3B4000 0x3B8000 0x3BC000 0x3C0000</DSIDynamicRefreshRates>
+ <DSICmdSwapInterface>False</DSICmdSwapInterface>
+ <DSICmdUsingTrigger>False</DSICmdUsingTrigger>
+ <DSIControllerMapping>
+  00
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+ 39 00 00
+ 39 ff 87 19 01
+ 39 00 80
+ 39 ff 87 19
+ 39 00 80
+ 39 CA 80 80 80 80 80 80 80 80 80 80 80 80
+ 39 00 90
+ 39 CA FE FF 66 F6 FF 66 FB FF 32
+ 39 00 B5
+ 39 CA 06
+ 39 00 B2
+ 39 CA 0C	
+ 15 11 00
+ ff 78
+ 15 29 00
+ ff 14
+ 39 51 ff
+ 15 53 24
+ 15 55 00
+</DSIInitSequence>
+<DSITermSequence>
+ 05 28
+ FF 14
+ 05 10
+ FF 78
+</DSITermSequence>
+<Group id='Backlight Configuration'>
+ <BacklightType>3</BacklightType>
+ <BacklightPmicControlType>2</BacklightPmicControlType>
+ <DisplayResetInfo>0 10 10000 10000 0</DisplayResetInfo>
+</Group>
