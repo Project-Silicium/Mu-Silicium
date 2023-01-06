@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = ClockDxe
+  FILE_GUID      = 4db5dea6-5302-4d1a-8a82-677a683b0d29
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|ClockDxe.depex|*
+   PE32|ClockDxe.efi|*
+
+[Depex]
+  TRUE
