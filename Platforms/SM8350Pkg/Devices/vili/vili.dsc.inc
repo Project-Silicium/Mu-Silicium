@@ -24,7 +24,6 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
 
   # Simple FrameBuffer
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferAddress|0xEA600000
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
