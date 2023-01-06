@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = UsbMsdDxe
+  FILE_GUID      = 5af77f10-90df-4e7e-8325-a17ec09d5443
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|UsbMsdDxe.depex|*
+   PE32|UsbMsdDxe.efi|*
+
+[Depex]
+   TRUE
