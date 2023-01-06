@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PanelName>FT8720mVideo</PanelName>
+<PanelDescription>FT8720m video mode dsi xinli panel</PanelDescription>
+<Group id="Active Timing">
+ <HorizontalActive>1080</HorizontalActive>
+ <HorizontalFrontPorch>76</HorizontalFrontPorch>
+ <HorizontalBackPorch>56</HorizontalBackPorch>
+ <HorizontalSyncPulse>12</HorizontalSyncPulse>
+ <HorizontalSyncSkew>0</HorizontalSyncSkew>
+ <HorizontalLeftBorder>0</HorizontalLeftBorder>
+ <HorizontalRightBorder>0</HorizontalRightBorder>
+ <VerticalActive>2340</VerticalActive>
+ <VerticalFrontPorch>70</VerticalFrontPorch>
+ <VerticalBackPorch>18</VerticalBackPorch>
+ <VerticalSyncPulse>2</VerticalSyncPulse>
+ <VerticalSyncSkew>0</VerticalSyncSkew>
+ <VerticalTopBorder>0</VerticalTopBorder>
+ <VerticalBottomBorder>0</VerticalBottomBorder>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType>8</InterfaceType>
+ <InterfaceColorFormat>3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId>1</DSIChannelId>
+ <DSIVirtualId>0</DSIVirtualId>
+ <DSIColorFormat>36</DSIColorFormat>
+ <DSITrafficMode>1</DSITrafficMode>
+ <DSILanes>4</DSILanes>
+ <DSILP11AtInit>True</DSILP11AtInit>
+ <DSILowPowerModeInBLLPEOF>True</DSILowPowerModeInBLLPEOF>
+ <DSILowPowerModeInBLLP>True</DSILowPowerModeInBLLP>
+ <DSIRefreshRate>0x3C0000</DSIRefreshRate>
+ <DSIDynamicRefreshRates>0x3C4000 0x3C8000 0x3CC000 0x3C0000</DSIDynamicRefreshRates>
+ <DSICmdSwapInterface>False</DSICmdSwapInterface>
+ <DSICmdUsingTrigger>False</DSICmdUsingTrigger>
+ <DSIControllerMapping>
+  00
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+ 29 00 00
+ 29 FF 87 20 01
+ 29 00 80
+ 29 FF 87 20
+
+ 29 00 B0
+ 29 CA 00
+ 29 00 B2
+ 29 CA 0C
+ 29 00 B5
+ 29 CA 03
+
+ 29 00 00
+ 29 1C 02
+ 29 35 00
+ 29 51 FF 0F
+ 29 53 2C
+ 29 55 00
+ 05 11 00
+ FF 96
+ 05 29 00
+ FF 32
+</DSIInitSequence>
+<DSITermSequence>
+ 05 28
+ FF 14
+ 05 10
+ FF 8C
+ 29 00 00
+ 29 F7 5A A5 95 27
+</DSITermSequence>
+<TLMMGPIODefaultHigh>0x47</TLMMGPIODefaultHigh>
+<Group id='Backlight Configuration'>
+ <BacklightType>1</BacklightType>
+ <BacklightPmicControlType>2</BacklightPmicControlType>
+ <DisplayResetInfo>0 5000 2000 20000 0</DisplayResetInfo>
+</Group>

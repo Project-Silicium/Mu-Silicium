@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PanelName>NT36525Video</PanelName>
+<PanelDescription>NT36525 video mode hd+ dsi truly panel</PanelDescription>
+<Group id="Active Timing">
+ <HorizontalActive>720</HorizontalActive>
+ <HorizontalFrontPorch>80</HorizontalFrontPorch>
+ <HorizontalBackPorch>88</HorizontalBackPorch>
+ <HorizontalSyncPulse>20</HorizontalSyncPulse>
+ <HorizontalSyncSkew>0</HorizontalSyncSkew>
+ <HorizontalLeftBorder>0</HorizontalLeftBorder>
+ <HorizontalRightBorder>0</HorizontalRightBorder>
+ <VerticalActive>1520</VerticalActive>
+ <VerticalFrontPorch>8</VerticalFrontPorch>
+ <VerticalBackPorch>4</VerticalBackPorch>
+ <VerticalSyncPulse>4</VerticalSyncPulse>
+ <VerticalSyncSkew>0</VerticalSyncSkew>
+ <VerticalTopBorder>0</VerticalTopBorder>
+ <VerticalBottomBorder>0</VerticalBottomBorder>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType>8</InterfaceType>
+ <InterfaceColorFormat>3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId>1</DSIChannelId>
+ <DSIVirtualId>0</DSIVirtualId>
+ <DSIColorFormat>36</DSIColorFormat>
+ <DSITrafficMode>1</DSITrafficMode>
+ <DSILanes>4</DSILanes>
+ <DSILP11AtInit>True</DSILP11AtInit>
+ <DSILowPowerModeInBLLPEOF>True</DSILowPowerModeInBLLPEOF>
+ <DSILowPowerModeInBLLP>True</DSILowPowerModeInBLLP>
+ <DSIRefreshRate>0x3C0000</DSIRefreshRate>
+ <DSIDynamicRefreshRates>0x3C4000 0x3C8000 0x3CC000 0x3C0000</DSIDynamicRefreshRates>
+ <DSICmdSwapInterface>False</DSICmdSwapInterface>
+ <DSICmdUsingTrigger>False</DSICmdUsingTrigger>
+ <DSIControllerMapping>
+  00
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+ 15 FF 20
+ 15 FB 01
+ 15 05 A9
+ 15 07 73
+ 15 08 C1
+ 15 0E 87
+ 15 0F 55
+ 15 1F 00
+ 15 69 A9
+ 15 6D 33
+ 15 89 64
+ 15 8A 64
+ 15 8B 64
+ 15 8C 64
+ 15 95 EB
+ 15 96 EB
+ 15 FF 23
+ 15 FB 01
+ 15 12 AB
+ 15 15 F5
+ 15 16 0B
+ 15 FF 24
+ 15 FB 01
+ 15 02 05
+ 15 03 05
+ 15 04 9F
+ 15 05 9F
+ 15 06 9E
+ 15 07 9E
+ 15 08 0C
+ 15 09 03
+ 15 0A 0D
+ 15 0B 0E
+ 15 0C 0F
+ 15 0D 10
+ 15 0E 11
+ 15 0F 12
+ 15 10 13
+ 15 11 04
+ 15 12 04
+ 15 18 05
+ 15 19 05
+ 15 1A 9F
+ 15 1B 9F
+ 15 1C 9E
+ 15 1D 9E
+ 15 1E 0C
+ 15 1F 03
+ 15 20 0D
+ 15 21 0E
+ 15 22 0F
+ 15 23 10
+ 15 24 11
+ 15 25 12
+ 15 26 13
+ 15 27 04
+ 15 28 04
+ 15 2F 0C
+ 15 30 40
+ 15 33 40
+ 15 34 0C
+ 15 37 77
+ 15 3A 9A
+ 15 3B 95
+ 15 3D 92
+ 15 4D 15
+ 15 4E 26
+ 15 4F 37
+ 15 50 48
+ 15 51 84
+ 15 52 73
+ 15 53 62
+ 15 54 51
+ 15 55 86
+ 15 56 78
+ 15 5A 9A
+ 15 5B 95
+ 15 5C 8F
+ 15 5D 0A
+ 15 5E 10
+ 15 60 80
+ 15 61 7C
+ 15 64 11
+ 15 85 11
+ 15 92 AD
+ 15 93 08
+ 15 94 06
+ 15 AB 00
+ 15 AD 00
+ 15 B0 05
+ 15 B1 A9
+ 15 FF 25
+ 15 FB 01
+ 15 0A 82
+ 15 0B 9C
+ 15 0C 01
+ 15 17 82
+ 15 18 06
+ 15 19 0F
+ 15 1F 9A
+ 15 20 95
+ 15 23 05
+ 15 24 A9
+ 15 26 9A
+ 15 27 95
+ 15 2A 05
+ 15 2B A9
+ 15 2F 80
+ 15 40 10
+ 15 41 80
+ 15 42 A6
+ 15 43 95
+ 15 46 05
+ 15 47 A9
+ 15 4C 95
+ 15 4E 95
+ 15 4F A6
+ 15 50 95
+ 15 53 05
+ 15 54 A9
+ 15 55 05
+ 15 56 A9
+ 15 5A 80
+ 15 5B 80
+ 15 5D 9A
+ 15 5E 95
+ 15 5F 9A
+ 15 60 95
+ 15 61 9A
+ 15 62 95
+ 15 65 05
+ 15 66 A9
+ 15 FF 26
+ 15 FB 01
+ 15 04 42
+ 15 06 FF
+ 15 0C 0B
+ 15 0D 01
+ 15 0E 02
+ 15 0F 06
+ 15 10 07
+ 15 13 24
+ 15 14 88
+ 15 16 81
+ 15 19 15
+ 15 1A 0D
+ 15 1B 12
+ 15 1C 82
+ 15 1E AD
+ 15 1F AD
+ 15 24 00
+ 15 2F 04
+ 15 30 AD
+ 15 31 11
+ 15 32 11
+ 15 34 04
+ 15 35 AD
+ 15 36 81
+ 15 37 67
+ 15 38 11
+ 15 3F 10
+ 15 40 AD
+ 15 58 D6
+ 15 59 D6
+ 15 5A D6
+ 15 5B AD
+ 15 5C 00
+ 15 5D 26
+ 15 5E 10
+ 15 63 9A
+ 15 64 95
+ 15 65 9A
+ 15 66 95
+ 15 67 9A
+ 15 68 95
+ 15 6B 00
+ 15 6D 00
+ 15 70 05
+ 15 71 D2
+ 15 73 9A
+ 15 74 95
+ 15 77 05
+ 15 78 D2
+ 15 7A 9A
+ 15 7B 95
+ 15 7E 05
+ 15 7F D2
+ 15 82 9A
+ 15 83 95
+ 15 84 9A
+ 15 85 95
+ 15 86 9A
+ 15 87 95
+ 15 8A 05
+ 15 8B A9
+ 15 8F 00
+ 15 90 00
+ 15 92 05
+ 15 93 F0
+ 15 99 0D
+ 15 9A 36
+ 15 9B 0C
+ 15 9C 9E
+ 15 FF 27
+ 15 FB 01
+ 15 13 00
+ 15 14 55
+ 15 FF 27
+ 15 FB 01
+ 15 9E 00
+ 15 FF 20
+ 15 FB 01
+ 29 B0 00 00 00 2E 00 65 00 8C 00 AA 00 C4 00 DA 00 ED
+ 29 B1 00 FE 01 36 01 5C 01 99 01 C3 02 03 02 33 02 34
+ 29 B2 02 64 02 98 02 C0 02 F1 03 10 03 47 03 53 03 64
+ 29 B3 03 76 03 8C 03 A6 03 C3 03 D9 03 FF
+ 29 B4 00 00 00 2E 00 65 00 8C 00 AA 00 C4 00 DA 00 ED
+ 29 B5 00 FE 01 36 01 5C 01 99 01 C3 02 03 02 33 02 34
+ 29 B6 02 64 02 98 02 C0 02 F1 03 10 03 47 03 53 03 64
+ 29 B7 03 76 03 8C 03 A6 03 C3 03 D9 03 FF
+ 29 B8 00 00 00 2E 00 65 00 8C 00 AA 00 C4 00 DA 00 ED
+ 29 B9 00 FE 01 36 01 5C 01 99 01 C3 02 03 02 33 02 34
+ 29 BA 02 64 02 98 02 C0 02 F1 03 10 03 47 03 53 03 64
+ 29 BB 03 76 03 8C 03 A6 03 C3 03 D9 03 FF
+ 15 FF 21
+ 15 FB 01
+ 29 B0 00 00 00 2E 00 65 00 8C 00 AA 00 C4 00 DA 00 ED
+ 29 B1 00 FE 01 36 01 5C 01 99 01 C3 02 03 02 33 02 34
+ 29 B2 02 64 02 98 02 C0 02 F1 03 10 03 47 03 53 03 64
+ 29 B3 03 76 03 8C 03 A6 03 C3 03 D9 03 FF
+ 29 B4 00 00 00 2E 00 65 00 8C 00 AA 00 C4 00 DA 00 ED
+ 29 B5 00 FE 01 36 01 5C 01 99 01 C3 02 03 02 33 02 34
+ 29 B6 02 64 02 98 02 C0 02 F1 03 10 03 47 03 53 03 64
+ 29 B7 03 76 03 8C 03 A6 03 C3 03 D9 03 FF
+ 29 B8 00 00 00 2E 00 65 00 8C 00 AA 00 C4 00 DA 00 ED
+ 29 B9 00 FE 01 36 01 5C 01 99 01 C3 02 03 02 33 02 34
+ 29 BA 02 64 02 98 02 C0 02 F1 03 10 03 47 03 53 03 64
+ 29 BB 03 76 03 8C 03 A6 03 C3 03 D9 03 FF
+ 15 FF 10
+ 15 FB 01
+ 15 BA 03
+ 05 11 00
+ FF FF
+ 05 29 00
+ FF FF
+</DSIInitSequence>
+<DSITermSequence>
+ 05 28
+ FF 32
+ 05 10
+ FF 96
+</DSITermSequence>
+<TLMMGPIODefaultHigh>0x69</TLMMGPIODefaultHigh>
+<Group id='Backlight Configuration'>
+ <BacklightType>1</BacklightType>
+ <BacklightPmicControlType>2</BacklightPmicControlType>
+ <DisplayResetInfo>0 10 10000 10000 0</DisplayResetInfo>
+</Group>
