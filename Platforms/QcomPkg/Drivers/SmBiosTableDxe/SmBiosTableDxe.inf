@@ -41,7 +41,6 @@
   DebugLib
   PrintLib
   TimeBaseLib
-  SimpleInitLib
   SOCSmbiosInfoLib
 
 [Guids]
