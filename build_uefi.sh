@@ -18,13 +18,16 @@ function _error(){ echo "${@}" >&2;exit 1; }
 
 TARGET_DEVICE=""
 TARGET_BUILD_MODE="RELEASE"
-OPTS="$(getopt -o d:hfabcACDO:r: -l device:,help:,release: -n 'build_uefi.sh' -- "$@")"||exit 1
+UNTESTED_DEVICE=""
+IGNORE_WARNING=""
+OPTS="$(getopt -o d:hfabcACDO:r:ifabcACDO: -l device:,help,ignore,release: -n 'build_uefi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do	case "${1}" in
 		-d|--device) TARGET_DEVICE="${2}";shift 2;;
 		-h|--help) _help 0;shift;;
 		-r|--release) TARGET_BUILD_MODE="${2}";shift 2;;
+		-i|--ignore) IGNORE_WARNING="TRUE";shift;;
 		--) shift;break;;
 		*) _help 1;;
 	esac
@@ -48,8 +51,19 @@ then source "configs/${SOC_PLATFORM}.conf"
 else _error "SoC configuration not found"
 fi
 
-# for overriding config
-source "configs/devices/${TARGET_DEVICE}.conf"
+if [ -z ${IGNORE_WARNING} ]; then echo ""; else
+    UNTESTED_DEVICE=""
+fi
+
+if [ -z ${UNTESTED_DEVICE} ]; then echo ""; else
+    echo "=================[ WARNING ]================="
+    echo "The Device you chosse to build is not Tested!"
+    echo "We are not responsible for bricked devices."
+    echo "Use -i or --ignore to build ${TARGET_DEVICE}."
+    echo "============================================="
+    echo ""
+    exit 1
+fi
 
 rm ./BootShim/BootShim.bin
 rm ./BootShim/BootShim.elf
