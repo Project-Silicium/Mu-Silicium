@@ -1,5 +1,9 @@
 # [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for Qualcomm Snapdragon Devices
 
+## Note
+
+I recomend to not use this on your main Phone, Many Devices here are unstable
+
 ## Resources
 
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
