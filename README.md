@@ -4,8 +4,6 @@
 
 I recomend to not use this on your main Phone, Many Devices here are unstable
 
-Building is broken right now, I used old Files to build :/
-
 ## Resources
 
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
@@ -26,7 +24,6 @@ Building is broken right now, I used old Files to build :/
 |[Xperia XZ1 Compact](https://github.com/Robotix22/MU-msm/blob/main/Status/Sony-Xperia-XZ1-Compact.md)|
 
 ## Building
-(NOTE: you NEED to use Ubuntu 20.04 to Build!)
 
 ### Step 1:
 
@@ -43,6 +40,7 @@ After Cloning the repo we can now continue on Setting up the Environment. <br />
 First we need to install the needed Packages:
 ```
 ./setup_env.sh
+sudo pip install --upgrade -r pip-requirements.txt
 ```
 
 ### Step 3:
