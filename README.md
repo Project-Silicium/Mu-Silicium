@@ -4,6 +4,8 @@
 
 I recomend to not use this on your main Phone, Many Devices here are unstable
 
+Building is broken right now, I used old Files to build :/
+
 ## Resources
 
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
