@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = ShmBridgeDxe
+  FILE_GUID      = 9c1eb71f-dd6c-4ed5-9f6a-5cc0ca789f16
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|ShmBridgeDxe.depex|*
+   PE32|ShmBridgeDxe.efi|*
+
+[Depex]
+   TRUE
