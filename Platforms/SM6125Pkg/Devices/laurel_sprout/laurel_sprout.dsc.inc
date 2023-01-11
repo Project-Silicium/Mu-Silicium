@@ -18,8 +18,8 @@
   PlatformMemoryMapLib|SM6125Pkg/Devices/ginkgo/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000        # 4GB Size
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
