@@ -17,6 +17,30 @@
 |UFS||✅|
 |Buttons||✅|
 |USB|USB FN only|⚠️|
-|SD Card|Dosen´t have a slot for it|❌|
-|ACPI|They are broken right now|⚠️|
+|SD Card|No SD Card slot|❌|
+|ACPI|Still in Work|⚠️|
 |Mass Storage|No Mainline DTB|❌|
+
+## Windows Status
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot|Stuck at Windows Logo|⚠️|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
