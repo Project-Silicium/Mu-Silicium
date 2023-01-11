@@ -116,7 +116,7 @@
   INF Binaries/vili/UsbInitDxe/UsbInitDxe.inf
   INF Binaries/vili/UCDxe/UCDxe.inf
   INF Binaries/vili/RngDxe/RngDxe.inf
-  INF Binaries/vili/PILDxe/PILDxe.inf
+  #INF Binaries/vili/PILDxe/PILDxe.inf
   INF Binaries/vili/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/vili/SPSSDxe/SPSSDxe.inf
   INF Binaries/vili/FvDxe/FvDxe.inf
