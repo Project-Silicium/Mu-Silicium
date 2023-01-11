@@ -14,6 +14,9 @@
   # Platform Defines
   USE_DISPLAYDXE                 = TRUE
 
+[LibraryClasses.common]
+  PlatformMemoryMapLib|SM6115Pkg/Devices/lime/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size

@@ -50,7 +50,6 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|MSM8998Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
   PlatformPeiLib|MSM8998Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|MSM8998Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   MsPlatformDevicesLib|MSM8998Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf

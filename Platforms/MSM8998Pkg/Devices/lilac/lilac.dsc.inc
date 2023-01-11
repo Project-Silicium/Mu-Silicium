@@ -10,6 +10,9 @@
 #
 ##
 
+[LibraryClasses.common]
+  PlatformMemoryMapLib|MSM8998Pkg/Devices/lilac/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size

@@ -10,9 +10,8 @@
 #
 ##
 
-[Defines]
-  # Platform Defines
-  SWITCHSLOT_SUPPORT             = TRUE
+[LibraryClasses.common]
+  PlatformMemoryMapLib|SM7150Pkg/Devices/tucana/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
@@ -45,63 +44,5 @@
 
 [Components.common]
   # Platform Drivers
-  Binaries/vili/ArmTimerDxe/ArmTimerDxe.inf
-  Binaries/vili/ShmBridgeDxeLA/ShmBridgeDxeLA.inf
-  Binaries/vili/ScmDxeLA/ScmDxeLA.inf
-  Binaries/vili/TzDxeLA/TzDxeLA.inf
-  Binaries/vili/FontDxe/FontDxe.inf
-  Binaries/vili/QcomWDogDxe/QcomWDogDxe.inf
-  Binaries/vili/ChipInfo/ChipInfo.inf
-  Binaries/vili/PlatformInfoDxeDriver/PlatformInfoDxeDriver.inf
-  Binaries/vili/ProjectInfoDxeDriver/ProjectInfoDxeDriver.inf
-  Binaries/vili/DALSys/DALSys.inf
-  Binaries/vili/HALIOMMU/HALIOMMU.inf
-  Binaries/vili/HWIODxeDriver/HWIODxeDriver.inf
-  Binaries/vili/UFSDxe/UFSDxe.inf
-  Binaries/vili/CmdDbDxe/CmdDbDxe.inf
-  Binaries/vili/PwrUtilsDxe/PwrUtilsDxe.inf
-  Binaries/vili/RpmhDxe/RpmhDxe.inf
-  Binaries/vili/NpaDxe/NpaDxe.inf
-  Binaries/vili/ULogDxe/ULogDxe.inf
-  Binaries/vili/VcsDxe/VcsDxe.inf
-  Binaries/vili/ClockDxe/ClockDxe.inf
-  Binaries/vili/ICBDxe/ICBDxe.inf
-  Binaries/vili/SmemDxe/SmemDxe.inf
-  Binaries/vili/GpiDxe/GpiDxe.inf
-  Binaries/vili/I2C/I2C.inf
-  Binaries/vili/SPI/SPI.inf
-  Binaries/vili/SPMI/SPMI.inf
-  Binaries/vili/PmicDxe/PmicDxe.inf
-  Binaries/vili/SdccDxe/SdccDxe.inf
-  Binaries/vili/DALTLMM/DALTLMM.inf
-  Binaries/vili/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  Binaries/vili/MinidumpTADxe/MinidumpTADxe.inf
-  Binaries/vili/ButtonsDxe/ButtonsDxe.inf
-  Binaries/vili/ChargerExDxe/ChargerExDxe.inf
-  Binaries/vili/IPCCDxe/IPCCDxe.inf
-  Binaries/vili/GlinkDxe/GlinkDxe.inf
-  Binaries/vili/PmicGlinkDxe/PmicGlinkDxe.inf
-  Binaries/vili/QcomChargerDxeLA/QcomChargerDxeLA.inf
-  Binaries/vili/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-  Binaries/vili/TsensDxe/TsensDxe.inf
-  Binaries/vili/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-  Binaries/vili/DDRInfoDxe/DDRInfoDxe.inf
-  Binaries/vili/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-  Binaries/vili/XhciPciEmulation/XhciPciEmulation.inf
-  Binaries/vili/UsbMsdDxe/UsbMsdDxe.inf
-  Binaries/vili/UsbDeviceDxe/UsbDeviceDxe.inf
-  Binaries/vili/UsbConfigDxe/UsbConfigDxe.inf
-  Binaries/vili/UsbInitDxe/UsbInitDxe.inf
-  Binaries/vili/UCDxe/UCDxe.inf
-  Binaries/vili/RngDxe/RngDxe.inf
-  Binaries/vili/PILDxe/PILDxe.inf
-  Binaries/vili/PILProxyDxe/PILProxyDxe.inf
-  Binaries/vili/SPSSDxe/SPSSDxe.inf
-  Binaries/vili/FvDxe/FvDxe.inf
-  Binaries/vili/ParserDxe/ParserDxe.inf
-  Binaries/vili/QcomChargerApp/QcomChargerApp.inf
-  Binaries/vili/XhciDxe/XhciDxe.inf
-  Binaries/vili/UsbBusDxe/UsbBusDxe.inf
-  Binaries/vili/UsbKbDxe/UsbKbDxe.inf
-  Binaries/vili/UsbMassStorageDxe/UsbMassStorageDxe.inf
-  Binaries/vili/ResetRuntimeDxe/ResetRuntimeDxe.inf
+  Binaries/tucana/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+  Binaries/tucana/ResetRuntimeDxe/ResetRuntimeDxe.inf

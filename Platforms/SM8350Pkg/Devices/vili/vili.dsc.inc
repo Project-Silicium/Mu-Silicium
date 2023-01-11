@@ -14,6 +14,9 @@
   # Platform Defines
   SWITCHSLOT_SUPPORT             = TRUE
 
+[LibraryClasses.common]
+  PlatformMemoryMapLib|SM8350Pkg/Devices/vili/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size

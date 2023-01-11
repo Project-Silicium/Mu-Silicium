@@ -50,7 +50,6 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|SM8350Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
   PlatformPeiLib|SM8350Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM8350Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   MsPlatformDevicesLib|SM8350Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
