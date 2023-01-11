@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = AdcDxe
+  FILE_GUID      = 5a5cb8ca-9382-4e0c-b383-77fb517cd9eb
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|AdcDxe.depex|*
+   PE32|AdcDxe.efi|*
+
+[Depex]
+  TRUE
