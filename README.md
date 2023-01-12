@@ -22,6 +22,7 @@ I recomend to not use this on your main Phone, Many Devices here are unstable
 |[Redmi Note 8/8T](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Redmi-Note-8.md)|
 |[Redmi 9T](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Redmi-9T.md)|
 |[Xperia XZ1 Compact](https://github.com/Robotix22/MU-msm/blob/main/Status/Sony-Xperia-XZ1-Compact.md)|
+|[Mi A3](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Mi-A3.md)|
 
 ## Building
 
