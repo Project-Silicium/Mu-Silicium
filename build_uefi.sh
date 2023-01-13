@@ -68,7 +68,7 @@ fi
 rm ./BootShim/BootShim.bin
 rm ./BootShim/BootShim.elf
 rm ./ImageResources/bootpayload.bin
-rm MU-*.img
+rm MU-${TARGET_DEVICE}.img
 
 cd BootShim
 
