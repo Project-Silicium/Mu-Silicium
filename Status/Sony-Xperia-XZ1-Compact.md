@@ -20,3 +20,4 @@
 |SD Card||❔|
 |ACPI||❔|
 |Mass Storage||❔|
+|Slot Switch|Not an A/B Device|❌|

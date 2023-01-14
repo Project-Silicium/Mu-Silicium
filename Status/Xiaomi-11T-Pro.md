@@ -20,6 +20,7 @@
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
 |Mass Storage|No Mainline DTB|❌|
+|Slot Switch||✅|
 
 ## Windows Status
 
