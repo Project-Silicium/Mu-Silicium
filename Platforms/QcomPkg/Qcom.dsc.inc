@@ -148,7 +148,6 @@
 !if $(SWITCHSLOT_SUPPORT) == TRUE
   BootSlotLib|GPLDrivers/Library/BootSlotLib/BootSlotLib.inf
 !endif
-  BootSlotLib|GPLDrivers/Library/BootSlotLib/BootSlotLib.inf
   DebugPrintErrorLevelLib|MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
   DxeServicesLib|MdePkg/Library/DxeServicesLib/DxeServicesLib.inf
   DxeServicesTableLib|MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.inf
