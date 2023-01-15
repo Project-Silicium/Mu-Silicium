@@ -105,7 +105,7 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 };
 
 CHAR8 mBiosVendor[128]  = "Robotix22";
-CHAR8 mBiosVersion[128] = "Alpha";
+CHAR8 mBiosVersion[128] = "1.0";
 CHAR8 mBiosDate[12]     = __DATE__;
 
 CHAR8 *mBIOSInfoType0Strings[] = {
