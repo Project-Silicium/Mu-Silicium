@@ -464,8 +464,6 @@
   QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
   QcomPkg/UFP/ufpdevicefw.inf
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
-  QcomPkg/Applications/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
-
   QcomPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
 
 !if $(SWITCHSLOT_SUPPORT) == TRUE
