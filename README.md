@@ -31,8 +31,8 @@ I recomend to not use this on your main Phone, Many Devices here are unstable
 First of you need the sourcecode to compile a UEFI Image. <br />
 Clone the Repo by using:
 ```
-git clone https://github.com/Robotix22/MU-msm.git --recursive
-cd MU-msm
+git clone https://github.com/Robotix22/MU-Qcom.git --recursive
+cd MU-Qcom
 ```
 
 ### Step 2:
