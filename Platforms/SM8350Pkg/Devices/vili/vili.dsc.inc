@@ -34,9 +34,11 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2400
 
   # Device Info
-  gQcomTokenSpaceGuid.PcdDeviceVendor|"Xiaomi"
-  gQcomTokenSpaceGuid.PcdDeviceProduct|"Xiaomi 11T Pro"
-  gQcomTokenSpaceGuid.PcdDeviceCodeName|"vili"
+  gSM8350TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gSM8350TokenSpaceGuid.PcdSmbiosSystemModel|"Xiaomi 11T Pro"
+  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
+  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_11T_Pro_vili"
+  gSM8350TokenSpaceGuid.PcdSmbiosBoardModel|"Xiaomi 11T Pro"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

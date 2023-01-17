@@ -53,5 +53,7 @@
   PlatformPeiLib|SM8350Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM8350Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   MsPlatformDevicesLib|SM8350Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-  SOCSmbiosInfoLib|SM8350Pkg/Library/SOCSmbiosInfoLib/SOCSmbiosInfoLib.inf
   RFSProtectionLib|SM8350Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+
+[Components.common]
+  SM8350Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

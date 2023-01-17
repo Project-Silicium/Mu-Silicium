@@ -109,7 +109,7 @@ READ_LOCK_STATUS   = TRUE
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  INF SM8350Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # DT
   INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf

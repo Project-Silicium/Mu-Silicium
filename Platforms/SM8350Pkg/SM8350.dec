@@ -8,4 +8,14 @@
   Include                             # Root include for the package
 
 [Guids.common]
-  gSM8350TokenSpaceGuid                 = { 0x882f8c2b, 0x9646, 0x435f, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc1, 0xbd } }
+  gSM8350TokenSpaceGuid               = { 0x882f8c2b, 0x9646, 0x435f, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc1, 0xbd } }
+
+[PcdsFixedAtBuild.common]
+  # SMBIOS
+  gSM8350TokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
+  gSM8350TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 855 @ 2.84 GHz"|VOID*|0x0000a301
+  gSM8350TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8150"|VOID*|0x0000a302
+  gSM8350TokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
+  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
+  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
+  gSM8350TokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000a306
