@@ -34,9 +34,11 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|1560
 
   # Device Info
-  gQcomTokenSpaceGuid.PcdDeviceVendor|"Xiaomi"
-  gQcomTokenSpaceGuid.PcdDeviceProduct|"Mi A3"
-  gQcomTokenSpaceGuid.PcdDeviceCodeName|"laurel_sprout"
+  gSM6125TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gSM6125TokenSpaceGuid.PcdSmbiosSystemModel|"Mi A3"
+  gSM6125TokenSpaceGuid.PcdSmbiosSystemRetailModel|"laurel_sprout"
+  gSM6125TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_A3_laurel_sprout"
+  gSM6125TokenSpaceGuid.PcdSmbiosBoardModel|"Mi A3"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720

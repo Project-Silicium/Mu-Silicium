@@ -34,9 +34,11 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2340
 
   # Device Info
-  gQcomTokenSpaceGuid.PcdDeviceVendor|"Xiaomi"
-  gQcomTokenSpaceGuid.PcdDeviceProduct|"Redmi Note 8/8T"
-  gQcomTokenSpaceGuid.PcdDeviceCodeName|"ginkgo"
+  gSM6125TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gSM6125TokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8/8T"
+  gSM6125TokenSpaceGuid.PcdSmbiosSystemRetailModel|"ginkgo"
+  gSM6125TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_8/8T_ginkgo"
+  gSM6125TokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 8/8T"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

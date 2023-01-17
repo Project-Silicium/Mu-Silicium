@@ -57,4 +57,5 @@
   RFSProtectionLib|SM6125Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
 
 [Components.AARCH64]
+  SM6125Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
   DfciPkg/AuthManagerNull/AuthManagerNull.inf
