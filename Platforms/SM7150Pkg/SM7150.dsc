@@ -55,3 +55,6 @@
   MsPlatformDevicesLib|SM7150Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
   SOCSmbiosInfoLib|SM7150Pkg/Library/SOCSmbiosInfoLib/SOCSmbiosInfoLib.inf
   RFSProtectionLib|SM7150Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+
+[Components.common]
+  SM7150Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

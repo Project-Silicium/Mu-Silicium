@@ -30,9 +30,11 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2340
 
   # Device Info
-  gQcomTokenSpaceGuid.PcdDeviceVendor|"Xiaomi"
-  gQcomTokenSpaceGuid.PcdDeviceProduct|"Mi Note 10"
-  gQcomTokenSpaceGuid.PcdDeviceCodeName|"tucana"
+  gSM7150TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gSM7150TokenSpaceGuid.PcdSmbiosSystemModel|"Mi Note 10"
+  gSM7150TokenSpaceGuid.PcdSmbiosSystemRetailModel|"tucana"
+  gSM7150TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_Note_10_tucana"
+  gSM7150TokenSpaceGuid.PcdSmbiosBoardModel|"Mi Note 10"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
