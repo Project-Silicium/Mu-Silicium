@@ -904,16 +904,6 @@ VOID EnclosureInfoUpdateSmbiosType3(CHAR8 *serialNo)
 ************************************************************************/
 VOID ProcessorInfoUpdateSmbiosType4(VOID)
 {
-  LogSmbiosData(
-      (EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4_x1,
-      mProcessorInfoType4Strings, NULL);
-  LogSmbiosData(
-      (EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4_a78,
-      mProcessorInfoType4Strings, NULL);
-  LogSmbiosData(
-      (EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4_a55,
-      mProcessorInfoType4Strings, NULL);
-
   // Update string table before proceeds
   mProcessorInfoType4Strings[2] =
       (CHAR8 *)FixedPcdGetPtr(PcdSmbiosProcessorModel);
