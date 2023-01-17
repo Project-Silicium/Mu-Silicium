@@ -34,9 +34,11 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2340
 
   # Device Info
-  gQcomTokenSpaceGuid.PcdDeviceVendor|"Xiaomi"
-  gQcomTokenSpaceGuid.PcdDeviceProduct|"Redmi 9T"
-  gQcomTokenSpaceGuid.PcdDeviceCodeName|"lime"
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 9T"
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailModel|"lime"
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_9T_lime"
+  gSM6115TokenSpaceGuid.PcdSmbiosBoardModel|"Redmi 9T"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

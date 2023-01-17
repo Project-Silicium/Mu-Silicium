@@ -9,3 +9,13 @@
 
 [Guids.common]
   gSM6115TokenSpaceGuid               = { 0x882f8c2b, 0x9646, 0x435f, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc1, 0xbd } }
+
+[PcdsFixedAtBuild.common]
+  # SMBIOS
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
+  gSM6115TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 662 @ 2 GHz"|VOID*|0x0000a301
+  gSM6115TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6115"|VOID*|0x0000a302
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
+  gSM6115TokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000a306

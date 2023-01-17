@@ -1,0 +1,52 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmBiosTableDxe
+  FILE_GUID                      = 50A15B6F-E3A9-4192-9640-369CB367C4DE
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SmBiosTableDxeInitialize
+
+[Sources.common]
+  SmBiosTableDxe.c
+
+[FixedPcd]
+  gArmTokenSpaceGuid.PcdSystemMemoryBase
+  gArmTokenSpaceGuid.PcdSystemMemorySize
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemVendor
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemModel
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailModel
+  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailSku
+  gSM6115TokenSpaceGuid.PcdSmbiosProcessorModel
+  gSM6115TokenSpaceGuid.PcdSmbiosProcessorRetailModel
+  gSM6115TokenSpaceGuid.PcdSmbiosBoardModel
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  MdePkg/MdePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  SM6115Pkg/SM6115.dec
+  QcomPkg/Qcom.dec
+
+[LibraryClasses]
+  BaseLib
+  ReportStatusCodeLib
+  UefiLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  BaseMemoryLib
+  DebugLib
+  CompilerIntrinsicsLib
+
+[Protocols]
+  gEfiSmbiosProtocolGuid
+  gEfiChipInfoProtocolGuid
+  
+[Depex]
+  gEfiSmbiosProtocolGuid
+
+[BuildOptions.AARCH64]
+  GCC:*_*_*_CC_FLAGS = -Wno-missing-brace -Wno-error
