@@ -86,6 +86,7 @@ READ_LOCK_STATUS   = TRUE
 
   # Secure Boot Key Enroll
   INF SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
+  INF QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
 
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
