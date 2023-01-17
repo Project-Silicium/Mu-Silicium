@@ -101,5 +101,5 @@ APRIORI DXE {
     #INF Binaries/lilac/RngDxe/RngDxe.inf
     #INF Binaries/lilac/MpPowerDxe/MpPowerDxe.inf
     
-    INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+    INF MSM8998Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 }

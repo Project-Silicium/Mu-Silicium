@@ -30,9 +30,11 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|1280
 
   # Device Info
-  gQcomTokenSpaceGuid.PcdDeviceVendor|"Sony"
-  gQcomTokenSpaceGuid.PcdDeviceProduct|"Xperia XZ1 Compact"
-  gQcomTokenSpaceGuid.PcdDeviceCodeName|"lilac"
+  gMSM8998TokenSpaceGuid.PcdSmbiosSystemVendor|"Sony"
+  gMSM8998TokenSpaceGuid.PcdSmbiosSystemModel|"Xperia XZ1 Compact"
+  gMSM8998TokenSpaceGuid.PcdSmbiosSystemRetailModel|"lilac"
+  gMSM8998TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xperia_XZ1_Compac_lilac"
+  gMSM8998TokenSpaceGuid.PcdSmbiosBoardModel|"Xperia XZ1 Compac"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720

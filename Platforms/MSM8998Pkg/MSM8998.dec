@@ -9,3 +9,13 @@
 
 [Guids.common]
   gMSM8998TokenSpaceGuid              = { 0x882f8c2b, 0x9646, 0x435f, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc1, 0xbd } }
+
+[PcdsFixedAtBuild.common]
+  # SMBIOS
+  gMSM8998TokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
+  gMSM8998TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 835 @ 2.45 GHz"|VOID*|0x0000a301
+  gMSM8998TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"MSM8998"|VOID*|0x0000a302
+  gMSM8998TokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
+  gMSM8998TokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
+  gMSM8998TokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
+  gMSM8998TokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000a306

@@ -55,3 +55,6 @@
   MsPlatformDevicesLib|MSM8998Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
   SOCSmbiosInfoLib|MSM8998Pkg/Library/SOCSmbiosInfoLib/SOCSmbiosInfoLib.inf
   RFSProtectionLib|MSM8998Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+
+[Components.common]
+  MSM8998Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
