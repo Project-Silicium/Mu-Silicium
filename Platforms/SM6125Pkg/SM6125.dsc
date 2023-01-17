@@ -53,7 +53,6 @@
   PlatformPeiLib|SM6125Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM6125Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   MsPlatformDevicesLib|SM6125Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-  SOCSmbiosInfoLib|SM6125Pkg/Library/SOCSmbiosInfoLib/SOCSmbiosInfoLib.inf
   RFSProtectionLib|SM6125Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
 
 [Components.AARCH64]

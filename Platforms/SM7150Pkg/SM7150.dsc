@@ -53,7 +53,6 @@
   PlatformPeiLib|SM7150Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM7150Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   MsPlatformDevicesLib|SM7150Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-  SOCSmbiosInfoLib|SM7150Pkg/Library/SOCSmbiosInfoLib/SOCSmbiosInfoLib.inf
   RFSProtectionLib|SM7150Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
 
 [Components.common]

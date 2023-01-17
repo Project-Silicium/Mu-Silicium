@@ -53,7 +53,6 @@
   PlatformPeiLib|SM6115Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM6115Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   MsPlatformDevicesLib|SM6115Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-  SOCSmbiosInfoLib|SM6115Pkg/Library/SOCSmbiosInfoLib/SOCSmbiosInfoLib.inf
   RFSProtectionLib|SM6115Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
 
 [Components.AARCH64]

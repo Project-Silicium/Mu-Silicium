@@ -439,7 +439,6 @@
 
   # ACPI and SMBIOS
   # We use pre-built ACPI tables, so only core components are loaded
-  QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf

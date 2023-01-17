@@ -53,7 +53,6 @@
   PlatformPeiLib|MSM8998Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|MSM8998Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   MsPlatformDevicesLib|MSM8998Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-  SOCSmbiosInfoLib|MSM8998Pkg/Library/SOCSmbiosInfoLib/SOCSmbiosInfoLib.inf
   RFSProtectionLib|MSM8998Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
 
 [Components.common]
