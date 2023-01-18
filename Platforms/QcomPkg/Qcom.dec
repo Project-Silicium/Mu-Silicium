@@ -86,11 +86,6 @@
   gEfiClockProtocolGuid               = { 0x241afae6, 0x885f, 0x4f6c, { 0xa7, 0xea, 0xc2, 0x8e, 0xab, 0x79, 0xc3, 0xe5 } }
 
 [PcdsFixedAtBuild.common]
-  # Device Info
-  gQcomTokenSpaceGuid.PcdDeviceVendor|"Qualcomm"|VOID*|0x0000a301
-  gQcomTokenSpaceGuid.PcdDeviceProduct|"Qualcomm Snapdragon Device"|VOID*|0x0000a302
-  gQcomTokenSpaceGuid.PcdDeviceCodeName|"QSD"|VOID*|0x0000a303
-
   # Simple FrameBuffer
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080|UINT32|0x0000a400
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2160|UINT32|0x0000a401
