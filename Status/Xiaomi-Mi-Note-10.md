@@ -17,7 +17,7 @@
 |UFS||❔|
 |Buttons||❔|
 |USB||❔|
-|SD Card||❔|
+|SD Card|No SD Card slot|❌|
 |ACPI||❔|
 |Mass Storage||❔|
 |Slot Switch|Not an A/B Device|❌|
