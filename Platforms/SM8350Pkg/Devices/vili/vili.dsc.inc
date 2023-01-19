@@ -19,7 +19,15 @@
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+!if $(MEM_SIZE) == 12
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
+!else
+!if $(MEM_SIZE) == 8
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size
+!else
+!error "Invaild Mem Size! Use 12 or 8."
+!endif
+!endif
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
