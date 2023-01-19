@@ -26,7 +26,7 @@
 
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
-|Boot|Stuck at Windows Logo|⚠️|
+|Boot|Stuck on Exiting Boot Services...|⚠️|
 |UFS||❔|
 |Buttons||❔|
 |Sensors||❔|
