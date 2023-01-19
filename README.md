@@ -17,12 +17,12 @@ I recomend to not use this on your main Phone, Many Devices here are unstable
 
 |Devices|
 |-------|
-|[Xiaomi 11T Pro](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-11T-Pro.md)|
-|[Mi Note 10](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Mi-Note-10.md)|
-|[Redmi Note 8/8T](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Redmi-Note-8.md)|
-|[Redmi 9T](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Redmi-9T.md)|
-|[Xperia XZ1 Compact](https://github.com/Robotix22/MU-msm/blob/main/Status/Sony-Xperia-XZ1-Compact.md)|
-|[Mi A3](https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Mi-A3.md)|
+|[Xiaomi 11T Pro](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-11T-Pro.md)|
+|[Mi Note 10](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Mi-Note-10.md)|
+|[Redmi Note 8/8T](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Redmi-Note-8.md)|
+|[Redmi 9T](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Redmi-9T.md)|
+|[Xperia XZ1 Compact](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Sony-Xperia-XZ1-Compact.md)|
+|[Mi A3](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Mi-A3.md)|
 
 ## Building
 
