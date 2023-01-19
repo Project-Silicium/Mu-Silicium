@@ -62,8 +62,8 @@
   INF Binaries/lime/GpiDxe/GpiDxe.inf
   INF Binaries/lime/I2C/I2C.inf
   INF Binaries/lime/SPMI/SPMI.inf
-  INF Binaries/lime/SdccDxe/SdccDxe.inf
-  INF Binaries/lime/UFSDxe/UFSDxe.inf
+  #INF Binaries/lime/SdccDxe/SdccDxe.inf
+  #INF Binaries/lime/UFSDxe/UFSDxe.inf
   INF Binaries/lime/DALTLMM/DALTLMM.inf
   INF Binaries/lime/MinidumpTADxe/MinidumpTADxe.inf
   
