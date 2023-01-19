@@ -112,6 +112,7 @@ READ_LOCK_STATUS   = TRUE
   INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
 
   INF MsGraphicsPkg/GopOverrideDxe/GopOverrideDxe.inf
+  INF MsCorePkg/MuCryptoDxe/MuCryptoDxe.inf
   INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
   INF DfciPkg/SettingsManager/SettingsManagerDxe.inf
   INF MsGraphicsPkg/MsUiTheme/Dxe/MsUiThemeProtocol.inf
@@ -123,8 +124,8 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
   INF MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
   INF DfciPkg/DfciManager/DfciManager.inf
-  INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
   INF MsGraphicsPkg/OnScreenKeyboardDxe/OnScreenKeyboardDxe.inf
+  INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
 
   INF MsWheaPkg/HwErrBert/HwErrBert.inf
   INF MsWheaPkg/MsWheaReport/Dxe/MsWheaReportDxe.inf
@@ -133,6 +134,8 @@ READ_LOCK_STATUS   = TRUE
   INF MsWheaPkg/HwhMenu/HwhMenu.inf
 
   INF MsCorePkg/AcpiRGRT/AcpiRgrt.inf
+  
+  INF DfciPkg/Application/DfciMenu/DfciMenu.inf
 
   INF ShellPkg/Application/Shell/Shell.inf
 
