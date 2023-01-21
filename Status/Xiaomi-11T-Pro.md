@@ -22,8 +22,12 @@
 |Mass Storage|No Mainline DTB|❌|
 |Slot Switch||✅|
 
-## Windows Status
+## OS Status
 
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+  
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
 |Boot|Stuck on Exiting Boot Services...|⚠️|
@@ -45,3 +49,29 @@
 |Mobile Data||❔|
 |Display Output||❔|
 |Vibration||❔|
+
+</td><td>
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td></tr> </table>
