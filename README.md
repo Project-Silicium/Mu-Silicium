@@ -9,20 +9,27 @@ I recomend to not use this on your main Phone, Many Devices here are unstable
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
 
 ## Status
+<table>
+<tr><th>Devices</th><th>Description</th></tr>
+<tr><td>
+
+|[Xiaomi 11T Pro](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-11T-Pro.md)|
+|:-----:|
+|**[Mi Note 10](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Mi-Note-10.md)**|
+|**[Redmi Note 8/8T](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Redmi-Note-8.md)**|
+|**[Redmi 9T](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Redmi-9T.md)**|
+|**[Xperia XZ1 Compact](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Sony-Xperia-XZ1-Compact.md)**|
+|**[Mi A3](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Mi-A3.md)**|
+
+</td><td>
+
 |✅|Working|
 |--|--------|
-|⚠️|Problematic|
-|❌|Not Working|
-|❔|Unknown|
+|⚠️|**Problematic**|
+|❌|**Not Working**|
+|❔|**Unknown**|
 
-|Devices|
-|-------|
-|[Xiaomi 11T Pro](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-11T-Pro.md)|
-|[Mi Note 10](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Mi-Note-10.md)|
-|[Redmi Note 8/8T](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Redmi-Note-8.md)|
-|[Redmi 9T](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Redmi-9T.md)|
-|[Xperia XZ1 Compact](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Sony-Xperia-XZ1-Compact.md)|
-|[Mi A3](https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Mi-A3.md)|
+</td></tr> </table>
 
 ## Building
 
@@ -48,7 +55,7 @@ sudo pip install --upgrade -r pip-requirements.txt
 
 So now we are able to begin the real UEFI build:
 ```
-./build_uefi.sh -d [Codename]
+./build_uefi.sh -d <Codename> [-r <Build Mode>] [-m <Mem Size>]
 ```
 
 When then Build is done you will find a `.img` File in the root of the repo.
