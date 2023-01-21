@@ -70,6 +70,9 @@
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 
   INF Binaries/vili/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+!if $(USE_DISPLAYDXE) == TRUE
+  INF Binaries/vili/CPRDxe/CPRDxe.inf
+!endif
   INF Binaries/vili/GpiDxe/GpiDxe.inf
   INF Binaries/vili/I2C/I2C.inf
   INF Binaries/vili/SPI/SPI.inf
@@ -84,7 +87,9 @@
   INF Binaries/vili/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/vili/MinidumpTADxe/MinidumpTADxe.inf
 
-!if $(USE_DISPLAYDXE) == FALSE
+!if $(USE_DISPLAYDXE) == TRUE
+  INF Binaries/vili/DisplayDxe/DisplayDxe.inf
+!else
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 

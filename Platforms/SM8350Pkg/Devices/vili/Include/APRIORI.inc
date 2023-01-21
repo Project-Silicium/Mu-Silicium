@@ -65,7 +65,9 @@ APRIORI DXE {
     INF Binaries/vili/ResetRuntimeDxe/ResetRuntimeDxe.inf
     INF Binaries/vili/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-!if $(USE_DISPLAYDXE) == FALSE
+!if $(USE_DISPLAYDXE) == TRUE
+    INF Binaries/vili/DisplayDxe/DisplayDxe.inf
+!else
     INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
@@ -102,6 +104,9 @@ APRIORI DXE {
     INF Binaries/vili/UsbMassStorageDxe/UsbMassStorageDxe.inf
     INF Binaries/vili/UsbConfigDxe/UsbConfigDxe.inf
     INF Binaries/vili/ButtonsDxe/ButtonsDxe.inf
+!if $(USE_DISPLAYDXE) == TRUE
+    INF Binaries/vili/CPRDxe/CPRDxe.inf
+!endif
     INF Binaries/vili/GpiDxe/GpiDxe.inf
     INF Binaries/vili/UCDxe/UCDxe.inf
     INF Binaries/vili/RngDxe/RngDxe.inf

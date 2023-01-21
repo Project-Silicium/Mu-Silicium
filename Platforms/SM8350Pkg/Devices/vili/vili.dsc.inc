@@ -13,6 +13,7 @@
 [Defines]
   # Platform Defines
   SWITCHSLOT_SUPPORT             = TRUE
+  USE_DISPLAYDXE                 = TRUE
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM8350Pkg/Devices/vili/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
@@ -89,6 +90,9 @@
   Binaries/vili/DALTLMM/DALTLMM.inf
   Binaries/vili/FeatureEnablerDxe/FeatureEnablerDxe.inf
   Binaries/vili/MinidumpTADxe/MinidumpTADxe.inf
+!if $(USE_DISPLAYDXE) == TRUE
+  Binaries/vili/DisplayDxe/DisplayDxe.inf
+!endif
   Binaries/vili/ButtonsDxe/ButtonsDxe.inf
   Binaries/vili/ChargerExDxe/ChargerExDxe.inf
   Binaries/vili/IPCCDxe/IPCCDxe.inf
