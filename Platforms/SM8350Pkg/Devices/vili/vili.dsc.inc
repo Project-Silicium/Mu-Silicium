@@ -13,7 +13,6 @@
 [Defines]
   # Platform Defines
   SWITCHSLOT_SUPPORT             = TRUE
-  USE_DISPLAYDXE                 = TRUE
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM8350Pkg/Devices/vili/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
