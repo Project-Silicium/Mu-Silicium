@@ -29,9 +29,13 @@
   CompilerIntrinsicsLib
   MuSecureBootKeySelectorLib
   UefiRuntimeServicesTableLib
+  MemoryAllocationLib
+
+[Protocols]
+  gEfiSimpleFileSystemProtocolGuid ## CONSUMES
 
 [Depex]
-  TRUE
+  gEfiSimpleFileSystemProtocolGuid
 
 [BuildOptions.AARCH64]
   GCC:*_*_*_CC_FLAGS = -Wno-missing-brace -Wno-error
