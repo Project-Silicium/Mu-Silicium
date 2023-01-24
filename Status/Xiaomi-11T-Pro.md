@@ -1,6 +1,6 @@
 # Xiaomi 11T Pro
 
-<img align="right" src="http://i01.appmifile.com/webfile/globalimg/JenniferK/Product/K3S-black!800x800!85.png" width="425" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-11T-Pro.png" width="425" alt="Preview">
 
 **SOC: SM8350** <br />
 **Codename: vili** <br />
