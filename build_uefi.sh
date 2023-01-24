@@ -21,8 +21,8 @@ TARGET_DEVICE=""
 TARGET_MEM_SIZE=""
 MULTIPLE_MEM_SIZE="FALSE"
 TARGET_BUILD_MODE="RELEASE"
-UNTESTED_DEVICE=""
-IGNORE_WARNING=""
+UNTESTED_DEVICE="FALSE"
+IGNORE_WARNING="FALSE"
 OPTS="$(getopt -o d:hfabcACDO:r:ifabcACDO:m: -l device:,help,ignore,release:,memory: -n 'build_uefi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
@@ -55,11 +55,12 @@ then source "configs/${SOC_PLATFORM}.conf"
 else _error "SoC configuration not found"
 fi
 
-if [ -z ${IGNORE_WARNING} ]; then echo ""; else
+if [ ${IGNORE_WARNING} == TRUE ]; then
     UNTESTED_DEVICE=""
 fi
 
-if [ -z ${UNTESTED_DEVICE} ]; then echo ""; else
+if [ ${UNTESTED_DEVICE} == TRUE ]; then
+    echo ""
     echo "=================[ WARNING ]================="
     echo "The Device you chosse to build is not Tested!"
     echo "We are not responsible for bricked devices."
@@ -71,15 +72,14 @@ fi
 
 if [ -z ${TARGET_MEM_SIZE} ]; then
 if [ ${MULTIPLE_MEM_SIZE} = TRUE ]; then
+    echo ""
     echo "=================[ WARNING ]================="
     echo "The Device you chose has more than one Mem Size!"
     echo "Use -m or --memory to define how much Mem your Device has."
     echo "============================================="
     echo ""
     exit 1
-else echo "";
 fi
-else echo "";
 fi
 
 rm ./BootShim/BootShim.bin
