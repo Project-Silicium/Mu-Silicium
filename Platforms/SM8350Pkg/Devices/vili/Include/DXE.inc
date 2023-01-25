@@ -126,4 +126,5 @@
   INF Binaries/vili/SPSSDxe/SPSSDxe.inf
   INF Binaries/vili/FvDxe/FvDxe.inf
   INF Binaries/vili/ParserDxe/ParserDxe.inf
+  INF Binaries/vili/SerialPortDxe/SerialPortDxe.inf
   INF Binaries/vili/QcomChargerApp/QcomChargerApp.inf
