@@ -23,7 +23,8 @@ MULTIPLE_MEM_SIZE="FALSE"
 TARGET_BUILD_MODE="RELEASE"
 UNTESTED_DEVICE="FALSE"
 IGNORE_WARNING="FALSE"
-OPTS="$(getopt -o d:hfabcACDO:r:ifabcACDO:m: -l device:,help,ignore,release:,memory: -n 'build_uefi.sh' -- "$@")"||exit 1
+MULTIPLE_DISPLAY_PANEL="FALSE"
+OPTS="$(getopt -o d:hfabcACDO:r:ifabcACDO:m:p: -l device:,help,ignore,release:,memory:,panel: -n 'build_uefi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do	case "${1}" in
@@ -32,6 +33,7 @@ do	case "${1}" in
 		-r|--release) TARGET_BUILD_MODE="${2}";shift 2;;
 		-i|--ignore) IGNORE_WARNING="TRUE";shift;;
 		-m|--memory) TARGET_MEM_SIZE="${2}";shift 2;;
+		-p|--panel) DISPLAY_PANEL="${2}";shift 2;;
 		--) shift;break;;
 		*) _help 1;;
 	esac
@@ -82,6 +84,18 @@ if [ ${MULTIPLE_MEM_SIZE} = TRUE ]; then
 fi
 fi
 
+if [ -z ${DISPLAY_PANEL} ]; then
+if [ ${MULTIPLE_DISPLAY_PANEL} == TRUE ]; then
+    echo ""
+    echo "=================[ WARNING ]================="
+    echo "The Device you chose has more than one Display Panel!"
+    echo "Use -p or --panel to define wich panel your Device uses."
+    echo "============================================="
+    echo ""
+    exit 1
+fi
+fi
+
 rm ./BootShim/BootShim.bin
 rm ./BootShim/BootShim.elf
 rm ./ImageResources/bootpayload.bin
@@ -95,7 +109,7 @@ cd ..
 
 stuart_setup -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38||exit 1
 stuart_update -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38||exit 1
-stuart_build -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38 "TARGET=${_TARGET_BUILD_MODE}" "TARGET_DEVICE=${TARGET_DEVICE}" "FD_BASE=${FD_BASE}" "FD_SIZE=${FD_SIZE}" "MEM_SIZE=${TARGET_MEM_SIZE}"||exit 1
+stuart_build -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38 "TARGET=${_TARGET_BUILD_MODE}" "TARGET_DEVICE=${TARGET_DEVICE}" "FD_BASE=${FD_BASE}" "FD_SIZE=${FD_SIZE}" "MEM_SIZE=${TARGET_MEM_SIZE}" "DISPLAY_PANEL=${DISPLAY_PANEL}"||exit 1
 
 cat ./BootShim/BootShim.bin "./Build/${SOC_PLATFORM}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${SOC_PLATFORM}PKG_UEFI.fd" > "./Build/${SOC_PLATFORM}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${SOC_PLATFORM}PKG_UEFI.fd-bootshim" ||exit 1
 gzip -c < "./Build/${SOC_PLATFORM}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${SOC_PLATFORM}PKG_UEFI.fd-bootshim" > "./Build/${SOC_PLATFORM}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${SOC_PLATFORM}PKG_UEFI.fd-bootshim.gz" ||exit 1
