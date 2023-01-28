@@ -1,0 +1,10 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = HashDxe
+  FILE_GUID      = 3adf8dda-1850-44c5-8c63-bb991849bc6f
+  MODULE_TYPE    = UEFI_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   PE32|HashDxe.efi|*
