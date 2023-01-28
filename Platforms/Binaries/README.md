@@ -49,3 +49,13 @@
 ### ButtonsDxe
 
 - *Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.*
+
+## Poco F1
+
+### HALIOMMU
+
+- *MMU related setup routine was patched to not recreate already existing MMU domains and thus crash UEFI.*
+
+### ButtonsDxe
+
+- *Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.*
