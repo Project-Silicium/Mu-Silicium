@@ -29,6 +29,9 @@
   SWITCHSLOT_SUPPORT             = FALSE
   MASS_STORAGE_SUPPORT           = FALSE
 
+[BuildOptions.common]
+  *_CLANG38_AARCH64_CC_FLAGS = -DRAM_SIZE=$(MEM_SIZE)
+
 !include SDM845Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc
 !include QcomPkg/Qcom.dsc.inc
 

@@ -16,6 +16,15 @@
 #include <Library/PcdLib.h>
 #include <Library/PlatformMemoryMapLib.h>
 
+#define SIZE_KB ((UINTN)(1024))
+#define SIZE_MB ((UINTN)(SIZE_KB * 1024))
+#define SIZE_GB ((UINTN)(SIZE_MB * 1024))
+#define SIZE_MB_BIG(_Size,_Value) ((_Size) > ((_Value) * SIZE_MB))
+#define SIZE_MB_SMALL(_Size,_Value) ((_Size) < ((_Value) * SIZE_MB))
+#define SIZE_MB_IN(_Min,_Max,_Size) \
+  if (SIZE_MB_BIG((MemoryTotal), (_Min)) && SIZE_MB_SMALL((MemoryTotal), (_Max)))\
+    Mem = Mem##_Size##G, MemGB = _Size
+
 VOID
 BuildMemoryTypeInformationHob (
   VOID
@@ -81,6 +90,39 @@ MemoryPeim (
   ARM_MEMORY_REGION_DESCRIPTOR
         MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
   UINTN Index = 0;
+  UINTN MemoryTotal = 0;
+
+#if RAM_SIZE == 4
+  DeviceMemoryAddHob Mem = Mem4G;
+  UINT8 MemGB = 4;
+#elif RAM_SIZE == 6
+  DeviceMemoryAddHob Mem = Mem6G;
+  UINT8 MemGB = 6;
+#elif RAM_SIZE == 8
+  DeviceMemoryAddHob Mem = Mem8G;
+  UINT8 MemGB = 8;
+#elif RAM_SIZE == 10
+  DeviceMemoryAddHob Mem = Mem10G;
+  UINT8 MemGB = 10;
+#elif RAM_SIZE == 12
+  DeviceMemoryAddHob Mem = Mem12G;
+  UINT8 MemGB = 12;
+#endif
+
+  // Memory   Min    Max   Config
+#if RAM_SIZE == 4
+  SIZE_MB_IN (3072,  4608, 4);
+#elif RAM_SIZE == 6
+  SIZE_MB_IN (5120,  6656, 6);
+#elif RAM_SIZE == 8
+  SIZE_MB_IN (7168,  8704, 8);
+#elif RAM_SIZE == 10
+  SIZE_MB_IN (9216,  10752, 10);
+#elif RAM_SIZE == 12
+  SIZE_MB_IN (11520, 12488, 12);
+#endif
+
+  DEBUG((EFI_D_INFO, "Select Config: %d GiB\n", MemGB));
 
   // Ensure PcdSystemMemorySize has been set
   ASSERT (PcdGet64 (PcdSystemMemorySize) != 0);
@@ -88,6 +130,21 @@ MemoryPeim (
   // Run through each memory descriptor
   while (MemoryDescriptorEx->Length != 0) {
     switch (MemoryDescriptorEx->HobOption) {
+#if RAM_SIZE == 4
+    case Mem4G:
+#elif RAM_SIZE == 6
+    case Mem6G:
+#elif RAM_SIZE == 8
+    case Mem8G:
+#elif RAM_SIZE == 10
+    case Mem10G:
+#elif RAM_SIZE == 12
+    case Mem12G:
+#endif
+      if (MemoryDescriptorEx->HobOption != Mem) {
+        MemoryDescriptorEx++;
+        continue;
+      }
     case AddMem:
     case AddDev:
     case HobOnlyNoCacheSetting:
