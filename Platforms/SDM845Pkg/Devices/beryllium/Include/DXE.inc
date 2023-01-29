@@ -28,6 +28,7 @@
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/beryllium/FontDxe/FontDxe.inf
+  INF Binaries/beryllium/EnvDxe/EnvDxe.inf
 
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -90,14 +91,14 @@
   INF Binaries/beryllium/LimitsDxe/LimitsDxe.inf
   INF Binaries/beryllium/DDRInfoDxe/DDRInfoDxe.inf
   #INF Binaries/beryllium/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
+  #INF Binaries/beryllium/UsbMsdDxe/UsbMsdDxe.inf
+  #INF Binaries/beryllium/UsbDeviceDxe/UsbDeviceDxe.inf
   
   #INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   #INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   #INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   #INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
   
-  #INF Binaries/beryllium/UsbMsdDxe/UsbMsdDxe.inf
-  #INF Binaries/beryllium/UsbDeviceDxe/UsbDeviceDxe.inf
   #INF Binaries/beryllium/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/beryllium/HashDxe/HashDxe.inf
   INF Binaries/beryllium/RngDxe/RngDxe.inf

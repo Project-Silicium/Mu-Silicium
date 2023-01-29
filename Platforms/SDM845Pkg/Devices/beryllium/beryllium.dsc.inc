@@ -10,6 +10,9 @@
 #
 ##
 
+[Defines]
+  #MASS_STORAGE_SUPPORT           = TRUE
+
 [LibraryClasses.common]
   PlatformMemoryMapLib|SDM845Pkg/Devices/beryllium/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
@@ -58,6 +61,7 @@
   Binaries/beryllium/ResetRuntimeDxe/ResetRuntimeDxe.inf
   Binaries/beryllium/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   Binaries/beryllium/FontDxe/FontDxe.inf
+  Binaries/beryllium/EnvDxe/EnvDxe.inf
   Binaries/beryllium/ChipInfo/ChipInfo.inf
   Binaries/beryllium/SmemDxe/SmemDxe.inf
   Binaries/beryllium/ULogDxe/ULogDxe.inf
