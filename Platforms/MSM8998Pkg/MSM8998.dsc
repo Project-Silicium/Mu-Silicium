@@ -30,7 +30,7 @@
   MASS_STORAGE_SUPPORT           = FALSE
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
+  *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc -DRAM_SIZE=$(MEM_SIZE)
 
 !include MSM8998Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc
 !include QcomPkg/Qcom.dsc.inc
