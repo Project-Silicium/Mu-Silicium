@@ -19,7 +19,15 @@
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size
+  !if $(MEM_SIZE) == 6
+    gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000        # 6GB Size
+  !else
+  !if $(MEM_SIZE) == 4
+    gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size
+  !else
+  !error "Invaild Mem Size! Use 6 or 4."
+  !endif
+  !endif
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
