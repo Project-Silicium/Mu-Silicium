@@ -95,10 +95,10 @@ choco install make
 ### Step 3:
 
 Lets begin the real UEFI build by doing:
-(if it fails with "Acess Denied" disable your Antivirus)
 ```
 build_uefi.bat <Codename> [<Build Mode>] [<RAM Size>] [<Panel Type>] [TRUE]
 ```
+(if it fails with "Acess Denied" disable your Antivirus)
 
 After that you will find an `.img` File on the root of the repo.
 
