@@ -2,60 +2,82 @@
 
 ## Patches
 
-## Xiaomi 11T Pro
+### Xiaomi 11T Pro
 
-### UFSDxe
+```
+UFSDxe:
 
-- *MMU related setup routine was patched to not recreate already existing MMU domains.*
+- Reason: An MMU Domain is already setup by the previous firmware and gets re-set again, causing a crash.
+- Patch: MMU related setup routine was patched to not recreate already existing MMU domains.
 
-### ButtonsDxe
+ButtonsDxe:
 
-- *Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.*
+- Reason: Helps navigating Menus (e.g. UEFI Menu)
+- Patch: Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.
 
-### PmicDxe
+PmicDxe:
 
-- *PMIC AUX (LEICA) init sequence was patched to not fail due to the PMIC AUX chip already being powered on.*
+- Reason: The PMIC AUX chip is already powered on by the previous firmware.
+- Patch: PMIC AUX (LEICA) init sequence was patched to not fail.
 
-### ClockDxe
+ClockDxe:
 
-- *DCD Dependency enablement path was patched to not cause MDSS to reinitialize and thus lose framebuffer.*
+- Reason: MDSS reinitializes and we lose framebuffer.
+- Patch: DCD Dependency enablement path was patched to not cause MDSS to reinitialize.
 
-### FeatureEnablerDxe & MinidumpTADxe
+FeatureEnablerDxe & MinidumpTADxe:
 
-- *Both DXEs were patched to not start again the TZ applet given it was already brought up*
+- Reason: The TZ applet it already brought up.
+- Patch: Both DXEs were patched to not start again the TZ applet.
 
-### QcomWDogDxe
+QcomWDogDxe:
 
-- *Dependency check routine was patched to not fail due to ReturnStatusCodeHandler implementation being different.*
+- Reason: ReturnStatusCodeHandler implementation is different.
+- Patch: Dependency check routine was patched to not fail.
 
-### UsbConfigDxe
+UsbConfigDxe:
 
-- *Exit BootServices routine was patched to not deinit USB after exit boot services. Another patch disables recreating IOMMU domains.*
+- Reason: Is Important to get USB working in Windows / Linux.
+- Patch: Exit BootServices routine was patched to not deinit USB after exit boot services. Another patch disables recreating IOMMU domains.
+```
 
-## Redmi Note 8/8T
+### Redmi Note 8/8T
 
-### ButtonsDxe
+```
+ButtonsDxe:
 
-- *Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.*
+- Reason: Helps navigating Menus (e.g. UEFI Menu)
+- Patch: Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.
+```
 
-## Redmi 9T
+### Redmi 9T
 
-### ButtonsDxe
+```
+ButtonsDxe:
 
-- *Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.*
+- Reason: Helps navigating Menus (e.g. UEFI Menu)
+- Patch: Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.
+```
 
-## Mi A3
+### Mi A3
 
-### ButtonsDxe
+```
+ButtonsDxe:
 
-- *Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.*
+- Reason: Helps navigating Menus (e.g. UEFI Menu)
+- Patch: Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.
+```
 
-## Poco F1
+### Poco F1
 
-### HALIOMMU
+```
+HALIOMMU:
 
-- *MMU related setup routine was patched to not recreate already existing MMU domains and thus crash UEFI.*
+- Reason: An MMU Domain is already setup by the previous firmware and gets re-set again, causing a crash.
+- Patch: MMU related setup routine was patched to not recreate already existing MMU domains.
 
-### ButtonsDxe
+ButtonsDxe:
 
-- *Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.*
+- Reason: Helps navigating Menus (e.g. UEFI Menu)
+- Patch: Key code was patched for the power button to be mapped as ENTER instead of SUSPEND.
+```

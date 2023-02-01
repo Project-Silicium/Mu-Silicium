@@ -1,10 +1,9 @@
 # Xiaomi 11T Pro
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-11T-Pro.png" width="425" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-11T-Pro.png" width="500" alt="Preview">
 
 **SOC: SM8350** <br />
 **Codename: vili** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [Robotix22](https://github.com/Robotix22/)**
 
 ## UEFI Status
@@ -30,7 +29,7 @@
   
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
-|Boot|Stuck on Exiting Boot Services...|⚠️|
+|Boot|Stuck on Logo|❌|
 |UFS||❔|
 |Buttons||❔|
 |Sensors||❔|

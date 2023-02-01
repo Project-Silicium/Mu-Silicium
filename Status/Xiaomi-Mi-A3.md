@@ -1,10 +1,9 @@
 # Mi A3
 
-<img align="right" src="https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Mi-A3.png" width="425" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-msm/blob/main/Status/Xiaomi-Mi-A3.png" width="500" alt="Preview">
 
 **SOC: SM6125** <br />
 **Codename: laurel_sprout** <br />
-**Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
 **Tester: [Kernel357](https://github.com/Kernel357)**
 
 ## UEFI Status

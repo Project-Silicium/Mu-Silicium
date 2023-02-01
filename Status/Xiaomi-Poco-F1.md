@@ -1,15 +1,14 @@
 # Poco F1
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Poco-F1.png" width="425" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Status/Xiaomi-Poco-F1.png" width="500" alt="Preview">
 
 **SOC: SDM845** <br />
 **Codename: beryllium** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [hecker305](https://github.com/hecker305)**
 
 ## Note
 
-I recommend you use [edk2-msm](https://github.com/edk2-porting/edk2-msm) for this Device.
+I recommend to use [edk2-msm](https://github.com/edk2-porting/edk2-msm) for this Device.
 
 ## UEFI Status
 
@@ -20,7 +19,7 @@ I recommend you use [edk2-msm](https://github.com/edk2-porting/edk2-msm) for thi
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB||❌|
+|USB|UsbConfigDxe not Loading|❌|
 |SD Card||❌|
 |ACPI||❌|
 |Mass Storage||❌|
