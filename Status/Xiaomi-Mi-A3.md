@@ -19,4 +19,4 @@
 |SD Card|Needs working Clocks|❌|
 |ACPI||❌|
 |Mass Storage|No Mainline DTB|❌|
-|Slot Switch|Not an A/B Device|❌|
+|Slot Switch||❌|
