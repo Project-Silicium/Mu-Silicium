@@ -13,8 +13,8 @@
 [PcdsFixedAtBuild.common]
   # SMBIOS
   gSM8350TokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
-  gSM8350TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 855 @ 2.84 GHz"|VOID*|0x0000a301
-  gSM8350TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8150"|VOID*|0x0000a302
+  gSM8350TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 @ 2.84 GHz"|VOID*|0x0000a301
+  gSM8350TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350"|VOID*|0x0000a302
   gSM8350TokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
   gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
   gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
