@@ -46,6 +46,12 @@ RFSProtectSharedArea(UINT64 efsBaseAddr, UINT64 efsBaseSize)
       (UINT64)NULL, 
       0
     },
+    {
+      AC_VM_MSS_NAV, 
+      (VM_PERM_R | VM_PERM_W), 
+      (UINT64)NULL, 
+      0
+    }
   };
 
   UINT64                 parameterArray[SCM_MAX_NUM_PARAMETERS] = {0};

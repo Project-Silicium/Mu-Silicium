@@ -4702,6 +4702,7 @@ typedef enum {
                           VM */
   AC_VM_MSS_MSA,       /* This is MSA=1 view */
   AC_VM_MSS_NONMSA,    /* IPA not equal PA */
+  AC_VM_MSS_NAV = 43,
   AC_VM_GUEST_OS_MLVM = 45,
   AC_VM_LAST,
   AC_VM_MAX = 0x7FFFFFFF,
