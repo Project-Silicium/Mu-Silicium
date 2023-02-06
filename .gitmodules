@@ -16,3 +16,6 @@
 [submodule "Common/MU_FEATURE_DFCI"]
 	path = Common/MU_FEATURE_DFCI
 	url = https://github.com/microsoft/mu_feature_dfci.git
+[submodule "Platforms/Binaries"]
+	path = Platforms/Binaries
+	url = https://github.com/Robotix22/MU-Qcom-binaries.git
