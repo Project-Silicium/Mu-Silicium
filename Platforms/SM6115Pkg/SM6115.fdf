@@ -178,8 +178,8 @@ READ_LOCK_STATUS   = TRUE
   }
 
   INF QcomPkg/UFP/ufpdevicefw.inf
-
   INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
+  INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
 !if $(SWITCHSLOT_SUPPORT) == TRUE
   INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf

@@ -464,6 +464,7 @@
   QcomPkg/UFP/ufpdevicefw.inf
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   QcomPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
+  QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
 !if $(SWITCHSLOT_SUPPORT) == TRUE
   GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
