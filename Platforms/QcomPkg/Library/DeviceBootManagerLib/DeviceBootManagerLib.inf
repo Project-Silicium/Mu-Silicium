@@ -9,7 +9,7 @@
   EDK_RELEASE_VERSION             = 0x00020000
   INF_VERSION                     = 0x00010017
   BASE_NAME                       = DeviceBootManagerLib
-  FILE_GUID                       = DA42AF9B-60D8-4AB6-A705-D9E626E5149C
+  FILE_GUID                       = 4734dddd-9054-4d42-acab-f8907886cc6f
   VERSION_STRING                  = 1.0
   MODULE_TYPE                     = DXE_DRIVER
   UEFI_SPECIFICATION_VERSION      = 2.70

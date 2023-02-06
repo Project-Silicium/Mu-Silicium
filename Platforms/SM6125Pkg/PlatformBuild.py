@@ -34,7 +34,7 @@ class CommonPlatform():
     TargetsSupported = ("DEBUG", "RELEASE")
     Scopes = ('SM6125', 'mu-build', 'cibuild')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    PackagesPath = ("Platforms", "MU_BASECORE", "Common/MU", "Common/MU_TIANO", "Common/MU_OEM_SAMPLE", "Silicon/ARM/TIANO")
+    PackagesPath = ("Platforms", "MU_BASECORE", "Common/MU", "Common/MU_TIANO", "Common/MU_OEM_SAMPLE", "Common/MU_FEATURE_DFCI", "Silicon/ARM/TIANO")
 
 
     # ####################################################################################### #

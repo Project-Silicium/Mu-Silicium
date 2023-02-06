@@ -13,3 +13,6 @@
 [submodule "Silicon/ARM/TIANO"]
 	path = Silicon/ARM/TIANO
 	url = https://github.com/microsoft/mu_silicon_arm_tiano.git
+[submodule "Common/MU_FEATURE_DFCI"]
+	path = Common/MU_FEATURE_DFCI
+	url = https://github.com/microsoft/mu_feature_dfci.git
