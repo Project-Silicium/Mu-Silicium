@@ -8,6 +8,9 @@
 #include <AsmMacroIoLibV8.h>
 #include <Library/ArmLib.h>
 
+ASM_FUNC(ArmPlatformPeiBootAction)
+  ret
+
 //UINTN
 //ArmPlatformGetCorePosition (
 //  IN UINTN MpId

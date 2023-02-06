@@ -28,7 +28,7 @@ VOID UartInit(VOID)
   SerialPortInitialize();
   InitializeSharedUartBuffers();
 
-  DEBUG((EFI_D_INFO, "\nProject Mu on Xiaomi 11T Pro (AArch64)\n"));
+  DEBUG((EFI_D_INFO, "\nProject Mu on Qualcom Snapdragon Devices (AArch64)\n"));
   DEBUG(
       (EFI_D_INFO, "Firmware version %s built %a %a\n\n",
        (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), __TIME__, __DATE__));

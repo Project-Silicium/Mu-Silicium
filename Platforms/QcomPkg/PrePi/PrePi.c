@@ -1,9 +1,6 @@
 /** @file
-
   Copyright (c) 2011-2017, ARM Limited. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #include <PiPei.h>
@@ -198,7 +195,6 @@ CEntryPoint ()
   if (PerformanceMeasurementEnabled ()) {
     // Initialize the Timer Library to setup the Timer HW controller
     TimerConstructor ();
-
     // We cannot call yet the PerformanceLib because the HOB List has not been initialized
     StartTimeStamp = GetPerformanceCounter ();
   } else {
@@ -207,10 +203,8 @@ CEntryPoint ()
 
   // Data Cache enabled on Primary core when MMU is enabled.
   ArmDisableDataCache ();
-
   // Invalidate instruction cache
   ArmInvalidateInstructionCache ();
-
   // Enable Instruction Caches on all cores.
   ArmEnableInstructionCache ();
 
