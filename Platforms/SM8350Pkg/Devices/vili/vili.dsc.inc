@@ -101,6 +101,9 @@
   Binaries/vili/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   Binaries/vili/TsensDxe/TsensDxe.inf
   Binaries/vili/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+!if $(USE_DISPLAYDXE) == TRUE
+  INF Binaries/vili/CPRDxe/CPRDxe.inf
+!endif
   Binaries/vili/DDRInfoDxe/DDRInfoDxe.inf
   Binaries/vili/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   Binaries/vili/XhciPciEmulation/XhciPciEmulation.inf

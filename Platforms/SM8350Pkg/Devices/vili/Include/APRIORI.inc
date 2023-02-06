@@ -44,8 +44,8 @@ APRIORI DXE {
     INF Binaries/vili/I2C/I2C.inf
     INF Binaries/vili/SPMI/SPMI.inf
     INF Binaries/vili/PmicDxe/PmicDxe.inf
+    INF Binaries/vili/DiskIoDxe/DiskIoDxe.inf
 
-    INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
@@ -80,7 +80,9 @@ APRIORI DXE {
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
     INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-    INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+
+    INF Binaries/vili/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
     INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
@@ -110,8 +112,7 @@ APRIORI DXE {
     INF Binaries/vili/GpiDxe/GpiDxe.inf
     INF Binaries/vili/UCDxe/UCDxe.inf
     INF Binaries/vili/RngDxe/RngDxe.inf
-
-    INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
+    INF Binaries/vili/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
 
     INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
     INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
