@@ -29,25 +29,25 @@
   
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
-|Boot|Stuck on Logo|❌|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooh||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
+|Boot||✅|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooh||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
 
 </td><td>
 
