@@ -28,6 +28,7 @@
   USE_DISPLAYDXE                 = FALSE
   SWITCHSLOT_SUPPORT             = FALSE
   MASS_STORAGE_SUPPORT           = FALSE
+  USE_PHYSICAL_TIMER             = FALSE
 
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc -DRAM_SIZE=$(MEM_SIZE)
@@ -43,7 +44,7 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00008350
-  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x17A60000
+  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x09BC0000
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|44
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

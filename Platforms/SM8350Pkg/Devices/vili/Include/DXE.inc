@@ -27,9 +27,7 @@
   INF Binaries/vili/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
-
-  INF Binaries/vili/ArmTimerDxe/ArmTimerDxe.inf
-
+  INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
     
   INF Binaries/vili/ChipInfo/ChipInfo.inf

@@ -28,6 +28,7 @@
   USE_DISPLAYDXE                 = FALSE
   SWITCHSLOT_SUPPORT             = FALSE
   MASS_STORAGE_SUPPORT           = FALSE
+  USE_PHYSICAL_TIMER             = TRUE
 
 [BuildOptions.common]
   *_CLANG38_AARCH64_CC_FLAGS = -DRAM_SIZE=$(MEM_SIZE)

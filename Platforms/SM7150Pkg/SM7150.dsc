@@ -28,6 +28,7 @@
   USE_DISPLAYDXE                 = FALSE
   SWITCHSLOT_SUPPORT             = FALSE
   MASS_STORAGE_SUPPORT           = FALSE
+  USE_PHYSICAL_TIMER             = TRUE
 
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc -DRAM_SIZE=$(MEM_SIZE)
