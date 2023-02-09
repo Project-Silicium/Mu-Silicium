@@ -31,10 +31,6 @@ APRIORI DXE {
     INF Binaries/vili/RpmhDxe/RpmhDxe.inf
     INF Binaries/vili/VcsDxe/VcsDxe.inf
     INF Binaries/vili/ClockDxe/ClockDxe.inf
-    
-    # Used to speed up booting. must be loaded after ClockDxe
-    INF QcomPkg/Drivers/SetCPUFreqDxe/SetCPUFreqDxe.inf
-
     INF Binaries/vili/ICBDxe/ICBDxe.inf
     INF Binaries/vili/ShmBridgeDxeLA/ShmBridgeDxeLA.inf
     INF Binaries/vili/ScmDxeLA/ScmDxeLA.inf

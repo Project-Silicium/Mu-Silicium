@@ -1,12 +1,12 @@
 [000h 0000   4]                    Signature : "APIC"    [Multiple APIC Description Table (MADT)]
-[004h 0004   4]                 Table Length : 000002E8
+[004h 0004   4]                 Table Length : 000002E9
 [008h 0008   1]                     Revision : 05
-[009h 0009   1]                     Checksum : 6E
+[009h 0009   1]                     Checksum : 00
 [00Ah 0010   6]                       Oem ID : "QCOM  "
 [010h 0016   8]                 Oem Table ID : "QCOMEDK2"
 [018h 0024   4]                 Oem Revision : 00008280
-[01Ch 0028   4]              Asl Compiler ID : "INTL"
-[020h 0032   4]        Asl Compiler Revision : 20190509
+[01Ch 0028   4]              Asl Compiler ID : "QCOM"
+[020h 0032   4]        Asl Compiler Revision : 00000001
 
 [024h 0036   4]           Local Apic Address : 00000000
 [028h 0040   4]        Flags (decoded below) : 00000000
@@ -39,8 +39,8 @@
 [07Eh 0126   2]                     Reserved : 0000
 [080h 0128   4]         CPU Interface Number : 00000001
 [084h 0132   4]                Processor UID : 00000001
-[088h 0136   4]        Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+[088h 0136   4]        Flags (decoded below) : 00000000
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [08Ch 0140   4]     Parking Protocol Version : 00000000
@@ -61,8 +61,8 @@
 [0CEh 0206   2]                     Reserved : 0000
 [0D0h 0208   4]         CPU Interface Number : 00000002
 [0D4h 0212   4]                Processor UID : 00000002
-[0D8h 0216   4]        Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+[0D8h 0216   4]        Flags (decoded below) : 00000000
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [0DCh 0220   4]     Parking Protocol Version : 00000000
@@ -83,8 +83,8 @@
 [11Eh 0286   2]                     Reserved : 0000
 [120h 0288   4]         CPU Interface Number : 00000003
 [124h 0292   4]                Processor UID : 00000003
-[128h 0296   4]        Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+[128h 0296   4]        Flags (decoded below) : 00000000
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [12Ch 0300   4]     Parking Protocol Version : 00000000
@@ -105,8 +105,8 @@
 [16Eh 0366   2]                     Reserved : 0000
 [170h 0368   4]         CPU Interface Number : 00000004
 [174h 0372   4]                Processor UID : 00000004
-[178h 0376   4]        Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+[178h 0376   4]        Flags (decoded below) : 00000000
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [17Ch 0380   4]     Parking Protocol Version : 00000000
@@ -127,8 +127,8 @@
 [1BEh 0446   2]                     Reserved : 0000
 [1C0h 0448   4]         CPU Interface Number : 00000005
 [1C4h 0452   4]                Processor UID : 00000005
-[1C8h 0456   4]        Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+[1C8h 0456   4]        Flags (decoded below) : 00000000
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [1CCh 0460   4]     Parking Protocol Version : 00000000
@@ -149,8 +149,8 @@
 [20Eh 0526   2]                     Reserved : 0000
 [210h 0528   4]         CPU Interface Number : 00000006
 [214h 0532   4]                Processor UID : 00000006
-[218h 0536   4]        Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+[218h 0536   4]        Flags (decoded below) : 00000000
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [21Ch 0540   4]     Parking Protocol Version : 00000000
@@ -171,8 +171,8 @@
 [25Eh 0606   2]                     Reserved : 0000
 [260h 0608   4]         CPU Interface Number : 00000007
 [264h 0612   4]                Processor UID : 00000007
-[268h 0616   4]        Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+[268h 0616   4]        Flags (decoded below) : 00000000
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [26Ch 0620   4]     Parking Protocol Version : 00000000
@@ -189,7 +189,7 @@
 [2AAh 0682   2]       SPE Overflow Interrupt : 0000
 
 [2ACh 0684   1]                Subtable Type : 0C [Generic Interrupt Distributor]
-[2ADh 0685   1]                       Length : 18
+[2ADh 0685   1]                       Length : 19
 [2AEh 0686   2]                     Reserved : 0000
 [2B0h 0688   4]        Local GIC Hardware ID : 00000000
 [2B4h 0692   8]                 Base Address : 0000000017A00000
@@ -197,15 +197,15 @@
 [2C0h 0704   1]                      Version : 03
 [2C1h 0705   3]                     Reserved : 000000
 
-[2C4h 0708   1]                Subtable Type : 0E [Generic Interrupt Redistributor]
-[2C5h 0709   1]                       Length : 10
-[2C6h 0710   2]                     Reserved : 0000
-[2C8h 0712   8]                 Base Address : 0000000017A60000
-[2D0h 0720   4]                       Length : 00100000
+[2C5h 0709   1]                Subtable Type : 0E [Generic Interrupt Redistributor]
+[2C6h 0710   1]                       Length : 10
+[2C7h 0711   2]                     Reserved : 0000
+[2C9h 0713   8]                 Base Address : 0000000017A60000
+[2D1h 0721   4]                       Length : 00100000
 
-[2D4h 0724   1]                Subtable Type : 0F [Generic Interrupt Translator]
-[2D5h 0725   1]                       Length : 14
-[2D6h 0726   2]                     Reserved : 0000
-[2D8h 0728   4]               Translation ID : 00000000
-[2DCh 0732   8]                 Base Address : 0000000017A40000
-[2E4h 0740   4]                     Reserved : 00000000
+[2D5h 0725   1]                Subtable Type : 0F [Generic Interrupt Translator]
+[2D6h 0726   1]                       Length : 14
+[2D7h 0727   2]                     Reserved : 0000
+[2D9h 0729   4]               Translation ID : 00000000
+[2DDh 0733   8]                 Base Address : 0000000017A40000
+[2E5h 0741   4]                     Reserved : 00000000
