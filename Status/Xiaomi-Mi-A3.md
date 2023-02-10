@@ -13,7 +13,7 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks|Needs a Patch|❌|
-|eMMC|Needs working Clocks|❌|
+|UFS|Needs working Clocks|❌|
 |Buttons||✅|
 |USB|Needs a Patch|❌|
 |SD Card|Needs working Clocks|❌|
