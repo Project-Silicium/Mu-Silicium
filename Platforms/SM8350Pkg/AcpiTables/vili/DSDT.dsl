@@ -2,7 +2,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 {
     Scope (_SB)
     {
+        Name (PSUB, "MTP08350")
         Name (SOID, 0xFFFFFFFF)
+        Name (STOR, 0xABCABCAB)
         Name (SIDS, "899800000000000")
         Name (SIDV, 0xFFFFFFFF)
         Name (SVMJ, 0xFFFF)
@@ -14,10 +16,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
         Name (PUS3, 0xFFFFFFFF)
         Name (SUS3, 0xFFFFFFFF)
         Name (SIDT, 0xFFFFFFFF)
-        Name (SJTG, 0xFFFFFFFF)
         Name (SOSN, 0xAAAAAAAABBBBBBBB)
         Name (PLST, 0xFFFFFFFF)
         Name (EMUL, 0xFFFFFFFF)
+        Name (SJTG, 0xFFFFFFFF)
         Name (RMTB, 0xAAAAAAAA)
         Name (RMTX, 0xBBBBBBBB)
         Name (RFMB, 0xCCCCCCCC)
@@ -27,6 +29,62 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
         Name (TCMA, 0xDEADBEEF)
         Name (TCML, 0xBEEFDEAD)
         Name (SOSI, 0xDEADBEEFFFFFFFFF)
+        Name (PRP0, 0xFFFFFFFF)
+        Name (PRP1, 0xFFFFFFFF)
+        Name (PRP2, 0xFFFFFFFF)
+        Name (PRP3, 0xFFFFFFFF)
+        Name (PRP4, 0xFFFFFFFF)
+        Name (PRP5, 0xFFFFFFFF)
+        Name (PRP6, 0xFFFFFFFF)
+        Device (UFS0)
+        {
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((STOR == One))
+                {
+                    Return (0x0F)
+                }
+                Else
+                {
+                    Return (Zero)
+                }
+            }
+
+            Name (_HID, "QCOM24A5")  // _HID: Hardware ID
+            Alias (PSUB, _SUB)
+            Alias (^EMUL, EMUL)
+            Name (_UID, Zero)  // _UID: Unique ID
+            Name (_CCA, One)  // _CCA: Cache Coherency Attribute
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x01D84000,         // Address Base
+                        0x0001C000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000129,
+                    }
+                })
+                Return (RBUF) /* \_SB_.UFS0._CRS.RBUF */
+            }
+
+            Device (DEV0)
+            {
+                Method (_ADR, 0, NotSerialized)  // _ADR: Address
+                {
+                    Return (0x08)
+                }
+
+                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                {
+                    Return (Zero)
+                }
+            }
+        }
+
         Device (SYSM)
         {
             Name (_HID, "ACPI0010" /* Processor Container Device */)  // _HID: Hardware ID
