@@ -1,15 +1,15 @@
 [000h 0000   4]                    Signature : "FACP"    [Fixed ACPI Description Table (FADT)]
-[004h 0004   4]                 Table Length : 0000010C
+[004h 0004   4]                 Table Length : 00000114
 [008h 0008   1]                     Revision : 05
-[009h 0009   1]                     Checksum : 2E
+[009h 0009   1]                     Checksum : 00     /* Incorrect checksum, should be 1F */
 [00Ah 0010   6]                       Oem ID : "QCOM  "
 [010h 0016   8]                 Oem Table ID : "QCOMEDK2"
 [018h 0024   4]                 Oem Revision : 00008280
-[01Ch 0028   4]              Asl Compiler ID : "INTL"
-[020h 0032   4]        Asl Compiler Revision : 20190509
+[01Ch 0028   4]              Asl Compiler ID : "QCOM"
+[020h 0032   4]        Asl Compiler Revision : 00000001
 
-[024h 0036   4]                 FACS Address : FFF62000
-[028h 0040   4]                 DSDT Address : FFF8D000
+[024h 0036   4]                 FACS Address : 00000000
+[028h 0040   4]                 DSDT Address : 00000000
 [02Ch 0044   1]                        Model : 00
 [02Dh 0045   1]                   PM Profile : 08 [Tablet]
 [02Eh 0046   2]                SCI Interrupt : 0000
@@ -160,3 +160,5 @@
 [102h 0258   1]                   Bit Offset : 00
 [103h 0259   1]         Encoded Access Width : 00 [Undefined/Legacy]
 [104h 0260   8]                      Address : 0000000000000000
+
+[10Ch 0268   8]                Hypervisor ID : 000000004D4F4351
