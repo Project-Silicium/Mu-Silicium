@@ -36,7 +36,7 @@
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
-|CPU||❌|
+|CPU|Only One Core working right now|⚠️|
 |Touchscreen||❌|
 |Bluetooh||❌|
 |GPS||❌|
