@@ -30,7 +30,7 @@
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
 |Boot||✅|
-|UFS||❌|
+|UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
