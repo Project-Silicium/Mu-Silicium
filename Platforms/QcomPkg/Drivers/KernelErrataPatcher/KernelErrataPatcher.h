@@ -33,7 +33,7 @@
 #define ARM64_INSTRUCTION_LENGTH 4
 #define ARM64_TOTAL_INSTRUCTION_LENGTH(x) (ARM64_INSTRUCTION_LENGTH * x)
 
-#define SCAN_MAX 0x5f5e100
+#define SCAN_MAX 0x300000
 #define SEC_TO_MICRO(x) ((UINTN)(x)*1000 * 1000)
 
 #define IN_RANGE(x, a, b) (x >= a && x <= b)
