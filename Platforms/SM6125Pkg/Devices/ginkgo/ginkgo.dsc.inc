@@ -12,20 +12,20 @@
 
 [Defines]
   # Platform Defines
-  USE_DISPLAYDXE                 = TRUE
+  USE_DISPLAYDXE              = TRUE
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM6125Pkg/Devices/ginkgo/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
-!if $(MEM_SIZE) == 6
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+!if $(RAM_SIZE) == 6
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000        # 6GB Size
 !else
-!if $(MEM_SIZE) == 4
+!if $(RAM_SIZE) == 4
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size
 !else
-!if $(MEM_SIZE) == 3
+!if $(RAM_SIZE) == 3
   gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000         # 3GB Size
 !else
 !error "Invaild Mem Size! Use 6, 4 or 3."
@@ -42,8 +42,6 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2340
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1080
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2340
 
   # Device Info
   gSM6125TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
@@ -59,50 +57,3 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2340
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|150
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|150
-
-[Components.common]
-  # Platform Drivers
-  Binaries/ginkgo/ScmDxe/ScmDxe.inf
-  Binaries/ginkgo/TzDxe/TzDxe.inf
-  Binaries/ginkgo/ResetRuntimeDxe/ResetRuntimeDxe.inf
-  Binaries/ginkgo/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-  Binaries/ginkgo/FontDxe/FontDxe.inf
-  Binaries/ginkgo/QcomWDogDxe/QcomWDogDxe.inf
-  Binaries/ginkgo/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
-  Binaries/ginkgo/ChipInfo/ChipInfo.inf
-  Binaries/ginkgo/GlinkDxe/GlinkDxe.inf
-  Binaries/ginkgo/SmemDxe/SmemDxe.inf
-  Binaries/ginkgo/ULogDxe/ULogDxe.inf
-  Binaries/ginkgo/NpaDxe/NpaDxe.inf
-  Binaries/ginkgo/DALSys/DALSys.inf
-  Binaries/ginkgo/ClockDxe/ClockDxe.inf
-  Binaries/ginkgo/HALIOMMU/HALIOMMU.inf
-  Binaries/ginkgo/HWIODxeDriver/HWIODxeDriver.inf
-  Binaries/ginkgo/GpiDxe/GpiDxe.inf
-  Binaries/ginkgo/I2C/I2C.inf
-  Binaries/ginkgo/SPMI/SPMI.inf
-  Binaries/ginkgo/SdccDxe/SdccDxe.inf
-  Binaries/ginkgo/UFSDxe/UFSDxe.inf
-  Binaries/ginkgo/DALTLMM/DALTLMM.inf
-!if $(USE_DISPLAYDXE) == TRUE
-  Binaries/ginkgo/DisplayDxe/DisplayDxe.inf
-!endif
-  Binaries/ginkgo/PlatformInfoDxeDriver/PlatformInfoDxeDriver.inf
-  Binaries/ginkgo/ButtonsDxe/ButtonsDxe.inf
-  Binaries/ginkgo/PmicDxe/PmicDxe.inf
-  Binaries/ginkgo/ChargerExDxe/ChargerExDxe.inf
-  Binaries/ginkgo/QcomChargerDxeLA/QcomChargerDxeLA.inf
-  Binaries/ginkgo/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-  Binaries/ginkgo/AdcDxe/AdcDxe.inf
-  Binaries/ginkgo/TsensDxe/TsensDxe.inf
-  Binaries/ginkgo/DDRInfoDxe/DDRInfoDxe.inf
-  Binaries/ginkgo/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-  Binaries/ginkgo/UsbMsdDxe/UsbMsdDxe.inf
-  Binaries/ginkgo/UsbDeviceDxe/UsbDeviceDxe.inf
-  Binaries/ginkgo/UsbConfigDxe/UsbConfigDxe.inf
-  Binaries/ginkgo/HashDxe/HashDxe.inf
-  Binaries/ginkgo/CipherDxe/CipherDxe.inf
-  Binaries/ginkgo/RngDxe/RngDxe.inf
-  Binaries/ginkgo/PILDxe/PILDxe.inf
-  Binaries/ginkgo/QcomChargerApp/QcomChargerApp.inf
-  Binaries/ginkgo/ShmBridgeDxe/ShmBridgeDxe.inf

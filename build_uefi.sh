@@ -18,22 +18,17 @@ function _help(){
 function _error(){ echo "${@}" >&2;exit 1; }
 
 TARGET_DEVICE=""
-TARGET_MEM_SIZE=""
-MULTIPLE_MEM_SIZE="FALSE"
+TARGET_RAM_SIZE=""
+MULTIPLE_RAM_SIZE="FALSE"
 TARGET_BUILD_MODE="RELEASE"
-UNTESTED_DEVICE="FALSE"
-IGNORE_WARNING="FALSE"
-MULTIPLE_DISPLAY_PANEL="FALSE"
-OPTS="$(getopt -o d:hfabcACDO:r:ifabcACDO:m:p: -l device:,help,ignore,release:,memory:,panel: -n 'build_uefi.sh' -- "$@")"||exit 1
+OPTS="$(getopt -o d:hfabcACDO:r:m: -l device:,help,release:,memory: -n 'build_uefi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do	case "${1}" in
 		-d|--device) TARGET_DEVICE="${2}";shift 2;;
 		-h|--help) _help 0;shift;;
 		-r|--release) TARGET_BUILD_MODE="${2}";shift 2;;
-		-i|--ignore) IGNORE_WARNING="TRUE";shift;;
-		-m|--memory) TARGET_MEM_SIZE="${2}";shift 2;;
-		-p|--panel) DISPLAY_PANEL="${2}";shift 2;;
+		-m|--memory) TARGET_RAM_SIZE="${2}";shift 2;;
 		--) shift;break;;
 		*) _help 1;;
 	esac
@@ -57,39 +52,12 @@ then source "configs/${SOC_PLATFORM}.conf"
 else _error "SoC configuration not found"
 fi
 
-if [ ${IGNORE_WARNING} == TRUE ]; then
-    UNTESTED_DEVICE=""
-fi
-
-if [ ${UNTESTED_DEVICE} == TRUE ]; then
+if [ -z ${TARGET_RAM_SIZE} ]; then
+if [ ${MULTIPLE_RAM_SIZE} = TRUE ]; then
     echo ""
     echo "=================[ WARNING ]================="
-    echo "The Device you chosse to build is not Tested!"
-    echo "We are not responsible for bricked devices."
-    echo "Use -i or --ignore to build ${TARGET_DEVICE}."
-    echo "============================================="
-    echo ""
-    exit 1
-fi
-
-if [ -z ${TARGET_MEM_SIZE} ]; then
-if [ ${MULTIPLE_MEM_SIZE} = TRUE ]; then
-    echo ""
-    echo "=================[ WARNING ]================="
-    echo "The Device you chose has more than one Mem Size!"
-    echo "Use -m or --memory to define how much Mem your Device has."
-    echo "============================================="
-    echo ""
-    exit 1
-fi
-fi
-
-if [ -z ${DISPLAY_PANEL} ]; then
-if [ ${MULTIPLE_DISPLAY_PANEL} == TRUE ]; then
-    echo ""
-    echo "=================[ WARNING ]================="
-    echo "The Device you chose has more than one Display Panel!"
-    echo "Use -p or --panel to define wich panel your Device uses."
+    echo "The Device you chose has more than one RAM Size!"
+    echo "Use -m or --memory to define how much RAM your Device has."
     echo "============================================="
     echo ""
     exit 1
@@ -109,7 +77,7 @@ cd ..
 
 stuart_setup -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38||exit 1
 stuart_update -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38||exit 1
-stuart_build -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38 "TARGET=${_TARGET_BUILD_MODE}" "TARGET_DEVICE=${TARGET_DEVICE}" "FD_BASE=${FD_BASE}" "FD_SIZE=${FD_SIZE}" "MEM_SIZE=${TARGET_MEM_SIZE}" "DISPLAY_PANEL=${DISPLAY_PANEL}"||exit 1
+stuart_build -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38 "TARGET=${_TARGET_BUILD_MODE}" "TARGET_DEVICE=${TARGET_DEVICE}" "FD_BASE=${FD_BASE}" "FD_SIZE=${FD_SIZE}" "RAM_SIZE=${TARGET_RAM_SIZE}"||exit 1
 
 cat ./BootShim/BootShim.bin "./Build/${SOC_PLATFORM}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${SOC_PLATFORM}PKG_UEFI.fd" > "./Build/${SOC_PLATFORM}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${SOC_PLATFORM}PKG_UEFI.fd-bootshim" ||exit 1
 gzip -c < "./Build/${SOC_PLATFORM}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${SOC_PLATFORM}PKG_UEFI.fd-bootshim" > "./Build/${SOC_PLATFORM}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${SOC_PLATFORM}PKG_UEFI.fd-bootshim.gz" ||exit 1

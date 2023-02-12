@@ -1,5 +1,5 @@
 ## @file
-# SM6125 Platform Devices Library
+# Surface Duo Ms Platform Devices Library
 #
 # Copyright (C) Microsoft Corporation. All rights reserved.
 # SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -18,23 +18,21 @@
 #
 
 [Sources]
-  MsPlatformDevicesLib.c
+ MsPlatformDevicesLib.c
 
 [Packages]
   MdePkg/MdePkg.dec
   PcBdsPkg/PcBdsPkg.dec
   MsCorePkg/MsCorePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  SM6125Pkg/SM6125.dec
   QcomPkg/Qcom.dec
+  SM6125Pkg/SM6125.dec
 
 [LibraryClasses]
+  BaseMemoryLib
   DebugLib
-  MemoryAllocationLib
   DevicePathLib
+  IoLib
   UefiBootServicesTableLib
-  RFSProtectionLib
-
-[Protocols]
-  gEfiGraphicsOutputProtocolGuid
-  gEfiSimpleTextInProtocolGuid
+  UefiLib
+  AcpiPlatformUpdateLib

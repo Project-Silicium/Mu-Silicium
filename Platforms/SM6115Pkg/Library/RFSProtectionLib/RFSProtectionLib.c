@@ -17,7 +17,7 @@
 
 #include <Library/RFSProtectionLib.h>
 
-#define MAX_DESTINATION_VMS 3
+#define MAX_DESTINATION_VMS 2
 
 EFI_STATUS
 EFIAPI

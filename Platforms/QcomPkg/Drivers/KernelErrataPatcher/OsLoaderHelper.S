@@ -30,8 +30,11 @@ ExitBootServicesWrapper:
         // some older implementations may also use x20
         mov x3, x20
 
+        // some newer implementations may also use x24
+        mov x4, x24
+
         // the x30 register contains the last return addr
-        mov x4, x30
+        mov x5, x30
 
         // Go for it
         b KernelErrataPatcherExitBootServices

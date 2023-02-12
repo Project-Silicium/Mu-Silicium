@@ -8,7 +8,7 @@
 
 ## Xiaomi 11T Pro
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
+<img align="right" src="http://i01.appmifile.com/webfile/globalimg/JenniferK/Product/K3S-black!800x800!85.png" width="500" alt="Preview">
 
 **SOC: SM8350** <br />
 **Codename: vili** <br />
@@ -83,82 +83,6 @@
 |Vibration||❔|
 
 </td></tr> </table>
-
-## Poco F1
-
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-Poco-F1.png" width="500" alt="Preview">
-
-**SOC: SDM845** <br />
-**Codename: beryllium** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [hecker305](https://github.com/hecker305)**
-
-### Note
-
-I recommend to use [edk2-msm](https://github.com/edk2-porting/edk2-msm) for this Device.
-
-### UEFI Status
-
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
-|Display||✅|
-|Touchscreen|Not Possible right now|❌|
-|Clocks||✅|
-|UFS||✅|
-|Buttons||✅|
-|USB|UsbConfigDxe not Loading|❌|
-|SD Card||❌|
-|ACPI||❌|
-|Mass Storage||❌|
-|Slot Switch||❌|
-
-## Xperia XZ1 Compact
-
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Sony-Xperia-XZ1-Compact.png" width="500" alt="Preview">
-
-**SOC: MSM8998** <br />
-**Codename: lilac** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester:**
-
-### UEFI Status
-
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
-|Display||❔|
-|Touchscreen||❔|
-|Clocks||❔|
-|UFS||❔|
-|Buttons||❔|
-|USB||❔|
-|SD Card||❔|
-|ACPI||❔|
-|Mass Storage||❔|
-|Slot Switch|Not an A/B Device|❌|
-
-## Mi Note 10
-
-<img align="right" src="https://i01.appmifile.com/webfile/globalimg/Cambridge/800-800/F4/Green-800x800!800x800!85.png" width="500" alt="Preview">
-
-**SOC: SM7150-AB** <br />
-**Codename: tucana** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester:**
-
-### UEFI Status
-
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
-|Display||❔|
-|Touchscreen||❔|
-|Clocks||❔|
-|UFS||❔|
-|Buttons||❔|
-|USB||❔|
-|SD Card|No SD Card slot|❌|
-|ACPI||❔|
-|Mass Storage||❔|
-|Slot Switch|Not an A/B Device|❌|
 
 ## Redmi Note 8/8T
 

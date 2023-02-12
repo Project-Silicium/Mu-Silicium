@@ -21,9 +21,10 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiLib.h>
 
-#define SIMPLE_INIT_NAME  L"SimpleInit"
 #define SWITCH_SLOT_NAME  L"Reboot to other slot"
 #define MASS_STORAGE_NAME L"USB Attached SCSI (UAS) Storage"
+
+#define INTERNAL_UEFI_SHELL_NAME  L"Internal UEFI Shell 2.0"
 
 #define MS_SDD_BOOT       L"Internal Storage"
 #define MS_SDD_BOOT_PARM  "SDD"
@@ -446,10 +447,10 @@ RegisterFvBootOption (
   } else {
     // The Shell is optional.  If the shell cannot be created (due to not in image), then
     // ensure the boot option for INTERNAL SHELL is deleted.
-    if (0 == StrCmp (SIMPLE_INIT_NAME, Description)) {
+    if (0 == StrCmp (INTERNAL_UEFI_SHELL_NAME, Description)) {
       BootOptions = EfiBootManagerGetLoadOptions (&BootOptionCount, LoadOptionTypeBoot);
       for (i = 0; i < BootOptionCount; i++) {
-        if (0 == StrCmp (SIMPLE_INIT_NAME, BootOptions[i].Description)) {
+        if (0 == StrCmp (INTERNAL_UEFI_SHELL_NAME, BootOptions[i].Description)) {
           EfiBootManagerDeleteLoadOptionVariable (BootOptions[i].OptionNumber, LoadOptionTypeBoot);
           DEBUG ((DEBUG_INFO, "Deleting Boot option as Boot%04x - %s\n", BootOptions[i].OptionNumber, BootOptions[i].Description));
         }
@@ -477,11 +478,11 @@ MsBootOptionsLibRegisterDefaultBootOptions (
 {
   DEBUG ((DEBUG_INFO, "%a\n", __FUNCTION__));
 
-  RegisterFvBootOption (PcdGetPtr (PcdShellFile), SIMPLE_INIT_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
   RegisterFvBootOption (&gMsBootPolicyFileGuid, MS_SDD_BOOT, (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)MS_SDD_BOOT_PARM, sizeof (MS_SDD_BOOT_PARM));
   RegisterFvBootOption (&gMsBootPolicyFileGuid, MS_USB_BOOT, (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)MS_USB_BOOT_PARM, sizeof (MS_USB_BOOT_PARM));
   RegisterFvBootOption (&gSwitchSlotsAppFileGuid, SWITCH_SLOT_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
   RegisterFvBootOption (&gLinuxSimpleMassStorageGuid, MASS_STORAGE_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
+  RegisterFvBootOption (PcdGetPtr (PcdShellFile), INTERNAL_UEFI_SHELL_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
 }
 
 /**
@@ -500,6 +501,7 @@ MsBootOptionsLibGetDefaultOptions (
   UINTN                         LocalOptionCount = 4;
   EFI_BOOT_MANAGER_LOAD_OPTION  *Option;
   EFI_STATUS                    Status;
+  EFI_STATUS                    Status2;
 
   Option = (EFI_BOOT_MANAGER_LOAD_OPTION *)AllocateZeroPool (sizeof (EFI_BOOT_MANAGER_LOAD_OPTION) * LocalOptionCount);
   ASSERT (Option != NULL);
@@ -508,11 +510,16 @@ MsBootOptionsLibGetDefaultOptions (
     return NULL;
   }
 
-  Status  = CreateFvBootOption (PcdGetPtr (PcdShellFile), SIMPLE_INIT_NAME, &Option[0], LOAD_OPTION_ACTIVE, NULL, 0);
-  Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, MS_SDD_BOOT, &Option[1], LOAD_OPTION_ACTIVE, (UINT8 *)MS_SDD_BOOT_PARM, sizeof (MS_SDD_BOOT_PARM));
-  Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, MS_USB_BOOT, &Option[2], LOAD_OPTION_ACTIVE, (UINT8 *)MS_USB_BOOT_PARM, sizeof (MS_USB_BOOT_PARM));
-  Status |= CreateFvBootOption (&gSwitchSlotsAppFileGuid, SWITCH_SLOT_NAME, &Option[3], LOAD_OPTION_ACTIVE, NULL, 0);
-  Status |= CreateFvBootOption (&gLinuxSimpleMassStorageGuid, MASS_STORAGE_NAME, &Option[4], LOAD_OPTION_ACTIVE, NULL, 0);
+  Status  = CreateFvBootOption (&gMsBootPolicyFileGuid, MS_SDD_BOOT, &Option[0], LOAD_OPTION_ACTIVE, (UINT8 *)MS_SDD_BOOT_PARM, sizeof (MS_SDD_BOOT_PARM));
+  Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, MS_USB_BOOT, &Option[1], LOAD_OPTION_ACTIVE, (UINT8 *)MS_USB_BOOT_PARM, sizeof (MS_USB_BOOT_PARM));
+  Status |= CreateFvBootOption (&gSwitchSlotsAppFileGuid, SWITCH_SLOT_NAME, &Option[2], LOAD_OPTION_ACTIVE, NULL, 0);
+  Status |= CreateFvBootOption (&gLinuxSimpleMassStorageGuid, MASS_STORAGE_NAME, &Option[3], LOAD_OPTION_ACTIVE, NULL, 0);
+
+  Status2 = CreateFvBootOption (PcdGetPtr (PcdShellFile), INTERNAL_UEFI_SHELL_NAME, &Option[4], LOAD_OPTION_ACTIVE, NULL, 0);
+  if (EFI_ERROR (Status2)) {
+    // The shell is optional.  So, ignore that we cannot create it.
+    LocalOptionCount--;
+  }
 
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "%a Error creating defatult boot options\n", __FUNCTION__));

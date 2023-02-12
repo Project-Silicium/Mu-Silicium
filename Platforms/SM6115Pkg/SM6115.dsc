@@ -3,8 +3,7 @@
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
-#  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
-#  Copyright (c) 2022, Xilin Wu. All rights reserved.
+#  Copyright (c) 2018, Bingxing Wang. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -17,7 +16,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = SM6115
-  PLATFORM_GUID                  = b6325ac2-9f3f-4b1d-b129-ac7b35ddde60
+  PLATFORM_GUID                  = c5158a52-9e8c-4ba0-83fe-578e1fac2c41
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/SM6115Pkg
@@ -25,13 +24,10 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = SM6115Pkg/SM6115.fdf
-  USE_DISPLAYDXE                 = FALSE
-  SWITCHSLOT_SUPPORT             = FALSE
-  MASS_STORAGE_SUPPORT           = FALSE
   USE_PHYSICAL_TIMER             = TRUE
-
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -D DISABLE_NEW_DEPRECATED_INTERFACES -D HAS_MEMCPY_INTRINSICS -DRAM_SIZE=$(MEM_SIZE)
+  USE_DISPLAYDXE                 = FALSE
+  MASS_STORAGE_SUPPORT           = FALSE
+  AB_SLOT_SUPPORT                = FALSE
 
 !include SM6115Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc
 !include QcomPkg/Qcom.dsc.inc
@@ -43,19 +39,19 @@
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xf200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0xf300000
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006115
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006125
   gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0xf300000
-  gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|44
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
 [LibraryClasses.common]
-  PlatformPeiLib|SM6115Pkg/Library/PlatformPei/PlatformPeiLib.inf
+  PowerServicesLib|SM6115Pkg/Library/PowerServicesLib/PowerServicesLib.inf
+  PlatformPeiLib|SM6115Pkg/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM6115Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  MsPlatformDevicesLib|SM6115Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
   RFSProtectionLib|SM6115Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+  AcpiPlatformUpdateLib|SM6115Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
+  MsPlatformDevicesLib|SM6115Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
 
-[Components.AARCH64]
+[Components.common]
   SM6115Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
-  DfciPkg/AuthManagerNull/AuthManagerNull.inf

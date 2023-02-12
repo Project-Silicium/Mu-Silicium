@@ -20,7 +20,7 @@
       EFI_RESOURCE_ATTRIBUTE_READ_PROTECTABLE |                                \
       EFI_RESOURCE_ATTRIBUTE_WRITE_PROTECTABLE
 
-typedef enum { NoHob, AddMem, AddDev, HobOnlyNoCacheSetting, Mem4G, Mem6G, Mem8G, Mem10G, Mem12G, MaxMem } DeviceMemoryAddHob;
+typedef enum { NoHob, AddMem, AddDev, HobOnlyNoCacheSetting, AllocOnly, MaxMem } DeviceMemoryAddHob;
 
 #define MEMORY_REGION_NAME_MAX_LENGTH 32
 
@@ -53,6 +53,7 @@ typedef struct {
 #define UNCACHEABLE EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE
 #define WRITE_COMBINEABLE EFI_RESOURCE_ATTRIBUTE_WRITE_COMBINEABLE
 #define WRITE_PROTECTED EFI_RESOURCE_ATTRIBUTE_WRITE_PROTECTED
+//#define WRITE_THROUGH EFI_RESOURCE_ATTRIBUTE_WRITE_THROUGH_CACHEABLE
 
 #define ACPI_NVS EfiACPIMemoryNVS
 #define ACPIReclaim EfiACPIReclaimMemory

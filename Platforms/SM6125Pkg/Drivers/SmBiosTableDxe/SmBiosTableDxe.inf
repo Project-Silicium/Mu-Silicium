@@ -10,6 +10,7 @@
   SmBiosTableDxe.c
 
 [FixedPcd]
+  gArmPlatformTokenSpaceGuid.PcdCoreCount
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
@@ -29,7 +30,6 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   SM6125Pkg/SM6125.dec
-  QcomPkg/Qcom.dec
 
 [LibraryClasses]
   BaseLib

@@ -1,7 +1,10 @@
 /** @file GpioButtons.c
+
   This module installs the MsButtonServicesProtocol.
+
   Copyright (C) Microsoft Corporation. All rights reserved.
   SPDX-License-Identifier: BSD-2-Clause-Patent
+
 **/
 
 #include <Library/DebugLib.h>
@@ -73,6 +76,7 @@ KeyNotify(IN EFI_KEY_DATA *KeyData)
 
 /**
  Init routine to install protocol and init anything related to buttons
+
  **/
 EFI_STATUS
 EFIAPI

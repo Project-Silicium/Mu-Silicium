@@ -44,5 +44,7 @@
   gDfciSettingAccessProtocolGuid      ## CONSUMES
   gMsButtonServicesProtocolGuid       ## CONSUMES
 
+[Guids]
+
 [Pcd]
   gPcBdsPkgTokenSpaceGuid.PcdBdsBootPolicy

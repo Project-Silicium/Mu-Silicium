@@ -12,17 +12,17 @@
 
 [Defines]
   # Platform Defines
-  USE_DISPLAYDXE                 = TRUE
+  USE_DISPLAYDXE              = TRUE
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM6115Pkg/Devices/lime/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
-!if $(MEM_SIZE) == 6
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+!if $(RAM_SIZE) == 6
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000        # 6GB Size
 !else
-!if $(MEM_SIZE) == 4
+!if $(RAM_SIZE) == 4
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size
 !else
 !error "Invaild Mem Size! Use 6 or 4."
@@ -38,8 +38,6 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2340
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1080
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|2340
 
   # Device Info
   gSM6115TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
@@ -55,51 +53,3 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2340
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|150
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|150
-
-[Components.common]
-  # Platform Drivers
-  Binaries/lime/ScmDxe/ScmDxe.inf
-  Binaries/lime/TzDxe/TzDxe.inf
-  Binaries/lime/FontDxe/FontDxe.inf
-  Binaries/lime/QcomWDogDxe/QcomWDogDxe.inf
-  Binaries/lime/QcomMpmTimerDxe/QcomMpmTimerDxe.inf 
-  Binaries/lime/ChipInfo/ChipInfo.inf
-  Binaries/lime/GlinkDxe/GlinkDxe.inf
-  Binaries/lime/SmemDxe/SmemDxe.inf
-  Binaries/lime/ULogDxe/ULogDxe.inf
-  Binaries/lime/NpaDxe/NpaDxe.inf
-  Binaries/lime/DALSys/DALSys.inf
-  Binaries/lime/VcsDxe/VcsDxe.inf
-  Binaries/lime/ClockDxe/ClockDxe.inf
-  Binaries/lime/HALIOMMU/HALIOMMU.inf
-  Binaries/lime/HWIODxeDriver/HWIODxeDriver.inf
-  Binaries/lime/GpiDxe/GpiDxe.inf
-  Binaries/lime/I2C/I2C.inf
-  Binaries/lime/SPMI/SPMI.inf
-  Binaries/lime/SdccDxe/SdccDxe.inf
-  Binaries/lime/UFSDxe/UFSDxe.inf
-  Binaries/lime/DALTLMM/DALTLMM.inf
-  Binaries/lime/MinidumpTADxe/MinidumpTADxe.inf
-!if $(USE_DISPLAYDXE) == TRUE
-  Binaries/lime/DisplayDxe/DisplayDxe.inf
-!endif
-  Binaries/lime/PlatformInfoDxeDriver/PlatformInfoDxeDriver.inf
-  Binaries/lime/ButtonsDxe/ButtonsDxe.inf
-  Binaries/lime/PmicDxe/PmicDxe.inf
-  Binaries/lime/ChargerExDxe/ChargerExDxe.inf
-  Binaries/lime/QcomChargerDxeLA/QcomChargerDxeLA.inf
-  Binaries/lime/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-  Binaries/lime/AdcDxe/AdcDxe.inf
-  Binaries/lime/TsensDxe/TsensDxe.inf
-  Binaries/lime/DDRInfoDxe/DDRInfoDxe.inf
-  Binaries/lime/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-  Binaries/lime/UsbMsdDxe/UsbMsdDxe.inf
-  Binaries/lime/UsbDeviceDxe/UsbDeviceDxe.inf
-  Binaries/lime/UsbConfigDxe/UsbConfigDxe.inf
-  Binaries/lime/HashDxe/HashDxe.inf
-  Binaries/lime/CipherDxe/CipherDxe.inf
-  Binaries/lime/MacDxe/MacDxe.inf
-  Binaries/lime/RngDxe/RngDxe.inf
-  Binaries/lime/PILDxe/PILDxe.inf
-  Binaries/lime/QcomChargerApp/QcomChargerApp.inf
-  Binaries/lime/ShmBridgeDxe/ShmBridgeDxe.inf

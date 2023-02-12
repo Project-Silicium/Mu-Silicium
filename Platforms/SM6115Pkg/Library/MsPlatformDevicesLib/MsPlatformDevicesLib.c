@@ -6,6 +6,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 #include <Uefi.h>
 
+#include <Library/AcpiPlatformUpdateLib.h>
 #include <Library/DebugLib.h>
 #include <Library/DeviceBootManagerLib.h>
 #include <Library/DevicePathLib.h>
@@ -61,7 +62,11 @@ PlatformIsDevicePathUsb(IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 Library function used to provide the list of platform devices that MUST be
 connected at the beginning of BDS
 **/
-EFI_DEVICE_PATH_PROTOCOL **EFIAPI GetPlatformConnectList(VOID) { return NULL; }
+EFI_DEVICE_PATH_PROTOCOL **EFIAPI GetPlatformConnectList(VOID) 
+{ 
+  PlatformUpdateAcpiTables();
+  return NULL; 
+}
 
 EFI_DEVICE_PATH_PROTOCOL **EFIAPI
 GetDevicePathsFromProtocolGuid(IN EFI_GUID *ProtocolGuid, OUT UINTN *Count)

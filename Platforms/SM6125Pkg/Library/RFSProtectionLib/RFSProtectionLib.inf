@@ -19,8 +19,8 @@
   MsCorePkg/MsCorePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   ArmPkg/ArmPkg.dec
-  SM6125Pkg/SM6125.dec
   QcomPkg/Qcom.dec
+  SM6125Pkg/SM6125.dec
 
 [LibraryClasses]
   ArmLib

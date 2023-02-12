@@ -3,8 +3,7 @@
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
-#  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
-#  Copyright (c) 2022, Xilin Wu. All rights reserved.
+#  Copyright (c) 2018, Bingxing Wang. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -25,13 +24,10 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = SM8350Pkg/SM8350.fdf
-  USE_DISPLAYDXE                 = FALSE
-  SWITCHSLOT_SUPPORT             = FALSE
-  MASS_STORAGE_SUPPORT           = FALSE
   USE_PHYSICAL_TIMER             = FALSE
-
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc -DRAM_SIZE=$(MEM_SIZE)
+  USE_DISPLAYDXE                 = FALSE
+  MASS_STORAGE_SUPPORT           = FALSE
+  AB_SLOT_SUPPORT                = FALSE
 
 !include SM8350Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc
 !include QcomPkg/Qcom.dsc.inc
@@ -45,16 +41,17 @@
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00008350
   gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x09BC0000
-  gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|44
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
 [LibraryClasses.common]
-  PlatformPeiLib|SM8350Pkg/Library/PlatformPei/PlatformPeiLib.inf
+  PowerServicesLib|SM8350Pkg/Library/PowerServicesLib/PowerServicesLib.inf
+  PlatformPeiLib|SM8350Pkg/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM8350Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  MsPlatformDevicesLib|SM8350Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
   RFSProtectionLib|SM8350Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+  AcpiPlatformUpdateLib|SM8350Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
+  MsPlatformDevicesLib|SM8350Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
 
 [Components.common]
   SM8350Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

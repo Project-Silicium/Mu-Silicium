@@ -1,6 +1,7 @@
 /** @file SecureBootProvisioningDxe.c
 
     This file contains functions for provisioning Secure Boot.
+
     Copyright (C) DuoWoA authors. All rights reserved.
     Copyright (C) Microsoft Corporation. All rights reserved.
     SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -127,11 +128,14 @@ exit:
 
 /**
   New File System Discovered.
-  
+
   Register this device as a possible UEFI Log device.
+
   @param    Event           Not Used.
   @param    Context         Not Used.
+
   @retval   none
+
   This may be called for multiple device arrivals, so the Event is not closed.
 
 **/
@@ -179,12 +183,16 @@ OnFileSystemNotification (
 
 /**
     ProcessFileSystemRegistration
+
     This function registers for FileSystemProtocols, and then
     checks for any existing FileSystemProtocols, and adds them
     to the LOG_DEVICE list.
+
     @param       VOID
+
     @retval      EFI_SUCCESS     FileSystem protocol registration successful
     @retval      error code      Something went wrong.
+
  **/
 EFI_STATUS
 ProcessFileSystemRegistration (
@@ -231,7 +239,7 @@ ProcessFileSystemRegistration (
 Cleanup:
   return Status;
 }
-    
+
 EFI_STATUS
 EFIAPI
 SecureBootProvisioningDxeInitialize(

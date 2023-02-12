@@ -31,8 +31,8 @@ class CommonPlatform():
     '''
     PackagesSupported = ("SM6125Pkg",)
     ArchSupported = ("AARCH64")
-    TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('SM6125', 'mu-build', 'cibuild')
+    TargetsSupported = ("DEBUG", "RELEASE", "NOOPT")
+    Scopes = ('SM6125', 'edk2-build', 'cibuild')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     PackagesPath = ("Platforms", "MU_BASECORE", "Common/MU", "Common/MU_TIANO", "Common/MU_OEM_SAMPLE", "Common/MU_FEATURE_DFCI", "Silicon/ARM/TIANO")
 
@@ -176,7 +176,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
     def GetName(self):
         ''' Get the name of the repo, platform, or product being build '''
         ''' Used for naming the log file, among others '''
-        return "SM6125"
+        return "SM6125Pkg"
 
     def GetLoggingLevel(self, loggerType):
         ''' Get the logging level for a given type
@@ -208,7 +208,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
         self.env.SetValue("BLD_*_TARGET_DEVICE", self.env.GetValue("TARGET_DEVICE"), "Default")
         self.env.SetValue("BLD_*_FD_BASE", self.env.GetValue("FD_BASE"), "Default")
         self.env.SetValue("BLD_*_FD_SIZE", self.env.GetValue("FD_SIZE"), "Default")
-        self.env.SetValue("BLD_*_MEM_SIZE", self.env.GetValue("MEM_SIZE"), "Default")
+        self.env.SetValue("BLD_*_RAM_SIZE", self.env.GetValue("RAM_SIZE"), "Default")
 
         return 0
 

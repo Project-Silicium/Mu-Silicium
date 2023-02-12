@@ -102,39 +102,13 @@ VOID KernelErrataPatcherApplyWriteACTLREL1Patches(
   }
 }
 
-VOID KernelErrataPatcherApplyIncoherentCacheConfigurationPatches(
-    EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
-{
-  // Fix up #3 (KiCacheInitialize (Bugcheck call (first)) -> 1F 20 03 D5)
-  // (KiCacheInitialize (Bugcheck call (first)) -> NOP)
-  UINT8 NopInstruction[] = {0x1F, 0x20, 0x03, 0xD5, 0x1F, 0x20, 0x03, 0xD5,
-                            0x1F, 0x20, 0x03, 0xD5, 0x1F, 0x20, 0x03, 0xD5};
-  EFI_PHYSICAL_ADDRESS KiCacheInitializeBC1 =
-      FindPattern(Base, Size, "04 00 80 D2 03 00 80 D2 C0 07 80 52");
-
-  if (KiCacheInitializeBC1 != 0) {
-    if (IsInFirmwareContext) {
-      FirmwarePrint(
-          L"KiCacheInitialize/BC#1    -> (phys) 0x%p\n", KiCacheInitializeBC1);
-    }
-    else {
-      ContextPrint(
-          L"KiCacheInitialize/BC#1    -> (virt) 0x%p\n", KiCacheInitializeBC1);
-    }
-
-    CopyMemory(
-        KiCacheInitializeBC1, (EFI_PHYSICAL_ADDRESS)NopInstruction,
-        sizeof(NopInstruction));
-  }
-}
-
 VOID KernelErrataPatcherApplyPsciMemoryProtectionPatches(
     EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
 {
   // Fix up #0 (PsciMemProtect -> C0 03 5F D6) (PsciMemProtect -> RET)
   UINT8                RetInstruction[] = {0xC0, 0x03, 0x5F, 0xD6};
   EFI_PHYSICAL_ADDRESS PatternMatch     = FindPattern(
-          Base, Size, "D5 02 00 18 03 00 80 D2 02 00 80 D2 01 00 80 D2");
+      Base, Size, "D5 02 00 18 03 00 80 D2 02 00 80 D2 01 00 80 D2");
   EFI_PHYSICAL_ADDRESS PsciMemProtect =
       PatternMatch - ARM64_TOTAL_INSTRUCTION_LENGTH(8);
 
@@ -160,6 +134,7 @@ KernelErrataPatcherExitBootServices(
     IN EFI_HANDLE ImageHandle, IN UINTN MapKey,
     IN PLOADER_PARAMETER_BLOCK loaderBlockX19,
     IN PLOADER_PARAMETER_BLOCK loaderBlockX20,
+    IN PLOADER_PARAMETER_BLOCK loaderBlockX24,
     IN EFI_PHYSICAL_ADDRESS    returnAddress)
 {
   // Might be called multiple times by winload in a loop failing few times
@@ -169,7 +144,16 @@ KernelErrataPatcherExitBootServices(
 
   if (loaderBlock == NULL ||
       ((EFI_PHYSICAL_ADDRESS)loaderBlock & 0xFFFFFFF000000000) == 0) {
+    FirmwarePrint(
+        L"Failed to find OslLoaderBlock! loaderBlock -> 0x%p\n", loaderBlock);
     loaderBlock = loaderBlockX20;
+  }
+
+  if (loaderBlock == NULL ||
+      ((EFI_PHYSICAL_ADDRESS)loaderBlock & 0xFFFFFFF000000000) == 0) {
+    FirmwarePrint(
+        L"Failed to find OslLoaderBlock! loaderBlock -> 0x%p\n", loaderBlock);
+    loaderBlock = loaderBlockX24;
   }
 
   if (loaderBlock == NULL ||
@@ -187,11 +171,24 @@ KernelErrataPatcherExitBootServices(
   BlpArchSwitchContext =
       (BL_ARCH_SWITCH_CONTEXT)(PatternMatch - ARM64_TOTAL_INSTRUCTION_LENGTH(9));
 
+  // First check if the version of BlpArchSwitchContext before Memory Management
+  // v2 is found
   if (PatternMatch == 0 || (PatternMatch & 0xFFFFFFF000000000) != 0) {
-    FirmwarePrint(
-        L"Failed to find BlpArchSwitchContext! BlpArchSwitchContext -> 0x%p\n",
-        BlpArchSwitchContext);
-    goto exit;
+    // Okay, we maybe have the new Memory Management? Try again.
+    PatternMatch =
+        FindPattern(returnAddress, SCAN_MAX, "9F 06 00 71 33 11 88 9A");
+
+    // BlpArchSwitchContext
+    BlpArchSwitchContext =
+        (BL_ARCH_SWITCH_CONTEXT)(PatternMatch - ARM64_TOTAL_INSTRUCTION_LENGTH(24));
+
+    if (PatternMatch == 0 || (PatternMatch & 0xFFFFFFF000000000) != 0) {
+      FirmwarePrint(
+          L"Failed to find BlpArchSwitchContext! BlpArchSwitchContext -> "
+          L"0x%p\n",
+          BlpArchSwitchContext);
+      goto exit;
+    }
   }
 
   FirmwarePrint(L"OslFwpKernelSetupPhase1   -> (phys) 0x%p\n", returnAddress);
@@ -258,8 +255,6 @@ KernelErrataPatcherExitBootServices(
     // Fix up ntoskrnl.exe
     KernelErrataPatcherApplyReadACTLREL1Patches(kernelBase, kernelSize, FALSE);
     KernelErrataPatcherApplyWriteACTLREL1Patches(kernelBase, kernelSize, FALSE);
-    KernelErrataPatcherApplyIncoherentCacheConfigurationPatches(
-        kernelBase, kernelSize, FALSE);
     KernelErrataPatcherApplyPsciMemoryProtectionPatches(
         kernelBase, kernelSize, FALSE);
   }

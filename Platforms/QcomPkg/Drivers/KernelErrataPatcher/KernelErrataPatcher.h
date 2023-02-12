@@ -50,6 +50,7 @@ KernelErrataPatcherExitBootServices(
     IN EFI_HANDLE ImageHandle, IN UINTN MapKey,
     IN PLOADER_PARAMETER_BLOCK loaderBlockX19,
     IN PLOADER_PARAMETER_BLOCK loaderBlockX20,
+    IN PLOADER_PARAMETER_BLOCK loaderBlockX24,
     IN EFI_PHYSICAL_ADDRESS    returnAddress);
 
 EFI_STATUS

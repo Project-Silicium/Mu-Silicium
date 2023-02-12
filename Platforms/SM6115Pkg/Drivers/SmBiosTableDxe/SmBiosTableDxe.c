@@ -123,7 +123,7 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 
 CHAR8 *mBIOSInfoType0Strings[] = {
     "Robotix22",       // Vendor String
-    "1.1",             // BiosVersion String
+    "1.2",             // BiosVersion String
     __DATE__,          // BiosReleaseDate String
     NULL};
 
@@ -254,8 +254,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a73 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-    2200,                  // MaxSpeed;
-    2200,                  // CurrentSpeed;
+    2000,                  // MaxSpeed;
+    2000,                  // CurrentSpeed;
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
@@ -309,8 +309,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a53 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-    1766,                  // MaxSpeed;
-    1766,                  // CurrentSpeed;
+    1566,                  // MaxSpeed;
+    1566,                  // CurrentSpeed;
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
