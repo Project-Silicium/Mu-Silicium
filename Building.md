@@ -38,7 +38,7 @@ When then Build is done you will find a `.img` File in the root of the repo.
       ```
       in the file:
       ```
-      ./MU-Qcom/Platforms/QcomPkg/Qcom.dsc.inc 
+      ./MU-Qcom/Platforms/QcomPkg/Frontpage.dsc.inc
       ```
       by adding # in front of the line.
    3. You also need to comment out this line:
