@@ -93,7 +93,7 @@
 
 ### UEFI Status
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="440" alt="Preview">
 
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
