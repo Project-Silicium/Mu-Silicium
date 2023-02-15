@@ -165,7 +165,7 @@
 
 ### UEFI Status
 
-<img align="right" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Samsung_Galaxy_Z_Fold_3_5G.jpg" width="500" alt="Preview">
+<img align="right" src="https://m.media-amazon.com/images/I/714FOiPD3DL._AC_SL1276_.jpg" width="300" alt="Preview">
 
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
