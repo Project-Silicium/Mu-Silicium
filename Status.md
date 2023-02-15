@@ -155,3 +155,81 @@
 |ACPI||❌|
 |Mass Storage|No Mainline DTB|❌|
 |Slot Switch|Not an A/B Device|❌|
+
+# Z Fold 3
+
+**SOC: SM8350** <br />
+**Codename: q2q** <br />
+**Maintainer: [Azkali](https://github.com/Azkali/)** <br />
+**Tester: [Azkali](https://github.com/Azkali/)**
+
+### UEFI Status
+
+<img align="right" src="https://m.media-amazon.com/images/I/714FOiPD3DL._AC_SL1276_.jpg" width="300" alt="Preview">
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Display||✅|
+|Touchscreen|Not Possible right now|❌|
+|Clocks||✅|
+|UFS||❔|
+|Buttons||✅|
+|USB|USB FN only|⚠️|
+|SD Card|No SD Card slot|❌|
+|ACPI|Still in Work|⚠️|
+|Mass Storage|No Mainline DTB|❌|
+|Slot Switch||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+  
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU|Only One Core working right now|⚠️|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td><td>
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td></tr> </table>
