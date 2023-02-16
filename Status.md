@@ -84,7 +84,7 @@
 
 </td></tr> </table>
 
-# Z Fold 3
+# Z Fold 3 5G
 
 **SOC: SM8350** <br />
 **Codename: q2q** <br />
