@@ -40,23 +40,24 @@
 |:------|:----------|:-----------:|
 |Boot||✅|
 |UFS||✅|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
+|Buttons|No Drivers yet|❔|
+|Sensors||❌|
+|Battery||❌|
+|USB|No Drivers yet|❔|
+|Charging||❌|
+|WLAN||❌|
 |CPU|Only One Core working right now|⚠️|
-|Touchscreen||❔|
-|Bluetooh||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
+|Touchscreen||❌|
+|Bluetooh||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
 
 </td><td>
 
@@ -69,6 +70,7 @@
 |Battery||❔|
 |USB||❔|
 |Charging||❔|
+|WLAN||❔|
 |CPU||❔|
 |Touchscreen||❔|
 |Bluetooh||❔|
