@@ -17,7 +17,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Configuration/BootDevices.h>
 #include <Protocol/SimpleTextInEx.h>
 
-BOOLEAN  mUserPhysicalPresence = FALSE;
+BOOLEAN  mUserPhysicalPresence = TRUE;
 static EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *SimpleEx = NULL;
 
 EFI_STATUS
@@ -37,8 +37,6 @@ LocateButtonProtocol (
   EFI_STATUS                         Status   = EFI_SUCCESS;
   EFI_HANDLE                         Handle   = NULL;
   EFI_DEVICE_PATH_PROTOCOL          *ButtonsDxeDevicePath;
-
-  DEBUG((DEBUG_ERROR, "%a \n", __FUNCTION__));
 
   ButtonsDxeDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath;
 
@@ -119,6 +117,8 @@ RegisterKeyNotification (
          Status));
     return Status;
   }
+
+  mUserPhysicalPresence = FALSE;
 
   return Status;
 }
