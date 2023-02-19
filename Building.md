@@ -1,6 +1,5 @@
 # Building
 
-## Debian / Ubuntu
 ### Step 1:
 
 First of you need the sourcecode to compile a UEFI Image. <br />
