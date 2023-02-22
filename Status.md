@@ -63,26 +63,26 @@
 
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|WLAN||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooh||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
+|Boot|Needs mainline DTB to boot correctly|⚠️|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooh||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
 
 </td></tr> </table>
 
