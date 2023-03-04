@@ -40,10 +40,10 @@
 |:------|:----------|:-----------:|
 |Boot||✅|
 |UFS||✅|
-|Buttons|No Drivers yet|❔|
+|Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB|No Drivers yet|❔|
+|USB||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU|Only One Core working right now|⚠️|
@@ -81,7 +81,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||✅|
 |Vibration||❌|
 
 </td></tr> </table>
