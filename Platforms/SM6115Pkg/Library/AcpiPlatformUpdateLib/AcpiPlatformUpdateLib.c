@@ -12,7 +12,6 @@
 #include <Library/UefiLib.h>
 
 #include <Library/MemoryMapHelperLib.h>
-#include <Library/RFSProtectionLib.h>
 
 #include <Protocol/EFIChipInfo.h>
 #include <Protocol/EFIPlatformInfo.h>
@@ -101,13 +100,6 @@ PlatformUpdateAcpiTables(VOID)
   if (!EFI_ERROR(LocateMemoryMapAreaByName("MPSS_EFS", &MPSSEFSRegion))) {
     RMTB = MPSSEFSRegion.Address;
     RMTX = MPSSEFSRegion.Length;
-
-    // Also configure MPSS Permissions!
-
-    // Allow MPSS and HLOS to access the allocated RFS Shared Memory Region
-    // Normally this would be done by a driver in Linux
-    // TODO: Move to a better place!
-    RFSLocateAndProtectSharedArea();
   }
 
   if (!EFI_ERROR(LocateMemoryMapAreaByName("ADSP_EFS", &ADSPEFSRegion))) {

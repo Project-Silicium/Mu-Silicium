@@ -49,7 +49,6 @@
   PowerServicesLib|SM6115Pkg/Library/PowerServicesLib/PowerServicesLib.inf
   PlatformPeiLib|SM6115Pkg/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM6115Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  RFSProtectionLib|SM6115Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM6115Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   MsPlatformDevicesLib|SM6115Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
 
