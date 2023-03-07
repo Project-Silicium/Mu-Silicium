@@ -307,7 +307,7 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4 = {
     },
     0,                     // ExternalClock;
     2840,                  // MaxSpeed;
-    1536,                  // CurrentSpeed;
+    2840,                  // CurrentSpeed;
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;      ///< The enumeration value
                            // from PROCESSOR_UPGRADE.
