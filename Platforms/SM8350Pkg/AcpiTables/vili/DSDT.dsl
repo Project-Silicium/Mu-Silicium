@@ -1,5 +1,16 @@
 DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 {
+    External (_SB_.DMMY, UnknownObj)
+    External (_SB_.DPP0, IntObj)
+    External (_SB_.DPP1, IntObj)
+    External (_SB_.MPP0, IntObj)
+    External (_SB_.MPP1, IntObj)
+    External (_SB_.PEP0, UnknownObj)
+    External (_SB_.TZ13.TPSV, UnknownObj)
+    External (_SB_.TZ13.TTC1, UnknownObj)
+    External (_SB_.TZ13.TTC2, UnknownObj)
+    External (_SB_.TZ13.TTSP, UnknownObj)
+
     Scope (_SB)
     {
         Name (PSUB, "MTP08350")
@@ -82,6 +93,203 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
                 {
                     Return (Zero)
                 }
+            }
+        }
+
+        Device (ABD)
+        {
+            Name (_HID, "QCOM0427")  // _HID: Hardware ID
+            Alias (PSUB, _SUB)
+            Name (_UID, Zero)  // _UID: Unique ID
+            OperationRegion (ROP1, GenericSerialBus, Zero, 0x0100)
+            Name (AVBL, Zero)
+            Method (_REG, 2, NotSerialized)  // _REG: Region Availability
+            {
+                If ((Arg0 == 0x09))
+                {
+                    AVBL = Arg1
+                }
+            }
+        }
+
+        Device (PMIC)
+        {
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                SPMI
+            })
+            Name (_HID, "QCOM1A2B")  // _HID: Hardware ID
+            Name (_CID, "PNP0CA3")  // _CID: Compatible ID
+            Alias (PSUB, _SUB)
+            Method (PMCF, 0, NotSerialized)
+            {
+                Name (CFG0, Package (0x0B)
+                {
+                    0x0A, 
+                    Package (0x02)
+                    {
+                        Zero, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        One, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        0x02, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        0x03, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        0x04, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        0x05, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        0x10, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        0x10, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        0x10, 
+                        0x10
+                    }, 
+
+                    Package (0x02)
+                    {
+                        0x10, 
+                        0x10
+                    }
+                })
+                Return (CFG0) /* \_SB_.PMIC.PMCF.CFG0 */
+            }
+        }
+
+        Device (PM01)
+        {
+            Name (_HID, "QCOM1A2D")  // _HID: Hardware ID
+            Alias (PSUB, _SUB)
+            Name (_UID, One)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                PMIC
+            })
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
+                    {
+                        0x00000201,
+                    }
+                })
+                Return (RBUF) /* \_SB_.PM01._CRS.RBUF */
+            }
+
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            {
+                While (One)
+                {
+                    Name (_T_0, Buffer (One)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                    {
+                         0x00                                             // .
+                    })
+                    CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.PM01._DSM._T_0 */
+                    If ((_T_0 == ToUUID ("4f248f40-d5e2-499f-834c-27758ea1cd3f") /* GPIO Controller */))
+                    {
+                        While (One)
+                        {
+                            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                            _T_1 = ToInteger (Arg2)
+                            If ((_T_1 == Zero))
+                            {
+                                Return (Buffer (One)
+                                {
+                                     0x03                                             // .
+                                })
+                            }
+                            ElseIf ((_T_1 == One))
+                            {
+                                Return (Package (0x02)
+                                {
+                                    0x07, 
+                                    0x06
+                                })
+                            }
+                            Else
+                            {
+                            }
+
+                            Break
+                        }
+                    }
+                    Else
+                    {
+                        Return (Buffer (One)
+                        {
+                             0x00                                             // .
+                        })
+                    }
+
+                    Break
+                }
+            }
+        }
+
+        Device (SPMI)
+        {
+            Name (_HID, "QCOM1A0B")  // _HID: Hardware ID
+            Alias (PSUB, _SUB)
+            Name (_CID, "PNP0CA2")  // _CID: Compatible ID
+            Name (_UID, One)  // _UID: Unique ID
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x0C400000,         // Address Base
+                        0x02800000,         // Address Length
+                        )
+                })
+                Return (RBUF) /* \_SB_.SPMI._CRS.RBUF */
+            }
+
+            Method (CONF, 0, NotSerialized)
+            {
+                Name (XBUF, Buffer (0x1A)
+                {
+                    /* 0000 */  0x00, 0x01, 0x01, 0x01, 0xFF, 0x00, 0x02, 0x00,  // ........
+                    /* 0008 */  0x0A, 0x07, 0x04, 0x07, 0x01, 0xFF, 0x10, 0x01,  // ........
+                    /* 0010 */  0x00, 0x01, 0x0C, 0x40, 0x00, 0x00, 0x02, 0x80,  // ...@....
+                    /* 0018 */  0x00, 0x00                                       // ..
+                })
+                Return (XBUF) /* \_SB_.SPMI.CONF.XBUF */
             }
         }
 
@@ -1569,6 +1777,81 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
                     })
                 }
             }
+        }
+
+        Device (BTNS)
+        {
+            Name (_HID, "ACPI0011" /* Generic Buttons Device */)  // _HID: Hardware ID
+            Alias (PSUB, _SUB)
+            Name (_UID, Zero)  // _UID: Unique ID
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    GpioInt (Edge, ActiveBoth, ExclusiveAndWake, PullDown, 0x0000,
+                        "\\_SB.PM01", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x0007
+                        }
+                    GpioInt (Edge, ActiveBoth, Exclusive, PullUp, 0x0000,
+                        "\\_SB.PM01", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x00C6
+                        }
+                    GpioInt (Edge, ActiveBoth, Exclusive, PullDown, 0x0000,
+                        "\\_SB.PM01", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x0006
+                        }
+                })
+                Return (RBUF) /* \_SB_.BTNS._CRS.RBUF */
+            }
+
+            Name (_DSD, Package (0x02)  // _DSD: Device-Specific Data
+            {
+                ToUUID ("fa6bd625-9ce8-470d-a2c7-b3ca36c4282e") /* Generic Buttons Device */, 
+                Package (0x04)
+                {
+                    Package (0x05)
+                    {
+                        Zero, 
+                        One, 
+                        Zero, 
+                        One, 
+                        0x0D
+                    }, 
+
+                    Package (0x05)
+                    {
+                        One, 
+                        Zero, 
+                        One, 
+                        One, 
+                        0x81
+                    }, 
+
+                    Package (0x05)
+                    {
+                        One, 
+                        One, 
+                        One, 
+                        0x0C, 
+                        0xE9
+                    }, 
+
+                    Package (0x05)
+                    {
+                        One, 
+                        0x02, 
+                        One, 
+                        0x0C, 
+                        0xEA
+                    }
+                }
+            })
         }
     }
 }
