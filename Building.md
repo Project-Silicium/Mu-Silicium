@@ -29,26 +29,6 @@ When then Build is done you will find a `.img` File in the root of the repo.
 
 ## Troubleshooting:
 
-### RegularExpressionDxe:
-   1. During the UEFI build, problems may occur due to the Regular Expression library. There is a workaround for this problem.
-   2. You need to comment out this line:
-      ```
-      MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
-      ```
-      in the file:
-      ```
-      ./MU-Qcom/Platforms/QcomPkg/Frontpage.dsc.inc
-      ```
-      by adding # in front of the line.
-   3. You also need to comment out this line:
-      ```
-      INF MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf 
-      ```
-      in the file:
-      ```
-      ./MU-Qcom/Platforms/<Your platform>Pkg/<Your platform>.fdf
-      ```
-
 ### Python Requirements:
    1. You may encounter an issue That the recuired package is not satisfied or something, If your Python Version is lower than 3.10 install Python 3.10 or newer
    2. After installing Python 3.10 Linux won't automaticly chose Python 3.10 as default, To set it as default use these commands:
