@@ -10,7 +10,7 @@
 ##
 
 [BuildOptions.common]
-  *_CLANG38_AARCH64_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -D CLANG
+  *_CLANG38_AARCH64_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
   *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
   *_*_*_PP_FLAGS = -DICC_SGI1R=ICC_SGI1R_EL1
 
