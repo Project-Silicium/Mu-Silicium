@@ -40,7 +40,7 @@
 |:------|:----------|:-----------:|
 |Boot||✅|
 |UFS||✅|
-|Buttons||❌|
+|Buttons|No Drivers yet|❔|
 |Sensors||❌|
 |Battery||❌|
 |USB||❌|
