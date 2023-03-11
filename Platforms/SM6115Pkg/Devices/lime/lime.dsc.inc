@@ -39,6 +39,9 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2340
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
+  # Simple Init
+  gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|320
+
   # Device Info
   gSM6115TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
   gSM6115TokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 9T"

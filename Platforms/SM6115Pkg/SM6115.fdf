@@ -196,6 +196,9 @@ READ_LOCK_STATUS   = TRUE
   INF QcomPkg/Applications/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
 !endif
 
+  # Simple Init GUI
+  INF src/main/SimpleInitMain.inf
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1

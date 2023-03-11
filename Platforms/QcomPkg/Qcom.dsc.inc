@@ -41,7 +41,7 @@
 
 [PcdsFixedAtBuild.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"1.2"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"1.3"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x00170A02
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
@@ -93,6 +93,9 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxAuthVariableSize|0x2800
   gEfiSecurityPkgTokenSpaceGuid.PcdUserPhysicalPresence|TRUE
 
+  # SimpleInit
+  gSimpleInitTokenSpaceGuid.PcdLoggerdUseConsole|FALSE
+
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|FALSE
 
@@ -113,11 +116,12 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x2000
 
 !include MdePkg/MdeLibs.dsc.inc
+!include SimpleInit.inc
 
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmMmuLib|ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib.inf
-!if $(USE_PHYSICAL_TIMER) == 1
+!if $(USE_PHYSICAL_TIMER) == TRUE
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.inf
 !else
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.inf
@@ -450,7 +454,6 @@
   MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
 
   QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
-  QcomPkg/Applications/SimpleInit/SimpleInit.inf
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 

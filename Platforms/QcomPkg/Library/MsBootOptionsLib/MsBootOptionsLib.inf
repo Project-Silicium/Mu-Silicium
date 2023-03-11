@@ -26,6 +26,7 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   QcomPkg/Qcom.dec
+  SimpleInit.dec
 
 [LibraryClasses]
   BaseMemoryLib
@@ -42,6 +43,7 @@
   gMsBootPolicyFileGuid
   gSwitchSlotsAppFileGuid
   gLinuxSimpleMassStorageGuid
+  gSimpleInitFileGuid
 
 [Protocols]
   gEfiFirmwareVolume2ProtocolGuid

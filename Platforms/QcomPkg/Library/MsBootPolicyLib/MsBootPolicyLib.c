@@ -195,7 +195,25 @@ SdBootPolicyLibIsUFPBoot (
   VOID
   )
 {
-  return TRUE;
+  BOOLEAN     BootToUFP = FALSE;
+  EFI_STATUS  Status    = EFI_SUCCESS;
+
+  // Locate the Button Services protocol
+  GetButtonServiceProtocol ();
+  if (gButtonService == NULL) {
+    DEBUG ((DEBUG_WARN, "%a failed to locate ButtonServices protocol, assuming no presses.\n", __FUNCTION__));
+  } else {
+    // Check if volume down was pressed before the power button when the system powered on
+    Status = gButtonService->PreBootVolumeDownButtonThenPowerButtonCheck (gButtonService, &BootToUFP);
+
+    if (EFI_ERROR (Status)) {
+      DEBUG ((DEBUG_WARN, "%a failed to get volume down state on power on. %r\n", __FUNCTION__, Status));
+
+      BootToUFP = FALSE;          // not sure of its state after the Bsp call failure
+    }
+  }
+
+  return BootToUFP;
 }
 
 /**

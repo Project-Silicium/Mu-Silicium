@@ -43,6 +43,9 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2340
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
+  # Simple Init
+  gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|320
+
   # Device Info
   gSM6125TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
   gSM6125TokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8/8T"

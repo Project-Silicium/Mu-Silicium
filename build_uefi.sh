@@ -75,6 +75,31 @@ make UEFI_BASE=${FD_BASE} UEFI_SIZE=${FD_SIZE}||exit 1
 
 cd ..
 
+for i in "${SIMPLE_INIT}" GPLDrivers/Library/SimpleInit
+do
+	if [ -n "${i}" ]&&[ -f "${i}/SimpleInit.inc" ]
+	then
+		_SIMPLE_INIT="$(realpath "${i}")"
+		break
+	fi
+done
+export CROSS_COMPILE="${CROSS_COMPILE:-aarch64-linux-gnu-}"
+export GCC5_AARCH64_PREFIX="${CROSS_COMPILE}"
+export CLANG38_AARCH64_PREFIX="${CROSS_COMPILE}"
+mkdir -p "${_SIMPLE_INIT}/build" "${_SIMPLE_INIT}/root/usr/share/locale"
+for i in "${_SIMPLE_INIT}/po/"*.po
+do
+	[ -f "${i}" ]||continue
+	_name="$(basename "$i" .po)"
+	_path="${_SIMPLE_INIT}/root/usr/share/locale/${_name}/LC_MESSAGES"
+	mkdir -p "${_path}"
+	msgfmt -o "${_path}/simple-init.mo" "${i}"
+done
+
+bash "${_SIMPLE_INIT}/scripts/gen-rootfs-source.sh" \
+	"${_SIMPLE_INIT}" \
+	"${_SIMPLE_INIT}/build"
+
 stuart_setup -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38||exit 1
 stuart_update -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38||exit 1
 stuart_build -c "Platforms/${SOC_PLATFORM}Pkg/PlatformBuild.py" TOOL_CHAIN_TAG=CLANG38 "TARGET=${_TARGET_BUILD_MODE}" "TARGET_DEVICE=${TARGET_DEVICE}" "FD_BASE=${FD_BASE}" "FD_SIZE=${FD_SIZE}" "RAM_SIZE=${TARGET_RAM_SIZE}"||exit 1

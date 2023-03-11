@@ -39,6 +39,9 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
+  # Simple Init
+  gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|320
+
   # Device Info
   gSM8350TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
   gSM8350TokenSpaceGuid.PcdSmbiosSystemModel|"Xiaomi 11T Pro"
