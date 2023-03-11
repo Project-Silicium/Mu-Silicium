@@ -41,8 +41,8 @@ class CommonPlatform():
         "Common/MU",
         "Common/MU_TIANO",
         "Common/MU_OEM_SAMPLE",
-        "Silicon/ARM/TIANO",
-        "Common/MU_FEATURE_DFCI",
+        "Silicon/Arm/MU_TIANO",
+        "Features/DFCI",
         "GPLDrivers/Library/SimpleInit"
     )
 
@@ -76,8 +76,8 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
             RequiredSubmodule("Common/MU", True),
             RequiredSubmodule("Common/MU_TIANO", True),
             RequiredSubmodule("Common/MU_OEM_SAMPLE", True),
-            RequiredSubmodule("Common/MU_FEATURE_DFCI", True),
-            RequiredSubmodule("Silicon/ARM/TIANO", True),
+            RequiredSubmodule("Features/DFCI", True),
+            RequiredSubmodule("Silicon/Arm/MU_TIANO", True),
             RequiredSubmodule("GPLDrivers/Library/SimpleInit", True),
         ]
 
