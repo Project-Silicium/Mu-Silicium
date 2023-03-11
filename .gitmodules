@@ -19,3 +19,6 @@
 [submodule "Platforms/Binaries"]
 	path = Platforms/Binaries
 	url = https://github.com/Robotix22/MU-Qcom-binaries.git
+[submodule "GPLDrivers/Library/SimpleInit"]
+	path = GPLDrivers/Library/SimpleInit
+	url = https://github.com/BigfootACA/simple-init.git
