@@ -31,6 +31,10 @@ if [ -z ${DISTRO} ]; then
     _help
 fi
 
+if [ ${DISTRO} = Kali ]; then
+    sudo apt update && sudo apt upgrade
+    sudo apt install pip git mono-devel build-essential nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl
+else
 if [ ${DISTRO} = Debian ]; then
     sudo apt update && sudo apt upgrade
     sudo apt install pip git mono-devel build-essential nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl
@@ -43,7 +47,8 @@ if [ ${DISTRO} = Fedora ]; then
     sudo dnf update && sudo dnf upgrade
     sudo dnf install git mono-devel nuget iasl nasm make gcc automake gcc-aarch64-linux-gnu kernel-devel python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl
 else
-    _error "Invaild Distro! Availbe Distros: Debian, Ubuntu, Fedora"
+    _error "Invaild Distro! Availbe Distros: Debian, Ubuntu, Fedora and Kali"
+fi
 fi
 fi
 fi
