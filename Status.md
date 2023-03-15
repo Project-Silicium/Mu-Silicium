@@ -27,7 +27,6 @@
 |USB|USB FN only|⚠️|
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
-|Mass Storage|No Mainline DTB|❌|
 |Slot Switch||✅|
 
 ### OS Status
@@ -107,7 +106,6 @@
 |USB|USB FN only|⚠️|
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
-|Mass Storage|No Mainline DTB|❌|
 |Slot Switch||❌|
 
 ### OS Status
@@ -185,7 +183,6 @@
 |USB|Needs a Patch|❌|
 |SD Card|Needs working Clocks|❌|
 |ACPI||❌|
-|Mass Storage|No Mainline DTB|❌|
 |Slot Switch|Not an A/B Device|❌|
 
 ### OS Status
@@ -263,7 +260,6 @@
 |USB|Needs a Patch|❌|
 |SD Card|Needs working Clocks|❌|
 |ACPI||❌|
-|Mass Storage|No Mainline DTB|❌|
 |Slot Switch||❌|
 
 ### OS Status
@@ -341,7 +337,6 @@
 |USB|Needs a Patch|❌|
 |SD Card|Needs working Clocks|❌|
 |ACPI||❌|
-|Mass Storage|No Mainline DTB|❌|
 |Slot Switch|Not an A/B Device|❌|
 
 ### OS Status
