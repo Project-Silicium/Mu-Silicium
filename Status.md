@@ -88,14 +88,14 @@
 
 # Z Fold 3 5G
 
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="500" alt="Preview">
+
 **SOC: SM8350** <br />
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
 **Tester: [Azkali](https://github.com/Azkali/)**
 
 ### UEFI Status
-
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="440" alt="Preview">
 
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
@@ -125,7 +125,7 @@
 |Battery||❔|
 |USB||❔|
 |Charging||❔|
-|CPU|Only One Core working right now|⚠️|
+|CPU||❔|
 |Touchscreen||❔|
 |Bluetooh||❔|
 |GPS||❔|
@@ -188,6 +188,60 @@
 |Mass Storage|No Mainline DTB|❌|
 |Slot Switch|Not an A/B Device|❌|
 
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+  
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td><td>
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td></tr> </table>
+
 ## Mi A3
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
@@ -212,6 +266,60 @@
 |Mass Storage|No Mainline DTB|❌|
 |Slot Switch||❌|
 
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+  
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td><td>
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td></tr> </table>
+
 ## Redmi 9T
 
 <img align="right" src="http://i01.appmifile.com/webfile/globalimg/J19S/J19s-Black-0108!800x800!85.png" width="500" alt="Preview">
@@ -235,3 +343,57 @@
 |ACPI||❌|
 |Mass Storage|No Mainline DTB|❌|
 |Slot Switch|Not an A/B Device|❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+  
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td><td>
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+
+</td></tr> </table>
