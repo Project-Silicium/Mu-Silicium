@@ -14,7 +14,7 @@ cd MU-Qcom
 After Cloning the repo we can now continue on Setting up the Environment. <br />
 First we need to install the needed Packages:
 ```
-./setup_env.sh -d <Distro>
+./setup_env.sh -p <Package Manager>
 pip install --upgrade -r pip-requirements.txt
 ```
 
