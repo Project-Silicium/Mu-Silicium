@@ -121,7 +121,7 @@
 [LibraryClasses.common]
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmMmuLib|ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib.inf
-!if $(USE_PHYSICAL_TIMER) == TRUE
+!if $(USE_PHYSICAL_TIMER) == 1
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.inf
 !else
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.inf
@@ -150,7 +150,7 @@
   DebugAgentLib|MdeModulePkg/Library/DebugAgentLibNull/DebugAgentLibNull.inf
   DevicePathLib|MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
   DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
-!if $(AB_SLOT_SUPPORT) == TRUE
+!if $(AB_SLOT_SUPPORT) == 1
   BootSlotLib|GPLDrivers/Library/BootSlotLib/BootSlotLib.inf
 !endif
   DebugPrintErrorLevelLib|MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
@@ -408,7 +408,7 @@
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   # Graphics Driver
-!if $(USE_DISPLAYDXE) == FALSE
+!if $(USE_DISPLAYDXE) == 0
   QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
@@ -457,7 +457,7 @@
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
-!if $(AB_SLOT_SUPPORT) == TRUE
+!if $(AB_SLOT_SUPPORT) == 1
   GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
 !endif

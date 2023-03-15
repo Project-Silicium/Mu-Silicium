@@ -184,7 +184,7 @@
     SECTION UI = "DALTLMM"
   }
   
-!if $(USE_DISPLAYDXE) == TRUE
+!if $(USE_DISPLAYDXE) == 1
   FILE DRIVER = 4138022F-06C7-4F79-9C94-7E33B511A4E7 {
     SECTION DXE_DEPEX = Binaries/ginkgo/DisplayDxe/DisplayDxe.depex
     SECTION PE32 = Binaries/ginkgo/DisplayDxe/DisplayDxe.efi

@@ -24,9 +24,9 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = SM6115Pkg/SM6115.fdf
-  USE_PHYSICAL_TIMER             = TRUE
-  USE_DISPLAYDXE                 = FALSE
-  AB_SLOT_SUPPORT                = FALSE
+  USE_PHYSICAL_TIMER             = 1
+  USE_DISPLAYDXE                 = 0
+  AB_SLOT_SUPPORT                = 0
 
 !include SM6115Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc
 !include QcomPkg/Qcom.dsc.inc

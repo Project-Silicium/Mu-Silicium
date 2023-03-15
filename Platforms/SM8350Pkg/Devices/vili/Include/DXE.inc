@@ -190,7 +190,7 @@
     SECTION UI = "GraphicsConsoleDxe"
   }
 
-!if $(USE_DISPLAYDXE) == TRUE
+!if $(USE_DISPLAYDXE) == 1
   FILE DRIVER = 1B52138D-3FA3-4E50-B958-20887353F809 {
     SECTION DXE_DEPEX = Binaries/vili/CPRDxe/CPRDxe.depex
     SECTION PE32 = Binaries/vili/CPRDxe/CPRDxe.efi
@@ -251,7 +251,7 @@
     SECTION UI = "MinidumpTADxe"
   }
 
-!if $(USE_DISPLAYDXE) == TRUE
+!if $(USE_DISPLAYDXE) == 1
   FILE DRIVER = 4138022F-06C7-4F79-9C94-7E33B511A4E7 {
     SECTION DXE_DEPEX = Binaries/vili/DisplayDxe/DisplayDxe.depex
     SECTION PE32 = Binaries/vili/DisplayDxe/DisplayDxe.efi

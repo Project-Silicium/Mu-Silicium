@@ -12,7 +12,7 @@
 
 [Defines]
   # Platform Defines
-  AB_SLOT_SUPPORT             = TRUE
+  AB_SLOT_SUPPORT             = 1
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM8350Pkg/Devices/vili/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf

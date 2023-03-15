@@ -187,7 +187,7 @@ READ_LOCK_STATUS   = TRUE
   INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
-!if $(AB_SLOT_SUPPORT) == TRUE
+!if $(AB_SLOT_SUPPORT) == 1
   INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   INF GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
 !endif

@@ -11,9 +11,6 @@
 #
 ##
 
-[Defines]
-  USE_DISPLAYDXE = FALSE
-
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM8350Pkg/Devices/q2q/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 

@@ -12,7 +12,7 @@
 
 [Defines]
   # Platform Defines
-  USE_DISPLAYDXE              = TRUE
+  USE_DISPLAYDXE              = 1
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM6125Pkg/Devices/laurel_sprout/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
