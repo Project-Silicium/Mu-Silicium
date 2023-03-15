@@ -23,7 +23,6 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 #define SIMPLE_INIT_NAME          L"SimpleInit"
 #define AB_SLOT_SWITCH_NAME       L"Other Slot"
-#define MASS_STORAGE_NAME         L"USB Attached SCSI (UAS) Storage"
 
 #define INTERNAL_UEFI_SHELL_NAME  L"Internal UEFI Shell"
 
@@ -487,7 +486,6 @@ MsBootOptionsLibRegisterDefaultBootOptions (
   RegisterFvBootOption (&gMsBootPolicyFileGuid, MS_PXE_BOOT, (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)MS_PXE_BOOT_PARM, sizeof (MS_PXE_BOOT_PARM));
   RegisterFvBootOption (PcdGetPtr (PcdShellFile), INTERNAL_UEFI_SHELL_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
   RegisterFvBootOption (&gSwitchSlotsAppFileGuid, AB_SLOT_SWITCH_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
-  RegisterFvBootOption (&gLinuxSimpleMassStorageGuid, MASS_STORAGE_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
 }
 
 /**
@@ -503,7 +501,7 @@ MsBootOptionsLibGetDefaultOptions (
   OUT UINTN  *OptionCount
   )
 {
-  UINTN                         LocalOptionCount = 7;
+  UINTN                         LocalOptionCount = 6;
   EFI_BOOT_MANAGER_LOAD_OPTION  *Option;
   EFI_STATUS                    Status;
   EFI_STATUS                    Status2;
@@ -527,7 +525,6 @@ MsBootOptionsLibGetDefaultOptions (
   }
 
   Status |= CreateFvBootOption (&gSwitchSlotsAppFileGuid, AB_SLOT_SWITCH_NAME, &Option[5], LOAD_OPTION_ACTIVE, NULL, 0);
-  Status |= CreateFvBootOption (&gLinuxSimpleMassStorageGuid, MASS_STORAGE_NAME, &Option[6], LOAD_OPTION_ACTIVE, NULL, 0);
 
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "%a Error creating defatult boot options\n", __FUNCTION__));

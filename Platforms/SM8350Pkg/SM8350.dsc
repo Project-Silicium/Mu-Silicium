@@ -26,7 +26,6 @@
   FLASH_DEFINITION               = SM8350Pkg/SM8350.fdf
   USE_PHYSICAL_TIMER             = FALSE
   USE_DISPLAYDXE                 = FALSE
-  MASS_STORAGE_SUPPORT           = FALSE
   AB_SLOT_SUPPORT                = FALSE
 
 !include SM8350Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc

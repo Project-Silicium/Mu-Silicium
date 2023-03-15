@@ -192,10 +192,6 @@ READ_LOCK_STATUS   = TRUE
   INF GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
 !endif
 
-!if $(MASS_STORAGE_SUPPORT) == TRUE
-  INF QcomPkg/Applications/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
-!endif
-
   # Simple Init GUI
   INF src/main/SimpleInitMain.inf
 

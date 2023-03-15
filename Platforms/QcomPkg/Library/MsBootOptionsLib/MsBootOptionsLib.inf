@@ -42,7 +42,6 @@
 [Guids]
   gMsBootPolicyFileGuid
   gSwitchSlotsAppFileGuid
-  gLinuxSimpleMassStorageGuid
   gSimpleInitFileGuid
 
 [Protocols]

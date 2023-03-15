@@ -26,7 +26,6 @@
   FLASH_DEFINITION               = SM6125Pkg/SM6125.fdf
   USE_PHYSICAL_TIMER             = TRUE
   USE_DISPLAYDXE                 = FALSE
-  MASS_STORAGE_SUPPORT           = FALSE
   AB_SLOT_SUPPORT                = FALSE
 
 !include SM6125Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc

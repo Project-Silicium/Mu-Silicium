@@ -462,10 +462,6 @@
   GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
 !endif
 
-!if $(MASS_STORAGE_SUPPORT) == TRUE
-  QcomPkg/Applications/LinuxSimpleMassStorage/LinuxSimpleMassStorage.inf
-!endif
-
   AdvLoggerPkg/AdvancedFileLogger/AdvancedFileLogger.inf
   MdeModulePkg/Universal/MemoryTest/NullMemoryTestDxe/NullMemoryTestDxe.inf
 
