@@ -183,7 +183,6 @@ READ_LOCK_STATUS   = TRUE
   }
 
   INF QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
-  INF QcomPkg/Applications/SimpleInit/SimpleInit.inf
   INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
@@ -217,7 +216,7 @@ READ_LOCK_STATUS   = TRUE
 
   FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
     SECTION UI = "uefiplat.cfg"
-    SECTION RAW = Binaries/$(TARGET_DEVICE)/uefiplat.cfg
+    SECTION RAW = Binaries/$(TARGET_DEVICE)/RawFiles/uefiplat.cfg
   }
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {
