@@ -12,7 +12,7 @@ APRIORI DXE {
     INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
     INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
 
-	  # Core Drivers
+	# Core Drivers
     INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
     INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
     INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
@@ -175,11 +175,11 @@ APRIORI DXE {
 
 	  INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-    #FILE DRIVER = 040E1E61-0AFB-411B-9EC9-00F3FC59CC13 {
-    #  SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.depex
-    #  SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.efi
-    #  SECTION UI = "QcomWDogDxe"
-    #}
+    FILE DRIVER = 040E1E61-0AFB-411B-9EC9-00F3FC59CC13 {
+      SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.depex
+      SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.patched.efi
+      SECTION UI = "QcomWDogDxe"
+    }
 
     FILE DRIVER = 7DB0793A-4402-4BE1-906E-D0FABAD2707E {
       SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.depex
@@ -217,10 +217,10 @@ APRIORI DXE {
       SECTION UI = "Chg"
     }
 
-    #FILE DRIVER = 1C04F529-0612-4319-9315-B2E75C16810A {
-    #  SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.efi
-    #  SECTION UI = "FeatureEnablerDxe"
-    #}
+    FILE DRIVER = 1C04F529-0612-4319-9315-B2E75C16810A {
+      SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.patched.efi
+      SECTION UI = "FeatureEnablerDxe"
+    }
 
 !if $(USE_DISPLAYDXE) == 1
     FILE DRIVER = 4138022F-06C7-4F79-9C94-7E33B511A4E7 {
@@ -345,7 +345,7 @@ APRIORI DXE {
 
     FILE DRIVER = cd823a4d-7dec-4531-ae5d-4134fa4127b8 {
       SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.depex
-      SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.efi
+      SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.patched.efi
       SECTION UI = "UsbConfigDxe"
     }
 
