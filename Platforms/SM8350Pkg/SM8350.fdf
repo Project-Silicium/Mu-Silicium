@@ -183,6 +183,7 @@ READ_LOCK_STATUS   = TRUE
   }
 
   INF QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
+  INF QcomPkg/UFP/ufpdevicefw.inf
   INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 

@@ -454,6 +454,7 @@
   MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
 
   QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
+  QcomPkg/UFP/ufpdevicefw.inf
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
