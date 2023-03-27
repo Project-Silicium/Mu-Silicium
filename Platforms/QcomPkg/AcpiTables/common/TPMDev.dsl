@@ -1,7 +1,25 @@
-DefinitionBlock ("", "SSDT", 2, "MSFT  ", "fTPM    ", 0x00000002)
+//  Copyright (c), Microsoft Corporation. All rights reserved.
+//
+//  This program and the accompanying materials
+//  are licensed and made available under the terms and conditions of the BSD License
+//  which accompanies this distribution.  The full text of the license may be found at
+//  http://opensource.org/licenses/bsd-license.php
+//
+//  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+//
+
+//
+// SSDT definitions for the software TPM2 device and Microsoft FTPM simulator
+//
+
+DefinitionBlock ("TPMDev.dat", "SSDT", 2, "MSFT  ", "fTPM    ", 0x00000002)
 {
     Scope (\_SB)
     {
+        //
+        // Description: Software TPM2.0
+        //
         Device (TPM2)
         {
             Name (_ADR, Zero)  // _ADR: Address
@@ -12,9 +30,8 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "fTPM    ", 0x00000002)
             Name (_STR, Unicode ("Microsoft TPM 2.0"))  // _STR: Description String
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                Name (RBUF, Buffer (0x02)
+                Name (RBUF, ResourceTemplate ()
                 {
-                     0x79, 0x00                                       // y.
                 })
                 Return (RBUF) /* \_SB_.TPM2._CRS.RBUF */
             }
@@ -25,6 +42,9 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "fTPM    ", 0x00000002)
             }
         }
 
+        //
+        // Description: Microsoft FTPM Simulator
+        //
         Device (FSIM)
         {
             Name (_ADR, Zero)  // _ADR: Address
@@ -34,9 +54,8 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "fTPM    ", 0x00000002)
             Name (_STR, Unicode ("Microsoft fTPM Simulator"))  // _STR: Description String
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                Name (RBUF, Buffer (0x02)
+                Name (RBUF, ResourceTemplate ()
                 {
-                     0x79, 0x00                                       // y.
                 })
                 Return (RBUF) /* \_SB_.FSIM._CRS.RBUF */
             }
@@ -48,4 +67,3 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "fTPM    ", 0x00000002)
         }
     }
 }
-

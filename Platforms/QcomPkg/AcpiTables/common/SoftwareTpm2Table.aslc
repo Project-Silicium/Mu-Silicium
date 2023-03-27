@@ -1,0 +1,46 @@
+//  Copyright (c), Microsoft Corporation. All rights reserved.
+//
+//  This program and the accompanying materials
+//  are licensed and made available under the terms and conditions of the BSD License
+//  which accompanies this distribution.  The full text of the license may be found at
+//  http://opensource.org/licenses/bsd-license.php
+//
+//  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+//
+//  TPM2 Table (TPM2)
+
+//
+// TPM2 Table for Simulator
+// [000h 0000   4]                    Signature : "TPM2"    [Trusted Platform Module hardware interface table]
+// [004h 0004   4]                 Table Length : 00000044
+// [008h 0008   1]                     Revision : 03
+// [009h 0009   1]                     Checksum : B0
+// [00Ah 0010   6]                       Oem ID : "MSFT  "
+// [010h 0016   8]                 Oem Table ID : "fTPM    "
+// [018h 0024   4]                 Oem Revision : 00000001
+// [01Ch 0028   4]              Asl Compiler ID : "DM  "
+// [020h 0032   4]        Asl Compiler Revision : 20141014
+// [024h 0036   4]                        Flags : 00000000
+// [028h 0040   8]              Control Address : 0000000000000000
+// [030h 0048   4]                 Start Method : 00000007
+//
+// Raw Table Data: Length 68 (0x44)
+// 0000: 54 50 4D 32 44 00 00 00 03 B0 4D 53 46 54 20 20  TPM2D.....MSFT
+// 0010: 66 54 50 4D 20 20 20 20 01 00 00 00 44 4D 20 20  fTPM    ....DM
+// 0020: 14 10 14 20 00 00 00 00 00 00 00 00 00 00 00 00  ... ............
+// 0030: 07 00 00 00 45 54 41 4C 55 4D 49 53 00 00 00 00  ....ETALUMIS....
+// 0040: 00 00 00 00                                      ....
+//
+
+char TPM2SoftwareTpm[68] = {
+    0x54, 0x50, 0x4D, 0x32, 0x44, 0x00, 0x00, 0x00, 0x03, 0xB0, 0x4D, 0x53, 0x46, 0x54, 0x20, 0x20,
+    0x66, 0x54, 0x50, 0x4D, 0x20, 0x20, 0x20, 0x20, 0x01, 0x00, 0x00, 0x00, 0x44, 0x4D, 0x20, 0x20,
+    0x14, 0x10, 0x14, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x07, 0x00, 0x00, 0x00, 0x45, 0x54, 0x41, 0x4C, 0x55, 0x4D, 0x49, 0x53, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00
+};
+
+void * ReferenceAcpiTable(void) {
+    return (void *) &TPM2SoftwareTpm;
+}
