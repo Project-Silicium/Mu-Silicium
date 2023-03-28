@@ -1,0 +1,30 @@
+## @file
+# Dependabot configuration file to enable GitHub services for managing and updating
+# dependencies.
+#
+#       This dependabot file is limited to syncing the following type of dependencies. Other files
+#       are already available in Mu DevOps to sync other dependency types.
+#         - GitHub Actions (`github-actions`)
+#         - Git Submodules (`gitsubmodule`)
+#         - Python PIP Modules (`pip`)
+#
+# - Mu DevOps Repo: https://github.com/microsoft/mu_devops
+# - File Sync Settings: https://github.com/microsoft/mu_devops/blob/main/.sync/Files.yml
+#
+# Copyright (c) Microsoft Corporation.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+# Please see the documentation for all dependabot configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+##
+
+version: 2
+
+updates:
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "type:submodules"
+      - "type:dependencies"
