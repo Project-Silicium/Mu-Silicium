@@ -101,8 +101,8 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|UFS||❔|
-|Buttons||✅|
+|UFS||✅|
+|Buttons|Power Button is not patched|⚠️|
 |USB|USB FN only|⚠️|
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
@@ -116,25 +116,26 @@
   
 |Feature|Description|Working state|
 |:------|:----------|:-----------:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooh||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
+|Boot||✅|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|Only One Core working right now|⚠️|
+|Touchscreen||❌|
+|Bluetooh||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
 
 </td><td>
 
@@ -147,6 +148,7 @@
 |Battery||❔|
 |USB||❔|
 |Charging||❔|
+|WLAN||❔|
 |CPU||❔|
 |Touchscreen||❔|
 |Bluetooh||❔|
@@ -157,7 +159,7 @@
 |NFC||❔|
 |Fingerprint||❔|
 |Mobile Data||❔|
-|Display Output||❔|
+|Display||❔|
 |Vibration||❔|
 
 </td></tr> </table>
