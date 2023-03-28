@@ -187,3 +187,8 @@ FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
     SECTION UI = "BDS_Menu.cfg"
     SECTION RAW = Binaries/q2q/RawFiles/BDS_Menu.cfg
 }
+
+FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1f2dd {
+    SECTION UI = "simpleinit.static.uefi.cfg"
+    SECTION RAW = Binaries/q2q/RawFiles/simpleinit.static.uefi.cfg
+}
