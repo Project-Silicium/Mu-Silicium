@@ -72,7 +72,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
                 {
                     Memory32Fixed (ReadWrite,
                         0x01D84000,         // Address Base
-                        0x0001C000,         // Address Length
+                        0x00015000,         // Address Length
                         )
                     Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
                     {
