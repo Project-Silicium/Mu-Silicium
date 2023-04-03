@@ -1,7 +1,7 @@
 [000h 0000   4]                    Signature : "APIC"    [Multiple APIC Description Table (MADT)]
 [004h 0004   4]                 Table Length : 000002E8
 [008h 0008   1]                     Revision : 05
-[009h 0009   1]                     Checksum : BB
+[009h 0009   1]                     Checksum : C2
 [00Ah 0010   6]                       Oem ID : "QCOM  "
 [010h 0016   8]                 Oem Table ID : "QCOMEDK2"
 [018h 0024   4]                 Oem Revision : 00008280
@@ -28,7 +28,7 @@
 [054h 0084   8]     Virtual GIC Base Address : 0000000000000000
 [05Ch 0092   8]  Hypervisor GIC Base Address : 0000000000000000
 [064h 0100   4]        Virtual GIC Interrupt : 00000019
-[068h 0104   8]   Redistributor Base Address : 0000000000000000
+[068h 0104   8]   Redistributor Base Address : 0000000017A60000
 [070h 0112   8]                    ARM MPIDR : 0000000000000000
 [078h 0120   1]             Efficiency Class : 00
 [079h 0121   1]                     Reserved : 00
@@ -50,7 +50,7 @@
 [0A4h 0164   8]     Virtual GIC Base Address : 0000000000000000
 [0ACh 0172   8]  Hypervisor GIC Base Address : 0000000000000000
 [0B4h 0180   4]        Virtual GIC Interrupt : 00000019
-[0B8h 0184   8]   Redistributor Base Address : 0000000000000000
+[0B8h 0184   8]   Redistributor Base Address : 0000000017AA0000
 [0C0h 0192   8]                    ARM MPIDR : 0000000000000100
 [0C8h 0200   1]             Efficiency Class : 00
 [0C9h 0201   1]                     Reserved : 00
@@ -72,7 +72,7 @@
 [0F4h 0244   8]     Virtual GIC Base Address : 0000000000000000
 [0FCh 0252   8]  Hypervisor GIC Base Address : 0000000000000000
 [104h 0260   4]        Virtual GIC Interrupt : 00000019
-[108h 0264   8]   Redistributor Base Address : 0000000000000000
+[108h 0264   8]   Redistributor Base Address : 0000000017AE0000
 [110h 0272   8]                    ARM MPIDR : 0000000000000200
 [118h 0280   1]             Efficiency Class : 00
 [119h 0281   1]                     Reserved : 00
@@ -94,7 +94,7 @@
 [144h 0324   8]     Virtual GIC Base Address : 0000000000000000
 [14Ch 0332   8]  Hypervisor GIC Base Address : 0000000000000000
 [154h 0340   4]        Virtual GIC Interrupt : 00000019
-[158h 0344   8]   Redistributor Base Address : 0000000000000000
+[158h 0344   8]   Redistributor Base Address : 0000000017B20000
 [160h 0352   8]                    ARM MPIDR : 0000000000000300
 [168h 0360   1]             Efficiency Class : 00
 [169h 0361   1]                     Reserved : 00
@@ -116,7 +116,7 @@
 [194h 0404   8]     Virtual GIC Base Address : 0000000000000000
 [19Ch 0412   8]  Hypervisor GIC Base Address : 0000000000000000
 [1A4h 0420   4]        Virtual GIC Interrupt : 00000019
-[1A8h 0424   8]   Redistributor Base Address : 0000000000000000
+[1A8h 0424   8]   Redistributor Base Address : 0000000017B60000
 [1B0h 0432   8]                    ARM MPIDR : 0000000000000400
 [1B8h 0440   1]             Efficiency Class : 01
 [1B9h 0441   1]                     Reserved : 00
@@ -138,7 +138,7 @@
 [1E4h 0484   8]     Virtual GIC Base Address : 0000000000000000
 [1ECh 0492   8]  Hypervisor GIC Base Address : 0000000000000000
 [1F4h 0500   4]        Virtual GIC Interrupt : 00000019
-[1F8h 0504   8]   Redistributor Base Address : 0000000000000000
+[1F8h 0504   8]   Redistributor Base Address : 0000000017BA0000
 [200h 0512   8]                    ARM MPIDR : 0000000000000500
 [208h 0520   1]             Efficiency Class : 01
 [209h 0521   1]                     Reserved : 00
@@ -160,7 +160,7 @@
 [234h 0564   8]     Virtual GIC Base Address : 0000000000000000
 [23Ch 0572   8]  Hypervisor GIC Base Address : 0000000000000000
 [244h 0580   4]        Virtual GIC Interrupt : 00000019
-[248h 0584   8]   Redistributor Base Address : 0000000000000000
+[248h 0584   8]   Redistributor Base Address : 0000000017BE0000
 [250h 0592   8]                    ARM MPIDR : 0000000000000600
 [258h 0600   1]             Efficiency Class : 01
 [259h 0601   1]                     Reserved : 00
@@ -182,14 +182,14 @@
 [284h 0644   8]     Virtual GIC Base Address : 0000000000000000
 [28Ch 0652   8]  Hypervisor GIC Base Address : 0000000000000000
 [294h 0660   4]        Virtual GIC Interrupt : 00000019
-[298h 0664   8]   Redistributor Base Address : 0000000000000000
+[298h 0664   8]   Redistributor Base Address : 0000000017D20000
 [2A0h 0672   8]                    ARM MPIDR : 0000000000000700
-[2A8h 0680   1]             Efficiency Class : 02
+[2A8h 0680   1]             Efficiency Class : 01
 [2A9h 0681   1]                     Reserved : 00
 [2AAh 0682   2]       SPE Overflow Interrupt : 0000
 
 [2ACh 0684   1]                Subtable Type : 0C [Generic Interrupt Distributor]
-[2ADh 0685   1]                       Length : 18
+[2ADh 0685   1]                       Length : 19
 [2AEh 0686   2]                     Reserved : 0000
 [2B0h 0688   4]        Local GIC Hardware ID : 00000000
 [2B4h 0692   8]                 Base Address : 0000000017A00000
@@ -197,15 +197,9 @@
 [2C0h 0704   1]                      Version : 03
 [2C1h 0705   3]                     Reserved : 000000
 
-[2C4h 0708   1]                Subtable Type : 0E [Generic Interrupt Redistributor]
-[2C5h 0709   1]                       Length : 10
-[2C6h 0710   2]                     Reserved : 0000
-[2C8h 0712   8]                 Base Address : 0000000017A60000
-[2D0h 0720   4]                       Length : 00100000
-
-[2D4h 0724   1]                Subtable Type : 0F [Generic Interrupt Translator]
-[2D5h 0725   1]                       Length : 14
-[2D6h 0726   2]                     Reserved : 0000
-[2D8h 0728   4]               Translation ID : 00000000
-[2DCh 0732   8]                 Base Address : 0000000017A40000
-[2E4h 0740   4]                     Reserved : 00000000
+[2C5h 0709   1]                Subtable Type : 0F [Generic Interrupt Translator]
+[2C6h 0710   1]                       Length : 14
+[2C7h 0711   2]                     Reserved : 0000
+[2C9h 0713   4]               Translation ID : 00000000
+[2CDh 0717   8]                 Base Address : 0000000017A40000
+[2D5h 0725   4]                     Reserved : 00000000

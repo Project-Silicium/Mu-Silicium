@@ -39,7 +39,7 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00008350
-  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x09BC0000
+  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x17A60000
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
