@@ -123,7 +123,7 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 
 CHAR8 *mBIOSInfoType0Strings[] = {
     "Robotix22",       // Vendor String
-    "1.3",             // BiosVersion String
+    "1.4",             // BiosVersion String
     __DATE__,          // BiosReleaseDate String
     NULL};
 

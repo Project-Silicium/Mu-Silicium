@@ -40,7 +40,7 @@
 
 [PcdsFixedAtBuild.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"1.3"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"1.4"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x00170A02
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
