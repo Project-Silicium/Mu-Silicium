@@ -182,7 +182,7 @@
 |Clocks|Needs a Patch|❌|
 |eMMC|Needs working Clocks|❌|
 |Buttons||✅|
-|USB|Needs a Patch|❌|
+|USB|Only Charging|⚠️|
 |SD Card|Needs working Clocks|❌|
 |ACPI||❌|
 |Slot Switch|Not an A/B Device|❌|
@@ -336,7 +336,7 @@
 |Clocks|Needs a Patch|❌|
 |UFS|Needs working Clocks|❌|
 |Buttons||✅|
-|USB|Needs a Patch|❌|
+|USB|Only Charging|⚠️|
 |SD Card|Needs working Clocks|❌|
 |ACPI||❌|
 |Slot Switch|Not an A/B Device|❌|
