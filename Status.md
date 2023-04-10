@@ -12,8 +12,8 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
-**SOC: SM8350** <br />
-**Codename: vili** <br />
+**SOC: SM8450** <br />
+**Codename: gts8** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [Robotix22](https://github.com/Robotix22/)**
 
