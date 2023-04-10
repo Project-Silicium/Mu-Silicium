@@ -1,0 +1,2 @@
+URL:    https://git.codelinaro.org/clo/la/abl/tianocore/edk2
+BRANCH: LA.VENDOR.1.0.r1-20900-WAIPIO.QSSI14.0

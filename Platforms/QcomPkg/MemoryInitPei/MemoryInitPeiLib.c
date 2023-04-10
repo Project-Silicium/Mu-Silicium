@@ -80,6 +80,7 @@ MemoryPeim (
     case AddMem:
     case AddDev:
     case HobOnlyNoCacheSetting:
+    case AddDynamicMem:
     case AllocOnly:
       AddHob(MemoryDescriptorEx);
       break;
