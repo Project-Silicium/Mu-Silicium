@@ -26,9 +26,9 @@
 |Clocks||✅|
 |UFS||❌|
 |Buttons||❔|
-|USB|USB FN only|❔|
-|SD Card|No SD Card slot|❌|
-|ACPI|Still in Work|❌|
+|USB||❔|
+|SD Card||❌|
+|ACPI||❌|
 |Slot Switch||❌|
 
 ### OS Status
