@@ -87,6 +87,85 @@
 
 </td></tr> </table>
 
+# Galaxy Z Fold 3 5G
+
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="500" alt="Preview">
+
+**SOC: SM8350** <br />
+**Codename: q2q** <br />
+**Maintainer: [Azkali](https://github.com/Azkali/)** <br />
+**Tester: [Azkali](https://github.com/Azkali/)**
+
+### UEFI Status
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Display||✅|
+|Touchscreen|Not Possible right now|❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons|Power Button is not patched|⚠️|
+|USB|USB FN only|⚠️|
+|SD Card|No SD Card slot|❌|
+|ACPI|Still in Work|⚠️|
+|Slot Switch||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+  
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||✅|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|Only One Core working right now|⚠️|
+|Touchscreen||❌|
+|Bluetooh||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|Working state|
+|:------|:----------|:-----------:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|WLAN||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooh||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display||❔|
+|Vibration||❔|
+
+</td></tr> </table>
+
 ## Xiaomi 11T Pro
 
 <img align="right" src="http://i01.appmifile.com/webfile/globalimg/JenniferK/Product/K3S-black!800x800!85.png" width="500" alt="Preview">
@@ -163,85 +242,6 @@
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-
-</td></tr> </table>
-
-# Z Fold 3 5G
-
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="500" alt="Preview">
-
-**SOC: SM8350** <br />
-**Codename: q2q** <br />
-**Maintainer: [Azkali](https://github.com/Azkali/)** <br />
-**Tester: [Azkali](https://github.com/Azkali/)**
-
-### UEFI Status
-
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
-|Display||✅|
-|Touchscreen|Not Possible right now|❌|
-|Clocks||✅|
-|UFS||✅|
-|Buttons|Power Button is not patched|⚠️|
-|USB|USB FN only|⚠️|
-|SD Card|No SD Card slot|❌|
-|ACPI|Still in Work|⚠️|
-|Slot Switch||❌|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-  
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
-|Boot||✅|
-|UFS||❌|
-|Buttons||❌|
-|Sensors||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
-|Touchscreen||❌|
-|Bluetooh||❌|
-|GPS||❌|
-|Audio||❌|
-|GPU||❌|
-|Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|WLAN||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooh||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display||❔|
-|Vibration||❔|
 
 </td></tr> </table>
 
