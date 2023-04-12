@@ -24,12 +24,12 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|UFS||❌|
-|Buttons||❔|
+|UFS|Needs a Patch|❌|
+|Buttons|Can't work without PmicDxe|❌|
 |USB||❔|
-|SD Card||❌|
+|SD Card|Needs a Patch|❌|
 |ACPI||❌|
-|Slot Switch||❌|
+|Slot Switch|Not a A/B Device|❌|
 
 ### OS Status
 
@@ -245,14 +245,14 @@
 
 </td></tr> </table>
 
-## Redmi Note 8/8T
+## Mi A3
 
-<img align="right" src="https://www.kibotek.com/wp-content/uploads/2021/06/kiboTEK_xiaomi_redminote_8_2021_007.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
 
 **SOC: SM6125** <br />
-**Codename: ginkgo** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Testers: [SwedMlite](https://github.com/SwedMlite), [VAVANESKA](https://github.com/VAVANESKA), [Vicente Cortes](https://github.com/vicenteicc2008), [kubawis128](https://github.com/kubawis128)**
+**Codename: laurel_sprout** <br />
+**Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
+**Tester: [Kernel357](https://github.com/Kernel357)**
 
 ### UEFI Status
 
@@ -261,12 +261,12 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks|Needs a Patch|❌|
-|eMMC|Needs working Clocks|❌|
+|UFS|Needs working Clocks|❌|
 |Buttons||✅|
-|USB|Only Charging|⚠️|
+|USB|Needs a Patch|❌|
 |SD Card|Needs working Clocks|❌|
 |ACPI||❌|
-|Slot Switch|Not an A/B Device|❌|
+|Slot Switch||❌|
 
 ### OS Status
 
@@ -322,14 +322,14 @@
 
 </td></tr> </table>
 
-## Mi A3
+## Redmi Note 8/8T
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
+<img align="right" src="https://www.kibotek.com/wp-content/uploads/2021/06/kiboTEK_xiaomi_redminote_8_2021_007.png" width="500" alt="Preview">
 
 **SOC: SM6125** <br />
-**Codename: laurel_sprout** <br />
-**Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
-**Tester: [Kernel357](https://github.com/Kernel357)**
+**Codename: ginkgo** <br />
+**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Testers: [SwedMlite](https://github.com/SwedMlite), [VAVANESKA](https://github.com/VAVANESKA), [Vicente Cortes](https://github.com/vicenteicc2008), [kubawis128](https://github.com/kubawis128)**
 
 ### UEFI Status
 
@@ -338,12 +338,12 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks|Needs a Patch|❌|
-|UFS|Needs working Clocks|❌|
+|eMMC|Needs working Clocks|❌|
 |Buttons||✅|
-|USB|Needs a Patch|❌|
+|USB|Only Charging|⚠️|
 |SD Card|Needs working Clocks|❌|
 |ACPI||❌|
-|Slot Switch||❌|
+|Slot Switch|Not an A/B Device|❌|
 
 ### OS Status
 
