@@ -30,6 +30,7 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|0|UINT32|0x0000a400
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|0|UINT32|0x0000a401
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|0|UINT32|0x0000a402
+  gQcomTokenSpaceGuid.PcdMipiFrameBufferDelay|0|UINT32|0x0000a403
 
   ## This PCD points to the file name GUID of the UFPMenuApp
   #  Platform can customize the PCD to point to different application for UFP Menu

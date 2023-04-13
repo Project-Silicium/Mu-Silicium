@@ -1,6 +1,10 @@
 #include <PiDxe.h>
 
+#include <Library/BaseLib.h>
 #include <Library/ArmLib.h>
+#include <Library/TimerLib.h>
+#include <Library/PcdLib.h>
+#include <Library/BaseMemoryLib.h>
 #include <Library/CacheMaintenanceLib.h>
 #include <Library/HobLib.h>
 #include <Library/MemoryMapHelperLib.h>
@@ -11,9 +15,11 @@
 
 #include <Library/FrameBufferSerialPortLib.h>
 
+UINTN delay = FixedPcdGet32(PcdMipiFrameBufferDelay);
+
 ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
 
-FBCON_POSITION* p_Position = NULL;
+FBCON_POSITION m_Position;
 FBCON_POSITION m_MaxPosition;
 FBCON_COLOR    m_Color;
 BOOLEAN        m_Initialized = FALSE;
@@ -38,12 +44,17 @@ RETURN_STATUS
 EFIAPI
 SerialPortInitialize(VOID)
 {
+  UINTN InterruptState = 0;
+
   // Prevent dup initialization
   if (m_Initialized)
     return RETURN_SUCCESS;
 
+  // Interrupt Disable
+  InterruptState = ArmGetInterruptState();
+  ArmDisableInterrupts();
+
   LocateMemoryMapAreaByName("Display Reserved", &DisplayMemoryRegion);
-  p_Position = (FBCON_POSITION*)(DisplayMemoryRegion.Address + (FixedPcdGet32(PcdMipiFrameBufferWidth) * FixedPcdGet32(PcdMipiFrameBufferHeight) * FixedPcdGet32(PcdMipiFrameBufferPixelBpp) / 8));
 
   // Reset console
   FbConReset();
@@ -51,6 +62,8 @@ SerialPortInitialize(VOID)
   // Set flag
   m_Initialized = TRUE;
 
+  if (InterruptState)
+    ArmEnableInterrupts();
   return RETURN_SUCCESS;
 }
 
@@ -76,6 +89,10 @@ void ResetFb(void)
 
 void FbConReset(void)
 {
+  // Reset position.
+  m_Position.x = 0;
+  m_Position.y = 0;
+
   // Calc max position.
   m_MaxPosition.x = gWidth / (FONT_WIDTH + 1);
   m_MaxPosition.y = (gHeight - 1) / FONT_HEIGHT;
@@ -89,6 +106,9 @@ void FbConPutCharWithFactor(char c, int type, unsigned scale_factor)
 {
   char *Pixels;
 
+  if (!m_Initialized)
+    return;
+
 paint:
 
   if ((unsigned char)c > 127)
@@ -99,7 +119,7 @@ paint:
       goto newline;
     }
     else if (c == '\r') {
-      p_Position->x = 0;
+      m_Position.x = 0;
       return;
     }
     else {
@@ -108,46 +128,48 @@ paint:
   }
 
   // Save some space
-  if (p_Position->x == 0 && (unsigned char)c == ' ' &&
+  if (m_Position.x == 0 && (unsigned char)c == ' ' &&
       type != FBCON_SUBTITLE_MSG && type != FBCON_TITLE_MSG)
     return;
 
   BOOLEAN intstate = ArmGetInterruptState();
-  if (intstate)
-    ArmDisableInterrupts();
+  ArmDisableInterrupts();
 
   Pixels = (void *)DisplayMemoryRegion.Address;
-  Pixels += p_Position->y * ((gBpp / 8) * FONT_HEIGHT * gWidth);
-  Pixels += p_Position->x * scale_factor * ((gBpp / 8) * (FONT_WIDTH + 1));
+  Pixels += m_Position.y * ((gBpp / 8) * FONT_HEIGHT * gWidth);
+  Pixels += m_Position.x * scale_factor * ((gBpp / 8) * (FONT_WIDTH + 1));
 
   FbConDrawglyph(
       Pixels, gWidth, (gBpp / 8), font5x12 + (c - 32) * 2, scale_factor);
 
-  p_Position->x++;
+  m_Position.x++;
 
-  if (p_Position->x >= (int)(m_MaxPosition.x / scale_factor))
-    goto newline;
+  if (m_Position.x >= (int)(m_MaxPosition.x / scale_factor))
+    goto newline2;
 
   if (intstate)
     ArmEnableInterrupts();
   return;
 
 newline:
-  p_Position->y += scale_factor;
-  p_Position->x = 0;
-  if (p_Position->y >= m_MaxPosition.y - scale_factor) {
+  MicroSecondDelay( delay );
+
+newline2:
+  m_Position.y += scale_factor;
+  m_Position.x = 0;
+  if (m_Position.y >= m_MaxPosition.y - scale_factor)
+  {
     ResetFb();
     FbConFlush();
-    p_Position->y = 0;
+    m_Position.y = 0;
 
-    if (intstate)
-      ArmEnableInterrupts();
-    goto paint;
+    if (intstate) ArmEnableInterrupts();
+      goto paint;
   }
-  else {
+  else
+  {
     FbConFlush();
-    if (intstate)
-      ArmEnableInterrupts();
+    if (intstate) ArmEnableInterrupts();
   }
 }
 
@@ -288,9 +310,7 @@ SerialPortWrite(IN UINT8 *Buffer, IN UINTN NumberOfBytes)
 {
   UINT8 *CONST Final          = &Buffer[NumberOfBytes];
   UINTN        InterruptState = ArmGetInterruptState();
-
-  if (InterruptState)
-    ArmDisableInterrupts();
+  ArmDisableInterrupts();
 
   while (Buffer < Final) {
     FbConPutCharWithFactor(*Buffer++, FBCON_COMMON_MSG, SCALE_FACTOR);
@@ -309,9 +329,7 @@ SerialPortWriteCritical(IN UINT8 *Buffer, IN UINTN NumberOfBytes)
   UINTN        CurrentForeground = m_Color.Foreground;
   UINTN        InterruptState    = ArmGetInterruptState();
 
-  if (InterruptState)
-    ArmDisableInterrupts();
-
+  ArmDisableInterrupts();
   m_Color.Foreground = FB_BGRA8888_YELLOW;
 
   while (Buffer < Final) {

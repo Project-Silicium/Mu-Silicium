@@ -3,7 +3,7 @@ APRIORI DXE {
     # First, install the PCD driver and call DxeInit
     INF MdeModulePkg/Core/Dxe/DxeMain.inf
     INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-    
+
     FILE DRIVER = 90A49AFD-422F-08AE-9611-E788D3804845 {
       SECTION DXE_DEPEX = Binaries/gts8/QcomPkg/Drivers/EnvDxe/EnvDxe.depex
       SECTION PE32 = Binaries/gts8/QcomPkg/Drivers/EnvDxe/EnvDxe.efi
