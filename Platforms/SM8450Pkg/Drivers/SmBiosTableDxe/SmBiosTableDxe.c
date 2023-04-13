@@ -317,8 +317,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a710 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-    2580,                  // MaxSpeed;
-    2580,                  // CurrentSpeed;
+    2500,                  // MaxSpeed;
+    2500,                  // CurrentSpeed;
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
@@ -372,8 +372,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a510 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-    1800,                  // MaxSpeed;
-    1800,                  // CurrentSpeed;
+    1780,                  // MaxSpeed;
+    1780,                  // CurrentSpeed;
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
@@ -755,9 +755,7 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
     0                      // ExtendedConfiguredMemorySpeed
 };
 
-CHAR8 *mMemDevInfoType17Strings[] = {
-    "Top - on board",     "Bank 0", "Hynix", "Not Specified", "Not Specified",
-    "H9HKNNNEBMAVAR-NEH", NULL};
+CHAR8 *mMemDevInfoType17Strings[] = {"Builtin", "BANK 0", NULL};
 
 /***********************************************************************
         SMBIOS data definition  TYPE19  Memory Array Mapped Address Information
