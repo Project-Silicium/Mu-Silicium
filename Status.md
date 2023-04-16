@@ -22,10 +22,10 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|UFS|Needs a Patch|❌|
+|UFS||✅|
 |Buttons|Can't work without PmicDxe|❌|
 |USB||❔|
-|SD Card|Needs a Patch|❌|
+|SD Card||❔|
 |ACPI||❌|
 |Slot Switch|Not a A/B Device|❌|
 
