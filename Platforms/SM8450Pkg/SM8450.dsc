@@ -48,7 +48,7 @@
   PowerServicesLib|SM8450Pkg/Library/PowerServicesLib/PowerServicesLib.inf
   PlatformPeiLib|SM8450Pkg/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM8450Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  RFSProtectionLib|SM8450Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+  #RFSProtectionLib|SM8450Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM8450Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   MsPlatformDevicesLib|SM8450Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
 
