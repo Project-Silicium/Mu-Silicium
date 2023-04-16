@@ -8,8 +8,6 @@
 
 ## Galaxy Tab S8 5G
 
-**NOTE: The UEFI is stuck on BdsDxe for some reason don't use yet**
-
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
 **SOC: SM8450** <br />
