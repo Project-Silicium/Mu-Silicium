@@ -10,8 +10,8 @@ APRIORI DXE {
       SECTION UI = "EnvDxe"
     }
 
-    INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
-    INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
+    # INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
+    # INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
     INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
     # Next, install cpu protocol and enable the interrupt controller
@@ -170,18 +170,15 @@ APRIORI DXE {
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
-    # Needs a Patch
     FILE DRIVER = F10F76DB-42C1-533F-34A8-69BE24653110 {
       SECTION DXE_DEPEX = Binaries/gts8/QcomPkg/Drivers/SdccDxe/SdccDxe.depex
-      #SECTION PE32 = Binaries/gts8/QcomPkg/Drivers/SdccDxe/SdccDxe.patched.efi # This Patch is still in work
-      SECTION PE32 = Binaries/gts8/QcomPkg/Drivers/SdccDxe/SdccDxe.efi
+      SECTION PE32 = Binaries/gts8/QcomPkg/Drivers/SdccDxe/SdccDxe.patched.efi
       SECTION UI = "SdccDxe"
     }
 
-    # Needs a Patch
     FILE DRIVER = 0D35CD8E-97EA-4F9A-96AF-0F0D89F76567 {
       SECTION DXE_DEPEX = Binaries/gts8/QcomPkg/Drivers/UFSDxe/UFSDxe.depex
-      SECTION PE32 = Binaries/gts8/QcomPkg/Drivers/UFSDxe/UFSDxe.efi
+      SECTION PE32 = Binaries/gts8/QcomPkg/Drivers/UFSDxe/UFSDxe.patched.efi
       SECTION UI = "UFSDxe"
     }
 
