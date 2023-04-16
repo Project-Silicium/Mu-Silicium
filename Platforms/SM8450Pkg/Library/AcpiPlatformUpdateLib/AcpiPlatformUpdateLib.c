@@ -12,7 +12,7 @@
 #include <Library/UefiLib.h>
 
 #include <Library/MemoryMapHelperLib.h>
-//#include <Library/RFSProtectionLib.h>
+#include <Library/RFSProtectionLib.h>
 
 #include <Protocol/EFIChipInfo.h>
 #include <Protocol/EFIPlatformInfo.h>
@@ -26,5 +26,5 @@ PlatformUpdateAcpiTables(VOID)
   // Allow MPSS and HLOS to access the allocated RFS Shared Memory Region
   // Normally this would be done by a driver in Linux
   // TODO: Move to a better place!
-  //RFSLocateAndProtectSharedArea();
+  RFSLocateAndProtectSharedArea();
 }

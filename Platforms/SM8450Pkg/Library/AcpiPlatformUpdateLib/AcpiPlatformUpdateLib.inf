@@ -30,7 +30,7 @@
   UefiBootServicesTableLib
   UefiLib
   # AslUpdateLib
-  # RFSProtectionLib
+  RFSProtectionLib
   MemoryMapHelperLib
 
 [Protocols]
