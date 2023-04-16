@@ -25,7 +25,7 @@
 |UFS||✅|
 |Buttons|Can't work without PmicDxe|❌|
 |USB||❔|
-|SD Card||❔|
+|SD Card||❌|
 |ACPI||❌|
 |Slot Switch|Not a A/B Device|❌|
 
