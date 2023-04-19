@@ -85,7 +85,7 @@
 
 </td></tr> </table>
 
-# Galaxy Z Fold 3 5G
+## Galaxy Z Fold 3 5G
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="500" alt="Preview">
 
@@ -118,7 +118,7 @@
 |:------|:----------|:-----------:|
 |Boot||✅|
 |UFS||❌|
-|Buttons||❌|
+|Buttons|No Drivers yet|❔|
 |Sensors||❌|
 |Battery||❌|
 |USB||❌|
