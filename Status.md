@@ -17,8 +17,8 @@
 
 ### UEFI Status
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
@@ -27,7 +27,7 @@
 |USB||❔|
 |SD Card||❌|
 |ACPI||❌|
-|Slot Switch|Not a A/B Device|❌|
+|Slot Switch|Not an A/B Device|❌|
 
 ### OS Status
 
@@ -35,8 +35,8 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
   
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
@@ -60,8 +60,8 @@
 
 </td><td>
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
@@ -96,8 +96,8 @@
 
 ### UEFI Status
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
@@ -114,8 +114,8 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
   
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||✅|
 |UFS||❌|
 |Buttons|No Drivers yet|❔|
@@ -139,8 +139,8 @@
 
 </td><td>
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
@@ -175,8 +175,8 @@
 
 ### UEFI Status
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
@@ -193,8 +193,8 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
   
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||✅|
 |UFS||✅|
 |Buttons|No Drivers yet|❔|
@@ -218,8 +218,8 @@
 
 </td><td>
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot|Needs mainline DTB to boot correctly|⚠️|
 |UFS||❌|
 |Buttons||❌|
@@ -254,8 +254,8 @@
 
 ### UEFI Status
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks|Needs a Patch|❌|
@@ -272,8 +272,8 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
   
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
@@ -296,8 +296,8 @@
 
 </td><td>
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
@@ -331,8 +331,8 @@
 
 ### UEFI Status
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks|Needs a Patch|❌|
@@ -349,8 +349,8 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
   
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
@@ -373,8 +373,8 @@
 
 </td><td>
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
@@ -408,8 +408,8 @@
 
 ### UEFI Status
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks|Needs a Patch|❌|
@@ -426,8 +426,8 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
   
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
@@ -450,8 +450,8 @@
 
 </td><td>
 
-|Feature|Description|Working state|
-|:------|:----------|:-----------:|
+|Feature|Description|State|
+|:------|:----------|:---:|
 |Boot||❔|
 |UFS||❔|
 |Buttons||❔|
