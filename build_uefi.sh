@@ -1,15 +1,15 @@
 #!/bin/bash
 
 function _help(){
-	echo "Usage: build_uefi.sh --device DEV"
+	echo "Usage: build_uefi.sh --device [Codename]"
 	echo
 	echo "Build MU UEFI for Qualcomm Snapdragon platforms."
 	echo
 	echo "Options:"
-	echo "	--device DEV, -d DEV:    build for DEV."
-	echo "	--release MODE, -r MODE: Release mode for building, default is 'RELEASE', 'DEBUG' alternatively."
-	echo "	--help, -h:              Shows this Help."
-	echo "	--memory -m:             Define how much Memory your Device has."
+	echo "	--device [Codename], -d [Codename]:  Build a Device."
+	echo "	--release MODE, -r MODE:             Release mode for building, 'RELEASE' is the default or use 'DEBUG' alternatively."
+	echo "	--help, -h:                          Shows this Help."
+	echo "	--memory -m:                         Define how much Memory your Device has."
 	echo
 	echo "MainPage: https://github.com/Robotix22/MU-Qcom"
 	exit 1
@@ -21,6 +21,7 @@ TARGET_DEVICE=""
 TARGET_RAM_SIZE=""
 MULTIPLE_RAM_SIZE="FALSE"
 TARGET_BUILD_MODE="RELEASE"
+UPDATE_CHECK=""
 OPTS="$(getopt -o d:hfabcACDO:r:m: -l device:,help,release:,memory: -n 'build_uefi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
@@ -40,7 +41,7 @@ case "${TARGET_BUILD_MODE}" in
 esac
 
 if [ -z ${TARGET_DEVICE} ]; then
-    _help
+	_help
 fi
 
 if [ -f "configs/devices/${TARGET_DEVICE}.conf" ]
@@ -53,15 +54,26 @@ else _error "SoC configuration not found"
 fi
 
 if [ -z ${TARGET_RAM_SIZE} ]; then
-if [ ${MULTIPLE_RAM_SIZE} = TRUE ]; then
-    echo ""
-    echo "=================[ WARNING ]================="
-    echo "The Device you chose has more than one RAM Size!"
-    echo "Use -m or --memory to define how much RAM your Device has."
-    echo "============================================="
-    echo ""
-    exit 1
+	if [ ${MULTIPLE_RAM_SIZE} == TRUE ]; then
+		echo ""
+		echo "=================[ WARNING ]================="
+		echo "The Device you chose has more than one RAM Size!"
+		echo "Use -m or --memory to define how much RAM your Device has."
+		echo "============================================="
+		echo ""
+		exit 1
+	fi
 fi
+
+git fetch
+UPDATE_CHECK=$(git status)
+if [[ ${UPDATE_CHECK} == *"git pull"* ]]; then
+	echo ""
+	echo "===================[ INFO ]=================="
+	echo "You are using an old Version of MU-Qcom."
+	echo "Please Update to get the latest fixes and changes."
+	echo "============================================="
+	echo ""
 fi
 
 rm ./BootShim/BootShim.bin
