@@ -12,13 +12,11 @@
   }
 
   FILE DRIVER = 2D7A83E3-E343-4FFB-9109-631F2EE11694 {
-    SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/TzDxe/ScmDxeLA.depex
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/TzDxe/ScmDxeLA.efi
     SECTION UI = "ScmDxeLA"
   }
 
   FILE DRIVER = 6925FAD3-E243-4B69-AD61-3F978C8ABC60 {
-    SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/TzDxe/TzDxeLA.depex
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/TzDxe/TzDxeLA.efi
     SECTION UI = "TzDxeLA"
   }
