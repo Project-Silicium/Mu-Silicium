@@ -34,7 +34,7 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-  
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||❔|
@@ -113,7 +113,7 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-  
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||✅|
@@ -192,7 +192,7 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-  
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||✅|
@@ -271,7 +271,7 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-  
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||❔|
@@ -335,11 +335,11 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
-|Clocks|Needs a Patch|❌|
-|eMMC|Needs working Clocks|❌|
+|Clocks||✅|
+|eMMC|Needs patched SdccDxe|❌|
 |Buttons||✅|
 |USB|Only Charging|⚠️|
-|SD Card|Needs working Clocks|❌|
+|SD Card|Needs patched SdccDxe|❌|
 |ACPI||❌|
 |Slot Switch|Not an A/B Device|❌|
 
@@ -348,7 +348,7 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-  
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||❔|
@@ -425,7 +425,7 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-  
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||❔|

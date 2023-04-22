@@ -130,11 +130,11 @@
     SECTION UI = "DALSys"
   }
 
-  #FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
-    #SECTION DXE_DEPEX = Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.depex
-    #SECTION PE32 = Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.efi
-    #SECTION UI = "ClockDxe"
-  #}
+  FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
+    SECTION DXE_DEPEX = Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.depex
+    SECTION PE32 = Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.patched.efi
+    SECTION UI = "ClockDxe"
+  }
 
   FILE DRIVER = 9A00771F-36D4-4DD5-8916-C48ED9B16B86 {
     SECTION DXE_DEPEX = Binaries/ginkgo/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.depex
@@ -166,6 +166,7 @@
     SECTION UI = "SPMI"
   }
 
+  # Needs a Patch
   #FILE DRIVER = F10F76DB-42C1-533F-34A8-69BE24653110 {
     #SECTION DXE_DEPEX = Binaries/ginkgo/QcomPkg/Drivers/SdccDxe/SdccDxe.depex
     #SECTION PE32 = Binaries/ginkgo/QcomPkg/Drivers/SdccDxe/SdccDxe.efi

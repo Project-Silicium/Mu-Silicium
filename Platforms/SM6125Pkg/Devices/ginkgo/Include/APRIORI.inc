@@ -79,7 +79,7 @@ APRIORI DXE {
 
     FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
       SECTION DXE_DEPEX = Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.depex
-      SECTION PE32 = Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.efi
+      SECTION PE32 = Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.patched.efi
       SECTION UI = "ClockDxe"
     }
 
@@ -104,6 +104,7 @@ APRIORI DXE {
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
+    # Needs a Patch
     FILE DRIVER = F10F76DB-42C1-533F-34A8-69BE24653110 {
       SECTION DXE_DEPEX = Binaries/ginkgo/QcomPkg/Drivers/SdccDxe/SdccDxe.depex
       SECTION PE32 = Binaries/ginkgo/QcomPkg/Drivers/SdccDxe/SdccDxe.efi
