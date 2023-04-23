@@ -85,7 +85,7 @@ APRIORI DXE {
 
     FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
       SECTION DXE_DEPEX = Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.depex
-      SECTION PE32 = Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.efi
+      SECTION PE32 = Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.patched.efi
       SECTION UI = "ClockDxe"
     }
 
@@ -116,6 +116,7 @@ APRIORI DXE {
       SECTION UI = "SdccDxe"
     }
 
+    # Needs a Patch
     FILE DRIVER = 0D35CD8E-97EA-4F9A-96AF-0F0D89F76567 {
       SECTION DXE_DEPEX = Binaries/lime/QcomPkg/Drivers/UFSDxe/UFSDxe.depex
       SECTION PE32 = Binaries/lime/QcomPkg/Drivers/UFSDxe/UFSDxe.efi

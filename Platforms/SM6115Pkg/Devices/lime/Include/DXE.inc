@@ -136,11 +136,11 @@
     SECTION UI = "VcsDxe"
   }
 
-  #FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
-    #SECTION DXE_DEPEX = Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.depex
-    #SECTION PE32 = Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.efi
-    #SECTION UI = "ClockDxe"
-  #}
+  FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
+    SECTION DXE_DEPEX = Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.depex
+    SECTION PE32 = Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.patched.efi
+    SECTION UI = "ClockDxe"
+  }
 
   FILE DRIVER = 9A00771F-36D4-4DD5-8916-C48ED9B16B86 {
     SECTION DXE_DEPEX = Binaries/lime/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.depex
@@ -172,12 +172,13 @@
     SECTION UI = "SPMI"
   }
 
-  #FILE DRIVER = F10F76DB-42C1-533F-34A8-69BE24653110 {
-    #SECTION DXE_DEPEX = Binaries/lime/QcomPkg/Drivers/SdccDxe/SdccDxe.depex
-    #SECTION PE32 = Binaries/lime/QcomPkg/Drivers/SdccDxe/SdccDxe.efi
-    #SECTION UI = "SdccDxe"
-  #}
+  FILE DRIVER = F10F76DB-42C1-533F-34A8-69BE24653110 {
+    SECTION DXE_DEPEX = Binaries/lime/QcomPkg/Drivers/SdccDxe/SdccDxe.depex
+    SECTION PE32 = Binaries/lime/QcomPkg/Drivers/SdccDxe/SdccDxe.efi
+    SECTION UI = "SdccDxe"
+  }
   
+  # Needs a Patch
   FILE DRIVER = 0D35CD8E-97EA-4F9A-96AF-0F0D89F76567 {
     SECTION DXE_DEPEX = Binaries/lime/QcomPkg/Drivers/UFSDxe/UFSDxe.depex
     SECTION PE32 = Binaries/lime/QcomPkg/Drivers/UFSDxe/UFSDxe.efi

@@ -412,11 +412,11 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
-|Clocks|Needs a Patch|❌|
-|UFS|Needs working Clocks|❌|
+|Clocks||✅|
+|UFS|Needs a Patch|❌|
 |Buttons||✅|
 |USB|Only Charging|⚠️|
-|SD Card|Needs working Clocks|❌|
+|SD Card||❔|
 |ACPI||❌|
 |Slot Switch|Not an A/B Device|❌|
 

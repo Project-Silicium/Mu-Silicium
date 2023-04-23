@@ -10,10 +10,6 @@
 #
 ##
 
-[Defines]
-  # Platform Defines
-  USE_DISPLAYDXE              = 1
-
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM6115Pkg/Devices/lime/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
