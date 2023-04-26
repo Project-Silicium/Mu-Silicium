@@ -36,6 +36,8 @@ APRIORI DXE {
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
     
+    INF Binaries/laurel_sprout/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
+    
     # Needs a Patch
     INF Binaries/laurel_sprout/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
     INF Binaries/laurel_sprout/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
