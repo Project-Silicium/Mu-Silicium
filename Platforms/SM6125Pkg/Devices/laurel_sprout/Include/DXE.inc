@@ -125,11 +125,11 @@
     SECTION UI = "DALSys"
   }
 
-  #FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
-    #SECTION DXE_DEPEX = Binaries/laurel_sprout/ClockDxe/ClockDxe.depex
-    #SECTION PE32 = Binaries/laurel_sprout/ClockDxe/ClockDxe.efi
-    #SECTION UI = "ClockDxe"
-  #}
+  FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
+    SECTION DXE_DEPEX = Binaries/laurel_sprout/ClockDxe/ClockDxe.depex
+    SECTION PE32 = Binaries/laurel_sprout/ClockDxe/ClockDxe.efi
+    SECTION UI = "ClockDxe"
+  }
 
   FILE DRIVER = 9A00771F-36D4-4DD5-8916-C48ED9B16B86 {
     SECTION DXE_DEPEX = Binaries/laurel_sprout/HALIOMMU/HALIOMMU.depex
@@ -160,7 +160,7 @@
     SECTION PE32 = Binaries/laurel_sprout/SPMI/SPMI.efi
     SECTION UI = "SPMI"
   }
-
+  # Needs a Patch
   #FILE DRIVER = F10F76DB-42C1-533F-34A8-69BE24653110 {
     #SECTION DXE_DEPEX = Binaries/laurel_sprout/SdccDxe/SdccDxe.depex
     #SECTION PE32 = Binaries/laurel_sprout/SdccDxe/SdccDxe.efi
