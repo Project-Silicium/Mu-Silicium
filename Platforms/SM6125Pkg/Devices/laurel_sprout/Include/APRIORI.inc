@@ -79,7 +79,7 @@ APRIORI DXE {
 
     FILE DRIVER = 4DB5DEA6-5302-4D1A-8A82-677A683B0D29 {
       SECTION DXE_DEPEX = Binaries/laurel_sprout/ClockDxe/ClockDxe.depex
-      SECTION PE32 = Binaries/laurel_sprout/ClockDxe/ClockDxe.efi
+      SECTION PE32 = Binaries/laurel_sprout/ClockDxe/ClockDxe.patched.efi
       SECTION UI = "ClockDxe"
     }
 
