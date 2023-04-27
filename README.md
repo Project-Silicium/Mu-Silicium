@@ -2,8 +2,6 @@
 
 <!-- ![Banner](https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Banner.png) -->
 
-#### NOTE: SimpleInit dosen't work right now
-
 ## Resources
 
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
