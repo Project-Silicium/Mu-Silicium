@@ -47,6 +47,7 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel
 
 [Ppis]
   gArmMpCoreInfoPpiGuid

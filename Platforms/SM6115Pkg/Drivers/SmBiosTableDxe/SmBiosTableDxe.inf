@@ -10,36 +10,38 @@
   SmBiosTableDxe.c
 
 [FixedPcd]
-  gArmPlatformTokenSpaceGuid.PcdCoreCount
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
-  gSM6115TokenSpaceGuid.PcdSmbiosSystemVendor
-  gSM6115TokenSpaceGuid.PcdSmbiosSystemModel
-  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailModel
-  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailSku
-  gSM6115TokenSpaceGuid.PcdSmbiosProcessorModel
-  gSM6115TokenSpaceGuid.PcdSmbiosProcessorRetailModel
-  gSM6115TokenSpaceGuid.PcdSmbiosBoardModel
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel
+  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorModel
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorRetailModel
+  gQcomTokenSpaceGuid.PcdSmbiosBoardModel
 
 [Packages]
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
-  MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  OemPkg/OemPkg.dec
+  PcBdsPkg/PcBdsPkg.dec
+  QcomPkg/Qcom.dec
   SM6115Pkg/SM6115.dec
 
 [LibraryClasses]
   BaseLib
-  ReportStatusCodeLib
-  UefiLib
-  UefiBootServicesTableLib
-  UefiDriverEntryPoint
   BaseMemoryLib
   DebugLib
-  CompilerIntrinsicsLib
+  MuUefiVersionLib
+  ReportStatusCodeLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
 
 [Protocols]
   gEfiSmbiosProtocolGuid

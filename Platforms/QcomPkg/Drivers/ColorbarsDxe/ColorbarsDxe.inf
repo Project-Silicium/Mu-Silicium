@@ -5,7 +5,7 @@
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
   ENTRY_POINT                    = InitializeColorbars
-  
+
 [Sources.common]
   ColorbarsDxe.c
 

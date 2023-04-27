@@ -4,7 +4,6 @@
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ScmDxe/ScmDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/TzDxe/TzDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
@@ -18,7 +17,6 @@
   INF MdeModulePkg/Universal/MemoryTest/NullMemoryTestDxe/NullMemoryTestDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
 
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
@@ -33,9 +31,7 @@
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
@@ -43,15 +39,10 @@
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
     
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ChipInfo/ChipInfo.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/GlinkDxe/GlinkDxe.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DiskIoDxe/DiskIoDxe.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
@@ -62,23 +53,14 @@
   INF AdvLoggerPkg/AdvancedFileLogger/AdvancedFileLogger.inf
   
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DALSys/DALSys.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/HALIOMMU/HALIOMMU.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/HWIODxeDriver/HWIODxeDriver.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/I2C/I2C.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/SPMI/SPMI.inf
-  
-  # Needs a Patch
   #INF Binaries/laurel_sprout/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   #INF Binaries/laurel_sprout/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DALTLMM/DALTLMM.inf
   
 !if $(USE_DISPLAYDXE) == 1
@@ -92,23 +74,14 @@
   INF CryptoPkg/Driver/CryptoDxe.inf
   
   INF Binaries/laurel_sprout/QcomPkg/Drivers/PlatformInfoDxeDriver/PlatformInfoDxeDriver.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/PmicDxe/PmicDxe.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/QcomChargerDxeLA/QcomChargerDxeLA.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
@@ -117,11 +90,8 @@
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
   
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/RngDxe/RngDxe.inf
@@ -132,7 +102,5 @@
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   #INF Binaries/laurel_sprout/QcomPkg/Drivers/PILDxe/PILDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Application/QcomChargerApp/QcomChargerApp.inf
-  
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxe.inf

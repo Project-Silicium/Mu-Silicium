@@ -1,15 +1,15 @@
 #!/bin/bash
 
 function _help(){
-	echo "Usage: build_uefi.sh --device [Codename]"
+	echo "Usage: ./build_uefi.sh -d <Codename> [-r <Build Mode> -m <RAM Size>]"
 	echo
 	echo "Build MU UEFI for Qualcomm Snapdragon platforms."
 	echo
 	echo "Options:"
-	echo "	--device [Codename], -d [Codename]:  Build a Device."
-	echo "	--release MODE, -r MODE:             Release mode for building, 'RELEASE' is the default or use 'DEBUG' alternatively."
-	echo "	--help, -h:                          Shows this Help."
-	echo "	--memory -m:                         Define how much Memory your Device has."
+	echo "	--device <Codename>, -d <Codename>:       Build a Device."
+	echo "	--release <Build Mode>, -r <Build Mode>:  Release mode for building, 'RELEASE' is the default or use 'DEBUG' alternatively."
+	echo "	--help, -h:                               Shows this Help."
+	echo "	--memory <RAM Size>, -m <RAM Size>:       Define how much Memory your Device has."
 	echo
 	echo "MainPage: https://github.com/Robotix22/MU-Qcom"
 	exit 1

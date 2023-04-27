@@ -14,7 +14,7 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  SM6125Pkg/SM6125.dec
+  SM6115Pkg/SM6115.dec
   QcomPkg/Qcom.dec
 
 [LibraryClasses]

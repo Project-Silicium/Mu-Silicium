@@ -1,6 +1,9 @@
 /** @file
+
   Copyright (c) 2011-2015, ARM Limited. All rights reserved.
+
   SPDX-License-Identifier: BSD-2-Clause-Patent
+
 **/
 
 #include <PiPei.h>
@@ -39,8 +42,10 @@ InitMmu (
 STATIC
 VOID AddHob(PARM_MEMORY_REGION_DESCRIPTOR_EX Desc)
 {
-  BuildResourceDescriptorHob(
-      Desc->ResourceType, Desc->ResourceAttribute, Desc->Address, Desc->Length);
+  if (Desc->HobOption != AllocOnly) {
+    BuildResourceDescriptorHob(
+        Desc->ResourceType, Desc->ResourceAttribute, Desc->Address, Desc->Length);
+  }
 
   if (Desc->ResourceType == EFI_RESOURCE_SYSTEM_MEMORY ||
       Desc->MemoryType == EfiRuntimeServicesData)
@@ -50,12 +55,20 @@ VOID AddHob(PARM_MEMORY_REGION_DESCRIPTOR_EX Desc)
 }
 
 /*++
+
 Routine Description:
+
+
+
 Arguments:
+
   FileHandle  - Handle of the file being invoked.
   PeiServices - Describes the list of possible PEI Services.
+
 Returns:
+
   Status -  EFI_SUCCESS if the boot mode could be set
+
 --*/
 EFI_STATUS
 EFIAPI
@@ -114,9 +127,7 @@ MemoryPeim (
   MemoryTable[Index].Attributes   = 0;
 
   // Build Memory Allocation Hob
-  DEBUG((EFI_D_INFO, "Configure MMU In \n"));
   InitMmu (MemoryTable);
-  DEBUG((EFI_D_INFO, "Configure MMU Out \n"));
 
   if (FeaturePcdGet (PcdPrePiProduceMemoryTypeInformationHob)) {
     // Optional feature that helps prevent EFI memory map fragmentation.

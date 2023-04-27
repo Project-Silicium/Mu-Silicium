@@ -23,8 +23,8 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  QcomPkg/Qcom.dec
   SM6125Pkg/SM6125.dec
+  QcomPkg/Qcom.dec
 
 [LibraryClasses]
   ArmLib

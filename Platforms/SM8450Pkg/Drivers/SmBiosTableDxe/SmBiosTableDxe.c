@@ -59,6 +59,9 @@ be found at http://opensource.org/licenses/bsd-license.php
 /* Used to read chip serial number */
 #include <Protocol/EFIChipInfo.h>
 
+/* Used to read UEFI release information */
+#include <Library/MuUefiVersionLib.h>
+
 /***********************************************************************
         SMBIOS data definition  TYPE0  BIOS Information
 ************************************************************************/
@@ -131,9 +134,9 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 };
 
 CHAR8 *mBIOSInfoType0Strings[] = {
-    "Robotix22",       // Vendor String
-    "1.4",             // BiosVersion String
-    __DATE__,          // BiosReleaseDate String
+    "Robotix22", // Vendor String
+    "UnknownVersion", // BiosVersion String
+    "UnknownRel", // BiosReleaseDate String
     NULL};
 
 /***********************************************************************
@@ -164,11 +167,8 @@ SMBIOS_TABLE_TYPE1 mSysInfoType1 = {
     5, // SKUNumber String
     6, // Family String
 };
-
-CHAR8 mSysInfoManufName[128];
-
 CHAR8 *mSysInfoType1Strings[] = {
-    mSysInfoManufName,
+    "Not Specified",
     "Not Specified",
     "Not Specified",
     "Not Specified",
@@ -202,12 +202,12 @@ SMBIOS_TABLE_TYPE2 mBoardInfoType2 = {
     {0}                       // ContainedObjectHandles[1];
 };
 CHAR8 *mBoardInfoType2Strings[] = {
-    mSysInfoManufName,
     "Not Specified",
     "Not Specified",
     "Not Specified",
     "Not Specified",
-    "Portable",
+    "Not Specified",
+    "Not Specified",
     NULL};
 
 /***********************************************************************
@@ -232,7 +232,7 @@ SMBIOS_TABLE_TYPE3 mEnclosureInfoType3 = {
     {{0}},                   // ContainedElements[1];
 };
 CHAR8 *mEnclosureInfoType3Strings[] = {
-    mSysInfoManufName, "Not Specified", "Not Specified", "Not Specified",
+    "Not Specified", "Not Specified", "Not Specified", "Not Specified",
     NULL};
 
 /***********************************************************************
@@ -755,7 +755,9 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
     0                      // ExtendedConfiguredMemorySpeed
 };
 
-CHAR8 *mMemDevInfoType17Strings[] = {"Builtin", "BANK 0", NULL};
+CHAR8 *mMemDevInfoType17Strings[] = {
+    "Top - on board",     "Bank 0", "Hynix", "Not Specified", "Not Specified",
+    "H9HKNNNEBMAVAR-NEH", NULL};
 
 /***********************************************************************
         SMBIOS data definition  TYPE19  Memory Array Mapped Address Information
@@ -886,6 +888,12 @@ LogSmbiosData(
 ************************************************************************/
 VOID BIOSInfoUpdateSmbiosType0(VOID)
 {
+  UINTN VersionBufferLength  = 15;
+  UINTN DateBufferLength     = 11;
+
+  GetUefiVersionStringAscii(mBIOSInfoType0Strings[1], &VersionBufferLength);
+  GetBuildDateStringAscii(mBIOSInfoType0Strings[2], &VersionBufferLength);
+
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mBIOSInfoType0, mBIOSInfoType0Strings, NULL);
 }
@@ -896,12 +904,8 @@ VOID BIOSInfoUpdateSmbiosType0(VOID)
 
 VOID SysInfoUpdateSmbiosType1(CHAR8 *serialNo, EFIChipInfoSerialNumType serial)
 {
-    
-  AsciiStrCpyS(
-      mSysInfoManufName, sizeof(mSysInfoManufName),
-      (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor));
-
   // Update string table before proceeds
+  mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
   mSysInfoType1Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemModel);
   mSysInfoType1Strings[2] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemRetailModel);
   mSysInfoType1Strings[4] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemRetailSku);
@@ -920,6 +924,7 @@ VOID SysInfoUpdateSmbiosType1(CHAR8 *serialNo, EFIChipInfoSerialNumType serial)
 VOID BoardInfoUpdateSmbiosType2(CHAR8 *serialNo)
 {
   // Update string table before proceeds
+  mBoardInfoType2Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
   mBoardInfoType2Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosBoardModel);
 
   // Update serial number from Board DXE
@@ -935,6 +940,9 @@ VOID BoardInfoUpdateSmbiosType2(CHAR8 *serialNo)
 ************************************************************************/
 VOID EnclosureInfoUpdateSmbiosType3(CHAR8 *serialNo)
 {
+  // Update string table before proceeds
+  mEnclosureInfoType3Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
+
   // Update serial number from Board DXE
   mEnclosureInfoType3Strings[2] = serialNo;
 

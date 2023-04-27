@@ -1,16 +1,15 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x0001001A
+  DEC_SPECIFICATION                   = 0x00010005
   PACKAGE_NAME                        = SM8450
-  PACKAGE_GUID                        = 900b24d4-da39-4204-8d48-b56a7302d7bf
-  PACKAGE_VERSION                     = 1.0
+  PACKAGE_GUID                        = 273ee000-ac94-42b2-ab45-8dcf7e92a937
+  PACKAGE_VERSION                     = 0.1
 
-[Includes]
-  Include
-
-[Guids]
-  gSM8450TokenSpaceGuid               = { 0x4c59628e, 0x0a8a, 0x4099, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc4, 0xbf } }
+[Includes.common]
+  Include                             # Root include for the package
 
 [Guids.common]
+  gSM8450TokenSpaceGuid               = { 0x273ee000, 0xac94, 0x42b2, { 0xab, 0x45, 0x8d, 0xcf, 0x7e, 0x92, 0xa9, 0x37 } }
+
   # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.VENDOR.1.0.r1-20900-WAIPIO.QSSI14.0
 
   gEfiPartitionTypeGuid               = { 0x6848de61, 0xeb61, 0x4def, { 0x9a, 0x8e, 0x38, 0x17, 0xcb, 0xeb, 0x8f, 0x1c } }
@@ -49,7 +48,6 @@
   gBlockIoRefreshGuid                 = { 0xb1eb3d10, 0x9d67, 0x40ca, { 0x95, 0x59, 0xf1, 0x48, 0x8b, 0x1b, 0x2d, 0xdb } }
   gEfiRNGAlgRawGuid                   = { 0xe43176d7, 0xb6e8, 0x4827, { 0xb7, 0x84, 0x7f, 0xfd, 0xc4, 0xb6, 0x85, 0x61 } }
 
-
 [Protocols]
   # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.VENDOR.1.0.r1-20900-WAIPIO.QSSI14.0
 
@@ -82,13 +80,3 @@
   gQcomDisplayUtilsProtocolGuid       = { 0xc0dd69ac, 0x76ba, 0x11e6, { 0xab, 0x24, 0x1f, 0xc7, 0xf5, 0x57, 0x5f, 0x19 } }
   gEfiDisplayPowerStateProtocolGuid   = { 0xf352021d, 0x9593, 0x4432, { 0xbf, 0x04, 0x67, 0xb9, 0xf3, 0xb7, 0x60, 0x08 } }
   gEfiKernelProtocolGuid              = { 0xB5062BE7, 0x170B, 0x4A32, { 0xBE, 0x21, 0x68, 0x92, 0x62, 0xFF, 0x43, 0x99 } }
-
-[PcdsFixedAtBuild.common]
-  # SMBIOS
-  gSM8450TokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
-  gSM8450TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 1 @ 3.00 GHz"|VOID*|0x0000a301
-  gSM8450TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8450"|VOID*|0x0000a302
-  gSM8450TokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
-  gSM8450TokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
-  gSM8450TokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
-  gSM8450TokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000a306

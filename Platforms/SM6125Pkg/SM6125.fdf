@@ -21,12 +21,12 @@
 ################################################################################
 
 [FD.SM6125Pkg_UEFI]
-BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress  # The base address of the Firmware
-Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize
+BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
+Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1
 
 # This one is tricky, it must be: BlockSize * NumBlocks = Size
-BlockSize     = 0x00001000
+BlockSize     = 0x1000
 NumBlocks     = 0x2000
 
 ################################################################################
@@ -87,7 +87,7 @@ READ_LOCK_STATUS   = TRUE
 
   # Secure Boot Key Enroll
   INF SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
-  #INF QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
+  #INF QcomPkg/Driver/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
 
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
@@ -120,19 +120,20 @@ READ_LOCK_STATUS   = TRUE
 
   INF MsGraphicsPkg/GopOverrideDxe/GopOverrideDxe.inf
   INF MsCorePkg/MuCryptoDxe/MuCryptoDxe.inf
-  INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
+  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
   INF DfciPkg/SettingsManager/SettingsManagerDxe.inf
   INF MsGraphicsPkg/MsUiTheme/Dxe/MsUiThemeProtocol.inf
   INF MsGraphicsPkg/RenderingEngineDxe/RenderingEngineDxe.inf
   INF MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
   INF OemPkg/BootMenu/BootMenu.inf
-  INF RuleOverride = UI OemPkg/FrontPage/FrontPage.inf
+  INF OemPkg/FrontPage/FrontPage.inf
   INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
   INF MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
   INF MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
   INF DfciPkg/DfciManager/DfciManager.inf
   INF MsGraphicsPkg/OnScreenKeyboardDxe/OnScreenKeyboardDxe.inf
   INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
+  INF MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
   INF MsWheaPkg/HwErrBert/HwErrBert.inf
   INF MsWheaPkg/MsWheaReport/Dxe/MsWheaReportDxe.inf
@@ -178,13 +179,14 @@ READ_LOCK_STATUS   = TRUE
     SECTION RAW = OemPkg/FrontPage/Resources/NoBoot.bmp
   }
 
+  # TODO: Make this Image for every single Device
   FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
     SECTION RAW = QcomPkg/Include/Resources/RegulatoryLogos.png
   }
 
-  INF QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
   INF QcomPkg/UFP/ufpdevicefw.inf
   INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
+  INF QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
 !if $(AB_SLOT_SUPPORT) == 1
@@ -217,7 +219,7 @@ READ_LOCK_STATUS   = TRUE
 
   FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
     SECTION UI = "uefiplat.cfg"
-    SECTION RAW = Binaries/$(TARGET_DEVICE)/uefiplat.cfg
+    SECTION RAW = Binaries/$(TARGET_DEVICE)/RawFiles/uefiplat.cfg
   }
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {

@@ -1,0 +1,31 @@
+<ConfigSchema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="configschema.xsd">
+
+  <Enums>
+    <Enum name="ENUM_TYPE" help="Dummy Enums">
+      <Value name="DUMMY0" value="0" help="First dummy" />
+      <Value name="DUMMY1" value="1" help="Second dummy" />
+      <Value name="DUMMY2" value="2" help="Third dummy" />
+    </Enum>
+  </Enums>
+
+  <Structs>
+    <Struct name="DummyStruct">
+      <Member name="DummyValue" count="5" type="ENUM_TYPE" />
+    </Struct>
+    <Struct name="SecondDummyStruct">
+      <Member name="DummyStructChildren" count="2" type="DummyStruct" />
+      <Member name="Count" type="uint32_t" />
+    </Struct>
+  </Structs>
+
+  <Knobs namespace="{481B771D-4D96-400C-9F04-D8E1883866C4}">
+
+    <Knob type="SecondDummyStruct" name="DummyStruct1" default ="{{{{DUMMY2,DUMMY1,DUMMY0,DUMMY1,DUMMY0}},{{DUMMY0,DUMMY1,DUMMY2,DUMMY0,DUMMY1}}},2}" />
+    <Knob type="SecondDummyStruct" name="DummyStruct2" default ="{{{{DUMMY1,DUMMY1,DUMMY0,DUMMY1,DUMMY1}},{{DUMMY0,DUMMY1,DUMMY2,DUMMY1,DUMMY1}}},1}" />
+    <Knob type="bool" name="PowerOnPort0" default="True" />
+    <Knob type="ENUM_TYPE" name="DummyKnob3" default ="DUMMY2" />
+
+  </Knobs>
+
+</ConfigSchema>

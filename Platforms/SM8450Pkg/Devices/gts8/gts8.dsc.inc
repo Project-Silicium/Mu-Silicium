@@ -39,11 +39,11 @@
   gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|300
 
   # Device Info
-  gSM8450TokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
-  gSM8450TokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8 5G"
-  gSM8450TokenSpaceGuid.PcdSmbiosSystemRetailModel|"gts8"
-  gSM8450TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8_5G_gts8"
-  gSM8450TokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8 5G"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8 5G"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gts8"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8_5G_gts8"
+  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8 5G"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1600

@@ -1,16 +1,15 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x0001001A
+  DEC_SPECIFICATION                   = 0x00010005
   PACKAGE_NAME                        = SM8350
-  PACKAGE_GUID                        = 5fd522a5-b671-429f-957f-75113dd02435
-  PACKAGE_VERSION                     = 1.0
+  PACKAGE_GUID                        = 9b938f77-7926-4025-98b2-6f83c4dc74e0
+  PACKAGE_VERSION                     = 0.1
 
-[Includes]
-  Include
-
-[Guids]
-  gSM8350TokenSpaceGuid               = { 0x4c59628e, 0x0a8a, 0x4099, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc4, 0xbf } }
+[Includes.common]
+  Include                             # Root include for the package
 
 [Guids.common]
+  gSM8350TokenSpaceGuid               = { 0x9b938f77, 0x7926, 0x4025, { 0x98, 0xb2, 0x6f, 0x83, 0xc4, 0xdc, 0x74, 0xe0 } }
+
   # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.14.r1-20200.01-LAHAINA.QSSI12.0
 
   gEfiPartitionTypeGuid               = { 0x6848de61, 0xeb61, 0x4def, { 0x9a, 0x8e, 0x38, 0x17, 0xcb, 0xeb, 0x8f, 0x1c } }
@@ -84,13 +83,3 @@
   gEfiDDRGetInfoProtocolGuid          = { 0x1a7c0eb8, 0x5646, 0x45f7, { 0xab, 0x20, 0xea, 0xe5, 0xda, 0x46, 0x40, 0xa2 } }
   gQcomDisplayUtilsProtocolGuid       = { 0xc0dd69ac, 0x76ba, 0x11e6, { 0xab, 0x24, 0x1f, 0xc7, 0xf5, 0x57, 0x5f, 0x19 } }
   gEfiKernelProtocolGuid              = { 0xB5062BE7, 0x170B, 0x4A32, { 0xBE, 0x21, 0x68, 0x92, 0x62, 0xFF, 0x43, 0x99 } }
-
-[PcdsFixedAtBuild.common]
-  # SMBIOS
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
-  gSM8350TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 @ 2.84 GHz"|VOID*|0x0000a301
-  gSM8350TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350"|VOID*|0x0000a302
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
-  gSM8350TokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000a306

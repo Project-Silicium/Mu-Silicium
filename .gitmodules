@@ -22,3 +22,6 @@
 [submodule "Features/DFCI"]
 	path = Features/DFCI
 	url = https://github.com/microsoft/mu_feature_dfci.git
+[submodule "Features/CONFIG"]
+	path = Features/CONFIG
+	url = https://github.com/microsoft/mu_feature_config.git

@@ -19,5 +19,5 @@
 #  SECTION RAW = SM6115Pkg/AcpiTables/SSDT.aml
 #  SECTION RAW = SM6115Pkg/AcpiTables/TPMDev.dat
 #  SECTION RAW = SM6115Pkg/AcpiTables/SoftwareTpm2Table.aml
-#  SECTION UI = "AcpiTables" 
+#  SECTION UI = "AcpiTables"
 #}

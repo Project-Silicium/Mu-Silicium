@@ -11,7 +11,7 @@
 #
 
 [Sources]
- AcpiPlatformUpdateLib.c
+  AcpiPlatformUpdateLib.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -19,8 +19,8 @@
   PcBdsPkg/PcBdsPkg.dec
   MsCorePkg/MsCorePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  QcomPkg/Qcom.dec
   SM8350Pkg/SM8350.dec
+  QcomPkg/Qcom.dec
 
 [LibraryClasses]
   BaseMemoryLib

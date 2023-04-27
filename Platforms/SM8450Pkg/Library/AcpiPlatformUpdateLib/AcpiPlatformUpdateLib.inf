@@ -19,8 +19,8 @@
   PcBdsPkg/PcBdsPkg.dec
   MsCorePkg/MsCorePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  QcomPkg/Qcom.dec
   SM8450Pkg/SM8450.dec
+  QcomPkg/Qcom.dec
 
 [LibraryClasses]
   BaseMemoryLib

@@ -10,36 +10,38 @@
   SmBiosTableDxe.c
 
 [FixedPcd]
-  gArmPlatformTokenSpaceGuid.PcdCoreCount
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemVendor
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemModel
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailModel
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailSku
-  gSM8350TokenSpaceGuid.PcdSmbiosProcessorModel
-  gSM8350TokenSpaceGuid.PcdSmbiosProcessorRetailModel
-  gSM8350TokenSpaceGuid.PcdSmbiosBoardModel
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel
+  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorModel
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorRetailModel
+  gQcomTokenSpaceGuid.PcdSmbiosBoardModel
 
 [Packages]
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
-  MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  OemPkg/OemPkg.dec
+  PcBdsPkg/PcBdsPkg.dec
+  QcomPkg/Qcom.dec
   SM8350Pkg/SM8350.dec
 
 [LibraryClasses]
   BaseLib
-  ReportStatusCodeLib
-  UefiLib
-  UefiBootServicesTableLib
-  UefiDriverEntryPoint
   BaseMemoryLib
   DebugLib
-  CompilerIntrinsicsLib
+  MuUefiVersionLib
+  ReportStatusCodeLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
 
 [Protocols]
   gEfiSmbiosProtocolGuid

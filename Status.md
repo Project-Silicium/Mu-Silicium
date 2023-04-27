@@ -258,11 +258,11 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
-|Clocks||✅|
-|UFS|Needs working UFSDxe|❌|
+|Clocks|Needs a Patch|❌|
+|UFS|Needs working Clocks|❌|
 |Buttons||✅|
 |USB|Needs a Patch|❌|
-|SD Card|Needs working SdccDxe|❌|
+|SD Card|Needs working Clocks|❌|
 |ACPI||❌|
 |Slot Switch||❌|
 

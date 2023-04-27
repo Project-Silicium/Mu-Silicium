@@ -1,16 +1,15 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x0001001A
+  DEC_SPECIFICATION                   = 0x00010005
   PACKAGE_NAME                        = SM6125
-  PACKAGE_GUID                        = b1eea6c2-df1a-4ac1-bdf2-b12b9a49f828
-  PACKAGE_VERSION                     = 1.0
+  PACKAGE_GUID                        = 13916838-2ca7-4152-bcfa-74fddf2b6823
+  PACKAGE_VERSION                     = 0.1
 
-[Includes]
-  Include
-
-[Guids]
-  gSM6125TokenSpaceGuid               = { 0x4c59628e, 0x0a8a, 0x4099, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc4, 0xbf } }
+[Includes.common]
+  Include                             # Root include for the package
 
 [Guids.common]
+  gSM6125TokenSpaceGuid               = { 0x13916838, 0x2ca7, 0x4152, { 0xbc, 0xfa, 0x74, 0xfd, 0xdf, 0x2b, 0x68, 0x23 } }
+
   # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.11.r1-05600-NICOBAR.QSSI12.0
 
   gEfiPartitionTypeGuid               = { 0x6848de61, 0xeb61, 0x4def, { 0x9a, 0x8e, 0x38, 0x17, 0xcb, 0xeb, 0x8f, 0x1c } }
@@ -81,13 +80,3 @@
   gQcomDisplayUtilsProtocolGuid       = { 0xc0dd69ac, 0x76ba, 0x11e6, { 0xab, 0x24, 0x1f, 0xc7, 0xf5, 0x57, 0x5f, 0x19 } }
   gEfiKernelProtocolGuid              = { 0xB5062BE7, 0x170B, 0x4A32, { 0xBE, 0x21, 0x68, 0x92, 0x62, 0xFF, 0x43, 0x99 } }
   gEfiClockProtocolGuid               = { 0x241afae6, 0x885f, 0x4f6c, { 0xa7, 0xea, 0xc2, 0x8e, 0xab, 0x79, 0xc3, 0xe5 } }
-
-[PcdsFixedAtBuild.common]
-  # SMBIOS
-  gSM6125TokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
-  gSM6125TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 665 @ 2.20 GHz"|VOID*|0x0000a301
-  gSM6125TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6125"|VOID*|0x0000a302
-  gSM6125TokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
-  gSM6125TokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
-  gSM6125TokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
-  gSM6125TokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000a306

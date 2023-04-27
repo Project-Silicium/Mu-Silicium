@@ -13,6 +13,8 @@ import time
 import xml.etree.ElementTree
 import tempfile
 import uuid
+import string
+import datetime
 
 from edk2toolext.environment import shell_environment
 from edk2toolext.environment.uefi_build import UefiBuilder
@@ -21,7 +23,6 @@ from edk2toolext.invocables.edk2_setup import SetupSettingsManager, RequiredSubm
 from edk2toolext.invocables.edk2_update import UpdateSettingsManager
 from edk2toolext.invocables.edk2_pr_eval import PrEvalSettingsManager
 from edk2toollib.utility_functions import RunCmd
-
 
     # ####################################################################################### #
     #                                Common Configuration                                     #
@@ -33,7 +34,7 @@ class CommonPlatform():
     PackagesSupported = ("SM6115Pkg",)
     ArchSupported = ("AARCH64",)
     TargetsSupported = ("DEBUG", "RELEASE", "NOOPT")
-    Scopes = ('SM6115', 'gcc_aarch64_linux', 'edk2-build', 'cibuild')
+    Scopes = ('SM6115', 'gcc_aarch64_linux', 'edk2-build', 'cibuild', 'configdata')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     PackagesPath = (
         "Platforms",
@@ -43,8 +44,10 @@ class CommonPlatform():
         "Common/MU_OEM_SAMPLE",
         "Silicon/Arm/MU_TIANO",
         "Features/DFCI",
-        "GPLDrivers/Library/SimpleInit"
+        "Features/CONFIG",
+        "GPLDrivers/Library/SimpleInit",
     )
+
 
     # ####################################################################################### #
     #                         Configuration for Update & Setup                                #
@@ -66,24 +69,26 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
     def GetRequiredSubmodules(self):
         """Return iterable containing RequiredSubmodule objects.
-
+        
         !!! note
             If no RequiredSubmodules return an empty iterable
         """
         return [
-            RequiredSubmodule("Platforms/Binaries", True),
             RequiredSubmodule("MU_BASECORE", True),
             RequiredSubmodule("Common/MU", True),
             RequiredSubmodule("Common/MU_TIANO", True),
             RequiredSubmodule("Common/MU_OEM_SAMPLE", True),
-            RequiredSubmodule("Features/DFCI", True),
             RequiredSubmodule("Silicon/Arm/MU_TIANO", True),
+            RequiredSubmodule("Features/DFCI", True),
+            RequiredSubmodule("Features/CONFIG", True),
+            RequiredSubmodule("Platforms/Binaries", True),
             RequiredSubmodule("GPLDrivers/Library/SimpleInit", True),
         ]
 
     def SetArchitectures(self, list_of_requested_architectures):
         ''' Confirm the requests architecture list is valid and configure SettingsManager
         to run only the requested architectures.
+
         Raise Exception if a list_of_requested_architectures is not supported
         '''
         unsupported = set(list_of_requested_architectures) - \
@@ -126,6 +131,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
     def GetPlatformDscAndConfig(self) -> tuple:
         ''' If a platform desires to provide its DSC then Policy 4 will evaluate if
         any of the changes will be built in the dsc.
+
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
         return ("SM6115Pkg/SM6115.dsc", {})
@@ -208,10 +214,17 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
         self.env.SetValue("BUILDREPORT_TYPES", "PCD DEPEX FLASH BUILD_FLAGS LIBRARY FIXED_ADDRESS HASH", "Setting build report types")
         # Include the MFCI test cert by default, override on the commandline with "BLD_*_SHIP_MODE=TRUE" if you want the retail MFCI cert
         self.env.SetValue("BLD_*_SHIP_MODE", "FALSE", "Default")
+        self.env.SetValue("CONF_AUTOGEN_INCLUDE_PATH", self.mws.join(self.ws, "Platforms", "QcomPkg", "Include"), "Platform Hardcoded")
+        self.env.SetValue("MU_SCHEMA_DIR", self.mws.join(self.ws, "Platforms", "QcomPkg", "CfgData"), "Platform Defined")
+        self.env.SetValue("MU_SCHEMA_FILE_NAME", "QcomCfgData.xml", "Platform Hardcoded")
+        self.env.SetValue("YAML_POLICY_FILE", self.mws.join(self.ws, "QcomPkg", "PolicyData", "PolicyDataUsb.yaml"), "Platform Hardcoded")
+        self.env.SetValue("POLICY_DATA_STRUCT_FOLDER", self.mws.join(self.ws, "QcomPkg", "Include"), "Platform Defined")
+        self.env.SetValue('POLICY_REPORT_FOLDER', self.mws.join(self.ws, "QcomPkg", "PolicyData"), "Platform Defined")
         self.env.SetValue("BLD_*_TARGET_DEVICE", self.env.GetValue("TARGET_DEVICE"), "Default")
         self.env.SetValue("BLD_*_FD_BASE", self.env.GetValue("FD_BASE"), "Default")
         self.env.SetValue("BLD_*_FD_SIZE", self.env.GetValue("FD_SIZE"), "Default")
         self.env.SetValue("BLD_*_RAM_SIZE", self.env.GetValue("RAM_SIZE"), "Default")
+
         return 0
 
     def PlatformPreBuild(self):

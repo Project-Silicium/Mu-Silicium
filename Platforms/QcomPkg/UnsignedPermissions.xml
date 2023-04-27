@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    @file
+
+    Sample Unsigned Permission file.  The following settings will be allowed to be updated
+    using unsigned settings packets.  This file must be customized for every platform, and
+    included in the platform .fdf file like:
+
+    FILE FREEFORM = PCD(gDfciPkgTokenSpaceGuid.PcdUnsignedPermissionsFile) {
+      SECTION RAW = YourPlatform/Somewhere/UnsignedPermissions.xml
+    }
+
+    Copyright (c), Microsoft Corporation
+
+NOTE:
+    None of the Permission Masks or the Delegated Masks are actually used.  However, they
+    must be present for the parser.  This include Default, Delegated, Append, PMask, and DMask
+    values. While this .xml file shows the actual values, they are not from this file.
+ -->
+<PermissionsPacket xmlns="urn:UefiSettings-Schema">
+    <Permissions Default="129" Delegated="192" Append="False">
+
+  </Permissions>
+</PermissionsPacket>

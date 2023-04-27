@@ -1,14 +1,15 @@
 [Defines]
   DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = Qcom
-  PACKAGE_GUID                        = 5fd522a5-b671-429f-957f-75113dd02434
+  PACKAGE_NAME                        = QcomPkg
+  PACKAGE_GUID                        = 80fe89ae-afe2-4f65-9120-d3bf98057599
   PACKAGE_VERSION                     = 0.1
 
 [Includes.common]
   Include                             # Root include for the package
+  GPLDrivers/Include
 
 [Guids.common]
-  gQcomTokenSpaceGuid                 = { 0x882f8c2b, 0x9646, 0x435f, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc1, 0xbd } }
+  gQcomTokenSpaceGuid                 = { 0x80fe89ae, 0xafe2, 0x4f65, { 0x91, 0x20, 0xd3, 0xbf, 0x98, 0x05, 0x75, 0x99 } }
   gSwitchSlotsAppFileGuid             = { 0xD5BC0FB1, 0xA833, 0x4607, { 0xB7, 0xB6, 0x5E, 0xF9, 0xD1, 0x0B, 0xEE, 0xB7 } }
 
   gEfiEmmcUserPartitionGuid           = { 0xb615f1f5, 0x5088, 0x43cd, { 0x80, 0x9c, 0xa1, 0x6e, 0x52, 0x48, 0x7d, 0x00 } }
@@ -23,9 +24,19 @@
 
 [Protocols]
   gEfiMemCardInfoProtocolGuid         = { 0x85c1f7d2, 0xbce6, 0x4f31, { 0x8f, 0x4d, 0xd3, 0x7e, 0x03, 0xd0, 0x5e, 0xaa } }
-  gEfiSMEMProtocolGuid                = { 0xf4e5c7d0, 0xd239, 0x47cb, { 0xaa, 0xcd, 0x7f, 0x66, 0xef, 0x76, 0x32, 0x38 } } 
+  gEfiSMEMProtocolGuid                = { 0xf4e5c7d0, 0xd239, 0x47cb, { 0xaa, 0xcd, 0x7f, 0x66, 0xef, 0x76, 0x32, 0x38 } }
 
 [PcdsFixedAtBuild.common]
+
+  # SMBIOS
+  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorModel|""|VOID*|0x0000a301
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorRetailModel|""|VOID*|0x0000a302
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
+  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000a306
+
   # Simple FrameBuffer
   gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|0|UINT32|0x0000a400
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|0|UINT32|0x0000a401
@@ -35,4 +46,4 @@
   ## This PCD points to the file name GUID of the UFPMenuApp
   #  Platform can customize the PCD to point to different application for UFP Menu
   # @Prompt UFP Menu File
-  gQcomTokenSpaceGuid.PcdUFPMenuFile|{ 0x88, 0x47, 0x3D, 0x64, 0xC8, 0x63, 0xD2, 0x40, 0xBD, 0x7A, 0x68, 0x42, 0xE6, 0x68, 0x50, 0xD1 }|VOID*|0x00000a600
+  gQcomTokenSpaceGuid.PcdUFPMenuFile|{ 0x88, 0x47, 0x3D, 0x64, 0xC8, 0x63, 0xD2, 0x40, 0xBD, 0x7A, 0x68, 0x42, 0xE6, 0x68, 0x50, 0xD1 }|VOID*|0x00000a602

@@ -1,6 +1,7 @@
 /** @file
   SMBIOS Table for Qualcomm ARM platform
   Derived from EmulatorPkg package
+
   Note SMBIOS 2.7.1 Required structures:
     BIOS Information (Type 0)
     System Information (Type 1)
@@ -13,23 +14,31 @@
     Memory Device (Type 17) - For each socketed system-memory Device
     Memory Array Mapped Address (Type 19) - One per contiguous block per
 Physical Memroy Array System Boot Information (Type 32)
+
+
   Copyright (c), 2017, Andrey Warkentin <andrey.warkentin@gmail.com>
   Copyright (c), 2018, Bingxing Wang <uefi-oss-projects@imbushuo.net>
   Copyright (c), Microsoft Corporation. All rights reserved.
+
   This program and the accompanying materials
   are licensed and made available under the terms and conditions of the BSD
 License which accompanies this distribution.  The full text of the license may
 be found at http://opensource.org/licenses/bsd-license.php
+
   THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+
+
   Copyright (c) 2012, Apple Inc. All rights reserved.<BR>
   Copyright (c) 2013 Linaro.org
   This program and the accompanying materials
   are licensed and made available under the terms and conditions of the BSD
 License which accompanies this distribution.  The full text of the license may
 be found at http://opensource.org/licenses/bsd-license.php
+
   THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+
 **/
 
 #include <Base.h>
@@ -49,6 +58,9 @@ be found at http://opensource.org/licenses/bsd-license.php
 
 /* Used to read chip serial number */
 #include <Protocol/EFIChipInfo.h>
+
+/* Used to read UEFI release information */
+#include <Library/MuUefiVersionLib.h>
 
 /***********************************************************************
         SMBIOS data definition  TYPE0  BIOS Information
@@ -122,9 +134,9 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 };
 
 CHAR8 *mBIOSInfoType0Strings[] = {
-    "Robotix22",       // Vendor String
-    "1.4",             // BiosVersion String
-    __DATE__,          // BiosReleaseDate String
+    "Robotix22", // Vendor String
+    "UnknownVersion", // BiosVersion String
+    "UnknownRel", // BiosReleaseDate String
     NULL};
 
 /***********************************************************************
@@ -155,14 +167,10 @@ SMBIOS_TABLE_TYPE1 mSysInfoType1 = {
     5, // SKUNumber String
     6, // Family String
 };
-
-CHAR8 mSysInfoManufName[128];
-CHAR8 mSysInfoVersionName[128];
-
 CHAR8 *mSysInfoType1Strings[] = {
-    mSysInfoManufName,
     "Not Specified",
-    mSysInfoVersionName,
+    "Not Specified",
+    "Not Specified",
     "Not Specified",
     "Not Specified",
     "Snapdragon 662 Device",
@@ -194,12 +202,12 @@ SMBIOS_TABLE_TYPE2 mBoardInfoType2 = {
     {0}                       // ContainedObjectHandles[1];
 };
 CHAR8 *mBoardInfoType2Strings[] = {
-    mSysInfoManufName,
-    "Not Specified",
-    mSysInfoVersionName,
     "Not Specified",
     "Not Specified",
-    "Portable",
+    "Not Specified",
+    "Not Specified",
+    "Not Specified",
+    "Not Specified",
     NULL};
 
 /***********************************************************************
@@ -224,7 +232,7 @@ SMBIOS_TABLE_TYPE3 mEnclosureInfoType3 = {
     {{0}},                   // ContainedElements[1];
 };
 CHAR8 *mEnclosureInfoType3Strings[] = {
-    mSysInfoManufName, "Not Specified", "Not Specified", "Not Specified",
+    "Not Specified", "Not Specified", "Not Specified", "Not Specified",
     NULL};
 
 /***********************************************************************
@@ -309,8 +317,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a53 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-    1566,                  // MaxSpeed;
-    1566,                  // CurrentSpeed;
+    1800,                  // MaxSpeed;
+    1800,                  // CurrentSpeed;
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
@@ -319,7 +327,7 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a53 = {
     0xFFFF,                // L3CacheHandle;
     0,                     // SerialNumber;
     0,                     // AssetTag;
-    6,                     // PartNumber;
+    7,                     // PartNumber;
     4,                     // CoreCount;
     4,                     // EnabledCoreCount;
     0,                     // ThreadCount;
@@ -633,7 +641,7 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
     0,                          // DeviceSet;
     1,                          // DeviceLocator String
     2,                          // BankLocator String
-    MemoryTypeLpddr4, // MemoryType;                     ///< The enumeration
+    MemoryTypeLpddr5, // MemoryType;                     ///< The enumeration
                       // value from MEMORY_DEVICE_TYPE.
     {
         // TypeDetail;
@@ -654,7 +662,7 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
         1, // Unbuffered      :1;
         0, // Reserved1       :1;
     },
-    1866,                 // Speed; (unknown)
+    2000,                 // Speed; (unknown)
     2,                    // Manufacturer String
     0,                    // SerialNumber String
     0,                    // AssetTag String
@@ -662,7 +670,36 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
     0,                    // Attributes; (unknown rank)
     0,                    // ExtendedSize; (since Size < 32GB-1)
     0,                    // ConfiguredMemoryClockSpeed; (unknown)
+    0,                    // MinimumVoltage; (unknown)
+    0,                    // MaximumVoltage; (unknown)
+    0,                    // ConfiguredVoltage; (unknown)
+    MemoryTechnologyDram, // MemoryTechnology                 ///< The
+                          // enumeration value from MEMORY_DEVICE_TECHNOLOGY
+    {{
+        // MemoryOperatingModeCapability
+        0, // Reserved                        :1;
+        0, // Other                           :1;
+        0, // Unknown                         :1;
+        1, // VolatileMemory                  :1;
+        0, // ByteAccessiblePersistentMemory  :1;
+        0, // BlockAccessiblePersistentMemory :1;
+        0  // Reserved                        :10;
+    }},
+    0,                     // FirwareVersion
+    0,                     // ModuleManufacturerID (unknown)
+    0,                     // ModuleProductID (unknown)
+    0,                     // MemorySubsystemControllerManufacturerID (unknown)
+    0,                     // MemorySubsystemControllerProductID (unknown)
+    0,                     // NonVolatileSize
+    0xFFFFFFFFFFFFFFFFULL, // VolatileSize // initialized at runtime, refer to
+                           // PhyMemArrayInfoUpdateSmbiosType16()
+    0,                     // CacheSize
+    0,                     // LogicalSize (since MemoryType is not
+                           // MemoryTypeLogicalNonVolatileDevice)
+    0,                     // ExtendedSpeed,
+    0                      // ExtendedConfiguredMemorySpeed
 };
+
 CHAR8 *mMemDevInfoType17Strings[] = {"Builtin", "BANK 0", NULL};
 
 /***********************************************************************
@@ -684,23 +721,30 @@ SMBIOS_TABLE_TYPE19 mMemArrMapInfoType19 = {
 CHAR8 *mMemArrMapInfoType19Strings[] = {NULL};
 
 /**
+
   Create SMBIOS record.
+
   Converts a fixed SMBIOS structure and an array of pointers to strings into
   an SMBIOS record where the strings are cat'ed on the end of the fixed record
   and terminated via a double NULL and add to SMBIOS table.
+
   SMBIOS_TABLE_TYPE32 gSmbiosType12 = {
     { EFI_SMBIOS_TYPE_SYSTEM_CONFIGURATION_OPTIONS, sizeof
 (SMBIOS_TABLE_TYPE12), 0 }, 1 // StringCount
   };
+
   CHAR8 *gSmbiosType12Strings[] = {
     "Not Found",
     NULL
   };
+
   ...
+
   LogSmbiosData (
     (EFI_SMBIOS_TABLE_HEADER*)&gSmbiosType12,
     gSmbiosType12Strings
     );
+
   @param  Template    Fixed SMBIOS structure, required.
   @param  StringPack  Array of strings to convert to an SMBIOS string pack.
                       NULL is OK.
@@ -787,6 +831,12 @@ LogSmbiosData(
 ************************************************************************/
 VOID BIOSInfoUpdateSmbiosType0(VOID)
 {
+  UINTN VersionBufferLength  = 15;
+  UINTN DateBufferLength     = 11;
+
+  GetUefiVersionStringAscii(mBIOSInfoType0Strings[1], &VersionBufferLength);
+  GetBuildDateStringAscii(mBIOSInfoType0Strings[2], &VersionBufferLength);
+
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mBIOSInfoType0, mBIOSInfoType0Strings, NULL);
 }
@@ -797,12 +847,8 @@ VOID BIOSInfoUpdateSmbiosType0(VOID)
 
 VOID SysInfoUpdateSmbiosType1(CHAR8 *serialNo, EFIChipInfoSerialNumType serial)
 {
-    
-  AsciiStrCpyS(
-      mSysInfoManufName, sizeof(mSysInfoManufName),
-      (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor));
-
   // Update string table before proceeds
+  mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
   mSysInfoType1Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemModel);
   mSysInfoType1Strings[2] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemRetailModel);
   mSysInfoType1Strings[4] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemRetailSku);
@@ -821,6 +867,7 @@ VOID SysInfoUpdateSmbiosType1(CHAR8 *serialNo, EFIChipInfoSerialNumType serial)
 VOID BoardInfoUpdateSmbiosType2(CHAR8 *serialNo)
 {
   // Update string table before proceeds
+  mBoardInfoType2Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
   mBoardInfoType2Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosBoardModel);
 
   // Update serial number from Board DXE
@@ -836,6 +883,9 @@ VOID BoardInfoUpdateSmbiosType2(CHAR8 *serialNo)
 ************************************************************************/
 VOID EnclosureInfoUpdateSmbiosType3(CHAR8 *serialNo)
 {
+  // Update string table before proceeds
+  mEnclosureInfoType3Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
+
   // Update serial number from Board DXE
   mEnclosureInfoType3Strings[2] = serialNo;
 
@@ -868,7 +918,6 @@ VOID ProcessorInfoUpdateSmbiosType4(VOID)
 ************************************************************************/
 VOID CacheInfoUpdateSmbiosType7(VOID)
 {
-
   EFI_SMBIOS_HANDLE SmbiosHandle;
 
   LogSmbiosData(
@@ -882,6 +931,7 @@ VOID CacheInfoUpdateSmbiosType7(VOID)
       (EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_a73_L1D,
       mCacheInfoType7Strings, &SmbiosHandle);
   mProcessorInfoType4_a73.L1CacheHandle = (UINT16)SmbiosHandle;
+  mProcessorInfoType4_a53.L1CacheHandle = (UINT16)SmbiosHandle;
 
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_a53_L1D,
@@ -892,6 +942,7 @@ VOID CacheInfoUpdateSmbiosType7(VOID)
       (EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_a73_L2,
       mCacheInfoType7Strings, &SmbiosHandle);
   mProcessorInfoType4_a73.L2CacheHandle = (UINT16)SmbiosHandle;
+  mProcessorInfoType4_a53.L2CacheHandle = (UINT16)SmbiosHandle;
 
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_a53_L2,

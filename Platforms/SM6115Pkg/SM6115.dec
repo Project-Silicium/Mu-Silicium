@@ -1,16 +1,15 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x0001001A
+  DEC_SPECIFICATION                   = 0x00010005
   PACKAGE_NAME                        = SM6115
-  PACKAGE_GUID                        = be312cd3-c246-4671-8d37-d14b07ff7637
-  PACKAGE_VERSION                     = 1.0
+  PACKAGE_GUID                        = 1b1a45db-2d34-45a9-8cdf-7b23f712c009
+  PACKAGE_VERSION                     = 0.1
 
-[Includes]
-  Include
-
-[Guids]
-  gSM6115TokenSpaceGuid               = { 0x4c59628e, 0x0a8a, 0x4099, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc4, 0xbf } }
+[Includes.common]
+  Include                             # Root include for the package
 
 [Guids.common]
+  gSM6115TokenSpaceGuid               = { 0x1b1a45db, 0x2d34, 0x45a9, { 0x8c, 0xdf, 0x7b, 0x23, 0xf7, 0x12, 0xc0, 0x09 } }
+
   # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.15.2.r1-06500-KAMORTA.QSSI13.0
 
   gEfiPartitionTypeGuid               = { 0x6848de61, 0xeb61, 0x4def, { 0x9a, 0x8e, 0x38, 0x17, 0xcb, 0xeb, 0x8f, 0x1c } }
@@ -49,7 +48,6 @@
   gBlockIoRefreshGuid                 = { 0xb1eb3d10, 0x9d67, 0x40ca, { 0x95, 0x59, 0xf1, 0x48, 0x8b, 0x1b, 0x2d, 0xdb } }
   gEfiRNGAlgRawGuid                   = { 0xe43176d7, 0xb6e8, 0x4827, { 0xb7, 0x84, 0x7f, 0xfd, 0xc4, 0xb6, 0x85, 0x61 } }
 
-
 [Protocols]
   # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.15.2.r1-06500-KAMORTA.QSSI13.0
 
@@ -82,13 +80,3 @@
   gQcomDisplayUtilsProtocolGuid       = { 0xc0dd69ac, 0x76ba, 0x11e6, { 0xab, 0x24, 0x1f, 0xc7, 0xf5, 0x57, 0x5f, 0x19 } }
   gEfiKernelProtocolGuid              = { 0xB5062BE7, 0x170B, 0x4A32, { 0xBE, 0x21, 0x68, 0x92, 0x62, 0xFF, 0x43, 0x99 } }
   gEfiSoftSkuProtocolGuid             = { 0xf917a796, 0x871b, 0x4595, { 0x85, 0x5c, 0x95, 0x38, 0x87, 0x75, 0x2e, 0xa3 } }
-
-[PcdsFixedAtBuild.common]
-  # SMBIOS
-  gSM6115TokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
-  gSM6115TokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 662 @ 2.00 GHz"|VOID*|0x0000a301
-  gSM6115TokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6115"|VOID*|0x0000a302
-  gSM6115TokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000a303
-  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000a304
-  gSM6115TokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000a305
-  gSM6115TokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000a306

@@ -22,9 +22,9 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/UefiLib.h>
 
 #define SIMPLE_INIT_NAME          L"SimpleInit"
-#define AB_SLOT_SWITCH_NAME       L"Other Slot"
+#define AB_SLOT_SWITCH_NAME       L"Switch Slot"
 
-#define INTERNAL_UEFI_SHELL_NAME  L"Internal UEFI Shell"
+#define INTERNAL_UEFI_SHELL_NAME  L"Internal UEFI Shell 2.0"
 
 #define MS_SDD_BOOT               L"Internal Storage"
 #define MS_SDD_BOOT_PARM          "SDD"

@@ -166,7 +166,7 @@ VOID InstallPlatformHob()
     UINTN Data  = (UINTN)&ShLib;
     ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
     LocateMemoryMapAreaByName("Info Blk", &InfoBlk);
-    UINTN Data3 = 0xA72423D0;
+    UINTN Data3 = 0x9FC403D0;
 
     BuildMemHobForFv(EFI_HOB_TYPE_FV2);
     BuildGuidDataHob(&gEfiShLibHobGuid, &Data, sizeof(Data));

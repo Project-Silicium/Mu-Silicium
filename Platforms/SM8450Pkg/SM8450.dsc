@@ -16,7 +16,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = SM8450
-  PLATFORM_GUID                  = 3fc4a34b-3ac0-4096-bf63-ccb7c922a0b5
+  PLATFORM_GUID                  = 273ee000-ac94-42b2-ab45-8dcf7e92a937
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/SM8450Pkg
@@ -44,6 +44,9 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 1 @ 3.00 GHz"
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8450"
+
 [LibraryClasses.common]
   PowerServicesLib|SM8450Pkg/Library/PowerServicesLib/PowerServicesLib.inf
   PlatformPeiLib|SM8450Pkg/PlatformPei/PlatformPeiLib.inf
@@ -51,6 +54,7 @@
   RFSProtectionLib|SM8450Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM8450Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   MsPlatformDevicesLib|SM8450Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
+  ConsoleMsgLib|SM8450Pkg/Library/ConsoleMsgLib/ConsoleMsgLib.inf
 
 [Components.common]
   SM8450Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

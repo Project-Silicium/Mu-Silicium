@@ -1,7 +1,10 @@
 /** @file
+
   Copyright (c) 2011-2014, ARM Limited. All rights reserved.
   Copyright (c) 2014, Linaro Limited. All rights reserved.
+
   SPDX-License-Identifier: BSD-2-Clause-Patent
+
 **/
 
 #include <PiPei.h>
@@ -151,8 +154,8 @@ VOID BuildMemHobForFv(IN UINT16 Type)
   }
 }
 
-STATIC GUID gEfiShLibHobGuid   = EFI_SHIM_LIBRARY_GUID;
-STATIC GUID gEfiInfoBlkHobGuid = EFI_INFORMATION_BLOCK_GUID;
+STATIC GUID gEfiShLibHobGuid     = EFI_SHIM_LIBRARY_GUID;
+STATIC GUID gEfiInfoBlkHobGuid   = EFI_INFORMATION_BLOCK_GUID;
 
 VOID InstallPlatformHob()
 {
@@ -160,11 +163,12 @@ VOID InstallPlatformHob()
 
   if (!initialized) {
     UINTN Data  = (UINTN)&ShLib;
-    UINTN Data2 = 0x5FFFF000; // Info Blk
+    ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
+    LocateMemoryMapAreaByName("Info Blk", &InfoBlk);
 
     BuildMemHobForFv(EFI_HOB_TYPE_FV2);
     BuildGuidDataHob(&gEfiShLibHobGuid, &Data, sizeof(Data));
-    BuildGuidDataHob(&gEfiInfoBlkHobGuid, &Data2, sizeof(Data2));
+    BuildGuidDataHob(&gEfiInfoBlkHobGuid, &InfoBlk.Address, sizeof(InfoBlk.Address));
 
     initialized = 1;
   }

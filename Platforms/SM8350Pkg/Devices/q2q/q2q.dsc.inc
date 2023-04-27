@@ -5,7 +5,6 @@
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
 #  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
 #  Copyright (c) 2022, Xilin Wu. All rights reserved.
-#  Copyright (c) 2023, Azkali Manad. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -28,12 +27,15 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|1768
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
+  # Simple Init
+  gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|300
+
   # Device Info
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemModel|"Samsung Galaxy Z Fold 3"
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailModel|"q2q"
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Samsung_Galaxy_Z_Fold_3_q2q"
-  gSM8350TokenSpaceGuid.PcdSmbiosBoardModel|"Samsung Galaxy Z Fold 3"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Fold 3"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"q2q"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Fold_3_q2q"
+  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Fold 3"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1768

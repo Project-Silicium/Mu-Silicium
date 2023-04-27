@@ -31,13 +31,18 @@
 
 static BOOT_SEQUENCE  BootSequenceUPH[] = {
   MsBootUSB,
+  MsBootPXE4,
+  MsBootPXE6,
   MsBootHDD,
   MsBootDone
 };
 
 static BOOT_SEQUENCE  BootSequenceHUP[] = {
+  // HddUsbPxe
   MsBootHDD,
   MsBootUSB,
+  MsBootPXE4,
+  MsBootPXE6,
   MsBootDone
 };
 

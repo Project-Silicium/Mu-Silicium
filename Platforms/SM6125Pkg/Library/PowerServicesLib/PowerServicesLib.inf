@@ -25,7 +25,6 @@
 [Packages]
   MdePkg/MdePkg.dec
   PcBdsPkg/PcBdsPkg.dec
-  QcomPkg/Qcom.dec
   SM6125Pkg/SM6125.dec
 
 [LibraryClasses]

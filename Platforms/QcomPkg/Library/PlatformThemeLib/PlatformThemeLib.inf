@@ -20,7 +20,7 @@
 #
 
 [Sources]
- PlatformThemeLib.c
+  PlatformThemeLib.c
 
 [Packages]
   MdePkg/MdePkg.dec

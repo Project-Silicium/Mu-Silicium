@@ -26,7 +26,6 @@
   UefiDriverEntryPoint
   BaseMemoryLib
   DebugLib
-  CompilerIntrinsicsLib
   MuSecureBootKeySelectorLib
   UefiRuntimeServicesTableLib
   MemoryAllocationLib

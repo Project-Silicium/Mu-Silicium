@@ -10,11 +10,15 @@
 #
 ##
 
+[Defines]
+  # Platform Defines
+  USE_DISPLAYDXE              = 1
+
 [LibraryClasses.common]
   PlatformMemoryMapLib|SM6125Pkg/Devices/laurel_sprout/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
   !if $(RAM_SIZE) == 6
     gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000        # 6GB Size
   !else
@@ -39,11 +43,11 @@
   gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|300
 
   # Device Info
-  gSM6125TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gSM6125TokenSpaceGuid.PcdSmbiosSystemModel|"Mi A3"
-  gSM6125TokenSpaceGuid.PcdSmbiosSystemRetailModel|"laurel_sprout"
-  gSM6125TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_A3_laurel_sprout"
-  gSM6125TokenSpaceGuid.PcdSmbiosBoardModel|"Mi A3"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Mi A3"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"laurel_sprout"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_A3_laurel_sprout"
+  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Mi A3"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720

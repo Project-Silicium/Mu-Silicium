@@ -43,11 +43,11 @@
   gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|320
 
   # Device Info
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemModel|"Xiaomi 11T Pro"
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
-  gSM8350TokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_11T_Pro_vili"
-  gSM8350TokenSpaceGuid.PcdSmbiosBoardModel|"Xiaomi 11T Pro"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Xiaomi 11T Pro"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_11T_Pro_vili"
+  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Xiaomi 11T Pro"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

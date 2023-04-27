@@ -63,6 +63,8 @@ LocateButtonProtocol (
     return Status;
   }
   
+  mUserPhysicalPresence = FALSE;
+
   return Status;
 }
 
@@ -117,8 +119,6 @@ RegisterKeyNotification (
          Status));
     return Status;
   }
-
-  mUserPhysicalPresence = FALSE;
 
   return Status;
 }

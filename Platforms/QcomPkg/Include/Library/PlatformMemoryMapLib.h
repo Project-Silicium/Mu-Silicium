@@ -20,7 +20,7 @@
       EFI_RESOURCE_ATTRIBUTE_READ_PROTECTABLE |                                \
       EFI_RESOURCE_ATTRIBUTE_WRITE_PROTECTABLE
 
-typedef enum { NoHob, AddMem, AddDev, HobOnlyNoCacheSetting, AllocOnly, AddDynamicMem, MaxMem } DeviceMemoryAddHob;
+typedef enum { NoHob, AddMem, AddDev, HobOnlyNoCacheSetting, AddDynamicMem, AllocOnly, MaxMem } DeviceMemoryAddHob;
 
 #define MEMORY_REGION_NAME_MAX_LENGTH 32
 

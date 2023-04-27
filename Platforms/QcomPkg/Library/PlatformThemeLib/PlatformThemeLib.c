@@ -1,12 +1,19 @@
 /**
 Module Name:
+
     PlatformThemeLib.c
+
 Abstract:
+
     This module will provide the fonts used in the  UI
+
 Environment:
+
     UEFI
+
 Copyright (C) Microsoft Corporation. All rights reserved.
 SPDX-License-Identifier: BSD-2-Clause-Patent
+
 **/
 
 #include <Uefi.h>                                     // UEFI base types

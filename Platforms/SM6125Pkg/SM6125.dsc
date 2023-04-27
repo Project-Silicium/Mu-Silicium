@@ -16,7 +16,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = SM6125
-  PLATFORM_GUID                  = df9acb08-a967-4660-b3cd-8146f9c58b1e
+  PLATFORM_GUID                  = 13916838-2ca7-4152-bcfa-74fddf2b6823
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/SM6125Pkg
@@ -44,12 +44,16 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 665 @ 2.00 GHz"
+  gQcomTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6125"
+
 [LibraryClasses.common]
   PowerServicesLib|SM6125Pkg/Library/PowerServicesLib/PowerServicesLib.inf
   PlatformPeiLib|SM6125Pkg/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM6125Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SM6125Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   MsPlatformDevicesLib|SM6125Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
+  ConsoleMsgLib|SM6125Pkg/Library/ConsoleMsgLib/ConsoleMsgLib.inf
 
 [Components.common]
   SM6125Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
