@@ -23,7 +23,7 @@
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons|Can't work without PmicDxe|❌|
+|Buttons|Power Button is not patched|⚠️|
 |USB||❔|
 |SD Card||❌|
 |ACPI||❌|
