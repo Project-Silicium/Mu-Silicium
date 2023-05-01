@@ -45,7 +45,7 @@
   INF Binaries/gts8/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  #INF Binaries/gts8/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  INF Binaries/gts8/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
 
