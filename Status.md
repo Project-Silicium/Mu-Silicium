@@ -23,7 +23,7 @@
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons|Power Button is not patched|⚠️|
+|Buttons||✅|
 |USB||❔|
 |SD Card||❌|
 |ACPI||❌|
