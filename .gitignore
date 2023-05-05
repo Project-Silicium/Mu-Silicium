@@ -5,3 +5,6 @@ Conf/
 ImageResources/bootpayload.bin
 MU-*.img
 Platforms/SM8350Pkg/__pycache__/
+Platforms/SM8450Pkg/__pycache__/
+Platforms/SM6125Pkg/__pycache__/
+Platforms/SM6115Pkg/__pycache__/
