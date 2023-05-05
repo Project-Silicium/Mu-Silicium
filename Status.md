@@ -102,7 +102,7 @@
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons|Power Button is not patched|⚠️|
+|Buttons||✅|
 |USB|USB FN only|⚠️|
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
