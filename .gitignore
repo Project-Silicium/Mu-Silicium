@@ -1,0 +1,7 @@
+BootShim/BootShim.bin
+BootShim/BootShim.elf
+Build/
+Conf/
+ImageResources/bootpayload.bin
+MU-*.img
+Platforms/SM8350Pkg/__pycache__/
