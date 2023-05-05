@@ -65,7 +65,7 @@ if [ -z ${TARGET_RAM_SIZE} ]; then
 	fi
 fi
 
-git fetch
+git fetch &> /dev/null
 UPDATE_CHECK=$(git status)
 if [[ ${UPDATE_CHECK} == *"git pull"* ]]; then
 	echo ""
