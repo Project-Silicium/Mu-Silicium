@@ -32,16 +32,16 @@ if [ -z ${PAK} ]; then
 fi
 
 if [ ${PAK} = apt ]; then
-    sudo apt update && sudo apt upgrade
-    sudo apt install pip git mono-devel build-essential nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl
-else
-if [ ${PAK} = dnf ]; then
-    sudo dnf update && sudo dnf upgrade
-    sudo dnf install git mono-devel nuget iasl nasm make gcc automake gcc-aarch64-linux-gnu kernel-devel python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install -y pip git mono-devel build-essential nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl
+elif [ ${PAK} = dnf ]; then
+    sudo dnf upgrade -y
+    sudo dnf install -y git mono-devel nuget iasl nasm make gcc automake gcc-aarch64-linux-gnu kernel-devel python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl
 else
     _error "Invaild Package Manager! Availbe Package Managers: apt and dnf"
 fi
-fi
+
+pip install -r pip-requirements.txt
 
 export CLANG38_BIN=/usr/lib/llvm-38/bin/
 export CLANG38_AARCH64_PREFIX=aarch64-linux-gnu-
