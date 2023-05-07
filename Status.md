@@ -26,7 +26,7 @@
 |Buttons||✅|
 |USB||❔|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI|Still in Work|⚠️|
 |Slot Switch|Not an A/B Device|❌|
 
 ### OS Status
@@ -37,26 +37,26 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|WLAN||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooh||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display||❔|
-|Vibration||❔|
+|Boot|Blackscreen while booting|⚠️|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooh||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
 
 </td><td>
 
