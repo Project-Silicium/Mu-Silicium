@@ -78,7 +78,7 @@ PrePiMain (
   ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeap;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStack;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayReserved;
 
   Status = LocateMemoryMapAreaByName("Display Reserved", &DisplayReserved);
   ASSERT_EFI_ERROR (Status);
