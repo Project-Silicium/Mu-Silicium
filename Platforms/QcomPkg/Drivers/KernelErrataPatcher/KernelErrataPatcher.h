@@ -20,6 +20,8 @@
 #include <Library/UefiLib.h>
 #include <Uefi.h>
 
+#include <Library/ArmLib.h>
+#include <Library/ArmMmuLib.h>
 #include <Library/BaseLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
@@ -51,13 +53,15 @@ KernelErrataPatcherExitBootServices(
     IN PLOADER_PARAMETER_BLOCK loaderBlockX19,
     IN PLOADER_PARAMETER_BLOCK loaderBlockX20,
     IN PLOADER_PARAMETER_BLOCK loaderBlockX24,
-    IN EFI_PHYSICAL_ADDRESS    returnAddress);
+    IN EFI_PHYSICAL_ADDRESS    fwpKernelSetupPhase1);
 
 EFI_STATUS
 EFIAPI
 ExitBootServicesWrapper(IN EFI_HANDLE ImageHandle, IN UINTN MapKey);
 
 VOID CopyMemory(
+    EFI_PHYSICAL_ADDRESS destination, EFI_PHYSICAL_ADDRESS source, UINTN size);
+VOID CopyToReadOnly(
     EFI_PHYSICAL_ADDRESS destination, EFI_PHYSICAL_ADDRESS source, UINTN size);
 UINT64 FindPattern(
     EFI_PHYSICAL_ADDRESS baseAddress, UINT64 size, const CHAR8 *pattern);

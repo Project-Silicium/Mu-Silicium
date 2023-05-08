@@ -24,6 +24,25 @@ VOID CopyMemory(
   }
 }
 
+VOID CopyToReadOnly(
+    EFI_PHYSICAL_ADDRESS destination, EFI_PHYSICAL_ADDRESS source, UINTN size)
+{
+  BOOLEAN intstate = ArmGetInterruptState();
+  if (!intstate)
+    ArmDisableInterrupts();
+
+  ArmClearMemoryRegionReadOnly((EFI_PHYSICAL_ADDRESS)destination, size);
+  ArmClearMemoryRegionNoExec((EFI_PHYSICAL_ADDRESS)destination, size);
+
+  CopyMemory(destination, source, size);
+
+  ArmSetMemoryRegionReadOnly((EFI_PHYSICAL_ADDRESS)destination, size);
+  ArmSetMemoryRegionNoExec((EFI_PHYSICAL_ADDRESS)destination, size);
+
+  if (intstate)
+    ArmEnableInterrupts();
+}
+
 EFI_PHYSICAL_ADDRESS
 FindPattern(EFI_PHYSICAL_ADDRESS baseAddress, UINTN size, const CHAR8 *pattern)
 {
