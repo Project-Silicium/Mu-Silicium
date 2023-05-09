@@ -116,7 +116,9 @@ PrePiMain (
 
   // Calc Framebuffer Size
   UINT32 FrameBufferSize = 0;
-  FrameBufferSize = FixedPcdGet32(PcdMipiFrameBufferWidth) * FixedPcdGet32(PcdMipiFrameBufferHeight) * 8;
+  UINT32 BytesPerLine = 0;
+  BytesPerLine = FixedPcdGet32(PcdMipiFrameBufferPixelBpp) / 4;
+  FrameBufferSize = FixedPcdGet32(PcdMipiFrameBufferWidth) * FixedPcdGet32(PcdMipiFrameBufferHeight) * BytesPerLine;
 
   // Clear Screen
   ZeroMem((VOID *)DisplayReserved.Address, FrameBufferSize);
