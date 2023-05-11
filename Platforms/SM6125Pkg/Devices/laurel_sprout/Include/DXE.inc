@@ -52,7 +52,7 @@
   INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
   INF AdvLoggerPkg/AdvancedFileLogger/AdvancedFileLogger.inf
   
-  INF Binaries/laurel_sprout/QcomPkg/Drivers/DALSys/DALSys.inf
+  INF Binaries/laurel_sprout/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/HALIOMMU/HALIOMMU.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/HWIODxeDriver/HWIODxeDriver.inf
