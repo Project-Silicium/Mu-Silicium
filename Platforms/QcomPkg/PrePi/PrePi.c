@@ -78,10 +78,6 @@ PrePiMain (
   ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeap;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStack;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayReserved;
-
-  Status = LocateMemoryMapAreaByName("Display Reserved", &DisplayReserved);
-  ASSERT_EFI_ERROR (Status);
 
   Status = LocateMemoryMapAreaByName("DXE Heap", &DxeHeap);
   ASSERT_EFI_ERROR (Status);
@@ -113,15 +109,6 @@ PrePiMain (
 
   // Initialize the Serial Port
   SerialPortInitialize ();
-
-  // Calc Framebuffer Size
-  UINT32 FrameBufferSize = 0;
-  UINT32 BytesPerLine = 0;
-  BytesPerLine = FixedPcdGet32(PcdMipiFrameBufferPixelBpp) / 4;
-  FrameBufferSize = FixedPcdGet32(PcdMipiFrameBufferWidth) * FixedPcdGet32(PcdMipiFrameBufferHeight) * BytesPerLine;
-
-  // Clear Screen
-  ZeroMem((VOID *)DisplayReserved.Address, FrameBufferSize);
 
   // Print Firmware Infos
   CharCount = AsciiSPrint (

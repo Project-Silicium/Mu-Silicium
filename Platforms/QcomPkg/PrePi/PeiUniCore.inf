@@ -96,10 +96,6 @@
   gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderCode
   gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderData
 
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
-
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase
