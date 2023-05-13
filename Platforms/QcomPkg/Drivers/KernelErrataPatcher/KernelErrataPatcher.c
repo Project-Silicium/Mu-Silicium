@@ -148,7 +148,7 @@ KernelErrataPatcherExitBootServices(
       L"Patching OsLoader         -> (phys) 0x%p (size) 0x%p\n", fwpKernelSetupPhase1,
       SCAN_MAX);
 
-  KernelErrataPatcherApplyReadACTLREL1Patches(fwpKernelSetupPhase1, SCAN_MAX, TRUE);
+  //KernelErrataPatcherApplyReadACTLREL1Patches(fwpKernelSetupPhase1, SCAN_MAX, TRUE);
 
   PLOADER_PARAMETER_BLOCK loaderBlock = loaderBlockX19;
 
