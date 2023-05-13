@@ -166,7 +166,7 @@
 
 ## Xiaomi 11T Pro
 
-<img align="right" src="http://i01.appmifile.com/webfile/globalimg/JenniferK/Product/K3S-black!800x800!85.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
 
 **SOC: SM8350** <br />
 **Codename: vili** <br />
@@ -245,7 +245,7 @@
 
 ## Mi A3
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-A3.png" width="500" alt="Preview">
 
 **SOC: SM6125** <br />
 **Codename: laurel_sprout** <br />
@@ -322,7 +322,7 @@
 
 ## Redmi Note 8/8T
 
-<img align="right" src="https://www.kibotek.com/wp-content/uploads/2021/06/kiboTEK_xiaomi_redminote_8_2021_007.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-8.png" width="500" alt="Preview">
 
 **SOC: SM6125** <br />
 **Codename: ginkgo** <br />
@@ -399,7 +399,7 @@
 
 ## Redmi 9T
 
-<img align="right" src="http://i01.appmifile.com/webfile/globalimg/J19S/J19s-Black-0108!800x800!85.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-9T.png" width="500" alt="Preview">
 
 **SOC: SM6115** <br />
 **Codename: lime** <br />
