@@ -10,7 +10,7 @@
 ##
 
 [BuildOptions.common]
-  *_CLANG38_AARCH64_CC_FLAGS = -DDEFAULT_DARK -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
+  *_CLANG38_AARCH64_CC_FLAGS = -DDEFAULT_DARK -DRELEASE_MODE=$(TARGET) -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
   *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION]

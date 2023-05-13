@@ -14,12 +14,10 @@
 **/
 #include "KernelErrataPatcher.h"
 
-#define SILENT 1
-
 STATIC BL_ARCH_SWITCH_CONTEXT BlpArchSwitchContext = NULL;
 STATIC EFI_EXIT_BOOT_SERVICES EfiExitBootServices  = NULL;
 
-#if SILENT == 0
+#if RELEASE_MODE == DEBUG
 #define FirmwarePrint(x, ...) Print(x, __VA_ARGS__);
 #define ContextPrint(x, ...)                                                   \
   BlpArchSwitchContext(FirmwareContext);                                       \
