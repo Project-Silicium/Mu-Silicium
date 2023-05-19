@@ -15,8 +15,6 @@ After Cloning the repo we can now continue on Setting up the Environment. <br />
 First we need to install the needed Packages:
 ```
 ./setup_env.sh -p <Package Manager>
-# Depending on your Linux Distro use sudo if needed
-pip install --upgrade -r pip-requirements.txt
 ```
 
 ### Step 3:
