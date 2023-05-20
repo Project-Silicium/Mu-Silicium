@@ -23,7 +23,7 @@
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons||✅|
+|Buttons|Pwr Button only in SimpleInit|⚠️|
 |USB||❔|
 |SD Card||❌|
 |ACPI|Still in Work|⚠️|
