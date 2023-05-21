@@ -24,7 +24,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons|Pwr Button only in SimpleInit|⚠️|
-|USB||❔|
+|USB|USB deinits before we can use it|❌|
 |SD Card||❌|
 |ACPI|Still in Work|⚠️|
 |Slot Switch|Not an A/B Device|❌|
@@ -102,8 +102,8 @@
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons||✅|
-|USB|USB FN only|⚠️|
+|Buttons|Pwr Button only in SimpleInit|⚠️|
+|USB|No USB Host & Power|⚠️|
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
 |Slot Switch||❌|
@@ -182,7 +182,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|USB FN only|⚠️|
+|USB|No USB Host & Power|⚠️|
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
 |Slot Switch||✅|
