@@ -1,0 +1,19 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MallocLib
+  FILE_GUID                      = D921CF8D-2DD3-4D62-BD45-9013E1F0F550
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MallocLib
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  QcomPkg/Qcom.dec
+
+[LibraryClasses]
+  BaseLib
+  MemoryAllocationLib
+
+[Sources.common]
+  malloc.c

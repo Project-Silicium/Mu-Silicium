@@ -151,7 +151,7 @@ READ_LOCK_STATUS   = TRUE
   }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
-    SECTION RAW = SM8350Pkg/Include/Resources/BootLogo.bmp
+    SECTION RAW = QcomPkg/Include/Resources/BootLogo.png
     SECTION UI = "Logo"
   }
 

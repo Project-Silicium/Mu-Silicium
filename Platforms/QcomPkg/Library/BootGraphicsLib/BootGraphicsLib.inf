@@ -1,0 +1,49 @@
+## @file
+#  This library is for showing the main system boot graphics.
+#
+# Copyright (C) Microsoft Corporation. All rights reserved..
+## SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BootGraphicsLib
+  FILE_GUID                      = 0d42b5bd-b0d0-41e8-8432-8cc303b672f2
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = BootGraphicsLib|DXE_DRIVER UEFI_APPLICATION
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 AARCH64
+#
+
+[Sources]
+  BootGraphicsLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiLib
+  DebugLib
+  PcdLib
+  DisplayDeviceStateLib
+  BootGraphicsProviderLib
+  BmpSupportLib
+  MemoryAllocationLib
+
+[Protocols]
+  gEfiGraphicsOutputProtocolGuid                ## SOMETIMES_CONSUMES
+  gEdkiiBootLogo2ProtocolGuid                   ## SOMETIMES_CONSUMES
+
+[Guids]
+  gLogoDisplayedEventGroup                      ## CONSUMES
+
+[Pcd]
+  gMsGraphicsPkgTokenSpaceGuid.PcdPostBackgroundColoringSkipCount
+

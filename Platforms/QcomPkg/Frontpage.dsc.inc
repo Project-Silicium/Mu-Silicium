@@ -76,16 +76,6 @@
   BmpSupportLib|MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf
 
   #
-  # This library is for showing the main system boot graphics.
-  #
-  BootGraphicsLib|MsGraphicsPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
-
-  #
-  # BootGraphicsProviderLib that uses PCDs and raw files in the firmware volumes
-  #
-  BootGraphicsProviderLib|OemPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
-
-  #
   # This library contains access functions for dealing with the copying of an MS_UI_THEME
   #
   MsUiThemeCopyLib|MsGraphicsPkg/Library/MsUiThemeCopyLib/MsUiThemeCopyLib.inf
@@ -160,7 +150,7 @@
   #
   # This library is for showing the main system boot graphics.
   #
-  BootGraphicsLib|MsGraphicsPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
+  BootGraphicsLib|QcomPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
 
   #
   # Library to support Device disable Settings  (get/set)
@@ -175,7 +165,7 @@
   #
   # BootGraphicsProviderLib that uses PCDs and raw files in the firmware volumes
   #
-  BootGraphicsProviderLib|OemPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
+  BootGraphicsProviderLib|QcomPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
 
   #
   # Library that platform implemented to determine boot type
@@ -270,6 +260,7 @@
   # AuthManager provides authentication for DFCI.
   #
   DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
+  DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
   #
   # Processes ingoing and outgoing DFCI settings requests.
