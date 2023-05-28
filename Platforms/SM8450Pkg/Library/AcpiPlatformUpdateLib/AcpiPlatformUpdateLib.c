@@ -32,11 +32,22 @@ PlatformUpdateAcpiTables(VOID)
   UINT32                              SIDV  = 0;
   UINT16                              SDFE  = 0;
   UINT16                              SIDM  = 0;
+  UINT32                              SUFS  = 0xFFFFFFFF;
+  UINT32                              PUS3  = 0x1;
+  UINT32                              SUS3  = 0xFFFFFFFF;
+//  UINT32                             *pSIDT = (UINT32 *)0x784178;
+//  UINT32                              SIDT  = (*pSIDT & 0xFF00000) >> 20;
+//  UINT32                             *pSJTG = (UINT32 *)0x784178;
+//  UINT32                              SJTG  = *pSJTG & 0xFFFFF;
+//  UINT32                             *pEMUL = (UINT32 *)0x1FC8004;
+//  UINT32                              EMUL  = *pEMUL & 0x3;
   UINT32                              SOSN1 = 0;
   UINT32                              SOSN2 = 0;
   UINT32                              TPMA  = 0x1;
-  UINT32                              TDTV  = 0x6654504d;
+  UINT32                              TDTV  = 0x6654504D;
   UINT64                              SOSI  = 0;
+  UINT32                              PRP0  = 0;
+  UINT32                              PRP1  = 0;
   CHAR8                               SIDS[EFICHIPINFO_MAX_ID_LENGTH] = {0};
   EFI_PLATFORMINFO_PLATFORM_INFO_TYPE PlatformInfo;
   UINT32                              RMTB = 0;
@@ -142,6 +153,12 @@ PlatformUpdateAcpiTables(VOID)
   UpdateNameAslCode(SIGNATURE_32('S', 'V', 'M', 'I'), &SVMI, 2);
   UpdateNameAslCode(SIGNATURE_32('S', 'D', 'F', 'E'), &SDFE, 2);
   UpdateNameAslCode(SIGNATURE_32('S', 'I', 'D', 'M'), &SIDM, 2);
+  UpdateNameAslCode(SIGNATURE_32('S', 'U', 'F', 'S'), &SUFS, 4);
+  UpdateNameAslCode(SIGNATURE_32('P', 'U', 'S', '3'), &PUS3, 4);
+  UpdateNameAslCode(SIGNATURE_32('S', 'U', 'S', '3'), &SUS3, 4);
+//  UpdateNameAslCode(SIGNATURE_32('S', 'I', 'D', 'T'), &SIDT, 4);
+//  UpdateNameAslCode(SIGNATURE_32('S', 'J', 'T', 'G'), &SJTG, 4);
+//  UpdateNameAslCode(SIGNATURE_32('E', 'M', 'U', 'L'), &EMUL, 4);
   UpdateNameAslCode(SIGNATURE_32('S', 'O', 'S', 'N'), &SOSN, 8);
   UpdateNameAslCode(SIGNATURE_32('P', 'L', 'S', 'T'), &PLST, 4);
   UpdateNameAslCode(SIGNATURE_32('R', 'M', 'T', 'B'), &RMTB, 4);
@@ -155,5 +172,8 @@ PlatformUpdateAcpiTables(VOID)
   UpdateNameAslCode(SIGNATURE_32('T', 'C', 'M', 'A'), &TCMA, 4);
   UpdateNameAslCode(SIGNATURE_32('T', 'C', 'M', 'L'), &TCML, 4);
   UpdateNameAslCode(SIGNATURE_32('S', 'O', 'S', 'I'), &SOSI, 8);
+  UpdateNameAslCode(SIGNATURE_32('P', 'R', 'P', '0'), &PRP0, 4);
+  UpdateNameAslCode(SIGNATURE_32('P', 'R', 'P', '1'), &PRP1, 4);
   UpdateNameAslCode(SIGNATURE_32('S', 'I', 'D', 'S'), &SIDS, EFICHIPINFO_MAX_ID_LENGTH);
 }
+
