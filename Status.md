@@ -171,7 +171,7 @@
 **SOC: SM8350** <br />
 **Codename: vili** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: ~~[Robotix22](https://github.com/Robotix22/)~~**
+**Tester: **[Ashwinlapmobtech](https://github.com/Ashwinlapmobtech)**
 
 ### UEFI Status
 
