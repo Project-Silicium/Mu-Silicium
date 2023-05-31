@@ -5,8 +5,8 @@
 [00Ah 0010   6]                       Oem ID : "QCOM  "
 [010h 0016   8]                 Oem Table ID : "QCOMEDK2"
 [018h 0024   4]                 Oem Revision : 00008450
-[01Ch 0028   4]              Asl Compiler ID : "INTL"
-[020h 0032   4]        Asl Compiler Revision : 20200925
+[01Ch 0028   4]              Asl Compiler ID : "QCOM"
+[020h 0032   4]        Asl Compiler Revision : 00000001
 
 [024h 0036   4]                 FACS Address : 00000000
 [028h 0040   4]                 DSDT Address : 00000000
