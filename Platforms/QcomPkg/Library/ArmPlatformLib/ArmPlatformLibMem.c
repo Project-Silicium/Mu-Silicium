@@ -39,6 +39,11 @@ ArmPlatformGetVirtualMemoryMap (
       continue;
     }
 
+    if (MemoryDescriptorEx->HobOption == AddDynamicMem) {
+      MemoryDescriptorEx++;
+      continue;
+    }
+
     ASSERT(Index < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
 
     MemoryTable[Index].PhysicalBase = MemoryDescriptorEx->Address;

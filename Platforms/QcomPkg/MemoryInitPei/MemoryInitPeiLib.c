@@ -107,6 +107,11 @@ MemoryPeim (
       continue;
     }
 
+    if (MemoryDescriptorEx->HobOption == AddDynamicMem) {
+      MemoryDescriptorEx++;
+      continue;
+    }
+
   update:
     ASSERT(Index < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
 
