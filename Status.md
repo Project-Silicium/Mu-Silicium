@@ -37,7 +37,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|Blackscreen while booting|⚠️|
+|Boot|Blackscreen while booting|✅|
 |UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
@@ -45,7 +45,7 @@
 |USB||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU||Only One Core working right now|⚠️|
 |Touchscreen||❌|
 |Bluetooh||❌|
 |GPS||❌|
@@ -55,7 +55,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 
 </td><td>
