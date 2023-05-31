@@ -37,7 +37,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|Blackscreen while booting|✅|
+|Boot||✅|
 |UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
