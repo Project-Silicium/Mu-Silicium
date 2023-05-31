@@ -45,7 +45,7 @@
 |USB||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU||Only One Core working right now|⚠️|
+|CPU|Only One Core working right now|⚠️|
 |Touchscreen||❌|
 |Bluetooh||❌|
 |GPS||❌|
