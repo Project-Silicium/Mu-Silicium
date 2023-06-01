@@ -24,7 +24,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons|Pwr Button only in SimpleInit|⚠️|
-|USB|USB deinits before we can use it|❌|
+|USB|No USB Host & Power|⚠️|
 |SD Card||❌|
 |ACPI|Still in Work|⚠️|
 |Slot Switch|Not an A/B Device|❌|
