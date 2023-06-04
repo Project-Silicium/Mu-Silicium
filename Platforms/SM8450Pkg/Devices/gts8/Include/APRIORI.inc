@@ -1,5 +1,7 @@
 APRIORI DXE {
 
+    INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/SecShareInfoDxe/SecShareInfoDxe.inf
+
     # First, install the PCD driver and call DxeInit
     INF MdeModulePkg/Core/Dxe/DxeMain.inf
     INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
@@ -95,7 +97,10 @@ APRIORI DXE {
 
     INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
+    # PmicGlinkDxe
     INF Binaries/gts8/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
+    # QcomChargerDxeLA
+    # ChargerExDxe
     INF Binaries/gts8/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
@@ -123,3 +128,4 @@ APRIORI DXE {
     INF Binaries/gts8/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
     INF Binaries/gts8/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 }
+
