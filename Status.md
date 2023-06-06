@@ -13,6 +13,7 @@
 **SOC: SM8450** <br />
 **Codename: gts8** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: None** <br />
 **Tester: [Robotix22](https://github.com/Robotix22/)**
 
 ### UEFI Status
@@ -47,7 +48,7 @@
 |WLAN||❌|
 |CPU|Only One Core working right now|⚠️|
 |Touchscreen||❌|
-|Bluetooh||❌|
+|Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
@@ -57,31 +58,33 @@
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
+|S Pen||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|WLAN||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooh||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display||❔|
-|Vibration||❔|
+|Boot|Crashes while booting Linux kernel|⚠️|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+|S Pen||❌|
 
 </td></tr> </table>
 
@@ -92,6 +95,7 @@
 **SOC: SM8350** <br />
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
+**Contibuters: None** <br />
 **Tester: [Azkali](https://github.com/Azkali/)**
 
 ### UEFI Status
@@ -126,7 +130,7 @@
 |WLAN||❌|
 |CPU|Only One Core working right now|⚠️|
 |Touchscreen||❌|
-|Bluetooh||❌|
+|Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
@@ -151,7 +155,7 @@
 |WLAN||❔|
 |CPU||❔|
 |Touchscreen||❔|
-|Bluetooh||❔|
+|Bluetooth||❔|
 |GPS||❔|
 |Audio||❔|
 |GPU||❔|
@@ -171,7 +175,8 @@
 **SOC: SM8350** <br />
 **Codename: vili** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: **[Ashwinlapmobtech](https://github.com/Ashwinlapmobtech)**
+**Contibuters: None** <br />
+**Tester: [Ashwinlapmobtech](https://github.com/Ashwinlapmobtech)**
 
 ### UEFI Status
 
@@ -205,7 +210,7 @@
 |WLAN||❌|
 |CPU|Only One Core working right now|⚠️|
 |Touchscreen||❌|
-|Bluetooh||❌|
+|Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
@@ -220,7 +225,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|Needs mainline DTB to boot correctly|⚠️|
+|Boot|Needs proper mainline to function correctly|⚠️|
 |UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
@@ -230,7 +235,7 @@
 |WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
-|Bluetooh||❌|
+|Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
@@ -250,6 +255,7 @@
 **SOC: SM6125** <br />
 **Codename: laurel_sprout** <br />
 **Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
+**Contibuters: None** <br />
 **Tester: [Kernel357](https://github.com/Kernel357)**
 
 ### UEFI Status
@@ -283,7 +289,7 @@
 |Charging||❔|
 |CPU||❔|
 |Touchscreen||❔|
-|Bluetooh||❔|
+|Bluetooth||❔|
 |GPS||❔|
 |Audio||❔|
 |GPU||❔|
@@ -307,7 +313,7 @@
 |Charging||❔|
 |CPU||❔|
 |Touchscreen||❔|
-|Bluetooh||❔|
+|Bluetooth||❔|
 |GPS||❔|
 |Audio||❔|
 |GPU||❔|
@@ -327,6 +333,7 @@
 **SOC: SM6125** <br />
 **Codename: ginkgo** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: None** <br />
 **Testers: [SwedMlite](https://github.com/SwedMlite), [VAVANESKA](https://github.com/VAVANESKA), [Vicente Cortes](https://github.com/vicenteicc2008), [kubawis128](https://github.com/kubawis128)**
 
 ### UEFI Status
@@ -360,7 +367,7 @@
 |Charging||❔|
 |CPU||❔|
 |Touchscreen||❔|
-|Bluetooh||❔|
+|Bluetooth||❔|
 |GPS||❔|
 |Audio||❔|
 |GPU||❔|
@@ -384,7 +391,7 @@
 |Charging||❔|
 |CPU||❔|
 |Touchscreen||❔|
-|Bluetooh||❔|
+|Bluetooth||❔|
 |GPS||❔|
 |Audio||❔|
 |GPU||❔|
@@ -404,6 +411,7 @@
 **SOC: SM6115** <br />
 **Codename: lime** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: None** <br />
 **Tester: [Xhelowrk](https://github.com/Xhelowrk)**
 
 ### UEFI Status
@@ -437,7 +445,7 @@
 |Charging||❔|
 |CPU||❔|
 |Touchscreen||❔|
-|Bluetooh||❔|
+|Bluetooth||❔|
 |GPS||❔|
 |Audio||❔|
 |GPU||❔|
@@ -461,7 +469,7 @@
 |Charging||❔|
 |CPU||❔|
 |Touchscreen||❔|
-|Bluetooh||❔|
+|Bluetooth||❔|
 |GPS||❔|
 |Audio||❔|
 |GPU||❔|
