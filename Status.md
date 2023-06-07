@@ -64,7 +64,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|Crashes while booting Linux kernel|⚠️|
+|Boot|No Storage Support yet to boot a Distro|⚠️|
 |UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
