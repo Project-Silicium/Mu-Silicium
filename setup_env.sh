@@ -41,7 +41,7 @@ else
     _error "Invaild Package Manager! Availbe Package Managers: apt and dnf"
 fi
 
-pip install -r pip-requirements.txt
+python3 -m pip install -r pip-requirements.txt
 
 export CLANG38_BIN=/usr/lib/llvm-38/bin/
 export CLANG38_AARCH64_PREFIX=aarch64-linux-gnu-
