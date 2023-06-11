@@ -49,7 +49,7 @@
 
 [LibraryClasses.common]
   PowerServicesLib|SM8350Pkg/Library/PowerServicesLib/PowerServicesLib.inf
-  PlatformPeiLib|SM8350Pkg/PlatformPei/PlatformPeiLib.inf
+  PlatformPeiLib|SM8350Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM8350Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|SM8350Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM8350Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf

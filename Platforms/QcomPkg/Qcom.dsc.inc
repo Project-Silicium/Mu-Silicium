@@ -198,7 +198,7 @@
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.inf
 !endif
 
-  MemoryInitPeiLib|QcomPkg/MemoryInitPei/MemoryInitPeiLib.inf
+  MemoryInitPeiLib|QcomPkg/Library/MemoryInitPei/MemoryInitPeiLib.inf
 
   #
   # Platform Specific Librarys

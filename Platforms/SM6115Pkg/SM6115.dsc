@@ -49,7 +49,7 @@
 
 [LibraryClasses.common]
   PowerServicesLib|SM6115Pkg/Library/PowerServicesLib/PowerServicesLib.inf
-  PlatformPeiLib|SM6115Pkg/PlatformPei/PlatformPeiLib.inf
+  PlatformPeiLib|SM6115Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM6115Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SM6115Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   MsPlatformDevicesLib|SM6115Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf

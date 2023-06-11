@@ -33,8 +33,8 @@ class CommonPlatform():
     '''
     PackagesSupported = ("SM8450Pkg",)
     ArchSupported = ("AARCH64",)
-    TargetsSupported = ("DEBUG", "RELEASE", "NOOPT")
-    Scopes = ('SM8450', 'gcc_aarch64_linux', 'edk2-build', 'cibuild', 'configdata')
+    TargetsSupported = ("DEBUG", "RELEASE")
+    Scopes = ('SM8450', 'gcc_aarch64_linux', 'edk2-build', 'cibuild')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     PackagesPath = (
         "Platforms",
@@ -44,7 +44,6 @@ class CommonPlatform():
         "Common/MU_OEM_SAMPLE",
         "Silicon/Arm/MU_TIANO",
         "Features/DFCI",
-        "Features/CONFIG",
         "GPLDrivers/Library/SimpleInit",
     )
 
@@ -80,7 +79,6 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
             RequiredSubmodule("Common/MU_OEM_SAMPLE", True),
             RequiredSubmodule("Silicon/Arm/MU_TIANO", True),
             RequiredSubmodule("Features/DFCI", True),
-            RequiredSubmodule("Features/CONFIG", True),
             RequiredSubmodule("Platforms/Binaries", True),
             RequiredSubmodule("GPLDrivers/Library/SimpleInit", True),
         ]
@@ -214,12 +212,6 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
         self.env.SetValue("BUILDREPORT_TYPES", "PCD DEPEX FLASH BUILD_FLAGS LIBRARY FIXED_ADDRESS HASH", "Setting build report types")
         # Include the MFCI test cert by default, override on the commandline with "BLD_*_SHIP_MODE=TRUE" if you want the retail MFCI cert
         self.env.SetValue("BLD_*_SHIP_MODE", "FALSE", "Default")
-        self.env.SetValue("CONF_AUTOGEN_INCLUDE_PATH", self.mws.join(self.ws, "Platforms", "QcomPkg", "Include"), "Platform Hardcoded")
-        self.env.SetValue("MU_SCHEMA_DIR", self.mws.join(self.ws, "Platforms", "QcomPkg", "CfgData"), "Platform Defined")
-        self.env.SetValue("MU_SCHEMA_FILE_NAME", "QcomCfgData.xml", "Platform Hardcoded")
-        self.env.SetValue("YAML_POLICY_FILE", self.mws.join(self.ws, "QcomPkg", "PolicyData", "PolicyDataUsb.yaml"), "Platform Hardcoded")
-        self.env.SetValue("POLICY_DATA_STRUCT_FOLDER", self.mws.join(self.ws, "QcomPkg", "Include"), "Platform Defined")
-        self.env.SetValue('POLICY_REPORT_FOLDER', self.mws.join(self.ws, "QcomPkg", "PolicyData"), "Platform Defined")
         self.env.SetValue("BLD_*_TARGET_DEVICE", self.env.GetValue("TARGET_DEVICE"), "Default")
         self.env.SetValue("BLD_*_FD_BASE", self.env.GetValue("FD_BASE"), "Default")
         self.env.SetValue("BLD_*_FD_SIZE", self.env.GetValue("FD_SIZE"), "Default")

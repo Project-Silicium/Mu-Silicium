@@ -49,7 +49,7 @@
 
 [LibraryClasses.common]
   PowerServicesLib|SM8450Pkg/Library/PowerServicesLib/PowerServicesLib.inf
-  PlatformPeiLib|SM8450Pkg/PlatformPei/PlatformPeiLib.inf
+  PlatformPeiLib|SM8450Pkg/Library/PlatformPei/PlatformPeiLib.inf
   PlatformPrePiLib|SM8450Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|SM8450Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM8450Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
