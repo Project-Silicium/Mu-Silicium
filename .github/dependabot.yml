@@ -28,3 +28,13 @@ updates:
     labels:
       - "type:submodules"
       - "type:dependencies"
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "pip"
+    labels:
+      - "language:python"
+      - "type:dependencies"
