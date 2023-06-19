@@ -1,2 +1,2 @@
 URL:    https://git.codelinaro.org/clo/la/abl/tianocore/edk2
-BRANCH: LA.UM.9.15.2.r1-06500-KAMORTA.QSSI13.0
+BRANCH: LA.UM.9.15.c26-00500-KAMORTA.QSSI12c28.0

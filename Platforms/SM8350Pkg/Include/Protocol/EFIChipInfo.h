@@ -26,6 +26,42 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/*
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ *
+ * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted (subject to the limitations in the
+ *  disclaimer below) provided that the following conditions are met:
+ *
+ *      * Redistributions of source code must retain the above copyright
+ *        notice, this list of conditions and the following disclaimer.
+ *
+ *      * Redistributions in binary form must reproduce the above
+ *        copyright notice, this list of conditions and the following
+ *        disclaimer in the documentation and/or other materials provided
+ *        with the distribution.
+ *
+ *      * Neither the name of Qualcomm Innovation Center, Inc. nor the names of its
+ *        contributors may be used to endorse or promote products derived
+ *        from this software without specific prior written permission.
+ *
+ *  NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
+ *  GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+ *  HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+ *  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ *  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ *  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ *  ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ *  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+ *  IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ *  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ *  IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 #ifndef __EFICHIPINFO_H__
 #define __EFICHIPINFO_H__
 
@@ -402,41 +438,41 @@ typedef EFI_STATUS (EFIAPI *EFI_DALCHIPINFO_GETMARKETINGNAMESTRING) (
     IN UINT32 nMaxLength);
 
 /* ============================================================================
-**  Function : EFI_DalChipInfo_GetDefectivePart
+**  Function : EFI_DalChipInfo_GetSubsetPart
 ** ============================================================================
 */
-/** @ingroup efi_chipInfo_getDefectivePart
+/** @ingroup efi_chipInfo_getSubsetPart
   @par Summary
-  Gets the defectiveness of the selected part
+  Gets the subset of the selected part
 
   @param[in]   This     Pointer to the EFI_CHIPINFO_PROTOCOL instance.
   @param[in]   ePart    The EFIChipInfoPartType to check
-  @param[out]  pnMask   Pointer to hold a mask signifying defectiveness.
-                          A non-zero mask implies that the part is defective
+  @param[out]  pnMask   Pointer to hold a mask signifying the subset.
+                          A non-zero mask implies that the part is subset
 
   @return
   EFI_SUCCESS         -- Function completed successfully. \n
   EFI_NOT_FOUND       -- The specified part is out of range
   EFI_PROTOCOL_ERROR  -- Error occurred during the operation.
 */
-typedef EFI_STATUS (EFIAPI *EFI_DALCHIPINFO_GETDEFECTIVEPART) (
+typedef EFI_STATUS (EFIAPI *EFI_DALCHIPINFO_GETSUBSETPART) (
     IN EFI_CHIPINFO_PROTOCOL *This,
     IN EFIChipInfoPartType ePart,
     OUT UINT32 *pnMask);
 
 /* ============================================================================
-**  Function : EFI_DalChipInfo_GetDefectiveCPUs
+**  Function : EFI_DalChipInfo_GetSubsetCPUs
 ** ============================================================================
 */
-/** @ingroup efi_chipInfo_getDefectiveCPUs
+/** @ingroup efi_chipInfo_getSubsetCPUs
  * @par Summary
- * Gets the cores within the selected cluster which are marked "defective"
+ * Gets the cores within the selected cluster which are marked
  * in PTE fuses
  *
  * @param[in]   This          Pointer to the EFI_CHIPINFO_PROTOCOL instance
- * @param[in]   nCPUCluster   The cluster whose defective cores need to be
+ * @param[in]   nCPUCluster   The cluster whose subset cores need to be
  * retrieved
- * @param[out]  pnMask        Mask of defective cores in this cluster.
+ * @param[out]  pnMask        Mask of subset cores in this cluster.
  *
  * @return
  * EFI_SUCCESS        -- Function completed successfully \n
@@ -444,7 +480,7 @@ typedef EFI_STATUS (EFIAPI *EFI_DALCHIPINFO_GETDEFECTIVEPART) (
  * supported clusters \n
  * EFI_PROTOCOL_ERROR -- Other error occured during the operation
  */
-typedef EFI_STATUS (EFIAPI *EFI_DALCHIPINFO_GETDEFECTIVECPUS) (
+typedef EFI_STATUS (EFIAPI *EFI_DALCHIPINFO_GETSUBSETCPUS) (
     IN EFI_CHIPINFO_PROTOCOL *This,
     IN UINT32 nCPUCluster,
     OUT UINT32 *pnMask);
@@ -475,8 +511,8 @@ struct _EFI_CHIPINFO_PROTOCOL {
   EFI_DALCHIPINFO_GETRAWDEVICENUMBER GetRawDeviceNumber;
   EFI_DALCHIPINFO_GETQFPROMCHIPID GetQFPROMChipId;
   EFI_DALCHIPINFO_GETMARKETINGNAMESTRING GetMarketingNameString;
-  EFI_DALCHIPINFO_GETDEFECTIVEPART GetDefectivePart;
-  EFI_DALCHIPINFO_GETDEFECTIVECPUS GetDefectiveCPUs;
+  EFI_DALCHIPINFO_GETSUBSETPART GetSubsetPart;
+  EFI_DALCHIPINFO_GETSUBSETCPUS GetSubsetCPUs;
 };
 
 #endif /* __EFICHIPINFO_H__ */

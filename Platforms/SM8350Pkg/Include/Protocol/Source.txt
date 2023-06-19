@@ -1,2 +1,2 @@
 URL:    https://git.codelinaro.org/clo/la/abl/tianocore/edk2
-BRANCH: LA.UM.9.14.r1-20200.01-LAHAINA.QSSI12.0
+BRANCH: LA.UM.9.14.r1-21600-LAHAINA.QSSI14.0

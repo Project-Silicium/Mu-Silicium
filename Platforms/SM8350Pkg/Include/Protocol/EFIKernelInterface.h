@@ -88,11 +88,9 @@ extern EFI_GUID gEfiKernelProtocolGuid;
 #define EFI_KERNEL_PROTOCOL_VER_LIB_VER_API        0x00010004
 #define EFI_KERNEL_PROTOCOL_VER_LOCK_API           0x00010005
 #define EFI_KERNEL_PROTOCOL_VER_UNSAFE_STACK_APIS  0x00010006
-#define EFI_KERNEL_PROTOCOL_VER_SLEEP_LOG_CONTROL_API  0x00010007
-#define EFI_KERNEL_PROTOCOL_VER_CPU_HOTPLUG_APIS   0x00010008
 
 /* Current protocol version */
-#define EFI_KERNEL_PROTOCOL_VERSION    EFI_KERNEL_PROTOCOL_VER_CPU_HOTPLUG_APIS
+#define EFI_KERNEL_PROTOCOL_VERSION    EFI_KERNEL_PROTOCOL_VER_UNSAFE_STACK_APIS
 
 /*******************************************************************************
  *
@@ -187,23 +185,6 @@ typedef struct {
    VOID          *unsafe_stack_cb_data;
    VOID          *unsafe_stack_top;
 }ThrUnsafeStackIntf;
-
-typedef enum _mpcore_hotplug_core_status
-{
-  MPCORE_HOTPLUG_SUCCESS                           = 0,
-  MPCORE_HOTPLUG_CPU_ALREADY_OFFLINE               = -1,
-  MPCORE_HOTPLUG_CPU_ALREADY_ONLINE                = -2,
-  MPCORE_HOTPLUG_DENIED                            = -3,
-  MPCORE_HOTPLUG_ERROR_PINNED_THREAD_HOLDS_LOCK    = -4,
-  MPCORE_HOTPLUG_UNPLUG_ERROR                      = -5,
-  MPCORE_HOTPLUG_DENIED_CPU_IS_IN_SLEEPING_PROCESS = -6,
-  MPCORE_HOTPLUG_PSCI_PENDING_ERROR                = -7,
-  MPCORE_HOTPLUG_PSCI_INVALID_PARAMETER_ERROR      = -8,
-  MPCORE_HOTPLUG_UNKNOWN_ERROR                     = -9,
-  MPCORE_HOTPLUG_DENIED_BOOT_CORE                  = -10,
-  MPCORE_HOTPLUG_NOT_SUPPORTED                     = -11,
-}MPCORE_HOTPLUG_STATUS;
-
 /******************************************************************************
  *   Interrupt handler interface
  *
@@ -222,7 +203,7 @@ enum HandlerStatus
 
 enum IntrConfig
 {
-   INTR_CONFIG_LEVEL_TRIGGER    = 0,
+   INTR_CONFIG_NONE             = 0,
    INTR_CONFIG_EDGE_TRIGGER     = 1,
    INTR_CONFIG_MAX              = 2,
 };
@@ -561,12 +542,6 @@ typedef EFI_STATUS (*REGISTER_PWR_TRANSITION_NOTIFY) (PwrTxnNotifyFn CbFn,
 typedef EFI_STATUS (*UNREGISTER_PWR_TRANSITION_NOTIFY)
     (PwrTxnNotifyFn CbFn);
 
-typedef void (*MPCORE_SLEEP_LOGGING_CONTROL) (UINT32 Disable);
-
-typedef MPCORE_HOTPLUG_STATUS (*MPCORE_UNPLUG_CPU) (UINT32 Cpu);
-
-typedef MPCORE_HOTPLUG_STATUS (*MPCORE_HOTPLUG_CPU) (UINT32 Cpu);
-
 typedef struct {
     MPCORE_GET_MAX_CPU_COUNT        MpcoreGetMaxCpuCount;
 
@@ -593,11 +568,6 @@ typedef struct {
     UNREGISTER_PWR_TRANSITION_NOTIFY   UnRegisterPwrTransitionNotify;
 
     MPCORE_GET_CPU_SCHED_STATS      MpcoreGetCpuSchedStats;
-
-    MPCORE_SLEEP_LOGGING_CONTROL    MpcoreSleepLoggingControl;
-
-    MPCORE_UNPLUG_CPU               MpcoreUnplugCPU;
-    MPCORE_HOTPLUG_CPU              MpcoreHotplugCPU;
 
 }MpCpuIntf;
 

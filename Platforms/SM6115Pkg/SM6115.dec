@@ -10,7 +10,8 @@
 [Guids.common]
   gSM6115TokenSpaceGuid               = { 0x1b1a45db, 0x2d34, 0x45a9, { 0x8c, 0xdf, 0x7b, 0x23, 0xf7, 0x12, 0xc0, 0x09 } }
 
-  # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.15.2.r1-06500-KAMORTA.QSSI13.0
+  # Should be bengal but it dosen't exist
+  # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.15.c26-00500-KAMORTA.QSSI12c28.0
 
   gEfiPartitionTypeGuid               = { 0x6848de61, 0xeb61, 0x4def, { 0x9a, 0x8e, 0x38, 0x17, 0xcb, 0xeb, 0x8f, 0x1c } }
   gEfiEmmcUserPartitionGuid           = { 0xb615f1f5, 0x5088, 0x43cd, { 0x80, 0x9c, 0xa1, 0x6e, 0x52, 0x48, 0x7d, 0x00 } }
@@ -49,7 +50,8 @@
   gEfiRNGAlgRawGuid                   = { 0xe43176d7, 0xb6e8, 0x4827, { 0xb7, 0x84, 0x7f, 0xfd, 0xc4, 0xb6, 0x85, 0x61 } }
 
 [Protocols]
-  # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.15.2.r1-06500-KAMORTA.QSSI13.0
+  # Should be bengal but it dosen't exist
+  # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.15.c26-00500-KAMORTA.QSSI12c28.0
 
   gQcomScmProtocolGuid                = { 0x77ed108d, 0x8524, 0x4b8b, { 0x9d, 0x2e, 0x34, 0x98, 0x7a, 0xec, 0xb9, 0xc1 } }
   gEfiPlatformInfoProtocolGuid        = { 0x157a5c45, 0x21b2, 0x43c5, { 0xba, 0x7c, 0x82, 0x2f, 0xee, 0x5f, 0xe5, 0x99 } }
