@@ -39,7 +39,7 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||✅|
-|UFS|Dosen't work cuz of Samsung's Partition Table|⚠️|
+|UFS|Needs Special Setup|✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
@@ -65,7 +65,7 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot|No Storage Support yet to boot a Distro|⚠️|
-|UFS|Dosen't work cuz of Samsung's Partition Table|⚠️|
+|UFS|mainline is still unstable|❌|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
