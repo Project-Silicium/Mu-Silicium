@@ -47,3 +47,9 @@ When then Build is done you will find a `.img` File in the root of the repo.
 ### Git Unknown Switch
    1. If you have an old Version of git you may come across this Issue, So you need to install the latest version of git.
    2. I prefer using `apt` to update git but if it tells you it is already newest version you should follow [this](https://www.fosslinux.com/64522/install-git-debian-linux.htm) Guide
+
+### Device dosen't boot UEFI
+
+   1. If your Device dosen't boot the UEFI and is just stuck on the boot screen then maybe the DTB is the Problem.
+   2. Dump your DTB from Android `dd if=/sys/firmware/fdt of=/sdcard/<Device Codename>.dtb`.
+   3. After that replace `ImageResources/DTBs/<Device Codename>.dtb` with you dumped DTB.
