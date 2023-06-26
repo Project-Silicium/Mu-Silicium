@@ -53,7 +53,6 @@
   PlatformPrePiLib|SM6125Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SM6125Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   MsPlatformDevicesLib|SM6125Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-  ConsoleMsgLib|SM6125Pkg/Library/ConsoleMsgLib/ConsoleMsgLib.inf
 
 [Components.common]
   SM6125Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

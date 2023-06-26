@@ -54,7 +54,6 @@
   RFSProtectionLib|SM8450Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM8450Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   MsPlatformDevicesLib|SM8450Pkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-  ConsoleMsgLib|SM8450Pkg/Library/ConsoleMsgLib/ConsoleMsgLib.inf
 
 [Components.common]
   SM8450Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
