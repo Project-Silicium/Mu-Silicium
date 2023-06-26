@@ -222,7 +222,7 @@
   #
   # Application that presents and manages FrontPage.
   #
-  OemPkg/FrontPage/FrontPage.inf
+  QcomPkg/Applications/FrontPage/FrontPage.inf
 
   #
   # Application that presents & manages the Boot Menu Setup on Front Page.
