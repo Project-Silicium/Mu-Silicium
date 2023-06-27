@@ -1,0 +1,26 @@
+## @file MsColorTableLib
+# A shared place for all colors used in this package
+#
+# @copyright
+# Copyright (C) Microsoft Corporation. All rights reserved..
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MsColorTableLib
+  FILE_GUID                      = 48E8F777-6876-42E8-8DD3-223EA1930DB9
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MsColorTableLib
+
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+
+[Sources]
+  MsColorTableLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec

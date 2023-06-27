@@ -135,7 +135,7 @@
   #
   # A shared place for all colors used in this package
   #
-  MsColorTableLib|MsGraphicsPkg/Library/MsColorTableLib/MsColorTableLib.inf
+  MsColorTableLib|QcomPkg/Library/MsColorTableLib/MsColorTableLib.inf
 
   #
   # Library that is attached to drivers that require networking.
