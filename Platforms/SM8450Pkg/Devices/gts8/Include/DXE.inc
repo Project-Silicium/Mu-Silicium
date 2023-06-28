@@ -17,13 +17,9 @@
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
-
-  INF Binaries/gts8/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-
+  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF MdeModulePkg/Universal/MemoryTest/NullMemoryTestDxe/NullMemoryTestDxe.inf
-
-  INF Binaries/gts8/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
-
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
@@ -41,7 +37,6 @@
   INF Binaries/gts8/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
-
   INF Binaries/gts8/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
@@ -49,8 +44,7 @@
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
 
-  INF Binaries/gts8/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
@@ -77,18 +71,15 @@
 
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  INF Binaries/gts8/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
-
+  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
+  INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 
-  INF Binaries/gts8/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF Binaries/gts8/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-
 !if $(USE_DISPLAYDXE) == 1
   INF Binaries/gts8/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
-
   INF Binaries/gts8/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
@@ -110,13 +101,13 @@
   INF Binaries/gts8/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
 
+  INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  INF Binaries/gts8/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf

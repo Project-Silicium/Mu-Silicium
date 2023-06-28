@@ -42,10 +42,12 @@ APRIORI DXE {
     INF Binaries/gts8/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
-    INF Binaries/gts8/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
-    INF Binaries/gts8/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-    INF Binaries/gts8/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
 
+    INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+
+    INF Binaries/gts8/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+
+    INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
@@ -84,9 +86,7 @@ APRIORI DXE {
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
     INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-
-    INF Binaries/gts8/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-
+    INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
     INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
@@ -103,10 +103,12 @@ APRIORI DXE {
     # ChargerExDxe
     INF Binaries/gts8/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-    INF Binaries/gts8/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-    INF Binaries/gts8/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-    INF Binaries/gts8/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
-    INF Binaries/gts8/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+    INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
+    INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+    INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+    INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
     INF Binaries/gts8/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
@@ -121,11 +123,11 @@ APRIORI DXE {
     INF Binaries/gts8/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/UCDxe/UCDxe.inf
     INF Binaries/gts8/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-    INF Binaries/gts8/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
 
+    INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
     INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
+    INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 
-    INF Binaries/gts8/MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
     INF Binaries/gts8/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 }
 
