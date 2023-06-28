@@ -42,5 +42,3 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2208
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1768
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2208
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|150
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|150

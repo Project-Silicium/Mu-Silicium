@@ -117,6 +117,12 @@
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x2000
 
+[PcdsDynamicDefault.common]
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|0
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|0
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|0
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|0
+
 !include MdePkg/MdeLibs.dsc.inc
 !include SimpleInit.inc
 
