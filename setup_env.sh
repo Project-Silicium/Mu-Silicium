@@ -37,10 +37,18 @@ if [ ${PAK} = apt ]; then
 elif [ ${PAK} = dnf ]; then
     sudo dnf upgrade -y
     sudo dnf install -y git mono-devel nuget iasl nasm make gcc automake gcc-aarch64-linux-gnu kernel-devel python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl
+elif [ ${PAK} = pacman ] || [ ${PAK} = yay ]; then
+    if [ ${PAK} = pacman ]; then
+        sudo pacman -Syu --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+    fi
+    yay -Sy git mono base-devel nuget uuid iasl nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-git python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv core-git clang llvm curl
 else
-    _error "Invaild Package Manager! Availbe Package Managers: apt and dnf"
+    _error "Invaild Package Manager! Availbe Package Managers: apt, dnf, pacman, yay"
 fi
 
+
+python3 -m venv .venv
+source .venv/bin/activate
 python3 -m pip install -r pip-requirements.txt
 
 export CLANG38_BIN=/usr/lib/llvm-38/bin/
