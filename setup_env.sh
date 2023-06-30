@@ -1,12 +1,13 @@
 #!/bin/bash
 
 function _help(){
-        echo "Usage: setup_env.sh --package-manager PAK"
+        echo "Usage: setup_env.sh -p <Package Manager>"
         echo
         echo "Install all needed Packages."
         echo
         echo "Options:"
         echo "  --package-manager PAK, -p PAK:   Chose what Package Manager you use."
+        echo "  --venv, -v:                      Installs pip requirements in venv not local."
         echo "  --help, -h:                      Shows this Help."
         echo
         echo "MainPage: https://github.com/Robotix22/MU-Qcom"
@@ -15,12 +16,14 @@ function _help(){
 
 function _error(){ echo "${@}" >&2;exit 1; }
 
-DISTRO=""
-OPTS="$(getopt -o p:hfabcACDO: -l package-manager:,help -n 'setup_env.sh' -- "$@")"||exit 1
+PAK=""
+VENV="FALSE"
+OPTS="$(getopt -o v,p:hfabcACDO: -l package-manager:,help,venv -n 'setup_env.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do      case "${1}" in
                 -p|--package-manager) PAK="${2}";shift 2;;
+                -v|-venv) VENV="TRUE";shift;;
                 -h|--help) _help 0;shift;;
                 --) shift;break;;
                 *) _help 1;;
@@ -43,12 +46,13 @@ elif [ ${PAK} = pacman ] || [ ${PAK} = yay ]; then
     fi
     yay -Sy git mono base-devel nuget uuid iasl nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-git python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv core-git clang llvm curl
 else
-    _error "Invaild Package Manager! Availbe Package Managers: apt, dnf, pacman, yay"
+    _error "Invaild Package Manager! Availbe Package Managers: apt, dnf, pacman and yay"
 fi
 
-
-python3 -m venv .venv
-source .venv/bin/activate
+if [ ${VENV} = TRUE ]; then
+    python3 -m venv .venv
+    source .venv/bin/activate
+fi
 python3 -m pip install -r pip-requirements.txt
 
 export CLANG38_BIN=/usr/lib/llvm-38/bin/
