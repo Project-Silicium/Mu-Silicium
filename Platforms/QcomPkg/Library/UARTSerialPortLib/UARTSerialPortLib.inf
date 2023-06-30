@@ -1,0 +1,17 @@
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = UARTSerialPortLib
+  MODULE_TYPE    = BASE
+  VERSION_STRING = 1.0
+  LIBRARY_CLASS  = SerialPortLib
+
+[Sources]
+  UARTSerialPort.h
+  UARTSerialPortLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  QcomPkg/Qcom.dec
+
+[Pcd]
+  gQcomTokenSpaceGuid.PcdDebugUartPortBase
