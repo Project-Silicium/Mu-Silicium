@@ -42,6 +42,11 @@
   # Simple Init
   gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|320
 
+!if $(USE_UART) == 1
+  # UART
+  gQcomTokenSpaceGuid.PcdDebugUartPortBase|0x4a90000
+!endif
+
   # Device Info
   gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
   gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8/8T"

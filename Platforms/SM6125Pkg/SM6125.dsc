@@ -27,6 +27,7 @@
   USE_PHYSICAL_TIMER             = 1
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
+  USE_UART                       = 0
 
 !include SM6125Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc
 !include QcomPkg/Qcom.dsc.inc

@@ -27,7 +27,6 @@
   gEfiSMEMProtocolGuid                = { 0xf4e5c7d0, 0xd239, 0x47cb, { 0xaa, 0xcd, 0x7f, 0x66, 0xef, 0x76, 0x32, 0x38 } }
 
 [PcdsFixedAtBuild.common]
-
   # SMBIOS
   gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000a300
   gQcomTokenSpaceGuid.PcdSmbiosProcessorModel|""|VOID*|0x0000a301
@@ -43,7 +42,10 @@
   gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|0|UINT32|0x0000a402
   gQcomTokenSpaceGuid.PcdMipiFrameBufferDelay|0|UINT32|0x0000a403
 
+  # UART
+  gQcomTokenSpaceGuid.PcdDebugUartPortBase|0|UINT64|0x0000a500
+
   ## This PCD points to the file name GUID of the UFPMenuApp
   #  Platform can customize the PCD to point to different application for UFP Menu
   # @Prompt UFP Menu File
-  gQcomTokenSpaceGuid.PcdUFPMenuFile|{ 0x88, 0x47, 0x3D, 0x64, 0xC8, 0x63, 0xD2, 0x40, 0xBD, 0x7A, 0x68, 0x42, 0xE6, 0x68, 0x50, 0xD1 }|VOID*|0x00000a602
+  gQcomTokenSpaceGuid.PcdUFPMenuFile|{ 0x88, 0x47, 0x3D, 0x64, 0xC8, 0x63, 0xD2, 0x40, 0xBD, 0x7A, 0x68, 0x42, 0xE6, 0x68, 0x50, 0xD1 }|VOID*|0x00000a600

@@ -30,6 +30,11 @@
   # Simple Init
   gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|300
 
+!if $(USE_UART) == 1
+  # UART
+  gQcomTokenSpaceGuid.PcdDebugUartPortBase|0x98c000
+!endif
+
   # Device Info
   gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
   gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Fold 3"

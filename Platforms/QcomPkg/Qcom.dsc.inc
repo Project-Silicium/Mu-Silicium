@@ -218,7 +218,11 @@
 !if $(TARGET) == RELEASE
   SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
 !else
+!if $(USE_UART) == 1
+  SerialPortLib|QcomPkg/Library/UARTSerialPortLib/UARTSerialPortLib.inf
+!else
   SerialPortLib|QcomPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+!endif
 !endif
 
   #
@@ -443,7 +447,11 @@
     !if $(TARGET) == RELEASE
       SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
     !else
+    !if $(USE_UART) == 1
+      SerialPortLib|QcomPkg/Library/UARTSerialPortLib/UARTSerialPortLib.inf
+    !else
       SerialPortLib|QcomPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+    !endif
     !endif
   }
 

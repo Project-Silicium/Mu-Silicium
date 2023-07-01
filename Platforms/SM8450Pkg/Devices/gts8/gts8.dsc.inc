@@ -38,6 +38,11 @@
   # Simple Init
   gSimpleInitTokenSpaceGuid.PcdGuiDefaultDPI|300
 
+!if $(USE_UART) == 1
+  # UART
+  gQcomTokenSpaceGuid.PcdDebugUartPortBase|0x99c000
+!endif
+
   # Device Info
   gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
   gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8 5G"
