@@ -26,7 +26,7 @@
 |UFS||✅|
 |Buttons|Pwr Button only in SimpleInit|⚠️|
 |USB|No USB Host & Power|⚠️|
-|SD Card||❌|
+|SD Card|Needs working SdccDxe|❌|
 |ACPI|Still in Work|⚠️|
 |Slot Switch|Not an A/B Device|❌|
 
