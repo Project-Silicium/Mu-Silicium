@@ -15,14 +15,8 @@ VOID InitializeSharedUartBuffers(VOID)
   ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
   LocateMemoryMapAreaByName("Display Reserved", &DisplayMemoryRegion);
 
-  // Calc FrameBuffer Size
-  UINT32 FrameBufferSize = 0;
-  UINT32 BytesPerLine = 0;
-  BytesPerLine = FixedPcdGet32(PcdMipiFrameBufferPixelBpp) / 4;
-  FrameBufferSize = FixedPcdGet32(PcdMipiFrameBufferWidth) * FixedPcdGet32(PcdMipiFrameBufferHeight) * BytesPerLine;
-
   // Clear Screen
-  ZeroMem((VOID *)DisplayMemoryRegion.Address, FrameBufferSize);
+  ZeroMem((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
 
   // Setup Position counter
   INTN *pFbConPosition =
