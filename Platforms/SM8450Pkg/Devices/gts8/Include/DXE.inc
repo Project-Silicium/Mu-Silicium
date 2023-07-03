@@ -82,7 +82,7 @@
 !endif
   INF Binaries/gts8/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  #INF Binaries/gts8/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   #INF Binaries/gts8/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_DISPLAYDXE) == 1
