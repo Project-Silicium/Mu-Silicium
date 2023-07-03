@@ -37,7 +37,6 @@
   BaseLib
   BaseMemoryLib
   DebugLib
-  MuUefiVersionLib
   ReportStatusCodeLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint

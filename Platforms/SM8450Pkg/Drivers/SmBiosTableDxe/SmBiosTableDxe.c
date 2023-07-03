@@ -59,9 +59,6 @@ be found at http://opensource.org/licenses/bsd-license.php
 /* Used to read chip serial number */
 #include <Protocol/EFIChipInfo.h>
 
-/* Used to read UEFI release information */
-#include <Library/MuUefiVersionLib.h>
-
 /***********************************************************************
         SMBIOS data definition  TYPE0  BIOS Information
 ************************************************************************/
@@ -134,9 +131,9 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 };
 
 CHAR8 *mBIOSInfoType0Strings[] = {
-    "Robotix22", // Vendor String
-    "UnknownVersion", // BiosVersion String
-    "UnknownRel", // BiosReleaseDate String
+    "Not Specified", // Vendor String
+    "Not Specified", // BiosVersion String
+    __DATE__,        // BiosReleaseDate String
     NULL};
 
 /***********************************************************************
@@ -888,11 +885,9 @@ LogSmbiosData(
 ************************************************************************/
 VOID BIOSInfoUpdateSmbiosType0(VOID)
 {
-  UINTN VersionBufferLength  = 15;
-  UINTN DateBufferLength     = 11;
-
-  GetUefiVersionStringAscii(mBIOSInfoType0Strings[1], &VersionBufferLength);
-  GetBuildDateStringAscii(mBIOSInfoType0Strings[2], &VersionBufferLength);
+  // Update string table before proceeds
+  mBIOSInfoType0Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdFirmwareVendor);
+  mBIOSInfoType0Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdFirmwareVersionString);
 
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mBIOSInfoType0, mBIOSInfoType0Strings, NULL);
