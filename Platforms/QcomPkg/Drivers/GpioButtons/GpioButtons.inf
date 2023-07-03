@@ -17,7 +17,7 @@
 #
 # The following information is for reference only and not required by the build tools.
 #
-#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC AARCH64
+#  VALID_ARCHITECTURES           = IA32 X64 AARCH64
 #
 
 [Sources]
@@ -29,19 +29,16 @@
   QcomPkg/Qcom.dec
 
 [LibraryClasses]
-  UefiDriverEntryPoint
+  BaseLib
   DebugLib
-  UefiBootServicesTableLib
   MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
   DevicePathLib
 
-[Guids]
-
 [Protocols]
-  gMsButtonServicesProtocolGuid          #Produces
+  gMsButtonServicesProtocolGuid          #PRODUCES
   gEfiSimpleTextInputExProtocolGuid      #Consumes
 
-[Pcd]
-
 [Depex]
-  TRUE
+  gEfiSimpleTextInputExProtocolGuid
