@@ -264,7 +264,7 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
-|Clocks|Resets Panel while reboot|⚠️|
+|Clocks||✅|
 |UFS|Needs a Patch|❌|
 |Buttons||✅|
 |USB|Needs a Patch|❌|
