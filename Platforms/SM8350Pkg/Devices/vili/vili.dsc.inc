@@ -49,10 +49,10 @@
 
   # Device Info
   gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Xiaomi 11T Pro"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11T Pro"
   gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_11T_Pro_vili"
-  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Xiaomi 11T Pro"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11T_Pro_vili"
+  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11T Pro"
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
