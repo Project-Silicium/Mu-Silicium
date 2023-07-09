@@ -65,6 +65,10 @@
 
 #string STR_INF_VIEW_UEFI_VERSION_VALUE     #language en-US  "None"
 
+#string STR_INF_VIEW_UEFI_BUILD_DATE        #language en-US  "UEFI Build Date"
+
+#string STR_INF_VIEW_UEFI_BUILD_DATE_VALUE  #language en-US  "None"
+
 #string STR_INF_VIEW_HARWAREINFO_HEADER     #language en-US  "\fh!48!Hardware Information"
 
 /////////////////////////////////////////////////////////////////////////////

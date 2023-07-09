@@ -256,13 +256,29 @@ UpdateDisplayStrings (
   EFI_SMBIOS_HANDLE        SmbiosHandle = SMBIOS_HANDLE_PI_RESERVED;
   EFI_SMBIOS_TABLE_HEADER  *Record;
   SMBIOS_TYPE              Type;
+  SMBIOS_TABLE_TYPE0       *Type0Record;
   SMBIOS_TABLE_TYPE1       *Type1Record;
   SMBIOS_TABLE_TYPE3       *Type3Record;
+
+  HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_UEFI_VERSION_VALUE), (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), NULL);
 
   Status = gBS->LocateProtocol (&gEfiSmbiosProtocolGuid, NULL, (VOID **)&SmbiosProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Could not locate SMBIOS protocol.  %r\n", Status));
     return Status;
+  }
+
+  SmbiosHandle = SMBIOS_HANDLE_PI_RESERVED;      // Reset handle
+  Type         = SMBIOS_TYPE_BIOS_INFORMATION;   // Smbios type0
+  Status       = SmbiosProtocol->GetNext (SmbiosProtocol, &SmbiosHandle, &Type, &Record, NULL);
+  if (!EFI_ERROR (Status)) {
+    Type0Record = (SMBIOS_TABLE_TYPE0 *)Record;
+
+    Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type0Record + Type0Record->Hdr.Length), Type0Record->BiosReleaseDate, &NewString);
+    if (!EFI_ERROR (Status)) {
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_UEFI_BUILD_DATE_VALUE), NewString, NULL);
+      FreePool (NewString);
+    }
   }
 
   SmbiosHandle = SMBIOS_HANDLE_PI_RESERVED;      // Reset handle
@@ -277,7 +293,7 @@ UpdateDisplayStrings (
       FreePool (NewString);
     }
 
-    Status      = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type1Record + Type1Record->Hdr.Length), Type1Record->ProductName, &NewString);
+    Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type1Record + Type1Record->Hdr.Length), Type1Record->ProductName, &NewString);
     if (!EFI_ERROR (Status)) {
       HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_PC_MODEL_VALUE), NewString, NULL);
       FreePool (NewString);
@@ -308,9 +324,6 @@ UpdateDisplayStrings (
       FreePool (NewString);
     }
   }
-
-  // Set Firmware Infos
-  HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_UEFI_VERSION_VALUE), (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), NULL);
 
   return Status;
 }
