@@ -95,7 +95,7 @@
   gSimpleInitTokenSpaceGuid.PcdLoggerdUseConsole|FALSE
 
   # FrameBuffer Delay
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferDelay|30000         # In Microseconds
+  gQcomTokenSpaceGuid.PcdMipiFrameBufferDelay|30         # In Microseconds
 
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|FALSE
