@@ -11,7 +11,6 @@
 
 [BuildOptions.common]
   *_CLANG38_AARCH64_CC_FLAGS = -DDEFAULT_DARK -DRELEASE_MODE=$(TARGET) -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
-  *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION]
   *_*_*_DLINK_FLAGS = -z common-page-size=0x1000
@@ -96,7 +95,7 @@
   gSimpleInitTokenSpaceGuid.PcdLoggerdUseConsole|FALSE
 
   # FrameBuffer Delay
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferDelay|50         # In Microseconds
+  gQcomTokenSpaceGuid.PcdMipiFrameBufferDelay|30000         # In Microseconds
 
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|FALSE

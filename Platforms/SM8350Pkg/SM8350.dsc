@@ -29,6 +29,9 @@
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
 
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -march=armv8.4-a+crypto+rcpc
+
 !include SM8350Pkg/Devices/$(TARGET_DEVICE)/$(TARGET_DEVICE).dsc.inc
 !include QcomPkg/Qcom.dsc.inc
 
