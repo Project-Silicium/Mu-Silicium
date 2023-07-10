@@ -10,7 +10,7 @@
 
 ## [Building](https://github.com/Robotix22/MU-Qcom/blob/main/Building.md)
 
-## [Guides](https://github.com/Robotix22/UEFI-Guides)
+## [Guides](https://github.com/Robotix22/UEFI-Guides/blob/main/MU-Qcom/MU-Qcom.md)
 
 ## Credits
 
