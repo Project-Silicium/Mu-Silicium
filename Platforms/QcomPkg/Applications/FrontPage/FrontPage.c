@@ -259,6 +259,7 @@ UpdateDisplayStrings (
   SMBIOS_TABLE_TYPE0       *Type0Record;
   SMBIOS_TABLE_TYPE1       *Type1Record;
   SMBIOS_TABLE_TYPE3       *Type3Record;
+  SMBIOS_TABLE_TYPE4       *Type4Record;
 
   HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_UEFI_VERSION_VALUE), (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), NULL);
 
@@ -318,9 +319,29 @@ UpdateDisplayStrings (
   Status       = SmbiosProtocol->GetNext (SmbiosProtocol, &SmbiosHandle, &Type, &Record, NULL);
   if (!EFI_ERROR (Status)) {
     Type3Record = (SMBIOS_TABLE_TYPE3 *)Record;
+
     Status      = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type3Record + Type3Record->Hdr.Length), Type3Record->AssetTag, &NewString);
     if (!EFI_ERROR (Status)) {
       HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_PC_ASSET_TAG_VALUE), NewString, NULL);
+      FreePool (NewString);
+    }
+  }
+
+  SmbiosHandle = SMBIOS_HANDLE_PI_RESERVED;         // Reset handle
+  Type         = SMBIOS_TYPE_PROCESSOR_INFORMATION; // Smbios type4
+  Status       = SmbiosProtocol->GetNext (SmbiosProtocol, &SmbiosHandle, &Type, &Record, NULL);
+  if (!EFI_ERROR (Status)) {
+    Type4Record = (SMBIOS_TABLE_TYPE4 *)Record;
+
+    Status      = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type4Record + Type4Record->Hdr.Length), Type4Record->ProcessorManufacturer, &NewString);
+    if (!EFI_ERROR (Status)) {
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_SOC_MANUFACTURER_VALUE), NewString, NULL);
+      FreePool (NewString);
+    }
+
+    Status      = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type4Record + Type4Record->Hdr.Length), Type4Record->ProcessorVersion, &NewString);
+    if (!EFI_ERROR (Status)) {
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_SOC_MODEL_VALUE), NewString, NULL);
       FreePool (NewString);
     }
   }

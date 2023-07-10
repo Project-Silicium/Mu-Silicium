@@ -158,6 +158,47 @@ formset
       text    = STRING_TOKEN(STR_NULL_STRING);                                   //
 
     guidop
+      guid     = GRID_START_OPCODE_GUID,                                         // Custom UI Grid opcode - START
+      datatype = UINT32,                                                         //
+      data     = 70,                                                             // Grid cell height in pixels.
+    endguidop;
+        subtitle text = STRING_TOKEN(STR_NULL_STRING),
+        flags = HORIZONTAL;
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // SoC Manufacturer
+            text    = STRING_TOKEN(STR_INF_VIEW_SOC_MANUFACTURER);                     //
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // SoC Manufacturer Value
+            text    = STRING_TOKEN(STR_INF_VIEW_SOC_MANUFACTURER_VALUE);               //
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // SPACING
+            text    = STRING_TOKEN(STR_NULL_STRING);                                   //
+        subtitle text = STRING_TOKEN(STR_NULL_STRING),
+        flags = HORIZONTAL;
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // SoC Model
+            text    = STRING_TOKEN(STR_INF_VIEW_SOC_MODEL);                            //
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // SoC Model Value
+            text    = STRING_TOKEN(STR_INF_VIEW_SOC_MODEL_VALUE);                      //
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // SPACING
+            text    = STRING_TOKEN(STR_NULL_STRING);                                   //
+    guidop
+      guid     = GRID_END_OPCODE_GUID,                                           // Custom UI Grid opcode - END
+    endguidop;
+
+    text
+      help    = STRING_TOKEN(STR_NULL_STRING),                                   // SPACING
+      text    = STRING_TOKEN(STR_NULL_STRING);                                   //
+    text
+      help    = STRING_TOKEN(STR_NULL_STRING),                                   // SPACING
+      text    = STRING_TOKEN(STR_NULL_STRING);                                   //
+    text
+      help    = STRING_TOKEN(STR_NULL_STRING),                                   // SPACING
+      text    = STRING_TOKEN(STR_NULL_STRING);                                   //
+
+    guidop
       guid     = GRID_END_OPCODE_GUID,                                           // Custom UI Grid opcode - END
     endguidop;
 

@@ -71,6 +71,14 @@
 
 #string STR_INF_VIEW_HARWAREINFO_HEADER     #language en-US  "\fh!48!Hardware Information"
 
+#string STR_INF_VIEW_SOC_MANUFACTURER       #language en-US  "SoC Manufacturer"
+
+#string STR_INF_VIEW_SOC_MANUFACTURER_VALUE #language en-US  "None"
+
+#string STR_INF_VIEW_SOC_MODEL              #language en-US  "SoC"
+
+#string STR_INF_VIEW_SOC_MODEL_VALUE        #language en-US  "None"
+
 /////////////////////////////////////////////////////////////////////////////
 // Form ID 1: Exit
 //
