@@ -258,8 +258,7 @@
   AuthVariableLib|SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
   SecureBootVariableLib|SecurityPkg/Library/SecureBootVariableLib/SecureBootVariableLib.inf
   SecureBootVariableProvisionLib|SecurityPkg/Library/SecureBootVariableProvisionLib/SecureBootVariableProvisionLib.inf
-  # re-use the UserPhysicalPresent() dummy implementation from the ovmf tree
-  PlatformSecureLib|QcomPkg/Library/PlatformSecureLib/PlatformSecureLib.inf
+  PlatformSecureLib|SecurityPkg/Library/PlatformSecureLibNull/PlatformSecureLibNull.inf
 
   # Security Libraries
   LockBoxLib            |MdeModulePkg/Library/LockBoxNullLib/LockBoxNullLib.inf

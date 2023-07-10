@@ -110,7 +110,7 @@
   # Device specific actions in support of PlatformBootManagerLib.
   # Sort of a wrapper for MsPlatformDevicesLib, which needs to be written for each platform.
   #
-  DeviceBootManagerLib|QcomPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
+  DeviceBootManagerLib|OemPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
 
   #
   # LIbrary to display the On screen notifications for the platform
@@ -175,7 +175,7 @@
   #
   # Library that platform implemented to determine boot type
   #
-  MsBootPolicyLib|QcomPkg/Library/MsBootPolicyLib/MsBootPolicyLib.inf
+  MsBootPolicyLib|OemPkg/Library/MsBootPolicyLib/MsBootPolicyLib.inf
   BmpSupportLib|MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf
 
   #
