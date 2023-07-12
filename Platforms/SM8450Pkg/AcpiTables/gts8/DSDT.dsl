@@ -164,6 +164,286 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
             }
         }
 
+        Device (I2C1)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x01)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00984000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x0000025A,
+                    }
+                })
+                Return (RBUF) /* \_SB_.I2C1._CRS.RBUF */
+            }
+        }
+
+        Device (I2C2)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x02)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00988000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x0000025B,
+                    }
+                })
+                Return (RBUF) /* \_SB_.I2C2._CRS.RBUF */
+            }
+        }
+
+        Device (I2C4)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x04)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00990000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x0000025D,
+                    }
+                })
+                Return (RBUF) /* \_SB_.I2C4._CRS.RBUF */
+            }
+        }
+
+        Device (I2C5)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x05)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00994000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x0000025E,
+                    }
+                })
+                Return (RBUF) /* \_SB_.I2C5._CRS.RBUF */
+            }
+        }
+
+        Device (I2C6)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x06)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00998000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x0000025F,
+                    }
+                })
+                Return (RBUF) /* \_SB_.I2C6._CRS.RBUF */
+            }
+        }
+
+        Device (I2C8)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x08)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_1_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00A80000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000161,
+                    }
+                })
+                Return (RBUF) /* \_SB_.I2C8._CRS.RBUF */
+            }
+        }
+
+        Device (IC12)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x0C)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_1_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00A90000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000165,
+                    }
+                })
+                Return (RBUF) /* \_SB_.IC12._CRS.RBUF */
+            }
+        }
+
+        Device (IC13)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x0D)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_1_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00A94000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000166,
+                    }
+                })
+                Return (RBUF) /* \_SB_.IC13._CRS.RBUF */
+            }
+        }
+
+        Device (IC14)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x0E)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_1_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00A98000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x0000016B,
+                    }
+                })
+                Return (RBUF) /* \_SB_.IC14._CRS.RBUF */
+            }
+        }
+
+        Device (IC18)
+        {
+            Name (_HID, "QCOM1A10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x12)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_2_SE_5"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x0088C000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000249,
+                    }
+                })
+                Return (RBUF) /* \_SB_.IC18._CRS.RBUF */
+            }
+        }
+
         Device (SPMI)
         {
             Name (_HID, "QCOM1A0B")  // _HID: Hardware ID
