@@ -52,7 +52,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                PEP0
+                \_SB.PEP0
             })
             Name (_HID, "QCOM24A5")  // _HID: Hardware ID
             Alias (PSUB, _SUB)
@@ -89,16 +89,110 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
             }
         }
 
+        Name (ESNL, 0x14)
+        Name (DBFL, 0x17)
+        Device (PMIC)
+        {
+            Name (_DEP, Package (One)  // _DEP: Dependencies
+            {
+                \_SB.SPMI
+            })
+            Name (_HID, "QCOM1A2B")  // _HID: Hardware ID
+            Name (_CID, "PNP0CA3")  // _CID: Compatible ID
+            Alias (\_SB.PSUB, _SUB)
+            Method (PMCF, 0, NotSerialized)
+            {
+                Name (CFG0, Package (0x08)
+                {
+                    0x07,
+                    Package (0x02)
+                    {
+                        Zero,
+                        0x10
+                    },
+
+                    Package (0x02)
+                    {
+                        One,
+                        0x10
+                    },
+
+                    Package (0x02)
+                    {
+                        0x02,
+                        0x10
+                    },
+
+                    Package (0x02)
+                    {
+                        0x03,
+                        0x10
+                    },
+
+                    Package (0x02)
+                    {
+                        0x04,
+                        0x10
+                    },
+
+                    Package (0x02)
+                    {
+                        0x05,
+                        0x10
+                    },
+
+                    Package (0x02)
+                    {
+                        0x07,
+                        0x10
+                    }
+                })
+                Return (CFG0) /* \_SB_.PMIC.PMCF.CFG0 */
+            }
+        }
+
         Device (PEP0)
         {
             Name (_HID, "QCOM1A17")  // _HID: Hardware ID
             Name (_CID, "PNP0D80" /* Windows-compatible System Power Management Controller */)  // _CID: Compatible ID
             Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
             {
-                If ((PSUB == "QRD08450"))
+                If ((\_SB.PSUB == "QRD08450"))
                 {
                     Return ("QRD08450")
                 }
+            }
+        }
+
+        Device (SPMI)
+        {
+            Name (_HID, "QCOM1A0B")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_CID, "PNP0CA2")  // _CID: Compatible ID
+            Name (_UID, One)  // _UID: Unique ID
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x0C42D000,         // Address Base
+                        0x000B3000,         // Address Length
+                        )
+                })
+                Return (RBUF) /* \_SB_.SPMI._CRS.RBUF */
+            }
+
+            Method (CONF, 0, NotSerialized)
+            {
+                Name (XBUF, Buffer (0x1A)
+                {
+                    /* 0000 */  0x00, 0x01, 0x01, 0x01, 0xFF, 0x00, 0x02, 0x00,  // ........
+                    /* 0008 */  0x0A, 0x07, 0x04, 0x07, 0x01, 0xFF, 0x10, 0x01,  // ........
+                    /* 0010 */  0x00, 0x01, 0x0C, 0x40, 0x00, 0x00, 0x02, 0x80,  // ...@....
+                    /* 0018 */  0x00, 0x00                                       // ..
+                })
+                Return (XBUF) /* \_SB_.SPMI.CONF.XBUF */
             }
         }
 
