@@ -29,6 +29,7 @@
 |SD Card|Needs working SdccDxe|❌|
 |ACPI|Still in Work|⚠️|
 |Slot Switch|Not an A/B Device|❌|
+|UART||❔|
 
 ### OS Status
 
@@ -59,6 +60,7 @@
 |Display||✅|
 |Vibration||❌|
 |S Pen||❌|
+|UART||❔|
 
 </td><td>
 
@@ -85,6 +87,7 @@
 |Display||✅|
 |Vibration||❌|
 |S Pen||❌|
+|UART||❔|
 
 </td></tr> </table>
 
@@ -111,6 +114,7 @@
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
 |Slot Switch||❌|
+|UART||❔|
 
 ### OS Status
 
@@ -140,6 +144,7 @@
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
+|UART||❔|
 
 </td><td>
 
@@ -165,6 +170,7 @@
 |Mobile Data||❔|
 |Display||❔|
 |Vibration||❔|
+|UART||❔|
 
 </td></tr> </table>
 
@@ -191,6 +197,7 @@
 |SD Card|No SD Card slot|❌|
 |ACPI|Still in Work|⚠️|
 |Slot Switch||✅|
+|UART||❔|
 
 ### OS Status
 
@@ -220,6 +227,7 @@
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
+|UART||❔|
 
 </td><td>
 
@@ -245,6 +253,7 @@
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
+|UART||❔|
 
 </td></tr> </table>
 
@@ -271,6 +280,7 @@
 |SD Card|Needs working SdccDxe|❌|
 |ACPI||❌|
 |Slot Switch||❌|
+|UART|Needs to be enabled in .dsc|✅|
 
 ### OS Status
 
@@ -299,6 +309,7 @@
 |Mobile Data||❔|
 |Display Output||❔|
 |Vibration||❔|
+|UART||❔|
 
 </td><td>
 
@@ -323,6 +334,7 @@
 |Mobile Data||❔|
 |Display Output||❔|
 |Vibration||❔|
+|UART||❔|
 
 </td></tr> </table>
 
@@ -349,6 +361,7 @@
 |SD Card|Needs patched SdccDxe|❌|
 |ACPI||❌|
 |Slot Switch|Not an A/B Device|❌|
+|UART||❔|
 
 ### OS Status
 
@@ -377,6 +390,7 @@
 |Mobile Data||❔|
 |Display Output||❔|
 |Vibration||❔|
+|UART||❔|
 
 </td><td>
 
@@ -401,6 +415,7 @@
 |Mobile Data||❔|
 |Display Output||❔|
 |Vibration||❔|
+|UART||❔|
 
 </td></tr> </table>
 
@@ -427,6 +442,7 @@
 |SD Card||❔|
 |ACPI||❌|
 |Slot Switch|Not an A/B Device|❌|
+|UART||❔|
 
 ### OS Status
 
@@ -455,6 +471,7 @@
 |Mobile Data||❔|
 |Display Output||❔|
 |Vibration||❔|
+|UART||❔|
 
 </td><td>
 
@@ -479,5 +496,6 @@
 |Mobile Data||❔|
 |Display Output||❔|
 |Vibration||❔|
+|UART||❔|
 
 </td></tr> </table>
