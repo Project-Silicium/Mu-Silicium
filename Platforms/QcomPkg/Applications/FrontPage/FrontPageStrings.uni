@@ -41,43 +41,47 @@
 /////////////////////////////////////////////////////////////////////////////
 // Form ID 0: Phone/Tablet Information, Firmware Information, Hardware Information
 //
-#string STR_INF_VIEW_MODELINFO_HEADER       #language en-US  "\fh!48!Model Information"
+#string STR_INF_VIEW_MODELINFO_HEADER             #language en-US  "\fh!48!Model Information"
 
-#string STR_INF_VIEW_PC_MODEL               #language en-US  "Model"
+#string STR_INF_VIEW_DEVICE_MANUFACTURER          #language en-US  "Device Manufacturer"
 
-#string STR_INF_VIEW_PC_MODEL_VALUE         #language en-US  "None"
+#string STR_INF_VIEW_DEVICE_MANUFACTURER_VALUE    #language en-US  "Noner"
 
-#string STR_INF_VIEW_PC_UUID                #language en-US  "System UUID"
+#string STR_INF_VIEW_DEVICE                       #language en-US  "Device"
 
-#string STR_INF_VIEW_PC_UUID_VALUE          #language en-US  "None"
+#string STR_INF_VIEW_DEVICE_VALUE                 #language en-US  "None"
 
-#string STR_INF_VIEW_PC_SERIALNUM           #language en-US  "Serial number"
+#string STR_INF_VIEW_PC_UUID                      #language en-US  "System UUID"
 
-#string STR_INF_VIEW_PC_SERIALNUM_VALUE     #language en-US  "None"
+#string STR_INF_VIEW_PC_UUID_VALUE                #language en-US  "None"
 
-#string STR_INF_VIEW_PC_ASSET_TAG           #language en-US  "Asset tag"
+#string STR_INF_VIEW_PC_SERIALNUM                 #language en-US  "Serial number"
 
-#string STR_INF_VIEW_PC_ASSET_TAG_VALUE     #language en-US  "None"
+#string STR_INF_VIEW_PC_SERIALNUM_VALUE           #language en-US  "None"
 
-#string STR_INF_VIEW_FIRMWAREINFO_HEADER    #language en-US  "\fh!48!Firmware Information"
+#string STR_INF_VIEW_PC_ASSET_TAG                 #language en-US  "Asset tag"
 
-#string STR_INF_VIEW_UEFI_VERSION           #language en-US  "UEFI Version"
+#string STR_INF_VIEW_PC_ASSET_TAG_VALUE           #language en-US  "None"
 
-#string STR_INF_VIEW_UEFI_VERSION_VALUE     #language en-US  "None"
+#string STR_INF_VIEW_FIRMWAREINFO_HEADER          #language en-US  "\fh!48!Firmware Information"
 
-#string STR_INF_VIEW_UEFI_BUILD_DATE        #language en-US  "UEFI Build Date"
+#string STR_INF_VIEW_UEFI_VERSION                 #language en-US  "UEFI Version"
 
-#string STR_INF_VIEW_UEFI_BUILD_DATE_VALUE  #language en-US  "None"
+#string STR_INF_VIEW_UEFI_VERSION_VALUE           #language en-US  "None"
 
-#string STR_INF_VIEW_HARWAREINFO_HEADER     #language en-US  "\fh!48!Hardware Information"
+#string STR_INF_VIEW_UEFI_BUILD_DATE              #language en-US  "UEFI Build Date"
 
-#string STR_INF_VIEW_SOC_MANUFACTURER       #language en-US  "SoC Manufacturer"
+#string STR_INF_VIEW_UEFI_BUILD_DATE_VALUE        #language en-US  "None"
 
-#string STR_INF_VIEW_SOC_MANUFACTURER_VALUE #language en-US  "None"
+#string STR_INF_VIEW_HARWAREINFO_HEADER           #language en-US  "\fh!48!Hardware Information"
 
-#string STR_INF_VIEW_SOC_MODEL              #language en-US  "SoC"
+#string STR_INF_VIEW_SOC_MANUFACTURER             #language en-US  "SoC Manufacturer"
 
-#string STR_INF_VIEW_SOC_MODEL_VALUE        #language en-US  "None"
+#string STR_INF_VIEW_SOC_MANUFACTURER_VALUE       #language en-US  "None"
+
+#string STR_INF_VIEW_SOC_MODEL                    #language en-US  "SoC"
+
+#string STR_INF_VIEW_SOC_MODEL_VALUE              #language en-US  "None"
 
 /////////////////////////////////////////////////////////////////////////////
 // Form ID 1: Exit

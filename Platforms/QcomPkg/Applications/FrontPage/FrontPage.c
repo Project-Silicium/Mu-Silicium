@@ -288,15 +288,15 @@ UpdateDisplayStrings (
   if (!EFI_ERROR (Status)) {
     Type1Record = (SMBIOS_TABLE_TYPE1 *)Record;
 
-    Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type1Record + Type1Record->Hdr.Length), Type1Record->SerialNumber, &NewString);
+    Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type1Record + Type1Record->Hdr.Length), Type1Record->Manufacturer, &NewString);
     if (!EFI_ERROR (Status)) {
-      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_PC_SERIALNUM_VALUE), NewString, NULL);
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_DEVICE_MANUFACTURER_VALUE), NewString, NULL);
       FreePool (NewString);
     }
 
     Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type1Record + Type1Record->Hdr.Length), Type1Record->ProductName, &NewString);
     if (!EFI_ERROR (Status)) {
-      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_PC_MODEL_VALUE), NewString, NULL);
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_DEVICE_VALUE), NewString, NULL);
       FreePool (NewString);
     }
 
@@ -310,6 +310,12 @@ UpdateDisplayStrings (
         (EFI_GUID *)&Type1Record->Uuid
         );
       HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_PC_UUID_VALUE), NewString, NULL);
+      FreePool (NewString);
+    }
+
+    Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type1Record + Type1Record->Hdr.Length), Type1Record->SerialNumber, &NewString);
+    if (!EFI_ERROR (Status)) {
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_PC_SERIALNUM_VALUE), NewString, NULL);
       FreePool (NewString);
     }
   }

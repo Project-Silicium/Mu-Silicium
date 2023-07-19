@@ -56,14 +56,22 @@ formset
         subtitle text = STRING_TOKEN(STR_NULL_STRING),
         flags = HORIZONTAL;
           text                                                                   //
-            help    = STRING_TOKEN(STR_NULL_STRING),                             // Tablet/Phone Model number
-            text    = STRING_TOKEN(STR_INF_VIEW_PC_MODEL);                       //
+            help    = STRING_TOKEN(STR_NULL_STRING),                             // Device Manufacturer Name
+            text    = STRING_TOKEN(STR_INF_VIEW_DEVICE_MANUFACTURER);            //
           text                                                                   //
-            help    = STRING_TOKEN(STR_NULL_STRING),                             // Tablet/Phone Model number value
-            text    = STRING_TOKEN(STR_INF_VIEW_PC_MODEL_VALUE);                 //
+            help    = STRING_TOKEN(STR_NULL_STRING),                             // Device Manufacturer Name Value
+            text    = STRING_TOKEN(STR_INF_VIEW_DEVICE_MANUFACTURER_VALUE);      //
           text                                                                   //
             help    = STRING_TOKEN(STR_NULL_STRING),                             // Add a dummy 3rd column to move the 2nd column (values) further to the left.
             text    = STRING_TOKEN(STR_NULL_STRING);                             //
+        subtitle text = STRING_TOKEN(STR_NULL_STRING),
+        flags = HORIZONTAL;
+          text                                                                   //
+            help    = STRING_TOKEN(STR_NULL_STRING),                             // Device Name
+            text    = STRING_TOKEN(STR_INF_VIEW_DEVICE);                         //
+          text                                                                   //
+            help    = STRING_TOKEN(STR_NULL_STRING),                             // Device Name Value
+            text    = STRING_TOKEN(STR_INF_VIEW_DEVICE_VALUE);                   //
         subtitle text = STRING_TOKEN(STR_NULL_STRING),
         flags = HORIZONTAL;
           text                                                                   //
