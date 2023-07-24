@@ -10,7 +10,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
-**SOC: SM8450** <br />
+**SoC: SM8450** <br />
 **Codename: gts8** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
@@ -95,7 +95,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="500" alt="Preview">
 
-**SOC: SM8350** <br />
+**SoC: SM8350** <br />
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
 **Contibuters: None** <br />
@@ -178,7 +178,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
 
-**SOC: SM8350** <br />
+**SoC: SM8350** <br />
 **Codename: vili** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
@@ -261,8 +261,8 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-A3.png" width="500" alt="Preview">
 
-**SOC: SM6125** <br />
-**Codename: laurel_sprout** <br />
+**SoC: SM6125** <br />
+**Codename: laurel** <br />
 **Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
 **Contibuters: None** <br />
 **Tester: [Kernel357](https://github.com/Kernel357)**
@@ -342,7 +342,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-8.png" width="500" alt="Preview">
 
-**SOC: SM6125** <br />
+**SoC: SM6125** <br />
 **Codename: ginkgo** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
@@ -423,7 +423,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-9T.png" width="500" alt="Preview">
 
-**SOC: SM6115** <br />
+**SoC: SM6115** <br />
 **Codename: lime** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
