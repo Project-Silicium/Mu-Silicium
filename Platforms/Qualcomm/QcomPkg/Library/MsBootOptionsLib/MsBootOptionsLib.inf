@@ -1,0 +1,57 @@
+## @file
+#  Library that is attached BdsDxe to implement Microsoft extensions to UefiBootManagerLib.
+#
+# Copyright (C) Microsoft Corporation. All rights reserved.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MsBootOptionsLib
+  FILE_GUID                      = f18d4fc6-f2ff-4f91-bbf9-9da16072b1e3
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MsBootOptionsLib | DXE_DRIVER
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  MsBootOptionsLib.c
+
+[Packages]
+  PcBdsPkg/PcBdsPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  QcomPkg/Qcom.dec
+
+[LibraryClasses]
+  BaseMemoryLib
+  DebugLib
+  DevicePathLib
+  DxeServicesLib
+  MemoryAllocationLib
+  PcdLib
+  UefiBootManagerLib
+  UefiBootServicesTableLib
+  UefiLib
+
+[Guids]
+  gMsBootPolicyFileGuid
+  gSwitchSlotsAppFileGuid
+
+[Protocols]
+  gEfiFirmwareVolume2ProtocolGuid
+
+[FeaturePcd]
+
+[Pcd]
+  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile
+  gPcBdsPkgTokenSpaceGuid.PcdShellFile
+  gPcBdsPkgTokenSpaceGuid.PcdShellFvGuid
+  gQcomTokenSpaceGuid.PcdUFPMenuFile
+
+[Depex]
+  TRUE

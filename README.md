@@ -1,4 +1,4 @@
-# [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for Qualcomm Snapdragon Devices
+# [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for Qualcomm Snapdragon™ Devices
 
 <!-- ![Banner](https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Banner.png) -->
 
