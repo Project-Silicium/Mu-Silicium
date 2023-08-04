@@ -1,13 +1,14 @@
 /** @file
 
   Patches NTOSKRNL to not cause a SError when reading/writing ACTLR_EL1
+  Patches NTOSKRNL to not cause a SError when reading/writing AMCNTENSET0_EL0
   Patches NTOSKRNL to not cause a bugcheck when attempting to use
   PSCI_MEMPROTECT Due to an issue in QHEE
 
   Based on https://github.com/SamuelTulach/rainbow
 
   Copyright (c) 2021 Samuel Tulach
-  Copyright (c) 2022 DuoWoA authors
+  Copyright (c) 2022-2023 DuoWoA authors
 
   SPDX-License-Identifier: MIT
 
@@ -43,6 +44,27 @@ STATIC EFI_EXIT_BOOT_SERVICES EfiExitBootServices  = NULL;
     ContextPrint(x, __VA_ARGS__);                                              \
   }
 
+VOID KernelErrataPatcherApplyReadAMCNTENSET0EL0Patches(
+    EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
+{
+  // Fix up #0 (A8 D2 3B D5 -> 08 00 80 D2) (AMCNTENSET0_EL0 Register Read)
+  UINT8                FixedInstruction0[] = {0x08, 0x00, 0x80, 0xD2};
+  EFI_PHYSICAL_ADDRESS IllegalInstruction0 =
+      FindPattern(Base, Size, "A8 D2 3B D5");
+
+  while (IllegalInstruction0 != 0) {
+    ApplicationPrint(
+        IsInFirmwareContext, "mrs x8, amcntenset0_el0         -> 0x%p\n",
+        IllegalInstruction0);
+
+    CopyMemory(
+        IllegalInstruction0, (EFI_PHYSICAL_ADDRESS)FixedInstruction0,
+        sizeof(FixedInstruction0));
+
+    IllegalInstruction0 = FindPattern(Base, Size, "A8 D2 3B D5");
+  }
+}
+
 VOID KernelErrataPatcherApplyReadACTLREL1Patches(
     EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
 {
@@ -77,6 +99,27 @@ VOID KernelErrataPatcherApplyReadACTLREL1Patches(
         IllegalInstruction0 = 0;
       }
     }
+  }
+}
+
+VOID KernelErrataPatcherApplyWriteAMCNTENSET0EL0Patches(
+    EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
+{
+  // Fix up #1 (A9 D2 1B D5 -> 1F 20 03 D5) (AMCNTENSET0_EL0 Register Write)
+  UINT8                FixedInstruction1[] = {0x1F, 0x20, 0x03, 0xD5};
+  EFI_PHYSICAL_ADDRESS IllegalInstruction1 =
+      FindPattern(Base, Size, "A9 D2 1B D5");
+
+  while (IllegalInstruction1 != 0) {
+    ApplicationPrint(
+        IsInFirmwareContext, "msr amcntenset0_el0, x9         -> 0x%p\n",
+        IllegalInstruction1);
+
+    CopyMemory(
+        IllegalInstruction1, (EFI_PHYSICAL_ADDRESS)FixedInstruction1,
+        sizeof(FixedInstruction1));
+
+    IllegalInstruction1 = FindPattern(Base, Size, "A9 D2 1B D5");
   }
 }
 
@@ -304,6 +347,8 @@ KernelErrataPatcherExitBootServices(
     // Fix up ntoskrnl.exe
     KernelErrataPatcherApplyReadACTLREL1Patches(kernelBase, kernelSize, FALSE);
     KernelErrataPatcherApplyWriteACTLREL1Patches(kernelBase, kernelSize, FALSE);
+    KernelErrataPatcherApplyReadAMCNTENSET0EL0Patches(kernelBase, kernelSize, FALSE);
+    KernelErrataPatcherApplyWriteAMCNTENSET0EL0Patches(kernelBase, kernelSize, FALSE);
     KernelErrataPatcherApplyPsciMemoryProtectionPatches(
         kernelBase, kernelSize, FALSE);
   }
