@@ -38,13 +38,13 @@ class CommonPlatform():
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms",
-        "Platforms/Qualcomm",
         "Platforms/Samsung",
         "MU_BASECORE",
         "Common/MU",
         "Common/MU_TIANO",
         "Common/MU_OEM_SAMPLE",
         "Silicon/Arm/MU_TIANO",
+        "Silicon/Qualcomm",
         "Features/DFCI"
     )
 
