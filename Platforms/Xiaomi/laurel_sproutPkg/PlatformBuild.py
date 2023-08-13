@@ -31,10 +31,10 @@ class CommonPlatform():
     ''' Common settings for this platform.  Define static data here and use
         for the different parts of stuart
     '''
-    PackagesSupported = ("laurelPkg",)
+    PackagesSupported = ("laurel_sproutPkg",)
     ArchSupported = ("AARCH64",)
     TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('laurel', 'gcc_aarch64_linux', 'edk2-build', 'cibuild')
+    Scopes = ('laurel_sprout', 'gcc_aarch64_linux', 'edk2-build', 'cibuild')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms",
@@ -132,10 +132,10 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("laurelPkg/laurel.dsc", {})
+        return ("laurel_sproutPkg/laurel_sprout.dsc", {})
 
     def GetName(self):
-        return "laurel"
+        return "laurel_sprout"
 
     def GetPackagesPath(self):
         ''' Return a list of paths that should be mapped as edk2 PackagesPath '''
@@ -167,7 +167,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
             "TARGET_ARCH", args.build_arch.upper(), "From CmdLine")
 
         shell_environment.GetBuildVars().SetValue(
-            "ACTIVE_PLATFORM", "laurelPkg/laurel.dsc", "From CmdLine")
+            "ACTIVE_PLATFORM", "laurel_sproutPkg/laurel_sprout.dsc", "From CmdLine")
 
 
     def GetWorkspaceRoot(self):
@@ -190,7 +190,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
     def GetName(self):
         ''' Get the name of the repo, platform, or product being build '''
         ''' Used for naming the log file, among others '''
-        return "laurelPkg"
+        return "laurel_sproutPkg"
 
     def GetLoggingLevel(self, loggerType):
         ''' Get the logging level for a given type
@@ -204,8 +204,8 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
 
     def SetPlatformEnv(self):
         logging.debug("PlatformBuilder SetPlatformEnv")
-        self.env.SetValue("PRODUCT_NAME", "laurel", "Platform Hardcoded")
-        self.env.SetValue("ACTIVE_PLATFORM", "laurelPkg/laurel.dsc", "Platform Hardcoded")
+        self.env.SetValue("PRODUCT_NAME", "laurel_sprout", "Platform Hardcoded")
+        self.env.SetValue("ACTIVE_PLATFORM", "laurel_sproutPkg/laurel_sprout.dsc", "Platform Hardcoded")
         self.env.SetValue("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
         self.env.SetValue("TOOL_CHAIN_TAG", "CLANG38", "set default to clang38")
         self.env.SetValue("BUILDREPORTING", "TRUE", "Enabling build report")

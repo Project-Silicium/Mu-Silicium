@@ -20,7 +20,7 @@
 #
 ################################################################################
 
-[FD.laurel_UEFI]
+[FD.laurel_sprout_UEFI]
 BaseAddress   = 0x5FC00000|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
 Size          = 0x00300000|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1

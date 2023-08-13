@@ -14,7 +14,7 @@
   EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  laurelPkg/laurel.dec
+  laurel_sproutPkg/laurel_sprout.dec
   QcomPkg/Qcom.dec
 
 [LibraryClasses]

@@ -16,22 +16,22 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = laurel
+  PLATFORM_NAME                  = laurel_sprout
   PLATFORM_GUID                  = 30fa3a0b-87b1-4b91-a716-cd283a813c72
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/laurelPkg
+  OUTPUT_DIRECTORY               = Build/laurel_sproutPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = laurelPkg/laurel.fdf
+  FLASH_DEFINITION               = laurel_sproutPkg/laurel_sprout.fdf
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|laurelPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
-  PlatformPeiLib|laurelPkg/Library/PlatformPei/PlatformPeiLib.inf
+  PlatformMemoryMapLib|laurel_sproutPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  PlatformPeiLib|laurel_sproutPkg/Library/PlatformPei/PlatformPeiLib.inf
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
@@ -61,8 +61,8 @@
   # Device Info
   gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
   gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Mi A3"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"laurel"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_A3_laurel"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"laurel_sprout"
+  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_A3_laurel_sprout"
   gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Mi A3"
 
 [PcdsDynamicDefault.common]
