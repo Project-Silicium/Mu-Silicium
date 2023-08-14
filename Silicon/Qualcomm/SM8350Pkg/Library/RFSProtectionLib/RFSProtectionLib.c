@@ -57,7 +57,12 @@ RFSProtectSharedArea(UINT64 efsBaseAddr, UINT64 efsBaseSize)
   UINT64                 parameterArray[SCM_MAX_NUM_PARAMETERS] = {0};
   hyp_memprot_assign_t  *assign = (hyp_memprot_assign_t *)parameterArray;
 
-  Status = gBS->LocateProtocol(&gQcomScmProtocolGuid, NULL, (VOID **)&pQcomScmProtocol);
+  Status = gBS->LocateProtocol(
+      &gQcomScmProtocolGuid, 
+      NULL, 
+      (VOID **)&pQcomScmProtocol
+  );
+
   if (EFI_ERROR(Status)) {
     return Status;
   }
@@ -66,7 +71,10 @@ RFSProtectSharedArea(UINT64 efsBaseAddr, UINT64 efsBaseSize)
   ipaInfo.IPAaddr = efsBaseAddr;
   ipaInfo.IPAsize = efsBaseSize;
 
-  dataSize = sizeof(hyp_memprot_ipa_info_t) + sizeof(sourceVM) + (MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t)) + 4;
+  dataSize = sizeof(hyp_memprot_ipa_info_t) + 
+                  sizeof(sourceVM) +
+                  (MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t)) + 
+                  4;
 
   data = AllocateZeroPool(dataSize);
   if (data == NULL) {
@@ -75,23 +83,49 @@ RFSProtectSharedArea(UINT64 efsBaseAddr, UINT64 efsBaseSize)
 
   assign->IPAinfolist = (UINT64)data;
 
-  CopyMem((VOID *)assign->IPAinfolist, &ipaInfo, sizeof(hyp_memprot_ipa_info_t));
+  CopyMem(
+    (VOID *)assign->IPAinfolist, 
+    &ipaInfo, 
+    sizeof(hyp_memprot_ipa_info_t)
+  );
 
   assign->IPAinfolistsize = sizeof(hyp_memprot_ipa_info_t);
-  assign->sourceVMlist = (UINT64)data + sizeof(hyp_memprot_ipa_info_t);
 
-  CopyMem((VOID *)assign->sourceVMlist, &sourceVM, sizeof(sourceVM));
+  assign->sourceVMlist =
+      (UINT64)data + 
+      sizeof(hyp_memprot_ipa_info_t);
+
+  CopyMem(
+    (VOID *)assign->sourceVMlist, 
+    &sourceVM, 
+    sizeof(sourceVM)
+  );
 
   assign->srcVMlistsize = sizeof(sourceVM);
-  assign->destVMlist = (UINT64)data + sizeof(hyp_memprot_ipa_info_t) + sizeof(sourceVM) + 4;
 
-  CopyMem((VOID *)assign->destVMlist, dstVM_perm_info, MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t));
+  assign->destVMlist =
+      (UINT64)data + 
+      sizeof(hyp_memprot_ipa_info_t) + 
+      sizeof(sourceVM) + 
+      4;
+
+  CopyMem(
+      (VOID *)assign->destVMlist, 
+      dstVM_perm_info,
+      MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t)
+  );
 
   assign->destVMlistsize = MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t);
   assign->spare          = 0;
 
   // Send the hypervisor call
-  Status = pQcomScmProtocol->ScmSipSysCall(pQcomScmProtocol, HYP_MEM_PROTECT_ASSIGN, HYP_MEM_PROTECT_ASSIGN_PARAM_ID, parameterArray, results);
+  Status = pQcomScmProtocol->ScmSipSysCall(
+      pQcomScmProtocol, 
+      HYP_MEM_PROTECT_ASSIGN, 
+      HYP_MEM_PROTECT_ASSIGN_PARAM_ID,
+      parameterArray, 
+      results
+  );
 
   return Status;
 }
@@ -103,7 +137,7 @@ RFSLocateAndProtectSharedArea()
   ARM_MEMORY_REGION_DESCRIPTOR_EX MpssEfs;
 
   if (!EFI_ERROR(LocateMemoryMapAreaByName("MPSS_EFS", &MpssEfs))) {
-    return RFSProtectSharedArea(MpssEfs.Address, MpssEfs.Length);
+      return RFSProtectSharedArea(MpssEfs.Address, MpssEfs.Length);
   }
 
   return EFI_NOT_FOUND;

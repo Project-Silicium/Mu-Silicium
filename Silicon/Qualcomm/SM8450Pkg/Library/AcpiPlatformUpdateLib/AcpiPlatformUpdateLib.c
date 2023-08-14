@@ -35,12 +35,12 @@ PlatformUpdateAcpiTables(VOID)
   UINT32                              SUFS  = 0xFFFFFFFF;
   UINT32                              PUS3  = 0x1;
   UINT32                              SUS3  = 0xFFFFFFFF;
-//UINT32                             *pSIDT = (UINT32 *)0x784178;
-//UINT32                              SIDT  = (*pSIDT & 0xFF00000) >> 20;
-//UINT32                             *pSJTG = (UINT32 *)0x784178;
-//UINT32                              SJTG  = *pSJTG & 0xFFFFF;
-//UINT32                             *pEMUL = (UINT32 *)0x1FC8004;
-//UINT32                              EMUL  = *pEMUL & 0x3;
+//  UINT32                             *pSIDT = (UINT32 *)0x784178;
+//  UINT32                              SIDT  = (*pSIDT & 0xFF00000) >> 20;
+//  UINT32                             *pSJTG = (UINT32 *)0x784178;
+//  UINT32                              SJTG  = *pSJTG & 0xFFFFF;
+//  UINT32                             *pEMUL = (UINT32 *)0x1FC8004;
+//  UINT32                              EMUL  = *pEMUL & 0x3;
   UINT32                              SOSN1 = 0;
   UINT32                              SOSN2 = 0;
   UINT32                              TPMA  = 0x1;
@@ -68,7 +68,8 @@ PlatformUpdateAcpiTables(VOID)
   //
   // Find the ChipInfo protocol
   //
-  Status = gBS->LocateProtocol(&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mBoardProtocol);
+  Status = gBS->LocateProtocol(
+      &gEfiChipInfoProtocolGuid, NULL, (VOID *)&mBoardProtocol);
   if (EFI_ERROR(Status)) {
     return;
   }
@@ -76,7 +77,8 @@ PlatformUpdateAcpiTables(VOID)
   //
   // Find the SMEM protocol
   //
-  Status = gBS->LocateProtocol(&gEfiSMEMProtocolGuid, NULL, (VOID **)&pEfiSmemProtocol);
+  Status = gBS->LocateProtocol(
+      &gEfiSMEMProtocolGuid, NULL, (VOID **)&pEfiSmemProtocol);
   if (EFI_ERROR(Status)) {
     return;
   }
@@ -84,7 +86,8 @@ PlatformUpdateAcpiTables(VOID)
   //
   // Find the PlatformInfo protocol
   //
-  Status = gBS->LocateProtocol(&gEfiPlatformInfoProtocolGuid, NULL, (VOID **)&pEfiPlatformInfoProtocol);
+  Status = gBS->LocateProtocol(
+      &gEfiPlatformInfoProtocolGuid, NULL, (VOID **)&pEfiPlatformInfoProtocol);
   if (EFI_ERROR(Status)) {
     return;
   }
@@ -133,15 +136,15 @@ PlatformUpdateAcpiTables(VOID)
     TCML = 0xBEEFDEAD;
   }
 
-  DEBUG((EFI_D_INFO, "Chip Id: %d\n", SOID));
-  DEBUG((EFI_D_INFO, "Chip Family Id: %d\n", SDFE));
-  DEBUG((EFI_D_INFO, "Chip Major Version: %d\n", SVMJ));
-  DEBUG((EFI_D_INFO, "Chip Minor Version: %d\n", SVMI));
-  DEBUG((EFI_D_INFO, "Chip Modem Support: 0x%x\n", SIDM));
-  DEBUG((EFI_D_INFO, "Chip Serial Number: 0x%x\n", SOSN));
-  DEBUG((EFI_D_INFO, "Chip Name: %a\n", SIDS));
-  DEBUG((EFI_D_INFO, "Chip Info Address: 0x%x\n", SOSI));
-  DEBUG((EFI_D_INFO, "Platform Subtype: %d\n", PLST));
+  DEBUG((EFI_D_WARN, "Chip Id: %d\n", SOID));
+  DEBUG((EFI_D_WARN, "Chip Family Id: %d\n", SDFE));
+  DEBUG((EFI_D_WARN, "Chip Major Version: %d\n", SVMJ));
+  DEBUG((EFI_D_WARN, "Chip Minor Version: %d\n", SVMI));
+  DEBUG((EFI_D_WARN, "Chip Modem Support: 0x%x\n", SIDM));
+  DEBUG((EFI_D_WARN, "Chip Serial Number: 0x%x\n", SOSN));
+  DEBUG((EFI_D_WARN, "Chip Name: %a\n", SIDS));
+  DEBUG((EFI_D_WARN, "Chip Info Address: 0x%x\n", SOSI));
+  DEBUG((EFI_D_WARN, "Platform Subtype: %d\n", PLST));
 
   UpdateNameAslCode(SIGNATURE_32('S', 'O', 'I', 'D'), &SOID, 4);
   UpdateNameAslCode(SIGNATURE_32('S', 'T', 'O', 'R'), &STOR, 4);
@@ -153,9 +156,9 @@ PlatformUpdateAcpiTables(VOID)
   UpdateNameAslCode(SIGNATURE_32('S', 'U', 'F', 'S'), &SUFS, 4);
   UpdateNameAslCode(SIGNATURE_32('P', 'U', 'S', '3'), &PUS3, 4);
   UpdateNameAslCode(SIGNATURE_32('S', 'U', 'S', '3'), &SUS3, 4);
-//UpdateNameAslCode(SIGNATURE_32('S', 'I', 'D', 'T'), &SIDT, 4);
-//UpdateNameAslCode(SIGNATURE_32('S', 'J', 'T', 'G'), &SJTG, 4);
-//UpdateNameAslCode(SIGNATURE_32('E', 'M', 'U', 'L'), &EMUL, 4);
+//  UpdateNameAslCode(SIGNATURE_32('S', 'I', 'D', 'T'), &SIDT, 4);
+//  UpdateNameAslCode(SIGNATURE_32('S', 'J', 'T', 'G'), &SJTG, 4);
+//  UpdateNameAslCode(SIGNATURE_32('E', 'M', 'U', 'L'), &EMUL, 4);
   UpdateNameAslCode(SIGNATURE_32('S', 'O', 'S', 'N'), &SOSN, 8);
   UpdateNameAslCode(SIGNATURE_32('P', 'L', 'S', 'T'), &PLST, 4);
   UpdateNameAslCode(SIGNATURE_32('R', 'M', 'T', 'B'), &RMTB, 4);

@@ -38,12 +38,15 @@ only report current Day, Hours, Minutes and Seconds starting from the begining
 of CPU up-time. Otherwise, a more complex logic will be required to account for
 leap years and days/month differences.
 
-@param  Time                  A pointer to storage to receive a snapshot of the current time.
-@param  Capabilities          An optional pointer to a buffer to receive the real time clock device's capabilities.
+@param  Time                  A pointer to storage to receive a snapshot of the
+current time.
+@param  Capabilities          An optional pointer to a buffer to receive the
+real time clock device's capabilities.
 
 @retval EFI_SUCCESS           The operation completed successfully.
 @retval EFI_INVALID_PARAMETER Time is NULL.
-@retval EFI_DEVICE_ERROR      The time could not be retrieved due to hardware error.
+@retval EFI_DEVICE_ERROR      The time could not be retrieved due to hardware
+error.
 
 **/
 EFI_STATUS
@@ -98,7 +101,10 @@ LibGetTime(OUT EFI_TIME *Time, OUT EFI_TIME_CAPABILITIES *Capabilities)
 
   Time->Second = ElapsedSeconds;
 
+  //
   // Not required to report in our special case
+  //
+
   Time->Nanosecond = 0;
   Time->TimeZone   = 0;
   Time->Daylight   = 0;
@@ -113,7 +119,8 @@ Sets the current local time and date information.
 
 @retval EFI_SUCCESS           The operation completed successfully.
 @retval EFI_INVALID_PARAMETER A time field is out of range.
-@retval EFI_DEVICE_ERROR      The time could not be set due due to hardware error.
+@retval EFI_DEVICE_ERROR      The time could not be set due due to hardware
+error.
 
 **/
 EFI_STATUS
@@ -129,13 +136,16 @@ LibSetTime(IN EFI_TIME *Time)
 /**
 Returns the current wakeup alarm clock setting.
 
-@param  Enabled               Indicates if the alarm is currently enabled or disabled.
-@param  Pending               Indicates if the alarm signal is pending and requires acknowledgement.
+@param  Enabled               Indicates if the alarm is currently enabled or
+disabled.
+@param  Pending               Indicates if the alarm signal is pending and
+requires acknowledgement.
 @param  Time                  The current alarm setting.
 
 @retval EFI_SUCCESS           The alarm settings were returned.
 @retval EFI_INVALID_PARAMETER Any parameter is NULL.
-@retval EFI_DEVICE_ERROR      The wakeup time could not be retrieved due to a hardware error.
+@retval EFI_DEVICE_ERROR      The wakeup time could not be retrieved due to a
+hardware error.
 
 **/
 EFI_STATUS
@@ -149,11 +159,14 @@ LibGetWakeupTime(OUT BOOLEAN *Enabled, OUT BOOLEAN *Pending, OUT EFI_TIME *Time)
 Sets the system wakeup alarm clock time.
 
 @param  Enabled               Enable or disable the wakeup alarm.
-@param  Time                  If Enable is TRUE, the time to set the wakeup alarm for.
+@param  Time                  If Enable is TRUE, the time to set the wakeup
+alarm for.
 
-@retval EFI_SUCCESS           If Enable is TRUE, then the wakeup alarm was enabled. If Enable is FALSE, then the wakeup alarm was disabled.
+@retval EFI_SUCCESS           If Enable is TRUE, then the wakeup alarm was
+enabled. If Enable is FALSE, then the wakeup alarm was disabled.
 @retval EFI_INVALID_PARAMETER A time field is out of range.
-@retval EFI_DEVICE_ERROR      The wakeup time could not be set due to a hardware error.
+@retval EFI_DEVICE_ERROR      The wakeup time could not be set due to a hardware
+error.
 @retval EFI_UNSUPPORTED       A wakeup timer is not supported on this platform.
 
 **/

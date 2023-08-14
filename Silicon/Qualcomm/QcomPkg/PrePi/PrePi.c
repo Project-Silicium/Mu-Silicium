@@ -24,13 +24,17 @@
 
 #include <Library/MemoryMapHelperLib.h>
 
+#define IS_XIP()  (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) ||\
+                  ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
+
 UINT64  mSystemMemoryEnd = FixedPcdGet64 (PcdSystemMemoryBase) +
                            FixedPcdGet64 (PcdSystemMemorySize) - 1;
 
 EFI_STATUS
 GetPlatformPpi (
   IN  EFI_GUID  *PpiGuid,
-  OUT VOID      **Ppi)
+  OUT VOID      **Ppi
+  )
 {
   UINTN                   PpiListSize;
   UINTN                   PpiListCount;
@@ -51,13 +55,17 @@ GetPlatformPpi (
 }
 
 VOID
-PrePiMain (IN  UINT64  StartTimeStamp)
+PrePiMain (
+  IN  UINT64  StartTimeStamp
+  )
 {
   EFI_HOB_HANDOFF_INFO_TABLE  *HobList;
   ARM_MP_CORE_INFO_PPI        *ArmMpCoreInfoPpi;
   UINTN                       ArmCoreCount;
   ARM_CORE_INFO               *ArmCoreInfoTable;
   EFI_STATUS                  Status;
+  CHAR8                       Buffer[100];
+  UINTN                       CharCount;
   UINTN                       StacksSize;
   FIRMWARE_SEC_PERFORMANCE    Performance;
 
@@ -90,10 +98,28 @@ PrePiMain (IN  UINT64  StartTimeStamp)
   StacksBase     = UefiMemoryBase + UefiMemorySize - StacksSize;
 
   // If ensure the FD is either part of the System Memory or totally outside of the System Memory (XIP)
-  ASSERT (IS_XIP () || ((UefiFd.Address >= MemoryBase) && ((UINT64)(UefiFd.Address + UefiFd.Length) <= (UINT64)mSystemMemoryEnd)));
+  ASSERT (
+    IS_XIP () ||
+    ((UefiFd.Address >= MemoryBase) &&
+     ((UINT64)(UefiFd.Address + UefiFd.Length) <= (UINT64)mSystemMemoryEnd))
+    );
 
   // Initialize the architecture specific bits
   ArchInitialize ();
+
+  // Initialize the Serial Port
+  SerialPortInitialize ();
+
+  // Print Firmware Infos
+  CharCount = AsciiSPrint (
+                Buffer,
+                sizeof (Buffer),
+                "UEFI firmware (version %s built at %a on %a)\n\r",
+                (CHAR16 *)PcdGetPtr (PcdFirmwareVersionString),
+                __TIME__,
+                __DATE__
+                );
+  SerialPortWrite ((UINT8 *)Buffer, CharCount);
 
   // Initialize the Debug Agent for Source Level Debugging
   InitializeDebugAgent (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
@@ -104,7 +130,8 @@ PrePiMain (IN  UINT64  StartTimeStamp)
               (VOID *)UefiMemoryBase,
               UefiMemorySize,
               (VOID *)UefiMemoryBase,
-              (VOID *)StacksBase);
+              (VOID *)StacksBase // The top of the UEFI Memory is reserved for the stacks
+              );
   PrePeiSetHobList (HobList);
 
   // Initialize MMU and Memory HOBs (Resource Descriptor HOBs)
@@ -197,7 +224,10 @@ CEntryPoint ()
   Status = LocateMemoryMapAreaByName("UEFI FD", &UefiFd);
   ASSERT_EFI_ERROR (Status);
 
-  InvalidateDataCacheRange ((VOID *)UefiFd.Address, UefiFd.Length);
+  InvalidateDataCacheRange (
+    (VOID *)UefiFd.Address,
+    UefiFd.Length
+    );
 
   // Goto primary Main.
   PrePiMain (StartTimeStamp);

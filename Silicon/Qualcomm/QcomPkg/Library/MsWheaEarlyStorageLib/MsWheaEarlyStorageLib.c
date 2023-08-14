@@ -18,9 +18,12 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/MsWheaEarlyStorageLib.h>
 #include <Library/MemoryMapHelperLib.h>
 
-#include "MsWheaEarlyStorageLib.h"
-
 ARM_MEMORY_REGION_DESCRIPTOR_EX LogBuffer;
+
+#define MS_WHEA_EARLY_STORAGE_OFFSET  0x40
+
+#define MS_WHEA_EARLY_STORAGE_HEADER_SIZE  (sizeof(MS_WHEA_EARLY_STORAGE_HEADER))
+#define MS_WHEA_EARLY_STORAGE_DATA_OFFSET  MS_WHEA_EARLY_STORAGE_HEADER_SIZE
 
 /**
 
@@ -37,17 +40,21 @@ This routine has the highest privilege to read any byte(s) on the CMOS
 STATIC
 EFI_STATUS
 __MsWheaCMOSRawRead (
-  VOID  *Ptr,
+  VOID   *Ptr,
   UINT8  Size,
-  UINT8  Offset)
+  UINT8  Offset
+  )
 {
   UINT8       mIndex;
   UINT8       i;
-  UINT8      *mBuf;
+  UINT8       *mBuf;
   EFI_STATUS  Status;
 
   mBuf = Ptr;
-  if ((mBuf == NULL) || (Size == 0) || ((UINT8)(PcdGet32 (PcdMsWheaReportEarlyStorageCapacity) - Size) < Offset)) {
+  if ((mBuf == NULL) ||
+      (Size == 0) ||
+      ((UINT8)(PcdGet32 (PcdMsWheaReportEarlyStorageCapacity) - Size) < Offset))
+  {
     Status = EFI_INVALID_PARAMETER;
     goto Cleanup;
   }
@@ -87,17 +94,21 @@ This routine has the highest privilege to write any byte(s) on the CMOS
 STATIC
 EFI_STATUS
 __MsWheaCMOSRawWrite (
-  VOID  *Ptr,
+  VOID   *Ptr,
   UINT8  Size,
-  UINT8  Offset)
+  UINT8  Offset
+  )
 {
   UINT8       mIndex;
   UINT8       i;
-  UINT8      *mBuf;
+  UINT8       *mBuf;
   EFI_STATUS  Status;
 
   mBuf = Ptr;
-  if ((mBuf == NULL) || (Size == 0) ||((UINT8)(PcdGet32 (PcdMsWheaReportEarlyStorageCapacity) - Size) < Offset)) {
+  if ((mBuf == NULL) ||
+      (Size == 0) ||
+      ((UINT8)(PcdGet32 (PcdMsWheaReportEarlyStorageCapacity) - Size) < Offset))
+  {
     Status = EFI_INVALID_PARAMETER;
     goto Cleanup;
   }
@@ -128,13 +139,16 @@ STATIC
 EFI_STATUS
 __MsWheaCMOSRawClear (
   UINT8  Size,
-  UINT8  Offset)
+  UINT8  Offset
+  )
 {
   UINT8       mIndex;
   UINT8       i;
   EFI_STATUS  Status;
 
-  if ((Size == 0) || ((UINT8)(PcdGet32 (PcdMsWheaReportEarlyStorageCapacity) - Size) < Offset)) {
+  if ((Size == 0) ||
+      ((UINT8)(PcdGet32 (PcdMsWheaReportEarlyStorageCapacity) - Size) < Offset))
+  {
     Status = EFI_INVALID_PARAMETER;
     goto Cleanup;
   }
@@ -145,7 +159,6 @@ __MsWheaCMOSRawClear (
   }
 
   Status = EFI_SUCCESS;
-
 Cleanup:
   return Status;
 }
@@ -159,7 +172,9 @@ This routine returns the maximum number of bytes that can be stored in the early
 **/
 UINT8
 EFIAPI
-MsWheaEarlyStorageGetMaxSize (VOID)
+MsWheaEarlyStorageGetMaxSize (
+  VOID
+  )
 {
   return (UINT8)((PcdGet32 (PcdMsWheaReportEarlyStorageCapacity) - (MS_WHEA_EARLY_STORAGE_OFFSET)) & 0xFF);
 }
@@ -182,7 +197,8 @@ EFIAPI
 MsWheaEarlyStorageRead (
   VOID   *Ptr,
   UINT8  Size,
-  UINT8  Offset)
+  UINT8  Offset
+  )
 {
   EFI_STATUS  Status;
 
@@ -215,7 +231,8 @@ EFIAPI
 MsWheaEarlyStorageWrite (
   VOID   *Ptr,
   UINT8  Size,
-  UINT8  Offset)
+  UINT8  Offset
+  )
 {
   EFI_STATUS  Status;
 
@@ -246,7 +263,8 @@ EFI_STATUS
 EFIAPI
 MsWheaEarlyStorageClear (
   UINT8  Size,
-  UINT8  Offset)
+  UINT8  Offset
+  )
 {
   EFI_STATUS  Status;
 
@@ -270,7 +288,9 @@ This is a helper function that returns the maximal capacity for header excluded 
 **/
 UINT8
 EFIAPI
-MsWheaESGetMaxDataCount (VOID)
+MsWheaESGetMaxDataCount (
+  VOID
+  )
 {
   return (UINT8)((MsWheaEarlyStorageGetMaxSize () - (MS_WHEA_EARLY_STORAGE_DATA_OFFSET)) & 0xFF);
 }
@@ -293,7 +313,8 @@ EFI_STATUS
 EFIAPI
 MsWheaESFindSlot (
   IN UINT8  Size,
-  IN UINT8  *Offset)
+  IN UINT8  *Offset
+  )
 {
   EFI_STATUS                    Status = EFI_OUT_OF_RESOURCES;
   MS_WHEA_EARLY_STORAGE_HEADER  Header;
@@ -326,7 +347,8 @@ EFI_STATUS
 EFIAPI
 MsWheaESCalculateChecksum16 (
   MS_WHEA_EARLY_STORAGE_HEADER  *Header,
-  UINT16                        *Checksum)
+  UINT16                        *Checksum
+  )
 {
   UINT16      Data;
   UINT32      Index;
@@ -340,7 +362,9 @@ MsWheaESCalculateChecksum16 (
   if ((Checksum == NULL) || (Header == NULL)) {
     Status = EFI_INVALID_PARAMETER;
     goto Cleanup;
-  } else if ((Header->ActiveRange > MsWheaEarlyStorageGetMaxSize ()) || ((Header->ActiveRange & BIT0) != 0)) {
+  } else if ((Header->ActiveRange > MsWheaEarlyStorageGetMaxSize ()) ||
+             ((Header->ActiveRange & BIT0) != 0))
+  {
     Status = EFI_BAD_BUFFER_SIZE;
     goto Cleanup;
   }
@@ -380,7 +404,9 @@ checksum and active range will be updated in the process.
 **/
 STATIC
 EFI_STATUS
-MsWheaESAddRecordV0Internal (IN MS_WHEA_EARLY_STORAGE_ENTRY_V0  *MsWheaEntry)
+MsWheaESAddRecordV0Internal (
+  IN MS_WHEA_EARLY_STORAGE_ENTRY_V0  *MsWheaEntry
+  )
 {
   UINT8                         Offset = 0;
   EFI_STATUS                    Status;
@@ -392,37 +418,81 @@ MsWheaESAddRecordV0Internal (IN MS_WHEA_EARLY_STORAGE_ENTRY_V0  *MsWheaEntry)
     goto Cleanup;
   }
 
-  Status = MsWheaESFindSlot (sizeof (MS_WHEA_EARLY_STORAGE_ENTRY_V0), &Offset);
+  Status = MsWheaESFindSlot (
+             sizeof (MS_WHEA_EARLY_STORAGE_ENTRY_V0),
+             &Offset
+             );
+
   if (EFI_ERROR (Status)) {
     goto Cleanup;
   }
 
-  Status = MsWheaEarlyStorageWrite (MsWheaEntry, sizeof (MS_WHEA_EARLY_STORAGE_ENTRY_V0), MS_WHEA_EARLY_STORAGE_DATA_OFFSET + Offset);
+  Status = MsWheaEarlyStorageWrite (
+             MsWheaEntry,
+             sizeof (MS_WHEA_EARLY_STORAGE_ENTRY_V0),
+             MS_WHEA_EARLY_STORAGE_DATA_OFFSET + Offset
+             );
+
   if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "%a: Clear V0 Early Storage failed at %d %r\n", __FUNCTION__, Offset, Status));
+    DEBUG ((
+      DEBUG_ERROR,
+      "%a: Clear V0 Early Storage failed at %d %r\n",
+      __FUNCTION__,
+      Offset,
+      Status
+      ));
+
     goto Cleanup;
   }
 
-  Status = MsWheaEarlyStorageRead (&Header, MS_WHEA_EARLY_STORAGE_HEADER_SIZE, 0);
+  Status = MsWheaEarlyStorageRead (
+             &Header,
+             MS_WHEA_EARLY_STORAGE_HEADER_SIZE,
+             0
+             );
+
   if (EFI_ERROR (Status)) {
     goto Cleanup;
   }
 
   Header.ActiveRange += sizeof (MS_WHEA_EARLY_STORAGE_ENTRY_V0);
 
-  Status = MsWheaESCalculateChecksum16 (&Header, &Checksum);
+  Status = MsWheaESCalculateChecksum16 (
+             &Header,
+             &Checksum
+             );
+
   if (EFI_ERROR (Status)) {
     goto Cleanup;
   }
 
   Header.Checksum = Checksum;
 
-  Status = MsWheaEarlyStorageWrite (&Header, MS_WHEA_EARLY_STORAGE_HEADER_SIZE, 0);
-  ZeroMem (&Header, sizeof (Header));
-  Status = MsWheaEarlyStorageRead (&Header, MS_WHEA_EARLY_STORAGE_HEADER_SIZE, 0);
+  Status = MsWheaEarlyStorageWrite (
+             &Header,
+             MS_WHEA_EARLY_STORAGE_HEADER_SIZE,
+             0
+             );
+
+  ZeroMem (
+    &Header,
+    sizeof (Header)
+    );
+
+  Status = MsWheaEarlyStorageRead (
+             &Header,
+             MS_WHEA_EARLY_STORAGE_HEADER_SIZE,
+             0
+             );
 
   if (Header.Checksum != Checksum) {
-    DEBUG ((DEBUG_ERROR, "%a: - Checksum Write Failed. Actual: %d, Expected: %d\n", __FUNCTION__, Header.Checksum, Checksum));
+    DEBUG ((
+      DEBUG_ERROR,
+      "%a: - Checksum Write Failed. Actual: %d, Expected: %d\n",
+      __FUNCTION__,
+      Header.Checksum,
+      Checksum
+      ));
   }
 
 Cleanup:
@@ -450,12 +520,16 @@ MsWheaESAddRecordV0 (
   IN  UINT32    ErrorStatusValue,
   IN  UINT64    AdditionalInfo1,
   IN  UINT64    AdditionalInfo2,
-  IN  EFI_GUID *ModuleId OPTIONAL,
-  IN  EFI_GUID *PartitionId OPTIONAL)
+  IN  EFI_GUID  *ModuleId OPTIONAL,
+  IN  EFI_GUID  *PartitionId OPTIONAL
+  )
 {
   MS_WHEA_EARLY_STORAGE_ENTRY_V0  WheaV0;
 
-  ZeroMem (&WheaV0,sizeof (WheaV0));
+  ZeroMem (
+    &WheaV0,
+    sizeof (WheaV0)
+    );
 
   WheaV0.Rev              = MS_WHEA_REV_0;
   WheaV0.ErrorStatusValue = ErrorStatusValue;
@@ -463,13 +537,25 @@ MsWheaESAddRecordV0 (
   WheaV0.AdditionalInfo2  = AdditionalInfo2;
 
   if (ModuleId != NULL) {
-    CopyMem (&WheaV0.ModuleID, ModuleId, sizeof (EFI_GUID));
+    CopyMem (
+      &WheaV0.ModuleID,
+      ModuleId,
+      sizeof (EFI_GUID)
+      );
   } else {
-    CopyMem (&WheaV0.ModuleID, &gEfiCallerIdGuid, sizeof (EFI_GUID));
+    CopyMem (
+      &WheaV0.ModuleID,
+      &gEfiCallerIdGuid,
+      sizeof (EFI_GUID)
+      );
   }
 
   if (PartitionId != NULL) {
-    CopyMem (&WheaV0.PartitionID, PartitionId, sizeof (EFI_GUID));
+    CopyMem (
+      &WheaV0.PartitionID,
+      PartitionId,
+      sizeof (EFI_GUID)
+      );
   }
 
   return MsWheaESAddRecordV0Internal (&WheaV0);

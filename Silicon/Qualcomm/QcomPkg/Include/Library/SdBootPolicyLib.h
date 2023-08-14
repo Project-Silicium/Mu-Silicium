@@ -1,8 +1,8 @@
 /** @file
  *Header file for Ms Boot Policy Library
 
- Copyright (C) Microsoft Corporation. All rights reserved.
- SPDX-License-Identifier: BSD-2-Clause-Patent
+Copyright (C) Microsoft Corporation. All rights reserved.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -17,6 +17,8 @@
 **/
 BOOLEAN
 EFIAPI
-SdBootPolicyLibIsUFPBoot (VOID);
+SdBootPolicyLibIsUFPBoot (
+  VOID
+  );
 
-#endif /* _SD_BOOT_POLICY_LIB_H_ */
+#endif

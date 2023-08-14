@@ -103,7 +103,9 @@ ARM_CORE_INFO  mArmPlatformMpCoreInfoTable[] = {
 
 **/
 EFI_BOOT_MODE
-ArmPlatformGetBootMode (VOID)
+ArmPlatformGetBootMode (
+  VOID
+  )
 {
   return BOOT_WITH_DEFAULT_SETTINGS;
 }
@@ -116,7 +118,9 @@ ArmPlatformGetBootMode (VOID)
 
 **/
 RETURN_STATUS
-ArmPlatformInitialize (IN UINTN MpId)
+ArmPlatformInitialize (
+  IN  UINTN  MpId
+  )
 {
   if (!ArmPlatformIsPrimaryCore (MpId)) {
     return RETURN_SUCCESS;
@@ -130,7 +134,8 @@ ArmPlatformInitialize (IN UINTN MpId)
 EFI_STATUS
 PrePeiCoreGetMpCoreInfo (
   OUT UINTN          *CoreCount,
-  OUT ARM_CORE_INFO **ArmCoreTable)
+  OUT ARM_CORE_INFO  **ArmCoreTable
+  )
 {
   if (ArmIsMpCore ()) {
     *CoreCount    = sizeof (mArmPlatformMpCoreInfoTable) / sizeof (ARM_CORE_INFO);
@@ -141,9 +146,9 @@ PrePeiCoreGetMpCoreInfo (
   }
 }
 
-ARM_MP_CORE_INFO_PPI mMpCoreInfoPpi = {PrePeiCoreGetMpCoreInfo};
+ARM_MP_CORE_INFO_PPI  mMpCoreInfoPpi = { PrePeiCoreGetMpCoreInfo };
 
-EFI_PEI_PPI_DESCRIPTOR gPlatformPpiTable[] = {
+EFI_PEI_PPI_DESCRIPTOR  gPlatformPpiTable[] = {
   {
     EFI_PEI_PPI_DESCRIPTOR_PPI,
     &gArmMpCoreInfoPpiGuid,
@@ -154,7 +159,8 @@ EFI_PEI_PPI_DESCRIPTOR gPlatformPpiTable[] = {
 VOID
 ArmPlatformGetPlatformPpiList (
   OUT UINTN                   *PpiListSize,
-  OUT EFI_PEI_PPI_DESCRIPTOR  **PpiList)
+  OUT EFI_PEI_PPI_DESCRIPTOR  **PpiList
+  )
 {
   if (ArmIsMpCore ()) {
     *PpiListSize = sizeof (gPlatformPpiTable);

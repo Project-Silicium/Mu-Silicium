@@ -48,7 +48,9 @@ SystemPowerCheck (
 
 EFI_STATUS
 EFIAPI
-SystemPowerMitigate (IN POWER_CASE Case)
+SystemPowerMitigate (
+  IN  POWER_CASE  Case
+  )
 {
   return EFI_UNSUPPORTED;
 }

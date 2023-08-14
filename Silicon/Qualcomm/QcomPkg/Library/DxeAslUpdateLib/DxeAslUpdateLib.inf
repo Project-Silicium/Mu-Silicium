@@ -1,5 +1,4 @@
 ## @file
-#
 # Provides services to update ASL tables.
 # Note that the current version of the library updates AML.
 #
@@ -16,13 +15,6 @@
   MODULE_TYPE              = DXE_DRIVER
   LIBRARY_CLASS            = AslUpdateLib
 
-[Sources]
-  DxeAslUpdateLib.c
-
-[Packages]
-  MdePkg/MdePkg.dec
-  QcomPkg/Qcom.dec
-
 [LibraryClasses]
   BaseLib
   IoLib
@@ -31,6 +23,13 @@
   BaseMemoryLib
   UefiLib
   MemoryAllocationLib
+
+[Packages]
+  MdePkg/MdePkg.dec
+  QcomPkg/Qcom.dec
+
+[Sources]
+  DxeAslUpdateLib.c
 
 [Protocols]
   gEfiAcpiTableProtocolGuid ## CONSUMES

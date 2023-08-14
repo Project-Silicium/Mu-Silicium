@@ -121,13 +121,20 @@ GetPlatformPreferredConsole(OUT EFI_DEVICE_PATH_PROTOCOL **DevicePath)
 
   Status = gBS->LocateDevicePath(
       &gEfiGraphicsOutputProtocolGuid, &TempDevicePath, &Handle);
-  if (!EFI_ERROR(Status) && IsDevicePathEnd(TempDevicePath)) {} else {
-    DEBUG((DEBUG_ERROR, "%a - Unable to locate platform preferred console. Code=%r\n", __FUNCTION__, Status));
+  if (!EFI_ERROR(Status) && IsDevicePathEnd(TempDevicePath)) {
+  }
+  else {
+    DEBUG(
+        (DEBUG_ERROR,
+         "%a - Unable to locate platform preferred console. Code=%r\n",
+         __FUNCTION__, Status));
     Status = EFI_DEVICE_ERROR;
   }
 
   if (Handle != NULL) {
+    //
     // Connect the GOP driver
+    //
     gBS->ConnectController(Handle, NULL, NULL, TRUE);
 
     //

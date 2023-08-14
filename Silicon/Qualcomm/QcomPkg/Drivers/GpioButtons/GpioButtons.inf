@@ -4,7 +4,6 @@
 #
 # Copyright (C) Microsoft Corporation. All rights reserved.
 # SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
 
 [Defines]
@@ -14,6 +13,12 @@
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
   ENTRY_POINT                    = ButtonsInit
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 AARCH64
+#
 
 [Sources]
   GpioButtons.c
@@ -32,8 +37,8 @@
   DevicePathLib
 
 [Protocols]
-  gMsButtonServicesProtocolGuid          # Produces
-  gEfiSimpleTextInputExProtocolGuid      # Consumes
+  gMsButtonServicesProtocolGuid          #PRODUCES
+  gEfiSimpleTextInputExProtocolGuid      #Consumes
 
 [Depex]
   gEfiSimpleTextInputExProtocolGuid

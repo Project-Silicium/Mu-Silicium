@@ -1,8 +1,8 @@
-#ifndef _RFS_PROTECTION_H_
-#define _RFS_PROTECTION_H_
+#ifndef __RFS_PROTECTION_H
+#define __RFS_PROTECTION_H
 
-EFIAPI
 EFI_STATUS
+EFIAPI
 RFSLocateAndProtectSharedArea();
 
-#endif /* _RFS_PROTECTION_H_ */
+#endif

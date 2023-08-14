@@ -6,8 +6,12 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = RFSProtectionLib|DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION
 
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+
 [Sources]
-  RFSProtectionLib.c
+ RFSProtectionLib.c
 
 [Packages]
   MdePkg/MdePkg.dec
