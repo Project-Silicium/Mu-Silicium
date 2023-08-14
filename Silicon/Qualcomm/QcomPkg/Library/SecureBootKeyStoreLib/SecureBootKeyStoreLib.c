@@ -17,7 +17,7 @@
 
 #define PLATFORM_SECURE_BOOT_KEY_COUNT  1
 
-SECURE_BOOT_PAYLOAD_INFO  *gSecureBootPayload     = NULL;
+SECURE_BOOT_PAYLOAD_INFO *gSecureBootPayload      = NULL;
 UINT8                     gSecureBootPayloadCount = 0;
 
 // Windows On Andromeda Root Platform Key

@@ -13,16 +13,16 @@
 #include <Resources/FbColor.h>
 #include <Resources/font5x12.h>
 
-#include <Library/FrameBufferSerialPortLib.h>
+#include "FrameBufferSerialPortLib.h"
 
 UINTN delay = FixedPcdGet32(PcdMipiFrameBufferDelay);
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
 
-FBCON_POSITION* p_Position = NULL;
-FBCON_POSITION m_MaxPosition;
-FBCON_COLOR    m_Color;
-BOOLEAN        m_Initialized = FALSE;
+FBCON_POSITION *p_Position    = NULL;
+FBCON_POSITION  m_MaxPosition;
+FBCON_COLOR     m_Color;
+BOOLEAN         m_Initialized = FALSE;
 
 UINTN gWidth = FixedPcdGet32(PcdMipiFrameBufferWidth);
 // Reserve half screen for output
@@ -31,17 +31,13 @@ UINTN gBpp    = FixedPcdGet32(PcdMipiFrameBufferPixelBpp);
 
 // Module-used internal routine
 void FbConPutCharWithFactor(char c, int type, unsigned scale_factor);
-
-void FbConDrawglyph(
-    char *pixels, unsigned stride, unsigned bpp, unsigned *glyph,
-    unsigned scale_factor);
-
+void FbConDrawglyph(char *pixels, unsigned stride, unsigned bpp, unsigned *glyph, unsigned scale_factor);
 void FbConReset(void);
 void FbConScrollUp(void);
 void FbConFlush(void);
 
-RETURN_STATUS
 EFIAPI
+RETURN_STATUS
 SerialPortInitialize(VOID)
 {
   // Prevent dup initialization
@@ -103,19 +99,16 @@ paint:
   if ((unsigned char)c < 32) {
     if (c == '\n') {
       goto newline;
-    }
-    else if (c == '\r') {
+    } else if (c == '\r') {
       p_Position->x = 0;
       return;
-    }
-    else {
+    } else {
       return;
     }
   }
 
   // Save some space
-  if (p_Position->x == 0 && (unsigned char)c == ' ' &&
-      type != FBCON_SUBTITLE_MSG && type != FBCON_TITLE_MSG)
+  if (p_Position->x == 0 && (unsigned char)c == ' ' && type != FBCON_SUBTITLE_MSG && type != FBCON_TITLE_MSG)
     return;
 
   BOOLEAN intstate = ArmGetInterruptState();
@@ -126,8 +119,7 @@ paint:
   Pixels += p_Position->y * ((gBpp / 8) * FONT_HEIGHT * gWidth);
   Pixels += p_Position->x * scale_factor * ((gBpp / 8) * (FONT_WIDTH + 1));
 
-  FbConDrawglyph(
-      Pixels, gWidth, (gBpp / 8), font5x12 + (c - 32) * 2, scale_factor);
+  FbConDrawglyph(Pixels, gWidth, (gBpp / 8), font5x12 + (c - 32) * 2, scale_factor);
 
   p_Position->x++;
 
@@ -136,6 +128,7 @@ paint:
 
   if (intstate)
     ArmEnableInterrupts();
+
   return;
 
 newline:
@@ -151,18 +144,16 @@ newline2:
 
     if (intstate)
       ArmEnableInterrupts();
+
     goto paint;
-  }
-  else {
+  } else {
     FbConFlush();
     if (intstate)
       ArmEnableInterrupts();
   }
 }
 
-void FbConDrawglyph(
-    char *pixels, unsigned stride, unsigned bpp, unsigned *glyph,
-    unsigned scale_factor)
+void FbConDrawglyph(char *pixels, unsigned stride, unsigned bpp, unsigned *glyph, unsigned scale_factor)
 {
   char *       bg_pixels = pixels;
   unsigned     x, y, i, j, k;
@@ -218,8 +209,7 @@ void FbConDrawglyph(
               pixels++;
             }
           }
-        }
-        else {
+        } else {
           for (j = 0; j < scale_factor; j++) {
             pixels = pixels + bpp;
           }
@@ -245,8 +235,7 @@ void FbConDrawglyph(
               pixels++;
             }
           }
-        }
-        else {
+        } else {
           for (j = 0; j < scale_factor; j++) {
             pixels = pixels + bpp;
           }
@@ -286,9 +275,7 @@ void FbConFlush(void)
   total_y       = gHeight;
   bytes_per_bpp = (gBpp / 8);
 
-  WriteBackInvalidateDataCacheRange(
-      (void *)DisplayMemoryRegion.Address,
-      (total_x * total_y * bytes_per_bpp));
+  WriteBackInvalidateDataCacheRange((void *)DisplayMemoryRegion.Address, (total_x * total_y * bytes_per_bpp));
 }
 
 UINTN
@@ -307,6 +294,7 @@ SerialPortWrite(IN UINT8 *Buffer, IN UINTN NumberOfBytes)
 
   if (InterruptState)
     ArmEnableInterrupts();
+
   return NumberOfBytes;
 }
 
@@ -331,24 +319,25 @@ SerialPortWriteCritical(IN UINT8 *Buffer, IN UINTN NumberOfBytes)
 
   if (InterruptState)
     ArmEnableInterrupts();
+
   return NumberOfBytes;
 }
 
 UINTN
 EFIAPI
-SerialPortRead(OUT UINT8 *Buffer, IN UINTN NumberOfBytes) { return 0; }
+SerialPortRead(OUT UINT8 *Buffer, IN UINTN NumberOfBytes) {return 0;}
 
 BOOLEAN
 EFIAPI
-SerialPortPoll(VOID) { return FALSE; }
+SerialPortPoll(VOID) {return FALSE;}
 
 RETURN_STATUS
 EFIAPI
-SerialPortSetControl(IN UINT32 Control) { return RETURN_UNSUPPORTED; }
+SerialPortSetControl(IN UINT32 Control) {return RETURN_UNSUPPORTED;}
 
 RETURN_STATUS
 EFIAPI
-SerialPortGetControl(OUT UINT32 *Control) { return RETURN_UNSUPPORTED; }
+SerialPortGetControl(OUT UINT32 *Control) {return RETURN_UNSUPPORTED;}
 
 RETURN_STATUS
 EFIAPI
@@ -360,9 +349,6 @@ SerialPortSetAttributes(
   return RETURN_UNSUPPORTED;
 }
 
-UINTN SerialPortFlush(VOID) { return 0; }
+UINTN SerialPortFlush(VOID) {return 0;}
 
-VOID EnableSynchronousSerialPortIO(VOID)
-{
-  // Already synchronous
-}
+VOID EnableSynchronousSerialPortIO(VOID) {}

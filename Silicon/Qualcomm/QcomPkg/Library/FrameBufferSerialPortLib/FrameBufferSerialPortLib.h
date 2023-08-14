@@ -34,4 +34,4 @@ UINTN
 EFIAPI
 SerialPortWriteCritical(IN UINT8 *Buffer, IN UINTN NumberOfBytes);
 
-#endif
+#endif /* _FRAMEBUFFER_SERIALPORT_LIB_H_ */

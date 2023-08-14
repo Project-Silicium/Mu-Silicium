@@ -1,8 +1,10 @@
 ## @file
+#
 # SM8350 Ms Platform Devices Library
 #
 # Copyright (C) Microsoft Corporation. All rights reserved.
 # SPDX-License-Identifier: BSD-2-Clause-Patent
+#
 ##
 
 [Defines]
@@ -12,10 +14,6 @@
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = MsPlatformDevicesLib|DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION
-
-#
-#  VALID_ARCHITECTURES           = IA32 X64
-#
 
 [Sources]
   MsPlatformDevicesLib.c

@@ -23,13 +23,11 @@
 **/
 VOID
 ArmPlatformGetVirtualMemoryMap (
-  IN ARM_MEMORY_REGION_DESCRIPTOR  **VirtualMemoryMap
-  )
+  IN ARM_MEMORY_REGION_DESCRIPTOR  **VirtualMemoryMap)
 {
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx =
-      GetPlatformMemoryMap();
-  ARM_MEMORY_REGION_DESCRIPTOR
-        MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
+  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetPlatformMemoryMap();
+  ARM_MEMORY_REGION_DESCRIPTOR     MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
+
   UINTN Index = 0;
 
   // Run through each memory descriptor

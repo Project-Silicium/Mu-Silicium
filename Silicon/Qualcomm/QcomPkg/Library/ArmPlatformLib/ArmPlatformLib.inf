@@ -1,7 +1,8 @@
 #/* @file
-#  Copyright (c) 2011-2012, ARM Limited. All rights reserved.
 #
-#  SPDX-License-Identifier: BSD-2-Clause-Patent
+# Copyright (c) 2011-2012, ARM Limited. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-2-Clause-Patent
 #
 #*/
 
@@ -12,6 +13,14 @@
   MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = ArmPlatformLib
+
+[Sources.common]
+  ArmPlatformLib.c
+  ArmPlatformLibMem.c
+  InitializationUtils.c
+
+[Sources.AArch64]
+  AArch64/ArmPlatformHelper.S
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -24,17 +33,7 @@
   ArmLib
   DebugLib
   IoLib
-  MemoryMapHelperLib
-  PlatformMemoryMapLib
   PlatformPrePiLib
-
-[Sources.common]
-  ArmPlatformLib.c
-  ArmPlatformLibMem.c
-  InitializationUtils.c
-
-[Sources.AArch64]
-  AArch64/ArmPlatformHelper.S
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
@@ -44,9 +43,6 @@
   gArmTokenSpaceGuid.PcdArmPrimaryCore
   gArmTokenSpaceGuid.PcdFdSize
   gArmTokenSpaceGuid.PcdGicRedistributorsBase
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
   gQcomTokenSpaceGuid.PcdSmbiosSystemModel
 
 [Ppis]

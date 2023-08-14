@@ -1,7 +1,7 @@
 /** @file Header file Ms Boot Options library
 
-Copyright (C) Microsoft Corporation. All rights reserved.
-SPDX-License-Identifier: BSD-2-Clause-Patent
+ Copyright (C) Microsoft Corporation. All rights reserved.
+ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -24,7 +24,6 @@ EFI_STATUS
 EFIAPI
 SdBootOptionsLibGetUFPMenu (
   IN OUT EFI_BOOT_MANAGER_LOAD_OPTION  *BootOption,
-  IN     CHAR8                         *Parameter
-  );
+  IN     CHAR8                         *Parameter);
 
-#endif // _SD_BOOT_OPTIONS_LIB_H_
+#endif /* _SD_BOOT_OPTIONS_LIB_H_ */

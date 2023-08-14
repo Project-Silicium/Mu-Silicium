@@ -17,15 +17,11 @@
 #include <Library/PlatformMemoryMapLib.h>
 
 VOID
-BuildMemoryTypeInformationHob (
-  VOID
-  );
+BuildMemoryTypeInformationHob (VOID);
 
 STATIC
 VOID
-InitMmu (
-  IN ARM_MEMORY_REGION_DESCRIPTOR  *MemoryTable
-  )
+InitMmu (IN ARM_MEMORY_REGION_DESCRIPTOR  *MemoryTable)
 {
   VOID           *TranslationTableBase;
   UINTN          TranslationTableSize;
@@ -43,12 +39,10 @@ STATIC
 VOID AddHob(PARM_MEMORY_REGION_DESCRIPTOR_EX Desc)
 {
   if (Desc->HobOption != AllocOnly) {
-    BuildResourceDescriptorHob(
-        Desc->ResourceType, Desc->ResourceAttribute, Desc->Address, Desc->Length);
+    BuildResourceDescriptorHob(Desc->ResourceType, Desc->ResourceAttribute, Desc->Address, Desc->Length);
   }
 
-  if (Desc->ResourceType == EFI_RESOURCE_SYSTEM_MEMORY ||
-      Desc->MemoryType == EfiRuntimeServicesData)
+  if (Desc->ResourceType == EFI_RESOURCE_SYSTEM_MEMORY || Desc->MemoryType == EfiRuntimeServicesData)
   {
     BuildMemoryAllocationHob(Desc->Address, Desc->Length, Desc->MemoryType);
   }
@@ -57,8 +51,6 @@ VOID AddHob(PARM_MEMORY_REGION_DESCRIPTOR_EX Desc)
 /*++
 
 Routine Description:
-
-
 
 Arguments:
 
@@ -74,14 +66,11 @@ EFI_STATUS
 EFIAPI
 MemoryPeim (
   IN EFI_PHYSICAL_ADDRESS  UefiMemoryBase,
-  IN UINT64                UefiMemorySize
-  )
+  IN UINT64                UefiMemorySize)
 {
 
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx =
-      GetPlatformMemoryMap();
-  ARM_MEMORY_REGION_DESCRIPTOR
-        MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
+  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetPlatformMemoryMap();
+  ARM_MEMORY_REGION_DESCRIPTOR     MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
   UINTN Index = 0;
 
   // Ensure PcdSystemMemorySize has been set

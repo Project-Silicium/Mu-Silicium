@@ -11,13 +11,11 @@
 #include <Chipset/AArch64.h>
 
 VOID
-ArchInitialize (
-  VOID
-  )
+ArchInitialize (VOID)
 {
   // Enable Floating Point
   if (FixedPcdGet32 (PcdVFPEnabled)) {
-    ArmEnableVFP ();
+    ArmEnableVFP();
   }
 
   if (ArmReadCurrentEL () == AARCH64_EL2) {
@@ -27,8 +25,7 @@ ArchInitialize (
     /* Enable Timer access for non-secure EL1 and EL0
        The cnthctl_el2 register bits are architecturally
        UNKNOWN on reset.
-       Disable event stream as it is not in use at this stage
-    */
+       Disable event stream as it is not in use at this stage */
     ArmWriteCntHctl (CNTHCTL_EL2_EL1PCTEN | CNTHCTL_EL2_EL1PCEN);
   }
 }

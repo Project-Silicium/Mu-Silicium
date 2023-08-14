@@ -21,54 +21,40 @@
 #include <Library/SerialPortLib.h>
 #include <Library/ArmPlatformLib.h>
 
+#define IS_XIP()  (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) || ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
+
 extern UINT64  mSystemMemoryEnd;
 
 RETURN_STATUS
 EFIAPI
-TimerConstructor (
-  VOID
-  );
+TimerConstructor (VOID);
 
 VOID
-PrePiMain (
-  IN  UINT64  StartTimeStamp
-  );
+PrePiMain (IN UINT64 StartTimeStamp);
 
 EFI_STATUS
 EFIAPI
 MemoryPeim (
-  IN EFI_PHYSICAL_ADDRESS  UefiMemoryBase,
-  IN UINT64                UefiMemorySize
-  );
+  IN EFI_PHYSICAL_ADDRESS UefiMemoryBase,
+  IN UINT64               UefiMemorySize);
 
 EFI_STATUS
 EFIAPI
-PlatformPeim (
-  VOID
-  );
+PlatformPeim (VOID);
 
 // Either implemented by PrePiLib or by MemoryInitPei
 VOID
-BuildMemoryTypeInformationHob (
-  VOID
-  );
+BuildMemoryTypeInformationHob (VOID);
 
 EFI_STATUS
-GetPlatformPpi (
-  IN  EFI_GUID  *PpiGuid,
-  OUT VOID      **Ppi
-  );
+GetPlatformPpi (IN EFI_GUID *PpiGuid, OUT VOID **Ppi);
 
 // Initialize the Architecture specific controllers
 VOID
-ArchInitialize (
-  VOID
-  );
+ArchInitialize (VOID);
 
 VOID
 EFIAPI
-ProcessLibraryConstructorList (
-  VOID
-  );
+ProcessLibraryConstructorList (VOID);
 
 #endif /* _PREPI_H_ */
