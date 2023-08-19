@@ -3,8 +3,7 @@
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
-#  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
-#  Copyright (c) 2022, Xilin Wu. All rights reserved.
+#  Copyright (c) 2018, Bingxing Wang. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -29,11 +28,18 @@
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
 
+  # 0 = SM8450
+  # 1 = SM8450-AB
+  SOC_TYPE                       = 0
+
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+
 [LibraryClasses.common]
   PlatformMemoryMapLib|gts8Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
-  PlatformPeiLib|gts8Pkg/Library/PlatformPei/PlatformPeiLib.inf
 
 [PcdsFixedAtBuild.common]
+  # Platform-specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
 !if $(RAM_SIZE) == 12
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
@@ -45,30 +51,33 @@
 !endif
 !endif
 
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"   # Device Maintainer
+
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
 
+  # SmBios
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8 5G"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"X706B"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8_5G_X706B"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8 5G"
+
   # Simple FrameBuffer
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1600
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2560
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
-
-  # UART
-  gQcomTokenSpaceGuid.PcdDebugUartPortBase|0x99c000
-
-  # Device Info
-  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8 5G"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gts8"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8_5G_gts8"
-  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8 5G"
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1600
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2560
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1600
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2560
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1600
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2560
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|200
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|134
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|200
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|134
 
-!include SM8450Pkg/SM8450.dsc.inc
+!include SM8450Pkg/SM8450Pkg.dsc.inc

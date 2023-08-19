@@ -21,13 +21,13 @@
 ################################################################################
 
 [FD.vili_UEFI]
-BaseAddress   = 0x9FC00000|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
-Size          = 0x00300000|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
+BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
+Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1
 
 # This one is tricky, it must be: BlockSize * NumBlocks = Size
 BlockSize     = 0x1000
-NumBlocks     = 0x300
+NumBlocks     = $(FD_BLOCKS)
 
 ################################################################################
 #
@@ -45,7 +45,7 @@ NumBlocks     = 0x300
 #
 ################################################################################
 
-0x00000000|0x00300000
+0x00000000|$(FD_SIZE)
 gArmTokenSpaceGuid.PcdFvBaseAddress|gArmTokenSpaceGuid.PcdFvSize
 FV = FVMAIN_COMPACT
 
@@ -100,10 +100,6 @@ READ_LOCK_STATUS   = TRUE
   INF HidPkg/HidKeyboardDxe/HidKeyboardDxe.inf
   INF HidPkg/HidMouseAbsolutePointerDxe/HidMouseAbsolutePointerDxe.inf
 
-  # Disk IO
-  INF MdeModulePkg/Bus/Scsi/ScsiBusDxe/ScsiBusDxe.inf
-  INF MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf
-
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
@@ -118,65 +114,13 @@ READ_LOCK_STATUS   = TRUE
 
   INF MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
 
-  INF MsGraphicsPkg/GopOverrideDxe/GopOverrideDxe.inf
-  INF MsCorePkg/MuCryptoDxe/MuCryptoDxe.inf
-  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
-  INF DfciPkg/SettingsManager/SettingsManagerDxe.inf
-  INF MsGraphicsPkg/MsUiTheme/Dxe/MsUiThemeProtocol.inf
-  INF MsGraphicsPkg/RenderingEngineDxe/RenderingEngineDxe.inf
-  INF MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
-  INF OemPkg/BootMenu/BootMenu.inf
-  INF RuleOverride = UI QcomPkg/Applications/FrontPage/FrontPage.inf
-  INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
-  INF MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
-  INF MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
-  INF DfciPkg/DfciManager/DfciManager.inf
-  INF MsGraphicsPkg/OnScreenKeyboardDxe/OnScreenKeyboardDxe.inf
-  INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
-  INF MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
+  !include QcomPkg/Frontpage.fdf.inc
 
-  INF MsWheaPkg/HwErrBert/HwErrBert.inf
-  INF MsWheaPkg/MsWheaReport/Dxe/MsWheaReportDxe.inf
-
-  # Hardware Health (Menu) application
-  INF MsWheaPkg/HwhMenu/HwhMenu.inf
-
-  INF MsCorePkg/AcpiRGRT/AcpiRgrt.inf
-
-  INF DfciPkg/Application/DfciMenu/DfciMenu.inf
-
-  FILE APPLICATION = PCD(gPcBdsPkgTokenSpaceGuid.PcdShellFile) {
-    SECTION PE32 = $(OUTPUT_DIRECTORY)/$(TARGET)_$(TOOL_CHAIN_TAG)/AARCH64/Shell.efi
-    SECTION UI = "Shell"
-  }
+  INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/BootLogo.bmp
+    SECTION RAW = viliPkg/Include/Resources/BootLogo.png
     SECTION UI = "Logo"
-  }
-
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdFrontPageLogoFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/FrontpageLogo.bmp
-  }
-
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLowBatteryFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/LBAT.bmp
-  }
-
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdThermalFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/THOT.bmp
-  }
-
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdVolumeUpIndicatorFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/VolumeUp.bmp
-  }
-
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdFirmwareSettingsIndicatorFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/FirmwareSettings.bmp
-  }
-
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdBootFailIndicatorFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/NoBoot.bmp
   }
 
   # TODO: Make this Image for every single Device
@@ -185,12 +129,8 @@ READ_LOCK_STATUS   = TRUE
   }
 
   INF QcomPkg/UFP/ufpdevicefw.inf
-  INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
-  INF QcomPkg/Drivers/ColorbarsDxe/ColorbarsDxe.inf
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
-
-  INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
-  INF GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
+  INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8

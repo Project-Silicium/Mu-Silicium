@@ -11,8 +11,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  QcomPkg/Qcom.dec
-  SM6125Pkg/SM6125.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   BaseLib

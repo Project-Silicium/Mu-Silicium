@@ -34,18 +34,17 @@ class CommonPlatform():
     PackagesSupported = ("limePkg",)
     ArchSupported = ("AARCH64",)
     TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('lime', 'gcc_aarch64_linux', 'edk2-build', 'cibuild')
+    Scopes = ('lime', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
-        "Platforms",
         "Platforms/Xiaomi",
         "MU_BASECORE",
         "Common/MU",
         "Common/MU_TIANO",
         "Common/MU_OEM_SAMPLE",
         "Silicon/Arm/MU_TIANO",
-        "Silicon/Qualcomm",
-        "Features/DFCI"
+        "Features/DFCI",
+        "Silicon/Qualcomm"
     )
 
 
@@ -80,7 +79,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
             RequiredSubmodule("Common/MU_OEM_SAMPLE", True),
             RequiredSubmodule("Silicon/Arm/MU_TIANO", True),
             RequiredSubmodule("Features/DFCI", True),
-            RequiredSubmodule("Platforms/Binaries", True)
+            RequiredSubmodule("Binaries", True),
         ]
 
     def SetArchitectures(self, list_of_requested_architectures):
@@ -207,12 +206,15 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
         self.env.SetValue("PRODUCT_NAME", "lime", "Platform Hardcoded")
         self.env.SetValue("ACTIVE_PLATFORM", "limePkg/lime.dsc", "Platform Hardcoded")
         self.env.SetValue("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
-        self.env.SetValue("TOOL_CHAIN_TAG", "CLANG38", "set default to clang38")
+        self.env.SetValue("TOOL_CHAIN_TAG", self.env.GetValue("TOOL_CHAIN_TAG"), "Default")
         self.env.SetValue("BUILDREPORTING", "TRUE", "Enabling build report")
         self.env.SetValue("BUILDREPORT_TYPES", "PCD DEPEX FLASH BUILD_FLAGS LIBRARY FIXED_ADDRESS HASH", "Setting build report types")
         # Include the MFCI test cert by default, override on the commandline with "BLD_*_SHIP_MODE=TRUE" if you want the retail MFCI cert
         self.env.SetValue("BLD_*_SHIP_MODE", "FALSE", "Default")
         self.env.SetValue("BLD_*_RAM_SIZE", self.env.GetValue("RAM_SIZE"), "Default")
+        self.env.SetValue("BLD_*_FD_BASE", self.env.GetValue("FD_BASE"), "Default")
+        self.env.SetValue("BLD_*_FD_SIZE", self.env.GetValue("FD_SIZE"), "Default")
+        self.env.SetValue("BLD_*_FD_BLOCKS", self.env.GetValue("FD_BLOCKS"), "Default")
         return 0
 
     def PlatformPreBuild(self):

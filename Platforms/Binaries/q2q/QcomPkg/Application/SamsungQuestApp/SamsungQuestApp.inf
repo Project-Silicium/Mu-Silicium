@@ -1,0 +1,9 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = SamsungQuestApp
+  FILE_GUID      = 6DA5B2AA-1358-4DAA-B7A6-07583C368A80
+  MODULE_TYPE    = UEFI_APPLICATION
+  VERSION_STRING = 1.0
+
+[Binaries.AARCH64]
+   PE32|SamsungQuestApp.efi|*

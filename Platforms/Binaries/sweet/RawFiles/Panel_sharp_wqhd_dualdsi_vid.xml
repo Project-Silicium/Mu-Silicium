@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PanelName>TFT2P2827-E</PanelName>
+<PanelDescription>Dual Sharp WQHD cmd mode dsi panel (1440x2560 24bpp)</PanelDescription>
+<Group id="Active Timing">
+ <HorizontalActive units="Dot Clocks">1440</HorizontalActive>
+ <HorizontalFrontPorch units="Dot Clocks">30</HorizontalFrontPorch>
+ <HorizontalBackPorch units="Dot Clocks">100</HorizontalBackPorch>
+ <HorizontalSyncPulse units="Dot Clocks">4</HorizontalSyncPulse>
+ <HorizontalSyncSkew units="Dot Clocks">0</HorizontalSyncSkew>
+ <HorizontalLeftBorder units="Dot Clocks">0</HorizontalLeftBorder>
+ <HorizontalRightBorder units="Dot Clocks">0</HorizontalRightBorder>
+ <VerticalActive units="Dot Clocks">2560</VerticalActive>
+ <VerticalFrontPorch units="Lines">8</VerticalFrontPorch>
+ <VerticalBackPorch units="Lines">8</VerticalBackPorch>
+ <VerticalSyncPulse units="Lines">1</VerticalSyncPulse>
+ <VerticalSyncSkew units="Lines">0</VerticalSyncSkew>
+ <VerticalTopBorder units="Lines">0</VerticalTopBorder>
+ <VerticalBottomBorder units="Lines">0</VerticalBottomBorder>
+ <InvertDataPolarity>False</InvertDataPolarity>
+ <InvertVsyncPolairty>False</InvertVsyncPolairty>
+ <InvertHsyncPolarity>False</InvertHsyncPolarity>
+ <BorderColor>0x0</BorderColor>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType units="QDI_DisplayConnectType">8</InterfaceType>
+ <InterfaceColorFormat units="QDI_PixelFormatType">3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId units="DSI_Channel_IDType">1</DSIChannelId>
+ <DSIVirtualId units="DSI_Display_VCType">0</DSIVirtualId>
+ <DSIColorFormat units="DSI_ColorFormatType">36</DSIColorFormat>
+ <DSITrafficMode units="DSI_TrafficModeType">1</DSITrafficMode>
+ <DSILanes units="integer">4</DSILanes>
+   <DSIHsaHseAfterVsVe units='Bool'>False</DSIHsaHseAfterVsVe>
+   <DSILowPowerModeInHFP units='Bool'>False</DSILowPowerModeInHFP>
+   <DSILowPowerModeInHBP units='Bool'>False</DSILowPowerModeInHBP>
+   <DSILowPowerModeInHSA units='Bool'>False</DSILowPowerModeInHSA>
+   <DSILowPowerModeInBLLPEOF units='Bool'>True</DSILowPowerModeInBLLPEOF>
+   <DSILowPowerModeInBLLP units='Bool'>True</DSILowPowerModeInBLLP>
+   <DSIRefreshRate units='integer Q16.16'>0x3C0000</DSIRefreshRate>
+   <DSIPhyDCDCMode units='Bool'>True</DSIPhyDCDCMode>
+ <DSIControllerMapping>
+  00 01
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+ FF 20
+ 15 FF 20
+ 39 91 09 20 00 20 02 00 03 1c 04 21 00 0f 03 19 01 97
+ 39 92 10 f0
+ 15 90 03
+ 15 03 01
+ 39 f0 55 aa 52 08 04
+ 15 c0 03
+ 39 f0 55 aa 52 08 07
+ 15 ef 01
+ 39 f0 55 aa 52 08 00
+ 15 b4 10
+ 15 35 00
+ 39 f0 55 aa 52 08 01
+ 39 ff aa 55 a5 80
+ 15 6f 01
+ 15 f3 10
+ 39 ff aa 55 a5 00
+ 15 90 01
+ 15 03 00
+ 15 58 01
+ 15 c9 00
+ 15 c0 15
+ 05 11 00
+ ff ff
+ 05 29 00
+ ff ff
+</DSIInitSequence>
+<DSITermSequence>
+ 05 28
+ 05 10
+</DSITermSequence>
+<Group id='Backlight Configuration'>
+ <BacklightType units='MDP_Panel_BacklightType'>1</BacklightType>
+ <BacklightPmicControlType units='MDP_PmicBacklightControlType'>2</BacklightPmicControlType>
+ <DisplayResetInfo>0 10 20000 10000 0</DisplayResetInfo>
+</Group>

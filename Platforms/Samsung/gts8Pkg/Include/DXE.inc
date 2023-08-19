@@ -18,7 +18,6 @@
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-  INF MdeModulePkg/Universal/MemoryTest/NullMemoryTestDxe/NullMemoryTestDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -43,13 +42,11 @@
   INF Binaries/gts8/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
-  INF AdvLoggerPkg/AdvancedFileLogger/AdvancedFileLogger.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
@@ -93,7 +90,6 @@
 
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
@@ -112,16 +108,14 @@
   INF Binaries/gts8/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-  #INF Binaries/gts8/QcomPkg/Drivers/UCDxe/UCDxe.inf
-  #INF Binaries/gts8/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  INF Binaries/sweet/QcomPkg/Drivers/CipherDxe/CipherDxe.inf         # Use sweet CipherDxe as gts8 UCDxe needs DTBExt Protocol we don't have
+  INF Binaries/sweet/QcomPkg/Drivers/RNGDxe/RngDxe.inf               # Use sweet RngDxe as gts8 RngDxe needs DTBExt Protocol we don't have
   #INF Binaries/gts8/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  INF Binaries/gts8/QcomPkg/Application/SamsungQuestApp/SamsungQuestApp.inf
-  INF Binaries/gts8/QcomPkg/Application/SamsungDdrApp/SamsungDdrApp.inf
   INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   #INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf

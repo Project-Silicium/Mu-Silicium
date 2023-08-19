@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = VibratorDxe
+  FILE_GUID      = 82C22DEC-6375-4A61-AAE1-573B137A3DEC
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|VibratorDxe.depex|*
+   PE32|VibratorDxe.efi|*
+
+[Depex]
+  TRUE

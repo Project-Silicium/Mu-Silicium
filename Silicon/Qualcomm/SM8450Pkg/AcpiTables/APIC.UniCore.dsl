@@ -1,12 +1,12 @@
 [000h 0000   4]                    Signature : "APIC"    [Multiple APIC Description Table (MADT)]
 [004h 0004   4]                 Table Length : 000002DC
 [008h 0008   1]                     Revision : 05
-[009h 0009   1]                     Checksum : DE
+[009h 0009   1]                     Checksum : E5
 [00Ah 0010   6]                       Oem ID : "QCOM  "
 [010h 0016   8]                 Oem Table ID : "QCOMEDK2"
 [018h 0024   4]                 Oem Revision : 00008450
-[01Ch 0028   4]              Asl Compiler ID : "QCOM"
-[020h 0032   4]        Asl Compiler Revision : 00000001
+[01Ch 0028   4]              Asl Compiler ID : "INTL"
+[020h 0032   4]        Asl Compiler Revision : 20200925
 
 [024h 0036   4]           Local Apic Address : 00000000
 [028h 0040   4]        Flags (decoded below) : 00000000

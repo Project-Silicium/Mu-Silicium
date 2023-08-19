@@ -52,7 +52,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_HID, "QCOM24A5")  // _HID: Hardware ID
             Alias (PSUB, _SUB)
@@ -93,57 +93,57 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Name (DBFL, 0x17)
         Device (PMIC)
         {
-            Name (_DEP, Package (One)  // _DEP: Dependencies
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.SPMI
+                SPMI
             })
             Name (_HID, "QCOM1A2B")  // _HID: Hardware ID
             Name (_CID, "PNP0CA3")  // _CID: Compatible ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Method (PMCF, 0, NotSerialized)
             {
                 Name (CFG0, Package (0x08)
                 {
-                    0x07,
+                    0x07, 
                     Package (0x02)
                     {
-                        Zero,
+                        Zero, 
                         0x10
-                    },
+                    }, 
 
                     Package (0x02)
                     {
-                        One,
+                        One, 
                         0x10
-                    },
+                    }, 
 
                     Package (0x02)
                     {
-                        0x02,
+                        0x02, 
                         0x10
-                    },
+                    }, 
 
                     Package (0x02)
                     {
-                        0x03,
+                        0x03, 
                         0x10
-                    },
+                    }, 
 
                     Package (0x02)
                     {
-                        0x04,
+                        0x04, 
                         0x10
-                    },
+                    }, 
 
                     Package (0x02)
                     {
-                        0x05,
+                        0x05, 
                         0x10
-                    },
+                    }, 
 
                     Package (0x02)
                     {
-                        0x07,
+                        0x07, 
                         0x10
                     }
                 })
@@ -157,7 +157,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
             Name (_CID, "PNP0D80" /* Windows-compatible System Power Management Controller */)  // _CID: Compatible ID
             Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
             {
-                If ((\_SB.PSUB == "QRD08450"))
+                If ((PSUB == "QRD08450"))
                 {
                     Return ("QRD08450")
                 }
@@ -167,11 +167,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (I2C1)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
-            Name (_UID, 0x01)  // _UID: Unique ID
+            Alias (PSUB, _SUB)
+            Name (_UID, One)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
@@ -195,11 +195,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (I2C2)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x02)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
@@ -223,11 +223,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (I2C4)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x04)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
@@ -251,11 +251,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (I2C5)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x05)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
@@ -279,11 +279,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (I2C6)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x06)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_0_SE_5"))  // _STR: Description String
@@ -307,11 +307,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (I2C8)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x08)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_1_SE_5"))  // _STR: Description String
@@ -335,11 +335,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (IC12)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x0C)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_1_SE_5"))  // _STR: Description String
@@ -363,11 +363,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (IC13)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x0D)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_1_SE_5"))  // _STR: Description String
@@ -391,11 +391,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (IC14)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x0E)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_1_SE_5"))  // _STR: Description String
@@ -419,11 +419,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (IC18)
         {
             Name (_HID, "QCOM1A10")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, 0x12)  // _UID: Unique ID
             Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_STR, Unicode ("QUP_2_SE_5"))  // _STR: Description String
@@ -447,7 +447,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
         Device (SPMI)
         {
             Name (_HID, "QCOM1A0B")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_CID, "PNP0CA2")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute

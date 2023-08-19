@@ -14,13 +14,13 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
-  gQcomTokenSpaceGuid.PcdSmbiosSystemModel
-  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku
-  gQcomTokenSpaceGuid.PcdSmbiosProcessorModel
-  gQcomTokenSpaceGuid.PcdSmbiosProcessorRetailModel
-  gQcomTokenSpaceGuid.PcdSmbiosBoardModel
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -30,8 +30,7 @@
   MdePkg/MdePkg.dec
   OemPkg/OemPkg.dec
   PcBdsPkg/PcBdsPkg.dec
-  QcomPkg/Qcom.dec
-  SM6125Pkg/SM6125.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   BaseLib

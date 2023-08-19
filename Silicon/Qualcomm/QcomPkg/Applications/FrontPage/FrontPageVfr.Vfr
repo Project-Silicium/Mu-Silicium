@@ -125,6 +125,17 @@ formset
         subtitle text = STRING_TOKEN(STR_NULL_STRING),
         flags = HORIZONTAL;
           text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // Device Maintainer
+            text    = STRING_TOKEN(STR_INF_VIEW_DEVICE_MAINTAINER);                    //
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // Device Maintainer Value
+            text    = STRING_TOKEN(STR_INF_VIEW_DEVICE_MAINTAINER_VALUE);              //
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // SPACING
+            text    = STRING_TOKEN(STR_NULL_STRING);                                   //
+        subtitle text = STRING_TOKEN(STR_NULL_STRING),
+        flags = HORIZONTAL;
+          text
             help    = STRING_TOKEN(STR_NULL_STRING),                                   // UEFI Version
             text    = STRING_TOKEN(STR_INF_VIEW_UEFI_VERSION);                         //
           text

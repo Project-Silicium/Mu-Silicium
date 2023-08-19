@@ -5,7 +5,7 @@
   PACKAGE_VERSION                     = 0.1
 
 [Includes.common]
-  Include                             # Root include for the package
+  Include                               # Root include for the package
 
 [Guids.common]
   gginkgoTokenSpaceGuid               = { 0x630d1379, 0x7d3f, 0x4511, { 0xa6, 0xf9, 0x57, 0x8a, 0xbb, 0xc0, 0x75, 0x18 } }

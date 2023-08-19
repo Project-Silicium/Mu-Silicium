@@ -11,14 +11,9 @@
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
-
-  INF Binaries/laurel_sprout/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-
-  INF MdeModulePkg/Universal/MemoryTest/NullMemoryTestDxe/NullMemoryTestDxe.inf
-
-  INF Binaries/laurel_sprout/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
-  INF Binaries/laurel_sprout/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
-
+  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
@@ -44,13 +39,12 @@
   INF Binaries/laurel_sprout/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
-  INF Binaries/laurel_sprout/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
 
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
-  INF AdvLoggerPkg/AdvancedFileLogger/AdvancedFileLogger.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
@@ -59,7 +53,7 @@
   INF Binaries/laurel_sprout/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
-  #INF Binaries/laurel_sprout/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  INF Binaries/laurel_sprout/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   #INF Binaries/laurel_sprout/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
@@ -71,7 +65,6 @@
 
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
@@ -102,5 +95,4 @@
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   #INF Binaries/laurel_sprout/QcomPkg/Drivers/PILDxe/PILDxe.inf
-  INF Binaries/laurel_sprout/QcomPkg/Application/QcomChargerApp/QcomChargerApp.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf

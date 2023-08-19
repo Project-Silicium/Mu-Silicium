@@ -31,8 +31,6 @@
     SECTION UI = "EmbeddedMonotonicCounter"
   }
 
-  INF MdeModulePkg/Universal/MemoryTest/NullMemoryTestDxe/NullMemoryTestDxe.inf
-
   FILE DRIVER = 3AE17DB7-3CC5-4B89-9304-9549211057EF {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.depex
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.efi
@@ -100,7 +98,6 @@
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
-  INF AdvLoggerPkg/AdvancedFileLogger/AdvancedFileLogger.inf
 
   FILE DRIVER = 0D35CD8E-97EA-4F9A-96AF-0F0D89F76567 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/UFSDxe/UFSDxe.depex
@@ -167,7 +164,7 @@
   #  SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/QcomBds/QcomBds.efi
   #  SECTION UI = "QcomBds"
   #}
-  
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf

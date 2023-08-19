@@ -3,26 +3,6 @@
     SECTION RAW = Binaries/ginkgo/RawFiles/BDS_Menu.cfg
   }
 
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E23030794 {
-    SECTION UI = "logo1.bmp"
-    SECTION RAW = Binaries/ginkgo/RawFiles/logo1.bmp
-  }
-
-  FILE FREEFORM = 454CCDB9-9238-4F30-92A6-287834496EA9 {
-    SECTION UI = "fastboot.bmp"
-    SECTION RAW = Binaries/ginkgo/RawFiles/fastboot.bmp
-  }
-
-  FILE FREEFORM = 8536884C-6597-46F7-A3B2-A0917E92E6F7 {
-    SECTION UI = "lock1.bmp"
-    SECTION RAW = Binaries/ginkgo/RawFiles/lock1.bmp
-  }
-
-  FILE FREEFORM = CD3EB5A4-0C4C-46AD-B00F-B26BB9A652F1 {
-    SECTION UI = "unlock1.bmp"
-    SECTION RAW = Binaries/ginkgo/RawFiles/unlock1.bmp
-  }
-
   FILE FREEFORM = 02E0AF91-5D44-424F-828F-211ADC520B0C {
     SECTION UI = "Panel_truly_td4330_fhd_cmd.xml"
     SECTION RAW = Binaries/ginkgo/RawFiles/Panel_truly_td4330_fhd_cmd.xml
@@ -41,21 +21,6 @@
   FILE FREEFORM = CC79DCC1-60D3-4770-8C42-90591DDCA5D6 {
     SECTION UI = "Panel_huaxing_ft8719_fhd_vid.xml"
     SECTION RAW = Binaries/ginkgo/RawFiles/Panel_huaxing_ft8719_fhd_vid.xml
-  }
-
-  FILE FREEFORM = 3E5584ED-05D4-4267-9048-0D47F76F4248 {
-    SECTION UI = "battery_miui.bmp"
-    SECTION RAW = Binaries/ginkgo/RawFiles/battery_miui.bmp
-  }
-
-  FILE FREEFORM = B0F8D1BE-5353-4812-B1F6-07E7768204CC {
-    SECTION UI = "battery_symbol_DebugBoot.bmp"
-    SECTION RAW = Binaries/ginkgo/RawFiles/battery_symbol_DebugBoot.bmp
-  }
-
-  FILE FREEFORM = F9E8F683-E065-4E09-B4F9-0230D7CECD08 {
-    SECTION UI = "battery_symbol_DebugStay.bmp"
-    SECTION RAW = Binaries/ginkgo/RawFiles/battery_symbol_DebugStay.bmp
   }
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {

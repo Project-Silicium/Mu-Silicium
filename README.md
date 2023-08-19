@@ -2,6 +2,10 @@
 
 <!-- ![Banner](https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Banner.png) -->
 
+## Description
+
+This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Windows or Linux
+
 ## Resources
 
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
@@ -14,9 +18,9 @@
 
 ## Credits
 
-This repo is based on [SurfaceDuoPkg](https://github.com/WOA-Project/SurfaceDuoPkg) wich is maintained by [Gustave Monce](https://github.com/gus33000)
+Thanks to [Gustave Monce](https://github.com/gus33000) for his [SurfaceDuoPkg](https://github.com/WOA-Project/SurfaceDuoPkg), without it this repo would probally not exist.
 
 ## License
 
-All code except drivers in `GPLDriver` directory are licensed under BSD 2-Clause.
+All code except drivers in `GPLDrivers` directory are licensed under BSD 2-Clause.
 GPL Drivers are licensed under GPLv2 license.

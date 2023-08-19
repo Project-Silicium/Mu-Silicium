@@ -261,7 +261,11 @@ UpdateDisplayStrings (
   SMBIOS_TABLE_TYPE3       *Type3Record;
   SMBIOS_TABLE_TYPE4       *Type4Record;
 
+  // Get UEFI Version Value
   HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_UEFI_VERSION_VALUE), (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), NULL);
+
+  // Get Device Maintainer Value
+  HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_DEVICE_MAINTAINER_VALUE), (CHAR16 *)PcdGetPtr(PcdFirmwareVendor), NULL);
 
   Status = gBS->LocateProtocol (&gEfiSmbiosProtocolGuid, NULL, (VOID **)&SmbiosProtocol);
   if (EFI_ERROR (Status)) {

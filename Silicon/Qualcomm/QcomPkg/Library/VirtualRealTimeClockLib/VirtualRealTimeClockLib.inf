@@ -30,7 +30,7 @@
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  QcomPkg/Qcom.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   IoLib

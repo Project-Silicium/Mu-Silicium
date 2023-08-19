@@ -12,13 +12,8 @@
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
-
-  INF Binaries/vili/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-
-  INF MdeModulePkg/Universal/MemoryTest/NullMemoryTestDxe/NullMemoryTestDxe.inf
-
-  INF Binaries/vili/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
-
+  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
@@ -38,14 +33,11 @@
   INF Binaries/vili/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-
-  INF Binaries/vili/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
-  INF AdvLoggerPkg/AdvancedFileLogger/AdvancedFileLogger.inf
 
   INF Binaries/vili/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
@@ -62,9 +54,7 @@
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-
-  INF Binaries/vili/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
-
+  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
@@ -93,7 +83,6 @@
 
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
 
   INF Binaries/vili/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
@@ -106,13 +95,13 @@
   INF Binaries/vili/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/vili/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/vili/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/vili/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/vili/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
 
+  INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  INF Binaries/vili/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
@@ -125,4 +114,3 @@
   INF Binaries/vili/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  INF Binaries/vili/QcomPkg/Application/QcomChargerApp/QcomChargerApp.inf

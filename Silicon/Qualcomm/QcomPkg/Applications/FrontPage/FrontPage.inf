@@ -37,7 +37,6 @@
   DfciPkg/DfciPkg.dec
   MsWheaPkg/MsWheaPkg.dec
   SecurityPkg/SecurityPkg.dec
-  QcomPkg/Qcom.dec
 
 [LibraryClasses]
   BaseLib
@@ -116,6 +115,7 @@
   gDfciPkgTokenSpaceGuid.PcdSetupUiReducedFunction
   gDfciPkgTokenSpaceGuid.PcdDfciEnabled
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
 
 [Depex]
   TRUE

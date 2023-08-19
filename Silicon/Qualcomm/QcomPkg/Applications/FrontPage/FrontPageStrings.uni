@@ -65,6 +65,10 @@
 
 #string STR_INF_VIEW_FIRMWAREINFO_HEADER          #language en-US  "\fh!48!Firmware Information"
 
+#string STR_INF_VIEW_DEVICE_MAINTAINER            #language en-US  "Device Maintainer"
+
+#string STR_INF_VIEW_DEVICE_MAINTAINER_VALUE      #language en-US  "None"
+
 #string STR_INF_VIEW_UEFI_VERSION                 #language en-US  "UEFI Version"
 
 #string STR_INF_VIEW_UEFI_VERSION_VALUE           #language en-US  "None"

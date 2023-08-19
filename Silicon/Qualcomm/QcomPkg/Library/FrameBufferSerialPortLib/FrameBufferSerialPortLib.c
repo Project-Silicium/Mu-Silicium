@@ -1,10 +1,7 @@
 #include <PiDxe.h>
 
-#include <Library/BaseLib.h>
 #include <Library/ArmLib.h>
 #include <Library/TimerLib.h>
-#include <Library/PcdLib.h>
-#include <Library/BaseMemoryLib.h>
 #include <Library/CacheMaintenanceLib.h>
 #include <Library/HobLib.h>
 #include <Library/MemoryMapHelperLib.h>

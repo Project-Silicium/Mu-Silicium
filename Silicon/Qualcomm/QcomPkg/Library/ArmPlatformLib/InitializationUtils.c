@@ -1,5 +1,4 @@
 #include <Library/BaseLib.h>
-#include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/IoLib.h>
 #include <Library/PcdLib.h>
@@ -16,7 +15,7 @@ VOID InitializeSharedUartBuffers(VOID)
   LocateMemoryMapAreaByName("Display Reserved", &DisplayMemoryRegion);
 
   // Clear Screen
-  ZeroMem((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
+  //ZeroMem((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
 
   // Setup Position counter
   INTN *pFbConPosition =

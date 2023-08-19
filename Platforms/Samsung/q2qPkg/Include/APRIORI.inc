@@ -1,4 +1,5 @@
 APRIORI DXE {
+
     # First, install the PCD driver and call DxeInit
     INF MdeModulePkg/Core/Dxe/DxeMain.inf
     # INF Binaries/q2q/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
@@ -382,7 +383,7 @@ APRIORI DXE {
       SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.efi
       SECTION UI = "SimpleTextInOutSerial"
     }
-    
+
     INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
     INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 

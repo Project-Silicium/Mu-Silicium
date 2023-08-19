@@ -31,8 +31,8 @@ APRIORI DXE {
     INF Binaries/laurel_sprout/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
     INF Binaries/laurel_sprout/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
     INF Binaries/laurel_sprout/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
-    INF Binaries/laurel_sprout/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
 
+    INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
@@ -50,15 +50,14 @@ APRIORI DXE {
     INF Binaries/laurel_sprout/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
     INF Binaries/laurel_sprout/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
     INF Binaries/laurel_sprout/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
-    INF Binaries/laurel_sprout/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
+
+    INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+
     INF Binaries/laurel_sprout/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
     INF Binaries/laurel_sprout/QcomPkg/Drivers/PILDxe/PILDxe.inf
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
-    INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-
-    INF Binaries/laurel_sprout/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-
+    INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
     INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
@@ -95,8 +94,8 @@ APRIORI DXE {
     INF Binaries/laurel_sprout/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
     INF Binaries/laurel_sprout/QcomPkg/Drivers/RNGDxe/RngDxe.inf
     INF Binaries/laurel_sprout/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-    INF Binaries/laurel_sprout/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
 
+    INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
     INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
     INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 

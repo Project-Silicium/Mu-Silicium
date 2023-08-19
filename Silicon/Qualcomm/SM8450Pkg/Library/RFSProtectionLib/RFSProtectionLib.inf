@@ -11,7 +11,7 @@
 #
 
 [Sources]
- RFSProtectionLib.c
+  RFSProtectionLib.c
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -19,8 +19,7 @@
   MsCorePkg/MsCorePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   ArmPkg/ArmPkg.dec
-  SM8450Pkg/SM8450.dec
-  QcomPkg/Qcom.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   ArmLib

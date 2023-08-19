@@ -16,7 +16,7 @@
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   ArmPkg/ArmPkg.dec
-  QcomPkg/Qcom.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   BaseLib
@@ -36,8 +36,8 @@
   gEfiCpuArchProtocolGuid
 
 [FixedPcd]
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight
 
 [Guids]
   gEfiMdeModulePkgTokenSpaceGuid

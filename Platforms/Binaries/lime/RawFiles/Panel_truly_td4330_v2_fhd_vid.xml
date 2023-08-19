@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PanelName>TD4330Video</PanelName>
+<PanelDescription>TD4330 video mode dsi truly panel</PanelDescription>
+<Group id="Active Timing">
+ <HorizontalActive>1080</HorizontalActive>
+ <HorizontalFrontPorch>60</HorizontalFrontPorch>
+ <HorizontalBackPorch>60</HorizontalBackPorch>
+ <HorizontalSyncPulse>8</HorizontalSyncPulse>
+ <HorizontalSyncSkew>0</HorizontalSyncSkew>
+ <HorizontalLeftBorder>0</HorizontalLeftBorder>
+ <HorizontalRightBorder>0</HorizontalRightBorder>
+ <VerticalActive>2340</VerticalActive>
+ <VerticalFrontPorch>26</VerticalFrontPorch>
+ <VerticalBackPorch>24</VerticalBackPorch>
+ <VerticalSyncPulse>4</VerticalSyncPulse>
+ <VerticalSyncSkew>0</VerticalSyncSkew>
+ <VerticalTopBorder>0</VerticalTopBorder>
+ <VerticalBottomBorder>0</VerticalBottomBorder>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType>8</InterfaceType>
+ <InterfaceColorFormat>3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId>1</DSIChannelId>
+ <DSIVirtualId>0</DSIVirtualId>
+ <DSIColorFormat>36</DSIColorFormat>
+ <DSITrafficMode>1</DSITrafficMode>
+ <DSILanes>4</DSILanes>
+ <DSILP11AtInit>True</DSILP11AtInit>
+ <DSILowPowerModeInBLLPEOF>True</DSILowPowerModeInBLLPEOF>
+ <DSILowPowerModeInBLLP>True</DSILowPowerModeInBLLP>
+ <DSIRefreshRate>0x3C0000</DSIRefreshRate>
+ <DSICmdSwapInterface>False</DSICmdSwapInterface>
+ <DSICmdUsingTrigger>False</DSICmdUsingTrigger>
+ <DSIControllerMapping>
+  00
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+ 29 FF 23
+ 29 FB 01
+ 29 00 60
+ 29 07 00
+ 29 08 01
+ 29 09 80
+ 29 FF 24
+ 29 FB 01
+ 29 93 1A
+ 29 94 1C
+ 29 FF 10
+ 29 3B 03 1C 1A
+ 05 11 00
+ FF 78
+ 29 35 00
+ 29 51 07 FF
+ 29 53 2C
+ 29 55 01
+ 05 29 00
+ FF 14
+</DSIInitSequence>
+<DSITermSequence>
+ 05 28
+ FF 32
+ 05 10
+ FF 96
+</DSITermSequence>
+<TLMMGPIODefaultHigh>0x47</TLMMGPIODefaultHigh>
+<Group id='Backlight Configuration'>
+ <BacklightType>1</BacklightType>
+ <BacklightPmicControlType>2</BacklightPmicControlType>
+ <DisplayResetInfo>0 10000 10000 10000 0</DisplayResetInfo>
+</Group>

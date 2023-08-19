@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = SecEnvDxe
+  FILE_GUID      = 62856B8C-9F8A-4027-B2CB-2B867BB0E088
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|SecEnvDxe.depex|*
+   PE32|SecEnvDxe.efi|*
+
+[Depex]
+  TRUE

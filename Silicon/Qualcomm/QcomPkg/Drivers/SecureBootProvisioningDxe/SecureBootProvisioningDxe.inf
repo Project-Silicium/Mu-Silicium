@@ -10,25 +10,21 @@
   SecureBootProvisioningDxe.c
 
 [Packages]
-  ArmPkg/ArmPkg.dec
-  ArmPlatformPkg/ArmPlatformPkg.dec
-  MdePkg/MdePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
   MsCorePkg/MsCorePkg.dec
-  QcomPkg/Qcom.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   BaseLib
-  ReportStatusCodeLib
-  UefiLib
-  UefiBootServicesTableLib
-  UefiDriverEntryPoint
-  BaseMemoryLib
   DebugLib
   MuSecureBootKeySelectorLib
-  UefiRuntimeServicesTableLib
-  MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
+
+[Guids]
+  gEfiPartTypeSystemPartGuid       ## CONSUMES ## GUID
 
 [Protocols]
   gEfiSimpleFileSystemProtocolGuid ## CONSUMES

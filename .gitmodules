@@ -10,12 +10,12 @@
 [submodule "MU_BASECORE"]
 	path = MU_BASECORE
 	url = https://github.com/microsoft/mu_basecore.git
-[submodule "Platforms/Binaries"]
-	path = Platforms/Binaries
-	url = https://github.com/Robotix22/Device-Binaries.git
 [submodule "Silicon/Arm/MU_TIANO"]
 	path = Silicon/Arm/MU_TIANO
 	url = https://github.com/microsoft/mu_silicon_arm_tiano.git
 [submodule "Features/DFCI"]
 	path = Features/DFCI
 	url = https://github.com/microsoft/mu_feature_dfci.git
+[submodule "Binaries"]
+	path = Binaries
+	url = https://github.com/Robotix22/Device-Binaries.git

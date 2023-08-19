@@ -18,7 +18,7 @@
   MdeModulePkg/MdeModulePkg.dec
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
-  QcomPkg/Qcom.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   ArmLib
@@ -44,10 +44,10 @@
   gArmTokenSpaceGuid.PcdArmPrimaryCore
   gArmTokenSpaceGuid.PcdFdSize
   gArmTokenSpaceGuid.PcdGicRedistributorsBase
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
-  gQcomTokenSpaceGuid.PcdSmbiosSystemModel
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel
 
 [Ppis]
   gArmMpCoreInfoPpiGuid

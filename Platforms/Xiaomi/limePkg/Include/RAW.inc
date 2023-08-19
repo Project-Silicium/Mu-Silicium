@@ -3,11 +3,6 @@
     SECTION RAW = Binaries/lime/RawFiles/BDS_Menu.cfg
   }
 
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E23030794 {
-    SECTION UI = "logo1.bmp"
-    SECTION RAW = Binaries/lime/RawFiles/logo1.bmp
-  }
-
   FILE FREEFORM = 02E0AF91-5D44-424F-828F-211ADC520B0C {
     SECTION UI = "Panel_truly_td4330_v2_fhd_cmd.xml"
     SECTION RAW = Binaries/lime/RawFiles/Panel_truly_td4330_v2_fhd_cmd.xml
@@ -51,31 +46,6 @@
   FILE FREEFORM = FF7929D3-DACA-4434-80D6-1B78C7556121 {
     SECTION UI = "Panel_ft8720m_xinli_fhd_plus_video.xml"
     SECTION RAW = Binaries/lime/RawFiles/Panel_ft8720m_xinli_fhd_plus_video.xml
-  }
-
-  FILE FREEFORM = A27780FD-4F96-4188-818D-0C2EF21CB677 {
-    SECTION UI = "battery_symbol_LowBatteryCharging0.bmp"
-    SECTION RAW = Binaries/lime/RawFiles/battery_symbol_LowBatteryCharging0.bmp
-  }
-
-  FILE FREEFORM = 8B86CD38-C772-4FCF-85AA-345B2B3C1AB4 {
-    SECTION UI = "battery_symbol_LowBatteryCharging.bmp"
-    SECTION RAW = Binaries/lime/RawFiles/battery_symbol_LowBatteryCharging.bmp
-  }
-
-  FILE FREEFORM = B0F8D1BE-5353-4812-B1F6-07E7768204CC {
-    SECTION UI = "battery_symbol_DebugBoot.bmp"
-    SECTION RAW = Binaries/lime/RawFiles/battery_symbol_DebugBoot.bmp
-  }
-
-  FILE FREEFORM = F9E8F683-E065-4E09-B4F9-0230D7CECD08 {
-    SECTION UI = "battery_symbol_DebugStay.bmp"
-    SECTION RAW = Binaries/lime/RawFiles/battery_symbol_DebugStay.bmp
-  }
-
-  FILE FREEFORM = E2EA5A4F-98BD-4203-AB49-399505DDFB7D {
-    SECTION UI = "tsens_thermal_symbol.bmp"
-    SECTION RAW = Binaries/lime/RawFiles/tsens_thermal_symbol.bmp
   }
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {

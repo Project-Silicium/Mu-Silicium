@@ -3,8 +3,7 @@
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
-#  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
-#  Copyright (c) 2022, Xilin Wu. All rights reserved.
+#  Copyright (c) 2018, Bingxing Wang. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -26,14 +25,22 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = viliPkg/vili.fdf
   USE_DISPLAYDXE                 = 0
-  AB_SLOT_SUPPORT                = 1
+  AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
+
+  # 0 = SM8350
+  # 1 = SM8350-AB
+  # 2 = SM8350-AC
+  SOC_TYPE                       = 0
+
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|viliPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
-  PlatformPeiLib|viliPkg/Library/PlatformPei/PlatformPeiLib.inf
 
 [PcdsFixedAtBuild.common]
+  # Platform-specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
 !if $(RAM_SIZE) == 12
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
@@ -45,30 +52,33 @@
 !endif
 !endif
 
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"   # Device Maintainer
+
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
 
+  # SmBios
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11T Pro"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11T_Pro_vili"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11T Pro"
+
   # Simple FrameBuffer
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
-
-  # UART
-  gQcomTokenSpaceGuid.PcdDebugUartPortBase|0x98c000
-
-  # Device Info
-  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11T Pro"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11T_Pro_vili"
-  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11T Pro"
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
 
-!include SM8350Pkg/SM8350.dsc.inc
+!include SM8350Pkg/SM8350Pkg.dsc.inc

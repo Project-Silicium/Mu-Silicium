@@ -1,0 +1,239 @@
+<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<PanelDescription>G7B 37 02 0a Single DSI Vid Mode LCD Panel with DSC (1080x2400 24bpp)</PanelDescription>
+<Group id=\"Active Timing\">
+ <HorizontalActive>1080</HorizontalActive>
+ <HorizontalFrontPorch>40</HorizontalFrontPorch>
+ <HorizontalBackPorch>40</HorizontalBackPorch>
+ <HorizontalSyncPulse>12</HorizontalSyncPulse>
+ <HorizontalSyncSkew>0</HorizontalSyncSkew>
+ <HorizontalLeftBorder>0</HorizontalLeftBorder>
+ <HorizontalRightBorder>0</HorizontalRightBorder>
+ <VerticalActive>2400</VerticalActive>
+ <VerticalFrontPorch>32</VerticalFrontPorch>
+ <VerticalBackPorch>30</VerticalBackPorch>
+ <VerticalSyncPulse>2</VerticalSyncPulse>
+ <VerticalSyncSkew>0</VerticalSyncSkew>
+ <VerticalTopBorder>0</VerticalTopBorder>
+ <VerticalBottomBorder>0</VerticalBottomBorder>
+ <InvertDataPolarity>False</InvertDataPolarity>
+ <InvertVsyncPolairty>False</InvertVsyncPolairty>
+ <InvertHsyncPolarity>False</InvertHsyncPolarity>
+ <BorderColor>0x0</BorderColor>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType>8</InterfaceType>
+ <InterfaceColorFormat>3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId>1</DSIChannelId>
+ <DSIVirtualId>0</DSIVirtualId>
+ <DSIColorFormat>36</DSIColorFormat>
+ <DSITrafficMode>1</DSITrafficMode>
+ <DSILanes>4</DSILanes>
+ <DSIRefreshRate>0x780000</DSIRefreshRate>
+ <DSIDSCEnable>True</DSIDSCEnable>
+ <DSIDSCMajor>1</DSIDSCMajor>
+ <DSIDSCMinor>1</DSIDSCMinor>
+ <DSIDSCScr>0</DSIDSCScr>
+ <DSIDSCProfileID>4</DSIDSCProfileID>
+ <DSIDSCSliceWidth>540</DSIDSCSliceWidth>
+ <DSIDSCSliceHeight>20</DSIDSCSliceHeight>
+ <DSIHsaHseAfterVsVe>False</DSIHsaHseAfterVsVe>
+ <DSILowPowerModeInHFP>False</DSILowPowerModeInHFP>
+ <DSILowPowerModeInHBP>False</DSILowPowerModeInHBP>
+ <DSILowPowerModeInHSA>False</DSILowPowerModeInHSA>
+ <DSILowPowerModeInBLLPEOF>True</DSILowPowerModeInBLLPEOF>
+ <DSILowPowerModeInBLLP>True</DSILowPowerModeInBLLP>
+ <DSILP11AtInit>True</DSILP11AtInit>
+ <DSIControllerMapping>
+  00
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+ 15 FF 23
+ 15 FB 01
+ 15 00 80
+ 15 07 00
+ 15 08 01
+ 15 09 45
+ 15 FF 20
+ 15 FB 01
+ 15 01 66
+ 15 32 4D
+ 15 69 D1
+ 15 F2 64
+ 15 F4 64
+ 15 F6 64
+ 15 F9 64
+ 15 FF 26
+ 15 FB 01
+ 15 81 0E
+ 15 84 03
+ 15 86 03
+ 15 88 07
+ 15 FF 27
+ 15 FB 01
+ 15 E3 01
+ 15 E4 EC
+ 15 E5 02
+ 15 E6 E3
+ 15 E7 01
+ 15 E8 EC
+ 15 E9 02
+ 15 EA 22
+ 15 EB 03
+ 15 EC 32
+ 15 ED 02
+ 15 EE 22
+ 15 FF 2A
+ 15 FB 01
+ 15 0C 04
+ 15 0F 01
+ 15 11 E0
+ 15 15 0E
+ 15 16 78
+ 15 19 0D
+ 15 1A F4
+ 15 37 6E
+ 15 88 76
+ 15 FF 2C
+ 15 FB 01
+ 15 4D 1E
+ 15 4E 04
+ 15 4F 00
+ 15 9D 1E
+ 15 9E 04
+ 15 9F 17
+ 15 FF F0
+ 15 FB 01
+ 15 5A 00
+ 15 FF E0
+ 15 FB 01
+ 15 25 00
+ 15 4E 02
+ 15 85 02
+ 15 FF D0
+ 15 FB 01
+ 15 09 AD
+ 15 FF 20
+ 15 FB 01
+ 15 F8 64
+ 15 FF 2A
+ 15 FB 01
+ 15 1A F0
+ 15 30 5E
+ 15 31 CA
+ 15 34 FE
+ 15 35 35
+ 15 36 A2
+ 15 37 F8
+ 15 38 37
+ 15 39 A0
+ 15 3A 5E
+ 15 53 D7
+ 15 88 72
+ 15 FF 24
+ 15 FB 01
+ 15 C6 C0
+ 15 FF 23
+ 15 FB 01
+ 15 00 80
+ 15 01 84
+ 15 05 2D
+ 15 06 00
+ 15 07 00
+ 15 08 01
+ 15 09 45
+ 15 11 01
+ 15 12 95
+ 15 15 68
+ 15 16 0B
+ 15 29 0A
+ 15 30 FF
+ 15 31 FE
+ 15 32 FD
+ 15 33 FB
+ 15 34 F8
+ 15 35 F5
+ 15 36 F3
+ 15 37 F2
+ 15 38 F2
+ 15 39 F2
+ 15 3A EF
+ 15 3B EC
+ 15 3D E9
+ 15 3F E5
+ 15 40 E5
+ 15 41 E5
+ 15 2A 13
+ 15 45 FF
+ 15 46 F4
+ 15 47 E7
+ 15 48 DA
+ 15 49 CD
+ 15 4A C0
+ 15 4B B3
+ 15 4C B2
+ 15 4D B2
+ 15 4E B2
+ 15 4F 99
+ 15 50 80
+ 15 51 68
+ 15 52 66
+ 15 53 66
+ 15 54 66
+ 15 2B 0E
+ 15 58 FF
+ 15 59 FB
+ 15 5A F7
+ 15 5B F3
+ 15 5C EF
+ 15 5D E3
+ 15 5E DA
+ 15 5F D8
+ 15 60 D8
+ 15 61 D8
+ 15 62 CB
+ 15 63 BF
+ 15 64 B3
+ 15 65 B2
+ 15 66 B2
+ 15 67 B2
+ 15 FF C0
+ 15 FB 01
+ 15 9C 11
+ 15 9D 11
+ 15 FF F0
+ 15 FB 01
+ 15 9C 00
+ 15 FF 10
+ 15 FB 01
+ 39 51 0B 6C
+ 15 53 24
+ 05 11
+ FF 78
+ 05 29
+ 15 FF 27
+ 15 FB 01
+ 15 3F 01
+ 15 43 08
+ 15 40 25
+ 15 FF E0
+ 15 35 82
+ 15 FF 10
+</DSIInitSequence>
+<DSITermSequence>
+ 15 FF 27
+ 15 FB 01
+ 15 3F 00
+ 15 FF 10
+ 05 28
+ 05 10
+</DSITermSequence>
+<Group id='Backlight Configuration'>
+ <BacklightType>1</BacklightType>
+ <BacklightPmicControlType>2</BacklightPmicControlType>
+ <BacklightBitWidth>12</BacklightBitWidth>
+ <BacklightDefault>25</BacklightDefault>
+ <DisplayResetInfo>0 1000 5000 5000 0</DisplayResetInfo>
+</Group>

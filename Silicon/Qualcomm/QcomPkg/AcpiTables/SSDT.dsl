@@ -33,4 +33,3 @@ DefinitionBlock ("", "SSDT", 2, "MSFT  ", "", 0x00000001)
         }
     }
 }
-

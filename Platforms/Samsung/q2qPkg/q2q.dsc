@@ -3,8 +3,7 @@
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
-#  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
-#  Copyright (c) 2022, Xilin Wu. All rights reserved.
+#  Copyright (c) 2018, Bingxing Wang. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -29,38 +28,49 @@
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
 
+  # 0 = SM8350
+  # 1 = SM8350-AB
+  # 2 = SM8350-AC
+  SOC_TYPE                       = 0
+
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+
 [LibraryClasses.common]
   PlatformMemoryMapLib|q2qPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
-  PlatformPeiLib|q2qPkg/Library/PlatformPei/PlatformPeiLib.inf
 
 [PcdsFixedAtBuild.common]
+  # Platform-specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
+
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Azkali"   # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
 
+  # SmBios
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Fold 3 5G"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"q2q"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Fold_3_5G_q2q"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Fold 3 5G"
+
   # Simple FrameBuffer
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|2208
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|1768
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
-
-  # UART
-  gQcomTokenSpaceGuid.PcdDebugUartPortBase|0x98c000
-
-  # Device Info
-  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Fold 3"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"q2q"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Fold_3_q2q"
-  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Fold 3"
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2208
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1768
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
 [PcdsDynamicDefault.common]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1768
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2208
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1768
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2208
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|2208
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1768
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|2208
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|1768
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|276
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|93
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|276
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|93
 
-!include SM8350Pkg/SM8350.dsc.inc
+!include SM8350Pkg/SM8350Pkg.dsc.inc

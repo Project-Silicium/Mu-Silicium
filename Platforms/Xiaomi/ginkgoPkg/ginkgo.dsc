@@ -3,8 +3,7 @@
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
-#  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
-#  Copyright (c) 2022, Xilin Wu. All rights reserved.
+#  Copyright (c) 2018, Bingxing Wang. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -31,10 +30,10 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|ginkgoPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
-  PlatformPeiLib|ginkgoPkg/Library/PlatformPei/PlatformPeiLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
+  # Platform-specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
 !if $(RAM_SIZE) == 6
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000        # 6GB Size
 !else
@@ -49,30 +48,33 @@
 !endif
 !endif
 
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"   # Device Maintainer
+
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
 
+  # SmBios
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8/8T"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"ginkgo"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_8/8T_ginkgo"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 8/8T"
+
   # Simple FrameBuffer
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferHeight|2340
-  gQcomTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
-
-  # UART
-  gQcomTokenSpaceGuid.PcdDebugUartPortBase|0x4a90000
-
-  # Device Info
-  gQcomTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8/8T"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailModel|"ginkgo"
-  gQcomTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_8/8T_ginkgo"
-  gQcomTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 8/8T"
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2340
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2340
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2340
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|123
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|123
 
-!include SM6125Pkg/SM6125.dsc.inc
+!include SM6125Pkg/SM6125Pkg.dsc.inc

@@ -1,0 +1,130 @@
+<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<PanelDescription>xiaomi k6 38 0e 0b Single DSI Video Mode Panel (1080x2400 24bpp)</PanelDescription>
+<Group id=\"Active Timing\">
+ <HorizontalActive>1080</HorizontalActive>
+ <HorizontalFrontPorch>120</HorizontalFrontPorch>
+ <HorizontalBackPorch>120</HorizontalBackPorch>
+ <HorizontalSyncPulse>28</HorizontalSyncPulse>
+ <HorizontalSyncSkew>0</HorizontalSyncSkew>
+ <HorizontalLeftBorder>0</HorizontalLeftBorder>
+ <HorizontalRightBorder>0</HorizontalRightBorder>
+ <VerticalActive>2400</VerticalActive>
+ <VerticalFrontPorch>20</VerticalFrontPorch>
+ <VerticalBackPorch>10</VerticalBackPorch>
+ <VerticalSyncPulse>2</VerticalSyncPulse>
+ <VerticalSyncSkew>0</VerticalSyncSkew>
+ <VerticalTopBorder>0</VerticalTopBorder>
+ <VerticalBottomBorder>0</VerticalBottomBorder>
+ <InvertDataPolarity>False</InvertDataPolarity>
+ <InvertVsyncPolairty>False</InvertVsyncPolairty>
+ <InvertHsyncPolarity>False</InvertHsyncPolarity>
+ <BorderColor>0x0</BorderColor>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType>8</InterfaceType>
+ <InterfaceColorFormat>3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId>1</DSIChannelId>
+ <DSIVirtualId>0</DSIVirtualId>
+ <DSIColorFormat>36</DSIColorFormat>
+ <DSITrafficMode>1</DSITrafficMode>
+ <DSILanes>4</DSILanes>
+ <DSIRefreshRate>0x780000</DSIRefreshRate>
+ <DSIDSCEnable>True</DSIDSCEnable>
+ <DSIDSCMajor>1</DSIDSCMajor>
+ <DSIDSCMinor>1</DSIDSCMinor>
+ <DSIDSCScr>0</DSIDSCScr>
+ <DSIDSCProfileID>4</DSIDSCProfileID>
+ <DSICmdInVideoHSMI>1</DSICmdInVideoHSMI>
+ <DSIDSCSliceWidth>540</DSIDSCSliceWidth>
+ <DSIDSCSliceHeight>40</DSIDSCSliceHeight>
+ <DSIHsaHseAfterVsVe>False</DSIHsaHseAfterVsVe>
+ <DSILowPowerModeInHFP>False</DSILowPowerModeInHFP>
+ <DSILowPowerModeInHBP>False</DSILowPowerModeInHBP>
+ <DSILowPowerModeInHSA>False</DSILowPowerModeInHSA>
+ <DSILowPowerModeInBLLPEOF>True</DSILowPowerModeInBLLPEOF>
+ <DSILowPowerModeInBLLP>True</DSILowPowerModeInBLLP>
+ <DSILP11AtInit>True</DSILP11AtInit>
+ <DSIControllerMapping>
+  00
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+39 F1 5A 5A 5A 5A
+39 60 01
+39 F7 07
+39 F1 A5 A5 A5 A5
+39 9D 01
+39 9E 11 00 00 89 30 80 09 60 04 38 00 28 02 1C 02 1C 02 00 02 0E 00 20 03 DD 00 07 00 0C 02 77 02 8B 18 00 10 F0 03 0C 20 00 06 0B 0B 33 0E 1C 2A 38 46 54 62 69 70 77 79 7B 7D 7E 01 02 01 00 09 40 09 BE 19 FC 19 FA 19 F8 1A 38 1A 78 1A B6 2A F6 2B 34 2B 74 3B 74 6B F4 00
+FF 0B
+39 F1 5A 5A 5A 5A 5A
+39 D8 01 01
+39 B0 00 46 00 00
+39 E1 01
+39 9F 5A 5A
+FF 0B
+05 11
+FF 15
+39 F1 5A 5A 5A 5A
+39 B0 00 2C 00 00
+39 E0 00 03 C2 07 85 03 39 05 6D 05 51 06 C3 12 9E 44
+39 B0 00 38 00 00
+39 E0 F3
+39 B0 00 41 00 00
+39 E0 13
+39 F1 A5 A5 A5 A5
+39 F1 5A 5A 5A 5A
+39 B2 01 30
+39 F1 A5 A5 A5 A5
+39 F1 5A 5A 5A 5A
+39 B0 00 0B CE 01
+39 CE 11
+39 B0 00 08 EA 01
+39 EA F6 89
+39 B0 00 0A EA 01
+39 EA 55 01 04
+39 B0 00 0D EA 01
+39 EA FF FF
+39 B0 00 74 E1 01
+39 E1 3F
+39 B0 00 10 EA 01
+39 EA 01
+39 F1 A5 A5 A5 A5
+39 F1 5A 5A 5A 5A
+39 B0 00 0D B2 01
+39 B2 20
+39 B0 00 0C B2 01
+39 B2 30
+39 F1 A5 A5 A5 A5
+39 9F 5A 5A
+39 35 00
+39 53 20
+39 51 00 00
+39 F7 07
+39 F1 5A 5A 5A 5A 5A
+39 B0 00 09 00 00
+39 E1 22
+39 B0 00 9C 00 00
+39 E0 D4
+39 B0 00 04 00 00
+39 E0 00
+39 B0 00 9A 00 00
+39 E0 00
+39 B0 00 03 00 00
+39 E1 FF FF FF 7A AA
+</DSIInitSequence>
+<DSITermSequence>
+39 9F 5A 5A
+05 28
+FF 0A
+05 10
+FF 96
+</DSITermSequence>
+<Group id='Backlight Configuration'>
+ <BacklightType>3</BacklightType>
+ <BacklightPmicControlType>2</BacklightPmicControlType>
+ <BacklightBitWidth>11</BacklightBitWidth>
+ <BacklightDefault>11</BacklightDefault>
+ <DisplayResetInfo>0 10000 10000 10000 0</DisplayResetInfo>
+</Group>

@@ -1,5 +1,5 @@
 /** @file
-  SMBIOS Table for Qualcomm ARM platform
+  SMBIOS Table for Qualcomm Snapdragon Platforms
   Derived from EmulatorPkg package
 
   Note SMBIOS 2.7.1 Required structures:
@@ -170,7 +170,7 @@ CHAR8 *mSysInfoType1Strings[] = {
     "Not Specified",
     "Not Specified",
     "Not Specified",
-    "Snapdragon 665 Device",
+    "Not Specified",
     NULL};
 
 /***********************************************************************
@@ -212,21 +212,21 @@ CHAR8 *mBoardInfoType2Strings[] = {
 ************************************************************************/
 SMBIOS_TABLE_TYPE3 mEnclosureInfoType3 = {
     {EFI_SMBIOS_TYPE_SYSTEM_ENCLOSURE, sizeof(SMBIOS_TABLE_TYPE3), 0},
-    1,                       // Manufacturer String
-    MiscChassisTypePortable, // Type;
-    2,                       // Version String
-    3,                       // SerialNumber String
-    4,                       // AssetTag String
-    ChassisStateUnknown,     // BootupState;
-    ChassisStateUnknown,     // PowerSupplyState;
-    ChassisStateUnknown,     // ThermalState;
-    ChassisStateUnknown,     // SecurityStatus;
-    {0, 0, 0, 0},            // OemDefined[4];
-    0,                       // Height;
-    0,                       // NumberofPowerCords;
-    0,                       // ContainedElementCount;
-    0,                       // ContainedElementRecordLength;
-    {{0}},                   // ContainedElements[1];
+    1,                      // Manufacturer String
+    MiscChassisTypeUnknown, // Type;
+    2,                      // Version String
+    3,                      // SerialNumber String
+    4,                      // AssetTag String
+    ChassisStateUnknown,    // BootupState;
+    ChassisStateUnknown,    // PowerSupplyState;
+    ChassisStateUnknown,    // ThermalState;
+    ChassisStateUnknown,    // SecurityStatus;
+    {0, 0, 0, 0},           // OemDefined[4];
+    0,                      // Height;
+    0,                      // NumberofPowerCords;
+    0,                      // ContainedElementCount;
+    0,                      // ContainedElementRecordLength;
+    {{0}},                  // ContainedElements[1];
 };
 CHAR8 *mEnclosureInfoType3Strings[] = {
     "Not Specified", "Not Specified", "Not Specified", "Not Specified",
@@ -1002,7 +1002,7 @@ SmBiosTableDxeInitialize(
   EFI_STATUS               Status;
   CHAR8                    serialNo[EFICHIPINFO_MAX_ID_LENGTH];
   EFIChipInfoSerialNumType serial;
-  EFI_CHIPINFO_PROTOCOL   *mBoardProtocol = NULL;
+  EFI_CHIPINFO_PROTOCOL   *mBoardProtocol  = NULL;
 
   // Locate Qualcomm Board Protocol
   Status = gBS->LocateProtocol(

@@ -1,20 +1,5 @@
 [LibraryClasses.common]
   #
-  # Libraries to support Shell
-  #
-  ShellLib|ShellPkg/Library/UefiShellLib/UefiShellLib.inf
-  ShellCommandLib|ShellPkg/Library/UefiShellCommandLib/UefiShellCommandLib.inf
-  ShellCEntryLib|ShellPkg/Library/UefiShellCEntryLib/UefiShellCEntryLib.inf
-  HandleParsingLib|ShellPkg/Library/UefiHandleParsingLib/UefiHandleParsingLib.inf
-  BcfgCommandLib|ShellPkg/Library/UefiShellBcfgCommandLib/UefiShellBcfgCommandLib.inf
-  NetLib|NetworkPkg/Library/DxeNetLib/DxeNetLib.inf
-
-  #
-  # Contains intrinsics for crypto operations
-  #
-  IntrinsicLib|CryptoPkg/Library/IntrinsicLib/IntrinsicLib.inf
-
-  #
   # contains NULL routines to support UI operations associated with DFCI.
   #
   DfciUiSupportLib|OemPkg/Library/DfciUiSupportLib/DfciUiSupportLib.inf
@@ -25,15 +10,9 @@
   DfciRecoveryLib|DfciPkg/Library/DfciRecoveryLib/DfciRecoveryLib.inf
 
   #
-  # Contains openSSL library used by BaseCryptoLib
-  #
-  OpensslLib|CryptoPkg/Library/OpensslLib/OpensslLib.inf
-
-  #
   # Functions that should contain base logic for querying, setting, and verifying user passwords.
   #
   PasswordStoreLib|OemPkg/Library/PasswordStoreLib/PasswordStoreLib.inf
-  BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
 
   #
   # Supports DFCI Groups.
@@ -96,6 +75,11 @@
   ThermalServicesLib|PcBdsPkg/Library/ThermalServicesLibNull/ThermalServicesLibNull.inf
 
   #
+  # Power Services Library class to support Platforms with battery
+  #
+  PowerServicesLib|QcomPkg/Library/PowerServicesLib/PowerServicesLib.inf
+
+  #
   # Empty Platform Library of power check.
   #
   MsPlatformPowerCheckLib|PcBdsPkg/Library/MsPlatformPowerCheckLibNull/MsPlatformPowerCheckLibNull.inf
@@ -111,6 +95,7 @@
   # Sort of a wrapper for MsPlatformDevicesLib, which needs to be written for each platform.
   #
   DeviceBootManagerLib|OemPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
+  MsPlatformDevicesLib|QcomPkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
 
   #
   # LIbrary to display the On screen notifications for the platform
@@ -155,7 +140,7 @@
   #
   # This library is for showing the main system boot graphics.
   #
-  BootGraphicsLib|MsGraphicsPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
+  BootGraphicsLib|QcomPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
 
   #
   # Library to support Device disable Settings  (get/set)
@@ -170,7 +155,7 @@
   #
   # BootGraphicsProviderLib that uses PCDs and raw files in the firmware volumes
   #
-  BootGraphicsProviderLib|OemPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
+  BootGraphicsProviderLib|QcomPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
 
   #
   # Library that platform implemented to determine boot type
@@ -205,18 +190,19 @@
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests 
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
 
-  # Enable SHELL to build instead of just taking the binary
-  gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|16000
-  gEfiShellPkgTokenSpaceGuid.PcdShellProfileMask|0x1f    # All profiles
-
   gMsGraphicsPkgTokenSpaceGuid.PcdUiThemeInDxe|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerInBootOrder|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupport|FALSE
+
   # The GUID of Frontpage.inf from MU_OEM_SAMPLE
   # 4042708A-0F2D-4823-AC60-0D77B3111889
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x8A, 0x70, 0x42, 0x40, 0x2D, 0x0F, 0x23, 0x48, 0xAC, 0x60, 0x0D, 0x77, 0xB3, 0x11, 0x18, 0x89 }
 
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor|0x0
+
+[LibraryClasses.AARCH64.DXE_DRIVER, LibraryClasses.AARCH64.UEFI_DRIVER, LibraryClasses.AARCH64.UEFI_APPLICATION, LibraryClasses.AARCH64.DXE_CORE]
+  BaseCryptLib|CryptoPkg/Library/BaseCryptLibOnProtocolPpi/DxeCryptLib.inf
+  TlsLib|CryptoPkg/Library/BaseCryptLibOnProtocolPpi/DxeCryptLib.inf
 
 [Components.AARCH64]
   #
@@ -314,20 +300,9 @@
 
   DfciPkg/Application/DfciMenu/DfciMenu.inf
 
-#######################################
-#  Shell
-#######################################
+  CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf
 
-  ShellPkg/Application/Shell/Shell.inf {
-    <LibraryClasses>
-      NULL|ShellPkg/Library/UefiShellLevel2CommandsLib/UefiShellLevel2CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellLevel1CommandsLib/UefiShellLevel1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellLevel3CommandsLib/UefiShellLevel3CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellInstall1CommandsLib/UefiShellInstall1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellNetwork2CommandsLib/UefiShellNetwork2CommandsLib.inf
+  CryptoPkg/Library/BaseCryptLibOnProtocolPpi/DxeCryptLib.inf {
     <PcdsFixedAtBuild>
-     gEfiShellPkgTokenSpaceGuid.PcdShellLibAutoInitialize|FALSE
+      !include CryptoPkg/Driver/Bin/Crypto.pcd.STANDARD.inc.dsc
   }

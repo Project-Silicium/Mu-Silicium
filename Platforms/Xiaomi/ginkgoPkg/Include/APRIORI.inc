@@ -31,12 +31,13 @@ APRIORI DXE {
     INF Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
-    INF Binaries/ginkgo/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
 
+    INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
+    # 8063CC34-459F-0B38-AF28-3BACE2E435A6 (Unknown)
     INF Binaries/ginkgo/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
@@ -50,15 +51,14 @@ APRIORI DXE {
     INF Binaries/ginkgo/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
-    INF Binaries/ginkgo/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
+
+    INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+
     INF Binaries/ginkgo/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/PILDxe/PILDxe.inf
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
-    INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-
-    INF Binaries/ginkgo/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-
+    INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
     INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
@@ -91,12 +91,13 @@ APRIORI DXE {
     INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
+    # MpPowerDxe
     INF Binaries/ginkgo/QcomPkg/Drivers/HashDxe/HashDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/RNGDxe/RngDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-    INF Binaries/ginkgo/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
 
+    INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
     INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
     INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 

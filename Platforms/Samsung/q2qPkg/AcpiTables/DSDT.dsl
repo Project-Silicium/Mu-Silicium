@@ -60,13 +60,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
                 }
             }
 
-            Name (_DEP, Package (One)  // _DEP: Dependencies
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_HID, "QCOM24A5")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
-            Alias (\_SB.EMUL, EMUL)
+            Alias (PSUB, _SUB)
+            Alias (^EMUL, EMUL)
             Name (_UID, Zero)  // _UID: Unique ID
             Name (_CCA, One)  // _CCA: Cache Coherency Attribute
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
@@ -114,12 +114,12 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
         Device (ABD)
         {
-            Name (_DEP, Package (One)  // _DEP: Dependencies
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PEP0
+                PEP0
             })
             Name (_HID, "QCOM0427")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, Zero)  // _UID: Unique ID
             OperationRegion (ROP1, GenericSerialBus, Zero, 0x0100)
             Name (AVBL, Zero)
@@ -136,13 +136,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
         Name (DBFL, 0x17)
         Device (PMIC)
         {
-            Name (_DEP, Package (One)  // _DEP: Dependencies
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.SPMI
+                SPMI
             })
             Name (_HID, "QCOM1A2B")  // _HID: Hardware ID
             Name (_CID, "PNP0CA3")  // _CID: Compatible ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Method (PMCF, 0, NotSerialized)
             {
                 Name (CFG0, Package (0x0B)
@@ -215,11 +215,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
         Device (PM01)
         {
             Name (_HID, "QCOM0530")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, One)  // _UID: Unique ID
-            Name (_DEP, Package (One)  // _DEP: Dependencies
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
             {
-                \_SB.PMIC
+                PMIC
             })
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
@@ -237,7 +237,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
             {
                 While (One)
                 {
-                    Name (_T_0, Buffer (0x01)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                    Name (_T_0, Buffer (One)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
                     {
                          0x00                                             // .
                     })
@@ -246,7 +246,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
                     {
                         While (One)
                         {
-                            Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
                             _T_1 = ToInteger (Arg2)
                             If ((_T_1 == Zero))
                             {
@@ -286,7 +286,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
         Device (SPMI)
         {
             Name (_HID, "QCOM1A0B")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_CID, "PNP0CA2")  // _CID: Compatible ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
@@ -321,35 +321,35 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
             Name (_UID, 0x00100000)  // _UID: Unique ID
             Name (_LPI, Package (0x04)  // _LPI: Low Power Idle States
             {
-                Zero,
-                0x01000000,
-                One,
+                Zero, 
+                0x01000000, 
+                One, 
                 Package (0x0A)
                 {
-                    0x251C,
-                    0x1770,
-                    One,
-                    0x20,
-                    Zero,
-                    Zero,
-                    0xC300,
+                    0x251C, 
+                    0x1770, 
+                    One, 
+                    0x20, 
+                    Zero, 
+                    Zero, 
+                    0xC300, 
                     ResourceTemplate ()
                     {
-                        Register (SystemMemory,
+                        Register (SystemMemory, 
                             0x00,               // Bit Width
                             0x00,               // Bit Offset
                             0x0000000000000000, // Address
                             ,)
-                    },
+                    }, 
 
                     ResourceTemplate ()
                     {
-                        Register (SystemMemory,
+                        Register (SystemMemory, 
                             0x00,               // Bit Width
                             0x00,               // Bit Offset
                             0x0000000000000000, // Address
                             ,)
-                    },
+                    }, 
 
                     "platform.DRIPS"
                 }
@@ -360,65 +360,65 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
                 Name (_UID, 0x10)  // _UID: Unique ID
                 Name (_LPI, Package (0x05)  // _LPI: Low Power Idle States
                 {
-                    Zero,
-                    0x01000000,
-                    0x02,
+                    Zero, 
+                    0x01000000, 
+                    0x02, 
                     Package (0x0A)
                     {
-                        0x170C,
-                        0x0BB8,
-                        Zero,
-                        Zero,
-                        Zero,
-                        Zero,
-                        0x20,
+                        0x170C, 
+                        0x0BB8, 
+                        Zero, 
+                        Zero, 
+                        Zero, 
+                        Zero, 
+                        0x20, 
                         ResourceTemplate ()
                         {
-                            Register (SystemMemory,
+                            Register (SystemMemory, 
                                 0x00,               // Bit Width
                                 0x00,               // Bit Offset
                                 0x0000000000000000, // Address
                                 ,)
-                        },
+                        }, 
 
                         ResourceTemplate ()
                         {
-                            Register (SystemMemory,
+                            Register (SystemMemory, 
                                 0x00,               // Bit Width
                                 0x00,               // Bit Offset
                                 0x0000000000000000, // Address
                                 ,)
-                        },
+                        }, 
 
                         "L3Cluster.D2"
-                    },
+                    }, 
 
                     Package (0x0A)
                     {
-                        0x1770,
-                        0x0CE4,
-                        One,
-                        Zero,
-                        Zero,
-                        One,
-                        0x40,
+                        0x1770, 
+                        0x0CE4, 
+                        One, 
+                        Zero, 
+                        Zero, 
+                        One, 
+                        0x40, 
                         ResourceTemplate ()
                         {
-                            Register (SystemMemory,
+                            Register (SystemMemory, 
                                 0x00,               // Bit Width
                                 0x00,               // Bit Offset
                                 0x0000000000000000, // Address
                                 ,)
-                        },
+                        }, 
 
                         ResourceTemplate ()
                         {
-                            Register (SystemMemory,
+                            Register (SystemMemory, 
                                 0x00,               // Bit Width
                                 0x00,               // Bit Offset
                                 0x0000000000000000, // Address
                                 ,)
-                        },
+                        }, 
 
                         "L3Cluster.D4"
                     }
@@ -434,161 +434,161 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
                     Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Zero,
-                        Zero,
-                        0x04,
+                        Zero, 
+                        Zero, 
+                        0x04, 
                         Package (0x0A)
                         {
-                            Zero,
-                            Zero,
-                            One,
-                            Zero,
-                            Zero,
-                            Zero,
+                            Zero, 
+                            Zero, 
+                            One, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x00000000FFFFFFFF, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver0.C1"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0190,
-                            0x64,
-                            Zero,
-                            Zero,
-                            Zero,
-                            One,
+                            0x0190, 
+                            0x64, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000002, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver0.C2"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F0A,
-                            0x035C,
-                            One,
-                            One,
-                            Zero,
-                            One,
+                            0x0F0A, 
+                            0x035C, 
+                            One, 
+                            One, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000003, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver0.C3"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F6E,
-                            0x038E,
-                            One,
-                            One,
-                            Zero,
-                            0x02,
+                            0x0F6E, 
+                            0x038E, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000004, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver0.C4"
                         }
@@ -606,161 +606,161 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
                     Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Zero,
-                        Zero,
-                        0x04,
+                        Zero, 
+                        Zero, 
+                        0x04, 
                         Package (0x0A)
                         {
-                            Zero,
-                            Zero,
-                            One,
-                            Zero,
-                            Zero,
-                            Zero,
+                            Zero, 
+                            Zero, 
+                            One, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x00000000FFFFFFFF, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver1.C1"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0190,
-                            0x64,
-                            Zero,
-                            Zero,
-                            Zero,
-                            One,
+                            0x0190, 
+                            0x64, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000002, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver1.C2"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F0A,
-                            0x035C,
-                            One,
-                            One,
-                            Zero,
-                            One,
+                            0x0F0A, 
+                            0x035C, 
+                            One, 
+                            One, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000003, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver1.C3"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F6E,
-                            0x038E,
-                            One,
-                            One,
-                            Zero,
-                            0x02,
+                            0x0F6E, 
+                            0x038E, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000004, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver1.C4"
                         }
@@ -778,161 +778,161 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
                     Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Zero,
-                        Zero,
-                        0x04,
+                        Zero, 
+                        Zero, 
+                        0x04, 
                         Package (0x0A)
                         {
-                            Zero,
-                            Zero,
-                            One,
-                            Zero,
-                            Zero,
-                            Zero,
+                            Zero, 
+                            Zero, 
+                            One, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x00000000FFFFFFFF, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver2.C1"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0190,
-                            0x64,
-                            Zero,
-                            Zero,
-                            Zero,
-                            One,
+                            0x0190, 
+                            0x64, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000002, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver2.C2"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F0A,
-                            0x035C,
-                            One,
-                            One,
-                            Zero,
-                            One,
+                            0x0F0A, 
+                            0x035C, 
+                            One, 
+                            One, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000003, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver2.C3"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F6E,
-                            0x038E,
-                            One,
-                            One,
-                            Zero,
-                            0x02,
+                            0x0F6E, 
+                            0x038E, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000004, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver2.C4"
                         }
@@ -950,161 +950,161 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
                     Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Zero,
-                        Zero,
-                        0x04,
+                        Zero, 
+                        Zero, 
+                        0x04, 
                         Package (0x0A)
                         {
-                            Zero,
-                            Zero,
-                            One,
-                            Zero,
-                            Zero,
-                            Zero,
+                            Zero, 
+                            Zero, 
+                            One, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x00000000FFFFFFFF, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver3.C1"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0190,
-                            0x64,
-                            Zero,
-                            Zero,
-                            Zero,
-                            One,
+                            0x0190, 
+                            0x64, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000002, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver3.C2"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F0A,
-                            0x035C,
-                            One,
-                            One,
-                            Zero,
-                            One,
+                            0x0F0A, 
+                            0x035C, 
+                            One, 
+                            One, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000003, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver3.C3"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F6E,
-                            0x038E,
-                            One,
-                            One,
-                            Zero,
-                            0x02,
+                            0x0F6E, 
+                            0x038E, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000004, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoSilver3.C4"
                         }
@@ -1122,161 +1122,161 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
                     Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Zero,
-                        Zero,
-                        0x04,
+                        Zero, 
+                        Zero, 
+                        0x04, 
                         Package (0x0A)
                         {
-                            Zero,
-                            Zero,
-                            One,
-                            Zero,
-                            Zero,
-                            Zero,
+                            Zero, 
+                            Zero, 
+                            One, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x00000000FFFFFFFF, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold0.C1"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0190,
-                            0x64,
-                            Zero,
-                            Zero,
-                            Zero,
-                            One,
+                            0x0190, 
+                            0x64, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000002, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold0.C2"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F96,
-                            0x03E8,
-                            One,
-                            One,
-                            Zero,
-                            One,
+                            0x0F96, 
+                            0x03E8, 
+                            One, 
+                            One, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000003, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold0.C3"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x118A,
-                            0x05DC,
-                            One,
-                            One,
-                            Zero,
-                            0x02,
+                            0x118A, 
+                            0x05DC, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000004, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold0.C4"
                         }
@@ -1294,161 +1294,161 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
                     Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Zero,
-                        Zero,
-                        0x04,
+                        Zero, 
+                        Zero, 
+                        0x04, 
                         Package (0x0A)
                         {
-                            Zero,
-                            Zero,
-                            One,
-                            Zero,
-                            Zero,
-                            Zero,
+                            Zero, 
+                            Zero, 
+                            One, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x00000000FFFFFFFF, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold1.C1"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0190,
-                            0x64,
-                            Zero,
-                            Zero,
-                            Zero,
-                            One,
+                            0x0190, 
+                            0x64, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000002, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold1.C2"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F96,
-                            0x03E8,
-                            One,
-                            One,
-                            Zero,
-                            One,
+                            0x0F96, 
+                            0x03E8, 
+                            One, 
+                            One, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000003, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold1.C3"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x118A,
-                            0x05DC,
-                            One,
-                            One,
-                            Zero,
-                            0x02,
+                            0x118A, 
+                            0x05DC, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000004, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold1.C4"
                         }
@@ -1466,161 +1466,161 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
                     Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Zero,
-                        Zero,
-                        0x04,
+                        Zero, 
+                        Zero, 
+                        0x04, 
                         Package (0x0A)
                         {
-                            Zero,
-                            Zero,
-                            One,
-                            Zero,
-                            Zero,
-                            Zero,
+                            Zero, 
+                            Zero, 
+                            One, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x00000000FFFFFFFF, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold2.C1"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0190,
-                            0x64,
-                            Zero,
-                            Zero,
-                            Zero,
-                            One,
+                            0x0190, 
+                            0x64, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000002, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold2.C2"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F96,
-                            0x03E8,
-                            One,
-                            One,
-                            Zero,
-                            One,
+                            0x0F96, 
+                            0x03E8, 
+                            One, 
+                            One, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000003, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold2.C3"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x118A,
-                            0x05DC,
-                            One,
-                            One,
-                            Zero,
-                            0x02,
+                            0x118A, 
+                            0x05DC, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000004, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoGold2.C4"
                         }
@@ -1638,161 +1638,161 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
 
                     Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Zero,
-                        Zero,
-                        0x04,
+                        Zero, 
+                        Zero, 
+                        0x04, 
                         Package (0x0A)
                         {
-                            Zero,
-                            Zero,
-                            One,
-                            Zero,
-                            Zero,
-                            Zero,
+                            Zero, 
+                            Zero, 
+                            One, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x00000000FFFFFFFF, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoPrime0.C1"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0190,
-                            0x64,
-                            Zero,
-                            Zero,
-                            Zero,
-                            One,
+                            0x0190, 
+                            0x64, 
+                            Zero, 
+                            Zero, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000002, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoPrime0.C2"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x0F96,
-                            0x03E8,
-                            One,
-                            One,
-                            Zero,
-                            One,
+                            0x0F96, 
+                            0x03E8, 
+                            One, 
+                            One, 
+                            Zero, 
+                            One, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000003, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoPrime0.C3"
-                        },
+                        }, 
 
                         Package (0x0A)
                         {
-                            0x118A,
-                            0x05DC,
-                            One,
-                            One,
-                            Zero,
-                            0x02,
+                            0x118A, 
+                            0x05DC, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
                             ResourceTemplate ()
                             {
-                                Register (FFixedHW,
+                                Register (FFixedHW, 
                                     0x20,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000040000004, // Address
                                     0x03,               // Access Size
                                     )
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
+                                Register (SystemMemory, 
                                     0x00,               // Bit Width
                                     0x00,               // Bit Offset
                                     0x0000000000000000, // Address
                                     ,)
-                            },
+                            }, 
 
                             "KryoPrime0.C4"
                         }
@@ -1804,7 +1804,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
         Device (BTNS)
         {
             Name (_HID, "ACPI0011" /* Generic Buttons Device */)  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
+            Alias (PSUB, _SUB)
             Name (_UID, Zero)  // _UID: Unique ID
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
@@ -1877,3 +1877,4 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8350 ", 0x00000003)
         }
     }
 }
+

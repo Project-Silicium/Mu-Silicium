@@ -25,7 +25,7 @@
   PcBdsPkg/PcBdsPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  QcomPkg/Qcom.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   BaseMemoryLib
@@ -51,7 +51,7 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile
   gPcBdsPkgTokenSpaceGuid.PcdShellFile
   gPcBdsPkgTokenSpaceGuid.PcdShellFvGuid
-  gQcomTokenSpaceGuid.PcdUFPMenuFile
+  gQcomPkgTokenSpaceGuid.PcdUFPMenuFile
 
 [Depex]
   TRUE

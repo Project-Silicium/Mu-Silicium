@@ -2,10 +2,7 @@
 #define _PLATFORM_MEMORY_MAP_LIB_H_
 
 #include <PiPei.h>
-
 #include <Library/ArmLib.h>
-#include <Library/HobLib.h>
-#include <Library/MemoryAllocationLib.h>
 
 #define MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT 128
 

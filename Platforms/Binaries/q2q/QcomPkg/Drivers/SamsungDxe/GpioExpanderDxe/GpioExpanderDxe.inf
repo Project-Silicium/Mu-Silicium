@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = Expander
+  FILE_GUID      = A93C89C8-5F8A-11EB-AE93-0242AC130002
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = EfiEntry
+
+[Binaries.AARCH64]
+   DXE_DEPEX|GpioExpanderDxe.depex|*
+   PE32|GpioExpanderDxe.efi|*
+
+[Depex]
+  TRUE

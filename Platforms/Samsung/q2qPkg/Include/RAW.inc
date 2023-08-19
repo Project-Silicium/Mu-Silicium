@@ -1,8 +1,3 @@
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E23030794 {
-    SECTION UI = "logo1.bmp"
-    SECTION RAW = Binaries/q2q/RawFiles/logo1.bmp
-  }
-
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
     SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
     SECTION RAW = Binaries/q2q/RawFiles/Panel_truly_wqxga_dsc_cmd.xml
@@ -148,17 +143,7 @@
     SECTION RAW = Binaries/q2q/RawFiles/BATTERY.PROVISION
   }
 
-  FILE FREEFORM = 7A53216A-D205-42BA-A912-FBD40584578C {
-    SECTION UI = "logfs_ufs_8mb.bin"
-    SECTION RAW = Binaries/q2q/RawFiles/logfs_ufs_8mb.bin
-  }
-
   FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
     SECTION UI = "BDS_Menu.cfg"
     SECTION RAW = Binaries/q2q/RawFiles/BDS_Menu.cfg
-  }
-
-  FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1f2dd {
-    SECTION UI = "simpleinit.static.uefi.cfg"
-    SECTION RAW = Binaries/q2q/RawFiles/simpleinit.static.uefi.cfg
   }

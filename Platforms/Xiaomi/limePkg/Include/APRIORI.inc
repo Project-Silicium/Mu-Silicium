@@ -32,8 +32,8 @@ APRIORI DXE {
     INF Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
     INF Binaries/lime/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
     INF Binaries/lime/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
-    INF Binaries/lime/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
 
+    INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
@@ -51,7 +51,9 @@ APRIORI DXE {
     INF Binaries/lime/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
     INF Binaries/lime/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
     INF Binaries/lime/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
-    INF Binaries/lime/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
+
+    INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+
     INF Binaries/lime/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
 !if $(USE_DISPLAYDXE) == 1
@@ -63,10 +65,7 @@ APRIORI DXE {
     INF Binaries/lime/QcomPkg/Drivers/PILDxe/PILDxe.inf
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
-    INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-
-    INF Binaries/lime/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-
+    INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
     INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
@@ -97,8 +96,8 @@ APRIORI DXE {
     INF Binaries/lime/QcomPkg/Drivers/MacDxe/MacDxe.inf
     INF Binaries/lime/QcomPkg/Drivers/RNGDxe/RngDxe.inf
     INF Binaries/lime/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-    INF Binaries/lime/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
 
+    INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
     INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
     INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 

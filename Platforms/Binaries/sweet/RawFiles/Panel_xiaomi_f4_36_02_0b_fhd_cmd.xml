@@ -1,0 +1,122 @@
+<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<PanelDescription>xiaomi f4 36 02 0b Single DSI Command Mode Panel (1080x2340 24bpp)</PanelDescription>
+<Group id=\"Active Timing\">
+ <HorizontalActive>1080</HorizontalActive>
+ <HorizontalFrontPorch>8</HorizontalFrontPorch>
+ <HorizontalBackPorch>8</HorizontalBackPorch>
+ <HorizontalSyncPulse>4</HorizontalSyncPulse>
+ <HorizontalSyncSkew>0</HorizontalSyncSkew>
+ <HorizontalLeftBorder>0</HorizontalLeftBorder>
+ <HorizontalRightBorder>0</HorizontalRightBorder>
+ <VerticalActive>2340</VerticalActive>
+ <VerticalFrontPorch>12</VerticalFrontPorch>
+ <VerticalBackPorch>12</VerticalBackPorch>
+ <VerticalSyncPulse>4</VerticalSyncPulse>
+ <VerticalSyncSkew>0</VerticalSyncSkew>
+ <VerticalTopBorder>0</VerticalTopBorder>
+ <VerticalBottomBorder>0</VerticalBottomBorder>
+ <InvertDataPolarity>False</InvertDataPolarity>
+ <InvertVsyncPolairty>False</InvertVsyncPolairty>
+ <InvertHsyncPolarity>False</InvertHsyncPolarity>
+ <BorderColor>0x0</BorderColor>
+</Group>
+<Group id="Display Interface">
+ <InterfaceType>9</InterfaceType>
+ <InterfaceColorFormat>3</InterfaceColorFormat>
+</Group>
+<Group id="DSI Interface">
+ <DSIChannelId>2</DSIChannelId>
+ <DSIVirtualId>0</DSIVirtualId>
+ <DSIColorFormat>36</DSIColorFormat>
+ <DSITrafficMode>1</DSITrafficMode>
+ <DSILanes>4</DSILanes>
+ <DSIRefreshRate>0x3C0000</DSIRefreshRate>
+ <DSICmdSwapInterface>False</DSICmdSwapInterface>
+ <DSICmdUsingTrigger>False</DSICmdUsingTrigger>
+ <DSIEnableAutoRefresh>True</DSIEnableAutoRefresh>
+ <DSIAutoRefreshFrameNumDiv>1</DSIAutoRefreshFrameNumDiv>
+ <DSIClockHSForceRequest>1</DSIClockHSForceRequest>
+ <DSIForceCmdInVideoHS>1</DSIForceCmdInVideoHS>
+ <DSITECheckEnable>True</DSITECheckEnable>
+ <DSITEUsingDedicatedTEPin>True</DSITEUsingDedicatedTEPin>
+ <DSITEvSyncStartPos>2340</DSITEvSyncStartPos>
+ <DSITEvSyncInitVal>2340</DSITEvSyncInitVal>
+ <DSIDSCEnable>True</DSIDSCEnable>
+ <DSIDSCMajor>1</DSIDSCMajor>
+ <DSIDSCMinor>1</DSIDSCMinor>
+ <DSIDSCScr>0</DSIDSCScr>
+ <DSIDSCProfileID>7</DSIDSCProfileID>
+ <DSIDSCSliceWidth>540</DSIDSCSliceWidth>
+ <DSIDSCSliceHeight>12</DSIDSCSliceHeight>
+ <DSIDSCSlicePerPacket>2</DSIDSCSlicePerPacket>
+ <DSIControllerMapping>
+  00
+ </DSIControllerMapping>
+</Group>
+<DSIInitSequence>
+39 FF AA 55 A5 80
+39 6F 0A
+39 FC 02
+39 F0 55 AA 52 08 00
+39 B2 19 00 10 10
+39 6F 09
+39 B2 20
+15 6F 13
+39 B2 03 B8
+39 C0 56
+39 6F 06
+39 B5 2B 1C 00 00 00 2B 1C 00 00 00 00
+39 BE 0E 0B
+39 6F 05
+39 BE 8A
+39 F0 55 AA 52 08 01
+39 6F 03
+39 CF 09
+39 6F 02
+39 D2 22
+39 B6 00 98 00 98 00 98
+39 FF AA 55 A5 81
+39 6F 04
+39 F5 08
+39 F0 55 AA 52 08 00
+39 DF 81
+39 6F 01
+39 DF 80 80 00
+39 6F 04
+39 DF 02
+39 6F 22
+39 DF 35 80 7F 15 50
+39 89 00 0F
+39 88 02 1B 07 11
+39 FF AA 55 A5 81
+39 6F 05
+39 FD 00 DB
+39 FF AA 55 A5 81
+39 6F 0D
+39 F3 A7
+39 3B 00 10 00 0C
+39 90 01
+39 93 89 28 00 0C 02 00 02 0E 01 1F 00 07 08 BB 08 7A 10 F0
+39 03 11
+39 2C 00
+39 51 00 00 00 00
+39 53 20
+39 35 00
+39 2A 00 00 04 37
+39 2B 00 00 09 23
+05 11 00
+FF 80
+05 29 00
+FF 00
+</DSIInitSequence>
+<DSITermSequence>
+ 05 28
+ FF 00
+ 05 10
+ FF 66
+</DSITermSequence>
+<Group id='Backlight Configuration'>
+ <BacklightType>3</BacklightType>
+ <BacklightPmicControlType>2</BacklightPmicControlType>
+ <DisplayResetInfo>0 1000 1000 10000 0</DisplayResetInfo>
+/Group>

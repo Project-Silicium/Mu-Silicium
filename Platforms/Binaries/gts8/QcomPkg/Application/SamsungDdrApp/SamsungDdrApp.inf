@@ -1,0 +1,9 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = SamsungDdrApp
+  FILE_GUID      = 9CE8F435-90C8-4D7F-88FA-295363E0B8ED
+  MODULE_TYPE    = UEFI_APPLICATION
+  VERSION_STRING = 1.0
+
+[Binaries.AARCH64]
+   PE32|SamsungDdrApp.efi|*

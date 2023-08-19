@@ -11,8 +11,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  QcomPkg/Qcom.dec
-  SM8450Pkg/SM8450.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   BaseLib

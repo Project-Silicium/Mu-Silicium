@@ -21,16 +21,10 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiLib.h>
 
-#define AB_SLOT_SWITCH_NAME       L"Switch Slot"
-
-#define INTERNAL_UEFI_SHELL_NAME  L"Internal UEFI Shell 2.0"
-
-#define MS_SDD_BOOT               L"Internal Storage"
-#define MS_SDD_BOOT_PARM          "SDD"
-#define MS_USB_BOOT               L"USB Storage"
-#define MS_USB_BOOT_PARM          "USB"
-#define MS_PXE_BOOT               L"PXE Network"
-#define MS_PXE_BOOT_PARM          "PXE"
+#define MS_SDD_BOOT       L"Internal Storage"
+#define MS_SDD_BOOT_PARM  "SDD"
+#define MS_USB_BOOT       L"USB Storage"
+#define MS_USB_BOOT_PARM  "USB"
 
 typedef struct {
   MEDIA_FW_VOL_DEVICE_PATH    FvDevPath;
@@ -120,7 +114,13 @@ BuildFwLoadOption (
                  DevicePathFromHandle (LoadedImage->DeviceHandle),
                  (EFI_DEVICE_PATH_PROTOCOL *)&FileNode
                  );
-  ASSERT (DevicePath != NULL);
+  // MU_CHANGE [BEGIN] - CodeQL change
+  if (DevicePath == NULL) {
+    ASSERT (DevicePath != NULL);
+    return EFI_NOT_FOUND;
+  }
+
+  // MU_CHANGE [END] - CodeQL change
 
   Status = EfiBootManagerInitializeLoadOption (
              BootOption,
@@ -351,6 +351,10 @@ CreateFvBootOption (
                    DevicePathFromHandle (LoadedImage->DeviceHandle),
                    (EFI_DEVICE_PATH_PROTOCOL *)&FileNode
                    );
+    if (DevicePath == NULL) {
+      ASSERT (DevicePath != NULL);
+      return EFI_OUT_OF_RESOURCES;
+    }
   } else {
     if (IsZeroGuid (PcdGetPtr (PcdShellFvGuid))) {
       // Search all FV's for Shell.
@@ -372,6 +376,10 @@ CreateFvBootOption (
                    (EFI_DEVICE_PATH_PROTOCOL *)DevicePath,
                    (EFI_DEVICE_PATH_PROTOCOL *)&FileNode
                    );
+    if (DevicePath == NULL) {
+      ASSERT (DevicePath != NULL);
+      return EFI_OUT_OF_RESOURCES;
+    }
   }
 
   Status = EfiBootManagerInitializeLoadOption (
@@ -395,14 +403,15 @@ CreateFvBootOption (
 /**
  * Register a boot option
  *
- * @param FileGuid
- * @param Description
- * @param Position
- * @param Attributes
- * @param OptionalData
- * @param OptionalDataSize
+ * @param FileGuid          The guid associated with the boot option.
+ * @param Description       Description of the boot option.
+ * @param Position          The position of the load option to put in the ****Order variable.
+ * @param Attributes        The attributes of the boot option.
+ * @param OptionalData      Optional data of the boot option.
+ * @param OptionalDataSize  Size of the optional data of the boot option.
  *
- * @return UINTN
+ * @return UINTN      If boot option number of the registered boot option
+ *
  */
 static
 UINTN
@@ -420,12 +429,15 @@ RegisterFvBootOption (
   EFI_BOOT_MANAGER_LOAD_OPTION  NewOption;
   EFI_BOOT_MANAGER_LOAD_OPTION  *BootOptions;
   UINTN                         BootOptionCount;
-  UINTN                         i;
 
   NewOption.OptionNumber = LoadOptionNumberUnassigned;
   Status                 = CreateFvBootOption (FileGuid, Description, &NewOption, Attributes, OptionalData, OptionalDataSize);
   if (!EFI_ERROR (Status)) {
     BootOptions = EfiBootManagerGetLoadOptions (&BootOptionCount, LoadOptionTypeBoot);
+
+    if (BootOptions == NULL) {
+      DEBUG ((DEBUG_INFO, "No boot options found. Proceeding to add boot options.\n"));
+    }
 
     OptionIndex = EfiBootManagerFindLoadOption (&NewOption, BootOptions, BootOptionCount);
     if (OptionIndex == -1) {
@@ -445,20 +457,6 @@ RegisterFvBootOption (
 
     EfiBootManagerFreeLoadOption (&NewOption);
     EfiBootManagerFreeLoadOptions (BootOptions, BootOptionCount);
-  } else {
-    // The Shell is optional.  If the shell cannot be created (due to not in image), then
-    // ensure the boot option for INTERNAL SHELL is deleted.
-    if (0 == StrCmp (INTERNAL_UEFI_SHELL_NAME, Description)) {
-      BootOptions = EfiBootManagerGetLoadOptions (&BootOptionCount, LoadOptionTypeBoot);
-      for (i = 0; i < BootOptionCount; i++) {
-        if (0 == StrCmp (INTERNAL_UEFI_SHELL_NAME, BootOptions[i].Description)) {
-          EfiBootManagerDeleteLoadOptionVariable (BootOptions[i].OptionNumber, LoadOptionTypeBoot);
-          DEBUG ((DEBUG_INFO, "Deleting Boot option as Boot%04x - %s\n", BootOptions[i].OptionNumber, BootOptions[i].Description));
-        }
-      }
-
-      EfiBootManagerFreeLoadOptions (BootOptions, BootOptionCount);
-    }
   }
 
   return NewOption.OptionNumber;
@@ -481,9 +479,6 @@ MsBootOptionsLibRegisterDefaultBootOptions (
 
   RegisterFvBootOption (&gMsBootPolicyFileGuid, MS_SDD_BOOT, (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)MS_SDD_BOOT_PARM, sizeof (MS_SDD_BOOT_PARM));
   RegisterFvBootOption (&gMsBootPolicyFileGuid, MS_USB_BOOT, (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)MS_USB_BOOT_PARM, sizeof (MS_USB_BOOT_PARM));
-  RegisterFvBootOption (&gMsBootPolicyFileGuid, MS_PXE_BOOT, (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)MS_PXE_BOOT_PARM, sizeof (MS_PXE_BOOT_PARM));
-  RegisterFvBootOption (PcdGetPtr (PcdShellFile), INTERNAL_UEFI_SHELL_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
-  RegisterFvBootOption (&gSwitchSlotsAppFileGuid, AB_SLOT_SWITCH_NAME, (UINTN)-1, LOAD_OPTION_ACTIVE, NULL, 0);
 }
 
 /**
@@ -499,10 +494,9 @@ MsBootOptionsLibGetDefaultOptions (
   OUT UINTN  *OptionCount
   )
 {
-  UINTN                         LocalOptionCount = 5;
+  UINTN                         LocalOptionCount      = 2;
   EFI_BOOT_MANAGER_LOAD_OPTION  *Option;
   EFI_STATUS                    Status;
-  EFI_STATUS                    Status2;
 
   Option = (EFI_BOOT_MANAGER_LOAD_OPTION *)AllocateZeroPool (sizeof (EFI_BOOT_MANAGER_LOAD_OPTION) * LocalOptionCount);
   ASSERT (Option != NULL);
@@ -513,25 +507,12 @@ MsBootOptionsLibGetDefaultOptions (
 
   Status  = CreateFvBootOption (&gMsBootPolicyFileGuid, MS_SDD_BOOT, &Option[0], LOAD_OPTION_ACTIVE, (UINT8 *)MS_SDD_BOOT_PARM, sizeof (MS_SDD_BOOT_PARM));
   Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, MS_USB_BOOT, &Option[1], LOAD_OPTION_ACTIVE, (UINT8 *)MS_USB_BOOT_PARM, sizeof (MS_USB_BOOT_PARM));
-  Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, MS_PXE_BOOT, &Option[2], LOAD_OPTION_ACTIVE, (UINT8 *)MS_PXE_BOOT_PARM, sizeof (MS_PXE_BOOT_PARM));
-
-  Status2 = CreateFvBootOption (PcdGetPtr (PcdShellFile), INTERNAL_UEFI_SHELL_NAME, &Option[3], LOAD_OPTION_ACTIVE, NULL, 0);
-  if (EFI_ERROR (Status2)) {
-    // UEFI Shell is optional. So, ignore that we cannot create it.
-    LocalOptionCount--;
-  }
-
-  Status2 |= CreateFvBootOption (&gSwitchSlotsAppFileGuid, AB_SLOT_SWITCH_NAME, &Option[4], LOAD_OPTION_ACTIVE, NULL, 0);
-  if (EFI_ERROR (Status2)) {
-    // A/B Slot Switch is optional. So, ignore that we cannot create it.
-    LocalOptionCount--;
-  }
 
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "%a Error creating defatult boot options\n", __FUNCTION__));
     FreePool (Option);
-    Option           = NULL;
-    LocalOptionCount = 0;
+    Option                = NULL;
+    LocalOptionCount      = 0;
   }
 
   *OptionCount = LocalOptionCount;

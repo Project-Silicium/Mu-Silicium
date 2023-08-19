@@ -3,10 +3,13 @@
 |✅|Working|
 |-|-------|
 |⚠️|**Problematic**|
+|⚙️|**It is being Worked on**|
 |❌|**Not Working**|
 |❔|**Unknown**|
 
 ## Galaxy Tab S8 5G
+
+**WARNING: Only Debug Build work right now**
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
@@ -27,7 +30,7 @@
 |Buttons|Pwr Button only in SimpleInit|⚠️|
 |USB|No USB Host & Power|⚠️|
 |SD Card|Needs working SdccDxe|❌|
-|ACPI|Still in Work|⚠️|
+|ACPI||⚠️|
 |Slot Switch|Not an A/B Device|❌|
 |UART||❔|
 
@@ -112,7 +115,7 @@
 |Buttons|Pwr Button only in SimpleInit|⚠️|
 |USB|No USB Host & Power|⚠️|
 |SD Card|No SD Card slot|❌|
-|ACPI|Still in Work|⚠️|
+|ACPI||⚠️|
 |Slot Switch||❌|
 |UART||❔|
 
@@ -195,7 +198,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card|No SD Card slot|❌|
-|ACPI|Still in Work|⚠️|
+|ACPI||⚠️|
 |Slot Switch||✅|
 |UART||❔|
 
@@ -257,6 +260,87 @@
 
 </td></tr> </table>
 
+## Redmi Note 12 Pro 4G
+
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
+
+**SoC: SM7150-AB** <br />
+**Codename: sweet** <br />
+**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: None** <br />
+**Tester: [Robotix22](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen|Not Possible right now|❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB||❔|
+|SD Card||❔|
+|ACPI||❌|
+|Slot Switch||❌|
+|UART||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooth||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+|UART||❔|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❔|
+|UFS||❔|
+|Buttons||❔|
+|Sensors||❔|
+|Battery||❔|
+|USB||❔|
+|Charging||❔|
+|CPU||❔|
+|Touchscreen||❔|
+|Bluetooth||❔|
+|GPS||❔|
+|Audio||❔|
+|GPU||❔|
+|Camera||❔|
+|NFC||❔|
+|Fingerprint||❔|
+|Mobile Data||❔|
+|Display Output||❔|
+|Vibration||❔|
+|UART||❔|
+
+</td></tr> </table>
+
 ## Mi A3
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-A3.png" width="500" alt="Preview">
@@ -274,7 +358,7 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|UFS|Needs a Patch|❌|
+|UFS|Needs a Patch|⚙️|
 |Buttons||✅|
 |USB|Needs a Patch|❌|
 |SD Card|Needs working SdccDxe|❌|
@@ -355,7 +439,7 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|eMMC|Needs patched SdccDxe|❌|
+|eMMC|Needs patched SdccDxe|⚙️|
 |Buttons||✅|
 |USB|Only Charging|⚠️|
 |SD Card|Needs patched SdccDxe|❌|
@@ -436,7 +520,7 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|UFS|Needs a Patch|❌|
+|UFS|Needs a Patch|⚙️|
 |Buttons||✅|
 |USB|Only Charging|⚠️|
 |SD Card||❔|
