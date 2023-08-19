@@ -1,5 +1,3 @@
-BootShim/BootShim.bin
-BootShim/BootShim.elf
 Build/
 Conf/
 ImageResources/bootpayload.bin
