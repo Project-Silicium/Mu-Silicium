@@ -264,7 +264,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
 
-**SoC: SM7150-AB** <br />
+**SoC: SM7150-AC** <br />
 **Codename: sweet** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
