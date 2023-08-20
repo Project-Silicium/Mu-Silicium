@@ -279,8 +279,8 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB||❔|
-|SD Card||❔|
+|USB|No USB Host & Power|⚠️|
+|SD Card||❌|
 |ACPI||❌|
 |Slot Switch||❌|
 |UART||❔|
