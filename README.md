@@ -14,7 +14,7 @@ This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Wi
 
 ## [Building](https://github.com/Robotix22/MU-Qcom/blob/main/Building.md)
 
-## [Guides](https://github.com/Robotix22/UEFI-Guides/blob/main/MU-Qcom/README.md)
+## [Guides](https://github.com/Robotix22/UEFI-Guides/blob/main/Mu-Qcom/README.md)
 
 ## Credits
 
