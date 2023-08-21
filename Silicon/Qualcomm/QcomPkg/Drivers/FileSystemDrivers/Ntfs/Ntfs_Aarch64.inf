@@ -1,0 +1,10 @@
+[Defines]
+  INF_VERSION    = 0x0001001B
+  BASE_NAME      = Ntfs_Aarch64
+  FILE_GUID      = FE371F7C-DEC4-4D21-ADF1-593ABCC15882
+  MODULE_TYPE    = UEFI_DRIVER
+  VERSION_STRING = 1.0
+
+[Binaries.AARCH64]
+   PE32|Ntfs_Aarch64.efi|*
+
