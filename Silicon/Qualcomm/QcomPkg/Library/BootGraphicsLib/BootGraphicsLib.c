@@ -328,7 +328,7 @@ DisplayPostBootGraphic (
     Status = PcdSet8S (PcdPostBackgroundColoringSkipCount, SkipCounter);
   }
 
-  Status = GetBootGraphic (Graphic, &ImageSize, &ImageData);
+  Status = GetPostBootGraphic (Graphic, &ImageSize, &ImageData);
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "GetPlatformBootGraphic Status: %r\n", Status));
     goto CleanUp;
