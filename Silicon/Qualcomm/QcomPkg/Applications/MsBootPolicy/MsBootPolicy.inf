@@ -1,0 +1,65 @@
+##
+# MsBootPolicy implements the desired boot behavior when
+# 1. No UEFI boot options are present, or they all failed
+# 2. The ALT boot request has been requested
+#
+# Copyright (C) Microsoft Corporation. All rights reserved.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MsBootPolicy
+  FILE_GUID                      = 50670071-478f-4be7-ad13-8754f379c62f
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = MsBootPolicyEntry
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  MsBootPolicy.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  QcomPkg/QcomPkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
+  PcBdsPkg/PcBdsPkg.dec
+
+[LibraryClasses]
+  DevicePathLib
+  BaseLib
+  MemoryAllocationLib
+  UefiApplicationEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  ReportStatusCodeLib
+  UefiLib
+  BaseMemoryLib
+  DebugLib
+  PrintLib
+  MsBootPolicyLib
+  UefiBootManagerLib
+  MsNetworkDependencyLib
+  MsBootManagerSettingsLib
+  MsAltBootLib
+  BootGraphicsLib
+  BootGraphicsProviderLib
+  GraphicsConsoleHelperLib
+
+[Guids]
+
+[Protocols]
+  gEfiSimpleFileSystemProtocolGuid
+  gEfiLoadFileProtocolGuid
+  gEfiLoadedImageProtocolGuid
+  gEfiGraphicsOutputProtocolGuid
+
+[FeaturePcd]
+
+[Pcd]

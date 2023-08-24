@@ -6,7 +6,7 @@
   INF MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
   INF OemPkg/BootMenu/BootMenu.inf
   INF QcomPkg/Applications/FrontPage/FrontPage.inf
-  INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
+  INF QcomPkg/Applications/MsBootPolicy/MsBootPolicy.inf
   INF MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
   INF MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
   INF DfciPkg/DfciManager/DfciManager.inf
@@ -23,6 +23,10 @@
   INF MsCorePkg/AcpiRGRT/AcpiRgrt.inf
 
   INF DfciPkg/Application/DfciMenu/DfciMenu.inf
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdNoBootOSFile) {
+    SECTION RAW = QcomPkg/Include/Resources/NoBootOS.png
+  }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdFrontPageLogoFile) {
     SECTION RAW = QcomPkg/Applications/FrontPage/Resources/FrontpageLogo.bmp

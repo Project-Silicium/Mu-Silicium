@@ -27,8 +27,8 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   OemPkg/OemPkg.dec
-  MsGraphicsPkg/MsGraphicsPkg.dec
   QcomPkg/QcomPkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
 
 [LibraryClasses]
   BmpSupportLib
@@ -47,3 +47,4 @@
   gOemPkgTokenSpaceGuid.PcdLowBatteryFile
   gOemPkgTokenSpaceGuid.PcdThermalFile
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor
+  gQcomPkgTokenSpaceGuid.PcdNoBootOSFile

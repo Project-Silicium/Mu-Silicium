@@ -219,7 +219,7 @@
   # Application that presents & manages the Boot Menu Setup on Front Page.
   #
   OemPkg/BootMenu/BootMenu.inf
-  PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
+  QcomPkg/Applications/MsBootPolicy/MsBootPolicy.inf
   MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
 
   #

@@ -39,18 +39,18 @@ GetBootGraphic(
   EFI_STATUS     Status = EFI_SUCCESS;
 
   switch (Graphic) {
-  case BG_SYSTEM_LOGO:
-    g = PcdGetPtr(PcdLogoFile);
-    break;
-  case BG_CRITICAL_OVER_TEMP:
-    g = PcdGetPtr(PcdThermalFile);
-    break;
-  case BG_CRITICAL_LOW_BATTERY:
-    g = PcdGetPtr(PcdLowBatteryFile);
-    break;
-  default:
-    DEBUG((DEBUG_ERROR, "Unsupported Boot Graphic Type 0x%X\n", Graphic));
-    return EFI_UNSUPPORTED;
+    case BG_SYSTEM_LOGO:
+      g = PcdGetPtr(PcdLogoFile);
+      break;
+    case BG_CRITICAL_OVER_TEMP:
+      g = PcdGetPtr(PcdThermalFile);
+      break;
+    case BG_CRITICAL_LOW_BATTERY:
+      g = PcdGetPtr(PcdLowBatteryFile);
+      break;
+    default:
+      DEBUG((DEBUG_ERROR, "Unsupported Boot Graphic Type 0x%X\n", Graphic));
+      return EFI_UNSUPPORTED;
   }
 
   //
@@ -91,6 +91,8 @@ GetBootGraphic(
   return Status;
 }
 
+EFI_STATUS
+EFIAPI
 GetPostBootGraphic(
     BOOT_GRAPHIC Graphic, OUT UINTN *ImageSize, OUT UINT8 **ImageData)
 {
@@ -102,21 +104,12 @@ GetPostBootGraphic(
   EFI_STATUS     Status = EFI_SUCCESS;
 
   switch (Graphic) {
-  case BG_SYSTEM_LOGO:
-    g = PcdGetPtr(PcdLogoFile);
-    break;
-  case BG_CRITICAL_OVER_TEMP:
-    g = PcdGetPtr(PcdThermalFile);
-    break;
-  case BG_CRITICAL_LOW_BATTERY:
-    g = PcdGetPtr(PcdLowBatteryFile);
-    break;
-  //case BG_NO_BOOT:
-    //g = PcdGetPtr(PcdNoBootFile);
-    //break;
-  default:
-    DEBUG((DEBUG_ERROR, "Unsupported Boot Graphic Type 0x%X\n", Graphic));
-    return EFI_UNSUPPORTED;
+    case BG_NO_BOOT_OS:
+      g = PcdGetPtr(PcdNoBootOSFile);
+      break;
+    default:
+      DEBUG((DEBUG_ERROR, "Unsupported Boot Graphic Type 0x%X\n", Graphic));
+      return EFI_UNSUPPORTED;
   }
 
   //

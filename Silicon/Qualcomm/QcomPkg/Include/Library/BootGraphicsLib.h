@@ -15,7 +15,7 @@ typedef UINT8 BOOT_GRAPHIC;
 #define BG_SYSTEM_LOGO           (1)
 #define BG_CRITICAL_OVER_TEMP    (2)
 #define BG_CRITICAL_LOW_BATTERY  (3)
-#define BG_NO_BOOT               (4)
+#define BG_NO_BOOT_OS            (4)
 
 /**
   Display Main System Boot Graphic
@@ -30,7 +30,8 @@ DisplayBootGraphic (
 EFI_STATUS
 EFIAPI
 DisplayPostBootGraphic (
-  BOOT_GRAPHIC  graphic
+  BOOT_GRAPHIC  graphic,
+  INTN DestX, INTN DestY
   );
 
 #endif

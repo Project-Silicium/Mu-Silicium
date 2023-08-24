@@ -220,24 +220,18 @@ CleanUp:
 EFI_STATUS
 EFIAPI
 DisplayPostBootGraphic (
-  BOOT_GRAPHIC  Graphic
-  )
+  BOOT_GRAPHIC Graphic,
+  INTN DestX, INTN DestY)
 {
   EFI_STATUS                     Status;
   UINTN                          Height;
   UINTN                          Width;
-  UINT32                         SizeOfX;
-  UINT32                         SizeOfY;
-  INTN                           DestX;
-  INTN                           DestY;
   UINT8                          *ImageData;
   UINTN                          ImageSize;
-  UINT32                         Color;
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL  *Blt;
   UINTN                          BltSize;
   EFI_GRAPHICS_OUTPUT_PROTOCOL   *GraphicsOutput;
   EDKII_BOOT_LOGO2_PROTOCOL      *BootLogo2;
-  UINT8                          SkipCounter;
 
   // Initialize pointers to prevent CleanUp failure
   ImageData = NULL;
@@ -276,12 +270,7 @@ DisplayPostBootGraphic (
     DEBUG ((DEBUG_WARN, "%a - ConOut is NULL, will not disable cursor\n", __FUNCTION__));
   }
 
-  SizeOfX = GraphicsOutput->Mode->Info->HorizontalResolution;
-  SizeOfY = GraphicsOutput->Mode->Info->VerticalResolution;
-
   Blt   = NULL;
-  DestX = 0;
-  DestY = 0;
 
   ///
   /// Print Mode information received from Graphics Output Protocol
@@ -297,37 +286,6 @@ DisplayPostBootGraphic (
   DEBUG ((DEBUG_INFO, "PixelFormat:0x%x \n", GraphicsOutput->Mode->Info->PixelFormat));
   DEBUG ((DEBUG_INFO, "PixelsPerScanLine:0x%x \n", GraphicsOutput->Mode->Info->PixelsPerScanLine));
 
-  // allow for custom bg color
-  Color = GetBackgroundColor ();
-
-  // Color background when counter BackgroundColoringSkipCounter reaches 0
-
-  SkipCounter = PcdGet8 (PcdPostBackgroundColoringSkipCount);
-  // Color background only when counter reaches 0;
-  if (SkipCounter == 0) {
-    Blt    = (EFI_GRAPHICS_OUTPUT_BLT_PIXEL *)(&Color); // only pixel (0,0) is used for EfiBltVideoFill
-    Status = GraphicsOutput->Blt (
-                               GraphicsOutput,
-                               Blt,
-                               EfiBltVideoFill,
-                               0,
-                               0,
-                               0,
-                               0,
-                               SizeOfX,
-                               SizeOfY,
-                               0
-                               );
-    DEBUG ((DEBUG_INFO, "Coloring Background to color 0x%x. Status: %r \n", Color, Status));
-    Blt = NULL;
-  }
-
-  // decrement counter if not zero
-  if (SkipCounter > 0) {
-    SkipCounter--;
-    Status = PcdSet8S (PcdPostBackgroundColoringSkipCount, SkipCounter);
-  }
-
   Status = GetPostBootGraphic (Graphic, &ImageSize, &ImageData);
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "GetPlatformBootGraphic Status: %r\n", Status));
@@ -342,23 +300,6 @@ DisplayPostBootGraphic (
     DEBUG ((DEBUG_ERROR, "Failed to TranslateBmpToGopBlt In Logo.c %r\n", Status));
     goto CleanUp;
   }
-
-  if (SizeOfX >= SizeOfY) {
-    DEBUG ((DEBUG_VERBOSE, "Landscape mode detected.\n"));
-  }
-
-  // If system logo it must meet size requirements.
-  if (Graphic == BG_SYSTEM_LOGO) {
-    // check if the image is appropriate size as per data defined in the windows engineering guide.
-    if ((Width > ((SizeOfX * MS_MAX_WIDTH_PERCENTAGE) / 100)) || (Height > ((SizeOfY * MS_MAX_HEIGHT_PERCENTAGE) / 100))) {
-      DEBUG ((DEBUG_ERROR, "Logo dimensions are not according to Specification. Screen size is %d by %d, Logo size is %d by %d   \n", SizeOfX, SizeOfY, Width, Height));
-      Status = EFI_INVALID_PARAMETER;
-      goto CleanUp;
-    }
-  }
-
-  DestX = (SizeOfX - Width) / 2;
-  DestY = (SizeOfY - Height) / 2;
 
   // Blt to screen
   if ((DestX >= 0) && (DestY >= 0)) {
