@@ -101,5 +101,5 @@
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
 
-  #INF Binaries/sweet/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/sweet/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/sweet/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
