@@ -358,7 +358,7 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|UFS|Needs a Patch|⚙️|
+|UFS||✅|
 |Buttons||✅|
 |USB|Needs a Patch|❌|
 |SD Card|Needs working SdccDxe|❌|
