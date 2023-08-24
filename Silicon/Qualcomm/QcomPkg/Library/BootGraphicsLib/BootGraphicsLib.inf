@@ -26,6 +26,7 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MsGraphicsPkg/MsGraphicsPkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   UefiBootServicesTableLib
