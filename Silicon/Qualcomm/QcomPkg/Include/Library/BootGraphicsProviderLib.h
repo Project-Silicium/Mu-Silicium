@@ -30,6 +30,14 @@ GetBootGraphic (
   OUT UINT8     **ImageData
   );
 
+EFI_STATUS
+EFIAPI
+GetPostBootGraphic (
+  BOOT_GRAPHIC  Graphic,
+  OUT UINTN     *ImageSize,
+  OUT UINT8     **ImageData
+  );
+
 /**
   Get the pixel color for the background
 
