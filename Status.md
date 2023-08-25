@@ -346,7 +346,7 @@
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-A3.png" width="500" alt="Preview">
 
 **SoC: SM6125** <br />
-**Codename: laurel** <br />
+**Codename: laurel_sprout** <br />
 **Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
 **Contibuters: None** <br />
 **Tester: [Kernel357](https://github.com/Kernel357)**
@@ -363,7 +363,7 @@
 |USB|Needs a Patch|❌|
 |SD Card|Needs working SdccDxe|❌|
 |ACPI||❌|
-|Slot Switch||❌|
+|Slot Switch||✅|
 |UART|Needs to be enabled in .dsc|✅|
 
 ### OS Status
