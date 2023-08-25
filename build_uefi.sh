@@ -25,6 +25,7 @@ function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2;exit 1; }
 TARGET_BUILD_MODE="RELEASE"
 MULTIPLE_RAM_SIZE="FALSE"
 TOOL_CHAIN_TAG="CLANG38"
+UNSTABLE="FALSE"
 
 # Check if any args were given
 OPTS="$(getopt -o d:hfabcACDO:r:t:m: -l device:,help,release:,tool-chain:,memory: -n 'build_uefi.sh' -- "$@")"||exit 1
@@ -99,8 +100,16 @@ python3 ./ImageResources/mkbootimg.py \
   -o "Mu-${TARGET_DEVICE}.img" \
   ||_error "\nFailed to create Android Boot Image!\n"
 
+if [[ ${STATUS} != "STABLE" ]]; then
+	if [[ ${STATUS} == "UNSTABLE" ]];
+	then _warn "\n${TARGET_DEVICE} is marked as Unstable.\nThings are expected to be broken.\n"
+	elif [[ ${STATUS} == "LIMITED" ]];
+	then _warn "\n${TARGET_DEVICE} is marked as Limited.\nIt's stable but does not have much functionality\n"
+	fi
+fi
+
 git fetch &> /dev/null
 UPDATE_CHECK=$(git status)
-if [[ ${UPDATE_CHECK} == *"git pull"* ]]
+if [[ ${UPDATE_CHECK} == *"git pull"* ]];
 then _warn "\nYou are using an old Version of Mu-Qcom.\nThis Image may be unstable.\n"
 fi
