@@ -25,7 +25,6 @@ function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2;exit 1; }
 TARGET_BUILD_MODE="RELEASE"
 MULTIPLE_RAM_SIZE="FALSE"
 TOOL_CHAIN_TAG="CLANG38"
-UNSTABLE="FALSE"
 
 # Check if any args were given
 OPTS="$(getopt -o d:hfabcACDO:r:t:m: -l device:,help,release:,tool-chain:,memory: -n 'build_uefi.sh' -- "$@")"||exit 1
