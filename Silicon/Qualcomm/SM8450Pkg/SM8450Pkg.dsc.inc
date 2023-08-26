@@ -29,11 +29,9 @@
 !if $(SOC_TYPE) == 0
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 1 @ 3.00 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8450"
-!else
-!if $(SOC_TYPE) == 1
+!elseif $(SOC_TYPE) == 1
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1 @ 3.20 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8450-AB"
-!endif
 !endif
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

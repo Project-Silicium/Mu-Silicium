@@ -33,16 +33,12 @@
 !if $(SOC_TYPE) == 0
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730 @ 2.20 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150"
-!else
-!if $(SOC_TYPE) == 1
+!elseif $(SOC_TYPE) == 1
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G @ 2.20 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AB"
-!else
-!if $(SOC_TYPE) == 2
+!elseif $(SOC_TYPE) == 2
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G @ 2.30 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AC"
-!endif
-!endif
 !endif
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

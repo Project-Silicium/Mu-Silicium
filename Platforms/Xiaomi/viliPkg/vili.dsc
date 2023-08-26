@@ -44,12 +44,10 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
 !if $(RAM_SIZE) == 12
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
-!else
-!if $(RAM_SIZE) == 8
+!elseif $(RAM_SIZE) == 8
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size
 !else
 !error "Invaild RAM Size! Use 12 or 8."
-!endif
 !endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"   # Device Maintainer

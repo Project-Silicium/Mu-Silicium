@@ -29,16 +29,12 @@
 !if $(SOC_TYPE) == 0
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 5G @ 2.84 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350"
-!else
-!if $(SOC_TYPE) == 1
+!elseif $(SOC_TYPE) == 1
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888+ 5G @ 3.00 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AB"
-!else
-!if $(SOC_TYPE) == 2
+!elseif $(SOC_TYPE) == 2
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 4G @ 2.84 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AC"
-!endif
-!endif
 !endif
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
