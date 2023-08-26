@@ -195,7 +195,7 @@
 
 !if $(TARGET) == RELEASE
   SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
-!elseif $(ENABLE_UART) == 1
+!elseif $(USE_UART) == 1
   SerialPortLib|QcomPkg/Library/UARTSerialPortLib/UARTSerialPortLib.inf
 !else
   SerialPortLib|QcomPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
