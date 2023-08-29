@@ -709,7 +709,7 @@ MsBootPolicyEntry (
 
             // Set Display Location of No Boot OS Image
             DisplayHeight = GraphicsOutput->Mode->Info->HorizontalResolution;
-            DestX         = (DisplayHeight - 251) / 2;
+            DestX         = (DisplayHeight - 334) / 2;
             DestY         = 20;
 
             // Display No Boot OS Logo
