@@ -94,7 +94,7 @@
   # Device specific actions in support of PlatformBootManagerLib.
   # Sort of a wrapper for MsPlatformDevicesLib, which needs to be written for each platform.
   #
-  DeviceBootManagerLib|OemPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
+  DeviceBootManagerLib|QcomPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
   MsPlatformDevicesLib|QcomPkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
 
   #
@@ -219,7 +219,7 @@
   # Application that presents & manages the Boot Menu Setup on Front Page.
   #
   OemPkg/BootMenu/BootMenu.inf
-  QcomPkg/Applications/MsBootPolicy/MsBootPolicy.inf
+  PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
   MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
 
   #
