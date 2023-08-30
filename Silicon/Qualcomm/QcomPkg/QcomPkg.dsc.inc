@@ -550,7 +550,6 @@
       NULL|SecurityPkg/Library/OemTpm2InitLibNull/OemTpm2InitLibVendorNull.inf
   }
 
-  QcomPkg/UFP/ufpdevicefw.inf
   QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   #QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf

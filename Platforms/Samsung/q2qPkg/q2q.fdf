@@ -128,7 +128,6 @@ READ_LOCK_STATUS   = TRUE
     SECTION RAW = QcomPkg/Include/Resources/RegulatoryLogos.png
   }
 
-  INF QcomPkg/UFP/ufpdevicefw.inf
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
 
