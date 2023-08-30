@@ -51,7 +51,6 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile
   gPcBdsPkgTokenSpaceGuid.PcdShellFile
   gPcBdsPkgTokenSpaceGuid.PcdShellFvGuid
-  gQcomPkgTokenSpaceGuid.PcdUFPMenuFile
 
 [Depex]
   TRUE

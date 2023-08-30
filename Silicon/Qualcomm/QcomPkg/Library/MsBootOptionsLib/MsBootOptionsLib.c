@@ -177,26 +177,6 @@ MsBootOptionsLibGetBootManagerMenu (
 }
 
 /**
-  Return the boot option corresponding to the UFP Menu.
-
-  @param BootOption    Return a created UFP Menu with the parameter passed
-  @param Parameter     The parameter to add to the BootOption
-
-  @retval EFI_SUCCESS   The UFP Menu is successfully returned.
-  @retval Status        Return status of gRT->SetVariable (). BootOption still points
-                        to the UFP Menu even the Status is not EFI_SUCCESS.
-**/
-EFI_STATUS
-EFIAPI
-SdBootOptionsLibGetUFPMenu (
-  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION  *BootOption,
-  IN     CHAR8                         *Parameter
-  )
-{
-  return BuildFwLoadOption (BootOption, PcdGetPtr (PcdUFPMenuFile), Parameter);
-}
-
-/**
   This function will create a SHELL BootOption to boot.
 */
 static
