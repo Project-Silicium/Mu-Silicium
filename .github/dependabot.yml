@@ -26,7 +26,7 @@ updates:
     schedule:
       interval: "daily"
     labels:
-      - "type:dependence"
+      - "dependence"
 
   - package-ecosystem: "pip"
     directory: "/"
@@ -35,4 +35,4 @@ updates:
     commit-message:
       prefix: "pip"
     labels:
-      - "type:dependence"
+      - "dependence"
