@@ -439,10 +439,10 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|eMMC|Needs patched SdccDxe|⚙️|
+|eMMC||✅|
 |Buttons||✅|
-|USB|Only Charging|⚠️|
-|SD Card|Needs patched SdccDxe|❌|
+|USB|No USB Host & Power|⚠️|
+|SD Card||❔|
 |ACPI||❌|
 |Slot Switch|Not an A/B Device|❌|
 |UART||❔|
