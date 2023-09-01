@@ -53,7 +53,7 @@
   INF Binaries/ginkgo/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
-  #INF Binaries/ginkgo/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  INF Binaries/ginkgo/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
