@@ -11,8 +11,8 @@
 
 [Packages]
   ArmPkg/ArmPkg.dec
-  QcomPkg/QcomPkg.dec
   MdePkg/MdePkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   ArmLib

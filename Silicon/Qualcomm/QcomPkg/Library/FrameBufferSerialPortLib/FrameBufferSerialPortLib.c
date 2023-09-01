@@ -290,21 +290,13 @@ void FbConFlush(void)
 
 UINTN
 EFIAPI
-SerialPortWrite(IN UINT8 *Buffer, IN UINTN NumberOfBytes, IN UINTN MessageType)
+SerialPortWrite(IN UINT8 *Buffer, IN UINTN NumberOfBytes)
 {
   UINT8 *CONST Final          = &Buffer[NumberOfBytes];
   UINTN        InterruptState = ArmGetInterruptState();
 
   if (InterruptState)
     ArmDisableInterrupts();
-
-  if (MessageType == DEBUG_WARN) {
-    m_Color.Foreground = FB_BGRA8888_YELLOW;
-  } else if (MessageType == DEBUG_ERROR) {
-    m_Color.Foreground = FB_BGRA8888_RED;
-  } else {
-    m_Color.Foreground = FB_BGRA8888_WHITE;
-  }
 
   while (Buffer < Final) {
     FbConPutCharWithFactor(*Buffer++, FBCON_COMMON_MSG, SCALE_FACTOR);
