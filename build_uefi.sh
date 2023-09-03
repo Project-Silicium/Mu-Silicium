@@ -61,7 +61,7 @@ fi
 # Check if Device has more that one Static RAM Size
 if [ -z ${TARGET_RAM_SIZE} ]; then
 	if [ ${MULTIPLE_RAM_SIZE} == TRUE ]
-	then _warn "\nThe Device you chose has more than one RAM Size!\nUse -m or --memory to define how much RAM your Device has.\n"
+	then _warn "\nThe Device you chose has more than one RAM Size!\nUse -m or --memory to define how much RAM your Device has.\n" && exit 0
 	fi
 fi
 
