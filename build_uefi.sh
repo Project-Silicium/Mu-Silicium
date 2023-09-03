@@ -19,7 +19,7 @@ function _help(){
 
 # Functions to display the Message Type (Error or Warning)
 function _error(){ echo -e "\033[1;31m${@}\033[0m" >&2;exit 1; }
-function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2;exit 1; }
+function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2;exit 0; }
 
 # Set Default Defines
 TARGET_BUILD_MODE="RELEASE"
