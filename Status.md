@@ -520,7 +520,7 @@
 |Display||✅|
 |Touchscreen|Not Possible right now|❌|
 |Clocks||✅|
-|UFS|Needs a Patch|⚙️|
+|UFS||✅|
 |Buttons||✅|
 |USB|Only Charging|⚠️|
 |SD Card||❔|
