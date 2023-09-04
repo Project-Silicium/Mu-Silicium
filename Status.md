@@ -24,14 +24,13 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen|Not Possible right now|❌|
+|Touchscreen||❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons|Pwr Button only in SimpleInit|⚠️|
+|Buttons|Pwr Button does not work|⚠️|
 |USB|No USB Host & Power|⚠️|
 |SD Card|Needs working SdccDxe|❌|
 |ACPI||⚠️|
-|Slot Switch|Not an A/B Device|❌|
 |UART||❔|
 
 ### OS Status
@@ -109,14 +108,12 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen|Not Possible right now|❌|
+|Touchscreen||❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons|Pwr Button only in SimpleInit|⚠️|
+|Buttons|Pwr Button does not work|⚠️|
 |USB|No USB Host & Power|⚠️|
-|SD Card|No SD Card slot|❌|
 |ACPI||⚠️|
-|Slot Switch||❌|
 |UART||❔|
 
 ### OS Status
@@ -192,12 +189,11 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen|Not Possible right now|❌|
+|Touchscreen||❌|
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
-|SD Card|No SD Card slot|❌|
 |ACPI||⚠️|
 |Slot Switch||✅|
 |UART||❔|
@@ -275,14 +271,13 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen|Not Possible right now|❌|
+|Touchscreen||❌|
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
 |ACPI||❌|
-|Slot Switch||❌|
 |UART||❔|
 
 ### OS Status
@@ -356,15 +351,15 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen|Not Possible right now|❌|
+|Touchscreen||❌|
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|Needs a Patch|❌|
-|SD Card|Needs working SdccDxe|❌|
+|USB|No USB Host & Power|⚠️|
+|SD Card||❌|
 |ACPI||❌|
 |Slot Switch||✅|
-|UART|Needs to be enabled in .dsc|✅|
+|UART||✅|
 
 ### OS Status
 
@@ -437,14 +432,13 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen|Not Possible right now|❌|
+|Touchscreen||❌|
 |Clocks||✅|
 |eMMC||✅|
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
-|SD Card||❔|
+|SD Card||❌|
 |ACPI||❌|
-|Slot Switch|Not an A/B Device|❌|
 |UART||❔|
 
 ### OS Status
@@ -518,14 +512,13 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen|Not Possible right now|❌|
+|Touchscreen||❌|
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|Only Charging|⚠️|
-|SD Card||❔|
+|USB|No USB Host & Power|⚠️|
+|SD Card||❌|
 |ACPI||❌|
-|Slot Switch|Not an A/B Device|❌|
 |UART||❔|
 
 ### OS Status
