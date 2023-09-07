@@ -42,7 +42,7 @@ class CommonPlatform():
         "Common/Mu_Tiano_Plus",
         "Common/Mu_OEM_Sample",
         "Features/DFCI",
-        "MU_BASECORE",
+        "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
         "Silicon/Qualcomm"
     )
