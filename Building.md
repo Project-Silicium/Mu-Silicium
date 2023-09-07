@@ -5,8 +5,8 @@
 First of you need the sourcecode to compile a UEFI Image. <br />
 Clone the Repo by using:
 ```
-git clone https://github.com/Robotix22/MU-Qcom.git --recursive
-cd MU-Qcom
+git clone https://github.com/Robotix22/Mu-Qcom.git --recursive
+cd Mu-Qcom
 ```
 
 ### Step 2:
@@ -14,7 +14,7 @@ cd MU-Qcom
 After Cloning the repo we can now continue on Setting up the Environment. <br />
 First we need to install the needed Packages:
 ```
-./setup_env.sh -p <Package Manager>
+./setup_env.sh -p <Package Manager> [-v]
 ```
 
 ### Step 3:
