@@ -9,7 +9,7 @@
 
 ## Galaxy Tab S8 5G
 
-**WARNING: Only Debug Build work right now**
+**WARNING: Only Debug Build work right now** <br />
 **NOTE: A Protocol called DTBExt is missing wich leads to the Unstable State**
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
