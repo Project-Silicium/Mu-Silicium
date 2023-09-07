@@ -38,12 +38,12 @@ class CommonPlatform():
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Samsung",
-        "MU_BASECORE",
-        "Common/MU",
-        "Common/MU_TIANO",
-        "Common/MU_OEM_SAMPLE",
-        "Silicon/Arm/MU_TIANO",
+        "Common/Mu",
+        "Common/Mu_Tiano_Plus",
+        "Common/Mu_OEM_Sample",
         "Features/DFCI",
+        "MU_BASECORE",
+        "Silicon/Arm/Mu_Tiano",
         "Silicon/Qualcomm"
     )
 
@@ -73,13 +73,13 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
             If no RequiredSubmodules return an empty iterable
         """
         return [
-            RequiredSubmodule("MU_BASECORE", True),
-            RequiredSubmodule("Common/MU", True),
-            RequiredSubmodule("Common/MU_TIANO", True),
-            RequiredSubmodule("Common/MU_OEM_SAMPLE", True),
-            RequiredSubmodule("Silicon/Arm/MU_TIANO", True),
-            RequiredSubmodule("Features/DFCI", True),
             RequiredSubmodule("Binaries", True),
+            RequiredSubmodule("Common/Mu", True),
+            RequiredSubmodule("Common/Mu_Tiano_Plus", True),
+            RequiredSubmodule("Common/Mu_OEM_Sample", True),
+            RequiredSubmodule("Features/DFCI", True),
+            RequiredSubmodule("Mu_Basecore", True),
+            RequiredSubmodule("Silicon/Arm/Mu_Tiano", True),
         ]
 
     def SetArchitectures(self, list_of_requested_architectures):
