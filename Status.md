@@ -10,6 +10,7 @@
 ## Galaxy Tab S8 5G
 
 **WARNING: Only Debug Build work right now**
+**NOTE: A Protocol called DTBExt is missing wich leads to the Unstable State**
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
@@ -30,7 +31,7 @@
 |Buttons|Pwr Button does not work|⚠️|
 |USB|No USB Host & Power|⚠️|
 |SD Card|Needs working SdccDxe|❌|
-|ACPI||⚠️|
+|ACPI||✅|
 |UART||❔|
 
 ### OS Status
@@ -113,7 +114,7 @@
 |UFS||✅|
 |Buttons|Pwr Button does not work|⚠️|
 |USB|No USB Host & Power|⚠️|
-|ACPI||⚠️|
+|ACPI||✅|
 |UART||❔|
 
 ### OS Status
@@ -194,7 +195,7 @@
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
-|ACPI||⚠️|
+|ACPI||✅|
 |Slot Switch||✅|
 |UART||❔|
 
@@ -357,7 +358,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI||⚙️|
 |Slot Switch||✅|
 |UART||✅|
 
@@ -438,7 +439,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI||⚙️|
 |UART||❔|
 
 ### OS Status
@@ -518,7 +519,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI||⚙️|
 |UART||❔|
 
 ### OS Status
