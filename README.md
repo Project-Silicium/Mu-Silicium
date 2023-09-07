@@ -1,6 +1,6 @@
 # [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for Qualcomm Snapdragon™ Devices
 
-<!-- ![Banner](https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Banner.png) -->
+<!-- ![Banner](https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Banner.png) -->
 
 ## Description
 
@@ -10,9 +10,9 @@ This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Wi
 
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
 
-## [Status](https://github.com/Robotix22/MU-Qcom/blob/main/Status.md)
+## [Status](https://github.com/Robotix22/Mu-Qcom/blob/main/Status.md)
 
-## [Building](https://github.com/Robotix22/MU-Qcom/blob/main/Building.md)
+## [Building](https://github.com/Robotix22/Mu-Qcom/blob/main/Building.md)
 
 ## [Guides](https://github.com/Robotix22/UEFI-Guides/blob/main/Mu-Qcom/README.md)
 
@@ -22,5 +22,5 @@ Thanks to [Gustave Monce](https://github.com/gus33000) for his [SurfaceDuoPkg](h
 
 ## License
 
-All code except drivers in `GPLDrivers` directory are licensed under BSD 2-Clause.
+All code except drivers in `GPLDrivers` directory are licensed under BSD 2-Clause. <br />
 GPL Drivers are licensed under GPLv2 license.
