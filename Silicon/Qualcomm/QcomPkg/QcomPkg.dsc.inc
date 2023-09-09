@@ -554,9 +554,11 @@
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   #QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
 
+!if $(AB_SLOT_SUPPORT) == 1
   # Slot Switch App
   GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
+!endif
 
   # ACPI
   # We use pre-built ACPI tables, so only core components are loaded
