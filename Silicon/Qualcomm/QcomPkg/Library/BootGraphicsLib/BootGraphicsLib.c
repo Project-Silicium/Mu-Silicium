@@ -18,6 +18,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/DebugLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/BootGraphicsProviderLib.h>
+#include <Library/BootGraphicsProvider.h>
 #include <Library/DisplayDeviceStateLib.h>
 #include <Library/BmpSupportLib.h>
 #include <Library/UefiLib.h>

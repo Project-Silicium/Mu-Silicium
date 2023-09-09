@@ -7,8 +7,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
-#ifndef _BOOT_GRAPHICS_PROVIDER_LIB_H_
-#define _BOOT_GRAPHICS_PROVIDER_LIB_H_
+#ifndef _BOOT_GRAPHICS_PROVIDER_H_
+#define _BOOT_GRAPHICS_PROVIDER_H_
 
 #include <Library/BootGraphicsLib.h>
 
@@ -24,27 +24,10 @@ On success
 **/
 EFI_STATUS
 EFIAPI
-GetBootGraphic (
-  BOOT_GRAPHIC  Graphic,
-  OUT UINTN     *ImageSize,
-  OUT UINT8     **ImageData
-  );
-
-EFI_STATUS
-EFIAPI
 GetPostBootGraphic (
   BOOT_GRAPHIC  Graphic,
   OUT UINTN     *ImageSize,
   OUT UINT8     **ImageData
   );
 
-/**
-  Get the pixel color for the background
-
-**/
-UINT32
-EFIAPI
-GetBackgroundColor (
-  );
-
-#endif
+#endif /* _BOOT_GRAPHICS_PROVIDER_H_ */

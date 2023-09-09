@@ -33,6 +33,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/MsBootPolicy.h>
 #include <Library/BootGraphicsProviderLib.h>
 #include <Library/BootGraphicsLib.h>
+#include <Library/BootGraphicsProvider.h>
+#include <Library/BootGraphics.h>
 #include <Library/GraphicsConsoleHelperLib.h>
 #include <Library/MsPlatformDevicesLib.h>
 #include <Library/MsPlatformPowerCheckLib.h>

@@ -14,6 +14,8 @@
 #include <Pi/PiFirmwareFile.h>
 
 #include <Library/BootGraphicsProviderLib.h>
+#include <Library/BootGraphicsProvider.h>
+#include <Library/BootGraphics.h>
 #include <Library/DebugLib.h>
 #include <Library/DxeServicesLib.h>
 #include <Library/PcdLib.h>
