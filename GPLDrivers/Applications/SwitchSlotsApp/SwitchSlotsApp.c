@@ -82,8 +82,7 @@ SwitchSlotsAppEntryPoint(
   UpdatePartitionAttributes(PARTITION_GUID);
   UpdatePartitionAttributes(PARTITION_ATTRIBUTES);
 
-  // Print (L"Current active slot has been updated successfully!
-  //Press any key to Reboot.\n"); WaitAnyKey(SystemTable);
+  Print (L"Current active slot has been updated successfully!\nPress any key to Reboot.\n"); WaitAnyKey(SystemTable);
   gRT->ResetSystem(EfiResetWarm, EFI_SUCCESS, 0, NULL);
   CpuDeadLoop();
   return EFI_SUCCESS;

@@ -71,7 +71,12 @@ PreBootVolumeDownButtonThenPowerButtonCheck(
                                                         // set else FALSE
 )
 {
-  *PreBootVolumeDownButtonThenPowerButton = 0;
+  GPIO_BUTTON_SERVICES_PROTOCOL *Bsp;
+
+  DEBUG((DEBUG_VERBOSE, "%a \n", __FUNCTION__));
+
+  Bsp                                     = MS_BSP_FROM_BSP(This);
+  *PreBootVolumeDownButtonThenPowerButton = (Bsp->ButtonState == VolDownButton);
   return EFI_SUCCESS;
 }
 

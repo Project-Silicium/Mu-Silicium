@@ -25,7 +25,7 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = laurel_sproutPkg/laurel_sprout.fdf
   USE_DISPLAYDXE                 = 0
-  AB_SLOT_SUPPORT                = 0
+  AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
 
 [LibraryClasses.common]

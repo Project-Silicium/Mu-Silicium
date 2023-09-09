@@ -40,7 +40,6 @@
 
 [Guids]
   gMsBootPolicyFileGuid
-  gSwitchSlotsAppFileGuid
 
 [Protocols]
   gEfiFirmwareVolume2ProtocolGuid
@@ -51,6 +50,7 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile
   gPcBdsPkgTokenSpaceGuid.PcdShellFile
   gPcBdsPkgTokenSpaceGuid.PcdShellFvGuid
+  gQcomPkgTokenSpaceGuid.PcdSlotSwitchApp
 
 [Depex]
   TRUE

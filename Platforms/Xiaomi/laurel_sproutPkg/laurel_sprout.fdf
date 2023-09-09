@@ -131,6 +131,9 @@ READ_LOCK_STATUS   = TRUE
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
 
+  INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
+  INF GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1

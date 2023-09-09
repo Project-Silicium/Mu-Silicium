@@ -554,6 +554,10 @@
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   #QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
 
+  # Slot Switch App
+  GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
+  GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
+
   # ACPI
   # We use pre-built ACPI tables, so only core components are loaded
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
