@@ -63,7 +63,7 @@
 |Display||✅|
 |Vibration||❌|
 |S Pen||❌|
-|UART||❔|
+|UART||❌|
 
 </td><td>
 
@@ -90,13 +90,13 @@
 |Display||✅|
 |Vibration||❌|
 |S Pen||❌|
-|UART||❔|
+|UART||❌|
 
 </td></tr> </table>
 
 ## Galaxy Z Fold 3 5G
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="480" alt="Preview">
 
 **SoC: SM8350** <br />
 **Codename: q2q** <br />
@@ -145,39 +145,39 @@
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❔|
+|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|WLAN||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td></tr> </table>
 
 ## Xiaomi 11T Pro
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="420" alt="Preview">
 
 **SoC: SM8350** <br />
 **Codename: vili** <br />
@@ -227,7 +227,7 @@
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❔|
+|UART||❌|
 
 </td><td>
 
@@ -253,13 +253,13 @@
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❔|
+|UART||❌|
 
 </td></tr> </table>
 
 ## Redmi Note 12 Pro 4G
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="420" alt="Preview">
 
 **SoC: SM7150-AC** <br />
 **Codename: sweet** <br />
@@ -289,57 +289,57 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td></tr> </table>
 
 ## Mi A3
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-A3.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-A3.png" width="420" alt="Preview">
 
 **SoC: SM6125** <br />
 **Codename: laurel_sprout** <br />
@@ -370,57 +370,57 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td></tr> </table>
 
 ## Redmi Note 8/8T
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-8.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-8.png" width="420" alt="Preview">
 
 **SoC: SM6125** <br />
 **Codename: ginkgo** <br />
@@ -450,57 +450,57 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|eMMC||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|eMMC||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td></tr> </table>
 
 ## Redmi 9T
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-9T.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-9T.png" width="420" alt="Preview">
 
 **SoC: SM6115** <br />
 **Codename: lime** <br />
@@ -530,50 +530,50 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||❔|
-|Buttons||❔|
-|Sensors||❔|
-|Battery||❔|
-|USB||❔|
-|Charging||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Audio||❔|
-|GPU||❔|
-|Camera||❔|
-|NFC||❔|
-|Fingerprint||❔|
-|Mobile Data||❔|
-|Display Output||❔|
-|Vibration||❔|
-|UART||❔|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
 
 </td></tr> </table>
