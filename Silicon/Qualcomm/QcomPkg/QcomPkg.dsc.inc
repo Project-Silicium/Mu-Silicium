@@ -552,7 +552,7 @@
 
   QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
-  #QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
+  QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
 
 !if $(AB_SLOT_SUPPORT) == 1
   # Slot Switch App
