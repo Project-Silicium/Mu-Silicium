@@ -72,7 +72,7 @@
   #
   # This is the Thermal Services Library that encapsulates the platform specific thermal information.
   #
-  ThermalServicesLib|PcBdsPkg/Library/ThermalServicesLibNull/ThermalServicesLibNull.inf
+  ThermalServicesLib|QcomPkg/Library/ThermalServicesLib/ThermalServicesLib.inf
 
   #
   # Power Services Library class to support Platforms with battery
