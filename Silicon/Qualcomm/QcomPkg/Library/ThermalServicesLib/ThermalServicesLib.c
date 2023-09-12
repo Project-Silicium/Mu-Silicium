@@ -55,9 +55,9 @@ SystemThermalCheck (
             break;
           } else {
             if (CurTemp > MaxTemp || CurTemp == MaxTemp) {
-              NumGood = NumGood + 1;
-            } else {
               NumBad = NumBad + 1;
+            } else {
+              NumGood = NumGood + 1;
             }
           }
         }
