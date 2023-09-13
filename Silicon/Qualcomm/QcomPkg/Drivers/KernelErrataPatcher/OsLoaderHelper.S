@@ -1,10 +1,11 @@
 /** @file
 
   Patches NTOSKRNL to not cause a SError when reading/writing ACTLR_EL1
+  Patches NTOSKRNL to not cause a SError when reading/writing AMCNTENSET0_EL0
   Patches NTOSKRNL to not cause a bugcheck when attempting to use
   PSCI_MEMPROTECT Due to an issue in QHEE
 
-  Copyright (c) 2022 DuoWoA authors
+  Copyright (c) 2022-2023 DuoWoA authors
 
   SPDX-License-Identifier: MIT
 
@@ -33,8 +34,11 @@ ExitBootServicesWrapper:
         // some newer implementations may also use x24
         mov x4, x24
 
+        // some newer implementations may also use x21
+        mov x5, x21
+
         // the x30 register contains the last return addr
-        mov x5, x30
+        mov x6, x30
 
         // Go for it
         b KernelErrataPatcherExitBootServices

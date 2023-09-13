@@ -15,178 +15,99 @@
 **/
 #include "KernelErrataPatcher.h"
 
-#define SILENT 1
-
 STATIC BL_ARCH_SWITCH_CONTEXT BlpArchSwitchContext = NULL;
-STATIC EFI_EXIT_BOOT_SERVICES EfiExitBootServices  = NULL;
+STATIC EFI_EXIT_BOOT_SERVICES EfiExitBootServices = NULL;
 
-#if SILENT == 0
+// Please see ./ShellCode/Reference/ShellCode.c for what this does
+UINT8 OslArm64TransferToKernelShellCode[] = {
+    0x03, 0x08, 0x40, 0xF9, 0x62, 0x18, 0x40, 0xF9, 0x65, 0x40, 0x40, 0xB9,
+    0xA5, 0x00, 0x02, 0x8B, 0x5F, 0x00, 0x05, 0xEB, 0x62, 0x07, 0x00, 0x54,
+    0x07, 0x05, 0x82, 0x52, 0x07, 0xA7, 0xBA, 0x72, 0x06, 0x55, 0x9A, 0x52,
+    0x66, 0xA7, 0xBA, 0x72, 0x09, 0xFB, 0x9D, 0x52, 0xE9, 0x5C, 0xA5, 0x72,
+    0xAA, 0x5A, 0x80, 0xD2, 0x0A, 0x00, 0xA3, 0xF2, 0x6A, 0x00, 0xC0, 0xF2,
+    0x0A, 0x50, 0xFA, 0xF2, 0x6C, 0x00, 0x80, 0xD2, 0x0C, 0x50, 0xBA, 0xF2,
+    0x4C, 0x00, 0xC0, 0xF2, 0x0C, 0x50, 0xFA, 0xF2, 0x2E, 0x00, 0x80, 0xD2,
+    0x0E, 0x50, 0xBA, 0xF2, 0x0E, 0x48, 0xC0, 0xF2, 0x0E, 0x00, 0xE3, 0xF2,
+    0x0F, 0x78, 0x80, 0x52, 0xEF, 0xCB, 0xBA, 0x72, 0x4D, 0x00, 0x80, 0xD2,
+    0x0D, 0x50, 0xBA, 0xF2, 0x2D, 0x00, 0xC0, 0xF2, 0x0D, 0x50, 0xFA, 0xF2,
+    0xEB, 0x03, 0x84, 0x52, 0x6B, 0xA0, 0xBA, 0x72, 0x08, 0x01, 0x80, 0x52,
+    0x08, 0x50, 0xBA, 0x72, 0x12, 0x00, 0x00, 0x14, 0x63, 0x00, 0x09, 0x0B,
+    0x7F, 0x04, 0x00, 0x71, 0x69, 0x01, 0x00, 0x54, 0x43, 0x00, 0x40, 0xF9,
+    0x7F, 0x00, 0x0A, 0xEB, 0x40, 0x02, 0x00, 0x54, 0x7F, 0x00, 0x0C, 0xEB,
+    0xE1, 0x00, 0x00, 0x54, 0x43, 0x04, 0x40, 0xF9, 0x7F, 0x00, 0x0E, 0xEB,
+    0x81, 0x00, 0x00, 0x54, 0x4F, 0x40, 0x1E, 0xB8, 0x02, 0x00, 0x00, 0x14,
+    0x4B, 0x00, 0x00, 0xB9, 0x42, 0x10, 0x00, 0x91, 0x5F, 0x00, 0x05, 0xEB,
+    0xA2, 0x01, 0x00, 0x54, 0x43, 0x00, 0x40, 0xB9, 0x7F, 0x00, 0x07, 0x6B,
+    0x64, 0x10, 0x46, 0x7A, 0x81, 0xFD, 0xFF, 0x54, 0x48, 0x00, 0x00, 0xB9,
+    0xF8, 0xFF, 0xFF, 0x17, 0x43, 0x04, 0x40, 0xF9, 0x7F, 0x00, 0x0D, 0xEB,
+    0xA1, 0xFE, 0xFF, 0x54, 0x4F, 0x00, 0x1E, 0xB8, 0xF3, 0xFF, 0xFF, 0x17};
 
-#define FirmwarePrint(x, ...)                                                  \
-  AsciiPrint(x, __VA_ARGS__);                                                  \
-  DEBUG((EFI_D_ERROR, x, __VA_ARGS__));
-
-#define ContextPrint(x, ...)                                                   \
-  BlpArchSwitchContext(FirmwareContext);                                       \
-  FirmwarePrint(x, __VA_ARGS__);                                               \
-  BlpArchSwitchContext(ApplicationContext);
-
-#else
-#define FirmwarePrint(x, ...)
-#define ContextPrint(x, ...)
-#endif
-
-#define ApplicationPrint(IsInFirmwareContext, x, ...)                          \
-  if (IsInFirmwareContext) {                                                   \
-    FirmwarePrint(x, __VA_ARGS__);                                             \
-  }                                                                            \
-  else {                                                                       \
-    ContextPrint(x, __VA_ARGS__);                                              \
-  }
-
-VOID KernelErrataPatcherApplyReadAMCNTENSET0EL0Patches(
-    EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
+VOID PatchKernelComponents(PLOADER_PARAMETER_BLOCK loaderBlock)
 {
-  // Fix up #0 (A8 D2 3B D5 -> 08 00 80 D2) (AMCNTENSET0_EL0 Register Read)
-  UINT8                FixedInstruction0[] = {0x08, 0x00, 0x80, 0xD2};
-  EFI_PHYSICAL_ADDRESS IllegalInstruction0 =
-      FindPattern(Base, Size, "A8 D2 3B D5");
+  LIST_ENTRY *entry = (&loaderBlock->LoadOrderListHead)->ForwardLink;
 
-  while (IllegalInstruction0 != 0) {
-    ApplicationPrint(
-        IsInFirmwareContext, "mrs x8, amcntenset0_el0         -> 0x%p\n",
-        IllegalInstruction0);
+  PKLDR_DATA_TABLE_ENTRY kernelModule =
+      CONTAINING_RECORD(entry, KLDR_DATA_TABLE_ENTRY, InLoadOrderLinks);
 
-    CopyMemory(
-        IllegalInstruction0, (EFI_PHYSICAL_ADDRESS)FixedInstruction0,
-        sizeof(FixedInstruction0));
+  EFI_PHYSICAL_ADDRESS base = (EFI_PHYSICAL_ADDRESS)kernelModule->DllBase;
+  UINTN                size = kernelModule->SizeOfImage;
 
-    IllegalInstruction0 = FindPattern(Base, Size, "A8 D2 3B D5");
+  for (EFI_PHYSICAL_ADDRESS current = base; current < base + size;
+       current += sizeof(UINT32)) {
+    if (*(UINT32 *)current == 0xD5381028 || // mrs x8, actlr_el1
+        *(UINT32 *)current == 0xD53BD2A8) { // mrs x8,
+                                            // amcntenset0_el0
+      ContextPrint(
+          "mrs x8, actlr_el1/amcntenset0_el0         -> 0x%p\n", current);
+      *(UINT32 *)current = 0xD2800008; // movz x8, #0
+    }
+    else if (
+        *(UINT32 *)current == 0xD5181028 || // msr actlr_el1, x8
+        *(UINT32 *)current == 0xD5181029) { // msr actlr_el1, x9
+      ContextPrint("msr actlr_el1, x8/x9         -> 0x%p\n", current);
+      *(UINT32 *)current = 0xD503201F; // nop
+    }
+    else if (
+        *(UINT64 *)current == 0xD2800003180002D5 &&
+        *(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
+            0xD2800001D2800002) { // ldr w21, #0x58 - movz x3, #0 - movz x2,
+                                  // #0 - movz x1, #0
+      ContextPrint(
+          "ldr w21, #0x58 - movz x3, #0 - movz x2, #0 - movz x1, #0        "
+          "-> 0x%p\n",
+          current);
+      *(UINT32 *)(current - ARM64_TOTAL_INSTRUCTION_LENGTH(8)) =
+          0xD65F03C0; // ret
+    }
+    else if (
+        *(UINT64 *)current == 0xD2800002D2800003 &&
+        *(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
+            0x18000240D2800001) { // movz x3, #0 - movz x2, #0 - movz x1, #0 -
+                                  // ldr w0, #0x54
+      ContextPrint(
+          "movz x3, #0 - movz x2, #0 - movz x1, #0 - ldr w0, #0x54       -> "
+          "0x%p\n",
+          current);
+      *(UINT32 *)(current - ARM64_TOTAL_INSTRUCTION_LENGTH(7)) =
+          0xD65F03C0; // ret
+    }
   }
 }
 
 VOID KernelErrataPatcherApplyReadACTLREL1Patches(
-    EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
+    EFI_PHYSICAL_ADDRESS Base, UINTN Size)
 {
   // Fix up #0 (28 10 38 D5 -> 08 00 80 D2) (ACTRL_EL1 Register Read)
   UINT8                FixedInstruction0[] = {0x08, 0x00, 0x80, 0xD2};
   EFI_PHYSICAL_ADDRESS IllegalInstruction0 =
       FindPattern(Base, Size, "28 10 38 D5");
-  UINT8 PatchCounter = 0;
 
-  while (IllegalInstruction0 != 0) {
-    ApplicationPrint(
-        IsInFirmwareContext, "mrs x8, actlr_el1         -> 0x%p\n",
-        IllegalInstruction0);
+  if (IllegalInstruction0 != 0) {
+    FirmwarePrint("mrs x8, actlr_el1         -> 0x%p\n", IllegalInstruction0);
 
     CopyMemory(
         IllegalInstruction0, (EFI_PHYSICAL_ADDRESS)FixedInstruction0,
         sizeof(FixedInstruction0));
-
-    // Commenting out for boot speed optimization purposes, as there's only
-    // two (3 for VB) read occurences really in the kernel and one in winload
-
-    // IllegalInstruction0 = FindPattern(Base, Size, "28 10 38 D5");
-    if (IsInFirmwareContext) {
-      IllegalInstruction0 = 0;
-    }
-    else {
-      PatchCounter++;
-      if (PatchCounter != 3) {
-        IllegalInstruction0 = FindPattern(Base, Size, "28 10 38 D5");
-      }
-      else {
-        IllegalInstruction0 = 0;
-      }
-    }
-  }
-}
-
-VOID KernelErrataPatcherApplyWriteAMCNTENSET0EL0Patches(
-    EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
-{
-  // Fix up #1 (A9 D2 1B D5 -> 1F 20 03 D5) (AMCNTENSET0_EL0 Register Write)
-  UINT8                FixedInstruction1[] = {0x1F, 0x20, 0x03, 0xD5};
-  EFI_PHYSICAL_ADDRESS IllegalInstruction1 =
-      FindPattern(Base, Size, "A9 D2 1B D5");
-
-  while (IllegalInstruction1 != 0) {
-    ApplicationPrint(
-        IsInFirmwareContext, "msr amcntenset0_el0, x9         -> 0x%p\n",
-        IllegalInstruction1);
-
-    CopyMemory(
-        IllegalInstruction1, (EFI_PHYSICAL_ADDRESS)FixedInstruction1,
-        sizeof(FixedInstruction1));
-
-    IllegalInstruction1 = FindPattern(Base, Size, "A9 D2 1B D5");
-  }
-}
-
-VOID KernelErrataPatcherApplyWriteACTLREL1Patches(
-    EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
-{
-  // Fix up #1 (29 10 18 D5 -> 1F 20 03 D5) (ACTRL_EL1 Register Write)
-  UINT8                FixedInstruction1[] = {0x1F, 0x20, 0x03, 0xD5};
-  EFI_PHYSICAL_ADDRESS IllegalInstruction1 =
-      FindPattern(Base, Size, "29 10 18 D5");
-
-  while (IllegalInstruction1 != 0) {
-    ApplicationPrint(
-        IsInFirmwareContext, "msr actlr_el1, x9         -> 0x%p\n",
-        IllegalInstruction1);
-
-    CopyMemory(
-        IllegalInstruction1, (EFI_PHYSICAL_ADDRESS)FixedInstruction1,
-        sizeof(FixedInstruction1));
-
-    // Commenting out for boot speed optimization purposes, as there's only
-    // one write occurence really in the kernel
-
-    // IllegalInstruction1 = FindPattern(Base, Size, "29 10 18 D5");
-    IllegalInstruction1 = 0;
-  }
-}
-
-VOID KernelErrataPatcherApplyPsciMemoryProtectionPatches(
-    EFI_PHYSICAL_ADDRESS Base, UINTN Size, BOOLEAN IsInFirmwareContext)
-{
-  // Fix up #0 (PsciMemProtect -> C0 03 5F D6) (PsciMemProtect -> RET)
-  UINT8                RetInstruction[] = {0xC0, 0x03, 0x5F, 0xD6};
-  EFI_PHYSICAL_ADDRESS PatternMatch     = FindPattern(
-      Base, Size, "D5 02 00 18 03 00 80 D2 02 00 80 D2 01 00 80 D2");
-  EFI_PHYSICAL_ADDRESS PsciMemProtect =
-      PatternMatch - ARM64_TOTAL_INSTRUCTION_LENGTH(8);
-
-  if (PatternMatch != 0) {
-    ApplicationPrint(
-        IsInFirmwareContext, "PsciMemProtect            -> 0x%p\n",
-        PsciMemProtect);
-
-    CopyMemory(
-        PsciMemProtect, (EFI_PHYSICAL_ADDRESS)RetInstruction,
-        sizeof(RetInstruction));
-  }
-  else {
-    PatternMatch = FindPattern(
-        Base, Size, "03 00 80 D2 02 00 80 D2 01 00 80 D2 40 02 00 18");
-    PsciMemProtect = PatternMatch - ARM64_TOTAL_INSTRUCTION_LENGTH(7);
-
-    if (PatternMatch != 0) {
-      ApplicationPrint(
-          IsInFirmwareContext, "PsciMemProtect            -> 0x%p\n",
-          PsciMemProtect);
-
-      CopyMemory(
-          PsciMemProtect, (EFI_PHYSICAL_ADDRESS)RetInstruction,
-          sizeof(RetInstruction));
-    }
-    else {
-      ApplicationPrint(
-          IsInFirmwareContext,
-          "PsciMemProtect            -> Not Found! Base: 0x%p, Size: 0x%p\n",
-          Base, Size);
-    }
   }
 }
 
@@ -197,7 +118,8 @@ KernelErrataPatcherExitBootServices(
     IN PLOADER_PARAMETER_BLOCK loaderBlockX19,
     IN PLOADER_PARAMETER_BLOCK loaderBlockX20,
     IN PLOADER_PARAMETER_BLOCK loaderBlockX24,
-    IN EFI_PHYSICAL_ADDRESS    fwpKernelSetupPhase1)
+    IN PLOADER_PARAMETER_BLOCK loaderBlockX21,
+    IN EFI_PHYSICAL_ADDRESS fwpKernelSetupPhase1)
 {
   // Might be called multiple times by winload in a loop failing few times
   gBS->ExitBootServices = EfiExitBootServices;
@@ -205,14 +127,39 @@ KernelErrataPatcherExitBootServices(
   FirmwarePrint(
       "OslFwpKernelSetupPhase1   -> (phys) 0x%p\n", fwpKernelSetupPhase1);
 
+  UINTN                tempSize = SCAN_MAX;
+  EFI_PHYSICAL_ADDRESS winloadBase =
+      LocateWinloadBase(fwpKernelSetupPhase1, &tempSize);
+
+  EFI_STATUS Status = UnprotectWinload(winloadBase + EFI_PAGE_SIZE, tempSize);
+  if (EFI_ERROR(Status)) {
+    FirmwarePrint(
+        "Could not unprotect winload -> (phys) 0x%p (size) 0x%p %r\n",
+        winloadBase, tempSize, Status);
+
+    goto exit;
+  }
+
   // Fix up winload.efi
   // This fixes Boot Debugger
   FirmwarePrint(
       "Patching OsLoader         -> (phys) 0x%p (size) 0x%p\n",
       fwpKernelSetupPhase1, SCAN_MAX);
 
-  // KernelErrataPatcherApplyReadACTLREL1Patches(fwpKernelSetupPhase1, SCAN_MAX,
-  // TRUE);
+  KernelErrataPatcherApplyReadACTLREL1Patches(fwpKernelSetupPhase1, SCAN_MAX);
+
+  FirmwarePrint(
+      "Protecting winload        -> (phys) 0x%p (size) 0x%p\n", winloadBase,
+      tempSize);
+
+  Status = ReProtectWinload(winloadBase + EFI_PAGE_SIZE, tempSize);
+  if (EFI_ERROR(Status)) {
+    FirmwarePrint(
+        "Could not reprotect winload -> (phys) 0x%p (size) 0x%p %r\n",
+        winloadBase, tempSize, Status);
+
+    goto exit;
+  }
 
   PLOADER_PARAMETER_BLOCK loaderBlock = loaderBlockX19;
 
@@ -237,10 +184,16 @@ KernelErrataPatcherExitBootServices(
     FirmwarePrint(
         "Failed to find OslLoaderBlock (X24)! loaderBlock -> 0x%p\n",
         loaderBlock);
-    goto exit;
+    loaderBlock = loaderBlockX21;
   }
 
-  FirmwarePrint("OslLoaderBlock            -> (virt) 0x%p\n", loaderBlock);
+  if (loaderBlock == NULL ||
+      ((EFI_PHYSICAL_ADDRESS)loaderBlock & 0xFFFFFFF000000000) == 0) {
+    FirmwarePrint(
+        "Failed to find OslLoaderBlock (X21)! loaderBlock -> 0x%p\n",
+        loaderBlock);
+    goto exit;
+  }
 
   EFI_PHYSICAL_ADDRESS PatternMatch = FindPattern(
       fwpKernelSetupPhase1, SCAN_MAX,
@@ -267,30 +220,47 @@ KernelErrataPatcherExitBootServices(
     BlpArchSwitchContext =
         (BL_ARCH_SWITCH_CONTEXT)(PatternMatch -
                                  ARM64_TOTAL_INSTRUCTION_LENGTH(24));
+  }
 
-    if (PatternMatch == 0 || (PatternMatch & 0xFFFFFFF000000000) != 0) {
-      FirmwarePrint(
-          "Failed to find BlpArchSwitchContext (v2)! BlpArchSwitchContext -> "
-          "0x%p\n",
-          BlpArchSwitchContext);
+  if (PatternMatch == 0 || (PatternMatch & 0xFFFFFFF000000000) != 0) {
+    FirmwarePrint(
+        "Failed to find BlpArchSwitchContext (v2)! BlpArchSwitchContext -> "
+        "0x%p\n",
+        BlpArchSwitchContext);
 
-      // Okay, we maybe have the new new Memory Management? Try again.
-      PatternMatch = FindPattern(
-          fwpKernelSetupPhase1, SCAN_MAX, "7F 06 00 71 37 11 88 9A");
+    // Okay, we maybe have the new new Memory Management? Try again.
+    PatternMatch =
+        FindPattern(fwpKernelSetupPhase1, SCAN_MAX, "7F 06 00 71 37 11 88 9A");
 
-      // BlpArchSwitchContext
-      BlpArchSwitchContext =
-          (BL_ARCH_SWITCH_CONTEXT)(PatternMatch -
-                                   ARM64_TOTAL_INSTRUCTION_LENGTH(24));
+    // BlpArchSwitchContext
+    BlpArchSwitchContext =
+        (BL_ARCH_SWITCH_CONTEXT)(PatternMatch -
+                                 ARM64_TOTAL_INSTRUCTION_LENGTH(24));
+  }
 
-      if (PatternMatch == 0 || (PatternMatch & 0xFFFFFFF000000000) != 0) {
-        FirmwarePrint(
-            "Failed to find BlpArchSwitchContext (v3)! BlpArchSwitchContext -> "
-            "0x%p\n",
-            BlpArchSwitchContext);
-        goto exit;
-      }
-    }
+  if (PatternMatch == 0 || (PatternMatch & 0xFFFFFFF000000000) != 0) {
+    FirmwarePrint(
+        "Failed to find BlpArchSwitchContext (v3)! BlpArchSwitchContext -> "
+        "0x%p\n",
+        BlpArchSwitchContext);
+
+    // Try again.
+    PatternMatch = FindPattern(
+        fwpKernelSetupPhase1, SCAN_MAX, "33 11 88 9A 28 00 40 B9 1F 01 00 6B");
+
+    // BlpArchSwitchContext
+    BlpArchSwitchContext =
+        (BL_ARCH_SWITCH_CONTEXT)(PatternMatch -
+                                 ARM64_TOTAL_INSTRUCTION_LENGTH(10));
+  }
+
+  if (PatternMatch == 0 || (PatternMatch & 0xFFFFFFF000000000) != 0) {
+    FirmwarePrint(
+        "Failed to find BlpArchSwitchContext (v4)! BlpArchSwitchContext "
+        "-> "
+        "0x%p\n",
+        BlpArchSwitchContext);
+    goto exit;
   }
 
   FirmwarePrint(
@@ -319,39 +289,10 @@ KernelErrataPatcherExitBootServices(
         "Incompatible!           -> OsMajorVersion: %d OsMinorVersion: %d "
         "Size: %d\n",
         OsMajorVersion, OsMinorVersion, Size);
-
     goto exitToFirmware;
   }
 
-  KLDR_DATA_TABLE_ENTRY kernelModule =
-      *GetModule(&loaderBlock->LoadOrderListHead, NT_OS_KERNEL_IMAGE_NAME);
-
-  if (kernelModule.DllBase == NULL) {
-    ContextPrint(
-        "Failed to find ntoskrnl.exe in OslLoaderBlock(0x%p)!\n",
-        kernelModule.DllBase);
-
-    goto exitToFirmware;
-  }
-
-  EFI_PHYSICAL_ADDRESS kernelBase = (EFI_PHYSICAL_ADDRESS)kernelModule.DllBase;
-  UINTN                kernelSize = kernelModule.SizeOfImage;
-
-  ContextPrint("OsKernel                  -> (virt) 0x%p\n", kernelBase);
-
-  if (kernelBase != 0 && kernelSize != 0) {
-    ContextPrint(
-        "Patching OsKernel         -> (virt) 0x%p (size) 0x%p\n", kernelBase,
-        kernelSize);
-
-    // Fix up ntoskrnl.exe
-    KernelErrataPatcherApplyReadACTLREL1Patches(kernelBase, kernelSize, FALSE);
-    KernelErrataPatcherApplyWriteACTLREL1Patches(kernelBase, kernelSize, FALSE);
-    KernelErrataPatcherApplyReadAMCNTENSET0EL0Patches(kernelBase, kernelSize, FALSE);
-    KernelErrataPatcherApplyWriteAMCNTENSET0EL0Patches(kernelBase, kernelSize, FALSE);
-    KernelErrataPatcherApplyPsciMemoryProtectionPatches(
-        kernelBase, kernelSize, FALSE);
-  }
+  PatchKernelComponents(loaderBlock);
 
 exitToFirmware:
   // Switch back to firmware context before calling real ExitBootServices
@@ -373,5 +314,5 @@ KernelErrataPatcherEntryPoint(
   EfiExitBootServices   = gBS->ExitBootServices;
   gBS->ExitBootServices = ExitBootServicesWrapper;
 
-  return EFI_SUCCESS;
+  return InitMemoryAttributeProtocol();
 }

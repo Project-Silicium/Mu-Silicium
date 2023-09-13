@@ -5,22 +5,99 @@
   Patches NTOSKRNL to not cause a bugcheck when attempting to use
   PSCI_MEMPROTECT Due to an issue in QHEE
 
-  Based on https://github.com/SamuelTulach/rainbow
+  Shell Code to patch kernel mode components before NTOSKRNL
 
-  Copyright (c) 2021 Samuel Tulach
   Copyright (c) 2022-2023 DuoWoA authors
 
   SPDX-License-Identifier: MIT
 
 **/
-#ifndef _NTDEF_H_
-#define _NTDEF_H_
 
 /*
  * All sorts of defines related to Windows kernel
  * https://www.vergiliusproject.com/
  * Windows SDK/DDK
  */
+
+typedef unsigned long long UINT64;
+typedef long long          INT64;
+typedef unsigned int       UINT32;
+typedef int                INT32;
+typedef unsigned short     UINT16;
+typedef unsigned short     CHAR16;
+typedef short              INT16;
+typedef unsigned char      BOOLEAN;
+typedef unsigned char      UINT8;
+typedef char               CHAR8;
+typedef signed char        INT8;
+
+///
+/// Unsigned value of native width.  (4 bytes on supported 32-bit processor
+/// instructions, 8 bytes on supported 64-bit processor instructions)
+///
+typedef UINT64 UINTN;
+
+///
+/// Signed value of native width.  (4 bytes on supported 32-bit processor
+/// instructions, 8 bytes on supported 64-bit processor instructions)
+///
+typedef INT64 INTN;
+
+///
+/// Datum is read-only.
+///
+#define CONST const
+
+///
+/// Datum is scoped to the current file or function.
+///
+#define STATIC static
+
+///
+/// Undeclared type.
+///
+#define VOID void
+
+//
+// Modifiers for Data Types used to self document code.
+// This concept is borrowed for UEFI specification.
+//
+
+///
+/// Datum is passed to the function.
+///
+#define IN
+
+///
+/// Datum is returned from the function.
+///
+#define OUT
+
+///
+/// Passing the datum to the function is optional, and a NULL
+/// is passed if the value is not supplied.
+///
+#define OPTIONAL
+
+//
+// 8-bytes unsigned value that represents a physical system address.
+//
+typedef UINT64 PHYSICAL_ADDRESS;
+
+///
+/// LIST_ENTRY structure definition.
+///
+typedef struct _LIST_ENTRY LIST_ENTRY;
+
+typedef UINT64 EFI_PHYSICAL_ADDRESS;
+
+///
+/// _LIST_ENTRY structure definition.
+///
+struct _LIST_ENTRY {
+  LIST_ENTRY *ForwardLink;
+  LIST_ENTRY *BackLink;
+};
 
 typedef struct _UNICODE_STRING {
   UINT16  Length;
@@ -73,8 +150,6 @@ typedef struct _LOADER_PARAMETER_BLOCK {
 
 #define CONTAINING_RECORD(address, type, field)                                \
   ((type *)((char *)(address) - (UINT64)(&((type *)0)->field)))
-
-enum WinloadContext { ApplicationContext, FirmwareContext };
 
 typedef struct _IMAGE_FILE_HEADER {
   UINT16 Machine;
@@ -155,6 +230,8 @@ typedef struct _IMAGE_DOS_HEADER {
   INT32  e_lfanew;   // File address of new exe header
 } IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;
 
+enum WinloadContext { ApplicationContext, FirmwareContext };
+
 #define IMAGE_DOS_SIGNATURE 0x5A4D
 #define IMAGE_NT_SIGNATURE 0x00004550
 
@@ -174,4 +251,58 @@ typedef struct _IMAGE_EXPORT_DIRECTORY {
   UINT32 AddressOfNameOrdinals;
 } IMAGE_EXPORT_DIRECTORY, *PIMAGE_EXPORT_DIRECTORY;
 
-#endif /* _NTDEF_H_ */
+#define ARM64_INSTRUCTION_LENGTH 4
+#define ARM64_TOTAL_INSTRUCTION_LENGTH(x) (ARM64_INSTRUCTION_LENGTH * x)
+
+typedef void (*NT_OS_LOADER_ARM64_TRANSFER_TO_KERNEL)(
+    VOID *OsLoaderBlock, VOID *KernelAddress);
+
+VOID DoSomething(VOID *OsLoaderBlock, VOID *KernelAddress)
+{
+  ((NT_OS_LOADER_ARM64_TRANSFER_TO_KERNEL)KernelAddress)(
+      OsLoaderBlock, KernelAddress);
+}
+
+VOID OslArm64TransferToKernel(VOID *OsLoaderBlock, VOID *KernelAddress)
+{
+  PLOADER_PARAMETER_BLOCK loaderBlock = (PLOADER_PARAMETER_BLOCK)OsLoaderBlock;
+  LIST_ENTRY *entry = (&loaderBlock->LoadOrderListHead)->ForwardLink;
+
+  PKLDR_DATA_TABLE_ENTRY kernelModule =
+      CONTAINING_RECORD(entry, KLDR_DATA_TABLE_ENTRY, InLoadOrderLinks);
+
+  EFI_PHYSICAL_ADDRESS base = (EFI_PHYSICAL_ADDRESS)kernelModule->DllBase;
+  UINTN                size = kernelModule->SizeOfImage;
+
+  for (EFI_PHYSICAL_ADDRESS current = base; current < base + size;
+       current += sizeof(UINT32)) {
+    if (*(UINT32 *)current == 0xD5381028 || // mrs x8, actlr_el1
+        *(UINT32 *)current == 0xD53BD2A8) { // mrs x8,
+                                            // amcntenset0_el0
+      *(UINT32 *)current = 0xD2800008;      // movz x8, #0
+    }
+    else if (
+        *(UINT32 *)current == 0xD5181028 || // msr actlr_el1, x8
+        *(UINT32 *)current == 0xD5181029) { // msr actlr_el1, x9
+      *(UINT32 *)current = 0xD503201F;      // nop
+    }
+    else if (
+        *(UINT64 *)current == 0xD2800003180002D5 &&
+        *(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
+            0xD2800001D2800002) { // ldr w21, #0x58 - movz x3, #0 - movz x2,
+                                  // #0 - movz x1, #0
+      *(UINT32 *)(current - ARM64_TOTAL_INSTRUCTION_LENGTH(8)) =
+          0xD65F03C0; // ret
+    }
+    else if (
+        *(UINT64 *)current == 0xD2800002D2800003 &&
+        *(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
+            0x18000240D2800001) { // movz x3, #0 - movz x2, #0 - movz x1, #0 -
+                                  // ldr w0, #0x54
+      *(UINT32 *)(current - ARM64_TOTAL_INSTRUCTION_LENGTH(7)) =
+          0xD65F03C0; // ret
+    }
+  }
+
+  DoSomething(OsLoaderBlock, KernelAddress);
+}

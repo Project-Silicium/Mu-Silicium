@@ -1,18 +1,50 @@
 /** @file
 
   Patches NTOSKRNL to not cause a SError when reading/writing ACTLR_EL1
+  Patches NTOSKRNL to not cause a SError when reading/writing AMCNTENSET0_EL0
   Patches NTOSKRNL to not cause a bugcheck when attempting to use
   PSCI_MEMPROTECT Due to an issue in QHEE
 
   Based on https://github.com/SamuelTulach/rainbow
 
   Copyright (c) 2021 Samuel Tulach
-  Copyright (c) 2022 DuoWoA authors
+  Copyright (c) 2022-2023 DuoWoA authors
 
   SPDX-License-Identifier: MIT
 
 **/
 #include "KernelErrataPatcher.h"
+
+#define IMAGE_DOS_SIGNATURE 0x5A4D
+#define IMAGE_NT_SIGNATURE 0x00004550
+
+EFI_PHYSICAL_ADDRESS LocateWinloadBase(EFI_PHYSICAL_ADDRESS base, UINTN *size)
+{
+  if (base & (EFI_PAGE_SIZE - 1)) {
+    base &= ~(EFI_PAGE_SIZE - 1);
+    base += EFI_PAGE_SIZE;
+  }
+
+  do {
+    if (*(UINT16 *)base == IMAGE_DOS_SIGNATURE) {
+      UINT32               newBaseOffset = *(UINT32 *)(base + 0x3C);
+      EFI_PHYSICAL_ADDRESS newBase       = base + newBaseOffset;
+
+      if (*(UINT16 *)newBase == IMAGE_NT_SIGNATURE) {
+        *size = *(UINT32 *)(newBase + 0x110);
+        if (*size & (EFI_PAGE_SIZE - 1)) {
+          *size &= ~(EFI_PAGE_SIZE - 1);
+          *size += EFI_PAGE_SIZE;
+        }
+        break;
+      }
+    }
+
+    base -= EFI_PAGE_SIZE;
+  } while (TRUE);
+
+  return base;
+}
 
 VOID CopyMemory(
     EFI_PHYSICAL_ADDRESS destination, EFI_PHYSICAL_ADDRESS source, UINTN size)
@@ -22,25 +54,6 @@ VOID CopyMemory(
   for (UINTN i = 0; i < size; i++) {
     dst[i] = src[i];
   }
-}
-
-VOID CopyToReadOnly(
-    EFI_PHYSICAL_ADDRESS destination, EFI_PHYSICAL_ADDRESS source, UINTN size)
-{
-  BOOLEAN intstate = ArmGetInterruptState();
-  if (!intstate)
-    ArmDisableInterrupts();
-
-  ArmClearMemoryRegionReadOnly((EFI_PHYSICAL_ADDRESS)destination, size);
-  ArmClearMemoryRegionNoExec((EFI_PHYSICAL_ADDRESS)destination, size);
-
-  CopyMemory(destination, source, size);
-
-  ArmSetMemoryRegionReadOnly((EFI_PHYSICAL_ADDRESS)destination, size);
-  ArmSetMemoryRegionNoExec((EFI_PHYSICAL_ADDRESS)destination, size);
-
-  if (intstate)
-    ArmEnableInterrupts();
 }
 
 EFI_PHYSICAL_ADDRESS
@@ -69,21 +82,4 @@ FindPattern(EFI_PHYSICAL_ADDRESS baseAddress, UINTN size, const CHAR8 *pattern)
   }
 
   return 0;
-}
-
-KLDR_DATA_TABLE_ENTRY *GetModule(LIST_ENTRY *list, const CHAR16 *name)
-{
-  for (LIST_ENTRY *entry = list->ForwardLink; entry != list;
-       entry             = entry->ForwardLink) {
-
-    PKLDR_DATA_TABLE_ENTRY module =
-        CONTAINING_RECORD(entry, KLDR_DATA_TABLE_ENTRY, InLoadOrderLinks);
-
-    if (module &&
-        StrnCmp(name, module->BaseDllName.Buffer, module->BaseDllName.Length) ==
-            0)
-      return module;
-  }
-
-  return NULL;
 }
