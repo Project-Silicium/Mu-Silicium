@@ -1,0 +1,39 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SystemIntegrityPolicyProvisioningDxe
+  FILE_GUID                      = 6442BCC0-BFDF-43FA-9564-7E8389AF7B54
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SystemIntegrityPolicyProvisioningDxeInitialize
+
+[Sources.common]
+  SystemIntegrityPolicyProvisioningDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  MdePkg/MdePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MsCorePkg/MsCorePkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  ReportStatusCodeLib
+  UefiLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  BaseMemoryLib
+  DebugLib
+  UefiRuntimeServicesTableLib
+  MemoryAllocationLib
+
+[Protocols]
+  gEfiSimpleFileSystemProtocolGuid ## CONSUMES
+
+[Depex]
+  gEfiSimpleFileSystemProtocolGuid
+
+[BuildOptions.AARCH64]
+  GCC:*_*_*_CC_FLAGS = -Wno-missing-brace -Wno-error
