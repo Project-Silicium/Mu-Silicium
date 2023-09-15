@@ -9,8 +9,8 @@
 
 ## Galaxy Tab S8 5G
 
-**WARNING: Only Debug Build work right now** <br />
-**NOTE: A Protocol called DTBExt is missing wich leads to the Unstable State**
+**WARNING: Only Debug Build work right now!** <br />
+**NOTE: A Protocol called DTBExt is missing wich leads to the Unstable State.**
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
@@ -259,13 +259,15 @@
 
 ## Redmi Note 12 Pro 4G
 
+**WARNING: This Device has no Maintainer! The Status may not be correct anymore.**
+
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="420" alt="Preview">
 
 **SoC: SM7150-AC** <br />
-**Codename: sweet** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Codename: sweet_k6a** <br />
+**Maintainer: None** <br />
 **Contibuters: None** <br />
-**Tester: [Robotix22](https://github.com/Robotix22/)**
+**Tester: None**
 
 ### UEFI Status
 
