@@ -1,6 +1,6 @@
 [Defines]
   DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = sweet
+  PACKAGE_NAME                        = sweet_k6a
   PACKAGE_GUID                        = 13d651df-5d7e-4516-ab02-371a565ab594
   PACKAGE_VERSION                     = 0.1
 
@@ -8,4 +8,4 @@
   Include                               # Root include for the package
 
 [Guids.common]
-  gsweetTokenSpaceGuid                = { 0x630d1379, 0x7d3f, 0x4511, { 0xa6, 0xf9, 0x57, 0x8a, 0xbb, 0xc0, 0x75, 0x18 } }
+  gsweet_k6aTokenSpaceGuid            = { 0x630d1379, 0x7d3f, 0x4511, { 0xa6, 0xf9, 0x57, 0x8a, 0xbb, 0xc0, 0x75, 0x18 } }

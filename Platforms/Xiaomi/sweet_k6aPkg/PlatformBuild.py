@@ -31,10 +31,10 @@ class CommonPlatform():
     ''' Common settings for this platform.  Define static data here and use
         for the different parts of stuart
     '''
-    PackagesSupported = ("sweetPkg",)
+    PackagesSupported = ("sweet_k6aPkg",)
     ArchSupported = ("AARCH64",)
     TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('sweet', 'gcc_aarch64_linux', 'edk2-build')
+    Scopes = ('sweet_k6a', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Xiaomi",
@@ -131,10 +131,10 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("sweetPkg/sweet.dsc", {})
+        return ("sweet_k6aPkg/sweet_k6a.dsc", {})
 
     def GetName(self):
-        return "sweet"
+        return "sweet_k6a"
 
     def GetPackagesPath(self):
         ''' Return a list of paths that should be mapped as edk2 PackagesPath '''
@@ -166,7 +166,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
             "TARGET_ARCH", args.build_arch.upper(), "From CmdLine")
 
         shell_environment.GetBuildVars().SetValue(
-            "ACTIVE_PLATFORM", "sweetPkg/sweet.dsc", "From CmdLine")
+            "ACTIVE_PLATFORM", "sweet_k6aPkg/sweet_k6a.dsc", "From CmdLine")
 
 
     def GetWorkspaceRoot(self):
@@ -189,7 +189,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
     def GetName(self):
         ''' Get the name of the repo, platform, or product being build '''
         ''' Used for naming the log file, among others '''
-        return "sweetPkg"
+        return "sweet_k6aPkg"
 
     def GetLoggingLevel(self, loggerType):
         ''' Get the logging level for a given type
@@ -203,8 +203,8 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
 
     def SetPlatformEnv(self):
         logging.debug("PlatformBuilder SetPlatformEnv")
-        self.env.SetValue("PRODUCT_NAME", "sweet", "Platform Hardcoded")
-        self.env.SetValue("ACTIVE_PLATFORM", "sweetPkg/sweet.dsc", "Platform Hardcoded")
+        self.env.SetValue("PRODUCT_NAME", "sweet_k6a", "Platform Hardcoded")
+        self.env.SetValue("ACTIVE_PLATFORM", "sweet_k6aPkg/sweet_k6a.dsc", "Platform Hardcoded")
         self.env.SetValue("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
         self.env.SetValue("TOOL_CHAIN_TAG", self.env.GetValue("TOOL_CHAIN_TAG"), "Default")
         self.env.SetValue("BUILDREPORTING", "TRUE", "Enabling build report")

@@ -15,15 +15,15 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = sweet
+  PLATFORM_NAME                  = sweet_k6a
   PLATFORM_GUID                  = 13d651df-5d7e-4516-ab02-371a565ab594
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/sweetPkg
+  OUTPUT_DIRECTORY               = Build/sweet_k6aPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = sweetPkg/sweet.fdf
+  FLASH_DEFINITION               = sweet_k6aPkg/sweet_k6a.fdf
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
@@ -37,7 +37,7 @@
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|sweetPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  PlatformMemoryMapLib|sweet_k6aPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific

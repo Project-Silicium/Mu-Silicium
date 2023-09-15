@@ -20,7 +20,7 @@
 #
 ################################################################################
 
-[FD.sweet_UEFI]
+[FD.sweet_k6a_UEFI]
 BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
 Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1
@@ -120,7 +120,7 @@ READ_LOCK_STATUS   = TRUE
   INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
-    SECTION RAW = sweetPkg/Include/Resources/BootLogo.png
+    SECTION RAW = sweet_k6aPkg/Include/Resources/BootLogo.png
     SECTION UI = "Logo"
   }
 
@@ -154,7 +154,7 @@ READ_LOCK_STATUS   = TRUE
 
   FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
     SECTION UI = "uefiplat.cfg"
-    SECTION RAW = Binaries/sweet/RawFiles/uefiplat.cfg
+    SECTION RAW = Binaries/sweet_k6a/RawFiles/uefiplat.cfg
   }
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {
