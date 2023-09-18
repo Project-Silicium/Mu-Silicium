@@ -10,7 +10,6 @@
   SecureBootProvisioningDxe.c
 
 [Packages]
-  MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
   MsCorePkg/MsCorePkg.dec
   QcomPkg/QcomPkg.dec
@@ -19,18 +18,10 @@
   BaseLib
   DebugLib
   MuSecureBootKeySelectorLib
-  UefiBootServicesTableLib
+  PrintLib
   UefiDriverEntryPoint
-  UefiLib
-
-[Guids]
-  gEfiPartTypeSystemPartGuid       ## CONSUMES ## GUID
-
-[Protocols]
-  gEfiSimpleFileSystemProtocolGuid ## CONSUMES
 
 [Depex]
-  gEfiSimpleFileSystemProtocolGuid
-
-[BuildOptions.AARCH64]
-  GCC:*_*_*_CC_FLAGS = -Wno-missing-brace -Wno-error
+  gEfiVariableWriteArchProtocolGuid AND
+  gEfiSimpleTextOutProtocolGuid AND
+  gEfiDevicePathProtocolGuid

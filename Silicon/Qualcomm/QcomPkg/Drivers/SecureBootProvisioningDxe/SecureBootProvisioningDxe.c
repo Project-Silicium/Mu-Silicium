@@ -8,17 +8,7 @@
 
 **/
 
-#include <Base.h>
 #include <Uefi.h>
-
-#include <Library/BaseLib.h>
-#include <Library/MemoryAllocationLib.h>
-#include <Library/DebugLib.h>
-#include <Library/UefiBootServicesTableLib.h>
-#include <Library/UefiDriverEntryPoint.h>
-#include <Library/DevicePathLib.h>
-#include <Library/UefiLib.h>
-
 #include <Library/MuSecureBootKeySelectorLib.h>
 
 EFI_STATUS
