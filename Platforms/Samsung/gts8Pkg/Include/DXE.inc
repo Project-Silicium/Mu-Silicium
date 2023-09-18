@@ -108,8 +108,8 @@
   INF Binaries/gts8/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-  INF Binaries/sweet/QcomPkg/Drivers/CipherDxe/CipherDxe.inf         # Use sweet CipherDxe as gts8 UCDxe needs DTBExt Protocol we don't have
-  INF Binaries/sweet/QcomPkg/Drivers/RNGDxe/RngDxe.inf               # Use sweet RngDxe as gts8 RngDxe needs DTBExt Protocol we don't have
+  INF Binaries/sweet_k6a/QcomPkg/Drivers/CipherDxe/CipherDxe.inf         # Use sweet_k6a CipherDxe as gts8 UCDxe needs DTBExt Protocol we don't have
+  INF Binaries/sweet_k6a/QcomPkg/Drivers/RNGDxe/RngDxe.inf               # Use sweet_k6a RngDxe as gts8 RngDxe needs DTBExt Protocol we don't have
   #INF Binaries/gts8/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
