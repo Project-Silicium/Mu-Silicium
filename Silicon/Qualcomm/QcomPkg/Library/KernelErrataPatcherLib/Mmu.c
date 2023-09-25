@@ -13,7 +13,7 @@
   SPDX-License-Identifier: MIT
 
 **/
-#include "KernelErrataPatcher.h"
+#include "KernelErrataPatcherLib.h"
 
 STATIC UINT64                         WinloadAttributes        = 0;
 STATIC EFI_MEMORY_ATTRIBUTE_PROTOCOL *mMemoryAttributeProtocol = NULL;

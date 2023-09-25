@@ -10,7 +10,7 @@
   SPDX-License-Identifier: MIT
 
 **/
-#include "KernelErrataPatcher.h"
+#include "KernelErrataPatcherLib.h"
 
 GCC_ASM_IMPORT (KernelErrataPatcherExitBootServices)
 GCC_ASM_EXPORT (ExitBootServicesWrapper)

@@ -130,7 +130,6 @@ READ_LOCK_STATUS   = TRUE
   }
 
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
-  INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8

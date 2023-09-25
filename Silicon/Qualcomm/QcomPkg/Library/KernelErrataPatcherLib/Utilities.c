@@ -13,7 +13,7 @@
   SPDX-License-Identifier: MIT
 
 **/
-#include "KernelErrataPatcher.h"
+#include "KernelErrataPatcherLib.h"
 
 #define IMAGE_DOS_SIGNATURE 0x5A4D
 #define IMAGE_NT_SIGNATURE 0x00004550

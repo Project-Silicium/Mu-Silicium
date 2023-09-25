@@ -12,14 +12,15 @@
 ##
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = KernelErrataPatcher
+  BASE_NAME                      = KernelErrataPatcherLib
   FILE_GUID                      = 964EFA94-9929-4EF8-9E68-8F6F6FA62E63
   MODULE_TYPE                    = DXE_DRIVER
+  LIBRARY_CLASS                  = KernelErrataPatcherLib|DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = KernelErrataPatcherEntryPoint
+  CONSTRUCTOR                    = KernelErrataPatcherConstructor
 
 [Sources]
-  KernelErrataPatcher.c
+  KernelErrataPatcherLib.c
   Mmu.c
   Utilities.c
 
@@ -37,9 +38,10 @@
   ArmMmuLib
   BaseMemoryLib
   DebugLib
+  DxeServicesTableLib
   MemoryAllocationLib
+  PerformanceLib
   UefiBootServicesTableLib
-  UefiDriverEntryPoint
   UefiLib
 
 [Protocols]
@@ -47,6 +49,7 @@
 
 [Guids]
   gEfiEventExitBootServicesGuid       ## CONSUMES
+  gEfiEventReadyToBootGuid
 
 [Depex]
   gEfiMemoryAttributeProtocolGuid

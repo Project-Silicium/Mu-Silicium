@@ -13,8 +13,8 @@
   SPDX-License-Identifier: MIT
 
 **/
-#ifndef _KERNEL_ERRATA_PATCHER_H_
-#define _KERNEL_ERRATA_PATCHER_H_
+#ifndef _KERNEL_ERRATA_PATCHER_LIB_H_
+#define _KERNEL_ERRATA_PATCHER_LIB_H_
 
 #include <PiDxe.h>
 
@@ -26,8 +26,10 @@
 #include <Library/BaseLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
+#include <Library/DxeServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/PcdLib.h>
+#include <Library/PerformanceLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 
 #include <Protocol/MemoryAttribute.h>
@@ -103,4 +105,4 @@ EFI_STATUS
 EFIAPI
 InitMemoryAttributeProtocol();
 
-#endif /* _KERNEL_ERRATA_PATCHER_H_ */
+#endif /* _KERNEL_ERRATA_PATCHER_LIB_H_ */

@@ -13,10 +13,11 @@
   SPDX-License-Identifier: MIT
 
 **/
-#include "KernelErrataPatcher.h"
+#include "KernelErrataPatcherLib.h"
 
 STATIC BL_ARCH_SWITCH_CONTEXT BlpArchSwitchContext = NULL;
-STATIC EFI_EXIT_BOOT_SERVICES EfiExitBootServices = NULL;
+STATIC EFI_EXIT_BOOT_SERVICES mOriginalEfiExitBootServices = NULL;
+EFI_EVENT                     mReadyToBootEvent;
 
 // Please see ./ShellCode/Reference/ShellCode.c for what this does
 UINT8 OslArm64TransferToKernelShellCode[] = {
@@ -122,7 +123,9 @@ KernelErrataPatcherExitBootServices(
     IN EFI_PHYSICAL_ADDRESS fwpKernelSetupPhase1)
 {
   // Might be called multiple times by winload in a loop failing few times
-  gBS->ExitBootServices = EfiExitBootServices;
+  gBS->ExitBootServices = mOriginalEfiExitBootServices;
+  gBS->Hdr.CRC32        = 0;
+  gBS->CalculateCrc32(gBS, sizeof(EFI_BOOT_SERVICES), &gBS->Hdr.CRC32);
 
   FirmwarePrint(
       "OslFwpKernelSetupPhase1   -> (phys) 0x%p\n", fwpKernelSetupPhase1);
@@ -306,13 +309,36 @@ exit:
   return gBS->ExitBootServices(ImageHandle, MapKey);
 }
 
+VOID EFIAPI ReadyToBootHandler(IN EFI_EVENT Event, IN VOID *Context)
+{
+  PERF_CALLBACK_BEGIN(&gEfiEventReadyToBootGuid);
+
+  mOriginalEfiExitBootServices = gBS->ExitBootServices;
+  gBS->ExitBootServices        = ExitBootServicesWrapper;
+  gBS->Hdr.CRC32               = 0;
+  gBS->CalculateCrc32(gBS, sizeof(EFI_BOOT_SERVICES), &gBS->Hdr.CRC32);
+
+  gBS->CloseEvent(mReadyToBootEvent);
+
+  PERF_CALLBACK_END(&gEfiEventReadyToBootGuid);
+}
+
 EFI_STATUS
 EFIAPI
-KernelErrataPatcherEntryPoint(
+KernelErrataPatcherConstructor(
     IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EfiExitBootServices   = gBS->ExitBootServices;
-  gBS->ExitBootServices = ExitBootServicesWrapper;
+  EFI_STATUS Status;
+
+  Status = gBS->CreateEventEx(
+      EVT_NOTIFY_SIGNAL, TPL_CALLBACK, ReadyToBootHandler, NULL,
+      &gEfiEventReadyToBootGuid, &mReadyToBootEvent);
+  if (EFI_ERROR(Status)) {
+    DEBUG((
+        DEBUG_ERROR,
+        "KernelErrataPatcherConstructor: Failed to create event %r\n", Status));
+    ASSERT(FALSE);
+  }
 
   return InitMemoryAttributeProtocol();
 }

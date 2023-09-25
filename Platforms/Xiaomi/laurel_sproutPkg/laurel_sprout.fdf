@@ -130,7 +130,6 @@ READ_LOCK_STATUS   = TRUE
   }
 
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
-  INF QcomPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
 
   INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   INF GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
