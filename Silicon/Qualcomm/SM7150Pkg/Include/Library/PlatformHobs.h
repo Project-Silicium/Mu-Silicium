@@ -74,12 +74,4 @@ typedef struct {
     }                                                                          \
   }
 
-#define EFI_FV_DECOMPRESS_GUID                                                 \
-  {                                                                            \
-    0x12dbd93d, 0x402a, 0x416e,                                                \
-    {                                                                          \
-      0xec, 0x20, 0x5f, 0x80, 0xcf, 0x5f, 0x7f, 0xe7                           \
-    }                                                                          \
-  }
-
 #endif /* _PLATFORM_HOBS_H_ */

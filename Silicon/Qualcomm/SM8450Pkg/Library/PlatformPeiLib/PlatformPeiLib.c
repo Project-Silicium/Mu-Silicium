@@ -154,8 +154,8 @@ VOID BuildMemHobForFv(IN UINT16 Type)
   }
 }
 
-STATIC GUID gEfiShLibHobGuid     = EFI_SHIM_LIBRARY_GUID;
 STATIC GUID gEfiInfoBlkHobGuid   = EFI_INFORMATION_BLOCK_GUID;
+STATIC GUID gEfiShLibHobGuid     = EFI_SHIM_LIBRARY_GUID;
 STATIC GUID gFvDecompressHobGuid = EFI_FV_DECOMPRESS_GUID;
 
 VOID InstallPlatformHob()
@@ -163,15 +163,17 @@ VOID InstallPlatformHob()
   static int initialized = 0;
 
   if (!initialized) {
-    UINTN Data  = (UINTN)&ShLib;
     ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
     LocateMemoryMapAreaByName("Info Blk", &InfoBlk);
-    UINTN Data3 = 0xE57403D0;
+
+    UINTN InfoBlkAddress      = InfoBlk.Address;
+    UINTN ShLibAddress        = (UINTN)&ShLib;
+    UINTN FvDecompressAddress = 0xA70403D0;
 
     BuildMemHobForFv(EFI_HOB_TYPE_FV2);
-    BuildGuidDataHob(&gEfiShLibHobGuid, &Data, sizeof(Data));
-    BuildGuidDataHob(&gEfiInfoBlkHobGuid, &InfoBlk.Address, sizeof(InfoBlk.Address));
-    BuildGuidDataHob(&gFvDecompressHobGuid, &Data3, sizeof(Data3));
+    BuildGuidDataHob(&gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof(InfoBlkAddress));
+    BuildGuidDataHob(&gEfiShLibHobGuid, &ShLibAddress, sizeof(ShLibAddress));
+    BuildGuidDataHob(&gFvDecompressHobGuid, &FvDecompressAddress, sizeof(FvDecompressAddress));
 
     initialized = 1;
   }
@@ -183,7 +185,6 @@ PlatformPeim(
   VOID
   )
 {
-
   BuildFvHob(PcdGet64(PcdFvBaseAddress), PcdGet32(PcdFvSize));
 
   InstallPlatformHob();
