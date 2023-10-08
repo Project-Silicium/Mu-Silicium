@@ -17,7 +17,7 @@
   MODULE_TYPE                    = DXE_DRIVER
   LIBRARY_CLASS                  = KernelErrataPatcherLib|DXE_DRIVER
   VERSION_STRING                 = 1.0
-  CONSTRUCTOR                    = KernelErrataPatcherConstructor
+  CONSTRUCTOR                    = KernelErrataPatcherLibConstructor
 
 [Sources]
   KernelErrataPatcherLib.c

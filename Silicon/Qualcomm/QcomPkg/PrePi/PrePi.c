@@ -24,6 +24,9 @@
 
 #include <Library/MemoryMapHelperLib.h>
 
+#include <Guid/DxeMemoryProtectionSettings.h>
+#include <Guid/MmMemoryProtectionSettings.h>
+
 #define IS_XIP()  (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) ||\
                   ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
 
@@ -66,6 +69,9 @@ PrePiMain (
   EFI_STATUS                  Status;
   UINTN                       StacksSize;
   FIRMWARE_SEC_PERFORMANCE    Performance;
+
+  DXE_MEMORY_PROTECTION_SETTINGS DxeSettings;
+  MM_MEMORY_PROTECTION_SETTINGS  MmSettings;
 
   UINTN MemoryBase     = 0;
   UINTN MemorySize     = 0;
@@ -155,6 +161,12 @@ PrePiMain (
   // Initialize Platform HOBs (CpuHob and FvHob)
   Status = PlatformPeim ();
   ASSERT_EFI_ERROR (Status);
+
+  DxeSettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_OFF;
+  MmSettings  = (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_OFF;
+
+  BuildGuidDataHob(&gDxeMemoryProtectionSettingsGuid, &DxeSettings, sizeof(DxeSettings));
+  BuildGuidDataHob(&gMmMemoryProtectionSettingsGuid, &MmSettings, sizeof(MmSettings));
 
   // Now, the HOB List has been initialized, we can register performance information
   PERF_START (NULL, "PEI", NULL, StartTimeStamp);
