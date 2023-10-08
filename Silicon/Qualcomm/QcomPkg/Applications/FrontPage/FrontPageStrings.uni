@@ -12,7 +12,7 @@
 
 #langdef   en    " Standard English "
 
-#string STR_FRONT_PAGE_TITLE      #language en-US  "MU-Qcom"
+#string STR_FRONT_PAGE_TITLE      #language en-US  "Mu-Qcom"
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Master Frame Menu Strings
