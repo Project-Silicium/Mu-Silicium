@@ -49,7 +49,6 @@
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile
   gPcBdsPkgTokenSpaceGuid.PcdShellFile
-  gPcBdsPkgTokenSpaceGuid.PcdShellFvGuid
   gQcomPkgTokenSpaceGuid.PcdSlotSwitchApp
 
 [Depex]

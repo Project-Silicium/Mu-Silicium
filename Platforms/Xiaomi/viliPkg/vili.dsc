@@ -34,7 +34,7 @@
   SOC_TYPE                       = 0
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|viliPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf

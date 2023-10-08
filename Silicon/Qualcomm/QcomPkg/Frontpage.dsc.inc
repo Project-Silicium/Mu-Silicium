@@ -1,5 +1,15 @@
 [LibraryClasses.common]
   #
+  # Libraries to support Shell
+  #
+  ShellLib|ShellPkg/Library/UefiShellLib/UefiShellLib.inf
+  ShellCommandLib|ShellPkg/Library/UefiShellCommandLib/UefiShellCommandLib.inf
+  ShellCEntryLib|ShellPkg/Library/UefiShellCEntryLib/UefiShellCEntryLib.inf
+  HandleParsingLib|ShellPkg/Library/UefiHandleParsingLib/UefiHandleParsingLib.inf
+  BcfgCommandLib|ShellPkg/Library/UefiShellBcfgCommandLib/UefiShellBcfgCommandLib.inf
+  NetLib|NetworkPkg/Library/DxeNetLib/DxeNetLib.inf
+
+  #
   # contains NULL routines to support UI operations associated with DFCI.
   #
   DfciUiSupportLib|OemPkg/Library/DfciUiSupportLib/DfciUiSupportLib.inf
@@ -305,4 +315,22 @@
   CryptoPkg/Library/BaseCryptLibOnProtocolPpi/DxeCryptLib.inf {
     <PcdsFixedAtBuild>
       !include CryptoPkg/Driver/Bin/Crypto.pcd.STANDARD.inc.dsc
+  }
+
+#######################################
+#  Shell
+#######################################
+
+  ShellPkg/Application/Shell/Shell.inf {
+    <LibraryClasses>
+      NULL|ShellPkg/Library/UefiShellLevel2CommandsLib/UefiShellLevel2CommandsLib.inf
+      NULL|ShellPkg/Library/UefiShellLevel1CommandsLib/UefiShellLevel1CommandsLib.inf
+      NULL|ShellPkg/Library/UefiShellLevel3CommandsLib/UefiShellLevel3CommandsLib.inf
+      NULL|ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf
+      NULL|ShellPkg/Library/UefiShellInstall1CommandsLib/UefiShellInstall1CommandsLib.inf
+      NULL|ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
+      NULL|ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf
+      NULL|ShellPkg/Library/UefiShellNetwork2CommandsLib/UefiShellNetwork2CommandsLib.inf
+    <PcdsFixedAtBuild>
+     gEfiShellPkgTokenSpaceGuid.PcdShellLibAutoInitialize|FALSE
   }

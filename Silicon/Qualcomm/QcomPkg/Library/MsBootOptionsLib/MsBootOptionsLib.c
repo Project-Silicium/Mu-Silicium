@@ -160,7 +160,7 @@ MsBootOptionsLibGetDefaultBootApp (
 /**
   Return the boot option corresponding to the Slot Switch App.
 
-  @param BootOption    Return a created Slot Switch App with the parameter passed
+  @param BootOption     Return a created Slot Switch App with the parameter passed
 
   @retval EFI_SUCCESS   The Slot Switch App is successfully returned.
   @retval Status        Return status of gRT->SetVariable (). BootOption still points
@@ -174,6 +174,25 @@ MsBootOptionsLibSlotSwitchApp (
   )
 {
   return BuildFwLoadOption (BootOption, PcdGetPtr (PcdSlotSwitchApp), Parameter);
+}
+
+/**
+  Return the boot option corresponding to the UEFI Shell.
+
+  @param BootOption     Return a created UEFI Shell with the parameter passed
+
+  @retval EFI_SUCCESS   The UEFI Shell is successfully returned.
+  @retval Status        Return status of gRT->SetVariable (). BootOption still points
+                        to the Slot UEFI Shell even the Status is not EFI_SUCCESS.
+**/
+EFI_STATUS
+EFIAPI
+MsBootOptionsLibUEFIShell (
+  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION  *BootOption,
+  IN     CHAR8                         *Parameter
+  )
+{
+  return BuildFwLoadOption (BootOption, PcdGetPtr (PcdShellFile), Parameter);
 }
 
 /**
@@ -199,6 +218,7 @@ MsBootOptionsLibGetBootManagerMenu (
 /**
   This function will create a SHELL BootOption to boot.
 */
+/*
 static
 EFI_DEVICE_PATH_PROTOCOL *
 CreateShellDevicePath (
@@ -281,6 +301,7 @@ CreateShellDevicePath (
 
   return DevicePath;
 }
+*/
 
 /**
  * Create a boot option
@@ -349,31 +370,6 @@ CreateFvBootOption (
 
     DevicePath = AppendDevicePathNode (
                    DevicePathFromHandle (LoadedImage->DeviceHandle),
-                   (EFI_DEVICE_PATH_PROTOCOL *)&FileNode
-                   );
-    if (DevicePath == NULL) {
-      ASSERT (DevicePath != NULL);
-      return EFI_OUT_OF_RESOURCES;
-    }
-  } else {
-    if (IsZeroGuid (PcdGetPtr (PcdShellFvGuid))) {
-      // Search all FV's for Shell.
-      DevicePath = CreateShellDevicePath ();
-      if (DevicePath == NULL) {
-        return EFI_NOT_FOUND;
-      }
-    } else {
-      // Create FV devicepath from template
-      DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)AllocateCopyPool (sizeof (FV_PIWG_DEVICE_PATH), &mFvPIWGDevicePathTemplate);
-      // Update FvName to the Shell GUID from PCD if it is not ZeroGuid
-      CopyGuid (
-        &((FV_PIWG_DEVICE_PATH *)DevicePath)->FvDevPath.FvName,
-        PcdGetPtr (PcdShellFvGuid)
-        );
-    }
-
-    DevicePath = AppendDevicePathNode (
-                   (EFI_DEVICE_PATH_PROTOCOL *)DevicePath,
                    (EFI_DEVICE_PATH_PROTOCOL *)&FileNode
                    );
     if (DevicePath == NULL) {

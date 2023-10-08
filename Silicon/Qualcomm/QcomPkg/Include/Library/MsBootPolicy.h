@@ -10,14 +10,14 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define _MS_BOOT_POLICY_H_
 
 /**
- *Ask if the platform is requesting Slot Switch
+ *Ask if the platform is requesting UEFI Shell
 
- *@retval TRUE     System is requesting Slot Switch
- *@retval FALSE    System is not requesting Slot Switch.
+ *@retval TRUE     System is requesting UEFI Shell
+ *@retval FALSE    System is not requesting UEFI Shell.
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibSlotSwitch (
+MsBootPolicyLibUEFIShell (
   VOID
   );
 

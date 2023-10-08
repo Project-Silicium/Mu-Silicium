@@ -915,27 +915,33 @@ DeviceBootManagerPriorityBoot (
   )
 {
   BOOLEAN     FrontPageBoot;
-  BOOLEAN     SlotSwitch;
+  BOOLEAN     UEFIShell;
   EFI_STATUS  Status;
 
   FrontPageBoot = MsBootPolicyLibIsSettingsBoot ();
-  SlotSwitch    = MsBootPolicyLibSlotSwitch ();
+  UEFIShell     = MsBootPolicyLibUEFIShell ();
   MsBootPolicyLibClearBootRequests ();
 
   // There are four cases:
-  //   1. Nothing pressed.             return EFI_NOT_FOUND
-  //   2. FrontPageBoot                load FrontPage
-  //   3. SlotSwitch                   Switch Boot Slot on Platform
-  //   4. Both indicators are present  Load NetworkUnlock
+  //   1.  Nothing pressed.             return EFI_NOT_FOUND
+  //   2.  FrontPageBoot                load FrontPage
+  //   3.  UEFIShell                    Load UEFI Shell
+  //   4.1 Both indicators are present  Load NetworkUnlock
+  //   4.2 Both indicators are present  Load Switch Slot App
 
-  if (SlotSwitch) {
+  if (UEFIShell) {
     // Alternate boot or Network Unlock option
     if (FrontPageBoot) {
+#if AB_SLOT_SUPPORT == 1
+      DEBUG ((DEBUG_INFO, "[Bds] Slot Switch\n"));
+      Status = MsBootOptionsLibSlotSwitchApp (BootOption, "VOL+/-");
+#else
       DEBUG ((DEBUG_INFO, "[Bds] both detected. NetworkUnlock\n"));
       Status = MsBootOptionsLibGetDefaultBootApp (BootOption, "NS");
+#endif
     } else {
-      DEBUG ((DEBUG_INFO, "[Bds] Slot Switch\n"));
-      Status = MsBootOptionsLibSlotSwitchApp (BootOption, "VOL-");
+      DEBUG ((DEBUG_INFO, "[Bds] UEFI Shell\n"));
+      Status = MsBootOptionsLibUEFIShell (BootOption, "VOL-");
     }
   } else if (FrontPageBoot) {
     // Front Page Boot Option

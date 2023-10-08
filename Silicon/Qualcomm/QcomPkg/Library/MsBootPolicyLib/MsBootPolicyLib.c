@@ -178,19 +178,19 @@ MsBootPolicyLibIsSettingsBoot (
 }
 
 /**
- *Ask if the platform is requesting Slot Switch
+ *Ask if the platform is requesting UEFI Shell
 
- *@retval TRUE     System is requesting Slot Switch
- *@retval FALSE    System is not requesting Slot Switch.
+ *@retval TRUE     System is requesting UEFI Shell
+ *@retval FALSE    System is not requesting UEFI Shell.
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibSlotSwitch (
+MsBootPolicyLibUEFIShell (
   VOID
   )
 {
-  EFI_STATUS Status     = EFI_SUCCESS;
-  BOOLEAN    SlotSwitch = FALSE;
+  EFI_STATUS Status    = EFI_SUCCESS;
+  BOOLEAN    UEFIShell = FALSE;
 
   // Locate the Button Services protocol
   GetButtonServiceProtocol ();
@@ -198,16 +198,16 @@ MsBootPolicyLibSlotSwitch (
     DEBUG ((DEBUG_WARN, "%a failed to locate ButtonServices protocol, assuming no presses.\n", __FUNCTION__));
   } else {
     // Check if volume down was pressed before the power button when the system powered on
-    Status = gButtonService->PreBootVolumeDownButtonThenPowerButtonCheck (gButtonService, &SlotSwitch);
+    Status = gButtonService->PreBootVolumeDownButtonThenPowerButtonCheck (gButtonService, &UEFIShell);
 
     if (EFI_ERROR (Status)) {
       DEBUG ((DEBUG_WARN, "%a failed to get volume down state on power on. %r\n", __FUNCTION__, Status));
 
-      SlotSwitch = FALSE;          // not sure of its state after the Bsp call failure
+      UEFIShell = FALSE;          // not sure of its state after the Bsp call failure
     }
   }
 
-  return SlotSwitch;
+  return UEFIShell;
 }
 
 EFI_STATUS

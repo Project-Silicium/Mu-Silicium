@@ -13,7 +13,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 /**
   Return the boot option corresponding to the Slot Switch App.
 
-  @param BootOption    Return a created Slot Switch App with the parameter passed
+  @param BootOption     Return a created Slot Switch App with the parameter passed
 
   @retval EFI_SUCCESS   The Slot Switch App is successfully returned.
   @retval Status        Return status of gRT->SetVariable (). BootOption still points
@@ -22,6 +22,22 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 EFI_STATUS
 EFIAPI
 MsBootOptionsLibSlotSwitchApp (
+  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION  *BootOption,
+  IN     CHAR8                         *Parameter
+  );
+
+/**
+  Return the boot option corresponding to the UEFI Shell.
+
+  @param BootOption     Return a created Slot UEFI Shell with the parameter passed
+
+  @retval EFI_SUCCESS   The Slot UEFI Shell is successfully returned.
+  @retval Status        Return status of gRT->SetVariable (). BootOption still points
+                        to the Slot UEFI Shell even the Status is not EFI_SUCCESS.
+**/
+EFI_STATUS
+EFIAPI
+MsBootOptionsLibUEFIShell (
   IN OUT EFI_BOOT_MANAGER_LOAD_OPTION  *BootOption,
   IN     CHAR8                         *Parameter
   );

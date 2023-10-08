@@ -24,6 +24,11 @@
 
   INF DfciPkg/Application/DfciMenu/DfciMenu.inf
 
+  FILE APPLICATION = PCD(gPcBdsPkgTokenSpaceGuid.PcdShellFile) {
+    SECTION PE32 = $(OUTPUT_DIRECTORY)/$(TARGET)_$(TOOL_CHAIN_TAG)/AARCH64/Shell.efi
+    SECTION UI = "Shell"
+  }
+
   FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdNoBootOSFile) {
     SECTION RAW = QcomPkg/Include/Resources/NoBootOS.png
   }

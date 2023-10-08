@@ -28,6 +28,9 @@
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
 
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
+
 [LibraryClasses.common]
   PlatformMemoryMapLib|laurel_sproutPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
