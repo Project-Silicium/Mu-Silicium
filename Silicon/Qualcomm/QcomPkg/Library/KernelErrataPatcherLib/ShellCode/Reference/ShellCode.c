@@ -266,44 +266,43 @@ VOID DoSomething(VOID *OsLoaderBlock, VOID *KernelAddress)
 VOID OslArm64TransferToKernel(VOID *OsLoaderBlock, VOID *KernelAddress)
 {
   PLOADER_PARAMETER_BLOCK loaderBlock = (PLOADER_PARAMETER_BLOCK)OsLoaderBlock;
+  LIST_ENTRY             *entry       = (&loaderBlock->LoadOrderListHead)->ForwardLink;
 
-  for (LIST_ENTRY *entry = (&loaderBlock->LoadOrderListHead)->ForwardLink;
-       entry != (&loaderBlock->LoadOrderListHead); entry = entry->ForwardLink) {
+  PKLDR_DATA_TABLE_ENTRY kernelModule =
+      CONTAINING_RECORD(entry, KLDR_DATA_TABLE_ENTRY, InLoadOrderLinks);
 
-    PKLDR_DATA_TABLE_ENTRY kernelModule =
-        CONTAINING_RECORD(entry, KLDR_DATA_TABLE_ENTRY, InLoadOrderLinks);
+  EFI_PHYSICAL_ADDRESS base = (EFI_PHYSICAL_ADDRESS)kernelModule->DllBase;
+  UINTN                size = kernelModule->SizeOfImage;
 
-    EFI_PHYSICAL_ADDRESS base = (EFI_PHYSICAL_ADDRESS)kernelModule->DllBase;
-    UINTN                size = kernelModule->SizeOfImage;
-
-    for (EFI_PHYSICAL_ADDRESS current = base; current < base + size;
-         current += sizeof(UINT32)) {
-      if (*(UINT32 *)current == 0xD5381028 || // mrs x8, actlr_el1
-          *(UINT32 *)current == 0xD53BD2A8) { // mrs x8,
-                                              // amcntenset0_el0
-        *(UINT32 *)current = 0xD2800008;      // movz x8, #0
-      }
-      else if (
-          *(UINT32 *)current == 0xD5181028 || // msr actlr_el1, x8
-          *(UINT32 *)current == 0xD5181029) { // msr actlr_el1, x9
-        *(UINT32 *)current = 0xD503201F;      // nop
-      }
-      else if (
-          *(UINT64 *)current == 0xD2800003180002D5 &&
-          *(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
-              0xD2800001D2800002) { // ldr w21, #0x58 - movz x3, #0 - movz x2,
-                                    // #0 - movz x1, #0
-        *(UINT32 *)(current - ARM64_TOTAL_INSTRUCTION_LENGTH(8)) =
-            0xD65F03C0; // ret
-      }
-      else if (
-          *(UINT64 *)current == 0xD2800002D2800003 &&
-          *(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
-              0x18000240D2800001) { // movz x3, #0 - movz x2, #0 - movz x1, #0 -
-                                    // ldr w0, #0x54
-        *(UINT32 *)(current - ARM64_TOTAL_INSTRUCTION_LENGTH(7)) =
-            0xD65F03C0; // ret
-      }
+  for (EFI_PHYSICAL_ADDRESS current = base; current < base + size;
+       current += sizeof(UINT32)) {
+    if (*(UINT32 *)current == 0xD5381028 || // mrs x8, actlr_el1
+        *(UINT32 *)current == 0xD53BD2A8) { // mrs x8,
+                                            // amcntenset0_el0
+      *(UINT32 *)current = 0xD2800008;      // movz x8, #0
+    }
+    else if (
+        *(UINT32 *)current == 0xD5181028 || // msr actlr_el1, x8
+        *(UINT32 *)current == 0xD5181029) { // msr actlr_el1, x9
+      *(UINT32 *)current = 0xD503201F;      // nop
+    }
+    else if (
+        *(UINT64 *)current == 0xD2800003180002D5 &&
+        *(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
+            0xD2800001D2800002) { // ldr w21, #0x58 - movz x3, #0 - movz x2,
+                                  // #0 - movz x1, #0
+      *(UINT32 *)(current - ARM64_TOTAL_INSTRUCTION_LENGTH(8)) =
+          0xD65F03C0; // ret
+    }
+    else if (
+        *(UINT64 *)current == 0xD2800002D2800003 &&
+        (*(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
+             0x18000240D2800001 ||
+         *(UINT64 *)(current + ARM64_TOTAL_INSTRUCTION_LENGTH(2)) ==
+             0x180002C0D2800001)) { // movz x3, #0 - movz x2, #0 - movz x1, #0
+                                    // - (ldr w0, #0x48 || ldr w0, #0x58)
+      *(UINT32 *)(current - ARM64_TOTAL_INSTRUCTION_LENGTH(7)) =
+          0xD65F03C0; // ret
     }
   }
 

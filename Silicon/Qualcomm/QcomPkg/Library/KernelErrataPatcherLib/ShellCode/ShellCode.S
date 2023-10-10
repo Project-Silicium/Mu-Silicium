@@ -61,6 +61,7 @@ _Start:
 	cmp	x3, x13
 	bne	.L7
 	ldr	x3, [x2, 8]
+	and	x3, x3, -549755813889
 	cmp	x3, x16
 	bne	.L7
 	str	w17, [x2, -28]
