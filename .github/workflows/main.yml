@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - "main"
+
+  pull_request:
+    branches:
+      - "main"
+
+name: Build
+
+jobs:
+  create-boot-image:
+    name: Create boot image for ginkgo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Build Mu
+        run: |
+          chmod 744 ./setup_env.sh
+          ./setup_env.sh -p apt
+          chmod 744 ./build_uefi.sh
+          ./build_uefi.sh -d ginkgo -m 4 -r DEBUG
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Redmi Note 8
+          path: ./Mu-ginkgo.img
