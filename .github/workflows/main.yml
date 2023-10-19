@@ -1,11 +1,11 @@
 on:
   push:
     branches:
-      - "main"
+      - "win"
 
   pull_request:
     branches:
-      - "main"
+      - "win"
 
 name: Build
 
