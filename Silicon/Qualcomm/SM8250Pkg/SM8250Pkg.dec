@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = SM8250Pkg
+  PACKAGE_GUID                        = 2ce928fa-55d9-49ed-869c-d5a940b61a20
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gSM8250PkgTokenSpaceGuid            = { 0x2ce928fa, 0x55d9, 0x49ed, { 0x86, 0x9c, 0xd5, 0xa9, 0x40, 0xb6, 0x1a, 0x20 } }
