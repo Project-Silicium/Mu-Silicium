@@ -57,4 +57,6 @@
     SECTION RAW = QcomPkg/Applications/FrontPage/Resources/NoBoot.bmp
   }
 
+!if $(PRECOMPILED_CRYPTO_BINARIES) == 1
   INF CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf
+!endif

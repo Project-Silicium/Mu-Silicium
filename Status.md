@@ -579,3 +579,79 @@
 |UART||❌|
 
 </td></tr> </table>
+
+## Huawei Y6 2018
+
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Huawei-Y6-2018.png" width="420" alt="Preview">
+
+**SoC: MSM8917** <br />
+**Codename: ATU-L21** <br />
+**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: None** <br />
+**Tester: [Robotix22](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display|FB is not reconfigured yet|⚠️|
+|Touchscreen||❌|
+|Clocks||❌|
+|eMMC||❌|
+|Buttons||❌|
+|USB||❌|
+|SD Card||❌|
+|ACPI||❌|
+|UART||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|eMMC||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|eMMC||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td></tr> </table>
