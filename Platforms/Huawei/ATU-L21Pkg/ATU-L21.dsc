@@ -39,7 +39,7 @@
 !elseif $(RAM_SIZE) == 2
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x80000000        # 2GB Size
 !else
-!error "Invaild RAM Size! Use 8 or 6."
+!error "Invaild RAM Size! Use 3 or 2."
 !endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"   # Device Maintainer
