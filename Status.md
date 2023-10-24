@@ -594,7 +594,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Display|FB is not reconfigured yet|⚠️|
+|Display||✅|
 |Touchscreen||❌|
 |Clocks||❌|
 |eMMC||❌|
