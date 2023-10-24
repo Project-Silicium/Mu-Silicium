@@ -24,9 +24,13 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = ATU-L21Pkg/ATU-L21.fdf
+  DISPLAY_USES_RGBA              = 1
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
+
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|ATU-L21Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
@@ -59,7 +63,7 @@
   # Simple FrameBuffer
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1440
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|24
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720

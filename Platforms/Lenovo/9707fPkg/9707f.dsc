@@ -24,13 +24,14 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = 9707fPkg/9707f.fdf
+  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
   SOC_TYPE                       = 2
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|9707fPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf

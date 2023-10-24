@@ -24,6 +24,7 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = sweet_k6aPkg/sweet_k6a.fdf
+  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
@@ -34,7 +35,7 @@
   SOC_TYPE                       = 2
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|sweet_k6aPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
