@@ -9,6 +9,7 @@
 
 ## Galaxy Tab S8 5G
 
+**WARNING: This Device has no Maintainer!** <br />
 **WARNING: Only Debug Build work right now!** <br />
 **NOTE: A Protocol called DTBExt is missing wich leads to the Unstable State.**
 
@@ -16,9 +17,9 @@
 
 **SoC: SM8450** <br />
 **Codename: gts8** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Maintainer: None** <br />
 **Contibuters: None** <br />
-**Tester: [Robotix22](https://github.com/Robotix22/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -177,11 +178,13 @@
 
 ## Xiaomi 11T Pro
 
+**WARNING: This Device has no Maintainer!**
+
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="420" alt="Preview">
 
 **SoC: SM8350** <br />
 **Codename: vili** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Maintainer: None** <br />
 **Contibuters: None** <br />
 **Tester: [Ashwinlapmobtech](https://github.com/Ashwinlapmobtech)**
 
@@ -341,7 +344,7 @@
 
 ## Redmi Note 12 Pro 4G
 
-**WARNING: This Device has no Maintainer! The Status may not be correct anymore.**
+**WARNING: This Device has no Maintainer!**
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="420" alt="Preview">
 
