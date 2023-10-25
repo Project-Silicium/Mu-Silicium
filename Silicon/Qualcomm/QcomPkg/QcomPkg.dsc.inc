@@ -36,7 +36,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
 
 [PcdsFixedAtBuild.common]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"1.9"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.0"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01230812
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
@@ -105,8 +105,8 @@
   # 4042708A-0F2D-4823-AC60-0D77B3111889
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x8A, 0x70, 0x42, 0x40, 0x2D, 0x0F, 0x23, 0x48, 0xAC, 0x60, 0x0D, 0x77, 0xB3, 0x11, 0x18, 0x89 }
 
-  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000019
-  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20230925
+  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000020
+  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20231025
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x2000
 
