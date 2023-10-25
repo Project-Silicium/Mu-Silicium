@@ -81,23 +81,11 @@ stuart_setup -c "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformB
 stuart_update -c "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TOOL_CHAIN_TAG=${TOOL_CHAIN_TAG}"||_error "\nFailed to Update UEFI Env!\n"
 stuart_build -c "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TOOL_CHAIN_TAG=${TOOL_CHAIN_TAG}" "TARGET=${_TARGET_BUILD_MODE}" "RAM_SIZE=${TARGET_RAM_SIZE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}"||_error "\nFailed to Compile UEFI!\n"
 
-# Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/${TARGET_DEVICE}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${TARGET_DEVICE^^}_UEFI.fd" > "./Build/${TARGET_DEVICE}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${TARGET_DEVICE^^}_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/${TARGET_DEVICE}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${TARGET_DEVICE^^}_UEFI.fd-bootshim" > "./Build/${TARGET_DEVICE}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${TARGET_DEVICE^^}_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/${TARGET_DEVICE}Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/${TARGET_DEVICE^^}_UEFI.fd-bootshim.gz" "./ImageResources/DTBs/${TARGET_DEVICE}.dtb" > ./ImageResources/bootpayload.bin||exit 1
-
-# Create bootable Android boot.img
-python3 ./ImageResources/mkbootimg.py \
-  --kernel ./ImageResources/bootpayload.bin \
-  --ramdisk ./ImageResources/ramdisk \
-  --kernel_offset 0x00000000 \
-  --ramdisk_offset 0x00000000 \
-  --tags_offset 0x00000000 \
-  --os_version 13.0.0 \
-  --os_patch_level "$(date '+%Y-%m')" \
-  --header_version 1 \
-  -o "Mu-${TARGET_DEVICE}.img" \
-  ||_error "\nFailed to create Android Boot Image!\n"
+# Execute Device Specific Boot Image Creation
+if [ -f "configs/${TARGET_DEVICE}.sh" ]
+then source configs/${TARGET_DEVICE}.sh
+else _warn "\nImage Creation Script of ${TARGET_DEVICE} has not been Found!\nNo Boot Image Was Generated.\n"
+fi
 
 if [[ ${STATUS} != "STABLE" ]]; then
 	if [[ ${STATUS} == "UNSTABLE" ]];
