@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = GenericKeypadDeviceDxe
+  FILE_GUID                      = 39A24CF8-411E-48EB-8BEA-3ED07327F400
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+
+  ENTRY_POINT                    = KeypadDeviceDxeInitialize
+
+[Sources.common]
+  GenericKeypadDevice.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  DebugLib
+  KeypadDeviceImplLib
+
+[Protocols]
+  gQcomKeypadDeviceProtocolGuid
+  gEfiDevicePathProtocolGuid
+
+[Depex]
+  TRUE

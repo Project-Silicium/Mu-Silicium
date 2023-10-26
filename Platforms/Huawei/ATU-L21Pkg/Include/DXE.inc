@@ -30,6 +30,9 @@
   INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF QcomPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  INF QcomPkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
+  INF MSM8917Pkg/Drivers/GpioTlmmDxe/GpioTlmmDxe.inf
 
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf

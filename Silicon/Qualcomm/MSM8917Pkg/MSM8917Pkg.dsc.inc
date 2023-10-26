@@ -46,5 +46,6 @@
 
 [Components.common]
   MSM8917Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  MSM8917Pkg/Drivers/GpioTlmmDxe/GpioTlmmDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

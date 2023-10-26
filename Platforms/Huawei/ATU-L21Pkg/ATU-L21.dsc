@@ -34,6 +34,7 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|ATU-L21Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  KeypadDeviceImplLib|ATU-L21Pkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific
@@ -64,6 +65,11 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1440
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|24
+
+[Components.common]
+  # Keypad
+  QcomPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  QcomPkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720
