@@ -259,8 +259,16 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a77_big = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
+#if SOC_TYPE == 2
     3190,                  // MaxSpeed;
     3190,                  // CurrentSpeed;
+#elif SOC_TYPE == 1
+    3090,                  // MaxSpeed;
+    3090,                  // CurrentSpeed;
+#else
+    2840,                  // MaxSpeed;
+    2840,                  // CurrentSpeed;
+#endif
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
