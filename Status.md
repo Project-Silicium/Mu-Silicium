@@ -683,7 +683,7 @@
 |Touchscreen||❌|
 |Clocks||❌|
 |eMMC||❌|
-|Buttons||❌|
+|Buttons|Only Volume Up works|⚠️|
 |USB||❌|
 |SD Card||❌|
 |ACPI||❌|
