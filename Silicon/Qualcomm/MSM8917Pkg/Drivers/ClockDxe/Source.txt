@@ -1,0 +1,2 @@
+URL:    https://github.com/geckyn/lk2nd/
+BRANCH: LA.UM.8.6.r1-04600-V1
