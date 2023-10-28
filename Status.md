@@ -681,7 +681,7 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||❌|
+|Clocks||✅|
 |eMMC||❌|
 |Buttons|Only Volume Up works|⚠️|
 |USB||❌|
