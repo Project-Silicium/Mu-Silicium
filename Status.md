@@ -279,9 +279,9 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB||❔|
+|USB|No USB Power|⚠️|
 |ACPI||❌|
-|Slot Switch||❔|
+|Slot Switch||✅|
 |UART||❔|
 
 ### OS Status
