@@ -28,6 +28,10 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
+
+  # 0 = SM8250
+  # 1 = SM8250-AB
+  # 2 = SM8250-AC
   SOC_TYPE                       = 2
 
 [BuildOptions.common]
@@ -38,6 +42,7 @@
 
 [PcdsFixedAtBuild.common]
   # Platform-specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
 !if $(RAM_SIZE) == 8
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size
 !elseif $(RAM_SIZE) == 12
@@ -47,6 +52,11 @@
 !endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"CloudSweets"   # Device Maintainer
+
+  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
+
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00067000      # 128K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo"

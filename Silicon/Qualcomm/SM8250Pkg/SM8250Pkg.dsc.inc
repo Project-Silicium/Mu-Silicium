@@ -18,19 +18,15 @@
   *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
+  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A00000
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00008250
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00067000      # 128K stack
-  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x09BC0000
-  gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|44
+  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x17A00000
 
 !if $(SOC_TYPE) == 0
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 865 @ 2.84 GHz"
