@@ -186,7 +186,7 @@
 **Codename: vili** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
-**Tester: [Ashwinlapmobtech](https://github.com/Ashwinlapmobtech)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -445,7 +445,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
-|ACPI||⚙️|
+|ACPI|Dosen't work due to a Unknown Issue|❌|
 |Slot Switch||✅|
 |UART||✅|
 
@@ -526,7 +526,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
-|ACPI||⚙️|
+|ACPI|Dosen't work due to a Unknown Issue|❌|
 |UART||❔|
 
 ### OS Status
@@ -606,7 +606,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
-|ACPI||⚙️|
+|ACPI|Dosen't work due to a Unknown Issue|❌|
 |UART||❔|
 
 ### OS Status
