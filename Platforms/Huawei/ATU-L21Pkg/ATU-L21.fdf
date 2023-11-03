@@ -119,11 +119,6 @@ READ_LOCK_STATUS   = TRUE
 
   INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
-    SECTION RAW = ATU-L21Pkg/Include/Resources/BootLogo.png
-    SECTION UI = "Logo"
-  }
-
   # TODO: Make this Image for every single Device
   FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
     SECTION RAW = QcomPkg/Include/Resources/RegulatoryLogos.png

@@ -23,6 +23,9 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/BmpSupportLib.h>
 #include <Library/UefiLib.h>
 
+#define MS_MAX_HEIGHT_PERCENTAGE  40 // 40%
+#define MS_MAX_WIDTH_PERCENTAGE   40 // 40%
+
 EFI_STATUS
 EFIAPI
 DisplayBootGraphic (
@@ -159,6 +162,16 @@ DisplayBootGraphic (
     DEBUG ((DEBUG_VERBOSE, "Landscape mode detected.\n"));
   }
 
+  // If system logo it must meet size requirements.
+  if (Graphic == BG_SYSTEM_LOGO) {
+    // check if the image is appropriate size as per data defined in the windows engineering guide.
+    if ((Width > ((SizeOfX * MS_MAX_WIDTH_PERCENTAGE) / 100)) || (Height > ((SizeOfY * MS_MAX_HEIGHT_PERCENTAGE) / 100))) {
+      DEBUG ((DEBUG_ERROR, "Logo dimensions are not according to Specification. Screen size is %d by %d, Logo size is %d by %d   \n", SizeOfX, SizeOfY, Width, Height));
+      Status = EFI_INVALID_PARAMETER;
+      goto CleanUp;
+    }
+  }
+
   DestX = (SizeOfX - Width) / 2;
   DestY = (SizeOfY - Height) / 2;
 
@@ -221,12 +234,15 @@ CleanUp:
 EFI_STATUS
 EFIAPI
 DisplayPostBootGraphic (
-  BOOT_GRAPHIC Graphic,
-  INTN DestX, INTN DestY)
+  BOOT_GRAPHIC  Graphic,
+  INTN DestX, INTN DestY
+  )
 {
   EFI_STATUS                     Status;
   UINTN                          Height;
   UINTN                          Width;
+  UINT32                         SizeOfX;
+  UINT32                         SizeOfY;
   UINT8                          *ImageData;
   UINTN                          ImageSize;
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL  *Blt;
@@ -271,6 +287,9 @@ DisplayPostBootGraphic (
     DEBUG ((DEBUG_WARN, "%a - ConOut is NULL, will not disable cursor\n", __FUNCTION__));
   }
 
+  SizeOfX = GraphicsOutput->Mode->Info->HorizontalResolution;
+  SizeOfY = GraphicsOutput->Mode->Info->VerticalResolution;
+
   Blt   = NULL;
 
   ///
@@ -287,6 +306,12 @@ DisplayPostBootGraphic (
   DEBUG ((DEBUG_INFO, "PixelFormat:0x%x \n", GraphicsOutput->Mode->Info->PixelFormat));
   DEBUG ((DEBUG_INFO, "PixelsPerScanLine:0x%x \n", GraphicsOutput->Mode->Info->PixelsPerScanLine));
 
+  // Draw our device state
+  DisplayDeviceState (
+    (INT32)SizeOfX,
+    (INT32)SizeOfY
+    );
+
   Status = GetPostBootGraphic (Graphic, &ImageSize, &ImageData);
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "GetPlatformBootGraphic Status: %r\n", Status));
@@ -300,6 +325,10 @@ DisplayPostBootGraphic (
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "Failed to TranslateBmpToGopBlt In Logo.c %r\n", Status));
     goto CleanUp;
+  }
+
+  if (SizeOfX >= SizeOfY) {
+    DEBUG ((DEBUG_VERBOSE, "Landscape mode detected.\n"));
   }
 
   // Blt to screen

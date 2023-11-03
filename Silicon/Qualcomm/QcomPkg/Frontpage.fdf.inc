@@ -24,13 +24,18 @@
 
   INF DfciPkg/Application/DfciMenu/DfciMenu.inf
 
+  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
+    SECTION RAW = OemPkg/FrontPage/Resources/BootLogo.bmp
+    SECTION UI = "Logo"
+  }
+
   FILE APPLICATION = PCD(gPcBdsPkgTokenSpaceGuid.PcdShellFile) {
     SECTION PE32 = $(OUTPUT_DIRECTORY)/$(TARGET)_$(TOOL_CHAIN_TAG)/AARCH64/Shell.efi
     SECTION UI = "Shell"
   }
 
   FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdNoBootOSFile) {
-    SECTION RAW = QcomPkg/Include/Resources/NoBootOS.png
+    SECTION RAW = QcomPkg/Include/Resources/NoBootOS.bmp
   }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdFrontPageLogoFile) {

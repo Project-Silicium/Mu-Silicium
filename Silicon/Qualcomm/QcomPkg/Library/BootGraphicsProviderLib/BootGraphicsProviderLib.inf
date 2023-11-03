@@ -34,7 +34,6 @@
   BmpSupportLib
   DebugLib
   DxeServicesLib
-  LodePngLib
   PcdLib
   UefiBootServicesTableLib
 
