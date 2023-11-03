@@ -10,14 +10,18 @@
 #include <Library/DebugLib.h>
 
 #include <Protocol/QcomGpioTlmm.h>
+#include <Protocol/QcomPmic.h>
 #include <Protocol/KeypadDevice.h>
 
 QCOM_GPIO_TLMM_PROTOCOL *mGpioProtocol;
+QCOM_PMIC_PROTOCOL      *mPm8x41Protocol;
 
 typedef struct {
   KEY_CONTEXT EfiKeyContext;
   UINT32      TlmmBaseAddr;
+  BOOLEAN     IsGpio;
   UINT32      Gpio;
+  UINT8       IntBit;
 } KEY_CONTEXT_PRIVATE;
 
 UINTN gBitmapScanCodes[BITMAP_NUM_WORDS(0x18)]    = {0};
@@ -170,15 +174,19 @@ LibKeyUpdateKeyStatus(
 }
 
 STATIC KEY_CONTEXT_PRIVATE KeyContextVolumeUp;
+STATIC KEY_CONTEXT_PRIVATE KeyContextVolumeDown;
+STATIC KEY_CONTEXT_PRIVATE KeyContextPower;
 
-STATIC KEY_CONTEXT_PRIVATE *KeyList[] = { &KeyContextVolumeUp};
+STATIC KEY_CONTEXT_PRIVATE *KeyList[] = { &KeyContextVolumeUp, &KeyContextVolumeDown, &KeyContextPower };
 
 STATIC
 VOID
 KeypadInitializeKeyContextPrivate(KEY_CONTEXT_PRIVATE *Context)
 {
   Context->TlmmBaseAddr = 0;
+  Context->IsGpio       = TRUE;
   Context->Gpio         = 0;
+  Context->IntBit       = 0;
 }
 
 STATIC
@@ -186,6 +194,10 @@ KEY_CONTEXT_PRIVATE *KeypadKeyCodeToKeyContext(UINT32 KeyCode)
 {
   if (KeyCode == 115) {
     return &KeyContextVolumeUp;
+  } else if (KeyCode == 116) {
+    return &KeyContextVolumeDown;
+  } else if (KeyCode == 117) {
+    return &KeyContextPower;
   }
 
   return NULL;
@@ -206,6 +218,13 @@ KeypadDeviceImplConstructor(VOID)
     return RETURN_SUCCESS;
   }
 
+  // Locate Pmic Protocol
+  Status = gBS->LocateProtocol(&gQcomPmicProtocolGuid, NULL, (VOID *)&mPm8x41Protocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Pm8x41 Protocol! Status = %r\n", Status));
+    return RETURN_SUCCESS;
+  }
+
   // Reset all keys
   for (Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
     KeypadInitializeKeyContextPrivate(KeyList[Index]);
@@ -222,6 +241,16 @@ KeypadDeviceImplConstructor(VOID)
   // Wait for Gpio Configuration take effect
   MicroSecondDelay(10000);
 
+  /// Volume Down Button
+  StaticContext               = KeypadKeyCodeToKeyContext(116);
+  StaticContext->IsGpio       = FALSE;
+  StaticContext->IntBit       = 1;
+
+  /// Power Button
+  StaticContext               = KeypadKeyCodeToKeyContext(117);
+  StaticContext->IsGpio       = FALSE;
+  StaticContext->IntBit       = 0;
+
   return RETURN_SUCCESS;
 }
 
@@ -231,6 +260,12 @@ KeypadDeviceImplReset(KEYPAD_DEVICE_PROTOCOL *This)
 {
   LibKeyInitializeKeyContext(&KeyContextVolumeUp.EfiKeyContext);
   KeyContextVolumeUp.EfiKeyContext.KeyData.Key.ScanCode = SCAN_UP;
+
+  LibKeyInitializeKeyContext(&KeyContextVolumeDown.EfiKeyContext);
+  KeyContextVolumeDown.EfiKeyContext.KeyData.Key.ScanCode = SCAN_DOWN;
+
+  LibKeyInitializeKeyContext(&KeyContextPower.EfiKeyContext);
+  KeyContextPower.EfiKeyContext.KeyData.Key.UnicodeChar = 0xd;  // Enter
 
   return EFI_SUCCESS;
 }
@@ -244,15 +279,27 @@ KeypadDeviceImplGetKeys(
   BOOLEAN                  IsPressed;
   UINTN                    Index;
 
+  if (mGpioProtocol == NULL || mPm8x41Protocol == NULL) {
+    return EFI_SUCCESS;
+  }
+
   for (Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
     KEY_CONTEXT_PRIVATE *Context = KeyList[Index];
 
     IsPressed = FALSE;
+  
+    if (Context->IsGpio == TRUE) {
+      UINT32 ButtonState = mGpioProtocol->GetGpio(Context->TlmmBaseAddr, Context->Gpio);
 
-    UINT32 ButtonStatus = mGpioProtocol->GetGpio(Context->TlmmBaseAddr, Context->Gpio);
+      if (ButtonState == 0) {
+        IsPressed = TRUE;
+      }
+    } else {
+      UINT8 ButtonState = mPm8x41Protocol->ReadReg(0x810);
 
-    if (ButtonStatus == 0) {
-      IsPressed = TRUE;
+      if (ButtonState & (1 << Context->IntBit)) {
+        IsPressed = TRUE;
+      }
     }
 
     LibKeyUpdateKeyStatus(&Context->EfiKeyContext, KeypadReturnApi, IsPressed, Delta);

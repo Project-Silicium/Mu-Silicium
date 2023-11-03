@@ -18,6 +18,8 @@ APRIORI DXE {
 
     INF MSM8917Pkg/Drivers/GpioTlmmDxe/GpioTlmmDxe.inf
     INF MSM8917Pkg/Drivers/ClockDxe/ClockDxe.inf
+    INF MSM8917Pkg/Drivers/SpmiDxe/SpmiDxe.inf
+    INF MSM8917Pkg/Drivers/Pm8x41Dxe/Pm8x41Dxe.inf
 
     INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf

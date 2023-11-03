@@ -1,0 +1,27 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Pm8x41Dxe
+  FILE_GUID                      = 4523e802-1376-4228-8cc8-df69caf247e6
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Pm8x41DxeInitialize
+
+[Sources.common]
+  Pm8x41Dxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  MSM8917Pkg/MSM8917Pkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+
+[Protocols]
+  gQcomPmicProtocolGuid
+  gQcomSpmiProtocolGuid
+
+[Depex]
+  TRUE

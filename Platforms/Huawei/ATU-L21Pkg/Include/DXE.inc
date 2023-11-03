@@ -35,6 +35,8 @@
 
   INF MSM8917Pkg/Drivers/GpioTlmmDxe/GpioTlmmDxe.inf
   INF MSM8917Pkg/Drivers/ClockDxe/ClockDxe.inf
+  INF MSM8917Pkg/Drivers/SpmiDxe/SpmiDxe.inf
+  INF MSM8917Pkg/Drivers/Pm8x41Dxe/Pm8x41Dxe.inf
 
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf

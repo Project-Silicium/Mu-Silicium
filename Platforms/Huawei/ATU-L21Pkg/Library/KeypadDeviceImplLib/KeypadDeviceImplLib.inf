@@ -25,3 +25,4 @@
 
 [Protocols]
   gQcomGpioTlmmProtocolGuid
+  gQcomPmicProtocolGuid
