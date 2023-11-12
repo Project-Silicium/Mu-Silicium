@@ -147,24 +147,8 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
     def __init__(self):
         UefiBuilder.__init__(self)
 
-    def AddCommandLineOptions(self, parserObj):
-        ''' Add command line options to the argparser '''
-
-        # In an effort to support common server based builds this parameter is added.  It is
-        # checked for correctness but is never uses as this platform only supports a single set of
-        # architectures.
-        parserObj.add_argument('-a', "--arch", dest="build_arch", type=str, default="AARCH64",
-            help="Optional - CSV of architecture to build.  AARCH64 is used for PEI and "
-            "DXE and is the only valid option for this platform.")
-
     def RetrieveCommandLineOptions(self, args):
         '''  Retrieve command line options from the argparser '''
-        if args.build_arch.upper() != "AARCH64":
-            raise Exception("Invalid Arch Specified.  Please see comments in PlatformBuild.py::PlatformBuilder::AddCommandLineOptions")
-
-        shell_environment.GetBuildVars().SetValue(
-            "TARGET_ARCH", args.build_arch.upper(), "From CmdLine")
-
         shell_environment.GetBuildVars().SetValue(
             "ACTIVE_PLATFORM", "ATU-L21Pkg/ATU-L21.dsc", "From CmdLine")
 
@@ -205,7 +189,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
         logging.debug("PlatformBuilder SetPlatformEnv")
         self.env.SetValue("PRODUCT_NAME", "ATU-L21", "Platform Hardcoded")
         self.env.SetValue("ACTIVE_PLATFORM", "ATU-L21Pkg/ATU-L21.dsc", "Platform Hardcoded")
-        self.env.SetValue("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
+        self.env.SetValue("TARGET_ARCH", self.env.GetValue("TARGET_ARCH"), "Platform Hardcoded")
         self.env.SetValue("TOOL_CHAIN_TAG", self.env.GetValue("TOOL_CHAIN_TAG"), "Default")
         self.env.SetValue("BUILDREPORTING", "TRUE", "Enabling build report")
         self.env.SetValue("BUILDREPORT_TYPES", "PCD DEPEX FLASH BUILD_FLAGS LIBRARY FIXED_ADDRESS HASH", "Setting build report types")

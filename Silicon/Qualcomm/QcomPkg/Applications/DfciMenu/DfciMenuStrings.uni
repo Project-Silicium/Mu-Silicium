@@ -1,0 +1,126 @@
+/** @file
+DfciMenuStrings.uni
+
+This file maintains the text strings used by the Device Firmware Configuration Interface Menu.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+SPDX-License-Identifier: BSD-2-Clause-Patent
+
+**/
+
+#langdef   en-US " English "
+#langdef   en    " Standard English "
+
+// Common Form strings
+
+#string STR_NULL_STRING                     #language en-US  ""
+
+//*---------------------------------------------------------------------*
+// Form 1  - Dfci Main form
+//
+//*---------------------------------------------------------------------*
+#string STR_DFCI_MENU_TITLE                 #language en-US  "Management"
+
+#string STR_DFCI_MANAGEMENT_HEADER          #language en-US  "\fh!48!Management"
+
+#string STR_DFCI_OPT_IN_CHANGED             #language en-US  "\fc!Red!The opt in state has been changed. Restart the system to apply the setting."
+
+#string STR_DFCI_ZUM_STATUS_READY           #language en-US  "Zero-touch UEFI Management: Ready"
+
+#string STR_DFCI_ZUM_OPT_OUT                #language en-US  "Opt Out"
+
+#string STR_DFCI_ZUM_STATUS_NOT_READY       #language en-US  "Zero-touch UEFI Management: Not Ready"
+
+#string STR_DFCI_ZUM_OPT_IN                 #language en-US  "Opt In"
+
+#string STR_DFCI_USB_INSTALL                #language en-US  "If your settings manager has provided you with a configuration file on a USB drive, press Install from USB to apply the management file."
+
+#string STR_DFCI_USB_INSTALL_NOW            #language en-US  "Install from USB"
+
+#string STR_DFCI_MANAGED_BY                 #language en-US  "Managed by:"
+
+#string STR_DFCI_MANAGED_BY_FIELD           #language en-US  "Managed by field missing"
+
+#string STR_DFCI_ON_BEHALF_OF               #language en-US  "On behalf of: "
+
+#string STR_DFCI_MDM_FRIENDLY_NAME          #language en-US  "MDM Friendly Name missing."
+
+#string STR_DFCI_MDM_TENANT_NAME            #language en-US  "MDM Tenant Name Missing"
+
+#string STR_DFCI_MENU_CONFIGURE             #language en-US  "Configure"
+
+#string STR_DETAILS                         #language en-US  "\fh!36!Details"
+
+#string STR_DFCI_SUBJECT                    #language en-US  "Subject:"
+
+#string STR_DFCI_THUMBPRINT                 #language en-US  "Thumbprint:"
+
+#string STR_DFCI_USER2_SUBJECT_FIELD        #language en-US  "Subject field missing from the certificate"
+
+#string STR_DFCI_USER2_THUMBPRINT_FIELD     #language en-US  "Thumbprint2 field missing from the certificate"
+
+#string STR_DFCI_USER1_SUBJECT_FIELD        #language en-US  "Subject field missing from the certificate"
+
+#string STR_DFCI_USER1_THUMBPRINT_FIELD     #language en-US  "Thumbprint1 field missing from the certificate"
+
+#string STR_DFCI_USER_SUBJECT_FIELD         #language en-US  "Subject field missing from the certificate"
+
+#string STR_DFCI_USER_THUMBPRINT_FIELD      #language en-US  "Thumbprint field missing from the certificate"
+
+#string STR_DFCI_OWNER_SUBJECT_FIELD        #language en-US  "Subject field missing from the certificate"
+
+#string STR_DFCI_OWNER_THUMBPRINT_FIELD     #language en-US  "Thumbprint field missing from the certificate"
+
+#string STR_DFCI_ZTD_SUBJECT_FIELD          #language en-US  "Subject field missing from the certificate"
+
+#string STR_DFCI_ZTD_THUMBPRINT_FIELD       #language en-US  "Thumbprint field missing from the certificate"
+
+//*---------------------------------------------------------------------*
+// Form 2  - Dfci Configure form                                        *
+//                                                                      *
+//*---------------------------------------------------------------------*
+#string STR_DFCI_CONFIGURATION_HEADER       #language en-US  "\fh!48!Management Configuration"
+
+#string STR_DFCI_HTTP_RECOVERY              #language en-US  "The settings manager has enabled network configuration.  With a supported network adapter, pressing Refresh from Network will contact the settings provider to obtain the latest settings for this device."
+
+#string STR_DFCI_HTTP_UPDATE_NOW            #language en-US  "Refresh from Network"
+
+#string STR_DFCI_URL                        #language en-US  "Server:"
+
+#string STR_DFCI_URL_FIELD                  #language en-US  "Server field missing"
+
+#string STR_DFCI_USB_RECOVERY               #language en-US  "If your settings manager has provided you with a configuration file on a USB drive, press Refresh from USB to apply the management file."
+
+#string STR_DFCI_USB_UPDATE_NOW             #language en-US  "Refresh from USB"
+
+#string STR_DFCI_RESET_INFO                 #language en-US  "The settings manager has enabled the Management Recovery feature of Management mode.  To start the reset procedure, press Management Recovery."
+
+#string STR_DFCI_MENU_RECOVERY_NOW          #language en-US  "Management Recovery"
+
+#string STR_DFCI_RESET_PERMISSION_INFO      #language en-US  "The settings manager has not enabled the Management Recovery feature of Management mode on this system."
+
+//*---------------------------------------------------------------------*
+// Form 3  - Dfci Recovery Info form                                    *
+//                                                                      *
+//*---------------------------------------------------------------------*
+#string STR_DFCI_RECOVERY_INFO              #language en-US  "You should only access this menu under the direction of the management owner.  The management owner will have to work with you using the following menus. Press Continue to start the management recovery process."
+
+#string STR_DFCI_MENU_CONTINUE_NOW          #language en-US  "Continue"
+
+//*---------------------------------------------------------------------*
+// Internal dialog box messages
+//
+//*---------------------------------------------------------------------*
+#string STR_DFCI_MB_TITLE                   #language en-US  "Management refresh completed"
+
+#string STR_DFCI_MB_CAPTION                 #language en-US  "Refresh settings request successful"
+
+#string STR_DFCI_MB_CAPTION_FAIL            #language en-US  "Refresh settings request failed"
+
+#string STR_DFCI_MB_NEW_SETTINGS            #language en-US  "Refresh settings requested new settings from\n%s"
+
+#string STR_DFCI_MB_NO_MEDIA                #language en-US  "Unable to detect network cable."
+
+#string STR_DFCI_MB_NOT_FOUND               #language en-US  "%s not found."
+
+#string STR_DFCI_MB_OPT_CHANGE              #language en-US  "ZTD Opt In changed. Restart now to apply the change."

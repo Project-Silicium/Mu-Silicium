@@ -15,7 +15,7 @@
   PRECOMPILED_CRYPTO_BINARIES = 0
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000

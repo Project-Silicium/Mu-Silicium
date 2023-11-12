@@ -16,9 +16,9 @@
 
 [BuildOptions.common]
 !if $(SOC_TYPE) == 1
-  *_*_*_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 !else
-  *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 !endif
 
 [PcdsFixedAtBuild.common]

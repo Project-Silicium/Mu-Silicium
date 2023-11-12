@@ -19,7 +19,7 @@
   PLATFORM_GUID                  = 13d651df-5d7e-4516-ab02-371a565ab594
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/sweet_k6aPkg
+  OUTPUT_DIRECTORY               = Build/sweet_k6aPkg-$(ARCH)
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT

@@ -19,8 +19,8 @@
   PLATFORM_GUID                  = 98ebebe8-c68a-46a6-9c8b-4cee7fc0ff0b
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/ATU-L21Pkg
-  SUPPORTED_ARCHITECTURES        = AARCH64
+  OUTPUT_DIRECTORY               = Build/ATU-L21Pkg-$(ARCH)
+  SUPPORTED_ARCHITECTURES        = ARM|AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = ATU-L21Pkg/ATU-L21.fdf

@@ -1,3 +1,15 @@
+[LibraryClasses.ARM]
+  #
+  # An architecture agnostic math library providing reasonable approximations for various functions in software
+  #
+  MathLib|QcomPkg/Library/MathLib/MathLib.inf
+
+[LibraryClasses.AARCH64]
+  #
+  # An architecture agnostic math library providing reasonable approximations for various functions in software
+  #
+  MathLib|MsCorePkg/Library/MathLib/MathLib.inf
+
 [LibraryClasses.common]
   #
   # Libraries to support Shell
@@ -235,6 +247,21 @@
 
 [Components.AARCH64]
   #
+  # Library to support Remote/IT/Admin Settings such as DFCI
+  #
+  MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
+
+!if $(PRECOMPILED_CRYPTO_BINARIES) == 1
+  CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf
+
+  CryptoPkg/Library/BaseCryptLibOnProtocolPpi/DxeCryptLib.inf {
+    <PcdsFixedAtBuild>
+      !include CryptoPkg/Driver/Bin/Crypto.pcd.STANDARD.inc.dsc
+  }
+!endif
+
+[Components.common]
+  #
   # Spoofs button press to automatically boot to FrontPage.
   #
   OemPkg/FrontpageButtonsVolumeUp/FrontpageButtonsVolumeUp.inf
@@ -250,11 +277,6 @@
   OemPkg/BootMenu/BootMenu.inf
   PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
   MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
-
-  #
-  # Library to support Remote/IT/Admin Settings such as DFCI
-  #
-  MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
 
   #
   # Main component of DFCI. Manages and enforces all DFCI settings.
@@ -327,16 +349,7 @@
 
   MsCorePkg/AcpiRGRT/AcpiRgrt.inf
 
-  DfciPkg/Application/DfciMenu/DfciMenu.inf
-
-!if $(PRECOMPILED_CRYPTO_BINARIES) == 1
-  CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf
-
-  CryptoPkg/Library/BaseCryptLibOnProtocolPpi/DxeCryptLib.inf {
-    <PcdsFixedAtBuild>
-      !include CryptoPkg/Driver/Bin/Crypto.pcd.STANDARD.inc.dsc
-  }
-!endif
+  QcomPkg/Applications/DfciMenu/DfciMenu.inf
 
 #######################################
 #  Shell

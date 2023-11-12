@@ -19,7 +19,7 @@
   PLATFORM_GUID                  = cc6036dc-ca51-493f-b5dd-1a475103cbce
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/9707fPkg
+  OUTPUT_DIRECTORY               = Build/9707fPkg-$(ARCH)
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT

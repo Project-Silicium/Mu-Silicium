@@ -1,0 +1,62 @@
+diff --git a/BaseTools/Conf/tools_def.template b/BaseTools/Conf/tools_def.template
+index dd451054bd..3cfcea1e76 100755
+--- a/BaseTools/Conf/tools_def.template
++++ b/BaseTools/Conf/tools_def.template
+@@ -276,33 +276,33 @@ DEFINE DTC_BIN                 = ENV(DTC_PREFIX)dtc
+ #                               https://acpica.org/downloads
+ #
+ #   GCC48       -Linux,Windows-  Requires:
+-#                             GCC 4.8 targeting x86_64-linux-gnu, aarch64-linux-gnu, or arm-linux-gnueabi
++#                             GCC 4.8 targeting x86_64-linux-gnu, aarch64-linux-gnu, or arm-linux-gnueabihf
+ #                        Optional:
+ #                             Required to build platforms or ACPI tables:
+ #                               Intel(r) ACPI Compiler from
+ #                               https://acpica.org/downloads
+ #   GCC49       -Linux,Windows-  Requires:
+-#                             GCC 4.9 targeting x86_64-linux-gnu, aarch64-linux-gnu, or arm-linux-gnueabi
++#                             GCC 4.9 targeting x86_64-linux-gnu, aarch64-linux-gnu, or arm-linux-gnueabihf
+ #                        Optional:
+ #                             Required to build platforms or ACPI tables:
+ #                               Intel(r) ACPI Compiler from
+ #                               https://acpica.org/downloads
+ #   GCC5        -Linux,Windows-  Requires:
+-#                             GCC 5 with LTO support, targeting x86_64-linux-gnu, aarch64-linux-gnu, arm-linux-gnueabi, riscv64-linux-gnu or loongarch64-linux-gnu
++#                             GCC 5 with LTO support, targeting x86_64-linux-gnu, aarch64-linux-gnu, arm-linux-gnueabihf, riscv64-linux-gnu or loongarch64-linux-gnu
+ #                        Optional:
+ #                             Required to build platforms or ACPI tables:
+ #                               Intel(r) ACPI Compiler from
+ #                               https://acpica.org/downloads
+ #
+ #   CLANG35     -Linux,Windows-  Requires:
+-#                             Clang v3.5 or later, and GNU binutils targeting aarch64-linux-gnu or arm-linux-gnueabi
++#                             Clang v3.5 or later, and GNU binutils targeting aarch64-linux-gnu or arm-linux-gnueabihf
+ #                        Optional:
+ #                             Required to build platforms or ACPI tables:
+ #                               Intel(r) ACPI Compiler from
+ #                               https://acpica.org/downloads
+ #   CLANG38  -Linux-  Requires:
+-#                             Clang v3.8, LLVMgold plugin and GNU binutils 2.26 targeting x86_64-linux-gnu, aarch64-linux-gnu or arm-linux-gnueabi
+-#                             Clang v3.9 or later, LLVMgold plugin and GNU binutils 2.28 targeting x86_64-linux-gnu, aarch64-linux-gnu or arm-linux-gnueabi
++#                             Clang v3.8, LLVMgold plugin and GNU binutils 2.26 targeting x86_64-linux-gnu, aarch64-linux-gnu or arm-linux-gnueabihf
++#                             Clang v3.9 or later, LLVMgold plugin and GNU binutils 2.28 targeting x86_64-linux-gnu, aarch64-linux-gnu or arm-linux-gnueabihf
+ #                        Optional:
+ #                             Required to build platforms or ACPI tables:
+ #                               Intel(r) ACPI Compiler from
+@@ -2699,7 +2699,7 @@ RELEASE_GCC5_LOONGARCH64_CC_FLAGS       = DEF(GCC5_LOONGARCH64_CC_FLAGS) -Wno-un
+ *_CLANG35_*_ASLDLINK_PATH        = ENV(CLANG35_BIN)clang
+ *_CLANG35_*_DEPS_FLAGS           = DEF(GCC_DEPS_FLAGS)
+ 
+-DEFINE CLANG35_ARM_TARGET        = -target arm-linux-gnueabi
++DEFINE CLANG35_ARM_TARGET        = -target arm-linux-gnueabihf
+ DEFINE CLANG35_AARCH64_TARGET    = -target aarch64-linux-gnu
+ 
+ DEFINE CLANG35_WARNING_OVERRIDES = -Wno-parentheses-equality -Wno-tautological-compare -Wno-tautological-constant-out-of-range-compare -Wno-empty-body -Wno-unknown-warning-option -Wno-unused-but-set-variable -Wno-unused-const-variable
+@@ -2852,7 +2852,7 @@ NOOPT_CLANG38_X64_DLINK2_FLAGS     = DEF(GCC5_X64_DLINK2_FLAGS) -O0
+ ##################
+ # CLANG38 ARM definitions
+ ##################
+-DEFINE CLANG38_ARM_TARGET        = -target arm-linux-gnueabi
++DEFINE CLANG38_ARM_TARGET        = -target arm-linux-gnueabihf
+ DEFINE CLANG38_ARM_CC_FLAGS      = DEF(GCC_ARM_CC_FLAGS) DEF(CLANG38_ARM_TARGET) DEF(CLANG38_WARNING_OVERRIDES) -mno-movt
+ DEFINE CLANG38_ARM_DLINK_FLAGS   = DEF(CLANG38_ARM_TARGET) DEF(GCC_ARM_DLINK_FLAGS)
+ 

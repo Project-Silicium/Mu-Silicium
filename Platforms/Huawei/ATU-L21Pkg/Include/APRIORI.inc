@@ -14,7 +14,9 @@ APRIORI DXE {
     # Core Drivers
     INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
     INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+!if $(ARCH) == AARCH64
     INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
+!endif
 
     INF MSM8917Pkg/Drivers/GpioTlmmDxe/GpioTlmmDxe.inf
     INF MSM8917Pkg/Drivers/ClockDxe/ClockDxe.inf

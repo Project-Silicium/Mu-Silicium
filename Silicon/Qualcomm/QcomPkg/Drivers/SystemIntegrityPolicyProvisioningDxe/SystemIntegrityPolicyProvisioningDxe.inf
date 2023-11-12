@@ -35,5 +35,5 @@
 [Depex]
   gEfiSimpleFileSystemProtocolGuid
 
-[BuildOptions.AARCH64]
+[BuildOptions.common]
   GCC:*_*_*_CC_FLAGS = -Wno-missing-brace -Wno-error

@@ -8,7 +8,9 @@
   INF QcomPkg/Applications/FrontPage/FrontPage.inf
   INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
   INF MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
+!if $(ARCH) == AARCH64
   INF MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
+!endif
   INF DfciPkg/DfciManager/DfciManager.inf
   INF MsGraphicsPkg/OnScreenKeyboardDxe/OnScreenKeyboardDxe.inf
   INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
@@ -22,7 +24,7 @@
 
   INF MsCorePkg/AcpiRGRT/AcpiRgrt.inf
 
-  INF DfciPkg/Application/DfciMenu/DfciMenu.inf
+  INF QcomPkg/Applications/DfciMenu/DfciMenu.inf
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
     SECTION RAW = OemPkg/FrontPage/Resources/BootLogo.bmp
@@ -30,7 +32,7 @@
   }
 
   FILE APPLICATION = PCD(gPcBdsPkgTokenSpaceGuid.PcdShellFile) {
-    SECTION PE32 = $(OUTPUT_DIRECTORY)/$(TARGET)_$(TOOL_CHAIN_TAG)/AARCH64/Shell.efi
+    SECTION PE32 = $(OUTPUT_DIRECTORY)/$(TARGET)_$(TOOL_CHAIN_TAG)/$(ARCH)/Shell.efi
     SECTION UI = "Shell"
   }
 
@@ -62,6 +64,8 @@
     SECTION RAW = QcomPkg/Applications/FrontPage/Resources/NoBoot.bmp
   }
 
+!if $(ARCH) == AARCH64
 !if $(PRECOMPILED_CRYPTO_BINARIES) == 1
   INF CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf
+!endif
 !endif
