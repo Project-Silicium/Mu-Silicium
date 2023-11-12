@@ -56,9 +56,6 @@ be found at http://opensource.org/licenses/bsd-license.php
 #include <Library/UefiDriverEntryPoint.h>
 #include <Library/UefiLib.h>
 
-/* Used to read chip serial number */
-#include <Protocol/EFIChipInfo.h>
-
 /***********************************************************************
         SMBIOS data definition  TYPE0  BIOS Information
 ************************************************************************/
@@ -621,17 +618,13 @@ VOID BIOSInfoUpdateSmbiosType0(VOID)
         SMBIOS data update  TYPE1  System Information
 ************************************************************************/
 
-VOID SysInfoUpdateSmbiosType1(CHAR8 *serialNo, EFIChipInfoSerialNumType serial)
+VOID SysInfoUpdateSmbiosType1(VOID)
 {
   // Update string table before proceeds
   mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
   mSysInfoType1Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemModel);
   mSysInfoType1Strings[2] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemRetailModel);
   mSysInfoType1Strings[4] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemRetailSku);
-
-  // Update serial number from Board DXE
-  mSysInfoType1Strings[3]  = serialNo;
-  mSysInfoType1.Uuid.Data1 = serial;
 
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mSysInfoType1, mSysInfoType1Strings, NULL);
@@ -640,14 +633,11 @@ VOID SysInfoUpdateSmbiosType1(CHAR8 *serialNo, EFIChipInfoSerialNumType serial)
 /***********************************************************************
         SMBIOS data update  TYPE2  Board Information
 ************************************************************************/
-VOID BoardInfoUpdateSmbiosType2(CHAR8 *serialNo)
+VOID BoardInfoUpdateSmbiosType2(VOID)
 {
   // Update string table before proceeds
   mBoardInfoType2Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
   mBoardInfoType2Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosBoardModel);
-
-  // Update serial number from Board DXE
-  mBoardInfoType2Strings[3] = serialNo;
 
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mBoardInfoType2, mBoardInfoType2Strings,
@@ -657,13 +647,10 @@ VOID BoardInfoUpdateSmbiosType2(CHAR8 *serialNo)
 /***********************************************************************
         SMBIOS data update  TYPE3  Enclosure Information
 ************************************************************************/
-VOID EnclosureInfoUpdateSmbiosType3(CHAR8 *serialNo)
+VOID EnclosureInfoUpdateSmbiosType3(VOID)
 {
   // Update string table before proceeds
   mEnclosureInfoType3Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
-
-  // Update serial number from Board DXE
-  mEnclosureInfoType3Strings[2] = serialNo;
 
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mEnclosureInfoType3,
@@ -757,24 +744,10 @@ EFIAPI
 SmBiosTableDxeInitialize(
     IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS               Status;
-  CHAR8                    serialNo[EFICHIPINFO_MAX_ID_LENGTH];
-  EFIChipInfoSerialNumType serial;
-  EFI_CHIPINFO_PROTOCOL   *mBoardProtocol  = NULL;
-
-  // Locate Qualcomm Board Protocol
-  Status = gBS->LocateProtocol(
-      &gEfiChipInfoProtocolGuid, NULL, (VOID *)&mBoardProtocol);
-
-  if (mBoardProtocol != NULL) {
-    mBoardProtocol->GetSerialNumber(mBoardProtocol, &serial);
-    AsciiSPrint(serialNo, sizeof(serialNo), "%lld", serial);
-  }
-
   BIOSInfoUpdateSmbiosType0();
-  SysInfoUpdateSmbiosType1(serialNo, serial);
-  BoardInfoUpdateSmbiosType2(serialNo);
-  EnclosureInfoUpdateSmbiosType3(serialNo);
+  SysInfoUpdateSmbiosType1();
+  BoardInfoUpdateSmbiosType2();
+  EnclosureInfoUpdateSmbiosType3();
   ProcessorInfoUpdateSmbiosType4();
   CacheInfoUpdateSmbiosType7();
   PhyMemArrayInfoUpdateSmbiosType16();
