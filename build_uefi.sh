@@ -84,6 +84,7 @@ if [ -z ${TARGET_RAM_SIZE} ]; then
 fi
 
 # Delete Output Files if present
+rm -r Conf &> /dev/null
 rm ./BootShim/${_TARGET_ARCH_TYPE}/BootShim.bin &> /dev/null
 rm ./BootShim/${_TARGET_ARCH_TYPE}/BootShim.elf &> /dev/null
 rm ./ImageResources/bootpayload.bin &> /dev/null
