@@ -16,7 +16,6 @@
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
 #include <Library/BootGraphicsProviderLib.h>
-#include <Library/BootGraphicsProvider.h>
 #include <Library/BootGraphics.h>
 #include <Library/DxeServicesLib.h>
 
@@ -44,28 +43,6 @@ GetBootGraphic (
     case BG_CRITICAL_LOW_BATTERY:
       g = PcdGetPtr (PcdLowBatteryFile);
       break;
-    default:
-      DEBUG ((DEBUG_ERROR, "Unsupported Boot Graphic Type 0x%X\n", Graphic));
-      return EFI_UNSUPPORTED;
-  }
-
-  //
-  // Get the specified image from FV.
-  //
-  return GetSectionFromAnyFv (g, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
-}
-
-EFI_STATUS
-EFIAPI
-GetPostBootGraphic (
-  BOOT_GRAPHIC  Graphic,
-  OUT UINTN     *ImageSize,
-  OUT UINT8     **ImageData
-  )
-{
-  EFI_GUID  *g = NULL;
-
-  switch (Graphic) {
     case BG_NO_BOOT_OS:
       g = PcdGetPtr (PcdNoBootOSFile);
       break;

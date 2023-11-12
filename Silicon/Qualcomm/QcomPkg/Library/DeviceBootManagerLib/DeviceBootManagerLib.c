@@ -33,7 +33,6 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/MsBootPolicy.h>
 #include <Library/BootGraphicsProviderLib.h>
 #include <Library/BootGraphicsLib.h>
-#include <Library/BootGraphicsProvider.h>
 #include <Library/BootGraphics.h>
 #include <Library/GraphicsConsoleHelperLib.h>
 #include <Library/MsPlatformDevicesLib.h>
@@ -967,9 +966,6 @@ DeviceBootManagerUnableToBoot (
 {
   EFI_STATUS                    Status;
   EFI_GRAPHICS_OUTPUT_PROTOCOL *GraphicsOutput;
-  UINT32                        DisplayHeight;
-  INTN                          DestX;
-  INTN                          DestY;
 
   // Locate Gop Protocol
   Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID **)&GraphicsOutput);
@@ -985,13 +981,8 @@ DeviceBootManagerUnableToBoot (
     DEBUG ((EFI_D_ERROR, "%a Unable to set console mode - %r\n", __FUNCTION__, Status));
   }
 
-  // Set Display Location of No Boot OS Image
-  DisplayHeight = GraphicsOutput->Mode->Info->HorizontalResolution;
-  DestX         = (DisplayHeight - 334) / 2;
-  DestY         = 20;
-
   // Display No Boot OS Logo
-  Status = DisplayPostBootGraphic (BG_NO_BOOT_OS, DestX, DestY);
+  Status = DisplayBootGraphic (BG_NO_BOOT_OS);
   if (EFI_ERROR (Status) != FALSE) {
     DEBUG ((EFI_D_ERROR, "%a Unable to set graphics - %r\n", __FUNCTION__, Status));
   }
