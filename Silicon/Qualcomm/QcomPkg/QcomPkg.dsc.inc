@@ -91,6 +91,9 @@
   # FrameBuffer Delay
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|50         # In Microseconds
 
+  # Shutdown Delay
+  gPcBdsPkgTokenSpaceGuid.PcdShutdownGraphicDisplayTime|2000000
+
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|FALSE
 
