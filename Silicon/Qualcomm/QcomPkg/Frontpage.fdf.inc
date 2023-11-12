@@ -43,11 +43,11 @@
   }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLowBatteryFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/LBAT.bmp
+    SECTION RAW = QcomPkg/Include/Resources/LBAT.bmp
   }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdThermalFile) {
-    SECTION RAW = QcomPkg/Applications/FrontPage/Resources/THOT.bmp
+    SECTION RAW = QcomPkg/Include/Resources/THOT.bmp
   }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdVolumeUpIndicatorFile) {
