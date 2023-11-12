@@ -47,6 +47,8 @@
   PlatformPrePiLib|SM8450Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|SM8450Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM8450Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
 
 [Components.common]
   SM8450Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

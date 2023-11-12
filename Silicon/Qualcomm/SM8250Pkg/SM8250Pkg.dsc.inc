@@ -50,6 +50,8 @@
   PlatformPrePiLib|SM8250Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|SM8250Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM8250Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
 
 [Components.common]
   SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

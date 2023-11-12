@@ -43,6 +43,8 @@
   PlatformPeiLib|MSM8917Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|MSM8917Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|MSM8917Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
+  HwResetSystemLib|MSM8917Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+  ResetSystemLib|MSM8917Pkg/Library/ResetSystemLib/ResetSystemLib.inf
 
 [Components.common]
   MSM8917Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
