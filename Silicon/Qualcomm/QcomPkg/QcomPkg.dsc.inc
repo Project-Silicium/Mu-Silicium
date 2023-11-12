@@ -50,8 +50,14 @@
   gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask|1
   gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask|0
   gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|320
+!if $(TARGET) == DEBUG
   gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x2f
   gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x800fee0f
+!else
+  # Disable all Debug Messages to Speed Up Booting
+  gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x00
+  gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x00000000
+!endif
   gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x07
   gEfiMdeModulePkgTokenSpaceGuid.PcdResetOnMemoryTypeInformationChange|FALSE
 
@@ -89,7 +95,7 @@
   gEfiSecurityPkgTokenSpaceGuid.PcdUserPhysicalPresence|TRUE
 
   # FrameBuffer Delay
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|50         # In Microseconds
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|0          # In Microseconds
 
   # Shutdown Delay
   gPcBdsPkgTokenSpaceGuid.PcdShutdownGraphicDisplayTime|2000000
