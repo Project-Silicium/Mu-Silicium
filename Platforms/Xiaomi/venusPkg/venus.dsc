@@ -16,25 +16,26 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = <Device Codename>
-  PLATFORM_GUID                  = <GUID>
+  PLATFORM_NAME                  = venus
+  PLATFORM_GUID                  = 03624C85-9D74-4E7E-85FF-A6B77DC2EEFA
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/<Device Codename>Pkg
+  OUTPUT_DIRECTORY               = Build/venusPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = <Device Codename>Pkg/<Device Codename>.fdf
+  FLASH_DEFINITION               = venusPkg/venus.fdf
   # Set this to 1 if your Device has a RGB Display (Newer Devices have BGR instead of RGB)
   DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   # Set this to 1 If your Device is A/B Device
-  AB_SLOT_SUPPORT                = 0
+  AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
 
-  # If your SoC has multimple variants define the Number here
-  # If not don't add this Define
-  SOC_TYPE                       = 2
+  # 0 = SM8350
+  # 1 = SM8350-AB
+  # 2 = SM8350-AC
+  SOC_TYPE                       = 0
 
 # If your SoC has multimple variants keep this Build Option
 # If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
@@ -42,39 +43,46 @@
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|<Device Codename>Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  PlatformMemoryMapLib|venusPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|<Start Address>    # Starting address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|<RAM Size>         # <RAM Size> GB Size
+  # Platform-specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+!if $(RAM_SIZE) == 12
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
+!elseif $(RAM_SIZE) == 8
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size
+!else
+!error "Invalid RAM Size! Use 12 or 8."
+!endif
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"<Your Github Name>"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Daniel6745"
 
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|<CPU Vector Base Address>
+  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|<UEFI Stack Base Address>
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|<UEFI Stack Size>
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"<Device Vendor>"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"<Device Model>"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"<Device Codename>"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"<Device_Model>_<Device_Codename>"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"<Device Model>"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"venus"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_venus"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|<Display Width>
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|<Display Height>
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|<Display Bpp>
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
 [PcdsDynamicDefault.common]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|<Display Width>
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|<Display Height>
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|<Display Width>
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|<Display Height>
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|<Setup Con Column>
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|<Setup Con Row>
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|<Con Column>
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|<Con Row>
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|3200
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1440
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|3200
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|180
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|168
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|180
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|168
 
-!include <SoC Codename>Pkg/<SoC Codenmae>.dsc.inc
+!include SM8350Pkg/SM8350.dsc.inc
