@@ -85,4 +85,4 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|180
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|168
 
-!include SM8350Pkg/SM8350.dsc.inc
+!include SM8350Pkg/SM8350Pkg.dsc.inc
