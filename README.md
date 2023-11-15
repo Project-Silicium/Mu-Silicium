@@ -1,10 +1,10 @@
-# [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for Qualcomm Snapdragon™ Devices
+# [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for Xiaomi Mi 11
 
 <!-- ![Banner](https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Banner.png) -->
 
 ## Description
 
-This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Windows or Linux
+This repo brings UEFI Firmware on your Xiaomi Mi 11 to boot OSs like Windows or Linux
 
 ## Resources
 
