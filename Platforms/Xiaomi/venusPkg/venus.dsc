@@ -20,7 +20,7 @@
   PLATFORM_GUID                  = 03624C85-9D74-4E7E-85FF-A6B77DC2EEFA
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/venusPkg
+  OUTPUT_DIRECTORY               = Build/venusPkg-$(ARCH)
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
