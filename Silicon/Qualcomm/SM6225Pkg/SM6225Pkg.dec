@@ -1,0 +1,15 @@
+[Defines]
+  DEC_SPECIFICATION              = 0x0001001A
+  PACKAGE_NAME                   = SM6225Pkg
+  PACKAGE_GUID                   = a1b50009-2337-4072-8d1d-8fba296f53d7
+  PACKAGE_VERSION                = 1.0
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  # NOTE: For these Values you need to use the GUID you generated earlier!
+  # These are just example Values.
+  gQcomTokenSpaceGuid    = { 0xa1b50009, 0x2337, 0x4072, { 0x8d, 0x1d, 0x8f, 0xba, 0x29, 0x6f, 0x53, 0xd7 } }
+
+
