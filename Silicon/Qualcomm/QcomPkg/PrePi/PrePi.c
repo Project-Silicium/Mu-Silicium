@@ -101,6 +101,8 @@ PrePiMain (
   StacksSize     = UefiStack.Length;
   StacksBase     = UefiMemoryBase + UefiMemorySize - StacksSize;
 
+  DEBUG ((EFI_D_WARN, "1\n"));
+
   // If ensure the FD is either part of the System Memory or totally outside of the System Memory (XIP)
   ASSERT (
     IS_XIP () ||
@@ -108,12 +110,18 @@ PrePiMain (
      ((UINT64)(UefiFd.Address + UefiFd.Length) <= (UINT64)mSystemMemoryEnd))
     );
 
+  DEBUG ((EFI_D_WARN, "2\n"));
+
   // Initialize the architecture specific bits
   ArchInitialize ();
+
+  DEBUG ((EFI_D_WARN, "3\n"));
 
   // Initialize the Debug Agent for Source Level Debugging
   InitializeDebugAgent (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
   SaveAndSetDebugTimerInterrupt (TRUE);
+
+  DEBUG ((EFI_D_WARN, "4\n"));
 
   // Declare the PI/UEFI memory region
   HobList = HobConstructor (
@@ -124,18 +132,28 @@ PrePiMain (
               );
   PrePeiSetHobList (HobList);
 
+  DEBUG ((EFI_D_WARN, "5\n"));
+
   // Initialize MMU and Memory HOBs (Resource Descriptor HOBs)
   Status = MemoryPeim (UefiMemoryBase, UefiMemorySize);
   ASSERT_EFI_ERROR (Status);
 
+  DEBUG ((EFI_D_WARN, "6\n"));
+
   BuildStackHob (StacksBase, StacksSize);
+
+  DEBUG ((EFI_D_WARN, "7\n"));
 
   // TODO: Call CpuPei as a library
   BuildCpuHob (ArmGetPhysicalAddressBits (), PcdGet8 (PcdPrePiCpuIoSize));
 
+  DEBUG ((EFI_D_WARN, "8\n"));
+
   if (ArmIsMpCore ()) {
     // Only MP Core platform need to produce gArmMpCoreInfoPpiGuid
     Status = GetPlatformPpi (&gArmMpCoreInfoPpiGuid, (VOID **)&ArmMpCoreInfoPpi);
+
+    DEBUG ((EFI_D_WARN, "9\n"));
 
     // On MP Core Platform we must implement the ARM MP Core Info PPI (gArmMpCoreInfoPpiGuid)
     ASSERT_EFI_ERROR (Status);
@@ -149,18 +167,28 @@ PrePiMain (
     }
   }
 
+  DEBUG ((EFI_D_WARN, "10\n"));
+
   // Store timer value logged at the beginning of firmware image execution
   Performance.ResetEnd = GetTimeInNanoSecond (StartTimeStamp);
+
+  DEBUG ((EFI_D_WARN, "11\n"));
 
   // Build SEC Performance Data Hob
   BuildGuidDataHob (&gEfiFirmwarePerformanceGuid, &Performance, sizeof (Performance));
 
+  DEBUG ((EFI_D_WARN, "12\n"));
+
   // Set the Boot Mode
   SetBootMode (ArmPlatformGetBootMode ());
+
+  DEBUG ((EFI_D_WARN, "13\n"));
 
   // Initialize Platform HOBs (CpuHob and FvHob)
   Status = PlatformPeim ();
   ASSERT_EFI_ERROR (Status);
+
+  DEBUG ((EFI_D_WARN, "14\n"));
 
   DxeSettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_OFF;
   MmSettings  = (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_OFF;
@@ -168,15 +196,23 @@ PrePiMain (
   BuildGuidDataHob(&gDxeMemoryProtectionSettingsGuid, &DxeSettings, sizeof(DxeSettings));
   BuildGuidDataHob(&gMmMemoryProtectionSettingsGuid, &MmSettings, sizeof(MmSettings));
 
+  DEBUG ((EFI_D_WARN, "15\n"));
+
   // Now, the HOB List has been initialized, we can register performance information
   PERF_START (NULL, "PEI", NULL, StartTimeStamp);
+
+  DEBUG ((EFI_D_WARN, "16\n"));
 
   // SEC phase needs to run library constructors by hand.
   ProcessLibraryConstructorList ();
 
+  DEBUG ((EFI_D_WARN, "17\n"));
+
   // Assume the FV that contains the SEC (our code) also contains a compressed FV.
   Status = DecompressFirstFv ();
   ASSERT_EFI_ERROR (Status);
+
+  DEBUG ((EFI_D_WARN, "18\n"));
 
   // Load the DXE Core and transfer control to it
   Status = LoadDxeCoreFromFv (NULL, 0);
@@ -231,3 +267,4 @@ CEntryPoint ()
   // DXE Core should always load and never return
   ASSERT (FALSE);
 }
+
