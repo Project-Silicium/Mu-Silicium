@@ -260,6 +260,90 @@
 
 </td></tr> </table>
 
+## Xiaomi Mi 11
+
+
+<img align="right" src="https://github.com/Daniel224455/Mu-Qcom-Venus-Mi11/blob/main/Pictures/Xiaomi-11.png" width="453" alt="Preview">
+
+**SoC: SM8350** <br />
+**Codename: venus** <br />
+**Maintainer: Daniel6745/Daniel224455** <br />
+**Contibuters: Daniel6745/Daniel224455** <br />
+**Tester: Daniel6745/Daniel224455**
+**Contact: @Daniel6745 on Discord, https://t.me/Daniel6745**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|No USB Host & Power|⚠️|
+|ACPI||⚠️|
+|Slot Switch||⚠️|
+|UART||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❔|
+|UFS||✅|
+|Buttons|No Drivers yet|❔|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|Only One Core working right now|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❔|
+|Vibration||❌|
+|UART||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot|Needs proper mainline to function correctly|⚠️|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❔|
+|Vibration||❌|
+|UART||❌|
+
+</td></tr> </table>
+
 ## Legion Tab Y700
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Legion-Tab-Y700.png" width="420" alt="Preview">
