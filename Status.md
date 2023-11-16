@@ -263,13 +263,14 @@
 ## Xiaomi Mi 11
 
 
-<img align="right" src="https://github.com/Daniel224455/Mu-Qcom-Venus-Mi11/blob/main/Pictures/Xiaomi-11.png" width="453" alt="Preview">
+<img align="right" src="https://github.com/Daniel224455/Mu-Qcom-Venus-Mi11/blob/main/Pictures/Xiaomi-Mi11.png" width="545" alt="Preview">
 
 **SoC: SM8350** <br />
 **Codename: venus** <br />
 **Maintainer: Daniel6745/Daniel224455** <br />
 **Contibuters: Daniel6745/Daniel224455** <br />
 **Tester: Daniel6745/Daniel224455**
+
 **Contact: @Daniel6745 on Discord, https://t.me/Daniel6745**
 
 ### UEFI Status
