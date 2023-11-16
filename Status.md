@@ -279,11 +279,11 @@
 |:------|:----------|:---:|
 |Display|Display output is given.|✅|
 |Touchscreen|Yet to be tested|❌|
-|Clocks|No display glitches = works|✅|
-|UFS|All partitions show up in UEFI Shell.|✅|
-|Buttons|Power button does not work.|⚠️|
-|USB|OTG Patch yet to be included.|⚠️|
-|ACPI|Fails to build with ACPI.|⚠️|
+|Clocks|No display glitches.|✅|
+|UFS|All partitions show up|✅|
+|Buttons|Power button doesn't work.|⚠️|
+|USB|OTG Patch not included.|⚠️|
+|ACPI|Fails to build with ACPI.|❔|
 |Slot Switch||⚠️|
 |UART||❔|
 
