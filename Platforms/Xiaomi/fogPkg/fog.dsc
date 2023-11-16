@@ -25,19 +25,16 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = fogPkg/fog.fdf
+  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
-  # Set this to 1 If your Device is A/B Device
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
-
-[Components.common]
-  SM6225Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|fogPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000    # Starting address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000          # Starting address
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000         # 4 GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Statzar"

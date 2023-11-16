@@ -11,7 +11,8 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER             = 1
+  USE_PHYSICAL_TIMER          = 1
+  PRECOMPILED_CRYPTO_BINARIES = 1
 
 [BuildOptions.common]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
@@ -26,8 +27,6 @@
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xf200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0xf300000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xf200000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006225
   gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0xf200000
@@ -47,5 +46,8 @@
   AcpiPlatformUpdateLib|SM6225Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+
+[Components.common]
+  SM6225Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc
