@@ -277,13 +277,13 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
-|Buttons||✅|
-|USB|No USB Host & Power|⚠️|
-|ACPI||⚠️|
+|Display|Display output is given.|✅|
+|Touchscreen|Yet to be tested|❌|
+|Clocks|No display glitches = works|✅|
+|UFS|All partitions show up in UEFI Shell.|✅|
+|Buttons|Power button does not work.|⚠️|
+|USB|OTG Patch yet to be included.|⚠️|
+|ACPI|Fails to build with ACPI.|⚠️|
 |Slot Switch||⚠️|
 |UART||❔|
 
