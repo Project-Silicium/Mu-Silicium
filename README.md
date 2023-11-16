@@ -13,7 +13,23 @@ This repo brings UEFI Firmware on your Xiaomi Mi 11 to boot OSs like Windows or 
 ## [Status](https://github.com/Robotix22/Mu-Qcom/blob/main/Status.md)
 
 ## [Building](https://github.com/Robotix22/Mu-Qcom/blob/main/Building.md)
+## [Building 2]
+First do setup_env.sh, tut is linked in building guide above
+then ./build_uefi.sh -d venus -r DEBUG -m 8
+Now you can choose between -m 8 or -m 12 (12 is untested) (those are memory configs)
+You can choose between building a Debug build or a Release build, if you want release then swap -r DEBUG with -r RELEASE
 
+After it build, you can find the image in the Mu-Qcom-Venus-Mi11 folder.
+You can temp boot it with fastboot : 
+```
+fastboot boot Mu-venus.img
+```
+Or flash it to always boot with Mu :
+```
+fastboot flash boot Mu-venus.img
+```
+
+Done. You can press Vol up while boot to get into FrontPage, or Vol down to enter UEFI Shell.
 ## [Guides](https://github.com/Robotix22/UEFI-Guides/blob/main/Mu-Qcom/README.md)
 
 ## Credits
