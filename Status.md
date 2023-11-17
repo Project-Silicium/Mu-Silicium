@@ -6,88 +6,6 @@
 |⚙️|**It is being Worked on**|
 |❌|**Not Working**|
 |❔|**Unknown**|
-## Xiaomi Mi 11
-
-
-<img align="right" src="https://github.com/Daniel224455/Mu-Qcom-Venus-Mi11/blob/main/Pictures/Xiaomi-Mi11.png" width="545" alt="Preview">
-
-**SoC: SM8350** <br />
-**Codename: venus** <br />
-**Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display|Display output is given.|✅|
-|Touchscreen|No touch inside FrontPage.|❌|
-|Clocks|No display glitches.|✅|
-|UFS|All partitions show up|✅|
-|Buttons|All buttons work.|✅|
-|USB|No USB Power.|⚠️|
-|ACPI||✅|
-|Slot Switch||✅|
-|UART||❔|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❔|
-|UFS||✅|
-|Buttons|No Drivers yet|❔|
-|Sensors||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Audio||❌|
-|GPU||❌|
-|Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
-|Mobile Data||❌|
-|Display||❔|
-|Vibration||❌|
-|UART||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot|Needs proper mainline to function correctly|⚠️|
-|UFS||❌|
-|Buttons||❌|
-|Sensors||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Audio||❌|
-|GPU||❌|
-|Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
-|Mobile Data||❌|
-|Display||❔|
-|Vibration||❌|
-|UART||❌|
-
-</td></tr> </table>
 
 ## Galaxy Tab S8 5G
 
@@ -253,6 +171,88 @@
 |Fingerprint||❌|
 |Mobile Data||❌|
 |Display||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td></tr> </table>
+
+## Xiaomi Mi 11
+
+<img align="right" src="https://github.com/Daniel224455/Mu-Qcom-Venus-Mi11/blob/main/Pictures/Xiaomi-Mi11.png" width="545" alt="Preview">
+
+**SoC: SM8350** <br />
+**Codename: venus** <br />
+**Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display|Display output is given.|✅|
+|Touchscreen|No touch inside FrontPage.|❌|
+|Clocks|No display glitches.|✅|
+|UFS|All partitions show up|✅|
+|Buttons|All buttons work.|✅|
+|USB|No USB Power.|⚠️|
+|ACPI||✅|
+|Slot Switch||✅|
+|UART||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❔|
+|UFS||✅|
+|Buttons|No Drivers yet|❔|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|Only One Core working right now|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❔|
+|Vibration||❌|
+|UART||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot|Needs proper mainline to function correctly|⚠️|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❔|
 |Vibration||❌|
 |UART||❌|
 

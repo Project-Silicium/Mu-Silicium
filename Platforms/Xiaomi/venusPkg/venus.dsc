@@ -25,10 +25,8 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = venusPkg/venus.fdf
-  # Set this to 1 if your Device has a RGB Display (Newer Devices have BGR instead of RGB)
   DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
-  # Set this to 1 If your Device is A/B Device
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
 
@@ -37,8 +35,6 @@
   # 2 = SM8350-AC
   SOC_TYPE                       = 0
 
-# If your SoC has multimple variants keep this Build Option
-# If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 

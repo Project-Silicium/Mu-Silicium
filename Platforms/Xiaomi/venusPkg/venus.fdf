@@ -126,8 +126,6 @@ READ_LOCK_STATUS   = TRUE
 
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
-  # NOTE: Only add these two entries if your Device is an A/B Device.
-  # If unsure leave them out of the File.
   INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
   INF GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
 

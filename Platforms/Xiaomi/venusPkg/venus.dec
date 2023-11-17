@@ -8,5 +8,4 @@
   Include                               # Root include for the package
 
 [Guids.common] 
- g<Device Codename>TokenSpaceGuid    = { 03624c859d, 744e7e, 85ffa6, { 0362, 4c85, 9d74, 4e7e, 85ff, a6b7, 7dc2, eefa } }
-
+  gvenusTokenSpaceGuid                = { 03624c859d, 744e7e, 85ffa6, { 0362, 4c85, 9d74, 4e7e, 85ff, a6b7, 7dc2, eefa } }
