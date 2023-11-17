@@ -267,9 +267,9 @@
 
 **SoC: SM8350** <br />
 **Codename: venus** <br />
-**Maintainer: Daniel6745/Daniel224455** <br />
-**Contibuters: Daniel6745/Daniel224455** <br />
-**Tester: Daniel6745/Daniel224455**
+**Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)**
 
 ### UEFI Status
 
@@ -279,10 +279,10 @@
 |Touchscreen|Yet to be tested|❌|
 |Clocks|No display glitches.|✅|
 |UFS|All partitions show up|✅|
-|Buttons|Power button doesn't work.|⚠️|
-|USB|OTG Patch not included.|⚠️|
-|ACPI|Fails to build with ACPI.|❔|
-|Slot Switch||⚠️|
+|Buttons|All buttons work.|✅|
+|USB|No USB Power.|⚠️|
+|ACPI||✅|
+|Slot Switch||✅|
 |UART||❔|
 
 ### OS Status
