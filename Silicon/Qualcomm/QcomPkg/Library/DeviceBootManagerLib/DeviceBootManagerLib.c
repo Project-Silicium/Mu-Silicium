@@ -956,6 +956,12 @@ DeviceBootManagerUnableToBoot (
     DEBUG ((EFI_D_ERROR, "%a Unable to set graphics - %r\n", __FUNCTION__, Status));
   }
 
+  // Wait 10s
+  gBS->Stall(10000000);
+
+  // Shutdown
+  gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
+
   // Do Cpu Dead Loop
   CpuDeadLoop ();
 }
