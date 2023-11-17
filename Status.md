@@ -102,7 +102,7 @@
 **SoC: SM8350** <br />
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
-**Contibuters: None** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [Azkali](https://github.com/Azkali/)**
 
 ### UEFI Status
@@ -363,6 +363,88 @@
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Power|⚠️|
+|ACPI||❌|
+|Slot Switch||✅|
+|UART||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td></tr> </table>
+
+## OnePlus 8T
+
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/OnePlus-8T.png" width="420" alt="Preview">
+
+**SoC: SM8250** <br />
+**Codename: kebab** <br />
+**Maintainer: [SwedMlite](https://github.com/SwedMlite)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [SwedMlite](https://github.com/SwedMlite)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|No USB Host & Power|⚠️|
 |ACPI||❌|
 |Slot Switch||✅|
 |UART||❔|
