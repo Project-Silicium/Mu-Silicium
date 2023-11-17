@@ -22,7 +22,7 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display|Display output is given.|✅|
-|Touchscreen|Yet to be tested|❌|
+|Touchscreen|No touch inside FrontPage.|❌|
 |Clocks|No display glitches.|✅|
 |UFS|All partitions show up|✅|
 |Buttons|All buttons work.|✅|
