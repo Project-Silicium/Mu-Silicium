@@ -102,7 +102,7 @@
 **SoC: SM8350** <br />
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
-**Contibuters: None** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [Azkali](https://github.com/Azkali/)**
 
 ### UEFI Status
@@ -349,7 +349,7 @@
 **SoC: SM8250** <br />
 **Codename: kebab** <br />
 **Maintainer: [SwedMlite](https://github.com/SwedMlite)** <br />
-**Contibuters: None** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [SwedMlite](https://github.com/SwedMlite)**
 
 ### UEFI Status
