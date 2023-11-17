@@ -1,10 +1,10 @@
-# [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for Xiaomi Mi 11
+# [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for Qualcomm Snapdragon™ Devices
 
 <!-- ![Banner](https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Banner.png) -->
 
 ## Description
 
-This repo brings UEFI Firmware on your Xiaomi Mi 11 to boot OSs like Windows or Linux
+This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Windows or Linux
 
 ## Resources
 
@@ -13,17 +13,7 @@ This repo brings UEFI Firmware on your Xiaomi Mi 11 to boot OSs like Windows or 
 ## [Status](https://github.com/Robotix22/Mu-Qcom/blob/main/Status.md)
 
 ## [Building](https://github.com/Robotix22/Mu-Qcom/blob/main/Building.md)
-After it build, you can find the image in the Mu-Qcom-Venus-Mi11 folder.
-You can temp boot it with fastboot : 
-```
-fastboot boot Mu-venus.img
-```
-Or flash it to always boot with Mu :
-```
-fastboot flash boot Mu-venus.img
-```
 
-Done. You can press Vol up while boot to get into FrontPage, or Vol down to enter UEFI Shell.
 ## [Guides](https://github.com/Robotix22/UEFI-Guides/blob/main/Mu-Qcom/README.md)
 
 ## Credits
