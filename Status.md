@@ -271,8 +271,6 @@
 **Contibuters: Daniel6745/Daniel224455** <br />
 **Tester: Daniel6745/Daniel224455**
 
-**Contact: @Daniel6745 on Discord, https://t.me/Daniel6745**
-
 ### UEFI Status
 
 |Feature|Description|State|
