@@ -100,7 +100,7 @@
   gEfiSecurityPkgTokenSpaceGuid.PcdUserPhysicalPresence|TRUE
 
   # FrameBuffer Delay
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|300000          # In Microseconds
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|0          # In Microseconds
 
   # Shutdown Delay
   gPcBdsPkgTokenSpaceGuid.PcdShutdownGraphicDisplayTime|2000000
