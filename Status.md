@@ -359,7 +359,7 @@
 |Display||✅|
 |Touchscreen||❌|
 |Clocks||✅|
-|UFS||❔|
+|UFS||✅|
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |ACPI||❌|
