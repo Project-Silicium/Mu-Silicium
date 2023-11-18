@@ -208,9 +208,9 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❔|
-|UFS||✅|
-|Buttons|No Drivers yet|❔|
+|Boot||✅|
+|UFS||❌|
+|Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
 |USB||❌|
@@ -234,7 +234,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|Needs proper mainline to function correctly|⚠️|
+|Boot||❌|
 |UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
