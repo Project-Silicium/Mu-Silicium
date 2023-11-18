@@ -31,7 +31,7 @@ static CONFIGURATION_DESCRIPTOR_EX gDeviceConfigurationDescriptorEx[] = {
     {"EnableSDHCSwitch", 0x1},
     {"EnableUfsIOC", 0},
     {"UfsSmmuConfigForOtherBootDev", 1},
-    {"SecurityFlag", 0xC4},
+    {"SecurityFlag", 0xC40},
     {"EnableLogFsSyncInRetail", 0x0},
     {"ShmBridgememSize", 0xA00000},
     {"EnableMultiThreading", 1},

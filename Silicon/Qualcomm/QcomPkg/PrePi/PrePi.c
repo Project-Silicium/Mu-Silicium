@@ -231,4 +231,3 @@ CEntryPoint ()
   // DXE Core should always load and never return
   ASSERT (FALSE);
 }
-
