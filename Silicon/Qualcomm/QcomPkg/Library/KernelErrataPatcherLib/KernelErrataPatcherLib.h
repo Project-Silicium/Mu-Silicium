@@ -34,7 +34,7 @@
 
 #include <Protocol/MemoryAttribute.h>
 
-#define SILENT 0
+#define SILENT 1
 
 #if SILENT == 0
 
