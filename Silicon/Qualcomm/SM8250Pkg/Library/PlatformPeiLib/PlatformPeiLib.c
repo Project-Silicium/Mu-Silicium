@@ -13,7 +13,11 @@
 #include <Library/HobLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/PcdLib.h>
+
 #include "PlatformPeiLibInternal.h"
+
+extern EFI_GUID gQcomProdmodeInfoGuid;
+BOOLEAN         gProdmodeInfo = FALSE;
 
 STATIC
 EFI_STATUS
@@ -171,6 +175,7 @@ VOID InstallPlatformHob()
     BuildMemHobForFv(EFI_HOB_TYPE_FV2);
     BuildGuidDataHob(&gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof(InfoBlkAddress));
     BuildGuidDataHob(&gEfiShLibHobGuid, &ShLibAddress, sizeof(ShLibAddress));
+    BuildGuidDataHob(&gQcomProdmodeInfoGuid, &gProdmodeInfo, sizeof(BOOLEAN));
 
     initialized = 1;
   }
