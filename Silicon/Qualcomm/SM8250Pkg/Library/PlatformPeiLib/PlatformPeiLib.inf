@@ -45,3 +45,6 @@
 
 [Depex]
   gEfiPeiMemoryDiscoveredPpiGuid
+
+[Guids]
+  gQcomProdmodeInfoGuid

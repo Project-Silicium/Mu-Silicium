@@ -443,8 +443,8 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
-|ACPI||❌|
+|USB|No USB Power|⚠️|
+|ACPI|Can't boot Windows yet|⚠️|
 |Slot Switch||✅|
 |UART||❔|
 
@@ -456,7 +456,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
+|Boot|Stuck at Logo|⚠️|
 |UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
