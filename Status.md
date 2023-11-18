@@ -749,6 +749,86 @@
 
 </td></tr> </table>
 
+## Redmi 10С
+
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi10C.png" width="420" alt="Preview">
+
+**SoC: SM6225** <br />
+**Codename: fog** <br />
+**Maintainer: [Statzar](https://github.com/Statzar)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Testers: [Statzar](https://github.com/Statzar)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|No USB Host & Power|⚠️|
+|SD Card||❌|
+|ACPI||❌|
+|UART||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td></tr> </table>
+
 ## Redmi 9T
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-9T.png" width="420" alt="Preview">
