@@ -226,7 +226,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display||❔|
+|Display||✅|
 |Vibration||❌|
 |UART||❌|
 
@@ -252,7 +252,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display||❔|
+|Display||❌|
 |Vibration||❌|
 |UART||❌|
 
