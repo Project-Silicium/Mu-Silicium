@@ -751,7 +751,7 @@
 
 ## Redmi 10С
 
-<img align="right" src="https://github.com/Statzar/Mu-Qcom/tree/main/Pictures/Redmi10C.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Statzar/Mu-Qcom/Pictures/Redmi10C.png" width="420" alt="Preview">
 
 **SoC: SM6225** <br />
 **Codename: fog** <br />
