@@ -55,7 +55,7 @@ APRIORI DXE {
     INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
     INF Binaries/fog/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-    INF Binaries/fog/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  #  INF Binaries/fog/QcomPkg/Drivers/PILDxe/PILDxe.inf
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
     INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf

@@ -97,5 +97,5 @@
   INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  INF Binaries/fog/QcomPkg/Drivers/PILDxe/PILDxe.inf
+ # INF Binaries/fog/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
