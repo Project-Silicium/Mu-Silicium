@@ -11,8 +11,7 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER          = 1
-  PRECOMPILED_CRYPTO_BINARIES = 1
+  USE_PHYSICAL_TIMER             = 1
 
 [BuildOptions.common]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
@@ -20,13 +19,15 @@
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|1
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|2
-  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|3
-  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|0
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|18
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|20
+  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
+  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xf200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0xf300000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xf200000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006225
   gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0xf200000
@@ -46,8 +47,5 @@
   AcpiPlatformUpdateLib|SM6225Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-
-[Components.common]
-  SM6225Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

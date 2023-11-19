@@ -8,4 +8,8 @@
   Include                               # Root include for the package
 
 [Guids.common]
-  gSM6225PkgTokenSpaceGuid       = { 0xa1b50009, 0x2337, 0x4072, { 0x8d, 0x1d, 0x8f, 0xba, 0x29, 0x6f, 0x53, 0xd7 } }
+  # NOTE: For these Values you need to use the GUID you generated earlier!
+  # These are just example Values.
+  gQcomTokenSpaceGuid    = { 0xa1b50009, 0x2337, 0x4072, { 0x8d, 0x1d, 0x8f, 0xba, 0x29, 0x6f, 0x53, 0xd7 } }
+
+
