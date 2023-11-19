@@ -909,6 +909,86 @@
 
 </td></tr> </table>
 
+## Mi Max 3
+
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-Max-3.png" width="420" alt="Preview">
+
+**SoC: SDM635** <br />
+**Codename: nitrogen** <br />
+**Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [AistopGit](https://github.com/AistopGit)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|eMMC||✅|
+|Buttons||✅|
+|USB|No USB Host & Power|⚠️|
+|SD Card||❌|
+|ACPI||❌|
+|UART||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|eMMC||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|eMMC||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display Output||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td></tr> </table>
+
 ## Huawei Y6 2018
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Huawei-Y6-2018.png" width="420" alt="Preview">
