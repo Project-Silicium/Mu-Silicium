@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = SDM660Pkg
+  PACKAGE_GUID                        = 3db6a833-d496-45e3-b926-6714a233eb7f
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gSDM660PkgTokenSpaceGuid            = { 0x3db6a833, 0xd496, 0x45e3, { 0xb9, 0x26, 0x67, 0x14, 0xa2, 0x33, 0xeb, 0x7f } }

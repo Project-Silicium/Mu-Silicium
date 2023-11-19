@@ -1,0 +1,23 @@
+#FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+#  SECTION RAW = SDM660Pkg/AcpiTables/APIC.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/APIC.UniCore.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/BERT.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/BGRT.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/CSRT.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/DBG2.aml
+#  SECTION RAW = nitrogenPkg/AcpiTables/DSDT.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/FACP.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/FPDT.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/GTDT.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/IORT.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/MCFG.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/MSDM.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/PPTT.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/SPCR.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/TPM2.aml
+#  SECTION RAW = SDM660Pkg/AcpiTables/XSDT.aml
+#  SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
+#  SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
+#  SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
+#  SECTION UI = "AcpiTables"
+#}
