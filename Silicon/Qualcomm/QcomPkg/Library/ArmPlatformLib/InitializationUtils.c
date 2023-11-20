@@ -1,4 +1,5 @@
 #include <Library/BaseLib.h>
+#include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/IoLib.h>
 #include <Library/PcdLib.h>
@@ -15,7 +16,7 @@ VOID InitializeSharedUartBuffers(VOID)
   LocateMemoryMapAreaByName("Display Reserved", &DisplayMemoryRegion);
 
   // Clear Screen
-  //ZeroMem((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
+  ZeroMem((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
 
   // Setup Position counter
   INTN *pFbConPosition =
@@ -31,7 +32,7 @@ VOID UartInit(VOID)
   SerialPortInitialize();
   InitializeSharedUartBuffers();
 
-  DEBUG((EFI_D_WARN, "\nProject Mu on %a (AArch64)\n", (VOID *)FixedPcdGetPtr(PcdSmbiosSystemModel)));
+  DEBUG((EFI_D_WARN, "\nProject Mu on %a\n", (VOID *)FixedPcdGetPtr(PcdSmbiosSystemModel)));
   DEBUG((EFI_D_WARN, "Firmware version %s built on %a at %a\n\n", (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), __TIME__, __DATE__));
 }
 

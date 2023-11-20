@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = ATU-L21
+  PACKAGE_GUID                        = 98ebebe8-c68a-46a6-9c8b-4cee7fc0ff0b
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gATU-L21TokenSpaceGuid              = { 0x98ebebe8, 0xc68a, 0x46a6, { 0x9c, 0x8b, 0x4c, 0xee, 0x7f, 0xc0, 0xff, 0x0b } }

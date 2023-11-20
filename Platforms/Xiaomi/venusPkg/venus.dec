@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = venus
+  PACKAGE_GUID                        = 03624C85-9D74-4E7E-85FF-A6B77DC2EEFA
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common] 
+  gvenusTokenSpaceGuid                = { 03624c859d, 744e7e, 85ffa6, { 0362, 4c85, 9d74, 4e7e, 85ff, a6b7, 7dc2, eefa } }

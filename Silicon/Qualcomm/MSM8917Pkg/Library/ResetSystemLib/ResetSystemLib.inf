@@ -1,0 +1,25 @@
+[Defines]
+  INF_VERSION                    = 0x00010019
+  BASE_NAME                      = ResetSystemLib
+  FILE_GUID                      = d8344f4d-135c-4e24-95c3-7b93894146f3
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = HwResetSystemLib
+
+[Sources]
+  ResetSystemLib.c
+
+[Packages]
+  MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  MSM8917Pkg/MSM8917Pkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  IoLib
+  TimerLib
+  UefiBootServicesTableLib
+
+[Protocols]
+  gQcomPmicProtocolGuid

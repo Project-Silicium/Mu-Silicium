@@ -19,11 +19,12 @@
   PLATFORM_GUID                  = 13d651df-5d7e-4516-ab02-371a565ab594
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/sweet_k6aPkg
+  OUTPUT_DIRECTORY               = Build/sweet_k6aPkg-$(ARCH)
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = sweet_k6aPkg/sweet_k6a.fdf
+  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
@@ -34,7 +35,7 @@
   SOC_TYPE                       = 2
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|sweet_k6aPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf

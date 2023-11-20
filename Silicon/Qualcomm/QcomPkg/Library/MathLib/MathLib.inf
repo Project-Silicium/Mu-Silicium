@@ -1,0 +1,25 @@
+## @file
+# MathLib
+#
+# This library supports math operations such as Square Root, Cosine, and Sine
+#
+# Copyright (C) Microsoft Corporation. All rights reserved.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MathLib
+  FILE_GUID                      = 485F46E6-7E5D-4E05-BDBE-CBBAE5E7EFB7
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MathLib
+
+[Sources]
+  MathLib.c
+
+[Packages]
+  MsCorePkg/MsCorePkg.dec
+  MdePkg/MdePkg.dec
+  
+[LibraryClasses]
+  FltUsedLib

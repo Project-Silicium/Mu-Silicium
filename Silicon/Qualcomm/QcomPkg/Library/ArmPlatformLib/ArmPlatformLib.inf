@@ -36,6 +36,9 @@
 [Sources.AArch64]
   AArch64/ArmPlatformHelper.S
 
+[Sources.Arm]
+  Arm/ArmPlatformHelper.S
+
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
 

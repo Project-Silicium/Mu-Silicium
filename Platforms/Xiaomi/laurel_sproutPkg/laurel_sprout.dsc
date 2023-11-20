@@ -19,17 +19,18 @@
   PLATFORM_GUID                  = 30fa3a0b-87b1-4b91-a716-cd283a813c72
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/laurel_sproutPkg
+  OUTPUT_DIRECTORY               = Build/laurel_sproutPkg-$(ARCH)
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = laurel_sproutPkg/laurel_sprout.fdf
+  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
+  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|laurel_sproutPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf

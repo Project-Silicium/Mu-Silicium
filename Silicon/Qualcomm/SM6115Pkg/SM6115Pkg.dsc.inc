@@ -11,10 +11,11 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER             = 1
+  USE_PHYSICAL_TIMER          = 1
+  PRECOMPILED_CRYPTO_BINARIES = 1
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
@@ -42,6 +43,8 @@
   PlatformPeiLib|SM6115Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SM6115Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SM6115Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
 
 [Components.common]
   SM6115Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

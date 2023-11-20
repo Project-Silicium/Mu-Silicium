@@ -19,14 +19,18 @@
   PLATFORM_GUID                  = 7004a90e-23e3-409f-887e-26cfff6e4ae5
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/limePkg
+  OUTPUT_DIRECTORY               = Build/limePkg-$(ARCH)
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = limePkg/lime.fdf
+  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
+
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|limePkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf

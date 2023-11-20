@@ -11,10 +11,11 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER             = 0
+  USE_PHYSICAL_TIMER          = 0
+  PRECOMPILED_CRYPTO_BINARIES = 1
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -march=armv9-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
@@ -46,6 +47,8 @@
   PlatformPrePiLib|SM8450Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|SM8450Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM8450Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
 
 [Components.common]
   SM8450Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

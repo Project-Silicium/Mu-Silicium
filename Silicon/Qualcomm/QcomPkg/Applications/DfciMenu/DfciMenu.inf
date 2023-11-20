@@ -1,0 +1,110 @@
+## @file
+# DfciMenu.inf
+#
+# DfciMenu is an application that presents & manages the Dfci settings page.
+#
+# Copyright (C) Microsoft Corporation. All rights reserved.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DfciMenu
+  FILE_GUID                      = ae8f0389-6ba2-47d3-9e55-80b3dd9b8a98
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = DfciMenuEntry
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  DfciPrivate.h
+  DfciMenu.h
+  DfciMenu.c
+  DfciMenuVfr.Vfr
+  DfciMenuStrings.uni
+  DfciRequest.h
+  DfciRequest.c
+  DfciUsb.h
+  DfciUsb.c
+  DfciUpdate.h
+  DfciUpdate.c
+  DfciUtility.h
+  DfciUtility.c
+
+[Packages]
+  DfciPkg/DfciPkg.dec
+  NetworkPkg/NetworkPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MsCorePkg/MsCorePkg.dec
+  ZeroTouchPkg/ZeroTouchPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  DevicePathLib
+  DfciDeviceIdSupportLib
+  DfciSettingChangedNotificationLib
+  DfciUiSupportLib
+  FileHandleLib
+  HiiLib
+  HttpLib
+  MemoryAllocationLib
+  JsonLiteParserLib
+  PcdLib
+  PrintLib
+  ResetSystemLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiHiiServicesLib
+  UefiLib
+  UefiRuntimeServicesTableLib
+  ZeroTouchSettingsLib
+
+[Guids]
+  gDfciAuthProvisionVarNamespace
+  gDfciConfigCompleteEventGroupGuid
+  gDfciConfigStartEventGroupGuid
+  gDfciMenuFormsetGuid
+  gDfciRecoveryFormsetGuid
+  gDfciPermissionManagerVarNamespace
+  gDfciSettingsGuid
+  gDfciSettingsManagerVarNamespace
+  gEfiBootManagerPolicyNetworkGuid
+  gEfiTlsCaCertificateGuid
+  gEfiCertX509Guid
+
+[Protocols]
+  gDfciAuthenticationProtocolGuid
+  gDfciSettingAccessProtocolGuid
+  gDfciSettingPermissionsProtocolGuid
+  gEfiBlockIoProtocolGuid
+  gEfiBootManagerPolicyProtocolGuid
+  gEfiHiiConfigAccessProtocolGuid
+  gEfiHttpProtocolGuid
+  gEfiHttpServiceBindingProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+  gEfiTlsConfigurationProtocolGuid
+  gEfiUsbIoProtocolGuid
+
+[FeaturePcd]
+
+[Pcd]
+  gDfciPkgTokenSpaceGuid.PcdSetupUiReducedFunction
+  gDfciPkgTokenSpaceGuid.PcdSKUEnableDfci
+
+[Depex]
+  gEfiVariableArchProtocolGuid  AND
+  gDfciSettingAccessProtocolGuid AND
+  gDfciAuthenticationProtocolGuid AND
+  gDfciSettingPermissionsProtocolGuid
+
+[BuildOptions.Arm]
+  GCC:*_*_*_CC_FLAGS = -Wno-missing-brace -Wno-error

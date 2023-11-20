@@ -1,0 +1,71 @@
+## @file
+# DfciCheck429.inf
+#
+# Stand alone shell application to verify that HTTP error code 429 is returned
+# from the refresh server.
+#
+# Copyright (C) Microsoft Corporation. All rights reserved.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DfciCheck429
+  FILE_GUID                      = 916031bd-73bd-4454-b390-88aa6449ee24
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = DfciCheck429Entry
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64
+#
+
+[Sources]
+  DfciPrivate.h
+  DfciCheck429.c
+  DfciRequest.h
+  DfciRequest.c
+  DfciUpdate.h
+  DfciUpdate.c
+  DfciUtility.h
+  DfciUtility.c
+
+[Packages]
+  DfciPkg/DfciPkg.dec
+  MsCorePkg/MsCorePkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  NetworkPkg/NetworkPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  DevicePathLib
+  DfciDeviceIdSupportLib
+  HiiLib
+  HttpLib
+  MemoryAllocationLib
+  JsonLiteParserLib
+  PrintLib
+  UefiBootServicesTableLib
+  UefiApplicationEntryPoint
+  UefiLib
+
+[Guids]
+  gDfciAuthProvisionVarNamespace
+  gDfciPermissionManagerVarNamespace
+  gDfciSettingsManagerVarNamespace
+  gEfiBootManagerPolicyNetworkGuid
+  gEfiTlsCaCertificateGuid
+  gEfiCertX509Guid
+
+[Protocols]
+  gDfciSettingAccessProtocolGuid
+  gEfiBootManagerPolicyProtocolGuid
+  gEfiHttpServiceBindingProtocolGuid
+  gEfiHttpProtocolGuid
+  gEfiShellParametersProtocolGuid

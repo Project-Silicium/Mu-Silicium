@@ -33,7 +33,6 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <Library/MsBootPolicy.h>
 #include <Library/BootGraphicsProviderLib.h>
 #include <Library/BootGraphicsLib.h>
-#include <Library/BootGraphicsProvider.h>
 #include <Library/BootGraphics.h>
 #include <Library/GraphicsConsoleHelperLib.h>
 #include <Library/MsPlatformDevicesLib.h>
@@ -82,10 +81,8 @@ ThermalFailureShutdown (
   VOID
   )
 {
-  EFI_STATUS  Status = EFI_SUCCESS;
-  EFI_EVENT   TimerEvent; // Should set to a value
-  UINTN       index;
-  UINT32      WaitTime = PcdGet32 (PcdShutdownGraphicDisplayTime);
+  EFI_STATUS Status = EFI_SUCCESS;
+  UINT32     WaitTime = PcdGet32 (PcdShutdownGraphicDisplayTime);
 
   // Display the too hot picture
   Status = DisplayBootGraphic (BG_CRITICAL_OVER_TEMP);
@@ -94,21 +91,7 @@ ThermalFailureShutdown (
   }
 
   // Wait a few seconds
-
-  // Create an event
-  Status = gBS->CreateEvent (EVT_TIMER, 0, NULL, NULL, &TimerEvent);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "Create Event failed. %r\n", Status));
-  }
-
-  // Set timer using the event
-  gBS->SetTimer (TimerEvent, TimerRelative, WaitTime);
-
-  // Wait for event to fire
-  Status = gBS->WaitForEvent (1, &TimerEvent, &index);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "Wait for Event failed. %r\n", Status));
-  }
+  gBS->Stall(WaitTime);
 
   gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
 }
@@ -119,10 +102,8 @@ PowerFailureShutdown (
   VOID
   )
 {
-  EFI_STATUS  Status = EFI_SUCCESS;
-  EFI_EVENT   TimerEvent; // Should set to a value
-  UINTN       index;
-  UINT32      WaitTime = PcdGet32 (PcdShutdownGraphicDisplayTime);
+  EFI_STATUS Status   = EFI_SUCCESS;
+  UINT32     WaitTime = PcdGet32 (PcdShutdownGraphicDisplayTime);
 
   // Display the low battery picture
 
@@ -134,20 +115,7 @@ PowerFailureShutdown (
   }
 
   // Wait a few seconds
-  // Create an event
-  Status = gBS->CreateEvent (EVT_TIMER, 0, NULL, NULL, &TimerEvent);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "Create Event failed. %r\n", Status));
-  }
-
-  // Set timer using the event
-  gBS->SetTimer (TimerEvent, TimerRelative, WaitTime);
-
-  // Wait for event to fire
-  Status = gBS->WaitForEvent (1, &TimerEvent, &index);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "Wait for Event failed. %r\n", Status));
-  }
+  gBS->Stall(WaitTime);
 
   gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
 }
@@ -967,9 +935,6 @@ DeviceBootManagerUnableToBoot (
 {
   EFI_STATUS                    Status;
   EFI_GRAPHICS_OUTPUT_PROTOCOL *GraphicsOutput;
-  UINT32                        DisplayHeight;
-  INTN                          DestX;
-  INTN                          DestY;
 
   // Locate Gop Protocol
   Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID **)&GraphicsOutput);
@@ -985,16 +950,17 @@ DeviceBootManagerUnableToBoot (
     DEBUG ((EFI_D_ERROR, "%a Unable to set console mode - %r\n", __FUNCTION__, Status));
   }
 
-  // Set Display Location of No Boot OS Image
-  DisplayHeight = GraphicsOutput->Mode->Info->HorizontalResolution;
-  DestX         = (DisplayHeight - 334) / 2;
-  DestY         = 20;
-
   // Display No Boot OS Logo
-  Status = DisplayPostBootGraphic (BG_NO_BOOT_OS, DestX, DestY);
+  Status = DisplayBootGraphic (BG_NO_BOOT_OS);
   if (EFI_ERROR (Status) != FALSE) {
     DEBUG ((EFI_D_ERROR, "%a Unable to set graphics - %r\n", __FUNCTION__, Status));
   }
+
+  // Wait 10s
+  gBS->Stall(10000000);
+
+  // Shutdown
+  gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
 
   // Do Cpu Dead Loop
   CpuDeadLoop ();

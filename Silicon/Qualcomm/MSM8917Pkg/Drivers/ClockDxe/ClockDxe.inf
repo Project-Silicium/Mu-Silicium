@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ClockDxe
+  FILE_GUID                      = c7cbe008-4d41-4133-85e0-7c495215db22
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = ClockInitialize
+
+[Sources.common]
+  ClockDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  MSM8917Pkg/MSM8917Pkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+  IoLib
+
+[Protocols]
+  gQcomClockProtocolGuid
+
+[Depex]
+  TRUE
+
+[BuildOptions.common]
+  GCC:*_*_*_CC_FLAGS = -Wno-pointer-to-int-cast -Wno-overflow
