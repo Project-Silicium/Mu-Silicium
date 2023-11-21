@@ -21,7 +21,7 @@ jobs:
           chmod 744 ./setup_env.sh
           ./setup_env.sh -p apt
           chmod 744 ./build_uefi.sh
-          ./build_uefi.sh -d ginkgo -m 4 -r DEBUG
+          ./build_uefi.sh -d ginkgo -m 4
       - uses: actions/upload-artifact@v3
         with:
           name: Redmi Note 8
