@@ -30,8 +30,16 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00000660
   gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x17a00000
 
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 660 @ 2.2 GHz"
+!if $(SOC_TYPE) == 0
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 660 @ 2.20 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SDM660"
+!elseif $(SOC_TYPE) == 1
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 636 @ 1.80 GHz"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SDM636"
+!elseif $(SOC_TYPE) == 2
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 630 @ 2.20 GHz"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SDM630"
+!endif
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
