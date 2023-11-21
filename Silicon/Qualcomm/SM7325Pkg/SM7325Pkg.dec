@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = SM7325Pkg
+  PACKAGE_GUID                        = 8f169043-4634-42b9-adab-5040f633596c
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gSM7325PkgTokenSpaceGuid            = { 0x8f169043, 0x4634, 0x42b9, { 0xad, 0xab, 0x50, 0x40, 0xf6, 0x33, 0x59, 0x6c } }
