@@ -1,5 +1,5 @@
 # @file
-# Script to Build Redmi Note 8/8T UEFI firmware
+# Script to Build Redmi 10С UEFI firmware
 #
 # Copyright (c) Microsoft Corporation.
 # SPDX-License-Identifier: BSD-2-Clause-Patent
