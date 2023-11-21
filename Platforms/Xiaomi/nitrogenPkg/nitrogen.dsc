@@ -29,8 +29,13 @@
   AB_SLOT_SUPPORT                = 0
   USE_UART                       = 0
 
+  # 0 = SDM660
+  # 1 = SDM636
+  # 2 = SDM630
+  SOC_TYPE                       = 1
+
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|nitrogenPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf

@@ -259,8 +259,13 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a73 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
+#if SOC_TYPE == 1
+    1800,                  // MaxSpeed;
+    1800,                  // CurrentSpeed;
+#else
     2200,                  // MaxSpeed;
     2200,                  // CurrentSpeed;
+#endif
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
@@ -314,8 +319,13 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a53 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
+#if SOC_TYPE == 1
+    1600,                  // MaxSpeed;
+    1600,                  // CurrentSpeed;
+#else
     1800,                  // MaxSpeed;
     1800,                  // CurrentSpeed;
+#endif
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
