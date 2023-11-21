@@ -637,7 +637,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display Output||✅|
 |Vibration||❌|
 |UART||❌|
 
