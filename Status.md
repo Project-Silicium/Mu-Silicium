@@ -609,7 +609,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI||✅|
 |UART||❔|
 
 ### OS Status
@@ -620,14 +620,14 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
+|Boot||✅|
 |UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
-|CPU||❌|
+|CPU|Only one core|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|

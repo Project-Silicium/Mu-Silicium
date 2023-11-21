@@ -117,7 +117,7 @@ READ_LOCK_STATUS   = TRUE
 
   !include QcomPkg/Frontpage.fdf.inc
 
-  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
+  INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
   # TODO: Make this Image for every single Device
   FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {

@@ -259,8 +259,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a73 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-    2000,                  // MaxSpeed;
-    2000,                  // CurrentSpeed;
+    2400,                  // MaxSpeed;
+    2400,                  // CurrentSpeed;
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
@@ -314,8 +314,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a53 = {
         1  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-    1800,                  // MaxSpeed;
-    1800,                  // CurrentSpeed;
+    1900,                  // MaxSpeed;
+    1900,                  // CurrentSpeed;
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;         ///< The enumeration
                            // value from PROCESSOR_UPGRADE.
@@ -659,7 +659,7 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
         1, // Unbuffered      :1;
         0, // Reserved1       :1;
     },
-    2000,                 // Speed; (unknown)
+    2400,                 // Speed; (unknown)
     2,                    // Manufacturer String
     0,                    // SerialNumber String
     0,                    // AssetTag String
