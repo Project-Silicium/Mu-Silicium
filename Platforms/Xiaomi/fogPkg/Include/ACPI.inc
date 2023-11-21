@@ -5,7 +5,7 @@
 #  SECTION RAW = SM6225Pkg/AcpiTables/BGRT.aml
 #  SECTION RAW = SM6225Pkg/AcpiTables/CSRT.aml
 #  SECTION RAW = SM6225Pkg/AcpiTables/DBG2.aml
-  SECTION RAW = SM6225Pkg/AcpiTables/DSDT.aml
+   SECTION RAW = Platforms/Xiaomi/fogPkg/AcpiTables/DSDT.aml
 #  SECTION RAW = SM6225Pkg/AcpiTables/FADT.aml
   SECTION RAW = SM6225Pkg/AcpiTables/FACP.aml
   SECTION RAW = SM6225Pkg/AcpiTables/GTDT.aml
