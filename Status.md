@@ -627,7 +627,7 @@
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
-|CPU|Only one core|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
