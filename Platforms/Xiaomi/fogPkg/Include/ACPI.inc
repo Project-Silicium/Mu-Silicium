@@ -17,7 +17,7 @@
 #  SECTION RAW = SM6225Pkg/AcpiTables/TPM2.aml
 #  SECTION RAW = SM6225Pkg/AcpiTables/XSDT.aml
 #  SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
-#  SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
-#  SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
-#  SECTION UI = "AcpiTables"
-# }
+  SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
+  SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
+  SECTION UI = "AcpiTables"
+ }
