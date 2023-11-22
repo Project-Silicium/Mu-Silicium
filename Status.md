@@ -607,7 +607,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|Problematic Drivers|❌|
 |SD Card||❌|
 |ACPI||✅|
 |UART||❔|
