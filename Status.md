@@ -913,7 +913,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-Max-3.png" width="420" alt="Preview">
 
-**SoC: SDM635** <br />
+**SoC: SDM636** <br />
 **Codename: nitrogen** <br />
 **Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
