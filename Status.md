@@ -756,7 +756,7 @@
 **SoC: SM6125** <br />
 **Codename: ginkgo** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Contibuters: None** <br />
+**Contibuters: [SwedMlite](https://github.com/SwedMlite), [Vicente Cortes](https://github.com/vicenteicc2008)** <br />
 **Testers: [SwedMlite](https://github.com/SwedMlite), [VAVANESKA](https://github.com/VAVANESKA), [Vicente Cortes](https://github.com/vicenteicc2008), [kubawis128](https://github.com/kubawis128)**
 
 ### UEFI Status
