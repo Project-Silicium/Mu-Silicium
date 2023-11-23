@@ -621,7 +621,7 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||✅|
-|UFS||❌|
+|UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
