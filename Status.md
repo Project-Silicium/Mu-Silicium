@@ -770,7 +770,7 @@
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
-|ACPI|Dosen't work due to a Unknown Issue|❌|
+|ACPI||✅|
 |UART||❔|
 
 ### OS Status
@@ -781,14 +781,14 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
+|Boot||✅|
 |eMMC||❌|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
-|CPU||❌|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -798,7 +798,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display Output||✅|
 |Vibration||❌|
 |UART||❌|
 
