@@ -19,7 +19,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
                     0x20, 
                     Zero, 
                     Zero, 
-                    0xB300, 
+                    0xC300, 
                     ResourceTemplate ()
                     {
                         Register (SystemMemory, 
@@ -204,8 +204,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x06EE, 
-                            0x0385, 
+                            0x0F0A, 
+                            0x035C, 
                             One, 
                             One, 
                             Zero, 
@@ -243,8 +243,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0FA1, 
-                            0x0393, 
+                            0x0F6E, 
+                            0x038E, 
                             One, 
                             One, 
                             Zero, 
@@ -376,8 +376,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x06EE, 
-                            0x0385, 
+                            0x0F0A, 
+                            0x035C, 
                             One, 
                             One, 
                             Zero, 
@@ -415,8 +415,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0FA1, 
-                            0x0393, 
+                            0x0F6E, 
+                            0x038E, 
                             One, 
                             One, 
                             Zero, 
@@ -548,8 +548,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x06EE, 
-                            0x0385, 
+                            0x0F0A, 
+                            0x035C, 
                             One, 
                             One, 
                             Zero, 
@@ -587,8 +587,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0FA1, 
-                            0x0393, 
+                            0x0F6E, 
+                            0x038E, 
                             One, 
                             One, 
                             Zero, 
@@ -720,8 +720,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x06EE, 
-                            0x0385, 
+                            0x0F0A, 
+                            0x035C, 
                             One, 
                             One, 
                             Zero, 
@@ -759,8 +759,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0FA1, 
-                            0x0393, 
+                            0x0F6E, 
+                            0x038E, 
                             One, 
                             One, 
                             Zero, 
@@ -892,8 +892,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0F0A, 
-                            0x035C, 
+                            0x0F96, 
+                            0x03E8, 
                             One, 
                             One, 
                             Zero, 
@@ -931,8 +931,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0F6E, 
-                            0x038E, 
+                            0x118A, 
+                            0x05DC, 
                             One, 
                             One, 
                             Zero, 
@@ -1064,8 +1064,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0F0A, 
-                            0x035C, 
+                            0x0F96, 
+                            0x03E8, 
                             One, 
                             One, 
                             Zero, 
@@ -1103,8 +1103,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0F6E, 
-                            0x038E, 
+                            0x118A, 
+                            0x05DC, 
                             One, 
                             One, 
                             Zero, 
@@ -1236,8 +1236,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0F0A, 
-                            0x035C, 
+                            0x0F96, 
+                            0x03E8, 
                             One, 
                             One, 
                             Zero, 
@@ -1275,8 +1275,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8450 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0F6E, 
-                            0x038E, 
+                            0x118A, 
+                            0x05DC, 
                             One, 
                             One, 
                             Zero, 
