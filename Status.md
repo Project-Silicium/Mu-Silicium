@@ -782,7 +782,7 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||✅|
-|eMMC||❌|
+|eMMC||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
