@@ -1,5 +1,7 @@
 # Building
 
+*Recommended Linux OS: Ubuntu 22.04.3 LTS*
+
 ### Step 1:
 
 First of you need the sourcecode to compile a UEFI Image. <br />
