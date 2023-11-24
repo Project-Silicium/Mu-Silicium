@@ -52,5 +52,6 @@
   MSM8917Pkg/Drivers/ClockDxe/ClockDxe.inf
   MSM8917Pkg/Drivers/SpmiDxe/SpmiDxe.inf
   MSM8917Pkg/Drivers/Pm8x41Dxe/Pm8x41Dxe.inf
+  MSM8917Pkg/Drivers/SmemDxe/SmemDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

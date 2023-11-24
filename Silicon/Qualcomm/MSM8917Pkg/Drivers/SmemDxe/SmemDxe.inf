@@ -1,0 +1,33 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmemDxe
+  FILE_GUID                      = 0c3e66c7-ba4c-4807-a058-99c9f05010f2
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SmemInitialize
+
+[Sources.common]
+  SmemDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  MSM8917Pkg/MSM8917Pkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+  DebugLib
+  ArmLib
+  IoLib
+
+[Protocols]
+  gQcomSmemProtocolGuid
+
+[Depex]
+  TRUE
+
+[BuildOptions.common]
+  GCC:*_*_*_CC_FLAGS = -Wno-pointer-to-int-cast -Wno-overflow
