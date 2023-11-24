@@ -20,6 +20,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM6125 ", 0x00000003)
                     {
                         0x0000017C,
                     }
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000180,
+                    }
                 })
                 Return (RBUF) /* \_SB_.SDC1._CRS.RBUF */
             }
