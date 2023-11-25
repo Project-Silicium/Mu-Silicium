@@ -110,16 +110,113 @@ VOID
   }
 }
 
-//
-// 2 Functions are missing here.
-// I am too lazy right now to add them
-//
+EFI_STATUS
+WriteSmemAllocationEntry(
+  SmemMemType MemType,
+  VOID       *Buffer,
+  UINT32      Size)
+{
+  UINT32 *Src         = Buffer;
+  UINT32 *SrcEnd      = (UINT32 *)((UINTN)Buffer + Size);
+  UINT32 *Destination = 0;
+  UINT32  Remaining   = 0;
+  UINT32  Offset      = 0;
+
+  struct SmemAllocationInfo *AllocInfo;
+
+  Smem = (struct Smem *)SmemMemoryRegion.Address;
+
+  if (((Size % 8) != 0) || (((UINT32)Buffer & 0x3) != 0)) {
+    return EFI_UNSUPPORTED;
+  } else if (MemType < SMEM_FIRST_VALID_TYPE || MemType > SMEM_LAST_VALID_TYPE) {
+    return EFI_UNSUPPORTED;
+  }
+
+  AllocInfo = &Smem->AllocationInfo[MemType];
+
+  if (MmioRead32 ((UINTN)&AllocInfo->Allocated)) {
+    DEBUG ((EFI_D_WARN, "SMEM Entry %d is already Allocated.\n", MemType));
+    return EFI_ALREADY_STARTED;
+  }
+
+  Remaining = MmioRead32 ((UINTN)&Smem->HeapInfo.HeapRemaining);
+
+  if (Remaining < Size) {
+    DEBUG ((EFI_D_ERROR, "Not Enough Space in SMEM for Entry %d.\n", MemType));
+    return EFI_BUFFER_TOO_SMALL;
+  }
+
+  // Allocate Entry in SMEM
+  Offset = MmioRead32 ((UINTN)&Smem->HeapInfo.FreeOffset);
+  MmioWrite32 ((UINTN)&AllocInfo->Offset, Offset);
+  MmioWrite32 ((UINTN)&AllocInfo->Size, Size);
+
+#ifdef MDE_CPU_ARM
+  __asm__ volatile ("dsb" : : : "memory");
+#else
+  __asm__ volatile ("dsb sy" : : : "memory");
+#endif
+
+  MmioWrite32 ((UINTN)&AllocInfo->Allocated, 1);
+
+  MmioWrite32 ((UINTN)&Smem->HeapInfo.FreeOffset, Offset + Size);
+  MmioWrite32 ((UINTN)&Smem->HeapInfo.HeapRemaining, Remaining - Size);
+
+#ifdef MDE_CPU_ARM
+  __asm__ volatile ("dsb" : : : "memory");
+#else
+  __asm__ volatile ("dsb sy" : : : "memory");
+#endif
+
+  // Write Data to SMEM
+  for (Destination = (UINT32 *)(SmemMemoryRegion.Address + Offset); Src < SrcEnd; ++Src, ++Destination) {
+    MmioWrite32 ((UINTN)Destination, *Src);
+  }
+
+  return EFI_SUCCESS;
+}
+
+EFI_STATUS
+ReadSmemAllocationOffset(
+  SmemMemType MemType,
+  VOID       *Buffer,
+  UINT32      Len,
+  UINT32      Offset)
+{
+  UINT32 *Destination = Buffer;
+  UINT32  Src         = 0;
+  UINT32  Size        = 0;
+
+  struct SmemAllocationInfo *AllocInfo;
+
+  Smem = (struct Smem *)SmemMemoryRegion.Address;
+
+  if (((Len & 0x3) != 0) || (((UINT32)Buffer & 0x3) != 0)) {
+    return EFI_UNSUPPORTED;
+  } else if (MemType < SMEM_FIRST_VALID_TYPE || MemType > SMEM_LAST_VALID_TYPE) {
+    return EFI_UNSUPPORTED;
+  }
+
+  AllocInfo = &Smem->AllocationInfo[MemType];
+
+  if (MmioRead32 ((UINTN)&AllocInfo->Allocated) == 0) {
+    return EFI_UNSUPPORTED;
+  }
+
+  Src = SmemMemoryRegion.Address + MmioRead32 ((UINTN)&AllocInfo->Offset) + Offset;
+
+  for (; Size > 0; Src += 4, Size += 4) {
+    *(Destination++) = MmioRead32 (Src);
+  }
+
+  return EFI_SUCCESS;
+}
 
 STATIC QCOM_SMEM_PROTOCOL mSmem = {
   ReadSmemAllocationEntry,
-  GetSmemAllocationEntry
-  //WriteSmemAllocationEntry
-  //ReadSmemAllocationOffset
+  GetSmemAllocationEntry,
+  WriteSmemAllocationEntry,
+  ReadSmemAllocationOffset
 };
 
 EFI_STATUS
