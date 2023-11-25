@@ -36,6 +36,7 @@
   INF QcomPkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
 
   INF MSM8917Pkg/Drivers/SmemDxe/SmemDxe.inf
+  INF MSM8917Pkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF MSM8917Pkg/Drivers/GpioTlmmDxe/GpioTlmmDxe.inf
   INF MSM8917Pkg/Drivers/ClockDxe/ClockDxe.inf
   INF MSM8917Pkg/Drivers/SpmiDxe/SpmiDxe.inf
