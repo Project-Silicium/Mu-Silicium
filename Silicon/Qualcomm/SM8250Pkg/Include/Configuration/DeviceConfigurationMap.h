@@ -9,7 +9,6 @@ typedef struct {
 } CONFIGURATION_DESCRIPTOR_EX, *PCONFIGURATION_DESCRIPTOR_EX;
 
 static CONFIGURATION_DESCRIPTOR_EX gDeviceConfigurationDescriptorEx[] = {
-    {"ConfigParameterCount", 64},
     {"NumCpusFuseAddr", 0x5C04C},
     {"EnableShell", 0x1},
     {"EUDEnableAddr", 0x88E2000},
