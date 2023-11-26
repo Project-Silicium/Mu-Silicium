@@ -374,7 +374,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|“KMODE EXCEPTION NOT HANDLED” error occurs in full Windows|⚠️|
+|Boot||✅|
 |UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
