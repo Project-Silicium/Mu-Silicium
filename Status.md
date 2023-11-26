@@ -362,7 +362,7 @@
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Power|⚠️|
-|ACPI||❌|
+|ACPI||✅|
 |Slot Switch||✅|
 |UART||❔|
 
@@ -374,12 +374,12 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Boot|“KMODE EXCEPTION NOT HANDLED” error occurs in full Windows|⚠️|
+|UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
 |CPU||❌|
@@ -392,7 +392,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 |UART||❌|
 
