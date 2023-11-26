@@ -449,6 +449,7 @@
 |UART||❔|
 
 ### OS Status
+**WARNING: Work of Windows is unstable! The system freezes after a while** <br />
 
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
@@ -461,7 +462,7 @@
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
 |CPU|Only One Core working right now|⚠️|
