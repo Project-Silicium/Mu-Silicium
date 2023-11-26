@@ -382,7 +382,7 @@
 |USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU||✅|
+|CPU|Only One Core working right now|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
