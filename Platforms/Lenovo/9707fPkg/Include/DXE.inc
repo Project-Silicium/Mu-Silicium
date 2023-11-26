@@ -47,16 +47,8 @@
 
     INF Binaries/9707f/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
 
-    FILE DRIVER = 6B38F7B4-AD98-40E9-9093-ACA2B5A253C4 {
-            SECTION PE32 = Binaries/9707f/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.efi
-            SECTION UI = "DiskIoDxe"
-    }
-
-    FILE DRIVER = 1FA1F39E-FEFF-4AAE-BD7B-38A070A3B609 {
-            SECTION PE32 = Binaries/9707f/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.efi
-            SECTION UI = "PartitionDxe"
-    }
-
+    INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+    INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
     INF FatPkg/EnhancedFatDxe/Fat.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
     INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
@@ -74,10 +66,10 @@
     INF Binaries/9707f/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
-    FILE DRIVER = 1C04F529-0612-4319-9315-B2E75C16810A {
-            SECTION PE32 = Binaries/9707f/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.efi
-            SECTION UI = "FeatureEnablerDxe"
-    }
+    # FILE DRIVER = 1C04F529-0612-4319-9315-B2E75C16810A {
+    #        SECTION PE32 = Binaries/9707f/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.efi
+    #        SECTION UI = "FeatureEnablerDxe"
+    # }
 
 !if $(USE_DISPLAYDXE) == 1
     INF Binaries/9707f/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
