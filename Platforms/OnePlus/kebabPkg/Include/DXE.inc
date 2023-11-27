@@ -4,7 +4,7 @@
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/kebab/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
-  INF Binaries/kebab/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
+  #INF Binaries/kebab/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
