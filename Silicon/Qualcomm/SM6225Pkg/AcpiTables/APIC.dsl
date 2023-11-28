@@ -1,5 +1,5 @@
 [000h 0000 004h]                   Signature : "APIC"    [Multiple APIC Description Table (MADT)]
-[004h 0004 004h]                Table Length : 000002E4
+[004h 0004 004h]                Table Length : 000002EC
 [008h 0008 001h]                    Revision : 05
 [009h 0009 001h]                    Checksum : 1A
 [00Ah 0010 006h]                      Oem ID : "QCOM  "
@@ -13,7 +13,7 @@
                          PC-AT Compatibility : 0
 
 [02Ch 0044 001h]               Subtable Type : 0B [Generic Interrupt Controller]
-[02Dh 0045 001h]                      Length : 52
+[02Dh 0045 001h]                      Length : 50
 [02Eh 0046 002h]                    Reserved : 0000
 [030h 0048 004h]        CPU Interface Number : 00000000
 [034h 0052 004h]               Processor UID : 00000000
@@ -22,7 +22,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [03Ch 0060 004h]    Parking Protocol Version : 00000000
-[040h 0064 004h]       Performance Interrupt : 00000015
+[040h 0064 004h]       Performance Interrupt : 00000014
 [044h 0068 008h]              Parked Address : 0000000000000000
 [04Ch 0076 008h]                Base Address : 0000000000000000
 [054h 0084 008h]    Virtual GIC Base Address : 0000000000000000
@@ -36,7 +36,7 @@
 [07Ch 0124 002h]              TRBE Interrupt : 500B
 
 [07Eh 0126 001h]               Subtable Type : 0B [Generic Interrupt Controller]
-[07Fh 0127 001h]                      Length : 52
+[07Fh 0127 001h]                      Length : 50
 [080h 0128 002h]                    Reserved : 0000
 [082h 0130 004h]        CPU Interface Number : 00000001
 [086h 0134 004h]               Processor UID : 00000001
@@ -45,7 +45,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [08Eh 0142 004h]    Parking Protocol Version : 00000000
-[092h 0146 004h]       Performance Interrupt : 00000015
+[092h 0146 004h]       Performance Interrupt : 00000014
 [096h 0150 008h]              Parked Address : 0000000000000000
 [09Eh 0158 008h]                Base Address : 0000000000000000
 [0A6h 0166 008h]    Virtual GIC Base Address : 0000000000000000
@@ -59,7 +59,7 @@
 [0CEh 0206 002h]              TRBE Interrupt : 500B
 
 [0D0h 0208 001h]               Subtable Type : 0B [Generic Interrupt Controller]
-[0D1h 0209 001h]                      Length : 52
+[0D1h 0209 001h]                      Length : 50
 [0D2h 0210 002h]                    Reserved : 0000
 [0D4h 0212 004h]        CPU Interface Number : 00000002
 [0D8h 0216 004h]               Processor UID : 00000002
@@ -68,7 +68,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [0E0h 0224 004h]    Parking Protocol Version : 00000000
-[0E4h 0228 004h]       Performance Interrupt : 00000016
+[0E4h 0228 004h]       Performance Interrupt : 00000014
 [0E8h 0232 008h]              Parked Address : 0000000000000000
 [0F0h 0240 008h]                Base Address : 0000000000000000
 [0F8h 0248 008h]    Virtual GIC Base Address : 0000000000000000
@@ -82,7 +82,7 @@
 [120h 0288 002h]              TRBE Interrupt : 500B
 
 [122h 0290 001h]               Subtable Type : 0B [Generic Interrupt Controller]
-[123h 0291 001h]                      Length : 52
+[123h 0291 001h]                      Length : 50
 [124h 0292 002h]                    Reserved : 0000
 [126h 0294 004h]        CPU Interface Number : 00000003
 [12Ah 0298 004h]               Processor UID : 00000003
@@ -91,7 +91,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [132h 0306 004h]    Parking Protocol Version : 00000000
-[136h 0310 004h]       Performance Interrupt : 00000015
+[136h 0310 004h]       Performance Interrupt : 00000014
 [13Ah 0314 008h]              Parked Address : 0000000000000000
 [142h 0322 008h]                Base Address : 0000000000000000
 [14Ah 0330 008h]    Virtual GIC Base Address : 0000000000000000
@@ -105,7 +105,7 @@
 [172h 0370 002h]              TRBE Interrupt : 500B
 
 [174h 0372 001h]               Subtable Type : 0B [Generic Interrupt Controller]
-[175h 0373 001h]                      Length : 52
+[175h 0373 001h]                      Length : 50
 [176h 0374 002h]                    Reserved : 0000
 [178h 0376 004h]        CPU Interface Number : 00000004
 [17Ch 0380 004h]               Processor UID : 00000004
@@ -114,7 +114,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [184h 0388 004h]    Parking Protocol Version : 00000000
-[188h 0392 004h]       Performance Interrupt : 00000015
+[188h 0392 004h]       Performance Interrupt : 00000014
 [18Ch 0396 008h]              Parked Address : 0000000000000000
 [194h 0404 008h]                Base Address : 0000000000000000
 [19Ch 0412 008h]    Virtual GIC Base Address : 0000000000000000
@@ -128,7 +128,7 @@
 [1C4h 0452 002h]              TRBE Interrupt : 500B
 
 [1C6h 0454 001h]               Subtable Type : 0B [Generic Interrupt Controller]
-[1C7h 0455 001h]                      Length : 52
+[1C7h 0455 001h]                      Length : 50
 [1C8h 0456 002h]                    Reserved : 0000
 [1CAh 0458 004h]        CPU Interface Number : 00000005
 [1CEh 0462 004h]               Processor UID : 00000005
@@ -137,7 +137,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [1D6h 0470 004h]    Parking Protocol Version : 00000000
-[1DAh 0474 004h]       Performance Interrupt : 00000015
+[1DAh 0474 004h]       Performance Interrupt : 00000014
 [1DEh 0478 008h]              Parked Address : 0000000000000000
 [1E6h 0486 008h]                Base Address : 0000000000000000
 [1EEh 0494 008h]    Virtual GIC Base Address : 0000000000000000
@@ -151,7 +151,7 @@
 [216h 0534 002h]              TRBE Interrupt : 500B
 
 [218h 0536 001h]               Subtable Type : 0B [Generic Interrupt Controller]
-[219h 0537 001h]                      Length : 52
+[219h 0537 001h]                      Length : 50
 [21Ah 0538 002h]                    Reserved : 0000
 [21Ch 0540 004h]        CPU Interface Number : 00000006
 [220h 0544 004h]               Processor UID : 00000006
@@ -160,7 +160,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [228h 0552 004h]    Parking Protocol Version : 00000000
-[22Ch 0556 004h]       Performance Interrupt : 00000015
+[22Ch 0556 004h]       Performance Interrupt : 00000014
 [230h 0560 008h]              Parked Address : 0000000000000000
 [238h 0568 008h]                Base Address : 0000000000000000
 [240h 0576 008h]    Virtual GIC Base Address : 0000000000000000
@@ -174,7 +174,7 @@
 [268h 0616 002h]              TRBE Interrupt : 500B
 
 [26Ah 0618 001h]               Subtable Type : 0B [Generic Interrupt Controller]
-[26Bh 0619 001h]                      Length : 52
+[26Bh 0619 001h]                      Length : 50
 [26Ch 0620 002h]                    Reserved : 0000
 [26Eh 0622 004h]        CPU Interface Number : 00000007
 [272h 0626 004h]               Processor UID : 00000007
@@ -183,7 +183,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [27Ah 0634 004h]    Parking Protocol Version : 00000000
-[27Eh 0638 004h]       Performance Interrupt : 00000015
+[27Eh 0638 004h]       Performance Interrupt : 00000014
 [282h 0642 008h]              Parked Address : 0000000000000000
 [28Ah 0650 008h]                Base Address : 0000000000000000
 [292h 0658 008h]    Virtual GIC Base Address : 0000000000000000
@@ -194,7 +194,7 @@
 [2B6h 0694 001h]            Efficiency Class : 01
 [2B7h 0695 001h]                    Reserved : 00
 [2B8h 0696 002h]      SPE Overflow Interrupt : 0000
-[2BAh 0698 002h]              TRBE Interrupt : 180C
+[2BAh 0698 002h]              TRBE Interrupt : 500C
 
 [2BCh 0700 001h]               Subtable Type : 0C [Generic Interrupt Distributor]
 [2BDh 0701 001h]                      Length : 18
