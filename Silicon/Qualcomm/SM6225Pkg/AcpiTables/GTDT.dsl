@@ -50,11 +50,11 @@
 [075h 0117 003h]                    Reserved : 000000
 [078h 0120 008h]                Base Address : 000000000F121000
 [080h 0128 008h]            EL0 Base Address : 000000000F122000
-[088h 0136 004h]             Timer Interrupt : 00000027
+[088h 0136 004h]             Timer Interrupt : 00000028
 [08Ch 0140 004h] Timer Flags (decoded below) : 00000000
                                 Trigger Mode : 0
                                     Polarity : 0
-[090h 0144 004h]     Virtual Timer Interrupt : 00000026
+[090h 0144 004h]     Virtual Timer Interrupt : 00000027
 [094h 0148 004h] Virtual Timer Flags (decoded below) : 00000000
                                 Trigger Mode : 0
                                     Polarity : 0
