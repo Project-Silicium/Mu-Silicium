@@ -123,8 +123,7 @@ struct {
   { 1, UNUSED_INDEX, STRING_TOKEN (STR_MF_MENU_OP_SECURITY),   FRONT_PAGE_CONFIG_FORMSET_GUID, FRONT_PAGE_FORM_ID_SECURITY },                           // Security
   { 2, UNUSED_INDEX, STRING_TOKEN (STR_MF_MENU_OP_BOOTORDER),  MS_BOOT_MENU_FORMSET_GUID,      MS_BOOT_ORDER_FORM_ID       },                           // Boot Order
   { 3, 1,            STRING_TOKEN (STR_MF_MENU_OP_DFCI),       DFCI_MENU_FORMSET_GUID,         DFCI_MENU_FORM_ID           },                           // DFCI
-  { 4, UNUSED_INDEX, STRING_TOKEN (STR_MF_MENU_OP_HWH),        HWH_MENU_FORMSET_GUID,          HWH_MENU_FORM_ID            },                           // HWH
-  { 5, 2,            STRING_TOKEN (STR_MF_MENU_OP_EXIT),       FRONT_PAGE_CONFIG_FORMSET_GUID, FRONT_PAGE_FORM_ID_EXIT     }                            // Exit
+  { 4, 2,            STRING_TOKEN (STR_MF_MENU_OP_EXIT),       FRONT_PAGE_CONFIG_FORMSET_GUID, FRONT_PAGE_FORM_ID_EXIT     }                            // Exit
 };
 
 // Frontpage form set GUID
@@ -965,10 +964,6 @@ CreateTopMenu (
   //
   if (!IsDfciEnabledForDisplay ()) {
     RemoveMenuFromList (STRING_TOKEN (STR_MF_MENU_OP_DFCI));
-  }
-
-  if (!IsHwhEnabledForDisplay ()) {
-    RemoveMenuFromList (STRING_TOKEN (STR_MF_MENU_OP_HWH));
   }
 
   for (Count = 0; Count < MenuOptionCount; Count++) {

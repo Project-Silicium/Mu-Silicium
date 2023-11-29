@@ -16,12 +16,6 @@
   INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
   INF MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
-  INF MsWheaPkg/HwErrBert/HwErrBert.inf
-  INF MsWheaPkg/MsWheaReport/Dxe/MsWheaReportDxe.inf
-
-  # Hardware Health (Menu) application
-  INF MsWheaPkg/HwhMenu/HwhMenu.inf
-
   INF MsCorePkg/AcpiRGRT/AcpiRgrt.inf
 
   INF QcomPkg/Applications/DfciMenu/DfciMenu.inf

@@ -340,12 +340,6 @@
   MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
   MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
-  MsWheaPkg/HwErrBert/HwErrBert.inf
-  MsWheaPkg/MsWheaReport/Dxe/MsWheaReportDxe.inf
-
-  # Hardware Health (Menu) application
-  MsWheaPkg/HwhMenu/HwhMenu.inf
-
   MsCorePkg/AcpiRGRT/AcpiRgrt.inf
 
   QcomPkg/Applications/DfciMenu/DfciMenu.inf

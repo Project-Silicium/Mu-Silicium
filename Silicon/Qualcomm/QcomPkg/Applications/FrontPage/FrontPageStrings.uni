@@ -25,8 +25,6 @@
 
 #string STR_MF_MENU_OP_DFCI        #language en-US    "Management"
 
-#string STR_MF_MENU_OP_HWH         #language en-US    "Hardware Health"
-
 #string STR_MF_MENU_OP_EXIT        #language en-US    "Exit"
 
 ////////////////////////////////////////////////////////////////////////////////////
