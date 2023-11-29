@@ -1,0 +1,23 @@
+FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/APIC.aml
+  SECTION RAW = <SoC Codename>Pkg/AcpiTables/APIC.UniCore.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/BERT.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/BGRT.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/CSRT.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/DBG2.aml
+  SECTION RAW = <SoC Codename>Pkg/AcpiTables/DSDT_minimal.aml
+  SECTION RAW = <SoC Codename>Pkg/AcpiTables/FACP.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/FPDT.aml
+  SECTION RAW = <SoC Codename>Pkg/AcpiTables/GTDT.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/IORT.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/MCFG.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/MSDM.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/PPTT.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/SPCR.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/TPM2.aml
+# SECTION RAW = <SoC Codename>Pkg/AcpiTables/XSDT.aml
+  SECTION RAW = QcomPkg/AcpiTables/common/SSDT.aml
+  SECTION RAW = QcomPkg/AcpiTables/common/TPMDev.aml
+  SECTION RAW = QcomPkg/AcpiTables/common/SoftwareTpm2Table.aml
+  SECTION UI = "AcpiTables" 
+}
