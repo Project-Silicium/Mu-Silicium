@@ -34,6 +34,7 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|laurel_sproutPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceConfigurationMapLib|laurel_sproutPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific

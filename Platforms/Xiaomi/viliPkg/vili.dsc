@@ -39,6 +39,7 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|viliPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceConfigurationMapLib|viliPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific

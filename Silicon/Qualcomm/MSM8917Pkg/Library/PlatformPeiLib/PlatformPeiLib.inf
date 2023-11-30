@@ -36,6 +36,7 @@
   MemoryAllocationLib
   SerialPortLib
   MemoryMapHelperLib
+  DeviceConfigurationMapLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdFvSize

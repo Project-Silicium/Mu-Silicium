@@ -32,6 +32,7 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|fogPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceConfigurationMapLib|fogPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000          # Starting address

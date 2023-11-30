@@ -34,6 +34,7 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|ATU-L21Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceConfigurationMapLib|ATU-L21Pkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
   KeypadDeviceImplLib|ATU-L21Pkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
 
 [PcdsFixedAtBuild.common]

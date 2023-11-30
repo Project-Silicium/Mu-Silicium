@@ -40,6 +40,7 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|kebabPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceConfigurationMapLib|kebabPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific

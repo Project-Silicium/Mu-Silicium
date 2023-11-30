@@ -39,6 +39,7 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|9707fPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceConfigurationMapLib|9707fPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific

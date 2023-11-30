@@ -13,6 +13,8 @@
 #include <Library/HobLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/PcdLib.h>
+#include <Library/DeviceConfigurationMapLib.h>
+
 #include "PlatformPeiLibInternal.h"
 
 STATIC
@@ -47,8 +49,7 @@ STATIC
 EFI_STATUS
 CfgGetCfgInfoVal(CHAR8 *Key, UINT32 *Value)
 {
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx =
-      gDeviceConfigurationDescriptorEx;
+  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap();
 
   // Run through each configuration descriptor
   while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
@@ -66,8 +67,7 @@ STATIC
 EFI_STATUS
 CfgGetCfgInfoVal64(CHAR8 *Key, UINT64 *Value)
 {
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx =
-      gDeviceConfigurationDescriptorEx;
+  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap();
 
   // Run through each configuration descriptor
   while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
