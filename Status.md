@@ -342,6 +342,88 @@
 
 </td></tr> </table>
 
+## Poco F3
+
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Poco-F3.png" width="420" alt="Preview">
+
+**SoC: SM8250-AC** <br />
+**Codename: alioth** <br />
+**Maintainer: [AdrianoA3](https://github.com/AdrianoA3)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite) and [hyusang](https://github.com/cloudsweets/)** <br />
+**Tester: [AdrianoA3](https://github.com/AdrianoA3)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||❔|
+|UFS||✅|
+|Buttons||❌|
+|USB||❌|
+|ACPI||❌|
+|Slot Switch||❌|
+|UART||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+|UART||❌|
+
+</td></tr> </table>
+
 ## Legion Tab Y700
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Legion-Tab-Y700.png" width="420" alt="Preview">
