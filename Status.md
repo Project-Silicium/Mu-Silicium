@@ -360,10 +360,10 @@
 |Touchscreen||❌|
 |Clocks||❔|
 |UFS||✅|
-|Buttons||❌|
-|USB||❌|
+|Buttons||✅|
+|USB|No USB Power|⚠️|
 |ACPI||❌|
-|Slot Switch||❌|
+|Slot Switch||❔|
 |UART||❔|
 
 ### OS Status
