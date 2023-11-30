@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION		= 0x00010005
+  PACKAGE_NAME			= alioth
+  PACKAGE_GUID			= 28f1a3bf-193a-47e3-a7b9-5a435eaab2ee
+  PACKAGE_VERSION		= 0.1
+
+[Includes.common]
+  Include				# Root include for the package
+
+[Guids.common]
+  galiothTokenSpaceGuid	= { 0x28f1a3bf, 0x193a, 0x47e3, { 0xb5, 0xdd, 0x5a, 0x43, 0x5e, 0xaa, 0xb2, 0xee } }
