@@ -47,12 +47,20 @@ INF Binaries/alioth/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
 
 !if $(USE_DISPLAYDXE) == 1
-	INF Binaries/alioth/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+INF Binaries/alioth/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
 
 INF Binaries/alioth/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
-INF Binaries/alioth/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-INF Binaries/alioth/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+
+FILE DRIVER = 6B38F7B4-AD98-40E9-9093-ACA2B5A253C4 {
+	SECTION PE32 = Binaries/alioth/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.efi
+	SECTION UI = "DiskIoDxe"
+}
+
+FILE DRIVER = 1FA1F39E-FEFF-4AAE-BD7B-38A070A3B609 {
+	SECTION PE32 = Binaries/alioth/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.efi
+	SECTION UI = "PartitionDxe"
+}
 
 INF FatPkg/EnhancedFatDxe/Fat.inf
 INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
@@ -71,8 +79,10 @@ INF Binaries/alioth/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
-# Only used for DisplayDxe for Qualcomm Demura
-#INF Binaries/alioth/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+FILE DRIVER = 1C04F529-0612-4319-9315-B2E75C16810A {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.efi
+	SECTION UI = "FeatureEnablerDxe"
+}
 
 INF Binaries/alioth/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
@@ -90,25 +100,62 @@ INF Binaries/alioth/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
 INF Binaries/alioth/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
-INF Binaries/alioth/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
+
+FILE DRIVER = F09AD92E-4E91-490F-AB99-E69939B840B2 {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/LimitsDxe/LimitsDxe.efi
+	SECTION UI = "LimitsDxe"
+}
+
 INF Binaries/alioth/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-INF Binaries/alioth/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-INF Binaries/alioth/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-INF Binaries/alioth/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
+
+FILE DRIVER = B7F50E91-A759-412C-ADE4-DCD03E7F7C28 {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/XhciDxe/XhciDxe.efi
+	SECTION UI = "XhciDxe"
+}
+
+FILE DRIVER = 240612B7-A063-11D4-9A3A-0090273FC14D {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.efi
+	SECTION UI = "UsbBusDxe"
+}
+
+FILE DRIVER = 2D2E62CF-9ECF-43B7-8219-94E7FC713DFE {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.efi
+	SECTION UI = "UsbKbDxe"
+}
 
 INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
 
-INF Binaries/alioth/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+FILE DRIVER = 9FB4B4A7-42C0-4BCD-8540-9BCC6711F83E {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.efi
+	SECTION UI = "UsbMassStorageDxe"
+}
+
 INF Binaries/alioth/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-INF Binaries/alioth/QcomPkg/Drivers/HashDxe/HashDxe.inf
-INF Binaries/alioth/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
-INF Binaries/alioth/QcomPkg/Drivers/MacDxe/MacDxe.inf
-INF Binaries/alioth/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+
+FILE DRIVER = 3ADF8DDA-1850-44C5-8C63-BB991849BC6F {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/HashDxe/HashDxe.efi
+	SECTION UI = "HashDxe"
+}
+
+FILE DRIVER = 5F0937CD-73F9-445E-B320-BB6FD5D3CBDE {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/CipherDxe/CipherDxe.efi
+	SECTION UI = "CipherDxe"
+}
+
+FILE DRIVER = 20583A66-3C26-4D9E-9A8C-E2DFA2914015 {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/MacDxe/MacDxe.efi
+	SECTION UI = "MacDxe"
+}
+
+FILE DRIVER = B0D3689E-11F8-43C6-8ECE-023A29CEC35B {
+	SECTION PE32 = Binaries/alioth/QcomPkg/Drivers/RNGDxe/RngDxe.efi
+	SECTION UI = "RngDxe"
+}
 
 INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
