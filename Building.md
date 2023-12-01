@@ -1,6 +1,37 @@
 # Building
 
 *Recommended Linux OS: Ubuntu 22.04.3 LTS*
+*Or use the docker method*
+
+## If using docker method
+### Step 1:
+
+First of you need the sourcecode to compile a UEFI Image. <br />
+Clone the Repo by using:
+```
+git clone https://github.com/Robotix22/Mu-Qcom.git --recursive
+cd Mu-Qcom
+```
+
+You need to have `git` installed.
+
+### Step 2
+After the clone is done, proceed to open a shell/powershell/terminal inside the clone location
+For Linux/MacOS/BSD users, run:
+```
+./docker-build.sh "-d <Codename> [-r <Build Mode>] [-m <RAM Size>]"
+```
+You need the "double quotes"
+
+For Windows users, run (not tested):
+```
+.\docker-build.cmd "-d <Codename> [-r <Build Mode>] [-m <RAM Size>]"
+```
+You need the "double quotes".
+
+When then Build is done you will find a `.img` File in the root of the repo.
+
+## If building natively
 
 ### Step 1:
 
