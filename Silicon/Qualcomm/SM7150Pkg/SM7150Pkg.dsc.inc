@@ -11,8 +11,7 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER          = 1
-  PRECOMPILED_CRYPTO_BINARIES = 1
+  USE_PHYSICAL_TIMER = 1
 
 [BuildOptions.common]
 !if $(SOC_TYPE) == 1

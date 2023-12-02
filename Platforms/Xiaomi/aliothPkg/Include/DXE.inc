@@ -82,6 +82,10 @@ INF Binaries/alioth/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 	INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
+INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
+INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+INF CryptoPkg/Driver/CryptoDxe.inf
+
 INF Binaries/alioth/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf

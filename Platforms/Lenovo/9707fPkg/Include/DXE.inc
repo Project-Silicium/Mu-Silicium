@@ -77,6 +77,10 @@
     INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
+    INF MdeModulePkg/Bus/Pci/PciBusDxe.inf
+    INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+    INF CryptoPkg/Driver/CryptoDxe.inf
+
     INF Binaries/9707f/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf

@@ -76,6 +76,7 @@ APRIORI DXE {
 !endif
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+  INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/kebab/QcomPkg/OnePlusPkg/OnePlusUFS/UFSUpgradeDxe.inf
 

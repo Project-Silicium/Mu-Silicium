@@ -268,6 +268,7 @@ APRIORI DXE {
     }
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+    INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
     FILE DRIVER = FCABE6A7-7953-4A84-B7EC-D29E89B62E87 {
       SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.depex
