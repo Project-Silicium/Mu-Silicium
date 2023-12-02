@@ -1,0 +1,213 @@
+//**@file BootMenu formset definition
+//
+//  Copyright (C) Microsoft Corporation. All rights reserved.
+//  SPDX-License-Identifier: BSD-2-Clause-Patent
+//
+//**
+
+#include "BootMenu.h"
+
+formset
+  guid      = MS_BOOT_MENU_FORMSET_GUID,
+  title     = STRING_TOKEN(STR_BOOT_MENU_TITLE),
+  help      = STRING_TOKEN(STR_NULL_STRING),
+  classguid = MS_BOOT_MENU_FORMSET_GUID,
+  class     = EFI_OTHER_DEVICE_CLASS,
+  subclass  = EFI_GENERAL_APPLICATION_SUBCLASS,
+
+  varstore ORDER_MENU_CONFIGURATION,
+    varid = MS_BOOT_ORDER_VARID,
+    name  = BootOrderConfig,
+    guid  = MS_BOOT_MENU_FORMSET_GUID;
+
+  varstore SETTINGS_MENU_CONFIGURATION,
+    varid = MS_BOOT_SETTINGS_VARID,
+    name  = BootSettingsConfig,
+    guid  = MS_BOOT_MENU_FORMSET_GUID;
+
+  varstore SETTINGS_GRAYOUT_CONFIGURATION,
+    varid = MS_BOOT_GRAYOUT_VARID,
+    name  = BootGrayoutConfig,
+    guid  = MS_BOOT_MENU_FORMSET_GUID;
+
+  varstore SETTINGS_SUPPRESS_CONFIGURATION,
+    varid = MS_BOOT_SUPPRESS_VARID,
+    name  = BootSuppressConfig,
+    guid  = MS_BOOT_MENU_FORMSET_GUID;
+
+  //  Boot Device Configuration menu
+
+  form formid = MS_BOOT_ORDER_FORM_ID,
+    title  = STRING_TOKEN(STR_BOOT_ORDER_TITLE);
+
+    suppressif TRUE;
+       text
+         help   = STRING_TOKEN(STR_NULL_STRING),
+         text   = STRING_TOKEN(STR_NULL_STRING),
+         flags  = INTERACTIVE,
+         key    = MS_BOOT_ORDER_INIT_KEY;
+    endif;
+
+    suppressif  ideqval BootGrayoutConfig.RestrictedAccessString  == 0x0;
+      text
+        help    = STRING_TOKEN(STR_NULL_STRING),                                        // Boot Order Header
+        text    = STRING_TOKEN(STR_RESTRICTED_STRING);                                  //
+
+          text
+        help    = STRING_TOKEN(STR_NULL_STRING),                                        // SPACING
+        text    = STRING_TOKEN(STR_NULL_STRING);
+    endif;
+
+    text
+      help    = STRING_TOKEN(STR_NULL_STRING),                                          // Boot Order Header
+      text    = STRING_TOKEN(STR_BOOT_ORDER_HEADER);                                    //
+
+    text
+      help    = STRING_TOKEN(STR_NULL_STRING),                                          // SPACING
+      text    = STRING_TOKEN(STR_NULL_STRING);                                          //
+
+    grayoutif  ideqval BootSettingsConfig.BootOrderLock  == 1;
+      // Boot Edit list
+      //
+      label LABEL_ORDER_OPTIONS;
+      //
+      // This is where we will dynamically add current boot options
+      // each boot option.
+      //
+      label LABEL_ORDER_END;
+    endif;
+    text
+      help    = STRING_TOKEN(STR_NULL_STRING),                                          // SPACING
+      text    = STRING_TOKEN(STR_NULL_STRING);                                          //
+
+    text
+      help    = STRING_TOKEN(STR_NULL_STRING),                                          // SPACING
+      text    = STRING_TOKEN(STR_NULL_STRING);                                          //
+
+    text
+      help    = STRING_TOKEN(STR_NULL_STRING),                                          // Advanced Options
+      text    = STRING_TOKEN(STR_ADVANCED_OPTIONS_HEADER);                              //
+
+  suppressif ideqval BootSuppressConfig.AltBoot == 1;
+    grayoutif  ideqval BootGrayoutConfig.AltBoot == 0;
+      guidop
+        guid     = GRID_START_OPCODE_GUID,                                              // Custom UI Grid opcode - START
+        datatype = UINT32,                                                              //
+        data     = 100,                                                                 // Grid cell height in pixels.
+      endguidop;
+          subtitle text = STRING_TOKEN(STR_NULL_STRING),
+          flags = HORIZONTAL;
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),
+            text    = STRING_TOKEN(STR_DEV_ENABLE_ALT_BOOT);                            //
+          checkbox varid = BootSettingsConfig.AltBoot,
+            prompt   = STRING_TOKEN(STR_NULL_STRING),                                   // Enable Alternate Boot
+            help     = STRING_TOKEN(STR_NULL_STRING),                                   //
+            flags    = INTERACTIVE,
+            key      = MS_ENABLE_ALT_BOOT_QUESTION_ID,                                  // Off - On (Default)
+          endcheckbox;
+          text                                                                          //
+            help    = STRING_TOKEN(STR_NULL_STRING),                                    // Add a dummy 4th column to move the toggle switch further to the left.
+            text    = STRING_TOKEN(STR_NULL_STRING);                                    //
+          text                                                                          //
+            help    = STRING_TOKEN(STR_NULL_STRING),                                    // Add a dummy 5th column to move the toggle switch further to the left.
+            text    = STRING_TOKEN(STR_NULL_STRING);                                    //
+      guidop
+        guid     = GRID_END_OPCODE_GUID,                                                // Custom UI Grid opcode - END
+      endguidop;
+    endif;
+  endif;
+
+  suppressif ideqval BootSuppressConfig.IPv6 == 1;
+    grayoutif  ideqval BootGrayoutConfig.IPv6 == 0;
+      guidop
+        guid     = GRID_START_OPCODE_GUID,                                              // Custom UI Grid opcode - START
+        datatype = UINT32,                                                              //
+        data     = 100,                                                                 // Grid cell height in pixels.
+      endguidop;
+        subtitle text = STRING_TOKEN(STR_NULL_STRING),
+        flags = HORIZONTAL;
+        text
+          help    = STRING_TOKEN(STR_NULL_STRING),
+          text    = STRING_TOKEN(STR_DEV_ENABLE_IPV6);                                  //
+        checkbox varid = BootSettingsConfig.IPv6,
+          prompt   = STRING_TOKEN(STR_NULL_STRING),                                     // Enable Network Boot
+          help     = STRING_TOKEN(STR_NULL_STRING),                                     //
+          flags    = INTERACTIVE,
+          key      = MS_ENABLE_IPV6_QUESTION_ID,                                        // Off - On (Default)
+        endcheckbox;
+        text                                                                            //
+          help    = STRING_TOKEN(STR_NULL_STRING),                                      // Add a dummy 4th column to move the toggle switch further to the left.
+          text    = STRING_TOKEN(STR_NULL_STRING);                                      //
+        text                                                                            //
+          help    = STRING_TOKEN(STR_NULL_STRING),                                      // Add a dummy 5th column to move the toggle switch further to the left.
+          text    = STRING_TOKEN(STR_NULL_STRING);                                      //
+      guidop
+        guid     = GRID_END_OPCODE_GUID,                                                // Custom UI Grid opcode - END
+      endguidop;
+    endif;
+  endif;
+
+  suppressif ideqval BootSuppressConfig.EnableUsbBoot == 1;
+    grayoutif  ideqval BootGrayoutConfig.EnableUsbBoot == 0;
+      guidop
+        guid     = GRID_START_OPCODE_GUID,                                              // Custom UI Grid opcode - START
+        datatype = UINT32,                                                              //
+        data     = 100,                                                                 // Grid cell height in pixels.
+      endguidop;
+        subtitle text = STRING_TOKEN(STR_NULL_STRING),
+        flags = HORIZONTAL;
+        text
+          help    = STRING_TOKEN(STR_NULL_STRING),
+          text    = STRING_TOKEN(STR_DEV_ENABLE_USB_BOOT);                              //
+        checkbox varid = BootSettingsConfig.EnableUsbBoot,
+          prompt   = STRING_TOKEN(STR_NULL_STRING),                                     // Enable USB Boot
+          help     = STRING_TOKEN(STR_NULL_STRING),                                     //
+          flags    = INTERACTIVE,
+          key      = MS_ENABLE_USB_BOOT_QUESTION_ID,                                    // Off - On (Default)
+        endcheckbox;
+        text                                                                            //
+          help    = STRING_TOKEN(STR_NULL_STRING),                                      // Add a dummy 4th column to move the toggle switch further to the left.
+          text    = STRING_TOKEN(STR_NULL_STRING);                                      //
+        text                                                                            //
+          help    = STRING_TOKEN(STR_NULL_STRING),                                      // Add a dummy 5th column to move the toggle switch further to the left.
+          text    = STRING_TOKEN(STR_NULL_STRING);                                      //
+      guidop
+        guid     = GRID_END_OPCODE_GUID,                                                // Custom UI Grid opcode - END
+      endguidop;
+    endif;
+  endif;
+
+  suppressif ideqval BootSuppressConfig.BootOrderLock == 1;
+    grayoutif  ideqval BootGrayoutConfig.BootOrderLock == 0;
+      guidop
+        guid     = GRID_START_OPCODE_GUID,                                              // Custom UI Grid opcode - START
+        datatype = UINT32,                                                              //
+        data     = 100,                                                                 // Grid cell height in pixels.
+      endguidop;
+        subtitle text = STRING_TOKEN(STR_NULL_STRING),
+        flags = HORIZONTAL;
+        text
+          help    = STRING_TOKEN(STR_NULL_STRING),
+          text    = STRING_TOKEN(STR_DEV_ENABLE_BOOT_ORDER_LOCK);                       //
+        checkbox varid = BootSettingsConfig.BootOrderLock,
+          prompt   = STRING_TOKEN(STR_NULL_STRING),                                     // Enable Boot Order Lock
+          help     = STRING_TOKEN(STR_NULL_STRING),                                     //
+          flags    = INTERACTIVE | RESET_REQUIRED,
+          key      = MS_ENABLE_BOOT_ORDER_LOCK_QUESTION_ID,                             // Off - On (Default)
+        endcheckbox;
+        text                                                                            //
+          help    = STRING_TOKEN(STR_NULL_STRING),                                      // Add a dummy 4th column to move the toggle switch further to the left.
+          text    = STRING_TOKEN(STR_NULL_STRING);                                      //
+        text                                                                            //
+          help    = STRING_TOKEN(STR_NULL_STRING),                                      // Add a dummy 5th column to move the toggle switch further to the left.
+          text    = STRING_TOKEN(STR_NULL_STRING);                                      //
+      guidop
+        guid     = GRID_END_OPCODE_GUID,                                                // Custom UI Grid opcode - END
+      endguidop;
+    endif;
+  endif;
+
+  endform;
+
+endformset;

@@ -48,7 +48,6 @@ APRIORI DXE {
     INF Binaries/9707f/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
     INF FatPkg/EnhancedFatDxe/Fat.inf
-    INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
 
     INF Binaries/9707f/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 

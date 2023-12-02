@@ -1,0 +1,71 @@
+## @file
+# Application that presents & manages the Boot Menu Setup on Front Page.
+#
+# Copyright (C) Microsoft Corporation. All rights reserved.
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BootMenu
+  FILE_GUID                      = 8d865e53-bd58-4e4c-8eca-ee96b620f40f
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = BootMenuEntry
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  BootMenu.c
+  BootMenuVfr.Vfr
+  BootMenuStrings.uni
+
+[Packages]
+  OemPkg/OemPkg.dec
+  PcBdsPkg/PcBdsPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  DfciPkg/DfciPkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  PrintLib
+  HiiLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  UefiHiiServicesLib
+  UefiLib
+  UefiBootManagerLib
+  MsBootPolicyLib
+  BootGraphicsProviderLib
+  BootGraphicsLib
+  GraphicsConsoleHelperLib
+  MsBootOptionsLib
+  SwmDialogsLib
+
+[Guids]
+  gEfiGlobalVariableGuid                        ## SOMETIMES_PRODUCES ## Variable:L"BootNext" (The number of next boot option)
+  gEfiIfrTianoGuid
+  gMsBootMenuFormsetGuid
+
+[Protocols]
+  gEfiHiiConfigAccessProtocolGuid
+  gEdkiiFormBrowserEx2ProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+  gEfiLoadFileProtocolGuid
+  gMsSWMProtocolGuid
+  gDfciSettingAccessProtocolGuid
+  gMsFrontPageAuthTokenProtocolGuid
+
+[FeaturePcd]
+
+[Pcd]
+
+[Depex]
+  gEdkiiFormBrowserEx2ProtocolGuid

@@ -158,7 +158,6 @@ APRIORI DXE {
       SECTION UI = "UFSDxe"
     }
 
-    INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
     INF FatPkg/EnhancedFatDxe/Fat.inf
 
     FILE DRIVER = 6925FAD3-E243-4B69-AD61-3F978C8ABC60 {

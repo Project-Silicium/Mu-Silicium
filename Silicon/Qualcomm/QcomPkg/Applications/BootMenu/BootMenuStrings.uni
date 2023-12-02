@@ -1,0 +1,54 @@
+// *++
+//
+// Copyright (c) 2006, Intel Corporation. All rights reserved.<BR>
+// Copyright (C) Microsoft Corporation. All rights reserved.
+// SPDX-License-Identifier: BSD-2-Clause-Patent
+//
+// Module Name:
+//
+//   BootMenuStrings.uni
+//
+// Abstract:
+//
+//      String definition
+// Revision History:
+//
+// --*/
+
+#langdef   en-US " English "
+#langdef   en    " Standard English "
+
+#string STR_BOOT_MENU_TITLE            #language en-US  "Boot Menu"
+
+#string STR_RESTRICTED_STRING          #language en-US "\fc!Red!Some settings are managed by your organization."
+
+#string STR_NULL_STRING                #language en-US  ""
+
+#string STR_BOOT_ORDER_TITLE           #language en-US  "Configure boot device order"
+
+#string STR_BOOT_ORDER_HEADER          #language en-US  "\fh!48!Configure boot device order"
+
+#string STR_BOOT_ORDER_LIST            #language en-US  "To change the order devices are searched for a bootable operating system, drag each boot option to the desired location in the list.  Use the checkbox to enable or disable a boot option.  Click the trash icon to permanently remove a boot option from the list.  Swipe left on a device to boot that device immediately."
+
+#string STR_ADVANCED_OPTIONS_HEADER    #language en-US  "\fh!48!Advanced options"
+
+#string STR_DEV_ENABLE_IPV6            #language en-US  "\fh!28!Enable IPv6 for PXE Network boot option"
+
+#string STR_DEV_ENABLE_ALT_BOOT        #language en-US  "\fh!28!Enable alternate boot sequence"
+
+#string STR_DEV_ENABLE_BOOT_ORDER_LOCK #language en-US  "\fh!28!Enable Boot Configuration Lock"
+
+#string STR_DEV_ENABLE_USB_BOOT        #language en-US  "\fh!28!Enable Boot from USB devices"
+
+#string STR_BOOT_DELETE_TITLE          #language en-US  "Delete option"
+
+#string STR_BOOT_DELETE_CAPTION        #language en-US  "Delete boot option"
+
+#string STR_BOOT_DELETE_WARNING        #language en-US  "The following boot option will be permanently removed from the system:\r\r\r\r%s"
+
+#string STR_BOOT_BOOT_TITLE            #language en-US  "Boot device"
+
+#string STR_BOOT_BOOT_CAPTION          #language en-US  "Boot this device immediately"
+
+#string STR_BOOT_BOOT_WARNING          #language en-US  "Exit UEFI Settings and boot the following device immediately:\r\r%s"
+
