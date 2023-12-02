@@ -48,15 +48,15 @@ MS_COLOR_TABLE  gMsColorTable = {
   .LabelTextBackgroundColor = MS_GRAPHICS_BLACK_COLOR,
 
   // ListBox
-  .ListBoxNormalColor                  = MS_GRAPHICS_LIGHT_GRAY_1_COLOR,
-  .ListBoxHoverColor                   = MS_GRAPHICS_LIGHT_GRAY_2_COLOR,
-  .ListBoxSelectColor                  = MS_GRAPHICS_MED_BLUE_COLOR,
-  .ListBoxGrayoutColor                 = MS_GRAPHICS_LIGHT_GRAY_2_COLOR,
+  .ListBoxNormalColor                  = MS_GRAPHICS_DARK_GRAY_1_COLOR,
+  .ListBoxHoverColor                   = MS_GRAPHICS_DARK_GRAY_2_COLOR,
+  .ListBoxSelectColor                  = MS_GRAPHICS_CYAN_COLOR,
+  .ListBoxGrayoutColor                 = MS_GRAPHICS_DARK_GRAY_2_COLOR,
   .ListBoxHighlightBoundColor          = MS_GRAPHICS_WHITE_COLOR,
   .ListBoxSelectFGColor                = MS_GRAPHICS_WHITE_COLOR,
   .ListBoxNormalFGColor                = MS_GRAPHICS_WHITE_COLOR,
   .ListBoxGrayoutFGColor               = MS_GRAPHICS_MED_GRAY_3_COLOR,
-  .ListBoxCheckBoxBackgroundColor      = MS_GRAPHICS_WHITE_COLOR,
+  .ListBoxCheckBoxBackgroundColor      = MS_GRAPHICS_BLACK_COLOR,
   .ListBoxCheckBoxBoundGrayoutColor    = MS_GRAPHICS_MED_GRAY_3_COLOR,
   .ListBoxCheckBoxSelectBGGrayoutColor = MS_GRAPHICS_MED_GRAY_3_COLOR,
   .ListBoxCheckBoxNormalBGGrayoutColor = MS_GRAPHICS_BLACK_COLOR,
@@ -75,7 +75,7 @@ MS_COLOR_TABLE  gMsColorTable = {
   .EditBoxWaterMarkFGColor    = MS_GRAPHICS_LIGHT_GRAY_3_COLOR,
 
   // Button
-  .ButtonNormalColor         = MS_GRAPHICS_WHITE_COLOR,
+  .ButtonNormalColor         = MS_GRAPHICS_BLACK_COLOR,
   .ButtonHoverColor          = MS_GRAPHICS_WHITE_COLOR,
   .ButtonSelectColor         = MS_GRAPHICS_WHITE_COLOR,
   .ButtonGrayoutColor        = MS_GRAPHICS_MED_GRAY_2_COLOR,
@@ -84,13 +84,13 @@ MS_COLOR_TABLE  gMsColorTable = {
   .ButtonTextSelectColor     = MS_GRAPHICS_MED_GRAY_2_COLOR,
   .ButtonHighlightBoundColor = MS_GRAPHICS_BLACK_COLOR,
 
-  .ButtonLinkNormalColor     = MS_GRAPHICS_LIGHT_GRAY_3_COLOR,
-  .ButtonLinkHoverColor      = MS_GRAPHICS_LIGHT_GRAY_3_COLOR,
+  .ButtonLinkNormalColor     = MS_GRAPHICS_DARK_GRAY_2_COLOR,
+  .ButtonLinkHoverColor      = MS_GRAPHICS_DARK_GRAY_2_COLOR,
   .ButtonLinkSelectColor     = MS_GRAPHICS_MED_GRAY_2_COLOR,
   .ButtonLinkGrayoutColor    = MS_GRAPHICS_MED_GRAY_2_COLOR,
-  .ButtonLinkRingColor       = MS_GRAPHICS_LIGHT_GRAY_3_COLOR,
-  .ButtonLinkTextNormalColor = MS_GRAPHICS_BLACK_COLOR,
-  .ButtonLinkTextSelectColor = MS_GRAPHICS_WHITE_COLOR,
+  .ButtonLinkRingColor       = MS_GRAPHICS_DARK_GRAY_2_COLOR,
+  .ButtonLinkTextNormalColor = MS_GRAPHICS_LIGHT_GRAY_3_COLOR,
+  .ButtonLinkTextSelectColor = MS_GRAPHICS_BLACK_COLOR,
 
   // ToggleSwitch
   .ToggleSwitchOnColor            = MS_GRAPHICS_CYAN_COLOR,
