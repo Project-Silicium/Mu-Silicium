@@ -82,6 +82,10 @@ INF Binaries/alioth/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 	INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
+INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
+INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+INF CryptoPkg/Driver/CryptoDxe.inf
+
 INF Binaries/alioth/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
@@ -111,6 +115,8 @@ INF Binaries/alioth/QcomPkg/Drivers/MacDxe/MacDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
 INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
+INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
 INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
 INF Binaries/alioth/QcomPkg/Drivers/PILDxe/PILDxe.inf

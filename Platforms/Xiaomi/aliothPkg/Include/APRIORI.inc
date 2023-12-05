@@ -50,6 +50,7 @@ APRIORI DXE {
 	INF Binaries/alioth/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
 	INF FatPkg/EnhancedFatDxe/Fat.inf
+	INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
 
 	INF Binaries/alioth/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 

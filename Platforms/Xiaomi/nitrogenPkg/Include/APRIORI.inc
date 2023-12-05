@@ -37,6 +37,7 @@ APRIORI DXE {
     INF Binaries/nitrogen/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
     INF Binaries/nitrogen/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
+    INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
     INF FatPkg/EnhancedFatDxe/Fat.inf
 
 #   INF Binaries/nitrogen/QcomPkg/Drivers/TzDxe/TzDxeLA.inf

@@ -166,6 +166,9 @@
   #}
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+
+  INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
+  INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   FILE DRIVER = 6696936D-3637-467C-87CB-14EA8248948C {
@@ -253,6 +256,10 @@
 !else
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
+
+  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
+  INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+  INF CryptoPkg/Driver/CryptoDxe.inf
 
   FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.depex

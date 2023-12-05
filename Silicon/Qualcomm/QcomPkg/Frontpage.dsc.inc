@@ -22,6 +22,72 @@
   NetLib|NetworkPkg/Library/DxeNetLib/DxeNetLib.inf
 
   #
+  # Contains intrinsics for crypto operations
+  #
+  IntrinsicLib|CryptoPkg/Library/IntrinsicLib/IntrinsicLib.inf
+
+  #
+  # contains NULL routines to support UI operations associated with DFCI.
+  #
+  DfciUiSupportLib|OemPkg/Library/DfciUiSupportLib/DfciUiSupportLib.inf
+
+  #
+  # contains crypto support functions for the DFCI recovery feature.
+  #
+  DfciRecoveryLib|DfciPkg/Library/DfciRecoveryLib/DfciRecoveryLib.inf
+
+  #
+  # Contains openSSL library used by BaseCryptoLib
+  #
+  OpensslLib|CryptoPkg/Library/OpensslLib/OpensslLib.inf
+
+  #
+  # Functions that should contain base logic for querying, setting, and verifying user passwords.
+  #
+  PasswordStoreLib|OemPkg/Library/PasswordStoreLib/PasswordStoreLib.inf
+  BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
+
+  #
+  # Supports DFCI Groups.
+  #
+  DfciGroupLib|OemPkg/Library/DfciGroupLib/DfciGroups.inf
+  XmlTreeQueryLib|XmlSupportPkg/Library/XmlTreeQueryLib/XmlTreeQueryLib.inf
+  XmlTreeLib|XmlSupportPkg/Library/XmlTreeLib/XmlTreeLib.inf
+
+  #
+  # Backwards compatibility with DFCI V1 functions.
+  #
+  DfciV1SupportLib|DfciPkg/Library/DfciV1SupportLibNull/DfciV1SupportLibNull.inf
+  FltUsedLib|MdePkg/Library/FltUsedLib/FltUsedLib.inf
+
+  #
+  # Library instance that understands the MsXml Settings Schema and providers helper functions
+  #
+  DfciXmlSettingSchemaSupportLib|DfciPkg/Library/DfciXmlSettingSchemaSupportLib/DfciXmlSettingSchemaSupportLib.inf
+
+  #
+  # Library instance that understands the MsXml Permission Schema and providers helper functions
+  #
+  DfciXmlPermissionSchemaSupportLib|DfciPkg/Library/DfciXmlPermissionSchemaSupportLib/DfciXmlPermissionSchemaSupportLib.inf
+
+  #
+  # Library instance that understands the MsXml Device Id Schema and providers helper functions
+  #
+  DfciXmlDeviceIdSchemaSupportLib|DfciPkg/Library/DfciXmlDeviceIdSchemaSupportLib/DfciXmlDeviceIdSchemaSupportLib.inf
+
+  #
+  # Library instance that understands the MsXml Device Id Schema and providers helper functions
+  #
+  DfciXmlIdentitySchemaSupportLib|DfciPkg/Library/DfciXmlIdentitySchemaSupportLib/DfciXmlIdentitySchemaSupportLib.inf
+
+  #
+  # Library instance that understands Zero Touch
+  #
+  ZeroTouchSettingsLib|ZeroTouchPkg/Library/ZeroTouchSettings/ZeroTouchSettings.inf
+  SafeIntLib|MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf
+  BmpSupportLib|MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf
+
+  #
   # This library contains access functions for dealing with the copying of an MS_UI_THEME
   #
   MsUiThemeCopyLib|MsGraphicsPkg/Library/MsUiThemeCopyLib/MsUiThemeCopyLib.inf
@@ -100,6 +166,11 @@
   MsNVBootReasonLib|OemPkg/Library/MsNVBootReasonLib/MsNVBootReasonLib.inf
 
   #
+  # An architecture agnostic math library providing reasonable approximations for various functions in software
+  #
+  MathLib|MsCorePkg/Library/MathLib/MathLib.inf
+
+  #
   # This library is for showing the main system boot graphics.
   #
   BootGraphicsLib|QcomPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
@@ -123,11 +194,13 @@
   # Library that platform implemented to determine boot type
   #
   MsBootPolicyLib|QcomPkg/Library/MsBootPolicyLib/MsBootPolicyLib.inf
+  BmpSupportLib|MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf
 
   #
   # Supplies the theme for this platform to the UEFI settings UI
   #
   MsUiThemeLib|MsGraphicsPkg/Library/MsUiThemeLib/Dxe/MsUiThemeLib.inf
+  SafeIntLib|MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf
 
   #
   # Library for determining if Manufacturing mode should be enabled on this boot. 
@@ -135,7 +208,14 @@
   # It can be called from PEI or DXE.
   #
   UIToolKitLib|MsGraphicsPkg/Library/SimpleUIToolKit/SimpleUIToolKit.inf
+  ResetUtilityLib|MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
+  SecurityLockAuditLib|MdeModulePkg/Library/SecurityLockAuditDebugMessageLib/SecurityLockAuditDebugMessageLib.inf
   MsWheaEarlyStorageLib|QcomPkg/Library/MsWheaEarlyStorageLib/MsWheaEarlyStorageLib.inf
+  CheckHwErrRecHeaderLib|MsWheaPkg/Library/CheckHwErrRecHeaderLib/CheckHwErrRecHeaderLib.inf
+  MuTelemetryHelperLib|MsWheaPkg/Library/MuTelemetryHelperLib/MuTelemetryHelperLib.inf
+  ParserRegistryLib|MsWheaPkg/Library/ParserRegistryLib/ParserRegistryLib.inf
+  GenericSectionParserLib|MsWheaPkg/Library/GenericSectionParserLib/GenericSectionParserLib.inf
+  Hash2CryptoLib|SecurityPkg/Library/DxeHash2CryptoLib/DxeHash2CryptoLib.inf
   MsPlatformEarlyGraphicsLib|QcomPkg/Library/MsPlatformEarlyGraphicsLib/MsEarlyGraphicsLib.inf
 
 [PcdsFixedAtBuild.common]
@@ -152,7 +232,18 @@
 
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor|0x0
 
+[Components.AARCH64]
+  #
+  # Library to support Remote/IT/Admin Settings such as DFCI
+  #
+  MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
+
 [Components.common]
+  #
+  # Spoofs button press to automatically boot to FrontPage.
+  #
+  OemPkg/FrontpageButtonsVolumeUp/FrontpageButtonsVolumeUp.inf
+
   #
   # Application that presents and manages FrontPage.
   #
@@ -161,9 +252,40 @@
   #
   # Application that presents & manages the Boot Menu Setup on Front Page.
   #
-  QcomPkg/Applications/BootMenu/BootMenu.inf
+  OemPkg/BootMenu/BootMenu.inf
   PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
   MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
+
+  #
+  # Main component of DFCI. Manages and enforces all DFCI settings.
+  #
+  DfciPkg/SettingsManager/SettingsManagerDxe.inf {
+        #Platform should add all it settings libs here
+  <LibraryClasses>
+        NULL|ZeroTouchPkg/Library/ZeroTouchSettings/ZeroTouchSettings.inf
+        NULL|DfciPkg/Library/DfciPasswordProvider/DfciPasswordProvider.inf
+        NULL|DfciPkg/Library/DfciSettingsLib/DfciSettingsLib.inf
+        NULL|DfciPkg/Library/DfciVirtualizationSettings/DfciVirtualizationSettings.inf
+        NULL|DfciPkg/Library/DfciWpbtSettingLib/DfciWpbtSetting.inf
+        NULL|DfciPkg/Library/DfciAssetTagSettingLib/DfciAssetTagSetting.inf
+        DfciSettingPermissionLib|DfciPkg/Library/DfciSettingPermissionLib/DfciSettingPermissionLib.inf
+        NULL|OemPkg/Library/MsBootManagerSettingsDxeLib/MsBootManagerSettingsDxeLib.inf
+  <PcdsFeatureFlag>
+     gDfciPkgTokenSpaceGuid.PcdSettingsManagerInstallProvider|TRUE
+  }
+
+  MsCorePkg/MuCryptoDxe/MuCryptoDxe.inf
+
+  #
+  # AuthManager provides authentication for DFCI.
+  #
+  DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
+  DfciPkg/AuthManagerNull/AuthManagerNull.inf
+
+  #
+  # Processes ingoing and outgoing DFCI settings requests.
+  #
+  DfciPkg/DfciManager/DfciManager.inf
 
   #
   # Manages windows and fonts to be drawn by the RenderingEngine.
@@ -198,6 +320,8 @@
   MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
   MsCorePkg/AcpiRGRT/AcpiRgrt.inf
+
+  QcomPkg/Applications/DfciMenu/DfciMenu.inf
 
 #######################################
 #  Shell

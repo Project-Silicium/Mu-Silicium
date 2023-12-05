@@ -77,6 +77,10 @@
     INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
+    INF MdeModulePkg/Bus/Pci/PciBusDxe.inf
+    INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+    INF CryptoPkg/Driver/CryptoDxe.inf
+
     INF Binaries/9707f/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
@@ -143,6 +147,8 @@
     }
 
     INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+    INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
+    INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
     INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
     INF Binaries/9707f/QcomPkg/Drivers/PILDxe/PILDxe.inf

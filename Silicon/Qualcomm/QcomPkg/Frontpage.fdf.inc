@@ -1,16 +1,24 @@
   INF MsGraphicsPkg/GopOverrideDxe/GopOverrideDxe.inf
+  INF MsCorePkg/MuCryptoDxe/MuCryptoDxe.inf
+  INF DfciPkg/SettingsManager/SettingsManagerDxe.inf
   INF MsGraphicsPkg/MsUiTheme/Dxe/MsUiThemeProtocol.inf
   INF MsGraphicsPkg/RenderingEngineDxe/RenderingEngineDxe.inf
   INF MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
-  INF QcomPkg/Applications/BootMenu/BootMenu.inf
+  INF OemPkg/BootMenu/BootMenu.inf
   INF QcomPkg/Applications/FrontPage/FrontPage.inf
   INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
   INF MdeModulePkg/Universal/BootManagerPolicyDxe/BootManagerPolicyDxe.inf
+!if $(ARCH) == AARCH64
+  INF MdeModulePkg/Universal/RegularExpressionDxe/RegularExpressionDxe.inf
+!endif
+  INF DfciPkg/DfciManager/DfciManager.inf
   INF MsGraphicsPkg/OnScreenKeyboardDxe/OnScreenKeyboardDxe.inf
   INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
   INF MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
   INF MsCorePkg/AcpiRGRT/AcpiRgrt.inf
+
+  INF QcomPkg/Applications/DfciMenu/DfciMenu.inf
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
     SECTION RAW = OemPkg/FrontPage/Resources/BootLogo.bmp

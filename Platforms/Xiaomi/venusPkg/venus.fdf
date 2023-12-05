@@ -85,12 +85,21 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
+  # Secure Boot Key Enroll
+  INF SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
+  INF QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
+  INF QcomPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
+
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
   # BDS
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
   INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
+
+  # HID Support
+  INF HidPkg/HidKeyboardDxe/HidKeyboardDxe.inf
+  INF HidPkg/HidMouseAbsolutePointerDxe/HidMouseAbsolutePointerDxe.inf
 
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
@@ -100,7 +109,20 @@ READ_LOCK_STATUS   = TRUE
   # ACPI Tables
   !include Include/ACPI.inc
 
+  # DT
+  INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  !include Include/FDT.inc
+
+  INF MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
+
   !include QcomPkg/Frontpage.fdf.inc
+
+  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
+
+  # TODO: Make this Image for every single Device
+  FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
+    SECTION RAW = QcomPkg/Include/Resources/RegulatoryLogos.png
+  }
 
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 

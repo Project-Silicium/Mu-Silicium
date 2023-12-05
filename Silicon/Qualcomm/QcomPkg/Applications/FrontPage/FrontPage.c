@@ -75,6 +75,7 @@ EFI_HII_FONT_PROTOCOL         *mFont;
 UINT32   mTitleBarWidth, mTitleBarHeight;
 UINT32   mMasterFrameWidth, mMasterFrameHeight;
 ListBox  *mTopMenu;
+BOOLEAN  mShowFullMenu = FALSE;     // By default we won't show the full FrontPage menu (requires validation if there's a system password).
 
 // Master Frame - Form Notifications.
 //
@@ -86,6 +87,7 @@ BOOLEAN                          mResetRequired;
 FRONT_PAGE_AUTH_TOKEN_PROTOCOL   *mFrontPageAuthTokenProtocol = NULL;
 DFCI_AUTHENTICATION_PROTOCOL     *mAuthProtocol               = NULL;
 EFI_HII_CONFIG_ROUTING_PROTOCOL  *mHiiConfigRouting;
+DFCI_SETTING_ACCESS_PROTOCOL     *mSettingAccess;
 DFCI_AUTH_TOKEN                  mAuthToken;
 SECURE_BOOT_PAYLOAD_INFO         *mSecureBootKeys     = NULL;
 UINT8                            mSecureBootKeysCount = 0;
@@ -764,7 +766,7 @@ CallFrontPage (
   // Search through the form mapping table to find the form set GUID and ID corresponding to the selected index.
   //
   for (Count = 0; Count < (sizeof (mFormMap) / sizeof (mFormMap[0])); Count++) {
-    Index = ((FALSE) ? mFormMap[Count].LimitedMenuIndex : mFormMap[Count].FullMenuIndex);
+    Index = ((FALSE == mShowFullMenu) ? mFormMap[Count].LimitedMenuIndex : mFormMap[Count].FullMenuIndex);
 
     if (Index == FormIndex) {
       break;
@@ -922,6 +924,26 @@ CreateTopMenu (
 {
   EFI_FONT_INFO  FontInfo;
 
+  // Check whether there is a system password set.  If so, prompt the user for it before deciding the top-level menu list.
+  // If the user doesn't know the password, they can dismiss the dialog and will see a limited-functionality menu.
+  //
+  if (GetAuthToken (NULL) != EFI_SUCCESS) {
+    if (TRUE == ChallengeUserPassword (PcdGet8 (PcdMaxPasswordAttempts))) {
+      mShowFullMenu = TRUE;
+    }
+  } else {
+    // If no password is set, show the full menu.
+    //
+    // If no password is set we still need to make sure the token is valid
+    if (mAuthToken != DFCI_AUTH_TOKEN_INVALID) {
+      mShowFullMenu = TRUE;
+    }
+  }
+
+  if (!mShowFullMenu) {
+    PcdSetBoolS (PcdSetupUiReducedFunction, TRUE);
+  }
+
   // Create a listbox with menu options.  The contents of the menu depend on whether a system password is
   // set and whether the user entered the password correctly or not.  If the user cancels the password dialog
   // then only a limited menu is available.
@@ -945,7 +967,7 @@ CreateTopMenu (
   }
 
   for (Count = 0; Count < MenuOptionCount; Count++) {
-    Index = ((FALSE) ? mFormMap[Count].LimitedMenuIndex : mFormMap[Count].FullMenuIndex);
+    Index = ((FALSE == mShowFullMenu) ? mFormMap[Count].LimitedMenuIndex : mFormMap[Count].FullMenuIndex);
 
     if ((UNUSED_INDEX != Index) && (Index < MenuOptionCount)) {
       MenuOptions[Index].CellText = HiiGetString (mFrontPagePrivate.HiiHandle, mFormMap[Count].MenuString, NULL);
@@ -1542,6 +1564,16 @@ UefiMain (
   gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
 
   mResetRequired = FALSE;
+
+  Status = gBS->LocateProtocol (
+                  &gDfciSettingAccessProtocolGuid,
+                  NULL,
+                  (VOID **)&mSettingAccess
+                  );
+  if (EFI_ERROR (Status)) {
+    ASSERT_EFI_ERROR (Status);
+    DEBUG ((DEBUG_ERROR, "%a Couldn't locate system setting access protocol\n", __FUNCTION__));
+  }
 
   Status = GetPlatformKeyStore (&mSecureBootKeys, &mSecureBootKeysCount);
   if (EFI_ERROR (Status)) {
