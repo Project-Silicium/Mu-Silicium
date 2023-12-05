@@ -56,6 +56,9 @@
   INF Binaries/gts8/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   INF Binaries/gts8/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SmemDxe/SmemDxe.inf

@@ -47,6 +47,9 @@ INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF Binaries/venus/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   INF Binaries/venus/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 

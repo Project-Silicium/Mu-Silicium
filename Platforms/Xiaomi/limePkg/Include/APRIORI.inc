@@ -30,6 +30,9 @@ APRIORI DXE {
     INF Binaries/lime/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
     INF Binaries/lime/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
     INF Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     INF Binaries/lime/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
     INF Binaries/lime/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 

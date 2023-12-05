@@ -29,6 +29,9 @@ APRIORI DXE {
     INF Binaries/ginkgo/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     INF Binaries/ginkgo/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
     INF Binaries/ginkgo/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 

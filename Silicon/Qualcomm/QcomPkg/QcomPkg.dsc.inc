@@ -102,6 +102,9 @@
   # FrameBuffer Delay
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|0          # In Microseconds
 
+  # Max Freq for CPUs
+  gQcomPkgTokenSpaceGuid.PcdEnableMaxFreq|FALSE
+
   # Shutdown Delay
   gPcBdsPkgTokenSpaceGuid.PcdShutdownGraphicDisplayTime|2000000
 
@@ -589,6 +592,7 @@
   QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
   QcomPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
+  QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
 
 !if $(AB_SLOT_SUPPORT) == 1
   # Slot Switch App

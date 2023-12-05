@@ -31,6 +31,9 @@ APRIORI DXE {
     INF Binaries/venus/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
     INF Binaries/venus/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
     INF Binaries/venus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     INF Binaries/venus/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
     INF Binaries/venus/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
     INF Binaries/venus/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf

@@ -48,6 +48,9 @@
 
   INF Binaries/ginkgo/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   INF Binaries/ginkgo/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/GpiDxe/GpiDxe.inf

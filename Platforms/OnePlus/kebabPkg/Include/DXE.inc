@@ -51,6 +51,9 @@
 
   INF Binaries/kebab/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   INF Binaries/kebab/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

@@ -33,6 +33,9 @@ APRIORI DXE {
   INF Binaries/kebab/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   INF Binaries/kebab/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/kebab/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf

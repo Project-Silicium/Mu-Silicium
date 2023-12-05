@@ -38,6 +38,8 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+
   # UART
   gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0x99C000
 

@@ -147,6 +147,8 @@
     SECTION UI = "ClockDxe"
   }
 
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   FILE DRIVER = 5824F9DE-17D2-4B1F-A5FE-5EB77FA53093 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ICBDxe/ICBDxe.depex
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/ICBDxe/ICBDxe.efi

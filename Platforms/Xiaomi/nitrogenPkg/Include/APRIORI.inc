@@ -29,6 +29,8 @@ APRIORI DXE {
     INF Binaries/nitrogen/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
     INF Binaries/nitrogen/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
