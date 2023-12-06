@@ -5,8 +5,8 @@
 #  SECTION RAW = SM8250Pkg/AcpiTables/BGRT.aml
 #  SECTION RAW = SM8250Pkg/AcpiTables/CSRT.aml
 #  SECTION RAW = SM8250Pkg/AcpiTables/DBG2.aml
-   SECTION RAW = Platforms/Xiaomi/pipaPkg/AcpiTables/DSDT.aml
-#  SECTION RAW = SM8250Pkg/AcpiTables/DSDT_minimal.aml
+#  SECTION RAW = Platforms/Xiaomi/pipaPkg/AcpiTables/DSDT.aml
+   SECTION RAW = SM8250Pkg/AcpiTables/DSDT_minimal.aml
 #  SECTION RAW = SM8250Pkg/AcpiTables/FADT.aml
    SECTION RAW = SM8250Pkg/AcpiTables/FACP.aml
    SECTION RAW = SM8250Pkg/AcpiTables/GTDT.aml
@@ -17,8 +17,8 @@
 #  SECTION RAW = SM8250Pkg/AcpiTables/SPCR.aml
 #  SECTION RAW = SM8250Pkg/AcpiTables/TPM2.aml
 #  SECTION RAW = SM8250Pkg/AcpiTables/XSDT.aml
-  SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
-  SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
-  SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
-  SECTION UI = "AcpiTables"
+   SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
+   SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
+   SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
+   SECTION UI = "AcpiTables"
  }
