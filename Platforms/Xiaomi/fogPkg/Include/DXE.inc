@@ -49,6 +49,9 @@
   INF Binaries/fog/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   INF Binaries/fog/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/fog/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -67,6 +70,7 @@
 
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+  INF CryptoPkg/Driver/CryptoDxe.inf
 
   INF Binaries/fog/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf

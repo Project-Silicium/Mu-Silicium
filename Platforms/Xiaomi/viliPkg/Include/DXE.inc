@@ -47,6 +47,9 @@
   INF Binaries/vili/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   INF Binaries/vili/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
@@ -83,6 +86,7 @@
 
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+  INF CryptoPkg/Driver/CryptoDxe.inf
 
   INF Binaries/vili/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf

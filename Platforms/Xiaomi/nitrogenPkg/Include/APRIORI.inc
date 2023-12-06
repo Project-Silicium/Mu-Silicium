@@ -29,6 +29,8 @@ APRIORI DXE {
     INF Binaries/nitrogen/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
     INF Binaries/nitrogen/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
     INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
@@ -58,6 +60,7 @@ APRIORI DXE {
 !endif
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+    INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
     INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf

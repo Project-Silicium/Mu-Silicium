@@ -11,8 +11,7 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER          = 1
-  PRECOMPILED_CRYPTO_BINARIES = 1
+  USE_PHYSICAL_TIMER = 1
 
 #[BuildOptions.common]
 #  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
@@ -43,6 +42,8 @@
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
 
   # UART
   gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0x0C170000

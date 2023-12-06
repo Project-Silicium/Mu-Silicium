@@ -31,6 +31,9 @@ APRIORI DXE {
     INF Binaries/sweet_k6a/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
     INF Binaries/sweet_k6a/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
     INF Binaries/sweet_k6a/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     INF Binaries/sweet_k6a/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
     INF Binaries/sweet_k6a/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
@@ -58,6 +61,7 @@ APRIORI DXE {
     INF Binaries/sweet_k6a/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+    INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
     INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf

@@ -11,8 +11,7 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER          = 1
-  PRECOMPILED_CRYPTO_BINARIES = 1
+  USE_PHYSICAL_TIMER = 1
 
 [BuildOptions.common]
 !if $(SOC_TYPE) == 1
@@ -45,6 +44,8 @@
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
 
   # UART
   gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0xA88000

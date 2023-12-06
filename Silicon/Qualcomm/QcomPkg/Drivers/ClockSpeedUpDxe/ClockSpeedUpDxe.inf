@@ -1,0 +1,32 @@
+[Defines]
+  INF_VERSION                    = 0x0010005
+  BASE_NAME                      = ClockSpeedUpDxe
+  FILE_GUID                      = 3ef4e4ad-26ee-4160-861f-aefd68bef6e7
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SetMaxFreq
+
+[Sources]
+  ClockSpeedUpDxe.c
+
+[Packages]
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  MdePkg/MdePkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  PcdLib
+  DebugLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+
+[FixedPcd]
+  gArmPlatformTokenSpaceGuid.PcdCoreCount
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache
+  gQcomPkgTokenSpaceGuid.PcdEnableMaxFreq
+
+[Protocols]
+  gEfiClockProtocolGuid
+
+[Depex]
+  TRUE

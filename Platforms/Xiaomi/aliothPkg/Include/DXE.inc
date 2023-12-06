@@ -60,6 +60,9 @@ INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
 INF Binaries/alioth/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
 INF Binaries/alioth/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -81,6 +84,10 @@ INF Binaries/alioth/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 !else
 	INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
+
+INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
+INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+INF CryptoPkg/Driver/CryptoDxe.inf
 
 INF Binaries/alioth/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
 INF Binaries/alioth/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf

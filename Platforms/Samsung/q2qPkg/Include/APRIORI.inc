@@ -96,6 +96,8 @@ APRIORI DXE {
       SECTION UI = "ClockDxe"
     }
 
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     FILE DRIVER = 5824F9DE-17D2-4B1F-A5FE-5EB77FA53093 {
       SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ICBDxe/ICBDxe.depex
       SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/ICBDxe/ICBDxe.efi
@@ -268,6 +270,7 @@ APRIORI DXE {
     }
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+    INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
     FILE DRIVER = FCABE6A7-7953-4A84-B7EC-D29E89B62E87 {
       SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.depex

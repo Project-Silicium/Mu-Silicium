@@ -147,6 +147,8 @@
     SECTION UI = "ClockDxe"
   }
 
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   FILE DRIVER = 5824F9DE-17D2-4B1F-A5FE-5EB77FA53093 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ICBDxe/ICBDxe.depex
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/ICBDxe/ICBDxe.efi
@@ -256,6 +258,10 @@
 !else
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
+
+  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
+  INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+  INF CryptoPkg/Driver/CryptoDxe.inf
 
   FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.depex

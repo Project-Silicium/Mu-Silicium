@@ -51,6 +51,9 @@
 
   INF Binaries/kebab/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
   INF Binaries/kebab/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -68,6 +71,10 @@
 !else
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
+
+  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
+  INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+  INF CryptoPkg/Driver/CryptoDxe.inf
 
   INF Binaries/kebab/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf

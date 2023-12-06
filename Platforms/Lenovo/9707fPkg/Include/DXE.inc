@@ -55,6 +55,9 @@
 
     INF Binaries/9707f/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     INF Binaries/9707f/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -76,6 +79,10 @@
 !else
     INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
+
+    INF MdeModulePkg/Bus/Pci/PciBusDxe.inf
+    INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
+    INF CryptoPkg/Driver/CryptoDxe.inf
 
     INF Binaries/9707f/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
     INF Binaries/9707f/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf

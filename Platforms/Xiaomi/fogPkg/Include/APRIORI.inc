@@ -30,6 +30,9 @@ APRIORI DXE {
     INF Binaries/fog/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
     INF Binaries/fog/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
     INF Binaries/fog/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+    INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
     INF Binaries/fog/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
     INF Binaries/fog/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
@@ -58,6 +61,7 @@ APRIORI DXE {
   #  INF Binaries/fog/QcomPkg/Drivers/PILDxe/PILDxe.inf
 
     INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+    INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
     INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
