@@ -1,0 +1,124 @@
+APRIORI DXE {
+	# First, install the PCD driver and call DxeInit
+	INF MdeModulePkg/Core/Dxe/DxeMain.inf
+	INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+ 
+	INF Binaries/pipa/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
+
+	INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
+	INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
+	INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
+
+	# Next, install cpu protocol and enable the interrupt controller
+	INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
+	INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+
+	# Core Drivers
+	INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
+	INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+	INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
+
+	INF Binaries/pipa/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
+	INF Binaries/pipa/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
+	INF Binaries/pipa/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+
+	INF Binaries/pipa/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+
+	INF Binaries/pipa/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+
+	INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+	INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
+
+	INF Binaries/pipa/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+
+	INF FatPkg/EnhancedFatDxe/Fat.inf
+
+	INF Binaries/pipa/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
+
+	INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
+	
+# 	Only used for DisplayDxe for Qualcomm Demura
+#	INF Binaries/pipa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+
+	INF Binaries/pipa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
+
+	!if $(USE_DISPLAYDXE) == 1
+		INF Binaries/pipa/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
+	!else
+		INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+	!endif
+
+	INF Binaries/pipa/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/PILDxe/PILDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
+
+	!if $(USE_DISPLAYDXE) == 1
+		INF Binaries/pipa/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+	!endif
+
+	INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+	INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+
+	INF Binaries/pipa/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+
+	INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
+	INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
+	INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+	INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
+	INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
+
+	INF Binaries/pipa/QcomPkg/Drivers/FontDxe/FontDxe.inf
+
+	INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+	
+
+	INF Binaries/pipa/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
+	INF Binaries/pipa/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/HashDxe/HashDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/MacDxe/MacDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+	INF Binaries/pipa/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
+
+	INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
+	INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
+	INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+}
