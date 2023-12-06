@@ -702,14 +702,14 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
+|Boot|BSOD after Time|⚠️|
 |UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
-|CPU||✅|
+|CPU|Not all Cores are Stable|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -870,7 +870,7 @@
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
-|CPU||✅|
+|CPU|Cores aren't configured right|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -950,7 +950,7 @@
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
-|CPU||✅|
+|CPU|Cores aren't configured right|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
