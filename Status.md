@@ -506,6 +506,90 @@
 
 </td></tr> </table>
 
+## Xiaomi Redmi Pad 6
+
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Pad-6.png" width="500" alt="Preview">
+
+**SoC: SM8250-AC** <br />
+**Codename: pipa** <br />
+**Maintainer: [6adp](https://github.com/6adp)** <br />
+**Contibuters: [Statzar](https://github.com/Statzar)** <br />
+**Tester: [6adp](https://github.com/6adp)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|ACPI||❌|
+|UART||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS|Needs Special Setup|❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+|S Pen||❌|
+|UART||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+|S Pen||❌|
+|UART||❌|
+
+</td></tr> </table>
+
 ## OnePlus 8T
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/OnePlus-8T.png" width="420" alt="Preview">
