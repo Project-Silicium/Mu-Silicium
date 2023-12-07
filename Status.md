@@ -15,7 +15,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
-**SoC: SM8450** <br />
+**SoC: Snapdragon 8 Gen 1 (SM8450)** <br />
 **Codename: gts8** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -99,7 +99,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="480" alt="Preview">
 
-**SoC: SM8350** <br />
+**SoC: Snapdragon 888 5G (SM8350)** <br />
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -180,7 +180,7 @@
 
 <img align="right" src="https://github.com/Daniel224455/Mu-Qcom-Venus-Mi11/blob/main/Pictures/Xiaomi-Mi11.png" width="545" alt="Preview">
 
-**SoC: SM8350** <br />
+**SoC: Snapdragon 888 5G (SM8350)** <br />
 **Codename: venus** <br />
 **Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -264,7 +264,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="420" alt="Preview">
 
-**SoC: SM8350** <br />
+**SoC: Snapdragon 888 5G (SM8350)** <br />
 **Codename: vili** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -346,7 +346,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Poco-F3.png" width="420" alt="Preview">
 
-**SoC: SM8250-AC** <br />
+**SoC: Snapdragon 870 5G (SM8250-AC)** <br />
 **Codename: alioth** <br />
 **Maintainer: [AdrianoA3](https://github.com/AdrianoA3)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite) and [hyusang](https://github.com/cloudsweets/)** <br />
@@ -426,13 +426,15 @@
 
 ## Legion Tab Y700
 
+**WARNING: This Device has no Maintainer!** <br />
+
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Legion-Tab-Y700.png" width="420" alt="Preview">
 
-**SoC: SM8250** <br />
+**SoC: Snapdragon 870 5G (SM8250-AC)** <br />
 **Codename: 9707f** <br />
-**Maintainer: [hyusang](https://github.com/cloudsweets/)** <br />
+**Maintainer: None** <br />
 **Contibuters: None** <br />
-**Tester: [hyusang](https://github.com/cloudsweets/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -445,7 +447,7 @@
 |Buttons||✅|
 |USB|No USB Power|⚠️|
 |ACPI||✅|
-|Slot Switch||✅|
+|Slot Switch||❌|
 |UART||❔|
 
 ### OS Status
@@ -510,7 +512,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Pad-6.png" width="500" alt="Preview">
 
-**SoC: SM8250-AC** <br />
+**SoC: Snapdragon 870 5G (SM8250-AC)** <br />
 **Codename: pipa** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
 **Contibuters: [Statzar](https://github.com/Statzar)** <br />
@@ -594,7 +596,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/OnePlus-8T.png" width="420" alt="Preview">
 
-**SoC: SM8250** <br />
+**SoC: Snapdragon 865 5G (SM8250)** <br />
 **Codename: kebab** <br />
 **Maintainer: [SwedMlite](https://github.com/SwedMlite)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -611,7 +613,7 @@
 |Buttons||✅|
 |USB|No USB Power|⚠️|
 |ACPI||✅|
-|Slot Switch||✅|
+|Slot Switch||❌|
 |UART||❔|
 
 ### OS Status
@@ -678,7 +680,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="420" alt="Preview">
 
-**SoC: SM7150-AC** <br />
+**SoC: Snapdragon 732G (SM7150-AC)** <br />
 **Codename: sweet_k6a** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -758,7 +760,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-10C.png" width="420" alt="Preview">
 
-**SoC: SM6225** <br />
+**SoC: Snapdragon 680 (SM6225)** <br />
 **Codename: fog** <br />
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
 **Contibuters: None** <br />
@@ -838,7 +840,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-A3.png" width="420" alt="Preview">
 
-**SoC: SM6125** <br />
+**SoC: Snapdragon 665 (SM6125)** <br />
 **Codename: laurel_sprout** <br />
 **Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
 **Contibuters: None** <br />
@@ -919,7 +921,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-8.png" width="420" alt="Preview">
 
-**SoC: SM6125** <br />
+**SoC: Snapdragon 665 (SM6125)** <br />
 **Codename: ginkgo** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: [SwedMlite](https://github.com/SwedMlite), [Vicente Cortes](https://github.com/vicenteicc2008)** <br />
@@ -999,7 +1001,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-9T.png" width="420" alt="Preview">
 
-**SoC: SM6115** <br />
+**SoC: Snapdragon 662 (SM6115)** <br />
 **Codename: lime** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
@@ -1079,7 +1081,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-Max-3.png" width="420" alt="Preview">
 
-**SoC: SDM636** <br />
+**SoC: Snapdragon 636 (SDM636)** <br />
 **Codename: nitrogen** <br />
 **Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -1159,7 +1161,7 @@
 
 <img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Huawei-Y6-2018.png" width="420" alt="Preview">
 
-**SoC: MSM8917** <br />
+**SoC: Snapdragon 425 (MSM8917)** <br />
 **Codename: ATU-L21** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
