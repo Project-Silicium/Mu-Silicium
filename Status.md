@@ -541,7 +541,7 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||❌|
-|UFS|Needs Special Setup|❌|
+|UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
