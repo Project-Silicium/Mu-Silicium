@@ -72,8 +72,8 @@ fi
 
 # Correct ARCH Parameter
 case "${TARGET_ARCH_TYPE}" in
-	AARCH64) _TARGET_ARCH_TYPE=AARCH64;;
-	*) _TARGET_ARCH_TYPE=ARM;;
+	ARM) _TARGET_ARCH_TYPE=ARM;;
+	*) _TARGET_ARCH_TYPE=AARCH64;;
 esac
 
 # Check if Device has more that one Static RAM Size
