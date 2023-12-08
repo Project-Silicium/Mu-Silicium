@@ -508,9 +508,9 @@
 
 </td></tr> </table>
 
-## Xiaomi Redmi Pad 6
+## Xiaomi Pad 6
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Pad-6.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Pad-6.png" width="500" alt="Preview">
 
 **SoC: Snapdragon 870 5G (SM8250-AC)** <br />
 **Codename: pipa** <br />
