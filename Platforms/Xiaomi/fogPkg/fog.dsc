@@ -36,7 +36,13 @@
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000          # Starting address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000         # 4 GB Size
+!if $(RAM_SIZE) == 4
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size
+!elseif $(RAM_SIZE) == 3
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000         # 3GB Size
+!else
+!error "Invaild Mem Size! Use 4 or 3."
+!endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Statzar"
 
