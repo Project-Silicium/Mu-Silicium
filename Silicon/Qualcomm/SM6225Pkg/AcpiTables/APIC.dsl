@@ -22,7 +22,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [03Ch 0060 004h]    Parking Protocol Version : 00000000
-[040h 0064 004h]       Performance Interrupt : 00000014
+[040h 0064 004h]       Performance Interrupt : 00000016
 [044h 0068 008h]              Parked Address : 0000000000000000
 [04Ch 0076 008h]                Base Address : 0000000000000000
 [054h 0084 008h]    Virtual GIC Base Address : 0000000000000000
@@ -45,7 +45,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [08Eh 0142 004h]    Parking Protocol Version : 00000000
-[092h 0146 004h]       Performance Interrupt : 00000014
+[092h 0146 004h]       Performance Interrupt : 00000016
 [096h 0150 008h]              Parked Address : 0000000000000000
 [09Eh 0158 008h]                Base Address : 0000000000000000
 [0A6h 0166 008h]    Virtual GIC Base Address : 0000000000000000
@@ -68,7 +68,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [0E0h 0224 004h]    Parking Protocol Version : 00000000
-[0E4h 0228 004h]       Performance Interrupt : 00000014
+[0E4h 0228 004h]       Performance Interrupt : 00000016
 [0E8h 0232 008h]              Parked Address : 0000000000000000
 [0F0h 0240 008h]                Base Address : 0000000000000000
 [0F8h 0248 008h]    Virtual GIC Base Address : 0000000000000000
@@ -91,7 +91,7 @@
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [132h 0306 004h]    Parking Protocol Version : 00000000
-[136h 0310 004h]       Performance Interrupt : 00000014
+[136h 0310 004h]       Performance Interrupt : 00000016
 [13Ah 0314 008h]              Parked Address : 0000000000000000
 [142h 0322 008h]                Base Address : 0000000000000000
 [14Ah 0330 008h]    Virtual GIC Base Address : 0000000000000000
@@ -110,11 +110,11 @@
 [178h 0376 004h]        CPU Interface Number : 00000004
 [17Ch 0380 004h]               Processor UID : 00000004
 [180h 0384 004h]       Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [184h 0388 004h]    Parking Protocol Version : 00000000
-[188h 0392 004h]       Performance Interrupt : 00000014
+[188h 0392 004h]       Performance Interrupt : 00000016
 [18Ch 0396 008h]              Parked Address : 0000000000000000
 [194h 0404 008h]                Base Address : 0000000000000000
 [19Ch 0412 008h]    Virtual GIC Base Address : 0000000000000000
@@ -133,11 +133,11 @@
 [1CAh 0458 004h]        CPU Interface Number : 00000005
 [1CEh 0462 004h]               Processor UID : 00000005
 [1D2h 0466 004h]       Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [1D6h 0470 004h]    Parking Protocol Version : 00000000
-[1DAh 0474 004h]       Performance Interrupt : 00000014
+[1DAh 0474 004h]       Performance Interrupt : 00000016
 [1DEh 0478 008h]              Parked Address : 0000000000000000
 [1E6h 0486 008h]                Base Address : 0000000000000000
 [1EEh 0494 008h]    Virtual GIC Base Address : 0000000000000000
@@ -156,11 +156,11 @@
 [21Ch 0540 004h]        CPU Interface Number : 00000006
 [220h 0544 004h]               Processor UID : 00000006
 [224h 0548 004h]       Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [228h 0552 004h]    Parking Protocol Version : 00000000
-[22Ch 0556 004h]       Performance Interrupt : 00000014
+[22Ch 0556 004h]       Performance Interrupt : 00000016
 [230h 0560 008h]              Parked Address : 0000000000000000
 [238h 0568 008h]                Base Address : 0000000000000000
 [240h 0576 008h]    Virtual GIC Base Address : 0000000000000000
@@ -179,11 +179,11 @@
 [26Eh 0622 004h]        CPU Interface Number : 00000007
 [272h 0626 004h]               Processor UID : 00000007
 [276h 0630 004h]       Flags (decoded below) : 00000001
-                           Processor Enabled : 1
+                           Processor Enabled : 0
           Performance Interrupt Trigger Mode : 0
           Virtual GIC Interrupt Trigger Mode : 0
 [27Ah 0634 004h]    Parking Protocol Version : 00000000
-[27Eh 0638 004h]       Performance Interrupt : 00000014
+[27Eh 0638 004h]       Performance Interrupt : 00000016
 [282h 0642 008h]              Parked Address : 0000000000000000
 [28Ah 0650 008h]                Base Address : 0000000000000000
 [292h 0658 008h]    Virtual GIC Base Address : 0000000000000000

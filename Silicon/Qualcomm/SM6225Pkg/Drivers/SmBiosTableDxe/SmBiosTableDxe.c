@@ -363,8 +363,8 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_a73_L1I = {
            // Enabled/Disabled   :1  (Enabled)
            // Operational Mode   :2  (Unknown)
            // Reserved           :6
-    0x0030, // Maximum Size
-    0x0030, // Install Size
+    0x0020, // Maximum Size
+    0x0020, // Install Size
     {
         // Supported SRAM Type
         0, // Other             :1
@@ -404,8 +404,8 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_a53_L1I = {
            // Enabled/Disabled   :1  (Enabled)
            // Operational Mode   :2  (Unknown)
            // Reserved           :6
-    0x0030, // Maximum Size
-    0x0030, // Install Size
+    0x0040, // Maximum Size
+    0x0040, // Install Size
     {
         // Supported SRAM Type
         0, // Other             :1
@@ -528,8 +528,8 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_a73_L2 = {
             // Enabled/Disabled   :1  (Enabled)
             // Operational Mode   :2  (WB)
             // Reserved           :6
-    0x0800, // Maximum Size
-    0x0800, // Install Size
+    0x0200, // Maximum Size
+    0x0200, // Install Size
     {
         // Supported SRAM Type
         0, // Other             :1
@@ -569,8 +569,8 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_a53_L2 = {
             // Enabled/Disabled   :1  (Enabled)
             // Operational Mode   :2  (WB)
             // Reserved           :6
-    0x0800, // Maximum Size
-    0x0800, // Install Size
+    0x0200, // Maximum Size
+    0x0200, // Install Size
     {
         // Supported SRAM Type
         0, // Other             :1
@@ -659,7 +659,7 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
         1, // Unbuffered      :1;
         0, // Reserved1       :1;
     },
-    2400,                 // Speed; (unknown)
+    3200,                 // Speed; (unknown)
     2,                    // Manufacturer String
     0,                    // SerialNumber String
     0,                    // AssetTag String
