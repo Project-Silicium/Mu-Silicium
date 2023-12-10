@@ -107,7 +107,7 @@ READ_LOCK_STATUS   = TRUE
   INF SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI Tables
-  # !include Include/ACPI.inc
+  !include Include/ACPI.inc
 
   # DT
   INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
