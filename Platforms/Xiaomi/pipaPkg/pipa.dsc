@@ -71,8 +71,8 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1800
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2880
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|225
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|360
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|151
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|225
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|360
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|151
 
 !include SM8250Pkg/SM8250Pkg.dsc.inc
