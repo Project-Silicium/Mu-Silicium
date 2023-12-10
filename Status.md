@@ -527,7 +527,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 |UART||❔|
