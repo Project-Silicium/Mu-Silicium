@@ -527,9 +527,9 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI||✅|
 |UART||❔|
 
 ### OS Status
@@ -540,12 +540,12 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Boot||✅|
+|UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
 |CPU||❌|
@@ -558,7 +558,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 |S Pen||❌|
 |UART||❌|

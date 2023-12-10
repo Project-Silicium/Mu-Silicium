@@ -30,7 +30,6 @@
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
 
-
   # 0 = SM8250
   # 1 = SM8250-AB
   # 2 = SM8250-AC
@@ -44,7 +43,7 @@
   DeviceConfigurationMapLib|pipaPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x805D0000          # Starting address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000          # Starting address
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000         # 8 GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"6adp"
@@ -72,8 +71,8 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1800
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2880
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|225
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|360
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|151
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|225
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|360
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|151
 
 !include SM8250Pkg/SM8250Pkg.dsc.inc
