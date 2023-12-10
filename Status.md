@@ -529,7 +529,7 @@
 |Buttons||✅|
 |USB||❌|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI||✅|
 |UART||❔|
 
 ### OS Status
@@ -540,8 +540,8 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Boot||✅|
+|UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
@@ -558,7 +558,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 |S Pen||❌|
 |UART||❌|
