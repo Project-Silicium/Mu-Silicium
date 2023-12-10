@@ -119,6 +119,11 @@ READ_LOCK_STATUS   = TRUE
 
   INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
+  # TODO: Make this Image for every single Device
+  FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
+    SECTION RAW = QcomPkg/Include/Resources/RegulatoryLogos.png
+  }
+
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
   INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf

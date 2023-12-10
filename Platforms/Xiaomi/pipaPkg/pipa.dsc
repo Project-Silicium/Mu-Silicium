@@ -30,21 +30,17 @@
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
 
-
   # 0 = SM8250
   # 1 = SM8250-AB
   # 2 = SM8250-AC
   SOC_TYPE                       = 2
-
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|pipaPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
   DeviceConfigurationMapLib|pipaPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x805D0000          # Starting address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000          # Starting address
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000         # 8 GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"6adp"
