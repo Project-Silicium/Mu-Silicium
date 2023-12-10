@@ -362,7 +362,7 @@
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Power|⚠️|
-|ACPI||❌|
+|ACPI||✅|
 |Slot Switch||❔|
 |UART||❔|
 
@@ -374,7 +374,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
+|Boot||✅|
 |UFS||❌|
 |Buttons||❌|
 |Sensors||❌|
@@ -382,7 +382,7 @@
 |USB||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU|Only One Core working right now|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -392,7 +392,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 |UART||❌|
 
