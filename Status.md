@@ -548,7 +548,7 @@
 |USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
