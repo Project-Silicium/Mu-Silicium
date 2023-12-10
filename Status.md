@@ -379,7 +379,7 @@
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
 |CPU|Only One Core working right now|⚠️|
