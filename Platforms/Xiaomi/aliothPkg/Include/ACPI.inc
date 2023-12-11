@@ -1,6 +1,7 @@
 FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+  SECTION RAW = aliothPkg/AcpiTables/APIC.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/APIC.aml
-  SECTION RAW = SM8250Pkg/AcpiTables/APIC.UniCore.aml
+# SECTION RAW = SM8250Pkg/AcpiTables/APIC.UniCore.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/BERT.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/BGRT.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/CSRT.aml
