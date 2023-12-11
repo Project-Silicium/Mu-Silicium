@@ -348,9 +348,9 @@
 
 **SoC: Snapdragon 870 5G (SM8250-AC)** <br />
 **Codename: alioth** <br />
-**Maintainer: [AdrianoA3](https://github.com/AdrianoA3)** <br />
+**Maintainers: [AdrianoA3](https://github.com/AdrianoA3) and [N1kroks](https://github.com/N1kroks)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite) and [hyusang](https://github.com/cloudsweets/)** <br />
-**Tester: [AdrianoA3](https://github.com/AdrianoA3)**
+**Testers: [AdrianoA3](https://github.com/AdrianoA3) and [N1kroks](https://github.com/N1kroks)**
 
 ### UEFI Status
 
