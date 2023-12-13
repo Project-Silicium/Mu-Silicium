@@ -28,6 +28,7 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
+  DEVICE_RAM                     = 8
 
   # 0 = SM8250
   # 1 = SM8250-AB
@@ -35,7 +36,7 @@
   SOC_TYPE                       = 2
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA) -DDEVICE_RAM=$(RAM_SIZE)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|aliothPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
@@ -48,8 +49,10 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000        # 6GB Size
 !elseif $(RAM_SIZE) == 8
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size
+!elseif $(RAM_SIZE) == 12
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
 !else
-!error "Invaild Mem Size! Use 6 or 8."
+!error "Invaild RAM Size. Use 6, 8 or 12."
 !endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"AdrianoA3"   # Device Maintainer
