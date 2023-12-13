@@ -1692,15 +1692,15 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8250 ", 0x00000003)
                     }
                     Interrupt (ResourceConsumer, Level, ActiveHigh, SharedAndWake, ,, )
                     {
-                        0x000000E4,
+                        0x00000211,
                     }
                     Interrupt (ResourceConsumer, Edge, ActiveHigh, SharedAndWake, ,, )
                     {
-                        0x000000E2,
+                        0x0000020F,
                     }
                     Interrupt (ResourceConsumer, Edge, ActiveHigh, SharedAndWake, ,, )
                     {
-                        0x000000E1,
+                        0x0000020E,
                     }
                 })
                 Method (_STA, 0, NotSerialized)  // _STA: Status
