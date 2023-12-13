@@ -86,9 +86,9 @@ READ_LOCK_STATUS   = TRUE
   !include Include/RAW.inc
 
   # Secure Boot Key Enroll
-  INF SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
-  INF QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
-  INF QcomPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
+  #INF SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
+  #INF QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
+  #INF QcomPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
 
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
