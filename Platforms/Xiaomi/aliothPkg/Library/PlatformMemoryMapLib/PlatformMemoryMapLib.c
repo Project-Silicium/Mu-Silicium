@@ -2,9 +2,9 @@
 #include <Library/PlatformMemoryMapLib.h>
 
 static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
-    /* Name               Address     Length      HobOption        ResourceAttribute    ArmAttributes
-                                                          ResourceType          MemoryType */
-    /* DDR Regions */
+	/* Name			   Address	 Length	  HobOption		ResourceAttribute	ArmAttributes
+														  ResourceType		  MemoryType */
+	/* DDR Regions */
 	{"Hypervisor",			0x80000000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},		// Added for Windows boot
 	{"RAM Partition",		0x80600000, 0x00260000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},	// Added for filling gap
 	{"AOP CMD DB",			0x80860000, 0x00020000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
@@ -43,17 +43,17 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
 		DDR Bank 0: 0x80000000 + 0x3CC00000 = 0xBCC00000
 	*/
 	
-    // This RAM parition starts just after Info Blk and ends with DDR Bank 0
+	// This RAM parition starts just after Info Blk and ends with DDR Bank 0
 	{"RAM Partition",		0xA0000000, 0x1CC00000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 	// DDR Bank 0 end
 	
-    // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xBCC00000 - 0xBFFFFFFF (1 byte for spacing)
+	// Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xBCC00000 - 0xBFFFFFFF (1 byte for spacing)
 	// Size: 0x33FFFFF (52 MB)
 	
 	// DDR Bank 1 start
 	{"RAM Partition",		0xC0000000, 0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 	// As RAM starts at 0x80000000 (2GB) and this is a 6GB device, so it must ends at 8GB, then 0x200000000 = 0x140000000 + 0xC0000000
-    {"RAM Partition",		0x140000000,0xC0000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+	{"RAM Partition",		0x140000000,0xC0000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 /*===============================================================================================================*/
 #elif DEVICE_RAM == 8
 /*==================================================8GB RAM Setup==================================================*/
@@ -66,18 +66,18 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
 		DDR Bank 0: 0x80000000 + 0x3BB00000 = 0xBBB00000
 	*/
 	
-    // This RAM parition starts just after Info Blk and ends with DDR Bank 0
+	// This RAM parition starts just after Info Blk and ends with DDR Bank 0
 	{"RAM Partition",		0xA0000000, 0x1BB00000,  AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 	// DDR Bank 0 end
 	
-    // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xBBB00000 - 0xBFFFFFFF (1 byte for spacing)
+	// Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xBBB00000 - 0xBFFFFFFF (1 byte for spacing)
 	// Size: 0x44FFFFF (69 MB)
 	
 	// DDR Bank 1 start
 	{"RAM Partition",		0xC0000000, 0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-    {"RAM Partition",		0x140000000,0xC0000000, AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+	{"RAM Partition",		0x140000000,0xC0000000, AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 	// As RAM starts at 0x80000000 (2GB) and this is a 8GB device, so it must ends at 10GB, then 0x280000000 = 0x200000000 + 0x80000000
-    {"RAM Partition",		0x200000000,0x80000000, AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+	{"RAM Partition",		0x200000000,0x80000000, AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 /*===============================================================================================================*/
 
 #elif DEVICE_RAM == 12
@@ -91,20 +91,20 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
 		DDR Bank 0: 0x80000000 + 0x39900000 = 0xB9900000
 	*/
 	
-    // This RAM parition starts just after Info Blk and ends with DDR Bank 0
+	// This RAM parition starts just after Info Blk and ends with DDR Bank 0
 	{"RAM Partition",		0xA0000000, 0x19900000,  AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 	// DDR Bank 0 end
 	
-    // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xB9900000 - 0xBFFFFFFF (1 byte for spacing)
+	// Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xB9900000 - 0xBFFFFFFF (1 byte for spacing)
 	// Size: 0x66FFFFF (103 MB)
 	
 	// DDR Bank 1 start
 	{"RAM Partition",		0xC0000000, 0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-    {"RAM Partition",		0x140000000,0xC0000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-    {"RAM Partition",		0x200000000,0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-    {"RAM Partition",		0x280000000,0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+	{"RAM Partition",		0x140000000,0xC0000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+	{"RAM Partition",		0x200000000,0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+	{"RAM Partition",		0x280000000,0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 	// As RAM starts at 0x80000000 (2GB) and this is a 12GB device, so it must ends at 14GB, then 0x380000000 = 0x300000000 + 0x80000000
-    {"RAM Partition",		0x300000000,0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+	{"RAM Partition",		0x300000000,0x80000000,	AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 /*===============================================================================================================*/
 #endif
 
