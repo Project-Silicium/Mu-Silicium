@@ -376,13 +376,13 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |UFS||✅|
-|Buttons||❌|
+|Buttons||✅|
 |Sensors||❌|
 |Battery||❌|
 |USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
