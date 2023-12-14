@@ -28,7 +28,6 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
-  DEVICE_RAM                     = 8
 
   # 0 = SM8250
   # 1 = SM8250-AB
