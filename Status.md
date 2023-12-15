@@ -954,7 +954,7 @@
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
 |CPU|Cores aren't configured right|⚠️|
 |Touchscreen||❌|
