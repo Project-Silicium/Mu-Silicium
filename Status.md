@@ -788,14 +788,14 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|BSOD after Time|⚠️|
+|Boot||✅|
 |UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
-|CPU|Not all Cores are Stable|⚠️|
+|CPU|Only 4 cores|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -813,14 +813,14 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Boot||✅|
+|UFS||✅|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
-|CPU||❌|
+|CPU|Only 4 cores|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -830,7 +830,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display Output||✅|
 |Vibration||❌|
 |UART||❌|
 
