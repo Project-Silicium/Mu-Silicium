@@ -30,7 +30,7 @@
   USE_UART                       = 0
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
+  *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA) -DDEVICE_RAM=$(RAM_SIZE)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|ginkgoPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
