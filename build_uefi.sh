@@ -42,7 +42,7 @@ function _acpi(){
 			TABLE_NAME=$(basename $TABLE)
 			TABLE_NAME_ASL=$(basename $TABLE | sed 's/.aml$/.asl/g')
 			TABLE_NAME_DSL=$(basename $TABLE | sed 's/.aml$/.dsl/g')
-			[ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$(basename $TABLE) ] && mv -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$(basename $TABLE) ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$(basename $TABLE).tablebkp > /dev/null 2>&1
+			[ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME ] && mv -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME.tablebkp > /dev/null 2>&1
 			if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL ]; then
 				RUN=$(iasl ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL 2>&1 >/dev/null)
 				if [ $(echo "$RUN" | grep Error |wc -c) -gt 1 ]; then
@@ -68,10 +68,10 @@ function _acpi(){
 				echo "DEBUG - Could not find $TABLE_NAME source file on $TABLE_DIR" >> ./Build/acpi.log
 				sleep 3
 			fi
-			if [ $(echo "$RUN" | grep Error |wc -c) -gt 1 ] && [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$(basename $TABLE).tablebkp ]; then
-				mv -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$(basename $TABLE).tablebkp ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$(basename $TABLE) > /dev/null 2>&1
+			if [ $(echo "$RUN" | grep Error |wc -c) -gt 1 ] && [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME.tablebkp ]; then
+				mv -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME.tablebkp ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME > /dev/null 2>&1
 			else
-				rm -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$(basename $TABLE).tablebkp > /dev/null 2>&1
+				rm -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME.tablebkp > /dev/null 2>&1
 			fi
 			echo
 		done
