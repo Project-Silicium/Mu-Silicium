@@ -1,5 +1,5 @@
 FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
-  SECTION RAW = SM6125Pkg/AcpiTables/APIC.aml
+  SECTION RAW = ginkgoPkg/AcpiTables/APIC_6225.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/APIC.UniCore.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/BERT.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/BGRT.aml
@@ -9,7 +9,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = SM6125Pkg/AcpiTables/FACP.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/MADT.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/FPDT.aml
-  SECTION RAW = SM6125Pkg/AcpiTables/GTDT.aml
+  SECTION RAW = ginkgoPkg/AcpiTables/GTDT_6225.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/IORT.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/MCFG.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/MSDM.aml
@@ -17,8 +17,8 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 # SECTION RAW = SM6125Pkg/AcpiTables/SPCR.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/TPM2.aml
 # SECTION RAW = SM6125Pkg/AcpiTables/XSDT.aml
-  SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
-  SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
-  SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
+  #SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
+  #SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
+  #SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
   SECTION UI = "AcpiTables"
 }
