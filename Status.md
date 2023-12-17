@@ -974,14 +974,14 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
+|Boot||✅|
 |eMMC||❌|
 |Buttons||❌|
 |Sensors||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
-|CPU||❌|
+|CPU|Cores aren't configured right|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -991,7 +991,7 @@
 |NFC||❌|
 |Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display Output||✅|
 |Vibration||❌|
 |UART||❌|
 
