@@ -106,6 +106,8 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
+  INF QcomPkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
+
   # ACPI Tables
   !include Include/ACPI.inc
 
