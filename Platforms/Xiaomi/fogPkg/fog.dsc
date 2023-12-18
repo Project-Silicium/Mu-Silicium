@@ -30,6 +30,9 @@
   AB_SLOT_SUPPORT                = 1
   USE_UART                       = 0
 
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA) -DDEVICE_RAM=$(RAM_SIZE)
+
 [LibraryClasses.common]
   PlatformMemoryMapLib|fogPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
   DeviceConfigurationMapLib|fogPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
