@@ -358,7 +358,7 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||❔|
+|Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
 |USB||✅|
