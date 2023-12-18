@@ -4,3 +4,4 @@ ImageResources/bootpayload.bin
 Mu-*.img
 Mu-*.tar
 */*/*/__pycache__/
+*:Zone.Identifier
