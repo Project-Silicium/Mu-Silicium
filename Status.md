@@ -361,7 +361,7 @@
 |Clocks||❔|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Power|⚠️|
+|USB||✅|
 |ACPI||✅|
 |Slot Switch||❔|
 |UART||❔|
@@ -379,7 +379,7 @@
 |Buttons||✅|
 |Sensors||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
