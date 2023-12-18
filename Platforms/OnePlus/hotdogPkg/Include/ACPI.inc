@@ -1,0 +1,23 @@
+FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+   SECTION RAW = SM8150Pkg/AcpiTables/APIC.aml 
+ # SECTION RAW = SM8150Pkg/AcpiTables/APIC.UniCore.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/BERT.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/BGRT.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/CSRT.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/DBG2.aml 
+   SECTION RAW = SM8150Pkg/AcpiTables/DSDT_minimal.aml 
+   SECTION RAW = SM8150Pkg/AcpiTables/FACP.aml 
+ # SECTION RAW = SM8150Pkg/AcpiTables/FPDT.aml 
+   SECTION RAW = SM8150Pkg/AcpiTables/GTDT.aml 
+ # SECTION RAW = SM8150Pkg/AcpiTables/IORT.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/MCFG.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/MSDM.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/PPTT.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/SPCR.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/TPM2.aml
+ # SECTION RAW = SM8150Pkg/AcpiTables/XSDT.aml
+   SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
+ # SECTION RAW = QcomPkg/AcpiTables/TPMDev.aml
+   SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
+   SECTION UI = "AcpiTables"
+}

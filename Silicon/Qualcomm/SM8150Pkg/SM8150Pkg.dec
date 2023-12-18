@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = SM8150Pkg
+  PACKAGE_GUID                        = 945229bc-c8ec-4110-ae86-027fc07b6933
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gSM8150PkgTokenSpaceGuid            = { 0x945229bc, 0xc8ec, 0x4110, { 0xae, 0x86, 0x02, 0x7f, 0xc0, 0x7b, 0x69, 0x33 } }
