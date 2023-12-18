@@ -593,6 +593,7 @@
   QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
   QcomPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  QcomPkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
 
 !if $(AB_SLOT_SUPPORT) == 1
   # Slot Switch App

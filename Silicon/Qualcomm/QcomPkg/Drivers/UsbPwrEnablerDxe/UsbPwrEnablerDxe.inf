@@ -1,0 +1,27 @@
+[Defines]
+  INF_VERSION                    = 0x0010005
+  BASE_NAME                      = UsbPwrEnablerDxe
+  FILE_GUID                      = a83c9d29-dbf5-49fa-b818-fbb38076d148
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UsbPwr
+
+[Sources]
+  UsbPwrEnablerDxe.c
+
+[Packages]
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  MdePkg/MdePkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  PcdLib
+  DebugLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+
+[Protocols]
+  gEfiUsbPwrCtrlProtocolGuid
+
+[Depex]
+  TRUE
