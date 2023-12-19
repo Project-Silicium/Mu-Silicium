@@ -1,0 +1,13 @@
+[Defines]
+  DEC_SPECIFICATION              = 0x0001001A
+  PACKAGE_NAME                   = spes
+  PACKAGE_GUID                   = a43a1082-0066-4cc0-bc78-e3a59a3e5832
+  PACKAGE_VERSION                = 1.0
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gfogTokenSpaceGuid             = { 0xa43a1082, 0x0066, 0x4cc0, { 0xbc, 0x78, 0xe3, 0xa5, 0x9a, 0x3e, 0x58, 0x32 } }
+
+
