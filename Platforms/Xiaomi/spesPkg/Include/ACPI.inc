@@ -1,0 +1,23 @@
+ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+  SECTION RAW = SM6225Pkg/AcpiTables/APIC.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/APIC.UniCore.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/BERT.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/BGRT.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/CSRT.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/DBG2.aml
+   SECTION RAW = Platforms/Xiaomi/fogPkg/AcpiTables/DSDT.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/FADT.aml
+  SECTION RAW = SM6225Pkg/AcpiTables/FACP.aml
+  SECTION RAW = SM6225Pkg/AcpiTables/GTDT.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/IORT.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/MCFG.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/MSDM.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/PPTT.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/SPCR.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/TPM2.aml
+#  SECTION RAW = SM6225Pkg/AcpiTables/XSDT.aml
+#  SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
+  SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
+  SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
+  SECTION UI = "AcpiTables"
+ }
