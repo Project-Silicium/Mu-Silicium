@@ -42,6 +42,6 @@ DefinitionBlock("DSDT.aml", "DSDT", 0x02, "QCOMM ", "SDM660 ", 3)
         Include("emmc.asl") 
         Include("spmi.asl")
         Include("pmic_core.asl")
-        Include("buttons.asl")
+        //Include("buttons.asl")
     }
 }
