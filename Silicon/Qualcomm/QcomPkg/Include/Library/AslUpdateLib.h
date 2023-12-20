@@ -31,10 +31,10 @@
   @param[in] Buffer                     source of data to be written over original aml
   @param[in] Length                     length of data to be overwritten
 
-   @retval EFI_SUCCESS                  The function completed successfully.
-   @retval EFI_NOT_FOUND                Failed to locate AcpiTable.
-   @retval EFI_NOT_READY                Not ready to locate AcpiTable.
-   @retval EFI_UNSUPPORTED              The function is not supported in this library.
+  @retval EFI_SUCCESS                  The function completed successfully.
+  @retval EFI_NOT_FOUND                Failed to locate AcpiTable.
+  @retval EFI_NOT_READY                Not ready to locate AcpiTable.
+  @retval EFI_UNSUPPORTED              The function is not supported in this library.
 **/
 EFI_STATUS
 EFIAPI
@@ -113,4 +113,4 @@ LocateAcpiTableBySignature (
   IN OUT  UINTN                        *Handle
   );
 
-#endif
+#endif /* _ASL_UPDATE_LIB_H_ */

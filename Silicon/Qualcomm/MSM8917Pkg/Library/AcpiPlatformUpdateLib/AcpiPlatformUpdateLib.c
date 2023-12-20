@@ -1,11 +1,7 @@
 #include <Uefi.h>
 
-#include <Library/UefiLib.h>
 #include <Library/AcpiPlatformUpdateLib.h>
-#include <Library/DebugLib.h>
+#include <Library/UefiLib.h>
 
 VOID
-PlatformUpdateAcpiTables(VOID)
-{
-  DEBUG ((EFI_D_WARN, "Not Implemented.\n"));
-}
+PlatformUpdateAcpiTables(VOID) {}

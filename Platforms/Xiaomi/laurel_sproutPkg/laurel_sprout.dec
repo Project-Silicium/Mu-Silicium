@@ -1,11 +1,11 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = laurel_sprout
-  PACKAGE_GUID                        = 30fa3a0b-87b1-4b91-a716-cd283a813c72
-  PACKAGE_VERSION                     = 0.1
+  DEC_SPECIFICATION              = 0x0001001A
+  PACKAGE_NAME                   = laurel_sprout
+  PACKAGE_GUID                   = 30fa3a0b-87b1-4b91-a716-cd283a813c72
+  PACKAGE_VERSION                = 1.0
 
 [Includes.common]
-  Include                               # Root include for the package
+  Include                          # Root include for the package
 
 [Guids.common]
-  glaurel_sproutTokenSpaceGuid        = { 0x30fa3a0b, 0x87b1, 0x4b91, { 0xa7, 0x16, 0xcd, 0x28, 0x3a, 0x81, 0x3c, 0x72 } }
+  glaurel_sproutTokenSpaceGuid   = { 0x30fa3a0b, 0x87b1, 0x4b91, { 0xa7, 0x16, 0xcd, 0x28, 0x3a, 0x81, 0x3c, 0x72 } }

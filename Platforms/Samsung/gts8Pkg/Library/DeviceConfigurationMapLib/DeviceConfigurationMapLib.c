@@ -18,10 +18,10 @@ gDeviceConfigurationDescriptorEx[] = {
   {"USBHS1_Config", 0x0},
   {"UsbFnIoRevNum", 0x00010001},
   {"PwrBtnShutdownFlag", 0x0},
-  {"Sdc1GpioConfigOn" = 0x1E92},
-  {"Sdc2GpioConfigOn" = 0x1E92},
-  {"Sdc1GpioConfigOff" = 0xA00},
-  {"Sdc2GpioConfigOff" = 0xA00},
+  {"Sdc1GpioConfigOn", 0x1E92},
+  {"Sdc2GpioConfigOn", 0x1E92},
+  {"Sdc1GpioConfigOff", 0xA00},
+  {"Sdc2GpioConfigOff", 0xA00},
   {"EnableSDHCSwitch", 0x1},
   {"EnableUfsIOC", 1},
   {"UfsSmmuConfigForOtherBootDev", 1},
@@ -46,12 +46,12 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableVariablePolicyEngine", 0},
   {"EnableACPIFallback", 0x0},
 
-  /* Terminator */
+  // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
 
-CONFIGURATION_DESCRIPTOR_EX
-*GetDeviceConfigurationMap()
+CONFIGURATION_DESCRIPTOR_EX*
+GetDeviceConfigurationMap()
 {
   return gDeviceConfigurationDescriptorEx;
 }

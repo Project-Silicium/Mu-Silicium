@@ -93,9 +93,6 @@
   INF Binaries/hotdog/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
 
   INF Binaries/hotdog/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
-

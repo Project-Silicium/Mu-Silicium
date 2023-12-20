@@ -43,9 +43,6 @@
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
 
-  # UART
-  gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0x00988000
-
 [LibraryClasses.common]
   PlatformPeiLib|SM8250Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SM8250Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

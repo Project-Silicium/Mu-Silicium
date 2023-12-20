@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/nitrogenPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd" > "./Build/nitrogenPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/nitrogenPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd-bootshim" > "./Build/nitrogenPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/nitrogenPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/nitrogen.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd" > "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd-bootshim" > "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/NITROGEN_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/nitrogen.dtb > ./ImageResources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \

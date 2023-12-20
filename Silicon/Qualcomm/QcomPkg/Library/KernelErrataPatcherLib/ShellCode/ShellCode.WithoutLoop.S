@@ -1,11 +1,16 @@
 /** @file
+
   Patches NTOSKRNL to not cause a SError when reading/writing ACTLR_EL1
   Patches NTOSKRNL to not cause a SError when reading/writing AMCNTENSET0_EL0
   Patches NTOSKRNL to not cause a bugcheck when attempting to use
   PSCI_MEMPROTECT Due to an issue in QHEE
+
   Shell Code to patch kernel mode components before NTOSKRNL
+
   Copyright (c) 2022-2023 DuoWoA authors
+
   SPDX-License-Identifier: MIT
+
 **/
 
 //VOID
@@ -92,3 +97,4 @@ _Dead:
 
 _Payload:
 	/* Your code will get ran right after this binary */
+

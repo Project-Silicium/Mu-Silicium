@@ -68,7 +68,6 @@
   gMsSWMProtocolGuid                ## CONSUMES
   gTpmPpProtocolGuid                ## CONSUMES
   gEdkiiVariablePolicyProtocolGuid  ## CONSUMES
-  gEfiGraphicsOutputProtocolGuid    ## CONSUMES
 
 [Pcd]
   gPcBdsPkgTokenSpaceGuid.PcdPowerAndThermalRetries

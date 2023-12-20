@@ -12,6 +12,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   QcomPkg/QcomPkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   BaseLib

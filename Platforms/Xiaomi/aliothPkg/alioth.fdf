@@ -20,14 +20,14 @@
 #
 ################################################################################
 
-[FD.Poco_F3_UEFI]
+[FD.alioth_UEFI]
 BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
 Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1
 
 # This one is tricky, it must be: BlockSize * NumBlocks = Size
 BlockSize     = 0x1000
-NumBlocks     = $(FD_BLOCKS) # 300 on mu and 700 on edk2msm hmmm
+NumBlocks     = $(FD_BLOCKS)
 
 ################################################################################
 #
@@ -45,7 +45,7 @@ NumBlocks     = $(FD_BLOCKS) # 300 on mu and 700 on edk2msm hmmm
 #
 ################################################################################
 
-0x00000000|$(FD_SIZE) # 300000 on mu and 700000 on edk2msm hmmmmmmmm
+0x00000000|$(FD_SIZE)
 gArmTokenSpaceGuid.PcdFvBaseAddress|gArmTokenSpaceGuid.PcdFvSize
 FV = FVMAIN_COMPACT
 
@@ -85,11 +85,6 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
-  # Secure Boot Key Enroll
-  #INF SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
-  #INF QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
-  #INF QcomPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
-
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
   # BDS
@@ -97,39 +92,29 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
 
-  # HID Support
-  INF HidPkg/HidKeyboardDxe/HidKeyboardDxe.inf
-  INF HidPkg/HidMouseAbsolutePointerDxe/HidMouseAbsolutePointerDxe.inf
-
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  INF QcomPkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
-
   # ACPI Tables
   !include Include/ACPI.inc
 
-  # DT
-  INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
-  !include Include/FDT.inc
-
   INF MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
+
+  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
   !include QcomPkg/Frontpage.fdf.inc
 
-  INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
-
-  # TODO: Make this Image for every single Device
-  FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
-    SECTION RAW = QcomPkg/Include/Resources/RegulatoryLogos.png
+  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
+    SECTION RAW = QcomPkg/Include/Resources/BootLogo_Medium.bmp
+    SECTION UI = "Logo"
   }
 
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
-  INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
-  INF GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
+  INF QcomPkg/GPLDrivers/BootSlotDxe/BootSlotDxe.inf
+  INF QcomPkg/GPLApplications/SwitchSlotsApp/SwitchSlotsApp.inf
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
@@ -162,4 +147,4 @@ READ_LOCK_STATUS   = TRUE
     }
   }
 
-  !include QcomPkg/CommonFdf.fdf.inc
+  !include QcomPkg/Common.fdf.inc

@@ -1,4 +1,5 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
+  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
@@ -24,19 +25,8 @@
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
-
-  FILE DRIVER = FCABE6A7-7953-4A84-B7EC-D29E89B62E87 {
-    SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.depex
-    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.efi
-    SECTION UI = "EmbeddedMonotonicCounter"
-  }
-
-  FILE DRIVER = 3AE17DB7-3CC5-4B89-9304-9549211057EF {
-    SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.depex
-    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.efi
-    SECTION UI = "ResetRuntimeDxe"
-  }
-
+  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
@@ -88,12 +78,7 @@
   }
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-
-  FILE DRIVER = 6B38F7B4-AD98-40e9-9093-ACA2B5A253C4 {
-    SECTION PE32 = Binaries/q2q/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.efi
-    SECTION UI = "DiskIoDxe"
-  }
-
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
@@ -161,32 +146,12 @@
     SECTION UI = "SmemDxe"
   }
 
-  #FILE DRIVER = 5A50AA81-C3AE-4608-A0E3-41A2E69BAF94 {
-  #  SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/QcomBds/QcomBds.depex
-  #  SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/QcomBds/QcomBds.efi
-  #  SECTION UI = "QcomBds"
-  #}
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-
-  INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
-  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-
-  FILE DRIVER = 6696936D-3637-467C-87CB-14EA8248948C {
-    SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.depex
-    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.efi
-    SECTION UI = "SimpleTextInOutSerial"
-  }
-
+  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
-
-  FILE DRIVER = cccb0c28-4b24-11d5-9a5a-0090273fc14d {
-    SECTION PE32 = Binaries/q2q/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.efi
-    SECTION UI = "GraphicsConsoleDxe"
-  }
+  INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
 !if $(USE_DISPLAYDXE) == 1
   FILE DRIVER = 1B52138D-3FA3-4E50-B958-20887353F809 {
@@ -259,13 +224,9 @@
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
-  INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
-
   FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.depex
-    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.patched.efi
+    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.efi
     SECTION UI = "ButtonsDxe"
   }
 
@@ -377,9 +338,6 @@
     SECTION UI = "PILProxyDxe"
   }
 
-  # SecRSADxe
-  # ASN1X509Dxe
-
   FILE DRIVER = 5D787B6C-6254-43F5-A7A8-CB25329CF97E {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/SPSSDxe/SPSSDxe.depex
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/SPSSDxe/SPSSDxe.efi
@@ -403,9 +361,6 @@
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.efi
     SECTION UI = "SerialPortDxe"
   }
-
-  # Applications/SamsungQuestApp
-  # Applications/SamsungDdrApp
 
   #FILE DRIVER = BFAB1BE9-653F-4624-AE2D-7B7F00CC91F3 {
   #  SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.depex

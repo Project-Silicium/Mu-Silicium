@@ -1,8 +1,10 @@
 #!/bin/bash
+
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/kebabPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd" > "./Build/kebabPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/kebabPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd-bootshim" > "./Build/kebabPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/kebabPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/kebab.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd" > "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd-bootshim" > "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/KEBAB_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/kebab.dtb > ./ImageResources/bootpayload.bin||exit 1
+
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \
   --kernel ./ImageResources/bootpayload.bin \
@@ -15,4 +17,3 @@ python3 ./ImageResources/mkbootimg.py \
   --header_version 1 \
   -o Mu-kebab.img \
   ||_error "\nFailed to create Android Boot Image!\n"
-

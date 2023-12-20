@@ -25,7 +25,7 @@
   DebugLib
   IoLib
   MemoryMapHelperLib
-  PlatformMemoryMapLib
+  DeviceMemoryMapLib
   PlatformPrePiLib
 
 [Sources.common]
@@ -35,9 +35,6 @@
 
 [Sources.AArch64]
   AArch64/ArmPlatformHelper.S
-
-[Sources.Arm]
-  Arm/ArmPlatformHelper.S
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString

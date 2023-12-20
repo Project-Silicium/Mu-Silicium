@@ -19,15 +19,14 @@
   PLATFORM_GUID                  = cc6036dc-ca51-493f-b5dd-1a475103cbce
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/9707fPkg-$(ARCH)
+  OUTPUT_DIRECTORY               = Build/9707fPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
-  BUILD_TARGETS                  = DEBUG|RELEASE
+  BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = 9707fPkg/9707f.fdf
   DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
-  USE_UART                       = 0
 
   # 0 = SM8250
   # 1 = SM8250-AB
@@ -35,32 +34,32 @@
   SOC_TYPE                       = 2
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|9707fPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceMemoryMapLib|9707fPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|9707fPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+  # Device Specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000                # Starting Address
 !if $(RAM_SIZE) == 8
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000               # 8 GB Size
 !elseif $(RAM_SIZE) == 12
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000               # 12 GB Size
 !else
-!error "Invaild Mem Size! Use 8 or 12."
+!error "Invaild RAM Size! Use 8 or 12."
 !endif
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"CloudSweets"   # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"CloudSweets"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000             # 256K stack
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo Limited"
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Legion Tab Y700"
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"9707f"
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Legion_Tab_Y700_9707f"

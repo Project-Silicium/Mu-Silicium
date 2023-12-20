@@ -11,7 +11,7 @@
 #
 
 [Sources]
-  AcpiPlatformUpdateLib.c
+ AcpiPlatformUpdateLib.c
 
 [Packages]
   ArmPkg/ArmPkg.dec

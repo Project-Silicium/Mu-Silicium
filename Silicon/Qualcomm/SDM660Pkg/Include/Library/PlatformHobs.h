@@ -1,7 +1,7 @@
 #ifndef _PLATFORM_HOBS_H_
 #define _PLATFORM_HOBS_H_
 
-#include <Library/PlatformMemoryMapLib.h>
+#include <Library/DeviceMemoryMapLib.h>
 #include <Protocol/SerialIo.h>
 
 typedef EFI_STATUS (*GET_CONFIG_STRING)(

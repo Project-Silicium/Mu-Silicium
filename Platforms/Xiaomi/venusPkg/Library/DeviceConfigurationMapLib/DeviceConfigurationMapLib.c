@@ -44,12 +44,12 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableACPIFallback", 0x0},
   {"EUDEnableAddr", 0x88E2000},
 
-  /* Terminator */
+  // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
 
-CONFIGURATION_DESCRIPTOR_EX
-*GetDeviceConfigurationMap()
+CONFIGURATION_DESCRIPTOR_EX*
+GetDeviceConfigurationMap()
 {
   return gDeviceConfigurationDescriptorEx;
 }

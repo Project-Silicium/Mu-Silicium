@@ -1,7 +1,7 @@
 #ifndef _PLATFORM_HOBS_H_
 #define _PLATFORM_HOBS_H_
 
-#include <Library/PlatformMemoryMapLib.h>
+#include <Library/DeviceMemoryMapLib.h>
 #include <Protocol/SerialIo.h>
 
 typedef EFI_STATUS (*GET_CONFIG_STRING)(
@@ -71,6 +71,14 @@ typedef struct {
     0x90a49afd, 0x422f, 0x08ae,                                                \
     {                                                                          \
       0x96, 0x11, 0xe7, 0x88, 0xd3, 0x80, 0x48, 0x45                           \
+    }                                                                          \
+  }
+
+#define EFI_FV_DECOMPRESS_GUID                                                 \
+  {                                                                            \
+    0x12dbd93d, 0x402a, 0x416e,                                                \
+    {                                                                          \
+      0xec, 0x20, 0x5f, 0x80, 0xcf, 0x5f, 0x7f, 0xe7                           \
     }                                                                          \
   }
 

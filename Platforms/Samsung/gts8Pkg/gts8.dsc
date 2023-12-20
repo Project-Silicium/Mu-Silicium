@@ -19,44 +19,43 @@
   PLATFORM_GUID                  = 539f03c6-9ef9-4b7d-b7b8-455abe2bcc2e
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/gts8Pkg-$(ARCH)
+  OUTPUT_DIRECTORY               = Build/gts8Pkg
   SUPPORTED_ARCHITECTURES        = AARCH64
-  BUILD_TARGETS                  = DEBUG|RELEASE
+  BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = gts8Pkg/gts8.fdf
   DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
-  USE_UART                       = 0
 
   # 0 = SM8450
-  # 1 = SM8450-AB
+  # 1 = SM8475
   SOC_TYPE                       = 0
 
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|gts8Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceMemoryMapLib|gts8Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|gts8Pkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
-!if $(RAM_SIZE) == 12
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
-!elseif $(RAM_SIZE) == 8
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size
+  # Device Specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000                  # Starting Address
+!if $(RAM_SIZE) == 8
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000                 # 8 GB Size
+!elseif $(RAM_SIZE) == 12
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000                 # 12 GB Size
 !else
-!error "Invaild RAM Size! Use 12 or 8."
+!error "Invaild RAM Size! Use 8 or 12."
 !endif
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"   # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000               # 256K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"

@@ -1,6 +1,7 @@
   INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/SecShareInfoDxe/SecShareInfoDxe.inf
 
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
+  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -64,19 +65,13 @@
   INF Binaries/gts8/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
-
-  INF Binaries/gts8/QcomPkg/Application/QcomChargerApp/QcomChargerApp.inf
-
-  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
+  INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-  INF Binaries/gts8/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 !if $(USE_DISPLAYDXE) == 1
   INF Binaries/gts8/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
@@ -90,10 +85,6 @@
 !else
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
-
-  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
-  INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf

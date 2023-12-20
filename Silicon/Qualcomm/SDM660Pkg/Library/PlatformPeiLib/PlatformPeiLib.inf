@@ -23,8 +23,8 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  SDM660Pkg/SDM660Pkg.dec
   QcomPkg/QcomPkg.dec
+  SDM660Pkg/SDM660Pkg.dec
 
 [LibraryClasses]
   ArmLib

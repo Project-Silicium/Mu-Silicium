@@ -19,40 +19,39 @@
   PLATFORM_GUID                  = 7004a90e-23e3-409f-887e-26cfff6e4ae5
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/limePkg-$(ARCH)
+  OUTPUT_DIRECTORY               = Build/limePkg
   SUPPORTED_ARCHITECTURES        = AARCH64
-  BUILD_TARGETS                  = DEBUG|RELEASE
+  BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = limePkg/lime.fdf
   DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
-  USE_UART                       = 0
 
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|limePkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceMemoryMapLib|limePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|limePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+  # Device Specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000              # Starting Address
 !if $(RAM_SIZE) == 6
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000        # 6GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000             # 6GB Size
 !elseif $(RAM_SIZE) == 4
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000             # 4GB Size
 !else
 !error "Invaild Mem Size! Use 6 or 4."
 !endif
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"   # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000           # 256K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"

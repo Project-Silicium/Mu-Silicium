@@ -1,11 +1,11 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = q2q
-  PACKAGE_GUID                        = d6d8e3f8-5a15-4b49-844b-35efce9b947b
-  PACKAGE_VERSION                     = 0.1
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = q2q
+  PACKAGE_GUID                   = d6d8e3f8-5a15-4b49-844b-35efce9b947b
+  PACKAGE_VERSION                = 0.1
 
 [Includes.common]
-  Include                               # Root include for the package
+  Include                         # Root include for the package
 
 [Guids.common]
-  gq2qTokenSpaceGuid                  = { 0xd6d8e3f8, 0x5a15, 0x4b49, { 0x84, 0x4b, 0x35, 0xef, 0xce, 0x9b, 0x94, 0x7b } }
+  gq2qTokenSpaceGuid             = { 0xd6d8e3f8, 0x5a15, 0x4b49, { 0x84, 0x4b, 0x35, 0xef, 0xce, 0x9b, 0x94, 0x7b } }

@@ -1,24 +1,21 @@
 /** @file
- *Header file for Ms Boot Policy Library
+  Header file for Ms Boot Policy Library
 
-Copyright (C) Microsoft Corporation. All rights reserved.
-SPDX-License-Identifier: BSD-2-Clause-Patent
-
+  Copyright (C) Microsoft Corporation. All rights reserved.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
 #ifndef _MS_BOOT_POLICY_H_
 #define _MS_BOOT_POLICY_H_
 
 /**
- *Ask if the platform is requesting UEFI Shell
+  Ask if the platform is requesting Slot Switch
 
- *@retval TRUE     System is requesting UEFI Shell
- *@retval FALSE    System is not requesting UEFI Shell.
+  @retval TRUE     System is requesting Slot Switch
+  @retval FALSE    System is not requesting Slot Switch.
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibUEFIShell (
-  VOID
-  );
+MsBootPolicyLibSlotSwitch (VOID);
 
 #endif /* _MS_BOOT_POLICY_H_ */

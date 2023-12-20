@@ -1,15 +1,13 @@
 /** @file
-
   Copyright (c) 2011, ARM Limited. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #include <Library/ArmPlatformLib.h>
 #include <Library/DebugLib.h>
 
-#include <Library/PlatformMemoryMapLib.h>
+#include <Library/DeviceMemoryMapLib.h>
 
 /**
   Return the Virtual Memory Map of your platform
@@ -22,15 +20,11 @@
 
 **/
 VOID
-ArmPlatformGetVirtualMemoryMap (
-  IN ARM_MEMORY_REGION_DESCRIPTOR  **VirtualMemoryMap
-  )
+ArmPlatformGetVirtualMemoryMap(IN ARM_MEMORY_REGION_DESCRIPTOR **VirtualMemoryMap)
 {
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx =
-      GetPlatformMemoryMap();
-  ARM_MEMORY_REGION_DESCRIPTOR
-        MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
-  UINTN Index = 0;
+  ARM_MEMORY_REGION_DESCRIPTOR     MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
+  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetDeviceMemoryMap();
+  UINTN                            Index              = 0;
 
   // Run through each memory descriptor
   while (MemoryDescriptorEx->Length != 0) {

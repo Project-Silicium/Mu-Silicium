@@ -1,41 +1,55 @@
 #include <PiDxe.h>
 
 #include <Library/ArmLib.h>
-#include <Library/TimerLib.h>
 #include <Library/CacheMaintenanceLib.h>
 #include <Library/HobLib.h>
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/SerialPortLib.h>
+#include <Library/TimerLib.h>
 
 #include <Resources/FbColor.h>
 #include <Resources/font5x12.h>
 
-#include <Library/FrameBufferSerialPortLib.h>
+#include "FrameBufferSerialPortLib.h"
 
 UINTN delay = FixedPcdGet32(PcdMipiFrameBufferDelay);
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
 
-FBCON_POSITION* p_Position = NULL;
-FBCON_POSITION m_MaxPosition;
-FBCON_COLOR    m_Color;
-BOOLEAN        m_Initialized = FALSE;
+FBCON_POSITION *p_Position     = NULL;
+FBCON_POSITION  m_MaxPosition;
+FBCON_COLOR     m_Color;
+BOOLEAN         m_Initialized  = FALSE;
 
-UINTN gWidth = FixedPcdGet32(PcdMipiFrameBufferWidth);
+UINTN gWidth  = FixedPcdGet32(PcdMipiFrameBufferWidth);
+
 // Reserve half screen for output
 UINTN gHeight = FixedPcdGet32(PcdMipiFrameBufferHeight);
 UINTN gBpp    = FixedPcdGet32(PcdMipiFrameBufferPixelBpp);
 
 // Module-used internal routine
-void FbConPutCharWithFactor(char c, int type, unsigned scale_factor);
+VOID
+FbConPutCharWithFactor(
+  CHAR8  c,
+  UINT32 type,
+  UINTN  scale_factor);
 
-void FbConDrawglyph(
-    char *pixels, unsigned stride, unsigned bpp, unsigned *glyph,
-    unsigned scale_factor);
+VOID
+FbConDrawglyph(
+  CHAR8 *pixels,
+  UINTN  stride,
+  UINTN  bpp,
+  UINTN *glyph,
+  UINTN  scale_factor);
 
-void FbConReset(void);
-void FbConScrollUp(void);
-void FbConFlush(void);
+VOID
+FbConReset(VOID);
+
+VOID
+FbConScrollUp(VOID);
+
+VOID
+FbConFlush(VOID);
 
 RETURN_STATUS
 EFIAPI
@@ -57,19 +71,21 @@ SerialPortInitialize(VOID)
   return RETURN_SUCCESS;
 }
 
-void ResetFb(void)
+VOID
+ResetFb(VOID)
 {
   // Clear current screen.
-  char *Pixels  = (void *)DisplayMemoryRegion.Address;
+  CHAR8 *Pixels  = (VOID *)DisplayMemoryRegion.Address;
   UINTN BgColor = FB_BGRA8888_BLACK;
 
   // Set to black color.
   for (UINTN i = 0; i < gWidth; i++) {
     for (UINTN j = 0; j < gHeight; j++) {
       BgColor = FB_BGRA8888_BLACK;
+
       // Set pixel bit
       for (UINTN p = 0; p < (gBpp / 8); p++) {
-        *Pixels = (unsigned char)BgColor;
+        *Pixels = (UINT8)BgColor;
         BgColor = BgColor >> 8;
         Pixels++;
       }
@@ -77,7 +93,8 @@ void ResetFb(void)
   }
 }
 
-void FbConReset(void)
+VOID
+FbConReset(VOID)
 {
   // Calc max position.
   m_MaxPosition.x = gWidth / (FONT_WIDTH + 1);
@@ -88,98 +105,109 @@ void FbConReset(void)
   m_Color.Background = FB_BGRA8888_BLACK;
 }
 
-void FbConPutCharWithFactor(char c, int type, unsigned scale_factor)
+VOID
+FbConPutCharWithFactor(CHAR8 c, UINT32 type, UINTN scale_factor)
 {
-  char *Pixels;
+  CHAR8 *Pixels;
 
 paint:
-
-  if ((unsigned char)c > 127)
+  if ((UINT8)c > 127) {
     return;
+  }
 
-  if ((unsigned char)c < 32) {
+  if ((UINT8)c < 32) {
     if (c == '\n') {
       goto newline;
-    }
-    else if (c == '\r') {
+    } else if (c == '\r') {
       p_Position->x = 0;
       return;
-    }
-    else {
+    } else {
       return;
     }
   }
 
   // Save some space
-  if (p_Position->x == 0 && (unsigned char)c == ' ' &&
-      type != FBCON_SUBTITLE_MSG && type != FBCON_TITLE_MSG)
+  if (p_Position->x == 0 && (UINT8)c == ' ' && type != FBCON_SUBTITLE_MSG && type != FBCON_TITLE_MSG) {
     return;
+  }
 
   BOOLEAN intstate = ArmGetInterruptState();
-  if (intstate)
+  if (intstate) {
     ArmDisableInterrupts();
+  }
 
-  Pixels = (void *)DisplayMemoryRegion.Address;
+  Pixels = (VOID *)DisplayMemoryRegion.Address;
   Pixels += p_Position->y * ((gBpp / 8) * FONT_HEIGHT * gWidth);
   Pixels += p_Position->x * scale_factor * ((gBpp / 8) * (FONT_WIDTH + 1));
 
-  FbConDrawglyph(
-      Pixels, gWidth, (gBpp / 8), font5x12 + (c - 32) * 2, scale_factor);
+  FbConDrawglyph(Pixels, gWidth, (gBpp / 8), font5x12 + (c - 32) * 2, scale_factor);
 
   p_Position->x++;
 
-  if (p_Position->x >= (int)(m_MaxPosition.x / scale_factor))
+  if (p_Position->x >= (int)(m_MaxPosition.x / scale_factor)) {
     goto newline2;
+  }
 
-  if (intstate)
+  if (intstate) {
     ArmEnableInterrupts();
+  }
+
   return;
 
 newline:
-  MicroSecondDelay( delay );
+  MicroSecondDelay(delay);
 
 newline2:
   p_Position->y += scale_factor;
   p_Position->x = 0;
+
   if (p_Position->y >= m_MaxPosition.y - scale_factor) {
     ResetFb();
     FbConFlush();
     p_Position->y = 0;
 
-    if (intstate)
+    if (intstate) {
       ArmEnableInterrupts();
+    }
+
     goto paint;
-  }
-  else {
+  } else {
     FbConFlush();
-    if (intstate)
+    if (intstate) {
       ArmEnableInterrupts();
+    }
   }
 }
 
-void FbConDrawglyph(
-    char *pixels, unsigned stride, unsigned bpp, unsigned *glyph,
-    unsigned scale_factor)
+VOID
+FbConDrawglyph(
+  CHAR8 *pixels,
+  UINTN  stride,
+  UINTN  bpp,
+  UINTN *glyph,
+  UINTN  scale_factor)
 {
-  char *       bg_pixels = pixels;
-  unsigned     x, y, i, j, k;
-  unsigned     data, temp;
-  unsigned int fg_color = m_Color.Foreground;
-  unsigned int bg_color = m_Color.Background;
-  stride -= FONT_WIDTH * scale_factor;
+  CHAR8  *bg_pixels = pixels;
+  UINTN   x, y, i, j, k;
+  UINTN   data, temp;
+  UINT32  fg_color = m_Color.Foreground;
+  UINT32  bg_color = m_Color.Background;
+  stride  -= FONT_WIDTH * scale_factor;
 
   for (y = 0; y < FONT_HEIGHT / 2; ++y) {
     for (i = 0; i < scale_factor; i++) {
       for (x = 0; x < FONT_WIDTH; ++x) {
         for (j = 0; j < scale_factor; j++) {
           bg_color = m_Color.Background;
+
           for (k = 0; k < bpp; k++) {
-            *bg_pixels = (unsigned char)bg_color;
+            *bg_pixels = (UINT8)bg_color;
             bg_color   = bg_color >> 8;
             bg_pixels++;
           }
         }
       }
+
       bg_pixels += (stride * bpp);
     }
   }
@@ -189,84 +217,98 @@ void FbConDrawglyph(
       for (x = 0; x < FONT_WIDTH; ++x) {
         for (j = 0; j < scale_factor; j++) {
           bg_color = m_Color.Background;
+
           for (k = 0; k < bpp; k++) {
-            *bg_pixels = (unsigned char)bg_color;
+            *bg_pixels = (UINT8)bg_color;
             bg_color   = bg_color >> 8;
             bg_pixels++;
           }
         }
       }
+
       bg_pixels += (stride * bpp);
     }
   }
 
   data = glyph[0];
+
   for (y = 0; y < FONT_HEIGHT / 2; ++y) {
     temp = data;
+
     for (i = 0; i < scale_factor; i++) {
       data = temp;
+
       for (x = 0; x < FONT_WIDTH; ++x) {
         if (data & 1) {
           for (j = 0; j < scale_factor; j++) {
             fg_color = m_Color.Foreground;
+
             for (k = 0; k < bpp; k++) {
-              *pixels  = (unsigned char)fg_color;
+              *pixels  = (UINT8)fg_color;
               fg_color = fg_color >> 8;
               pixels++;
             }
           }
-        }
-        else {
+        } else {
           for (j = 0; j < scale_factor; j++) {
             pixels = pixels + bpp;
           }
         }
+
         data >>= 1;
       }
+
       pixels += (stride * bpp);
     }
   }
 
   data = glyph[1];
+
   for (y = 0; y < FONT_HEIGHT / 2; ++y) {
     temp = data;
+
     for (i = 0; i < scale_factor; i++) {
       data = temp;
+
       for (x = 0; x < FONT_WIDTH; ++x) {
         if (data & 1) {
           for (j = 0; j < scale_factor; j++) {
             fg_color = m_Color.Foreground;
+
             for (k = 0; k < bpp; k++) {
-              *pixels  = (unsigned char)fg_color;
+              *pixels  = (UINT8)fg_color;
               fg_color = fg_color >> 8;
               pixels++;
             }
           }
-        }
-        else {
+        } else {
           for (j = 0; j < scale_factor; j++) {
             pixels = pixels + bpp;
           }
         }
+
         data >>= 1;
       }
+
       pixels += (stride * bpp);
     }
   }
 }
 
-/* TODO: Take stride into account */
-void FbConScrollUp(void)
+// TODO: Take stride into account
+VOID
+FbConScrollUp(VOID)
 {
-  unsigned short *dst   = (void *)DisplayMemoryRegion.Address;
-  unsigned short *src   = dst + (gWidth * FONT_HEIGHT);
-  unsigned        count = gWidth * (gHeight - FONT_HEIGHT);
+  UINT16 *dst   = (VOID *)DisplayMemoryRegion.Address;
+  UINT16 *src   = dst + (gWidth * FONT_HEIGHT);
+  UINTN   count = gWidth * (gHeight - FONT_HEIGHT);
 
   while (count--) {
     *dst++ = *src++;
   }
 
   count = gWidth * FONT_HEIGHT;
+
   while (count--) {
     *dst++ = m_Color.Background;
   }
@@ -274,49 +316,53 @@ void FbConScrollUp(void)
   FbConFlush();
 }
 
-void FbConFlush(void)
+VOID
+FbConFlush(VOID)
 {
-  unsigned total_x, total_y;
-  unsigned bytes_per_bpp;
+  UINTN total_x       = gWidth;
+  UINTN total_y       = gHeight;
+  UINTN bytes_per_bpp = (gBpp / 8);
 
-  total_x       = gWidth;
-  total_y       = gHeight;
-  bytes_per_bpp = (gBpp / 8);
-
-  WriteBackInvalidateDataCacheRange(
-      (void *)DisplayMemoryRegion.Address,
-      (total_x * total_y * bytes_per_bpp));
+  WriteBackInvalidateDataCacheRange((VOID *)DisplayMemoryRegion.Address, (total_x * total_y * bytes_per_bpp));
 }
 
 UINTN
 EFIAPI
-SerialPortWrite(IN UINT8 *Buffer, IN UINTN NumberOfBytes)
+SerialPortWrite(
+  IN UINT8 *Buffer,
+  IN UINTN  NumberOfBytes)
 {
   UINT8 *CONST Final          = &Buffer[NumberOfBytes];
   UINTN        InterruptState = ArmGetInterruptState();
 
-  if (InterruptState)
+  if (InterruptState) {
     ArmDisableInterrupts();
+  }
 
   while (Buffer < Final) {
     FbConPutCharWithFactor(*Buffer++, FBCON_COMMON_MSG, SCALE_FACTOR);
   }
 
-  if (InterruptState)
+  if (InterruptState) {
     ArmEnableInterrupts();
+  }
+
   return NumberOfBytes;
 }
 
 UINTN
 EFIAPI
-SerialPortWriteCritical(IN UINT8 *Buffer, IN UINTN NumberOfBytes)
+SerialPortWriteCritical(
+  IN UINT8 *Buffer,
+  IN UINTN  NumberOfBytes)
 {
   UINT8 *CONST Final             = &Buffer[NumberOfBytes];
   UINTN        CurrentForeground = m_Color.Foreground;
   UINTN        InterruptState    = ArmGetInterruptState();
 
-  if (InterruptState)
+  if (InterruptState) {
     ArmDisableInterrupts();
+  }
 
   m_Color.Foreground = FB_BGRA8888_YELLOW;
 
@@ -326,40 +372,61 @@ SerialPortWriteCritical(IN UINT8 *Buffer, IN UINTN NumberOfBytes)
 
   m_Color.Foreground = CurrentForeground;
 
-  if (InterruptState)
+  if (InterruptState) {
     ArmEnableInterrupts();
+  }
+
   return NumberOfBytes;
 }
 
 UINTN
 EFIAPI
-SerialPortRead(OUT UINT8 *Buffer, IN UINTN NumberOfBytes) { return 0; }
+SerialPortRead(
+  OUT UINT8 *Buffer,
+  IN UINTN   NumberOfBytes)
+{
+  return 0;
+}
 
 BOOLEAN
 EFIAPI
-SerialPortPoll(VOID) { return FALSE; }
+SerialPortPoll(VOID) 
+{
+  return FALSE;
+}
 
 RETURN_STATUS
 EFIAPI
-SerialPortSetControl(IN UINT32 Control) { return RETURN_UNSUPPORTED; }
-
-RETURN_STATUS
-EFIAPI
-SerialPortGetControl(OUT UINT32 *Control) { return RETURN_UNSUPPORTED; }
-
-RETURN_STATUS
-EFIAPI
-SerialPortSetAttributes(
-    IN OUT UINT64 *BaudRate, IN OUT UINT32 *ReceiveFifoDepth,
-    IN OUT UINT32 *Timeout, IN OUT EFI_PARITY_TYPE *Parity,
-    IN OUT UINT8 *DataBits, IN OUT EFI_STOP_BITS_TYPE *StopBits)
+SerialPortSetControl(IN UINT32 Control)
 {
   return RETURN_UNSUPPORTED;
 }
 
-UINTN SerialPortFlush(VOID) { return 0; }
-
-VOID EnableSynchronousSerialPortIO(VOID)
+RETURN_STATUS
+EFIAPI
+SerialPortGetControl(OUT UINT32 *Control)
 {
-  // Already synchronous
+  return RETURN_UNSUPPORTED;
 }
+
+RETURN_STATUS
+EFIAPI
+SerialPortSetAttributes(
+  IN OUT UINT64             *BaudRate,
+  IN OUT UINT32             *ReceiveFifoDepth,
+  IN OUT UINT32             *Timeout,
+  IN OUT EFI_PARITY_TYPE    *Parity,
+  IN OUT UINT8              *DataBits,
+  IN OUT EFI_STOP_BITS_TYPE *StopBits)
+{
+  return RETURN_UNSUPPORTED;
+}
+
+UINTN
+SerialPortFlush(VOID)
+{
+  return 0;
+}
+
+VOID
+EnableSynchronousSerialPortIO(VOID) {}

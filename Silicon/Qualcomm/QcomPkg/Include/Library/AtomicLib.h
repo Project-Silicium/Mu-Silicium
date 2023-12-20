@@ -20,42 +20,67 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-#ifndef __LIB_ATOMIC_H
-#define __LIB_ATOMIC_H
+#ifndef _ATOMIC_LIB_H_
+#define _ATOMIC_LIB_H_
 
 #include <Library/UefiBootServicesTableLib.h>
 
-STATIC inline INTN AtomicAnd(volatile INTN *Address, INTN Value)
+STATIC
+inline
+INTN
+AtomicAnd(
+  volatile INTN *Address,
+  INTN           Value)
 {
   EFI_TPL OriginalTPL;
   INTN    OldValue;
 
   OriginalTPL = gBS->RaiseTPL(TPL_HIGH_LEVEL);
+
   OldValue    = *Address;
   *Address &= Value;
+
   gBS->RestoreTPL(OriginalTPL);
 
   return OldValue;
 }
 
-STATIC inline INTN AtomicOr(volatile INTN *Address, INTN Value)
+STATIC
+inline
+INTN
+AtomicOr(
+  volatile INTN *Address,
+  INTN           Value)
 {
   EFI_TPL OriginalTPL;
   INTN    OldValue;
 
   OriginalTPL = gBS->RaiseTPL(TPL_HIGH_LEVEL);
+
   OldValue    = *Address;
   *Address |= Value;
+
   gBS->RestoreTPL(OriginalTPL);
 
   return OldValue;
 }
 
-STATIC inline INTN AtomicRead(volatile INTN *Address) { return *Address; }
+STATIC
+inline
+INTN
+AtomicRead(volatile INTN *Address)
+{
+  return *Address;
+}
 
-STATIC inline VOID AtomicSet(volatile INTN *Address, INTN Value)
+STATIC
+inline
+VOID
+AtomicSet(
+  volatile INTN *Address,
+  INTN           Value)
 {
   *Address = Value;
 }
 
-#endif
+#endif /* _ATOMIC_LIB_H_ */

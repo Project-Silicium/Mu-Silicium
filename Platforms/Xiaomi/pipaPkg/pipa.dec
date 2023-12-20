@@ -1,13 +1,11 @@
 [Defines]
-  DEC_SPECIFICATION              = 0x0001001A
+  DEC_SPECIFICATION              = 0x00010005
   PACKAGE_NAME                   = pipa
   PACKAGE_GUID                   = 0965e99c-81b3-4f49-9abf-a7a39f591528
-  PACKAGE_VERSION                = 1.0
+  PACKAGE_VERSION                = 0.1
 
 [Includes.common]
-  Include                               # Root include for the package
+  Include                         # Root include for the package
 
 [Guids.common]
-  gpipaTokenSpaceGuid             = { 0x0965e99c, 0x81b3, 0x4f49, { 0x9a, 0xbf, 0xa7, 0xa3, 0x9f, 0x59, 0x15, 0x28 } }
-
-
+  gpipaTokenSpaceGuid            = { 0x0965e99c, 0x81b3, 0x4f49, { 0x9a, 0xbf, 0xa7, 0xa3, 0x9f, 0x59, 0x15, 0x28 } }

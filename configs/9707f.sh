@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/9707fPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd" > "./Build/9707fPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/9707fPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd-bootshim" > "./Build/9707fPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/9707fPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/9707f.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/9707fPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd" > "./Build/9707fPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/9707fPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd-bootshim" > "./Build/9707fPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/9707fPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LENOVO_9707F_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/9707f.dtb > ./ImageResources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \

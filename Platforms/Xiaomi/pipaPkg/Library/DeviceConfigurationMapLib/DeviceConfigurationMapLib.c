@@ -8,7 +8,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableShell", 0x1},
   {"EUDEnableAddr", 0x88E2000},
   {"SecPagePoolCount", 0x800},
-  {"SharedIMEMBaseAddr",    0x146BF000},
+  {"SharedIMEMBaseAddr", 0x146BF000},
   {"DloadCookieAddr", 0x01FD3000},
   {"DloadCookieValue", 0x10},
   {"NumCpus", 8},
@@ -36,12 +36,12 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableDisplayThread", 0x1},
   {"EnableDisplayImageFv", 0x0},
 
-  /* Terminator */
+  // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
 
-CONFIGURATION_DESCRIPTOR_EX
-*GetDeviceConfigurationMap()
+CONFIGURATION_DESCRIPTOR_EX*
+GetDeviceConfigurationMap()
 {
   return gDeviceConfigurationDescriptorEx;
 }

@@ -1,11 +1,11 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = vili
-  PACKAGE_GUID                        = 1ead32ce-3165-49eb-a92d-e88a42572002
-  PACKAGE_VERSION                     = 0.1
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = vili
+  PACKAGE_GUID                   = 1ead32ce-3165-49eb-a92d-e88a42572002
+  PACKAGE_VERSION                = 0.1
 
 [Includes.common]
-  Include                               # Root include for the package
+  Include                         # Root include for the package
 
 [Guids.common]
-  gviliTokenSpaceGuid                 = { 0x1ead32ce, 0x3165, 0x49eb, { 0xa9, 0x2d, 0xe8, 0x8a, 0x42, 0x57, 0x20, 0x02 } }
+  gviliTokenSpaceGuid            = { 0x1ead32ce, 0x3165, 0x49eb, { 0xa9, 0x2d, 0xe8, 0x8a, 0x42, 0x57, 0x20, 0x02 } }

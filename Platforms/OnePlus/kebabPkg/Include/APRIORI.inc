@@ -55,7 +55,6 @@ APRIORI DXE {
   INF Binaries/kebab/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
-  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
 
   INF Binaries/kebab/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
@@ -79,7 +78,6 @@ APRIORI DXE {
 !endif
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
-  INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/kebab/QcomPkg/OnePlusPkg/OnePlusUFS/UFSUpgradeDxe.inf
 

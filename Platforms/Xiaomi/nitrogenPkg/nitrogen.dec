@@ -1,11 +1,11 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = nitrogen
-  PACKAGE_GUID                        = 15ca1e02-efdf-4aa5-8a57-947641e3be4f
-  PACKAGE_VERSION                     = 0.1
+  DEC_SPECIFICATION              = 0x0001001A
+  PACKAGE_NAME                   = nitrogen
+  PACKAGE_GUID                   = 15ca1e02-efdf-4aa5-8a57-947641e3be4f
+  PACKAGE_VERSION                = 1.0
 
 [Includes.common]
-  Include                               # Root include for the package
+  Include                         # Root include for the package
 
 [Guids.common]
-  gnitrogenTokenSpaceGuid                 = { 0x15ca1e02, 0xefdf, 0x4aa5, { 0x8a, 0x57, 0x94, 0x76, 0x41, 0xe3, 0xbe, 0x4f } }
+  gnitrogenTokenSpaceGuid        = { 0x15ca1e02, 0xefdf, 0x4aa5, { 0x8a, 0x57, 0x94, 0x76, 0x41, 0xe3, 0xbe, 0x4f } }

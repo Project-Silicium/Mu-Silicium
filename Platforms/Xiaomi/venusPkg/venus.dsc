@@ -3,8 +3,7 @@
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
-#  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
-#  Copyright (c) 2022, Xilin Wu. All rights reserved.
+#  Copyright (c) 2018, Bingxing Wang. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -20,15 +19,14 @@
   PLATFORM_GUID                  = 03624C85-9D74-4E7E-85FF-A6B77DC2EEFA
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/venusPkg-$(ARCH)
+  OUTPUT_DIRECTORY               = Build/venusPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
-  BUILD_TARGETS                  = DEBUG|RELEASE
+  BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = venusPkg/venus.fdf
   DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
-  USE_UART                       = 0
 
   # 0 = SM8350
   # 1 = SM8350-AB
@@ -39,29 +37,29 @@
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|venusPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceMemoryMapLib|venusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|venusPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+  # Device Specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000              # Starting Address
 !if $(RAM_SIZE) == 12
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000             # 12GB Size
 !elseif $(RAM_SIZE) == 8
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000        # 8GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000             # 8GB Size
 !else
 !error "Invalid RAM Size! Use 12 or 8."
 !endif
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Daniel6745"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Daniel6745" # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000           # 256K stack
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11"
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"venus"
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_venus"

@@ -13,7 +13,6 @@
 #include <Library/HobLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/PcdLib.h>
-#include <Library/DeviceConfigurationMapLib.h>
 
 #include "PlatformPeiLibInternal.h"
 
@@ -37,40 +36,9 @@ STATIC
 EFI_STATUS
 CfgGetCfgInfoString(CHAR8 *Key, CHAR8 *Value, UINTN *ValBuffSize)
 {
-  return EFI_NOT_FOUND;
-}
-
-STATIC
-EFI_STATUS
-CfgGetCfgInfoVal(CHAR8 *Key, UINT32 *Value)
-{
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap();
-
-  // Run through each configuration descriptor
-  while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
-    if (AsciiStriCmp(Key, ConfigurationDescriptorEx->Name) == 0) {
-      *Value = (UINT32)(ConfigurationDescriptorEx->Value & 0xFFFFFFFF);
-      return EFI_SUCCESS;
-    }
-    ConfigurationDescriptorEx++;
-  }
-
-  return EFI_NOT_FOUND;
-}
-
-STATIC
-EFI_STATUS
-CfgGetCfgInfoVal64(CHAR8 *Key, UINT64 *Value)
-{
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap();
-
-  // Run through each configuration descriptor
-  while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
-    if (AsciiStriCmp(Key, ConfigurationDescriptorEx->Name) == 0) {
-      *Value = ConfigurationDescriptorEx->Value;
-      return EFI_SUCCESS;
-    }
-    ConfigurationDescriptorEx++;
+  if (AsciiStriCmp(Key, "OsTypeString") == 0) {
+    AsciiStrCpyS(Value, *ValBuffSize, "LA");
+    return EFI_SUCCESS;
   }
 
   return EFI_NOT_FOUND;
@@ -100,8 +68,8 @@ ShInstallLib(IN CHAR8 *LibName, IN UINT32 LibVersion, IN VOID *LibIntf)
 }
 
 UefiCfgLibType ConfigLib = {0x00010002,          CfgGetMemInfoByName,
-                            CfgGetCfgInfoString, CfgGetCfgInfoVal,
-                            CfgGetCfgInfoVal64,  CfgGetMemInfoByAddress};
+                            CfgGetCfgInfoString, 0,
+                            0,                   CfgGetMemInfoByAddress};
 
 SioPortLibType SioLib = {
     0x00010001, SerialPortRead, SerialPortWrite, SPoll,
@@ -160,8 +128,8 @@ VOID InstallPlatformHob()
     ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
     LocateMemoryMapAreaByName("Info Blk", &InfoBlk);
 
-    UINTN InfoBlkAddress = InfoBlk.Address;
-    UINTN ShLibAddress   = (UINTN)&ShLib;
+    UINTN InfoBlkAddress      = InfoBlk.Address;
+    UINTN ShLibAddress        = (UINTN)&ShLib;
 
     BuildMemHobForFv(EFI_HOB_TYPE_FV2);
     BuildGuidDataHob(&gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof(InfoBlkAddress));
@@ -173,9 +141,7 @@ VOID InstallPlatformHob()
 
 EFI_STATUS
 EFIAPI
-PlatformPeim(
-  VOID
-  )
+PlatformPeim(VOID)
 {
   BuildFvHob(PcdGet64(PcdFvBaseAddress), PcdGet32(PcdFvSize));
 

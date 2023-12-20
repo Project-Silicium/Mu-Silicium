@@ -32,12 +32,12 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableLogFsSyncInRetail", 0x1},
   {"EnableSecurityHoleForSplashPartition", 0x1},
 
-  /* Terminator */
+  // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
 
-CONFIGURATION_DESCRIPTOR_EX
-*GetDeviceConfigurationMap()
+CONFIGURATION_DESCRIPTOR_EX*
+GetDeviceConfigurationMap()
 {
   return gDeviceConfigurationDescriptorEx;
 }

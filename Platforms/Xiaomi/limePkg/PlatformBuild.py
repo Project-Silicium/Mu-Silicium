@@ -1,27 +1,24 @@
 # @file
-# Script to Build Redmi 9T UEFI firmware
+# Script to Build Xiaomi Redmi 9T UEFI firmware
 #
 # Copyright (c) Microsoft Corporation.
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
-import os
-import logging
-import io
-import shutil
-import glob
-import time
-import xml.etree.ElementTree
-import tempfile
-import uuid
-import string
 import datetime
+import logging
+import os
+import uuid
+from io import StringIO
+from pathlib import Path
 
 from edk2toolext.environment import shell_environment
 from edk2toolext.environment.uefi_build import UefiBuilder
 from edk2toolext.invocables.edk2_platform_build import BuildSettingsManager
-from edk2toolext.invocables.edk2_setup import SetupSettingsManager, RequiredSubmodule
-from edk2toolext.invocables.edk2_update import UpdateSettingsManager
 from edk2toolext.invocables.edk2_pr_eval import PrEvalSettingsManager
+from edk2toolext.invocables.edk2_setup import (RequiredSubmodule,
+                                               SetupSettingsManager)
+from edk2toolext.invocables.edk2_update import UpdateSettingsManager
+from edk2toolext.invocables.edk2_parse import ParseSettingsManager
 from edk2toollib.utility_functions import RunCmd
 
     # ####################################################################################### #
@@ -31,16 +28,16 @@ class CommonPlatform():
     ''' Common settings for this platform.  Define static data here and use
         for the different parts of stuart
     '''
-    PackagesSupported = ("limePkg",)
-    ArchSupported = ("AARCH64",)
+    PackagesSupported = ("limePkg")
+    ArchSupported = ("AARCH64")
     TargetsSupported = ("DEBUG", "RELEASE")
     Scopes = ('lime', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Xiaomi",
         "Common/Mu",
-        "Common/Mu_Tiano_Plus",
         "Common/Mu_OEM_Sample",
+        "Common/Mu_Tiano_Plus",
         "Features/DFCI",
         "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
@@ -51,7 +48,7 @@ class CommonPlatform():
     # ####################################################################################### #
     #                         Configuration for Update & Setup                                #
     # ####################################################################################### #
-class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSettingsManager):
+class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSettingsManager, ParseSettingsManager):
 
     def GetPackagesSupported(self):
         ''' return iterable of edk2 packages supported by this build.
@@ -75,8 +72,8 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
         return [
             RequiredSubmodule("Binaries", True),
             RequiredSubmodule("Common/Mu", True),
-            RequiredSubmodule("Common/Mu_Tiano_Plus", True),
             RequiredSubmodule("Common/Mu_OEM_Sample", True),
+            RequiredSubmodule("Common/Mu_Tiano_Plus", True),
             RequiredSubmodule("Features/DFCI", True),
             RequiredSubmodule("Mu_Basecore", True),
             RequiredSubmodule("Silicon/Arm/Mu_Tiano", True),
@@ -131,7 +128,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("limePkg/lime.dsc", {})
+        return ("limePkg/limeNoSb.dsc", {})
 
     def GetName(self):
         return "lime"
@@ -143,7 +140,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
     # ####################################################################################### #
     #                         Actual Configuration for Platform Build                         #
     # ####################################################################################### #
-class PlatformBuilder( UefiBuilder, BuildSettingsManager):
+class PlatformBuilder(UefiBuilder, BuildSettingsManager):
     def __init__(self):
         UefiBuilder.__init__(self)
 
@@ -161,13 +158,6 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
         '''  Retrieve command line options from the argparser '''
         if args.build_arch.upper() != "AARCH64":
             raise Exception("Invalid Arch Specified.  Please see comments in PlatformBuild.py::PlatformBuilder::AddCommandLineOptions")
-
-        shell_environment.GetBuildVars().SetValue(
-            "TARGET_ARCH", args.build_arch.upper(), "From CmdLine")
-
-        shell_environment.GetBuildVars().SetValue(
-            "ACTIVE_PLATFORM", "limePkg/lime.dsc", "From CmdLine")
-
 
     def GetWorkspaceRoot(self):
         ''' get WorkspacePath '''
@@ -192,13 +182,22 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
         return "limePkg"
 
     def GetLoggingLevel(self, loggerType):
-        ''' Get the logging level for a given type
-        base == lowest logging level supported
-        con  == Screen logging
-        txt  == plain text file logging
-        md   == markdown file logging
-        '''
-        return logging.DEBUG
+        """Get the logging level depending on logger type.
+
+        Args:
+            loggerType (str): type of logger being logged to
+
+        Returns:
+            (Logging.Level): The logging level
+
+        !!! note "loggerType possible values"
+            "base": lowest logging level supported
+
+            "con": logs to screen
+
+            "txt": logs to plain text file
+        """
+        return logging.INFO
         return super().GetLoggingLevel(loggerType)
 
     def SetPlatformEnv(self):
@@ -206,9 +205,16 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
         self.env.SetValue("PRODUCT_NAME", "lime", "Platform Hardcoded")
         self.env.SetValue("ACTIVE_PLATFORM", "limePkg/lime.dsc", "Platform Hardcoded")
         self.env.SetValue("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
-        self.env.SetValue("TOOL_CHAIN_TAG", self.env.GetValue("TOOL_CHAIN_TAG"), "Default")
+        self.env.SetValue("TOOL_CHAIN_TAG", "CLANG38", "set default to clang38")
+        self.env.SetValue("EMPTY_DRIVE", "FALSE", "Default to false")
+        self.env.SetValue("RUN_TESTS", "FALSE", "Default to false")
+        self.env.SetValue("SHUTDOWN_AFTER_RUN", "FALSE", "Default to false")
+        # needed to make FV size build report happy
+        self.env.SetValue("BLD_*_BUILDID_STRING", "Unknown", "Default")
+        # Default turn on build reporting.
         self.env.SetValue("BUILDREPORTING", "TRUE", "Enabling build report")
         self.env.SetValue("BUILDREPORT_TYPES", "PCD DEPEX FLASH BUILD_FLAGS LIBRARY FIXED_ADDRESS HASH", "Setting build report types")
+        self.env.SetValue("BLD_*_MEMORY_PROTECTION", "TRUE", "Default")
         # Include the MFCI test cert by default, override on the commandline with "BLD_*_SHIP_MODE=TRUE" if you want the retail MFCI cert
         self.env.SetValue("BLD_*_SHIP_MODE", "FALSE", "Default")
         self.env.SetValue("BLD_*_RAM_SIZE", self.env.GetValue("RAM_SIZE"), "Default")
@@ -229,15 +235,10 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
 if __name__ == "__main__":
     import argparse
     import sys
-    from edk2toolext.invocables.edk2_update import Edk2Update
-    from edk2toolext.invocables.edk2_setup import Edk2PlatformSetup
+
     from edk2toolext.invocables.edk2_platform_build import Edk2PlatformBuild
-    print("Invoking Stuart")
-    print("     ) _     _")
-    print("    ( (^)-~-(^)")
-    print("__,-.\_( 0 0 )__,-.___")
-    print("  'W'   \   /   'W'")
-    print("         >o<")
+    from edk2toolext.invocables.edk2_setup import Edk2PlatformSetup
+    from edk2toolext.invocables.edk2_update import Edk2Update
     SCRIPT_PATH = os.path.relpath(__file__)
     parser = argparse.ArgumentParser(add_help=False)
     parse_group = parser.add_mutually_exclusive_group()
@@ -250,11 +251,8 @@ if __name__ == "__main__":
     new_args = new_args + remaining
     sys.argv = new_args
     if args.setup:
-        print("Running stuart_setup -c " + SCRIPT_PATH)
         Edk2PlatformSetup().Invoke()
     elif args.update:
-        print("Running stuart_update -c " + SCRIPT_PATH)
         Edk2Update().Invoke()
     else:
-        print("Running stuart_build -c " + SCRIPT_PATH)
         Edk2PlatformBuild().Invoke()

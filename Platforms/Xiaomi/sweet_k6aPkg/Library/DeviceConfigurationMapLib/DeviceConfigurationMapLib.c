@@ -36,12 +36,12 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableUefiSecAppDebugLogDump", 0x0},
   {"DDRInfoNotifyFlag", 0x1},
 
-  /* Terminator */
+  // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
 
-CONFIGURATION_DESCRIPTOR_EX
-*GetDeviceConfigurationMap()
+CONFIGURATION_DESCRIPTOR_EX*
+GetDeviceConfigurationMap()
 {
   return gDeviceConfigurationDescriptorEx;
 }

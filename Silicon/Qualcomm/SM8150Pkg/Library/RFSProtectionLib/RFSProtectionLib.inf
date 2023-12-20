@@ -11,7 +11,7 @@
 #
 
 [Sources]
-  RFSProtectionLib.c
+ RFSProtectionLib.c
 
 [Packages]
   MdePkg/MdePkg.dec

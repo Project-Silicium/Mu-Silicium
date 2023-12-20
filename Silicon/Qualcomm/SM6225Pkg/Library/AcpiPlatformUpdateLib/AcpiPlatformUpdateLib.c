@@ -10,7 +10,6 @@
 #include <Library/PcdLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiLib.h>
-
 #include <Library/MemoryMapHelperLib.h>
 
 #include <Protocol/EFIChipInfo.h>
@@ -80,7 +79,7 @@ PlatformUpdateAcpiTables(VOID)
     return;
   }
 
-  mBoardProtocol->GetChipId(mBoardProtocol, &SOID);
+  mBoardProtocol->GetChipId(mBoardProtocol, (EFIChipInfoIdType *)&SOID);
   mBoardProtocol->GetChipVersion(mBoardProtocol, &SIDV);
   mBoardProtocol->GetChipFamily(mBoardProtocol, (EFIChipInfoFamilyType *)&SDFE);
   mBoardProtocol->GetModemSupport(mBoardProtocol, (EFIChipInfoModemType *)&SIDM);
@@ -103,15 +102,15 @@ PlatformUpdateAcpiTables(VOID)
   }
 
   if (!EFI_ERROR(LocateMemoryMapAreaByName("ADSP_EFS", &ADSPEFSRegion))) {
-    RFMB = ADSPEFSRegion.Address + ADSPEFSRegion.Length / 2;
-    RFMS = ADSPEFSRegion.Length / 2;
-    RFAB = ADSPEFSRegion.Address;
-    RFAS = ADSPEFSRegion.Length / 2;
+    RFMB = (UINT32)ADSPEFSRegion.Address + (UINT32)ADSPEFSRegion.Length / 2;
+    RFMS = (UINT32)ADSPEFSRegion.Length / 2;
+    RFAB = (UINT32)ADSPEFSRegion.Address;
+    RFAS = (UINT32)ADSPEFSRegion.Length / 2;
   }
 
   if (!EFI_ERROR(LocateMemoryMapAreaByName("TGCM", &TGCMRegion))) {
-    TCMA = TGCMRegion.Address;
-    TCML = TGCMRegion.Length;
+    TCMA = (UINT32)TGCMRegion.Address;
+    TCML = (UINT32)TGCMRegion.Length;
   } else {
     TCMA = 0xDEADBEEF;
     TCML = 0xBEEFDEAD;

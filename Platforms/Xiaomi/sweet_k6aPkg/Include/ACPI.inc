@@ -5,7 +5,7 @@
 #  SECTION RAW = SM7150Pkg/AcpiTables/BGRT.aml
 #  SECTION RAW = SM7150Pkg/AcpiTables/CSRT.aml
 #  SECTION RAW = SM7150Pkg/AcpiTables/DBG2.aml
-#  SECTION RAW = sweetPkg/AcpiTables/DSDT.aml
+#  SECTION RAW = sweet_k6aPkg/AcpiTables/DSDT.aml
 #  SECTION RAW = SM7150Pkg/AcpiTables/FACP.aml
 #  SECTION RAW = SM7150Pkg/AcpiTables/FPDT.aml
 #  SECTION RAW = SM7150Pkg/AcpiTables/GTDT.aml
@@ -16,8 +16,5 @@
 #  SECTION RAW = SM7150Pkg/AcpiTables/SPCR.aml
 #  SECTION RAW = SM7150Pkg/AcpiTables/TPM2.aml
 #  SECTION RAW = SM7150Pkg/AcpiTables/XSDT.aml
-#  SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
-#  SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
-#  SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
 #  SECTION UI = "AcpiTables"
 #}

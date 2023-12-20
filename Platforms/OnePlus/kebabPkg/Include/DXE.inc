@@ -1,4 +1,5 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
+  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
@@ -72,10 +73,6 @@
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
-  INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
-
   INF Binaries/kebab/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
@@ -105,9 +102,6 @@
   INF Binaries/kebab/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
-  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   #INF Binaries/kebab/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf

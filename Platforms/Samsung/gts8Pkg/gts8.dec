@@ -1,11 +1,11 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = gts8
-  PACKAGE_GUID                        = 539f03c6-9ef9-4b7d-b7b8-455abe2bcc2e
-  PACKAGE_VERSION                     = 0.1
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = gts8
+  PACKAGE_GUID                   = 539f03c6-9ef9-4b7d-b7b8-455abe2bcc2e
+  PACKAGE_VERSION                = 0.1
 
 [Includes.common]
-  Include                               # Root include for the package
+  Include                         # Root include for the package
 
 [Guids.common]
-  ggts8TokenSpaceGuid                 = { 0x539f03c6, 0x9ef9, 0x4b7d, { 0xb7, 0xb8, 0x45, 0x5a, 0xbe, 0x2b, 0xcc, 0x2e } }
+  ggts8TokenSpaceGuid            = { 0x539f03c6, 0x9ef9, 0x4b7d, { 0xb7, 0xb8, 0x45, 0x5a, 0xbe, 0x2b, 0xcc, 0x2e } }

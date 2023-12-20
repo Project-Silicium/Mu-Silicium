@@ -7,30 +7,36 @@
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 #
 ##
+
+
+
 [Defines]
-  INF_VERSION              = 0x00010017
-  BASE_NAME                = DxeAslUpdateLib
-  FILE_GUID                = 8621697D-4E3A-4bf2-ADB0-3E2FF06559CA
-  VERSION_STRING           = 1.0
-  MODULE_TYPE              = DXE_DRIVER
-  LIBRARY_CLASS            = AslUpdateLib
+INF_VERSION = 0x00010017
+BASE_NAME = DxeAslUpdateLib
+FILE_GUID = 8621697D-4E3A-4bf2-ADB0-3E2FF06559CA
+VERSION_STRING = 1.0
+MODULE_TYPE = DXE_DRIVER
+LIBRARY_CLASS = AslUpdateLib
+
 
 [LibraryClasses]
-  BaseLib
-  IoLib
-  DebugLib
-  PcdLib
-  BaseMemoryLib
-  UefiLib
-  MemoryAllocationLib
+BaseLib
+IoLib
+DebugLib
+PcdLib
+BaseMemoryLib
+UefiLib
+MemoryAllocationLib
+
 
 [Packages]
-  MdePkg/MdePkg.dec
-  QcomPkg/QcomPkg.dec
+MdePkg/MdePkg.dec
+QcomPkg/QcomPkg.dec
 
 [Sources]
-  DxeAslUpdateLib.c
+DxeAslUpdateLib.c
+
 
 [Protocols]
-  gEfiAcpiTableProtocolGuid ## CONSUMES
-  gEfiAcpiSdtProtocolGuid   ## CONSUMES
+gEfiAcpiTableProtocolGuid ## CONSUMES
+gEfiAcpiSdtProtocolGuid ## CONSUMES

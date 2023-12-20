@@ -23,8 +23,8 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  MSM8917Pkg/MSM8917Pkg.dec
   QcomPkg/QcomPkg.dec
+  SM8250Pkg/SM8250Pkg.dec
 
 [LibraryClasses]
   ArmLib
@@ -36,7 +36,6 @@
   MemoryAllocationLib
   SerialPortLib
   MemoryMapHelperLib
-  DeviceConfigurationMapLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdFvSize

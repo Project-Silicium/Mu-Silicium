@@ -1,14 +1,14 @@
 FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
-  SECTION RAW = kebabPkg/AcpiTables/test/APIC.aml
-# SECTION RAW = kebabPkg/AcpiTables/test/APIC.UniCore.aml
+  SECTION RAW = SM8250Pkg/AcpiTables/APIC.aml
+# SECTION RAW = SM8250Pkg/AcpiTables/APIC.UniCore.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/BERT.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/BGRT.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/CSRT.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/DBG2.aml
-  SECTION RAW = kebabPkg/AcpiTables/test/DSDT.aml
+  SECTION RAW = kebabPkg/AcpiTables/DSDT.aml
   SECTION RAW = SM8250Pkg/AcpiTables/FACP.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/FPDT.aml
-  SECTION RAW = kebabPkg/AcpiTables/test/GTDT.aml
+  SECTION RAW = SM8250Pkg/AcpiTables/GTDT.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/IORT.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/MCFG.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/MSDM.aml
@@ -16,8 +16,5 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 # SECTION RAW = SM8250Pkg/AcpiTables/SPCR.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/TPM2.aml
 # SECTION RAW = SM8250Pkg/AcpiTables/XSDT.aml
-# SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
-# SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
-# SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
   SECTION UI = "AcpiTables"
 }

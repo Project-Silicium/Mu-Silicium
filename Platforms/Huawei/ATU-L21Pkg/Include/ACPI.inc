@@ -16,8 +16,5 @@
 #  SECTION RAW = MSM8917Pkg/AcpiTables/SPCR.aml
 #  SECTION RAW = MSM8917Pkg/AcpiTables/TPM2.aml
 #  SECTION RAW = MSM8917Pkg/AcpiTables/XSDT.aml
-#  SECTION RAW = QcomPkg/AcpiTables/SSDT.aml
-#  SECTION RAW = QcomPkg/AcpiTables/TPMDev.dat
-#  SECTION RAW = QcomPkg/AcpiTables/SoftwareTpm2Table.aml
 #  SECTION UI = "AcpiTables"
 #}

@@ -11,10 +11,13 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER = 0
+  USE_PHYSICAL_TIMER = 1
 
 [BuildOptions.common]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+
+[PcdsFeatureFlag.common]
+  gArmTokenSpaceGuid.PcdArmGicV3WithV2Legacy|TRUE
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
@@ -34,9 +37,6 @@
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|4
   gArmPlatformTokenSpaceGuid.PcdClusterCount|1
-
-  # UART
-  gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0xA88000            # Unknown
 
 [LibraryClasses.common]
   PlatformPeiLib|MSM8917Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

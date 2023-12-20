@@ -16,6 +16,7 @@
 
 [LibraryClasses]
   BaseLib
+  PcdLib
   IoLib
 
 [FixedPcd]

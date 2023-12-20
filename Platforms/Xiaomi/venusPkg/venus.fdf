@@ -85,21 +85,12 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
-  # Secure Boot Key Enroll
-  INF SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
-  INF QcomPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
-  INF QcomPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
-
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
   # BDS
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
   INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
-
-  # HID Support
-  INF HidPkg/HidKeyboardDxe/HidKeyboardDxe.inf
-  INF HidPkg/HidMouseAbsolutePointerDxe/HidMouseAbsolutePointerDxe.inf
 
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
@@ -109,25 +100,21 @@ READ_LOCK_STATUS   = TRUE
   # ACPI Tables
   !include Include/ACPI.inc
 
-  # DT
-  INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
-  !include Include/FDT.inc
-
   INF MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
-
-  !include QcomPkg/Frontpage.fdf.inc
 
   INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
-  # TODO: Make this Image for every single Device
-  FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
-    SECTION RAW = QcomPkg/Include/Resources/RegulatoryLogos.png
+  !include QcomPkg/Frontpage.fdf.inc
+
+  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
+    SECTION RAW = QcomPkg/Include/Resources/BootLogo_Medium.bmp
+    SECTION UI = "Logo"
   }
 
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
 
-  INF GPLDrivers/Drivers/BootSlotDxe/BootSlotDxe.inf
-  INF GPLDrivers/Applications/SwitchSlotsApp/SwitchSlotsApp.inf
+  INF QcomPkg/GPLDrivers/BootSlotDxe/BootSlotDxe.inf
+  INF QcomPkg/GPLApplications/SwitchSlotsApp/SwitchSlotsApp.inf
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
@@ -150,7 +137,7 @@ READ_LOCK_STATUS   = TRUE
   INF QcomPkg/PrePi/PeiUniCore.inf
 
   FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
-    SECTION UI = "uefiplat_k2.cfg"
+    SECTION UI = "uefiplat.cfg"
     SECTION RAW = Binaries/venus/RawFiles/uefiplat_k2.cfg
   }
 
@@ -160,4 +147,4 @@ READ_LOCK_STATUS   = TRUE
     }
   }
 
-  !include QcomPkg/CommonFdf.fdf.inc
+  !include QcomPkg/Common.fdf.inc

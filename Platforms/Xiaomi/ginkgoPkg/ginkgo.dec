@@ -1,11 +1,11 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = ginkgo
-  PACKAGE_GUID                        = 630d1379-7d3f-4511-a6f9-578abbc07518
-  PACKAGE_VERSION                     = 0.1
+  DEC_SPECIFICATION              = 0x0001001A
+  PACKAGE_NAME                   = ginkgo
+  PACKAGE_GUID                   = 630d1379-7d3f-4511-a6f9-578abbc07518
+  PACKAGE_VERSION                = 1.0
 
 [Includes.common]
-  Include                               # Root include for the package
+  Include                         # Root include for the package
 
 [Guids.common]
-  gginkgoTokenSpaceGuid               = { 0x630d1379, 0x7d3f, 0x4511, { 0xa6, 0xf9, 0x57, 0x8a, 0xbb, 0xc0, 0x75, 0x18 } }
+  gginkgoTokenSpaceGuid          = { 0x630d1379, 0x7d3f, 0x4511, { 0xa6, 0xf9, 0x57, 0x8a, 0xbb, 0xc0, 0x75, 0x18 } }

@@ -1,11 +1,11 @@
 [Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = lime
-  PACKAGE_GUID                        = 7004a90e-23e3-409f-887e-26cfff6e4ae5
-  PACKAGE_VERSION                     = 0.1
+  DEC_SPECIFICATION              = 0x0001001A
+  PACKAGE_NAME                   = lime
+  PACKAGE_GUID                   = 7004a90e-23e3-409f-887e-26cfff6e4ae5
+  PACKAGE_VERSION                = 1.0
 
 [Includes.common]
-  Include                               # Root include for the package
+  Include                         # Root include for the package
 
 [Guids.common]
-  glimeTokenSpaceGuid                 = { 0x7004a90e, 0x23e3, 0x409f, { 0x88, 0x7e, 0x26, 0xcf, 0xff, 0x6e, 0x4a, 0xe5 } }
+  glimeTokenSpaceGuid           = { 0x7004a90e, 0x23e3, 0x409f, { 0x88, 0x7e, 0x26, 0xcf, 0xff, 0x6e, 0x4a, 0xe5 } }

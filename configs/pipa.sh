@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/pipaPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd" > "./Build/pipaPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/pipaPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd-bootshim" > "./Build/pipaPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/pipaPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/pipa.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/pipaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd" > "./Build/pipaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/pipaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd-bootshim" > "./Build/pipaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/pipaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/PIPA_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/pipa.dtb > ./ImageResources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \

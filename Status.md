@@ -7,15 +7,17 @@
 |❌|**Not Working**|
 |❔|**Unknown**|
 
-## Galaxy Tab S8 5G
+<details>
+<summary><b><strong>Snapdragon 8 Gen 1/8+ Gen 1 Devices</strong></b></summary>
+
+## Samsung Galaxy Tab S8 5G
 
 **WARNING: This Device has no Maintainer!** <br />
 **WARNING: Only Debug Build work right now!** <br />
 **NOTE: A Protocol called DTBExt is missing wich leads to the Unstable State.**
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
-**SoC: Snapdragon 8 Gen 1 (SM8450)** <br />
 **Codename: gts8** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -33,7 +35,6 @@
 |USB|No USB Host & Power|⚠️|
 |SD Card|Needs working SdccDxe|❌|
 |ACPI||✅|
-|UART||❔|
 
 ### OS Status
 
@@ -45,8 +46,15 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |UFS|Needs Special Setup|✅|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -58,22 +66,26 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
 |S Pen||❌|
-|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|No Storage Support yet to boot a Distro|⚠️|
-|UFS|mainline is still unstable|❌|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -85,21 +97,23 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display||✅|
+|Display||❌|
 |Vibration||❌|
 |S Pen||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Galaxy Z Fold 3 5G
+  </summary>
+</details>
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="480" alt="Preview">
+<details>
+<summary><b><strong>Snapdragon 888/888+ Devices</strong></b></summary>
 
-**SoC: Snapdragon 888 5G (SM8350)** <br />
+## Samsung Galaxy Z Fold 3 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="480" alt="Preview">
+
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -116,7 +130,6 @@
 |Buttons|Pwr Button does not work|⚠️|
 |USB|No USB Host & Power|⚠️|
 |ACPI||✅|
-|UART||❔|
 
 ### OS Status
 
@@ -128,8 +141,19 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |UFS||❌|
-|Buttons|No Drivers yet|❔|
-|Sensors||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Pedometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Heart Rate Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -141,12 +165,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -155,7 +176,18 @@
 |Boot||❌|
 |UFS||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Pedometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Heart Rate Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -167,12 +199,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
@@ -180,7 +209,6 @@
 
 <img align="right" src="https://github.com/Daniel224455/Mu-Qcom-Venus-Mi11/blob/main/Pictures/Xiaomi-Mi11.png" width="545" alt="Preview">
 
-**SoC: Snapdragon 888 5G (SM8350)** <br />
 **Codename: venus** <br />
 **Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -190,15 +218,14 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Display|Display output is given.|✅|
-|Touchscreen|No touch inside FrontPage.|❌|
-|Clocks|No display glitches.|✅|
-|UFS|All partitions show up|✅|
-|Buttons|All buttons work.|✅|
-|USB|No USB Power.|⚠️|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|No USB Power|⚠️|
 |ACPI||✅|
 |Slot Switch||✅|
-|UART||❔|
 
 ### OS Status
 
@@ -211,7 +238,17 @@
 |Boot||✅|
 |UFS||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Gravity Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -223,12 +260,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -237,7 +271,17 @@
 |Boot||❌|
 |UFS||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Gravity Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -249,12 +293,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
@@ -262,9 +303,8 @@
 
 **WARNING: This Device has no Maintainer!**
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="420" alt="Preview">
 
-**SoC: Snapdragon 888 5G (SM8350)** <br />
 **Codename: vili** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -282,7 +322,6 @@
 |USB|No USB Host & Power|⚠️|
 |ACPI||✅|
 |Slot Switch||✅|
-|UART||❔|
 
 ### OS Status
 
@@ -294,8 +333,18 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |UFS||✅|
-|Buttons|No Drivers yet|❔|
-|Sensors||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Gravity Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -307,21 +356,28 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|Needs proper mainline to function correctly|⚠️|
+|Boot||❌|
 |UFS||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Gravity Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -333,24 +389,26 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display||✅|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Poco F3
+  </summary>
+</details>
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Poco-F3.png" width="420" alt="Preview">
+<details>
+<summary><b><strong>Snapdragon 865/865+/870 Devices</strong></b></summary>
 
-**SoC: Snapdragon 870 5G (SM8250-AC)** <br />
+## Xiaomi Poco F3
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Poco-F3.png" width="600" alt="Preview">
+
 **Codename: alioth** <br />
-**Maintainers: [AdrianoA3](https://github.com/AdrianoA3) and [N1kroks](https://github.com/N1kroks)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite) and [hyusang](https://github.com/cloudsweets/)** <br />
-**Testers: [AdrianoA3](https://github.com/AdrianoA3) and [N1kroks](https://github.com/N1kroks)**
+**Maintainers: [AdrianoA3](https://github.com/AdrianoA3), [N1kroks](https://github.com/N1kroks)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite), [hyusang](https://github.com/cloudsweets/)** <br />
+**Testers: [AdrianoA3](https://github.com/AdrianoA3), [N1kroks](https://github.com/N1kroks)**
 
 ### UEFI Status
 
@@ -363,8 +421,7 @@
 |Buttons||✅|
 |USB||✅|
 |ACPI||✅|
-|Slot Switch||❔|
-|UART||❔|
+|Slot Switch||✅|
 
 ### OS Status
 
@@ -377,7 +434,13 @@
 |Boot||✅|
 |UFS||✅|
 |Buttons||✅|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||✅|
 |Charging||❌|
@@ -389,12 +452,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -403,7 +463,13 @@
 |Boot||❌|
 |UFS||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -415,22 +481,18 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Legion Tab Y700
+## Lenovo Legion Tab Y700
 
 **WARNING: This Device has no Maintainer!** <br />
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Legion-Tab-Y700.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Legion-Tab-Y700.png" width="420" alt="Preview">
 
-**SoC: Snapdragon 870 5G (SM8250-AC)** <br />
 **Codename: 9707f** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -446,9 +508,9 @@
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Power|⚠️|
+|SD Card||❌|
 |ACPI||✅|
-|Slot Switch||❌|
-|UART||❔|
+|Slot Switch||✅|
 
 ### OS Status
 
@@ -460,25 +522,29 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |UFS||✅|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -486,8 +552,15 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |UFS||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -499,20 +572,16 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
 ## Xiaomi Pad 6
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Pad-6.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Pad-6.png" width="500" alt="Preview">
 
-**SoC: Snapdragon 870 5G (SM8250-AC)** <br />
 **Codename: pipa** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
 **Contibuters: [Statzar](https://github.com/Statzar)** <br />
@@ -528,9 +597,7 @@
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Power|⚠️|
-|SD Card||❌|
 |ACPI||✅|
-|UART||❔|
 
 ### OS Status
 
@@ -543,7 +610,12 @@
 |Boot||✅|
 |UFS||✅|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB|No USB Power|⚠️|
 |Charging||❌|
@@ -555,48 +627,44 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|S Pen||❌|
-|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Boot||✅|
+|UFS||✅|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
-|S Pen||❌|
-|UART||❌|
 
 </td></tr> </table>
 
 ## OnePlus 8T
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/OnePlus-8T.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/OnePlus-8T.png" width="420" alt="Preview">
 
-**SoC: Snapdragon 865 5G (SM8250)** <br />
 **Codename: kebab** <br />
 **Maintainer: [SwedMlite](https://github.com/SwedMlite)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -613,8 +681,7 @@
 |Buttons||✅|
 |USB|No USB Power|⚠️|
 |ACPI||✅|
-|Slot Switch||❌|
-|UART||❔|
+|Slot Switch||✅|
 
 ### OS Status
 
@@ -627,7 +694,14 @@
 |Boot||✅|
 |UFS||✅|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB|No USB Power|⚠️|
 |Charging||❌|
@@ -639,12 +713,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -653,7 +724,14 @@
 |Boot||❌|
 |UFS||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
@@ -665,22 +743,117 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
 |Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Redmi Note 12 Pro 4G
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 855/855+/860 Devices</strong></b></summary>
+
+## OnePlus 7T Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/OnePlus-7T-Pro.png" width="420" alt="Preview">
+
+**Codename: hotdog** <br />
+**Maintainer: mat-777** <br />
+**Contibuters: None** <br />
+**Tester: mat-777**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|No USB Host & Power|⚠️|
+|ACPI||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 730/730G/732G Devices</strong></b></summary>
+
+## Xiaomi Redmi Note 12 Pro 4G
 
 **WARNING: This Device has no Maintainer!**
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="420" alt="Preview">
 
-**SoC: Snapdragon 732G (SM7150-AC)** <br />
 **Codename: sweet_k6a** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -698,7 +871,6 @@
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
 |ACPI||❌|
-|UART||❔|
 
 ### OS Status
 
@@ -710,11 +882,19 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |UFS||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -722,12 +902,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -735,11 +912,19 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |UFS||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -747,20 +932,22 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Redmi 10C
+  </summary>
+</details>
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-10C.png" width="420" alt="Preview">
+<details>
+<summary><b><strong>Snapdragon 680 Devices</strong></b></summary>
 
-**SoC: Snapdragon 680 (SM6225)** <br />
+## Xiaomi Redmi 10C
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-10C.png" width="420" alt="Preview">
+
 **Codename: fog** <br />
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
 **Contibuters: None** <br />
@@ -775,10 +962,10 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|Problematic Drivers|❌|
+|USB|No USB Host & Power|⚠️|
 |SD Card||❌|
 |ACPI||✅|
-|UART||❔|
+|Slot Switch||✅|
 
 ### OS Status
 
@@ -790,24 +977,28 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |UFS||✅|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB|No USB Power|⚠️|
 |Charging||❌|
-|CPU|Only 4 cores|⚠️|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||✅|
+|Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -815,32 +1006,130 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |UFS||✅|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB|No USB Power|⚠️|
 |Charging||❌|
-|CPU|Only 4 cores|⚠️|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||✅|
+|Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Mi A3
+## Xiaomi Redmi Note 11
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-A3.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-Note-11.png" width="420" alt="Preview">
 
-**SoC: Snapdragon 665 (SM6125)** <br />
+**Codename: spes** <br />
+**Maintainer: [Statzar](https://github.com/Statzar)** <br />
+**Contibuters: None** <br />
+**Tester: [Statzar](https://github.com/Statzar)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks|Screen dies|⚠️|
+|UFS||❔|
+|Buttons||❔|
+|USB|No USB Host & Power|❔|
+|SD Card||❔|
+|ACPI||❌|
+|Slot Switch||❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 665 Devices</strong></b></summary>
+
+## Xiaomi Mi A3
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Mi-A3.png" width="420" alt="Preview">
+
 **Codename: laurel_sprout** <br />
 **Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
 **Contibuters: None** <br />
@@ -859,7 +1148,6 @@
 |SD Card||❌|
 |ACPI||❌|
 |Slot Switch||✅|
-|UART||✅|
 
 ### OS Status
 
@@ -871,11 +1159,18 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |UFS||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -883,12 +1178,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -896,11 +1188,18 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |UFS||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -908,24 +1207,20 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Redmi Note 8/8T
+## Xiaomi Redmi Note 8/8T
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-Note-8.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-Note-8.png" width="420" alt="Preview">
 
-**SoC: Snapdragon 665 (SM6125)** <br />
 **Codename: ginkgo** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: [SwedMlite](https://github.com/SwedMlite), [Vicente Cortes](https://github.com/vicenteicc2008)** <br />
-**Testers: [SwedMlite](https://github.com/SwedMlite), [VAVANESKA](https://github.com/VAVANESKA), [Vicente Cortes](https://github.com/vicenteicc2008), [kubawis128](https://github.com/kubawis128)**
+**Testers: [SwedMlite](https://github.com/SwedMlite), [Vicente Cortes](https://github.com/vicenteicc2008), [kubawis128](https://github.com/kubawis128)**
 
 ### UEFI Status
 
@@ -936,10 +1231,9 @@
 |Clocks||✅|
 |eMMC||✅|
 |Buttons||✅|
-|USB|No USB Host|⚠️|
+|USB|No USB Host & Power|⚠️|
 |SD Card||❌|
 |ACPI||✅|
-|UART||❔|
 
 ### OS Status
 
@@ -951,57 +1245,68 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |eMMC||✅|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
 |Battery||❌|
-|USB||✅|
+|USB|No USB Power|⚠️|
 |Charging||❌|
-|CPU|Only 4 Cores|⚠️|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||✅|
+|Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
+|Boot||❌|
 |eMMC||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB||❌|
 |Charging||❌|
-|CPU|Cores aren't configured right|⚠️|
+|WLAN||❌|
+|CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||✅|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Redmi 9T
+  </summary>
+</details>
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Redmi-9T.png" width="420" alt="Preview">
+<details>
+<summary><b><strong>Snapdragon 662 Devices</strong></b></summary>
 
-**SoC: Snapdragon 662 (SM6115)** <br />
+## Xiaomi Redmi 9T
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-9T.png" width="420" alt="Preview">
+
 **Codename: lime** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
@@ -1019,7 +1324,6 @@
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
 |ACPI||✅|
-|UART||❔|
 
 ### OS Status
 
@@ -1031,24 +1335,29 @@
 |:------|:----------|:---:|
 |Boot||✅|
 |UFS||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
-|CPU|Cores aren't configured right|⚠️|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||✅|
+|Display||✅|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -1056,11 +1365,19 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |UFS||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -1068,20 +1385,22 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
-## Mi Max 3
+  </summary>
+</details>
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Mi-Max-3.png" width="420" alt="Preview">
+<details>
+<summary><b><strong>Snapdragon 660/636/630 Devices</strong></b></summary>
 
-**SoC: Snapdragon 636 (SDM636)** <br />
+## Xiaomi Mi Max 3
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Mi-Max-3.png" width="420" alt="Preview">
+
 **Codename: nitrogen** <br />
 **Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -1099,7 +1418,6 @@
 |USB|No USB Host & Power|⚠️|
 |SD Card||❌|
 |ACPI||❌|
-|UART||❔|
 
 ### OS Status
 
@@ -1111,11 +1429,19 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |eMMC||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -1123,12 +1449,9 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -1136,11 +1459,19 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |eMMC||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -1148,20 +1479,22 @@
 |Audio||❌|
 |GPU||❌|
 |Camera||❌|
-|NFC||❌|
-|Fingerprint||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
 
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 425 Devices</strong></b></summary>
+
 ## Huawei Y6 2018
 
-<img align="right" src="https://github.com/Robotix22/MU-Qcom/blob/main/Pictures/Huawei-Y6-2018.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Huawei-Y6-2018.png" width="420" alt="Preview">
 
-**SoC: Snapdragon 425 (MSM8917)** <br />
 **Codename: ATU-L21** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
@@ -1173,13 +1506,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
+|Clocks|Clocks aren't Registert|⚠️|
 |eMMC||❌|
 |Buttons||✅|
 |USB||❌|
 |SD Card||❌|
 |ACPI||❌|
-|UART||❌|
 
 ### OS Status
 
@@ -1191,11 +1523,16 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |eMMC||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -1204,9 +1541,8 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td><td>
 
@@ -1214,11 +1550,16 @@
 |:------|:----------|:---:|
 |Boot||❌|
 |eMMC||❌|
+|SD Card||❌|
 |Buttons||❌|
-|Sensors||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
 |Battery||❌|
 |USB||❌|
 |Charging||❌|
+|WLAN||❌|
 |CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
@@ -1227,8 +1568,10 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display Output||❌|
+|Display||❌|
 |Vibration||❌|
-|UART||❌|
 
 </td></tr> </table>
+
+  </summary>
+</details>

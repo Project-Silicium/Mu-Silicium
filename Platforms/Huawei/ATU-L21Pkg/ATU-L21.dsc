@@ -19,41 +19,39 @@
   PLATFORM_GUID                  = 98ebebe8-c68a-46a6-9c8b-4cee7fc0ff0b
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/ATU-L21Pkg-$(ARCH)
-  SUPPORTED_ARCHITECTURES        = ARM|AARCH64
-  BUILD_TARGETS                  = DEBUG|RELEASE
+  OUTPUT_DIRECTORY               = Build/ATU-L21Pkg
+  SUPPORTED_ARCHITECTURES        = AARCH64
+  BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = ATU-L21Pkg/ATU-L21.fdf
   DISPLAY_USES_RGBA              = 1
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
-  USE_UART                       = 0
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
+  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|ATU-L21Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
-  DeviceConfigurationMapLib|ATU-L21Pkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceMemoryMapLib|ATU-L21Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceImplLib|ATU-L21Pkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
 
 [PcdsFixedAtBuild.common]
-  # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000        # Starting address
+  # Device Specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000             # Starting address
 !if $(RAM_SIZE) == 3
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000        # 3GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000             # 3GB Size
 !elseif $(RAM_SIZE) == 2
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x80000000        # 2GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x80000000             # 2GB Size
 !else
 !error "Invaild RAM Size! Use 3 or 2."
 !endif
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"   # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22" # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x82600000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x82601000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000          # 256K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Huawei Technologies Co., Ltd"

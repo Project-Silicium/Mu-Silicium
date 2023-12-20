@@ -10,17 +10,18 @@
   SmBiosTableDxe.c
 
 [FixedPcd]
+  gArmPlatformTokenSpaceGuid.PcdCoreCount
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -36,14 +37,15 @@
   BaseLib
   BaseMemoryLib
   DebugLib
+  MuUefiVersionLib
   ReportStatusCodeLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   UefiLib
 
 [Protocols]
-  gEfiSmbiosProtocolGuid
   gEfiChipInfoProtocolGuid
+  gEfiSmbiosProtocolGuid
   
 [Depex]
   gEfiSmbiosProtocolGuid

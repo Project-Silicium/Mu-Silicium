@@ -13,8 +13,8 @@
 [Defines]
   USE_PHYSICAL_TIMER = 1
 
-#[BuildOptions.common]
-#  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+[BuildOptions.common]
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
@@ -44,9 +44,6 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
-
-  # UART
-  gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0x0C170000
 
 [LibraryClasses.common]
   PlatformPeiLib|SDM660Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

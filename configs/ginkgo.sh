@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/ginkgoPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd" > "./Build/ginkgoPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/ginkgoPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd-bootshim" > "./Build/ginkgoPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/ginkgoPkg-AARCH64/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/ginkgo.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/ginkgoPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd" > "./Build/ginkgoPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/ginkgoPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd-bootshim" > "./Build/ginkgoPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/ginkgoPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/GINKGO_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/ginkgo.dtb > ./ImageResources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \

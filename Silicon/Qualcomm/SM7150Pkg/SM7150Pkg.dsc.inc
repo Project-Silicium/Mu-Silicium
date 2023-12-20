@@ -45,10 +45,7 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
-
-  # UART
-  gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0xA88000
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
 
 [LibraryClasses.common]
   PlatformPeiLib|SM7150Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

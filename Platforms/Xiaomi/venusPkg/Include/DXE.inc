@@ -1,4 +1,5 @@
-INF MdeModulePkg/Core/Dxe/DxeMain.inf
+  INF MdeModulePkg/Core/Dxe/DxeMain.inf
+  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
@@ -54,20 +55,15 @@ INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF Binaries/venus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
-  INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
-
-  INF Binaries/venus/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+  INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
 !if $(USE_DISPLAYDXE) == 1
   INF Binaries/venus/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
-
   INF Binaries/venus/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
@@ -83,10 +79,6 @@ INF MdeModulePkg/Core/Dxe/DxeMain.inf
 !else
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
-
-  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
-  INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
 
   INF Binaries/venus/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf

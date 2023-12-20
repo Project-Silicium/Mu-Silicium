@@ -19,15 +19,14 @@
   PLATFORM_GUID                  = d6d8e3f8-5a15-4b49-844b-35efce9b947b
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/q2qPkg-$(ARCH)
+  OUTPUT_DIRECTORY               = Build/q2qPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
-  BUILD_TARGETS                  = DEBUG|RELEASE
+  BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = q2qPkg/q2q.fdf
   DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
-  USE_UART                       = 0
 
   # 0 = SM8350
   # 1 = SM8350-AB
@@ -38,27 +37,27 @@
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|q2qPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceMemoryMapLib|q2qPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|q2qPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000        # 12GB Size
+  # Device Specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000           # Starting Address
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000          # 12 GB Size
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Azkali"   # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Azkali"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        # 256K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Fold 3 5G"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Fold 3"
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"q2q"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Fold_3_5G_q2q"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Fold 3 5G"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Fold_3_q2q"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Fold 3"
 
   # Simple FrameBuffer
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2208

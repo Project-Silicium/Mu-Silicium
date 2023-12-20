@@ -266,8 +266,7 @@ VOID DoSomething(VOID *OsLoaderBlock, VOID *KernelAddress)
 VOID OslArm64TransferToKernel(VOID *OsLoaderBlock, VOID *KernelAddress)
 {
   PLOADER_PARAMETER_BLOCK loaderBlock = (PLOADER_PARAMETER_BLOCK)OsLoaderBlock;
-  LIST_ENTRY             *entry       = (&loaderBlock->LoadOrderListHead)->ForwardLink;
-
+  LIST_ENTRY            *entry = (&loaderBlock->LoadOrderListHead)->ForwardLink;
   PKLDR_DATA_TABLE_ENTRY kernelModule =
       CONTAINING_RECORD(entry, KLDR_DATA_TABLE_ENTRY, InLoadOrderLinks);
 

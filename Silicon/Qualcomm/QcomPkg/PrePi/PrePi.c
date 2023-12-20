@@ -15,37 +15,35 @@
 #include <Library/PrePiHobListPointerLib.h>
 #include <Library/TimerLib.h>
 #include <Library/PerformanceLib.h>
+#include <Library/MemoryMapHelperLib.h>
 
 #include <Ppi/GuidedSectionExtraction.h>
 #include <Ppi/ArmMpCoreInfo.h>
 #include <Ppi/SecPerformance.h>
 
-#include "PrePi.h"
-
-#include <Library/MemoryMapHelperLib.h>
-
 #include <Guid/DxeMemoryProtectionSettings.h>
 #include <Guid/MmMemoryProtectionSettings.h>
 
-#define IS_XIP()  (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) ||\
-                  ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
+#include "PrePi.h"
 
-UINT64  mSystemMemoryEnd = FixedPcdGet64 (PcdSystemMemoryBase) +
-                           FixedPcdGet64 (PcdSystemMemorySize) - 1;
+#define IS_XIP() (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) || ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
+
+UINT64 mSystemMemoryEnd = FixedPcdGet64 (PcdSystemMemoryBase) + FixedPcdGet64 (PcdSystemMemorySize) - 1;
 
 EFI_STATUS
 GetPlatformPpi (
-  IN  EFI_GUID  *PpiGuid,
-  OUT VOID      **Ppi
-  )
+  IN  EFI_GUID *PpiGuid,
+  OUT VOID    **Ppi)
 {
   UINTN                   PpiListSize;
   UINTN                   PpiListCount;
-  EFI_PEI_PPI_DESCRIPTOR  *PpiList;
+  EFI_PEI_PPI_DESCRIPTOR *PpiList;
   UINTN                   Index;
 
   PpiListSize = 0;
+
   ArmPlatformGetPlatformPpiList (&PpiListSize, &PpiList);
+
   PpiListCount = PpiListSize / sizeof (EFI_PEI_PPI_DESCRIPTOR);
   for (Index = 0; Index < PpiListCount; Index++, PpiList++) {
     if (CompareGuid (PpiList->Guid, PpiGuid) == TRUE) {
@@ -58,14 +56,12 @@ GetPlatformPpi (
 }
 
 VOID
-PrePiMain (
-  IN  UINT64  StartTimeStamp
-  )
+PrePiMain (IN UINT64 StartTimeStamp)
 {
-  EFI_HOB_HANDOFF_INFO_TABLE  *HobList;
-  ARM_MP_CORE_INFO_PPI        *ArmMpCoreInfoPpi;
+  EFI_HOB_HANDOFF_INFO_TABLE *HobList;
+  ARM_MP_CORE_INFO_PPI       *ArmMpCoreInfoPpi;
   UINTN                       ArmCoreCount;
-  ARM_CORE_INFO               *ArmCoreInfoTable;
+  ARM_CORE_INFO              *ArmCoreInfoTable;
   EFI_STATUS                  Status;
   UINTN                       StacksSize;
   FIRMWARE_SEC_PERFORMANCE    Performance;
@@ -102,11 +98,7 @@ PrePiMain (
   StacksBase     = UefiMemoryBase + UefiMemorySize - StacksSize;
 
   // If ensure the FD is either part of the System Memory or totally outside of the System Memory (XIP)
-  ASSERT (
-    IS_XIP () ||
-    ((UefiFd.Address >= MemoryBase) &&
-     ((UINT64)(UefiFd.Address + UefiFd.Length) <= (UINT64)mSystemMemoryEnd))
-    );
+  ASSERT (IS_XIP () || ((UefiFd.Address >= MemoryBase) && ((UINT64)(UefiFd.Address + UefiFd.Length) <= (UINT64)mSystemMemoryEnd)));
 
   // Initialize the architecture specific bits
   ArchInitialize ();
@@ -116,12 +108,7 @@ PrePiMain (
   SaveAndSetDebugTimerInterrupt (TRUE);
 
   // Declare the PI/UEFI memory region
-  HobList = HobConstructor (
-              (VOID *)UefiMemoryBase,
-              UefiMemorySize,
-              (VOID *)UefiMemoryBase,
-              (VOID *)StacksBase // The top of the UEFI Memory is reserved for the stacks
-              );
+  HobList = HobConstructor ((VOID *)UefiMemoryBase, UefiMemorySize, (VOID *)UefiMemoryBase, (VOID *)StacksBase);
   PrePeiSetHobList (HobList);
 
   // Initialize MMU and Memory HOBs (Resource Descriptor HOBs)
@@ -204,8 +191,10 @@ CEntryPoint ()
 
   // Data Cache enabled on Primary core when MMU is enabled.
   ArmDisableDataCache ();
+
   // Invalidate instruction cache
   ArmInvalidateInstructionCache ();
+
   // Enable Instruction Caches on all cores.
   ArmEnableInstructionCache ();
 
@@ -220,10 +209,7 @@ CEntryPoint ()
   Status = LocateMemoryMapAreaByName("UEFI FD", &UefiFd);
   ASSERT_EFI_ERROR (Status);
 
-  InvalidateDataCacheRange (
-    (VOID *)UefiFd.Address,
-    UefiFd.Length
-    );
+  InvalidateDataCacheRange ((VOID *)UefiFd.Address, UefiFd.Length);
 
   // Goto primary Main.
   PrePiMain (StartTimeStamp);

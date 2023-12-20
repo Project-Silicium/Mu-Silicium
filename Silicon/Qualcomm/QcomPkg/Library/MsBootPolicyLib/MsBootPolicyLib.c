@@ -1,19 +1,15 @@
-/*++
+/**
   This module will provide access to platform information needed to implement
   the MsBootPolicy.
 
   Copyright (C) Microsoft Corporation. All rights reserved.
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #include <Uefi.h>                                     // UEFI base types
 
 #include <DfciSystemSettingTypes.h>
-#include <Protocol/ButtonServices.h>
-#include <Protocol/LoadFile.h>
-#include <Protocol/SimpleFileSystem.h>
-#include <Protocol/DfciAuthentication.h>
+
 #include <Library/UefiBootServicesTableLib.h>         // gBS
 #include <Library/UefiRuntimeServicesTableLib.h>      // gRT
 #include <Library/DebugLib.h>                         // DEBUG tracing
@@ -21,39 +17,50 @@
 #include <Library/DevicePathLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/MsBootPolicyLib.h>                  // Current runtime mode.
+#include <Library/MsBootPolicyLib.h>
 #include <Library/DevicePathLib.h>
-#include <Protocol/DfciSettingAccess.h>
 #include <Library/DeviceBootManagerLib.h>
 #include <Library/MsPlatformDevicesLib.h>
+
+#include <Protocol/ButtonServices.h>
+#include <Protocol/LoadFile.h>
+#include <Protocol/SimpleFileSystem.h>
+#include <Protocol/DfciAuthentication.h>
+#include <Protocol/DfciSettingAccess.h>
 
 #include <Settings/BootMenuSettings.h>
 #include <Settings/DfciSettings.h>
 
-static BOOT_SEQUENCE  BootSequenceHUP[] = {
+STATIC BOOT_SEQUENCE BootSequenceUPH[] = {
+  MsBootUSB,
+  MsBootHDD,
+  MsBootDone
+};
+
+STATIC BOOT_SEQUENCE BootSequenceHUP[] = {
   MsBootHDD,
   MsBootUSB,
   MsBootDone
 };
 
-static MS_BUTTON_SERVICES_PROTOCOL  *gButtonService = NULL;
-static EFI_IMAGE_LOAD               gSystemLoadImage;
+STATIC MS_BUTTON_SERVICES_PROTOCOL *gButtonService   = NULL;
+STATIC EFI_IMAGE_LOAD               gSystemLoadImage = NULL;
 
 /**
- * GetButtonServiceProtocol
- *
- * @param
- *
- * @return VOID - sets gButtonService
- */
+  GetButtonServiceProtocol
+
+  @param
+
+  @return VOID - sets gButtonService
+**/
 VOID
-GetButtonServiceProtocol (
-  VOID
-  )
+GetButtonServiceProtocol (VOID)
 {
-  EFI_STATUS  Status;
+  EFI_STATUS Status;
 
   if (gButtonService == NULL) {
     Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID **)&gButtonService);
+
     if (EFI_ERROR (Status)) {
       gButtonService = NULL;
     }
@@ -65,11 +72,10 @@ EFIAPI
 LocalLoadImage (
   IN  BOOLEAN                   BootPolicy,
   IN  EFI_HANDLE                ParentImageHandle,
-  IN  EFI_DEVICE_PATH_PROTOCOL  *DevicePath,
-  IN  VOID                      *SourceBuffer OPTIONAL,
+  IN  EFI_DEVICE_PATH_PROTOCOL *DevicePath,
+  IN  VOID                     *SourceBuffer OPTIONAL,
   IN  UINTN                     SourceSize,
-  OUT EFI_HANDLE                *ImageHandle
-  )
+  OUT EFI_HANDLE               *ImageHandle)
 {
   if (NULL != DevicePath) {
     if (!MsBootPolicyLibIsDevicePathBootable (DevicePath)) {
@@ -78,25 +84,17 @@ LocalLoadImage (
   }
 
   // Pass LoadImage call to system LoadImage;
-  return gSystemLoadImage (
-           BootPolicy,
-           ParentImageHandle,
-           DevicePath,
-           SourceBuffer,
-           SourceSize,
-           ImageHandle
-           );
+  return gSystemLoadImage (BootPolicy, ParentImageHandle, DevicePath, SourceBuffer, SourceSize, ImageHandle);
 }
 
 /**
   Constructor
-*/
+**/
 EFI_STATUS
 EFIAPI
 MsBootPolicyLibConstructor (
   IN EFI_HANDLE        ImageHandle,
-  IN EFI_SYSTEM_TABLE  *SystemTable
-  )
+  IN EFI_SYSTEM_TABLE *SystemTable)
 {
   UINT32   Crc;
   EFI_TPL  OldTpl;
@@ -122,20 +120,19 @@ MsBootPolicyLibConstructor (
 
 /**
   Print the device path
-*/
-static VOID
-PrintDevicePath (
-  IN EFI_DEVICE_PATH_PROTOCOL  *DevicePath
-  )
+**/
+STATIC
+VOID
+PrintDevicePath (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
-  CHAR16  *ToText = NULL;
+  CHAR16 *ToText = NULL;
 
   if (DevicePath != NULL) {
     ToText = ConvertDevicePathToText (DevicePath, TRUE, TRUE);
   }
 
-  DEBUG ((DEBUG_INFO, "%s", ToText)); // Output NewLine separately in case string is too long
-  DEBUG ((DEBUG_INFO, "\n"));
+  DEBUG ((EFI_D_INFO, "%s", ToText)); // Output NewLine separately in case string is too long
+  DEBUG ((EFI_D_INFO, "\n"));
 
   if (NULL != ToText) {
     FreePool (ToText);
@@ -145,30 +142,29 @@ PrintDevicePath (
 }
 
 /**
- *Ask if the platform is requesting Settings Change
+  Ask if the platform is requesting Settings Change
 
- *@retval TRUE     System is requesting Settings Change
- *@retval FALSE    System is not requesting Changes.
+  @retval TRUE     System is requesting Settings Change
+  @retval FALSE    System is not requesting Changes.
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsSettingsBoot (
-  VOID
-  )
+MsBootPolicyLibIsSettingsBoot (VOID)
 {
   BOOLEAN     BootToSetup = FALSE;
   EFI_STATUS  Status      = EFI_SUCCESS;
 
   // Locate the Button Services protocol
   GetButtonServiceProtocol ();
+
   if (gButtonService == NULL) {
-    DEBUG ((DEBUG_WARN, "%a failed to locate ButtonServices protocol, assuming no presses.\n", __FUNCTION__));
+    DEBUG ((EFI_D_WARN, "%a failed to locate ButtonServices protocol, assuming no presses.\n", __FUNCTION__));
   } else {
-    // Check if volume down was pressed before the power button when the system powered on
+    // Check if volume up was pressed before the power button when the system powered on
     Status = gButtonService->PreBootVolumeUpButtonThenPowerButtonCheck (gButtonService, &BootToSetup);
 
     if (EFI_ERROR (Status)) {
-      DEBUG ((DEBUG_WARN, "%a failed to get volume down state on power on. %r\n", __FUNCTION__, Status));
+      DEBUG ((EFI_D_WARN, "%a failed to get volume up state on power on. %r\n", __FUNCTION__, Status));
 
       BootToSetup = FALSE;          // not sure of its state after the Bsp call failure
     }
@@ -178,47 +174,45 @@ MsBootPolicyLibIsSettingsBoot (
 }
 
 /**
- *Ask if the platform is requesting UEFI Shell
+  Ask if the platform is requesting Slot Switch
 
- *@retval TRUE     System is requesting UEFI Shell
- *@retval FALSE    System is not requesting UEFI Shell.
+  @retval TRUE     System is requesting Slot Switch
+  @retval FALSE    System is not requesting Slot Switch.
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibUEFIShell (
-  VOID
-  )
+MsBootPolicyLibSlotSwitch (VOID)
 {
   EFI_STATUS Status    = EFI_SUCCESS;
-  BOOLEAN    UEFIShell = FALSE;
+  BOOLEAN    SlotSwitch = FALSE;
 
   // Locate the Button Services protocol
   GetButtonServiceProtocol ();
+
   if (gButtonService == NULL) {
-    DEBUG ((DEBUG_WARN, "%a failed to locate ButtonServices protocol, assuming no presses.\n", __FUNCTION__));
+    DEBUG ((EFI_D_WARN, "%a failed to locate ButtonServices protocol, assuming no presses.\n", __FUNCTION__));
   } else {
     // Check if volume down was pressed before the power button when the system powered on
-    Status = gButtonService->PreBootVolumeDownButtonThenPowerButtonCheck (gButtonService, &UEFIShell);
+    Status = gButtonService->PreBootVolumeDownButtonThenPowerButtonCheck (gButtonService, &SlotSwitch);
 
     if (EFI_ERROR (Status)) {
-      DEBUG ((DEBUG_WARN, "%a failed to get volume down state on power on. %r\n", __FUNCTION__, Status));
+      DEBUG ((EFI_D_WARN, "%a failed to get volume down state on power on. %r\n", __FUNCTION__, Status));
 
-      UEFIShell = FALSE;          // not sure of its state after the Bsp call failure
+      SlotSwitch = FALSE;          // not sure of its state after the Bsp call failure
     }
   }
 
-  return UEFIShell;
+  return SlotSwitch;
 }
 
 EFI_STATUS
 EFIAPI
-MsBootPolicyLibClearBootRequests (
-  VOID
-  )
+MsBootPolicyLibClearBootRequests (VOID)
 {
-  EFI_STATUS  Status;
+  EFI_STATUS Status;
 
   GetButtonServiceProtocol ();
+
   if (gButtonService == NULL) {
     Status = EFI_DEVICE_ERROR;
   } else {
@@ -229,42 +223,36 @@ MsBootPolicyLibClearBootRequests (
 }
 
 /**
+  Ask if the platform allows booting this controller
 
- *Ask if the platform allows booting this controller
-
- *@retval TRUE     System is requesting Alternate Boot
- *@retval FALSE    System is not requesting AltBoot.
+  @retval TRUE     System is requesting Alternate Boot
+  @retval FALSE    System is not requesting AltBoot.
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsDeviceBootable (
-  EFI_HANDLE  ControllerHandle
-  )
+MsBootPolicyLibIsDeviceBootable (EFI_HANDLE ControllerHandle)
 {
   return MsBootPolicyLibIsDevicePathBootable (DevicePathFromHandle (ControllerHandle));
 }
 
 /**
+  Ask if the platform allows booting this controller
 
- *Ask if the platform allows booting this controller
-
- *@retval TRUE     Device is not excluded from booting
- *@retval FALSE    Device is excluded from booting.
+  @retval TRUE     Device is not excluded from booting
+  @retval FALSE    Device is excluded from booting.
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsDevicePathBootable (
-  EFI_DEVICE_PATH_PROTOCOL  *DevicePath
-  )
+MsBootPolicyLibIsDevicePathBootable (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
   EFI_STATUS                    Status;
   BOOLEAN                       rc = TRUE;
-  EFI_DEVICE_PATH_PROTOCOL      *SdCardDevicePath;
-  EFI_DEVICE_PATH_PROTOCOL      *Node;
+  EFI_DEVICE_PATH_PROTOCOL     *SdCardDevicePath;
+  EFI_DEVICE_PATH_PROTOCOL     *Node;
   UINTN                         Size;
   UINTN                         SdSize;
   BOOLEAN                       EnableUsbBoot = TRUE;
-  DFCI_SETTING_ACCESS_PROTOCOL  *SettingsAccess;
+  DFCI_SETTING_ACCESS_PROTOCOL *SettingsAccess;
   UINTN                         ValueSize;
 
   // There are two tests.
@@ -272,10 +260,10 @@ MsBootPolicyLibIsDevicePathBootable (
   //    returns an SdCard device path
   // 2. THe platform setting for EnableUsbBoot can prevent USB devices from booting
 
-  DEBUG ((DEBUG_INFO, "%a Checking if the following device path is permitted to boot:\n", __FUNCTION__));
+  DEBUG ((EFI_D_INFO, "%a Checking if the following device path is permitted to boot:\n", __FUNCTION__));
 
   if (NULL == DevicePath) {
-    DEBUG ((DEBUG_ERROR, "NULL device path\n"));
+    DEBUG ((EFI_D_ERROR, "NULL device path\n"));
     return TRUE;            // Don't know where this device is, so it is not "excluded"
   }
 
@@ -288,7 +276,7 @@ MsBootPolicyLibIsDevicePathBootable (
   PrintDevicePath (DevicePath);
   if (!IsDevicePathValid (DevicePath, MAX_DEVICE_PATH_SIZE)) {
     // Arbitrary 1 Meg max device path size
-    DEBUG ((DEBUG_ERROR, "Invalid device path\n"));
+    DEBUG ((EFI_D_ERROR, "Invalid device path\n"));
     return FALSE;
   }
 
@@ -302,34 +290,24 @@ MsBootPolicyLibIsDevicePathBootable (
     if (Size > SdSize) {
       // Compare the first part of the device path to the known path of the SDCARD.
       if (0 == CompareMem (DevicePath, SdCardDevicePath, SdSize - END_DEVICE_PATH_LENGTH)) {
-        DEBUG ((DEBUG_ERROR, "Boot from SD Card is not allowed.\n"));
+        DEBUG ((EFI_D_ERROR, "Boot from SD Card is not allowed.\n"));
         rc = FALSE;
       }
     }
   } else {
-    DEBUG ((DEBUG_INFO, "No SD Card check enabled.\n"));
+    DEBUG ((EFI_D_INFO, "No SD Card check enabled.\n"));
   }
 
   if (rc) {
     EnableUsbBoot = TRUE;
-    Status        = gBS->LocateProtocol (
-                           &gDfciSettingAccessProtocolGuid,
-                           NULL,
-                           (VOID **)&SettingsAccess
-                           );
+    Status        = gBS->LocateProtocol (&gDfciSettingAccessProtocolGuid, NULL, (VOID **)&SettingsAccess);
+
     if (!EFI_ERROR (Status)) {
       ValueSize = sizeof (EnableUsbBoot);
-      Status    = SettingsAccess->Get (
-                                    SettingsAccess,
-                                    DFCI_SETTING_ID__ENABLE_USB_BOOT,
-                                    NULL,      // Auth token.
-                                    DFCI_SETTING_TYPE_ENABLE,
-                                    &ValueSize,
-                                    &EnableUsbBoot,
-                                    NULL       // Flags
-                                    );
+      Status    = SettingsAccess->Get (SettingsAccess, DFCI_SETTING_ID__ENABLE_USB_BOOT, NULL, DFCI_SETTING_TYPE_ENABLE, &ValueSize, &EnableUsbBoot, NULL);
+
       if (EFI_ERROR (Status)) {
-        DEBUG ((DEBUG_ERROR, "Unable to get access to ENABLE_USB_BOOT. Code=%r\n", Status));
+        DEBUG ((EFI_D_ERROR, "Unable to get access to ENABLE_USB_BOOT. Code=%r\n", Status));
       }
     }
 
@@ -338,11 +316,8 @@ MsBootPolicyLibIsDevicePathBootable (
       Node = DevicePath;
       while (!IsDevicePathEnd (Node)) {
         if (MESSAGING_DEVICE_PATH == Node->Type) {
-          // If any type of USB device
-          if ((MSG_USB_DP       == Node->SubType) ||             // don't allow booting
-              (MSG_USB_WWID_DP  == Node->SubType) ||
-              (MSG_USB_CLASS_DP == Node->SubType))
-          {
+          // If any type of USB device, don't allow booting
+          if ((MSG_USB_DP       == Node->SubType) || (MSG_USB_WWID_DP  == Node->SubType) || (MSG_USB_CLASS_DP == Node->SubType)) {
             rc = FALSE;
             break;
           }
@@ -354,9 +329,9 @@ MsBootPolicyLibIsDevicePathBootable (
   }
 
   if (rc) {
-    DEBUG ((DEBUG_INFO, "Boot from this device is enabled\n"));
+    DEBUG ((EFI_D_INFO, "Boot from this device is enabled\n"));
   } else {
-    DEBUG ((DEBUG_ERROR, "Boot from this device has been prevented\n"));
+    DEBUG ((EFI_D_ERROR, "Boot from this device has been prevented\n"));
   }
 
   return rc;
@@ -374,38 +349,40 @@ MsBootPolicyLibIsDevicePathBootable (
 
   @retval TRUE     Device is a valid USB boot option
   @retval FALSE    Device is not a valid USB boot option
- **/
+**/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsDevicePathUsb (
-  EFI_DEVICE_PATH_PROTOCOL  *DevicePath
-  )
+MsBootPolicyLibIsDevicePathUsb (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
   return PlatformIsDevicePathUsb (DevicePath);
 }
 
 /**
- *Ask if the platform for the boot sequence
+  Ask if the platform for the boot sequence
 
- *@retval EFI_SUCCESS  BootSequence pointer returned
- *@retval Other        Error getting boot sequence
+  @retval EFI_SUCCESS  BootSequence pointer returned
+  @retval Other        Error getting boot sequence
 
- BootSequence is assumed to be a pointer to constant data, and
- is not freed by the caller.
-
+  BootSequence is assumed to be a pointer to constant data, and
+  is not freed by the caller.
 **/
 EFI_STATUS
 EFIAPI
 MsBootPolicyLibGetBootSequence (
-  BOOT_SEQUENCE  **BootSequence,
-  BOOLEAN        AltBootRequest
-  )
+  BOOT_SEQUENCE **BootSequence,
+  BOOLEAN         AltBootRequest)
 {
   if (BootSequence == NULL) {
     return EFI_INVALID_PARAMETER;
   }
 
-  *BootSequence = BootSequenceHUP;
+  if (AltBootRequest) {
+    *BootSequence = BootSequenceUPH;
+    DEBUG ((EFI_D_INFO, "%a - returing alt boot sequence\n", __FUNCTION__));
+  } else {
+    DEBUG ((EFI_D_INFO, "%a - returing normal sequence\n", __FUNCTION__));
+    *BootSequence = BootSequenceHUP;
+  }
 
   return EFI_SUCCESS;
 }

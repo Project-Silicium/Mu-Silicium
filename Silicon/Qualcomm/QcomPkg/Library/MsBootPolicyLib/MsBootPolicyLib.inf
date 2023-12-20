@@ -30,6 +30,7 @@
   DfciPkg/DfciPkg.dec
   MsCorePkg/MsCorePkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   DebugLib

@@ -37,9 +37,6 @@
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
 
-  # UART
-  gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0x4A90000
-
 [LibraryClasses.common]
   PlatformPeiLib|SM6115Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SM6115Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

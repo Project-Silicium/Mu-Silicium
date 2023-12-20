@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/${_TARGET_ARCH_TYPE}/BootShim.bin "./Build/ATU-L21Pkg-${_TARGET_ARCH_TYPE}/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd" > "./Build/ATU-L21Pkg-${_TARGET_ARCH_TYPE}/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/ATU-L21Pkg-${_TARGET_ARCH_TYPE}/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd-bootshim" > "./Build/ATU-L21Pkg-${_TARGET_ARCH_TYPE}/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/ATU-L21Pkg-${_TARGET_ARCH_TYPE}/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/ATU-L21.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/ATU-L21Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd" > "./Build/ATU-L21Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/ATU-L21Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd-bootshim" > "./Build/ATU-L21Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/ATU-L21Pkg/${_TARGET_BUILD_MODE}_CLANG38/FV/ATU-L21_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/ATU-L21.dtb > ./ImageResources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \

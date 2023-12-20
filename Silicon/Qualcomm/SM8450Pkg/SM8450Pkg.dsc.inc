@@ -32,16 +32,13 @@
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8450"
 !elseif $(SOC_TYPE) == 1
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1 @ 3.20 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8450-AB"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8475"
 !endif
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
-
-  # UART
-  gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0x99C000
 
 [LibraryClasses.common]
   PlatformPeiLib|SM8450Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

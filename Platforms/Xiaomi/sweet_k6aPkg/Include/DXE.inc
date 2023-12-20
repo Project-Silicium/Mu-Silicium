@@ -21,9 +21,7 @@
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
-
-  INF Binaries/sweet_k6a/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-
+  INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/FontDxe/FontDxe.inf
@@ -73,10 +71,6 @@
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
-  INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
-
   INF Binaries/sweet_k6a/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
@@ -102,8 +96,6 @@
   INF Binaries/sweet_k6a/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf

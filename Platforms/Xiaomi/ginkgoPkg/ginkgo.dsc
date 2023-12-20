@@ -19,42 +19,41 @@
   PLATFORM_GUID                  = 630d1379-7d3f-4511-a6f9-578abbc07518
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/ginkgoPkg-$(ARCH)
+  OUTPUT_DIRECTORY               = Build/ginkgoPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
-  BUILD_TARGETS                  = DEBUG|RELEASE
+  BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = ginkgoPkg/ginkgo.fdf
   DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
-  USE_UART                       = 0
 
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA) -DDEVICE_RAM=$(RAM_SIZE)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|ginkgoPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  DeviceMemoryMapLib|ginkgoPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|ginkgoPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
-  # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
+  # Device Specific
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000              # Starting Address
 !if $(RAM_SIZE) == 6
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000        # 6GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000             # 6GB Size
 !elseif $(RAM_SIZE) == 4
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000        # 4GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000             # 4GB Size
 !elseif $(RAM_SIZE) == 3
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000         # 3GB Size
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000              # 3GB Size
 !else
 !error "Invaild Mem Size! Use 6, 4 or 3."
 !endif
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"   # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000           # 256K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"

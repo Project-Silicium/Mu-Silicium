@@ -18,8 +18,8 @@
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29     #?? 0x01 => 1 => 17  
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30        #?? 0x02 => 2 => 18
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A00000
@@ -42,9 +42,6 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
-
-  # UART
-  gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0x00A90000
 
 [LibraryClasses.common]
   PlatformPeiLib|SM8150Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

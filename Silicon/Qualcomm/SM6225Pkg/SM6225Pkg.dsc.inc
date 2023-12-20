@@ -17,7 +17,6 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|18
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|20
@@ -37,9 +36,6 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
-
-  # UART
-  gQcomPkgTokenSpaceGuid.PcdUartSerialBase|0x4A8C000
 
 [LibraryClasses.common]
   PlatformPeiLib|SM6225Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

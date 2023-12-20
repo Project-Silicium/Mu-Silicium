@@ -22,5 +22,5 @@ Thanks to [Gustave Monce](https://github.com/gus33000) for his [SurfaceDuoPkg](h
 
 ## License
 
-All code except drivers in `GPLDrivers` directory are licensed under BSD 2-Clause. <br />
+All code except drivers in `GPLDrivers`, `GPLApplications` & `GPLLibrary` directorys are licensed under BSD 2-Clause. <br />
 GPL Drivers are licensed under GPLv2 license.

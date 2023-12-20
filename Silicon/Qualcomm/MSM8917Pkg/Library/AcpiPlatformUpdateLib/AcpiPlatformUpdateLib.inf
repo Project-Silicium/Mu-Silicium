@@ -6,10 +6,6 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = AcpiPlatformUpdateLib|DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION
 
-#
-#  VALID_ARCHITECTURES           = IA32 X64
-#
-
 [Sources]
   AcpiPlatformUpdateLib.c
 
@@ -18,5 +14,4 @@
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  DebugLib
   UefiLib
