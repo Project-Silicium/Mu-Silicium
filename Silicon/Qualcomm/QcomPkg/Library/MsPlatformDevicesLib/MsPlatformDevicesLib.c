@@ -88,18 +88,29 @@ GetPlatformConnectList(VOID)
 {
   EFI_STATUS Status;
   EFI_EVENT  UsbConfigEvt;
-  EFI_GUID   InitUsbControllerGuid = {0x1c0cffce, 0xfc8d, 0x4e44, {0x8c, 0x78, 0x9c, 0x9e, 0x5b, 0x53, 0xd, 0x36}};
+  EFI_EVENT  SDCardEvt;
+  EFI_GUID   InitUsbControllerGuid    = { 0x1c0cffce, 0xfc8d, 0x4e44, { 0x8c, 0x78, 0x9c, 0x9e, 0x5b, 0x53, 0xd, 0x36 } };
+  EFI_GUID   InitSDCardControllerGuid = { 0xb7972c36, 0x8a4c, 0x4a56, { 0x8b, 0x02, 0x11, 0x59, 0xb5, 0x2d, 0x4b, 0xfb } };
 
   // Update the ACPI tables with SOC runtime information
   PlatformUpdateAcpiTables();
 
   // Notify the USB controller to start now
   Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &InitUsbControllerGuid, &UsbConfigEvt);
-  if (EFI_ERROR(Status)) {
-    DEBUG((EFI_D_ERROR, "Usb controller init event not signaled: %r\n", Status));
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Usb controller init event not signaled: %r\n", Status));
   } else {
     gBS->SignalEvent(UsbConfigEvt);
     gBS->CloseEvent(UsbConfigEvt);
+  }
+
+  // Notify the SD Card Controller to Start Now
+  Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &InitSDCardControllerGuid, &SDCardEvt);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Signal EFI Event for SD Card Init! Status = %r\n", Status));
+  } else {
+    gBS->SignalEvent(SDCardEvt);
+    gBS->CloseEvent(SDCardEvt);
   }
 
   // We do not have any device to advertise for connection before BDS begins

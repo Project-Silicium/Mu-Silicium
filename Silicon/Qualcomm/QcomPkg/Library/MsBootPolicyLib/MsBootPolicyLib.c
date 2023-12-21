@@ -247,10 +247,7 @@ MsBootPolicyLibIsDevicePathBootable (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
   EFI_STATUS                    Status;
   BOOLEAN                       rc = TRUE;
-  EFI_DEVICE_PATH_PROTOCOL     *SdCardDevicePath;
   EFI_DEVICE_PATH_PROTOCOL     *Node;
-  UINTN                         Size;
-  UINTN                         SdSize;
   BOOLEAN                       EnableUsbBoot = TRUE;
   DFCI_SETTING_ACCESS_PROTOCOL *SettingsAccess;
   UINTN                         ValueSize;
@@ -278,24 +275,6 @@ MsBootPolicyLibIsDevicePathBootable (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
     // Arbitrary 1 Meg max device path size
     DEBUG ((EFI_D_ERROR, "Invalid device path\n"));
     return FALSE;
-  }
-
-  Size = GetDevicePathSize (DevicePath);
-
-  SdCardDevicePath = GetSdCardDevicePath ();
-
-  if (NULL != SdCardDevicePath) {
-    PrintDevicePath (SdCardDevicePath);
-    SdSize =  GetDevicePathSize (SdCardDevicePath);
-    if (Size > SdSize) {
-      // Compare the first part of the device path to the known path of the SDCARD.
-      if (0 == CompareMem (DevicePath, SdCardDevicePath, SdSize - END_DEVICE_PATH_LENGTH)) {
-        DEBUG ((EFI_D_ERROR, "Boot from SD Card is not allowed.\n"));
-        rc = FALSE;
-      }
-    }
-  } else {
-    DEBUG ((EFI_D_INFO, "No SD Card check enabled.\n"));
   }
 
   if (rc) {

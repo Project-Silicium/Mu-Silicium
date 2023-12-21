@@ -963,7 +963,7 @@
 |UFS||✅|
 |Buttons||✅|
 |USB|No USB Host & Power|⚠️|
-|SD Card||❌|
+|SD Card||✅|
 |ACPI||✅|
 |Slot Switch||✅|
 
