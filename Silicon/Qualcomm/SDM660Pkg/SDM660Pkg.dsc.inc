@@ -54,5 +54,6 @@
 
 [Components.common]
   SDM660Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  SDM660Pkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc
