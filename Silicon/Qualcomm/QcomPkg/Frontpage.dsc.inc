@@ -13,12 +13,12 @@
   #
   # This library is for showing the main system boot graphics.
   #
-  BootGraphicsLib|MsGraphicsPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
+  BootGraphicsLib|QcomPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
 
   #
   # BootGraphicsProviderLib that uses PCDs and raw files in the firmware volumes
   #
-  BootGraphicsProviderLib|OemPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
+  BootGraphicsProviderLib|QcomPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
 
   #
   # This library contains access functions for dealing with the copying of an MS_UI_THEME
