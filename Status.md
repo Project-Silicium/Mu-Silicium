@@ -1415,9 +1415,9 @@
 |Clocks||✅|
 |eMMC||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|No USB Host|⚠️|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI||✅|
 
 ### OS Status
 
@@ -1427,7 +1427,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
+|Boot||✅|
 |eMMC||❌|
 |SD Card||❌|
 |Buttons||❌|
@@ -1439,10 +1439,10 @@
 |Fingerprint Sensor||❌|
 |Hall Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB|Unstable|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -1450,7 +1450,7 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 
 </td><td>
