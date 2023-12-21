@@ -1457,7 +1457,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
+|Boot||✅|
 |eMMC||❌|
 |SD Card||❌|
 |Buttons||❌|
@@ -1469,10 +1469,10 @@
 |Fingerprint Sensor||❌|
 |Hall Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB||✅|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -1480,7 +1480,7 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 
 </td></tr> </table>
