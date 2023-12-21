@@ -757,7 +757,7 @@
 
 ## OnePlus 7T Pro
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/OnePlus-7T-Pro.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Oneplus-7T-Pro.png" width="420" alt="Preview">
 
 **Codename: hotdog** <br />
 **Maintainer: mat-777** <br />
