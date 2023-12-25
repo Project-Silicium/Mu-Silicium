@@ -850,7 +850,7 @@
 
 ## Sony Xperia XZ1
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Sony-Xperia-XZ1.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Sony-Xperia-XZ1.png" width="300" alt="Preview">
 
 **Codename: poplar** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
