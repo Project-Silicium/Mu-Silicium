@@ -584,7 +584,7 @@
 
 **Codename: pipa** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
-**Contibuters: [Statzar](https://github.com/Statzar)** <br />
+**Contibuters: [Statzar](https://github.com/Statzar), [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [6adp](https://github.com/6adp)**
 
 ### UEFI Status
