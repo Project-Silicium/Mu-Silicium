@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = MSM8998Pkg
+  PACKAGE_GUID                        = db54377f-fdda-4dd1-a077-eed604d2899f
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gMSM8998PkgTokenSpaceGuid           = { 0xdb54377f, 0xfdda, 0x4dd1, { 0xa0, 0x77, 0xee, 0xd6, 0x04, 0xd2, 0x89, 0x9f } }

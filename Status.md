@@ -846,6 +846,100 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 835 Devices</strong></b></summary>
+
+## Sony Xperia XZ1
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Sony-Xperia-XZ1.png" width="420" alt="Preview">
+
+**Codename: poplar** <br />
+**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuter: None** <br />
+**Tester: [Robotix22](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS|Disabled to prevent Wipe|✅|
+|Buttons||✅|
+|USB|No USB Host & Power|⚠️|
+|SD Card||✅|
+|ACPI||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 730/730G/732G Devices</strong></b></summary>
 
 ## Xiaomi Redmi Note 12 Pro 4G
@@ -856,7 +950,7 @@
 
 **Codename: sweet_k6a** <br />
 **Maintainer: None** <br />
-**Contibuters: None** <br />
+**Contibuter: None** <br />
 **Tester: None**
 
 ### UEFI Status
