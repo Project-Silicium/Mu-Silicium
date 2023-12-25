@@ -96,6 +96,9 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF SM6125Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+	
+  # USB Power	
+  INF SM6125Pkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
 
   # ACPI Tables
   !include Include/ACPI.inc
