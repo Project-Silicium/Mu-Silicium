@@ -59,10 +59,8 @@ Name (QUFN, Zero)
                     Return ("QCOM0498")
                 }
             }
-
             Alias (URSI, _HID)
             Name (_CID, "PNP0CA1")  // _CID: Compatible ID
-
             Name (_UID, Zero)  // _UID: Unique ID
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
             Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
@@ -106,7 +104,6 @@ Name (QUFN, Zero)
                         PLD_Order              = 0x0,
                         PLD_VerticalOffset     = 0xFFFF,
                         PLD_HorizontalOffset   = 0xFFFF)
-
                 })
                 Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
                 {
@@ -138,22 +135,18 @@ Name (QUFN, Zero)
                 {
                     Return (0x0F)
                 }
-
                 Method (DPM0, 1, NotSerialized)
                 {
                     DPP0 = Arg0
                 }
-
                 Method (CCVL, 0, NotSerialized)
                 {
                     Return (CCST) /* \_SB_.CCST */
                 }
-
                 Method (HSEN, 0, NotSerialized)
                 {
                     Return (HSFL) /* \_SB_.HSFL */
                 }
-
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Switch (ToBuffer (Arg0))
@@ -180,9 +173,7 @@ Name (QUFN, Zero)
                                             })
                                             Break
                                         }
-
                                     }
-
                                     Return (Buffer (One)
                                     {
                                         0x00                                             // .
@@ -212,7 +203,6 @@ Name (QUFN, Zero)
                                     })
                                     Break
                                 }
-
                             }
                         }
                         Default
@@ -223,17 +213,14 @@ Name (QUFN, Zero)
                             })
                             Break
                         }
-
                     }
                 }
-
                 Method (PHYC, 0, NotSerialized)
                 {
                     Name (CFG0, Package (0x00) {})
                     Return (CFG0) /* \_SB_.URS0.USB0.PHYC.CFG0 */
                 }
             }
-
             Device (UFN0)
             {
                 Name (_ADR, One)  // _ADR: Address
@@ -268,7 +255,6 @@ Name (QUFN, Zero)
                         PLD_Order              = 0x0,
                         PLD_VerticalOffset     = 0xFFFF,
                         PLD_HorizontalOffset   = 0xFFFF)
-
                 })
                 Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
                 {
@@ -292,7 +278,6 @@ Name (QUFN, Zero)
                 {
                     Return (CCST) /* \_SB_.CCST */
                 }
-
                 Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
                 {
                     Switch (ToBuffer (Arg0))
@@ -319,9 +304,7 @@ Name (QUFN, Zero)
                                             })
                                             Break
                                         }
-
                                     }
-
                                     Return (Buffer (One)
                                     {
                                         0x00                                             // .
@@ -341,7 +324,6 @@ Name (QUFN, Zero)
                                     })
                                     Break
                                 }
-
                             }
                         }
                         Case (ToUUID ("18de299f-9476-4fc9-b43b-8aeb713ed751") /* Unknown UUID */) {                            Switch (ToInteger (Arg2))
@@ -366,9 +348,7 @@ Name (QUFN, Zero)
                                             })
                                             Break
                                         }
-
                                     }
-
                                     Return (Buffer (One)
                                     {
                                         0x00                                             // .
@@ -388,7 +368,6 @@ Name (QUFN, Zero)
                                     })
                                     Break
                                 }
-
                             }
                         }
                         Default
@@ -399,10 +378,8 @@ Name (QUFN, Zero)
                             })
                             Break
                         }
-
                     }
                 }
-
                 Method (PHYC, 0, NotSerialized)
                 {
                     Name (CFG0, Package (0x00) {})
