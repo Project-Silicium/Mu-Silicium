@@ -596,7 +596,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Power|⚠️|
+|USB||✅|
 |ACPI||✅|
 
 ### OS Status
@@ -617,7 +617,7 @@
 |Gyroscope Sensor||❌|
 |Hall Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -645,7 +645,7 @@
 |Gyroscope Sensor||❌|
 |Hall Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -1231,7 +1231,7 @@
 |Clocks||✅|
 |eMMC||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|No USB Host|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 
@@ -1253,7 +1253,7 @@
 |Gyroscope Sensor||❌|
 |Fingerprint Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU|4 Cores only|⚠️|
