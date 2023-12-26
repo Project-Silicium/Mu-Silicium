@@ -598,6 +598,7 @@
 |Buttons||✅|
 |USB||✅|
 |ACPI||✅|
+|Slot Switch||✅|
 
 ### OS Status
 
