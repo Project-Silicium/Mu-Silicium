@@ -2,6 +2,10 @@
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
+  
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotUtagsDxe/MotUtagsDxe.inf
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotUtagsDictDxe/MotUtagsDictDxe.inf
+
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/caprip/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -33,9 +37,7 @@
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
-  INF Binaries/caprip/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 
@@ -47,17 +49,17 @@
 
   INF Binaries/caprip/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  # INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
 
   INF Binaries/caprip/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
 
@@ -67,25 +69,24 @@
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/caprip/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  INF Binaries/caprip/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/caprip/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  INF Binaries/caprip/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
+  # INF Binaries/caprip/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/MacDxe/MacDxe.inf

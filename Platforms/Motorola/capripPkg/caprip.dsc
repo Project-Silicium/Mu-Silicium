@@ -70,9 +70,9 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1600
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|720
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|1600
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|123
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|123
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|90
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|83
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|90
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|83
 
 !include SM6115Pkg/SM6115Pkg.dsc.inc
