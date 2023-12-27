@@ -23,16 +23,6 @@ APRIORI DXE {
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotBootFlagsDxe/MotBootFlagsDxe.inf
-  INF Binaries/caprip/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
-  INF Binaries/caprip/MbmPkg/Core/Drivers/MotHwIdDxe/MotHwIdDxe.inf
-
-  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
-  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
-
-  INF Binaries/caprip/MbmPkg/Core/Drivers/BacklightDxe/BacklightDxe.inf
-
   INF Binaries/caprip/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -53,9 +43,16 @@ APRIORI DXE {
   INF Binaries/caprip/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF Binaries/caprip/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
+
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotHwIdDxe/MotHwIdDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
@@ -66,6 +63,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/caprip/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  INF Binaries/caprip/MbmPkg/Core/Drivers/BacklightDxe/BacklightDxe.inf
 
 !if $(USE_DISPLAYDXE) == 1
   INF Binaries/caprip/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

@@ -96,7 +96,7 @@
   gArmTokenSpaceGuid.PcdPciBusMax|0xff
 
   # FrameBuffer Delay
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|100000          # In Microseconds
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|10000          # In Microseconds
 
   # Max Freq for CPUs
   gQcomPkgTokenSpaceGuid.PcdEnableMaxFreq|FALSE
