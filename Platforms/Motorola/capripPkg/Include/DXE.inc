@@ -3,6 +3,7 @@
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotHwIdDxe/MotHwIdDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotUtagsDxe/MotUtagsDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotUtagsDictDxe/MotUtagsDictDxe.inf
 
@@ -64,6 +65,10 @@
   INF Binaries/caprip/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotBootFlagsDxe/MotBootFlagsDxe.inf
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
+  INF Binaries/caprip/MbmPkg/Core/Drivers/BacklightDxe/BacklightDxe.inf
+
 
 !if $(USE_DISPLAYDXE) == 1
   INF Binaries/caprip/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

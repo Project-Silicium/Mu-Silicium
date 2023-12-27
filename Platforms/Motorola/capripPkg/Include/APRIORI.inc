@@ -22,6 +22,17 @@ APRIORI DXE {
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotBootFlagsDxe/MotBootFlagsDxe.inf
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
+  INF Binaries/caprip/MbmPkg/Core/Drivers/MotHwIdDxe/MotHwIdDxe.inf
+
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
+
+  INF Binaries/caprip/MbmPkg/Core/Drivers/BacklightDxe/BacklightDxe.inf
+
   INF Binaries/caprip/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -38,11 +49,6 @@ APRIORI DXE {
 
   INF Binaries/caprip/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/caprip/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
-
-  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
-  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/caprip/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
