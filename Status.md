@@ -1398,6 +1398,92 @@
 <details>
 <summary><b><strong>Snapdragon 662 Devices</strong></b></summary>
 
+## Motorola Moto G30
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Moto-G30.png" width="250" alt="Preview">
+
+**Codename: caprip** <br />
+**Maintainer: [Vicente Cortes](https://github.com/vicenteicc2008)** <br />
+**Contibuters: None** <br />
+**Tester: [Vicente Cortes](https://github.com/vicenteicc2008)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|eMMC||✅|
+|Buttons|Pwr Button is Mapped as SUSPEND|⚠️|
+|USB|No USB Host & Power|⚠️|
+|SD Card||❌|
+|ACPI||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|eMMC||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|eMMC||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
 ## Xiaomi Redmi 9T
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-9T.png" width="420" alt="Preview">
