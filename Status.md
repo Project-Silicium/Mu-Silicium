@@ -1429,7 +1429,7 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||✅|
-|eMMC||❌|
+|eMMC||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
