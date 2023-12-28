@@ -1471,7 +1471,7 @@
 |USB||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU|4 Cores only|❌|
+|CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
