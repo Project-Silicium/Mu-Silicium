@@ -1056,8 +1056,8 @@
 |Touchscreen||❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|Buttons|Breaks after USB Reconnect|⚠️|
+|USB|No USB Power|⚠️|
 |SD Card||✅|
 |ACPI||✅|
 |Slot Switch||✅|
