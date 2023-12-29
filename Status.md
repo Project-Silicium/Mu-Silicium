@@ -867,7 +867,7 @@
 |Clocks||✅|
 |UFS|Disabled to prevent Wipe|✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|Host Mode works once|⚠️|
 |SD Card||✅|
 |ACPI||❌|
 
