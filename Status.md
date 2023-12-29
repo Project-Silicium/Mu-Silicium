@@ -1326,7 +1326,7 @@
 |Clocks||✅|
 |eMMC||✅|
 |Buttons||✅|
-|USB|No USB Host|⚠️|
+|USB||✅|
 |SD Card||❌|
 |ACPI||✅|
 
