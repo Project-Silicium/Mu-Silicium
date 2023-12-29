@@ -38,8 +38,26 @@
   UefiBootServicesTableLib
 
 [Pcd]
-  gOemPkgTokenSpaceGuid.PcdLogoFile
-  gOemPkgTokenSpaceGuid.PcdLowBatteryFile
-  gOemPkgTokenSpaceGuid.PcdThermalFile
+  # Boot Logo Picture Sizes
+  gQcomPkgTokenSpaceGuid.PcdLogoFile_Small
+  gQcomPkgTokenSpaceGuid.PcdLogoFile_Medium
+  gQcomPkgTokenSpaceGuid.PcdLogoFile_Big
+
+  # Low Battery Picture Sizes
+  gQcomPkgTokenSpaceGuid.PcdLowBatteryFile_Small
+  gQcomPkgTokenSpaceGuid.PcdLowBatteryFile_Medium
+  gQcomPkgTokenSpaceGuid.PcdLowBatteryFile_Big
+
+  # Too Hot Picture Sizes
+  gQcomPkgTokenSpaceGuid.PcdThermalFile_Small
+  gQcomPkgTokenSpaceGuid.PcdThermalFile_Medium
+  gQcomPkgTokenSpaceGuid.PcdThermalFile_Big
+
+  # No Boot OS Picture Sizes
+  gQcomPkgTokenSpaceGuid.PcdNoBootOSFile_Small
+  gQcomPkgTokenSpaceGuid.PcdNoBootOSFile_Medium
+  gQcomPkgTokenSpaceGuid.PcdNoBootOSFile_Big
+
+  # Other PCDs
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor
-  gQcomPkgTokenSpaceGuid.PcdNoBootOSFile
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth

@@ -15,24 +15,69 @@
 
   INF DfciPkg/Application/DfciMenu/DfciMenu.inf
 
-  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdNoBootOSFile) {
-    SECTION RAW = QcomPkg/Include/Resources/NoBootOS.bmp
-    SECTION UI = "No OS Logo"
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLogoFile_Small) {
+    SECTION RAW = QcomPkg/Include/Resources/BootLogo_Small.bmp
+    SECTION UI = "Logo Small"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLogoFile_Medium) {
+    SECTION RAW = QcomPkg/Include/Resources/BootLogo_Medium.bmp
+    SECTION UI = "Logo Medium"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLogoFile_Big) {
+    SECTION RAW = QcomPkg/Include/Resources/BootLogo_Big.bmp
+    SECTION UI = "Logo Big"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdNoBootOSFile_Small) {
+    SECTION RAW = QcomPkg/Include/Resources/NoBootOS_Small.bmp
+    SECTION UI = "No OS Logo Small"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdNoBootOSFile_Medium) {
+    SECTION RAW = QcomPkg/Include/Resources/NoBootOS_Medium.bmp
+    SECTION UI = "No OS Logo Medium"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdNoBootOSFile_Big) {
+    SECTION RAW = QcomPkg/Include/Resources/NoBootOS_Big.bmp
+    SECTION UI = "No OS Logo Big"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLowBatteryFile_Small) {
+    SECTION RAW = QcomPkg/Include/Resources/LBAT_Small.bmp
+    SECTION UI = "Low Battery Small"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLowBatteryFile_Medium) {
+    SECTION RAW = QcomPkg/Include/Resources/LBAT_Medium.bmp
+    SECTION UI = "Low Battery Medium"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLowBatteryFile_Big) {
+    SECTION RAW = QcomPkg/Include/Resources/LBAT_Big.bmp
+    SECTION UI = "Low Battery Big"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdThermalFile_Small) {
+    SECTION RAW = QcomPkg/Include/Resources/THOT_Small.bmp
+    SECTION UI = "Too Hot Small"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdThermalFile_Medium) {
+    SECTION RAW = QcomPkg/Include/Resources/THOT_Medium.bmp
+    SECTION UI = "Too Hot Medium"
+  }
+
+  FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdThermalFile_Big) {
+    SECTION RAW = QcomPkg/Include/Resources/THOT_Big.bmp
+    SECTION UI = "Too Hot Big"
   }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdFrontPageLogoFile) {
     SECTION RAW = QcomPkg/Applications/FrontPage/Resources/FrontpageLogo.bmp
     SECTION UI = "FrontPage Logo"
-  }
-
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLowBatteryFile) {
-    SECTION RAW = QcomPkg/Include/Resources/LBAT.bmp
-    SECTION UI = "Low Battery"
-  }
-
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdThermalFile) {
-    SECTION RAW = QcomPkg/Include/Resources/THOT.bmp
-    SECTION UI = "Too Hot"
   }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdVolumeUpIndicatorFile) {

@@ -35,16 +35,44 @@ GetBootGraphic (
 
   switch (Graphic) {
     case BG_SYSTEM_LOGO:
-      g = PcdGetPtr (PcdLogoFile);
+      if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
+        g = PcdGetPtr (PcdLogoFile_Small);
+      } else if (PcdGet32(PcdMipiFrameBufferWidth) >= 1800) {
+        g = PcdGetPtr (PcdLogoFile_Big);
+      } else {
+        g = PcdGetPtr (PcdLogoFile_Medium);
+      }
+
       break;
     case BG_CRITICAL_OVER_TEMP:
-      g = PcdGetPtr (PcdThermalFile);
+      if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
+        g = PcdGetPtr (PcdThermalFile_Small);
+      } else if (PcdGet32(PcdMipiFrameBufferWidth) >= 1800) {
+        g = PcdGetPtr (PcdThermalFile_Big);
+      } else {
+        g = PcdGetPtr (PcdThermalFile_Medium);
+      }
+
       break;
     case BG_CRITICAL_LOW_BATTERY:
-      g = PcdGetPtr (PcdLowBatteryFile);
+      if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
+        g = PcdGetPtr (PcdLowBatteryFile_Small);
+      } else if (PcdGet32(PcdMipiFrameBufferWidth) >= 1800) {
+        g = PcdGetPtr (PcdLowBatteryFile_Big);
+      } else {
+        g = PcdGetPtr (PcdLowBatteryFile_Medium);
+      }
+
       break;
     case BG_NO_BOOT_OS:
-      g = PcdGetPtr (PcdNoBootOSFile);
+      if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
+        g = PcdGetPtr (PcdNoBootOSFile_Small);
+      } else if (PcdGet32(PcdMipiFrameBufferWidth) >= 1800) {
+        g = PcdGetPtr (PcdNoBootOSFile_Big);
+      } else {
+        g = PcdGetPtr (PcdNoBootOSFile_Medium);
+      }
+
       break;
     default:
       DEBUG ((DEBUG_ERROR, "Unsupported Boot Graphic Type 0x%X\n", Graphic));

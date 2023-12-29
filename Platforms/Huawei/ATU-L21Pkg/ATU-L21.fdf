@@ -103,11 +103,6 @@ READ_LOCK_STATUS   = TRUE
 
   INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
-    SECTION RAW = QcomPkg/Include/Resources/BootLogo_Small.bmp
-    SECTION UI = "Logo"
-  }
-
   !include QcomPkg/Frontpage.fdf.inc
 
   INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
