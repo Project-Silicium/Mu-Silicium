@@ -1056,7 +1056,7 @@
 |Touchscreen||❌|
 |Clocks||✅|
 |UFS||✅|
-|Buttons|Breaks after USB Reconnect|⚠️|
+|Buttons||✅|
 |USB|No USB Power|⚠️|
 |SD Card||✅|
 |ACPI||✅|
