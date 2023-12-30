@@ -6,93 +6,9 @@
 
 #include <Library/ArmLib.h>
 #include <Library/ArmPlatformLib.h>
-
-#include <Ppi/ArmMpCoreInfo.h>
+#include <Library/SoCPlatformLib.h>
 
 #include "InitializationUtils.h"
-
-ARM_CORE_INFO  mArmPlatformMpCoreInfoTable[] = {
-  {
-    // Cluster 0, Core 0
-    0x000,
-
-    // MP Core MailBox Set/Get/Clear Addresses and Clear Value
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (UINT64)0xFFFFFFFF
-  },
-  {
-    // Cluster 0, Core 1
-    0x100,
-
-    // MP Core MailBox Set/Get/Clear Addresses and Clear Value
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (UINT64)0xFFFFFFFF
-  },
-  {
-    // Cluster 0, Core 2
-    0x200,
-
-    // MP Core MailBox Set/Get/Clear Addresses and Clear Value
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (UINT64)0xFFFFFFFF
-  },
-  {
-    // Cluster 0, Core 3
-    0x300,
-
-    // MP Core MailBox Set/Get/Clear Addresses and Clear Value
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (UINT64)0xFFFFFFFF
-  },
-  {
-    // Cluster 0, Core 4
-    0x400,
-
-    // MP Core MailBox Set/Get/Clear Addresses and Clear Value
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (UINT64)0xFFFFFFFF
-  },
-  {
-    // Cluster 0, Core 5
-    0x500,
-
-    // MP Core MailBox Set/Get/Clear Addresses and Clear Value
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (UINT64)0xFFFFFFFF
-  },
-  {
-    // Cluster 0, Core 6
-    0x600,
-
-    // MP Core MailBox Set/Get/Clear Addresses and Clear Value
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (UINT64)0xFFFFFFFF
-  },
-  {
-    // Cluster 0, Core 7
-    0x700,
-
-    // MP Core MailBox Set/Get/Clear Addresses and Clear Value
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (EFI_PHYSICAL_ADDRESS)0,
-    (UINT64)0xFFFFFFFF
-  }
-};
 
 /**
   Return the current Boot Mode
@@ -129,8 +45,8 @@ PrePeiCoreGetMpCoreInfo (
   OUT ARM_CORE_INFO **ArmCoreTable)
 {
   if (ArmIsMpCore ()) {
-    *CoreCount    = sizeof (mArmPlatformMpCoreInfoTable) / sizeof (ARM_CORE_INFO);
-    *ArmCoreTable = mArmPlatformMpCoreInfoTable;
+    *CoreCount    = sizeof ((UINTN)GetCoreTable()) / sizeof (ARM_CORE_INFO);
+    *ArmCoreTable = GetCoreTable();
 
     return EFI_SUCCESS;
   } else {

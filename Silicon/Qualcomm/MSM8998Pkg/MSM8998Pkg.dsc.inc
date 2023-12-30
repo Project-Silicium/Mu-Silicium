@@ -41,6 +41,7 @@
   AcpiPlatformUpdateLib|MSM8998Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  SoCPlatformLib|MSM8998Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components.common]
   MSM8998Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

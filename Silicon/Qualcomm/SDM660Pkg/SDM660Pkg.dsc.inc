@@ -51,6 +51,7 @@
   AcpiPlatformUpdateLib|SDM660Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  SoCPlatformLib|SDM660Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components.common]
   SDM660Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

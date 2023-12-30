@@ -50,6 +50,7 @@
   AcpiPlatformUpdateLib|SM8150Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  SoCPlatformLib|SM8150Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components.common]
   SM8150Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

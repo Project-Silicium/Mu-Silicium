@@ -54,6 +54,7 @@
   AcpiPlatformUpdateLib|SM7150Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  SoCPlatformLib|SM7150Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components.common]
   SM7150Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

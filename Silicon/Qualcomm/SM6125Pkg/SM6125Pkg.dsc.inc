@@ -43,6 +43,7 @@
   AcpiPlatformUpdateLib|SM6125Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  SoCPlatformLib|SM6125Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components.common]
   SM6125Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
