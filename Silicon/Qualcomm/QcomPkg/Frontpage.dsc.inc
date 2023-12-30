@@ -147,7 +147,7 @@
 
 [LibraryClasses.AARCH64.DXE_DRIVER, LibraryClasses.AARCH64.UEFI_DRIVER, LibraryClasses.AARCH64.UEFI_APPLICATION, LibraryClasses.AARCH64.DXE_CORE]
   BaseCryptLib|CryptoPkg/Library/BaseCryptLibNull/BaseCryptLibNull.inf
-  TlsLib|CryptoPkg/Library/BaseCryptLibNull/BaseCryptLibNull.inf
+  TlsLib|CryptoPkg/Library/TlsLibNull/TlsLibNull.inf
 
 [Components.AARCH64]
   #
