@@ -11,8 +11,6 @@
   INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
   INF MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
-  INF MsCorePkg/AcpiRGRT/AcpiRgrt.inf
-
   INF DfciPkg/Application/DfciMenu/DfciMenu.inf
 
   FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLogoFile_Small) {

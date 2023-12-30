@@ -222,8 +222,6 @@
   MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
   MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
-  MsCorePkg/AcpiRGRT/AcpiRgrt.inf
-
   DfciPkg/Application/DfciMenu/DfciMenu.inf
 
   CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf 
