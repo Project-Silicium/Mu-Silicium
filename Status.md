@@ -1315,7 +1315,7 @@
 **Codename: ginkgo** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: [SwedMlite](https://github.com/SwedMlite), [Vicente Cortes](https://github.com/vicenteicc2008)** <br />
-**Testers: [SwedMlite](https://github.com/SwedMlite), [Vicente Cortes](https://github.com/vicenteicc2008), [kubawis128](https://github.com/kubawis128)**
+**Testers: [SwedMlite](https://github.com/SwedMlite), [kubawis128](https://github.com/kubawis128)**
 
 ### UEFI Status
 
