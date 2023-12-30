@@ -86,7 +86,7 @@
   gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType|4
 
   # Boot Manager
-  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|2
+  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|3
 
   # PCI Express
   gEfiMdeModulePkgTokenSpaceGuid.PcdSrIovSupport|FALSE
@@ -111,13 +111,6 @@
   gMsGraphicsPkgTokenSpaceGuid.PcdUiThemeInDxe|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerInBootOrder|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupport|FALSE
-
-  # The GUID of Frontpage.inf from MU_OEM_SAMPLE
-  # 4042708A-0F2D-4823-AC60-0D77B3111889
-  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x8A, 0x70, 0x42, 0x40, 0x2D, 0x0F, 0x23, 0x48, 0xAC, 0x60, 0x0D, 0x77, 0xB3, 0x11, 0x18, 0x89 }
-
-  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000022
-  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20231217
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x2000
 
