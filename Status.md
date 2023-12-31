@@ -63,7 +63,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -94,7 +95,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -162,7 +164,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -196,7 +199,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -257,7 +261,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -290,7 +295,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -353,7 +359,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -386,7 +393,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -449,7 +457,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -478,7 +487,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -539,7 +549,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -569,7 +581,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -625,7 +639,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -653,7 +668,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -711,7 +727,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -741,7 +758,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -804,7 +822,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -834,7 +853,8 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -898,7 +918,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -928,7 +950,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -994,7 +1018,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1024,7 +1050,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1088,7 +1116,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1117,7 +1147,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1176,7 +1208,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1206,7 +1240,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1270,7 +1306,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1299,7 +1337,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1355,7 +1395,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1383,7 +1425,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1446,7 +1490,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1475,7 +1521,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1533,7 +1581,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1563,7 +1613,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1627,7 +1679,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1657,7 +1711,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1718,7 +1774,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
@@ -1745,7 +1803,9 @@
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
-|Audio||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
