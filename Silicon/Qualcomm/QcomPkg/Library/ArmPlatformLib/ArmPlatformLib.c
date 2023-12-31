@@ -45,7 +45,7 @@ PrePeiCoreGetMpCoreInfo (
   OUT ARM_CORE_INFO **ArmCoreTable)
 {
   if (ArmIsMpCore ()) {
-    *CoreCount    = sizeof ((UINTN)GetCoreTable()) / sizeof (ARM_CORE_INFO);
+    *CoreCount    = PcdGet32(PcdCoreCount);
     *ArmCoreTable = GetCoreTable();
 
     return EFI_SUCCESS;
