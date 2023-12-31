@@ -88,13 +88,6 @@
   # Boot Manager
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|3
 
-  # PCI Express
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSrIovSupport|FALSE
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAriSupport|FALSE
-  gEfiMdeModulePkgTokenSpaceGuid.PcdMrIovSupport|FALSE
-  gArmTokenSpaceGuid.PcdPciBusMin|0x0
-  gArmTokenSpaceGuid.PcdPciBusMax|0xff
-
   # FrameBuffer Delay
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|10000          # In Microseconds
 
@@ -103,10 +96,6 @@
 
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
-
-  # Enable SHELL to build instead of just taking the binary
-  gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|16000
-  gEfiShellPkgTokenSpaceGuid.PcdShellProfileMask|0x1f    # All profiles
 
   gMsGraphicsPkgTokenSpaceGuid.PcdUiThemeInDxe|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerInBootOrder|TRUE
