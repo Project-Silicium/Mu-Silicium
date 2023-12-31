@@ -46,7 +46,7 @@ gDeviceMemoryDescriptorEx[] = {
   // It starts at 0x5FFFF000 + 0x00001000 = 0x60000000
   // It ends at 0x7E580000, so its length must be 0x7E580000 - 0x60000000 = 0x1E580000
   //
-  {"RAM Partition",     0x69600000, 0x1E580000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 485.50 MB
+  {"RAM Partition",     0x60000000, 0x1E580000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 485.50 MB
 
   // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0x7E580000 - 0x80000000
   // Size: 0x1A80000 (26.50 MB, or 27,136.00 KB)
