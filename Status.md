@@ -16,7 +16,7 @@
 **WARNING: Only Debug Build work right now!** <br />
 **NOTE: A Protocol called DTBExt is missing wich leads to the Unstable State.**
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Samsung-Galaxy-Tab-S8-5G.png" alt="Preview">
 
 **Codename: gts8** <br />
 **Maintainer: None** <br />
@@ -112,7 +112,7 @@
 
 ## Samsung Galaxy Z Fold 3 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Galaxy-Z-Fold3-5G.png" width="480" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Samsung-Galaxy-Z-Fold-3-5G.png" alt="Preview">
 
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
@@ -207,7 +207,7 @@
 
 ## Xiaomi Mi 11
 
-<img align="right" src="https://github.com/Daniel224455/Mu-Qcom-Venus-Mi11/blob/main/Pictures/Xiaomi-Mi11.png" width="545" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Mi-11.png" alt="Preview">
 
 **Codename: venus** <br />
 **Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
@@ -303,7 +303,7 @@
 
 **WARNING: This Device has no Maintainer!**
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" alt="Preview">
 
 **Codename: vili** <br />
 **Maintainer: None** <br />
@@ -403,7 +403,7 @@
 
 ## Xiaomi Poco F3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Poco-F3.png" width="600" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Poco-F3.png" alt="Preview">
 
 **Codename: alioth** <br />
 **Maintainers: [AdrianoA3](https://github.com/AdrianoA3), [N1kroks](https://github.com/N1kroks)** <br />
@@ -491,7 +491,7 @@
 
 **WARNING: This Device has no Maintainer!** <br />
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Legion-Tab-Y700.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Lenovo-Legion-Tab-Y700.png" alt="Preview">
 
 **Codename: 9707f** <br />
 **Maintainer: None** <br />
@@ -580,7 +580,7 @@
 
 ## Xiaomi Pad 6
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Pad-6.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Pad-6.png" alt="Preview">
 
 **Codename: pipa** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
@@ -664,7 +664,7 @@
 
 ## OnePlus 8T
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/OnePlus-8T.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/OnePlus-8T.png" alt="Preview">
 
 **Codename: kebab** <br />
 **Maintainer: [SwedMlite](https://github.com/SwedMlite)** <br />
@@ -758,7 +758,7 @@
 
 ## OnePlus 7T Pro
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Oneplus-7T-Pro.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Oneplus-7T-Pro.png" alt="Preview">
 
 **Codename: hotdog** <br />
 **Maintainer: mat-777** <br />
@@ -851,7 +851,7 @@
 
 ## Sony Xperia XZ1
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Sony-Xperia-XZ1.png" width="300" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Sony-Xperia-XZ1.png" alt="Preview">
 
 **Codename: poplar** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -947,7 +947,7 @@
 
 **WARNING: This Device has no Maintainer!**
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-Note-12-Pro-4G.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" alt="Preview">
 
 **Codename: sweet_k6a** <br />
 **Maintainer: None** <br />
@@ -1041,7 +1041,7 @@
 
 ## Xiaomi Redmi 10C
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-10C.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-10C.png" alt="Preview">
 
 **Codename: fog** <br />
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
@@ -1128,7 +1128,7 @@
 
 ## Xiaomi Redmi Note 11
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-Note-11.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-11.png" alt="Preview">
 
 **Codename: spes** <br />
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
@@ -1223,7 +1223,7 @@
 
 ## Xiaomi Mi A3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Mi-A3.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Mi-A3.png" alt="Preview">
 
 **Codename: laurel_sprout** <br />
 **Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
@@ -1310,7 +1310,7 @@
 
 ## Xiaomi Redmi Note 8/8T
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-Note-8.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-8.png" alt="Preview">
 
 **Codename: ginkgo** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -1400,7 +1400,7 @@
 
 ## Motorola Moto G30
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Moto-G30.png" width="250" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Moto-G30.png" alt="Preview">
 
 **Codename: caprip** <br />
 **Maintainer: [Vicente Cortes](https://github.com/vicenteicc2008)** <br />
@@ -1486,7 +1486,7 @@
 
 ## Xiaomi Redmi 9T
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Redmi-9T.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-9T.png" alt="Preview">
 
 **Codename: lime** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -1580,7 +1580,7 @@
 
 ## Xiaomi Mi Max 3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Mi-Max-3.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Mi-Max-3.png" alt="Preview">
 
 **Codename: nitrogen** <br />
 **Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
@@ -1674,7 +1674,7 @@
 
 ## Huawei Y6 2018
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Huawei-Y6-2018.png" width="420" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Huawei-Y6-2018.png" alt="Preview">
 
 **Codename: ATU-L21** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
