@@ -23,7 +23,7 @@ EarlyInitialization(VOID)
   ZeroMem((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
 
   // Print UEFI Infos
-  DEBUG ((EFI_D_WARN, "\nMu-Qcom on %a (AArch64)\n", (VOID *)FixedPcdGetPtr(PcdSmbiosSystemModel)));
+  DEBUG ((EFI_D_WARN, "\nMu-Qcom on %a (AArch64)\n", (CHAR16 *)FixedPcdGetPtr(PcdSmbiosSystemModel)));
   DEBUG ((EFI_D_WARN, "Firmware version %s built on %a at %a\n\n", (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), __TIME__, __DATE__));
 
   // Do platform specific initialization here
