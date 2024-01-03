@@ -143,14 +143,6 @@ then source configs/${TARGET_DEVICE}.sh
 else _warn "\nImage Creation Script of ${TARGET_DEVICE} has not been Found!\nNo Boot Image Was Generated.\n"
 fi
 
-if [[ ${STATUS} != "STABLE" ]]; then
-	if [[ ${STATUS} == "UNSTABLE" ]];
-	then _warn "\n${TARGET_DEVICE} is marked as Unstable.\nThings are expected to be broken.\n"
-	elif [[ ${STATUS} == "LIMITED" ]];
-	then _warn "\n${TARGET_DEVICE} is marked as Limited.\nIt's stable but does not have much functionality\n"
-	fi
-fi
-
 git fetch &> /dev/null
 UPDATE_CHECK=$(git status)
 if [[ ${UPDATE_CHECK} == *"git pull"* ]];
