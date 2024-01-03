@@ -889,7 +889,7 @@
 |Buttons||✅|
 |USB|Host Mode works once|⚠️|
 |SD Card||✅|
-|ACPI||❌|
+|ACPI||✅|
 
 ### OS Status
 
@@ -899,7 +899,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
+|Boot||✅|
 |UFS||❌|
 |SD Card||❌|
 |Buttons||❌|
@@ -914,7 +914,7 @@
 |USB||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU|4 Cores only|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -924,7 +924,7 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display|Bpp is wrong|⚠️|
 |Vibration||❌|
 
 </td><td>
