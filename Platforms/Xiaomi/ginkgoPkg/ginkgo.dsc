@@ -29,7 +29,7 @@
   AB_SLOT_SUPPORT                = 0
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA) -DDEVICE_RAM=$(RAM_SIZE)
+  *_*_*_CC_FLAGS = -DDEVICE_RAM=$(RAM_SIZE)
 
 [LibraryClasses.common]
   DeviceMemoryMapLib|ginkgoPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

@@ -28,9 +28,6 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
 
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
-
 [LibraryClasses.common]
   DeviceMemoryMapLib|ATU-L21Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceImplLib|ATU-L21Pkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf

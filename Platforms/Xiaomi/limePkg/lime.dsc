@@ -28,9 +28,6 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
 
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
-
 [LibraryClasses.common]
   DeviceMemoryMapLib|limePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|limePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf

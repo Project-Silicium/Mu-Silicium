@@ -137,16 +137,12 @@ SimpleFbDxeInitialize(
   mDisplay.Mode->Info->HorizontalResolution = MipiFrameBufferWidth;
   mDisplay.Mode->Info->VerticalResolution   = MipiFrameBufferHeight;
 
-  // SimpleFB runs on 32 or 24 Bpp for WoA Devices
+  // SimpleFB runs on BGR for WoA Devices
   UINT32               FrameBufferSize    = DisplayMemoryRegion.Length;
   EFI_PHYSICAL_ADDRESS FrameBufferAddress = MipiFrameBufferAddr;
 
   mDisplay.Mode->Info->PixelsPerScanLine  = MipiFrameBufferWidth;
-#if DISPLAY_USES_RGBA == 1
-  mDisplay.Mode->Info->PixelFormat        = PixelRedGreenBlueReserved8BitPerColor;
-#else
   mDisplay.Mode->Info->PixelFormat        = PixelBlueGreenRedReserved8BitPerColor;
-#endif
   mDisplay.Mode->SizeOfInfo               = sizeof(EFI_GRAPHICS_OUTPUT_MODE_INFORMATION);
   mDisplay.Mode->FrameBufferBase          = FrameBufferAddress;
   mDisplay.Mode->FrameBufferSize          = FrameBufferSize;
