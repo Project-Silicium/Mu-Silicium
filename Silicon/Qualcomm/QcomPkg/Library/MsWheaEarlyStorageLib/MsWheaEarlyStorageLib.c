@@ -158,7 +158,18 @@ UINT8
 EFIAPI
 MsWheaEarlyStorageGetMaxSize (VOID)
 {
-  return (UINT8)((PcdGet32 (PcdMsWheaReportEarlyStorageCapacity) - (MS_WHEA_EARLY_STORAGE_OFFSET)) & 0xFF);
+  UINT32  Capacity;
+
+  Capacity = PcdGet32 (PcdMsWheaReportEarlyStorageCapacity);
+
+  // The offset of the whea storage must be included in the capacity. If the capacity
+  // is less than the offset, ASSERT and return 0.
+  if (Capacity < MS_WHEA_EARLY_STORAGE_OFFSET) {
+    ASSERT (Capacity >= MS_WHEA_EARLY_STORAGE_OFFSET);
+    return 0;
+  }
+
+  return (UINT8)((Capacity - (MS_WHEA_EARLY_STORAGE_OFFSET)) & 0xFF);
 }
 
 /**
@@ -261,7 +272,16 @@ UINT8
 EFIAPI
 MsWheaESGetMaxDataCount (VOID)
 {
-  return (UINT8)((MsWheaEarlyStorageGetMaxSize () - (MS_WHEA_EARLY_STORAGE_DATA_OFFSET)) & 0xFF);
+  UINT8  MaxSize;
+
+  MaxSize = MsWheaEarlyStorageGetMaxSize ();
+
+  // Avoid subtraction underflow
+  if (MaxSize < MS_WHEA_EARLY_STORAGE_DATA_OFFSET) {
+    return 0;
+  }
+
+  return (UINT8)((MaxSize - (MS_WHEA_EARLY_STORAGE_DATA_OFFSET)) & 0xFF);
 }
 
 /**
