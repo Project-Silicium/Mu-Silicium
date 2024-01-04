@@ -34,7 +34,7 @@
   SOC_TYPE                       = 2
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDEVICE_RAM=$(RAM_SIZE)
 
 [LibraryClasses.common]
   DeviceMemoryMapLib|9707fPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
