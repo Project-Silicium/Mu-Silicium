@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = lisa
+  PACKAGE_GUID                        = 43c6bd82-8a2a-4256-8b40-0192bd310f58
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  glisaTokenSpaceGuid                 = { 0x43c6bd82, 0x8a2a, 0x4256, { 0x8b, 0x40, 0x01, 0x92, 0xbd, 0x31, 0x0f, 0x58 } }
