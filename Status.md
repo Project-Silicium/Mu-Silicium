@@ -965,6 +965,106 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
+  
+## Mi 11 Lite NE
+
+**WARNING: This Device is not activly supported⚠️!!!**
+
+<img align="right" src="./Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
+
+**Codename: lisa** <br />
+**Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br />
+**Contibuter: People from Group & You** <br />
+**Tester: [ETCHDEV](https://github.com/ETCHDEV/), You**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||⚠️|
+|UFS||✅|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|ACPI||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 730/730G/732G Devices</strong></b></summary>
 
 ## Xiaomi Redmi Note 12 Pro 4G
