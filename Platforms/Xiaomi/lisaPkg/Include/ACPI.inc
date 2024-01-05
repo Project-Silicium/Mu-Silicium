@@ -1,0 +1,20 @@
+#FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+# SECTION RAW = SM7325Pkg/AcpiTables/APIC.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/APIC.UniCore.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/BERT.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/BGRT.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/CSRT.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/DBG2.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/DSDT_minimal.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/FACP.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/FPDT.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/GTDT.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/IORT.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/MCFG.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/MSDM.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/PPTT.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/SPCR.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/TPM2.aml
+# SECTION RAW = SM7325Pkg/AcpiTables/XSDT.aml
+# SECTION UI = "AcpiTables" 
+#}
