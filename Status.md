@@ -967,7 +967,7 @@
 <details>
 <summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
   
-## Mi 11 Lite NE
+## Xiaomi Mi 11 Lite NE
 
 **WARNING: This Device is not activly supported⚠️!!!**
 
