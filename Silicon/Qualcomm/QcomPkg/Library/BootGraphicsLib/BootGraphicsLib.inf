@@ -44,6 +44,3 @@
 
 [Guids]
   gLogoDisplayedEventGroup                      ## CONSUMES
-
-[Pcd]
-  gMsGraphicsPkgTokenSpaceGuid.PcdPostBackgroundColoringSkipCount

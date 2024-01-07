@@ -6,12 +6,9 @@
 
   Copyright (C) Microsoft Corporation. All rights reserved.
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #include <Uefi.h>
-
-#include <Pi/PiFirmwareFile.h>
 
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
@@ -19,17 +16,17 @@
 #include <Library/BootGraphics.h>
 #include <Library/DxeServicesLib.h>
 
+#include <Pi/PiFirmwareFile.h>
+
 /**
   Get the requested boot graphic
-
 **/
 EFI_STATUS
 EFIAPI
 GetBootGraphic (
-  BOOT_GRAPHIC  Graphic,
-  OUT UINTN     *ImageSize,
-  OUT UINT8     **ImageData
-  )
+  BOOT_GRAPHIC Graphic,
+  OUT UINTN   *ImageSize,
+  OUT UINT8  **ImageData )
 {
   EFI_GUID  *g = NULL;
 
@@ -75,7 +72,7 @@ GetBootGraphic (
 
       break;
     default:
-      DEBUG ((DEBUG_ERROR, "Unsupported Boot Graphic Type 0x%X\n", Graphic));
+      DEBUG ((EFI_D_ERROR, "%a: Unsupported Boot Graphic Type! 0x%x\n", __FUNCTION__, Graphic));
       return EFI_UNSUPPORTED;
   }
 
@@ -87,8 +84,4 @@ GetBootGraphic (
 
 UINT32
 EFIAPI
-GetBackgroundColor (
-  )
-{
-  return PcdGet32 (PcdPostBackgroundColor);
-}
+GetBackgroundColor () { return PcdGet32 (PcdPostBackgroundColor); }
