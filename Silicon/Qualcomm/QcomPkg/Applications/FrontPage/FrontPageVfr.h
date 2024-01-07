@@ -32,6 +32,7 @@
 #define FRONT_PAGE_FORM_ID_PCINFO    0x0002
 #define FRONT_PAGE_FORM_ID_BOOTMENU  0x0003
 #define FRONT_PAGE_FORM_ID_EXIT      0x0004
+#define FRONT_PAGE_FORM_ID_POWEROFF  0x0005
 
 // Front Page triggers the following actions
 //

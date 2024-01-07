@@ -123,7 +123,8 @@ struct {
   { 1, UNUSED_INDEX, STRING_TOKEN (STR_MF_MENU_OP_SECURITY),   FRONT_PAGE_CONFIG_FORMSET_GUID, FRONT_PAGE_FORM_ID_SECURITY },                           // Security
   { 2, UNUSED_INDEX, STRING_TOKEN (STR_MF_MENU_OP_BOOTORDER),  MS_BOOT_MENU_FORMSET_GUID,      MS_BOOT_ORDER_FORM_ID       },                           // Boot Order
   { 3, 1,            STRING_TOKEN (STR_MF_MENU_OP_DFCI),       DFCI_MENU_FORMSET_GUID,         DFCI_MENU_FORM_ID           },                           // DFCI
-  { 4, 2,            STRING_TOKEN (STR_MF_MENU_OP_EXIT),       FRONT_PAGE_CONFIG_FORMSET_GUID, FRONT_PAGE_FORM_ID_EXIT     }                            // Exit
+  { 4, 2,            STRING_TOKEN (STR_MF_MENU_OP_EXIT),       FRONT_PAGE_CONFIG_FORMSET_GUID, FRONT_PAGE_FORM_ID_EXIT     },                           // Exit
+  { 5, 3,            STRING_TOKEN (STR_MF_MENU_OP_POWEROFF),   FRONT_PAGE_CONFIG_FORMSET_GUID, FRONT_PAGE_FORM_ID_POWEROFF }                            // Power Off
 };
 
 // Frontpage form set GUID
@@ -769,7 +770,18 @@ CallFrontPage (
     Index = ((FALSE == mShowFullMenu) ? mFormMap[Count].LimitedMenuIndex : mFormMap[Count].FullMenuIndex);
 
     if (Index == FormIndex) {
-      break;
+      if (Index == 5) {
+        // Power Off
+        gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
+
+        // Should not get here
+        DEBUG ((DEBUG_ERROR, "Failed to Power Off Device!\n"));
+
+        // CPU Dead Loop
+        CpuDeadLoop ();
+      } else {
+        break;
+      }
     }
   }
 
