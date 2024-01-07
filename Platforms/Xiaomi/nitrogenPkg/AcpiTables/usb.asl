@@ -68,8 +68,8 @@ Device (URS0)
     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
     {
 	
-		/* Device USB controller is at 0x600000: run "getprop | grep usb" = [ro.boot.usbcontroller]: [a600000.dwc3]
-		On sm8250.dtsi usb device with 0x600000 address is soc@0 { > usb_1: usb@a6f8800 { > usb_1_dwc3: usb@a600000 */
+		/* Device USB controller is at 0x0A800000: run "getprop | grep usb" = [ro.boot.usbcontroller]: [a800000.dwc3]
+		On sdm630.dtsi usb device with 0x0A800000 address is soc@0 { > usb3: usb@a8f8800 { > usb3_dwc3: usb@a800000 */
 
         Memory32Fixed (ReadWrite,
             0x0A800000,         // Address Base
@@ -132,37 +132,30 @@ Device (URS0)
 				If PPI: + 16 + 1
 				If SPI: + 32 + 0
 			Non GIC interrupts must be incremented by 512
-			
-			soc@0 { usb_1: usb@a6f8800 { usb_1_dwc3: usb@a600000 { interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-			133 + 32 + 0 = 165, in hex = A5 */
+            */
+			/*
+			soc@0 { usb_1: usb@a8f8800 { usb_1_dwc3: usb@a800000 { interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
+			131 + 32 + 0 = 163, in hex = A3 */
             Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
             {
                 0xA3,
             }
-			
-			/* soc: soc@0 { usb_1: usb@a6f8800 { interrupts-extended = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
-			131 + 32 + 0 = 163, in hex = A3 */
+
             Interrupt (ResourceConsumer, Level, ActiveHigh, SharedAndWake, ,, )
             {
                 0xA2,
             }
-			
-			/* soc: soc@0 { usb_1: usb@a6f8800 { interrupts-extended = <&pdc 17 IRQ_TYPE_LEVEL_HIGH>,
-			17 + 512 = 529, in hex = 211 */
+
             Interrupt (ResourceConsumer, Level, ActiveHigh, SharedAndWake, ,, )
             {
                 0x211,
             }
-			
-			/* soc: soc@0 { usb_1: usb@a6f8800 { interrupts-extended = <&pdc 15 IRQ_TYPE_EDGE_BOTH>,
-			15 + 512 = 527, in hex = 20F */
+
             Interrupt (ResourceConsumer, Edge, ActiveHigh, SharedAndWake, ,, )
             {
                 0x20F,
             }
-			
-			/* soc: soc@0 { usb_1: usb@a6f8800 { interrupts-extended =  <&pdc 14 IRQ_TYPE_EDGE_BOTH>,
-			14 + 512 = 526, in hex = 20E */
+
             Interrupt (ResourceConsumer, Edge, ActiveHigh, SharedAndWake, ,, )
             {
                 0x20E,
@@ -315,11 +308,11 @@ Device (URS0)
         {
             Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )
             {
-                0xA5,
+                0xA3,
             }
             Interrupt (ResourceConsumer, Level, ActiveHigh, SharedAndWake, ,, )
             {
-                0xA3,
+                0xA2,
             }
         })
         Method (CCVL, 0, NotSerialized)
