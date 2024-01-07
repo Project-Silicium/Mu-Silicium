@@ -130,32 +130,31 @@ SimpleFbDxeInitialize(
   }
 
   // Set information
-  mDisplay.Mode->MaxMode                               = 1;
-  mDisplay.Mode->Mode                                  = 0;
-  mDisplay.Mode->Info->Version                         = 0;
+  mDisplay.Mode->MaxMode                                 = 1;
+  mDisplay.Mode->Mode                                    = 0;
+  mDisplay.Mode->Info->Version                           = 0;
 
-  mDisplay.Mode->Info->HorizontalResolution            = MipiFrameBufferWidth;
-  mDisplay.Mode->Info->VerticalResolution              = MipiFrameBufferHeight;
+  mDisplay.Mode->Info->HorizontalResolution              = MipiFrameBufferWidth;
+  mDisplay.Mode->Info->VerticalResolution                = MipiFrameBufferHeight;
 
   // SimpleFB runs on BGR for WoA Devices
-  UINT32               FrameBufferSize                 = DisplayMemoryRegion.Length;
-  EFI_PHYSICAL_ADDRESS FrameBufferAddress              = MipiFrameBufferAddr;
+  UINT32               FrameBufferSize                   = DisplayMemoryRegion.Length;
+  EFI_PHYSICAL_ADDRESS FrameBufferAddress                = MipiFrameBufferAddr;
 
-  mDisplay.Mode->Info->PixelsPerScanLine               = MipiFrameBufferWidth;
-  mDisplay.Mode->Info->PixelFormat                     = PixelBitMask;
-  mDisplay.Mode->Info->PixelInformation.RedMask        = 0x00FF0000; // Red
-  mDisplay.Mode->Info->PixelInformation.GreenMask      = 0x0000FF00; // Green
-  mDisplay.Mode->Info->PixelInformation.BlueMask       = 0x000000FF; // Blue
-
+  mDisplay.Mode->Info->PixelsPerScanLine                 = MipiFrameBufferWidth;
   if (FixedPcdGet32(PcdMipiFrameBufferPixelBpp) == 32) {
-    mDisplay.Mode->Info->PixelInformation.ReservedMask = 0xFF000000; // Reserved
+    mDisplay.Mode->Info->PixelFormat                     = PixelBlueGreenRedReserved8BitPerColor;
   } else {
-    mDisplay.Mode->Info->PixelInformation.ReservedMask = 0;          // Reserved
+    mDisplay.Mode->Info->PixelFormat                     = PixelBitMask;
+    mDisplay.Mode->Info->PixelInformation.RedMask        = 0x00FF0000; // Red
+    mDisplay.Mode->Info->PixelInformation.GreenMask      = 0x0000FF00; // Green
+    mDisplay.Mode->Info->PixelInformation.BlueMask       = 0x000000FF; // Blue
+    mDisplay.Mode->Info->PixelInformation.ReservedMask   = 0;          // Reserved
   }
 
-  mDisplay.Mode->SizeOfInfo                            = sizeof(EFI_GRAPHICS_OUTPUT_MODE_INFORMATION);
-  mDisplay.Mode->FrameBufferBase                       = FrameBufferAddress;
-  mDisplay.Mode->FrameBufferSize                       = FrameBufferSize;
+  mDisplay.Mode->SizeOfInfo                              = sizeof(EFI_GRAPHICS_OUTPUT_MODE_INFORMATION);
+  mDisplay.Mode->FrameBufferBase                         = FrameBufferAddress;
+  mDisplay.Mode->FrameBufferSize                         = FrameBufferSize;
 
   // Create the FrameBufferBltLib configuration.
   Status = FrameBufferBltConfigure((VOID *)(UINTN)mDisplay.Mode->FrameBufferBase, mDisplay.Mode->Info, mFrameBufferBltLibConfigure, &mFrameBufferBltLibConfigureSize);
