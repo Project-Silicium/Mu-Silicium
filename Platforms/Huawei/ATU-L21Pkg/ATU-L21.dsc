@@ -24,7 +24,6 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = ATU-L21Pkg/ATU-L21.fdf
-  DISPLAY_USES_RGBA              = 1
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
 

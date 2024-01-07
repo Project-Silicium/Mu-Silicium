@@ -38,6 +38,7 @@
 [FixedPcd]
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
 
 [Guids]
   gEfiMdeModulePkgTokenSpaceGuid
