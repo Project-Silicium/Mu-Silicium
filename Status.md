@@ -924,7 +924,7 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display|Bpp is wrong|⚠️|
+|Display||✅|
 |Vibration||❌|
 
 </td><td>
