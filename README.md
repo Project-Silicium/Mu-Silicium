@@ -4,7 +4,14 @@
 
 ## Description
 
-This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Windows or Linux
+This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Windows or Linux.
+
+<!--
+## Other WoA Projects from us
+
+Check out [Mu-Tegra](https://github.com/Robotix22/Mu-Tegra), UEFI for Tegra Devices. <br />
+Or [Mu-Samsung](https://github.com/sonic011gamer/Mu-Samsung), UEFI for Exynos Devices.
+-->
 
 ## Resources
 
@@ -15,6 +22,35 @@ This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Wi
 ## [Building](https://github.com/Robotix22/Mu-Qcom/blob/main/Building.md)
 
 ## [Guides](https://github.com/Robotix22/UEFI-Guides/blob/main/Mu-Qcom/README.md)
+
+## FAQ
+
+#### How is this diffrent from any other Qualcomm WoA Project?
+
+```
+Not Much is diffrent, The only Thing we do diffrent here is making a Stable and Save UEFI for Phones / Tablets.
+Not Saying the Other WoA Projects are Bad, Make sure to check them out too!
+```
+
+#### Can my Phone / Tablet run this UEFI?
+
+```
+Check the Status Page to see if your Device can run this UEFI.
+```
+
+#### What if, My Device isn't Supported?
+
+```
+We do have Porting Guides that will Guide you through the Porting Process.
+(And Please don't try Images from another Devices on yours. Please.)
+```
+
+#### Can I run this on any Other Chipsets like Rockchip?
+
+```
+Unfortunately No, This Repo is only dedecated to Qualcomm Devices.
+But we do have Other Repos that Support other Chipsets like Tegra or Exynos.
+```
 
 ## Credits
 
