@@ -7,30 +7,30 @@ gDeviceMemoryDescriptorEx[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
 
   // DDR Regions
-  {"Hypervisor",        0x80000000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},                             // Added for Windows boot
-  {"RAM Partition",     0x80600000, 0x00260000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},                         // Added for filling gap
+  {"Hypervisor",        0x80000000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE}, // Added for Windows boot
+  {"RAM Partition",     0x80600000, 0x00260000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 2.38 MB RAM
   {"AOP CMD DB",        0x80860000, 0x00020000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-  {"RAM Partition",     0x80880000, 0x00004000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},                         // Added for filling gap
+  {"RAM Partition",     0x80880000, 0x00004000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 16 KB RAM
   {"XBL Log Buffer",    0x80884000, 0x00010000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
-  {"RAM Partition",     0x80894000, 0x0006C000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},                         // Added for filling gap
+  {"RAM Partition",     0x80894000, 0x0006C000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 432 KB RAM
   {"SMEM",              0x80900000, 0x00200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
 //{"TZApps Reserved",   0x82400000, 0x03A00000, HobOnlyNoCacheSetting, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN}, // Untouched TZApps partition
   {"TZApps Reserved",   0x80B00000, 0x05500000, HobOnlyNoCacheSetting, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN}, // Expanded to fill whole gap
   {"PIL Reserved",      0x86000000, 0x0D200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-  {"RAM Partition",     0x93200000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},                         // Added for filling gap
+  {"RAM Partition",     0x93200000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 87 MB RAM
   {"DXE Heap",          0x98900000, 0x03300000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"Sched Heap",        0x9BC00000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"Display Reserved",  0x9C000000, 0x02400000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
   {"DBI Dump",          0x9E400000, 0x00F00000, NoHob,  MMAP_IO, INITIALIZED, Conv,   UNCACHED_UNBUFFERED_XN},
-  {"RAM Partition",     0x9F300000, 0x00500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},                         // Added for filling gap
+  {"RAM Partition",     0x9F300000, 0x00500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 5 MB RAM
   {"FV Region",         0x9F800000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
-  {"RAM Partition",     0x9FA00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},                         // Added for filling gap
+  {"RAM Partition",     0x9FA00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 2 MB RAM
   {"UEFI FD",           0x9FC00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"SEC Heap",          0x9FF00000, 0x0008C000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"CPU Vectors",       0x9FF8C000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"MMU PageTables",    0x9FF8D000, 0x00003000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"UEFI Stack",        0x9FF90000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
-  {"RAM Partition",     0x9FFD0000, 0x00027000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},                         // Added for filling gap
+  {"RAM Partition",     0x9FFD0000, 0x00027000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 156 KB RAM
   {"Log Buffer",        0x9FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",          0x9FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
 
@@ -42,22 +42,21 @@ gDeviceMemoryDescriptorEx[] = {
         device_type = "memory";
         reg = <0x00 0x80000000 0x00 0x3cc00000 0x00 0xc0000000 0x01 0x40000000>;
     };
-    DDR Bank 0: 0x80000000 + 0x3CC00000 = 0xBCC00000
+    DDR bank 0: 0x80000000 + 0x3CC00000 = 0xBCC00000
   */
   
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
+  // This RAM parition starts just after Info Blk and ends with DDR bank 0
   {"RAM Partition",     0xA0000000, 0x1CC00000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
-  // DDR Bank 0 end
+  // DDR bank 0 end
   
-  // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xBCC00000 - 0xBFFFFFFF (1 byte for spacing)
-  // Size: 0x33FFFFF (52 MB)
+  // Memory hole between DDR bank 0 end and DDR bank 1 start: 0xBCC00000 - 0xC0000000
+  // Size: 0x3400000 (52 MB)
   
-  // DDR Bank 1 start
-  {"RAM Partition",     0xC0000000, 0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
-  // As RAM starts at 0x80000000 (2GB) and this is a 6GB device, so it must ends at 8GB, then 0x200000000 = 0x140000000 + 0xC0000000
-  {"RAM Partition",     0x140000000,0xC0000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  /* DDR bank 1 starts at 0xc0000000 and we must map RAM up to 6 GB (0x180000000).
+   As RAM starts at 0x80000000, we must add it into 0x180000000, which results in 0x200000000.
+   So as DDR bank 1 starts at 0xC0000000 and must reach 0x200000000, the last RAM partition length is given by
+   0x200000000 - 0xC0000000 = 0x140000000 */
+  {"RAM Partition",     0xC0000000, 0x140000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 //==================================================================================================================
 #elif DEVICE_RAM == 8
 //==================================================8GB RAM Setup===================================================
@@ -67,23 +66,21 @@ gDeviceMemoryDescriptorEx[] = {
         device_type = "memory";
         reg = <0x00 0x80000000 0x00 0x3bb00000 0x00 0xc0000000 0x01 0xc0000000>;
     };
-    DDR Bank 0: 0x80000000 + 0x3BB00000 = 0xBBB00000
+    DDR bank 0: 0x80000000 + 0x3BB00000 = 0xBBB00000
   */
   
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
+  // This RAM parition starts just after Info Blk and ends with DDR bank 0
   {"RAM Partition",     0xA0000000, 0x1BB00000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
-  // DDR Bank 0 end
+  // DDR bank 0 end
   
-  // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xBBB00000 - 0xBFFFFFFF (1 byte for spacing)
-  // Size: 0x44FFFFF (69 MB)
+  // Memory hole between DDR bank 0 end and DDR bank 1 start: 0xBBB00000 - 0xC0000000
+  // Size: 0x4500000 (69 MB)
   
-  // DDR Bank 1 start
-  {"RAM Partition",     0xC0000000, 0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  {"RAM Partition",     0x140000000,0xC0000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
-  // As RAM starts at 0x80000000 (2GB) and this is a 8GB device, so it must ends at 10GB, then 0x280000000 = 0x200000000 + 0x80000000
-  {"RAM Partition",     0x200000000,0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  /* DDR bank 1 starts at 0xc0000000 and we must map RAM up to 8 GB (0x200000000).
+     As RAM starts at 0x80000000, we must add it into 0x200000000, which results in 0x280000000.
+     So as DDR bank 1 starts at 0xC0000000 and must reach 0x280000000, the last RAM partition length is given by
+     0x280000000 - 0xC0000000 = 0x1C0000000 */
+  {"RAM Partition",     0xC0000000, 0x1C0000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 //==================================================================================================================
 #elif DEVICE_RAM == 12
 //==================================================12GB RAM Setup==================================================
@@ -93,25 +90,21 @@ gDeviceMemoryDescriptorEx[] = {
       device_type = "memory";
       reg = <0x00 0x80000000 0x00 0x39900000 0x02 0x00 0x01 0x80000000 0x00 0xc0000000 0x01 0x40000000>;
     };
-    DDR Bank 0: 0x80000000 + 0x39900000 = 0xB9900000
+    DDR bank 0: 0x80000000 + 0x39900000 = 0xB9900000
   */
   
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
+  // This RAM parition starts just after Info Blk and ends with DDR bank 0
   {"RAM Partition",     0xA0000000, 0x19900000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
-  // DDR Bank 0 end
+  // DDR bank 0 end
   
-  // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xB9900000 - 0xBFFFFFFF (1 byte for spacing)
-  // Size: 0x66FFFFF (103 MB)
+  // Memory hole between DDR bank 0 end and DDR bank 1 start: 0xB9900000 - 0xC0000000
+  // Size: 0x6700000 (103 MB)
   
-  // DDR Bank 1 start
-  {"RAM Partition",     0xC0000000, 0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  {"RAM Partition",     0x140000000,0xC0000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  {"RAM Partition",     0x200000000,0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  {"RAM Partition",     0x280000000,0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
-  // As RAM starts at 0x80000000 (2GB) and this is a 12GB device, so it must ends at 14GB, then 0x380000000 = 0x300000000 + 0x80000000
-  {"RAM Partition",     0x300000000,0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  /* DDR bank 1 starts at 0xc0000000 and we must map RAM up to 12 GB (0x300000000).
+   As RAM starts at 0x80000000, we must add it into 0x300000000, which results in 0x380000000.
+   So as DDR bank 1 starts at 0xC0000000 and must reach 0x380000000, the last RAM partition length is given by
+   0x380000000 - 0xC0000000 = 0x2C0000000 */
+  {"RAM Partition",     0xC0000000, 0x2C0000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 //==================================================================================================================
 #endif
 
