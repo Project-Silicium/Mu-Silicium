@@ -13,14 +13,18 @@
 VOID
 EarlyInitialization(VOID)
 {
+  EFI_STATUS                      Status;
   ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
-  LocateMemoryMapAreaByName("Display Reserved", &DisplayMemoryRegion);
 
   // Initialize SerialPortLib
   SerialPortInitialize();
 
-  // Clear Screen
-  ZeroMem((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
+  // Get "Display Reserved" Memory Region Infos
+  Status = LocateMemoryMapAreaByName("Display Reserved", &DisplayMemoryRegion);
+  if (!EFI_ERROR (Status)) {
+    // Clear Screen
+    ZeroMem((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
+  }
 
   // Print UEFI Infos
   DEBUG ((EFI_D_WARN, "\nMu-Qcom on %a (AArch64)\n", (CHAR16 *)FixedPcdGetPtr(PcdSmbiosSystemModel)));

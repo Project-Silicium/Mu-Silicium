@@ -316,23 +316,23 @@
 
 [Components.common]
   # PrePI
-  QcomPkg/PrePi/PeiUniCore.inf {
+  QcomPkg/PrePi/PrePi.inf {
     <LibraryClasses>
-    NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
   }
 
   # DXE Core
   MdeModulePkg/Core/Dxe/DxeMain.inf {
     <LibraryClasses>
-    NULL|MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
-    NULL|MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
-    NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+      NULL|MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+      NULL|MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
   }
 
   # PCD Database
   MdeModulePkg/Universal/PCD/Dxe/Pcd.inf {
     <LibraryClasses>
-    PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
+      PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
   }
 
   # Processor Core Services
@@ -347,7 +347,7 @@
   EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf {
     <LibraryClasses>
-	  RealTimeClockLib|QcomPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
+      RealTimeClockLib|QcomPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
   }
 
   # Pci
