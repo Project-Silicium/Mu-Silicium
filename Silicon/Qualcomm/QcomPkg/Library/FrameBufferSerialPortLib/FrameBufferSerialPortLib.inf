@@ -27,5 +27,5 @@
 [Pcd]
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay

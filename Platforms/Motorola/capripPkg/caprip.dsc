@@ -59,7 +59,7 @@
   # Simple FrameBuffer
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1600
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720

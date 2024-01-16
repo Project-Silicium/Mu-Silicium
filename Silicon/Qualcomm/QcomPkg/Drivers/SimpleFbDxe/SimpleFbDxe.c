@@ -19,6 +19,8 @@
 
 #include "SimpleFbDxe.h"
 
+STATIC UINT32 gBpp = FixedPcdGet32(PcdMipiFrameBufferColorDepth);
+
 STATIC
 EFI_STATUS
 EFIAPI
@@ -142,14 +144,17 @@ SimpleFbDxeInitialize(
   EFI_PHYSICAL_ADDRESS FrameBufferAddress                = MipiFrameBufferAddr;
 
   mDisplay.Mode->Info->PixelsPerScanLine                 = MipiFrameBufferWidth;
-  if (FixedPcdGet32(PcdMipiFrameBufferPixelBpp) == 32) {
+  if (gBpp == 32) {
     mDisplay.Mode->Info->PixelFormat                     = PixelBlueGreenRedReserved8BitPerColor;
-  } else {
+  } else if (gBpp == 24) {
     mDisplay.Mode->Info->PixelFormat                     = PixelBitMask;
     mDisplay.Mode->Info->PixelInformation.RedMask        = 0x00FF0000; // Red
     mDisplay.Mode->Info->PixelInformation.GreenMask      = 0x0000FF00; // Green
     mDisplay.Mode->Info->PixelInformation.BlueMask       = 0x000000FF; // Blue
     mDisplay.Mode->Info->PixelInformation.ReservedMask   = 0;          // Reserved
+  } else {
+    DEBUG ((EFI_D_ERROR, "There is no Valid Pixel Format for Color Depth %d!\n", gBpp));
+    ASSERT_EFI_ERROR(EFI_UNSUPPORTED);
   }
 
   mDisplay.Mode->SizeOfInfo                              = sizeof(EFI_GRAPHICS_OUTPUT_MODE_INFORMATION);

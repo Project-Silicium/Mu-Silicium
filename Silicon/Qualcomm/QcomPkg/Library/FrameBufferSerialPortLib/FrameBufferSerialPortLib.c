@@ -25,7 +25,7 @@ UINTN gWidth  = FixedPcdGet32(PcdMipiFrameBufferWidth);
 
 // Reserve half screen for output
 UINTN gHeight = FixedPcdGet32(PcdMipiFrameBufferHeight);
-UINTN gBpp    = FixedPcdGet32(PcdMipiFrameBufferPixelBpp);
+UINTN gBpp    = FixedPcdGet32(PcdMipiFrameBufferColorDepth);
 
 // Module-used internal routine
 VOID
@@ -60,7 +60,7 @@ SerialPortInitialize(VOID)
     return RETURN_SUCCESS;
 
   LocateMemoryMapAreaByName("Display Reserved", &DisplayMemoryRegion);
-  p_Position = (FBCON_POSITION*)(DisplayMemoryRegion.Address + (FixedPcdGet32(PcdMipiFrameBufferWidth) * FixedPcdGet32(PcdMipiFrameBufferHeight) * FixedPcdGet32(PcdMipiFrameBufferPixelBpp) / 8));
+  p_Position = (FBCON_POSITION*)(DisplayMemoryRegion.Address + (FixedPcdGet32(PcdMipiFrameBufferWidth) * FixedPcdGet32(PcdMipiFrameBufferHeight) * FixedPcdGet32(PcdMipiFrameBufferColorDepth) / 8));
 
   // Reset console
   FbConReset();

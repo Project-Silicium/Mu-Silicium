@@ -45,9 +45,6 @@
   gArmTokenSpaceGuid.PcdArmPrimaryCore
   gArmTokenSpaceGuid.PcdFdSize
   gArmPlatformTokenSpaceGuid.PcdCoreCount
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel
 
 [Ppis]

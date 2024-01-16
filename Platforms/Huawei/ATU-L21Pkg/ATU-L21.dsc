@@ -59,7 +59,7 @@
   # Simple FrameBuffer
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1440
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|24
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|24
 
 [Components.common]
   # Keypad
