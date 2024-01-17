@@ -127,3 +127,6 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|0|UINT32|0x0000a401
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|0|UINT32|0x0000a402
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|0|UINT32|0x0000a403
+
+  # Power Services
+  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE|BOOLEAN|0x0000a500

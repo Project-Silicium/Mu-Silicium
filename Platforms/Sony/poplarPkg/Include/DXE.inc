@@ -68,7 +68,7 @@
   INF Binaries/poplar/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  #INF Binaries/poplar/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+  INF Binaries/poplar/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/poplar/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/TsensDxe/TsensDxe.inf

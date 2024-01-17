@@ -55,6 +55,9 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|24
 
+  # Power Services
+  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
+
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1920

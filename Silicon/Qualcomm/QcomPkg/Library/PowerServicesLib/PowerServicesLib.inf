@@ -33,6 +33,10 @@
   MemoryAllocationLib
   UefiBootServicesTableLib
   UefiRuntimeServicesTableLib
+  PcdLib
+
+[FixedPcd]
+  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented
 
 [Protocols]
   gChargerExProtocolGuid

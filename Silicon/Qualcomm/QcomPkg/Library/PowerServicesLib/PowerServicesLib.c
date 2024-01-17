@@ -10,6 +10,7 @@
 #include <Library/UefiBootServicesTableLib.h>         // gBS
 #include <Library/PowerServicesLib.h>
 #include <Library/DebugLib.h>
+#include <Library/PcdLib.h>
 
 #include <Protocol/EFIChargerEx.h>
 
@@ -35,12 +36,16 @@ SystemPowerCheck (
   if (gEfiChargerExProtocol == NULL) {
     *Good = TRUE;
   } else {
-    Status = gEfiChargerExProtocol->IsPowerOk(EFI_CHARGER_EX_POWER_FLASH_BATTERY_VOLTAGE_TYPE, &FlashInfo);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Check if Power is Ok! Status = %r\n", Status));
-      *Good = TRUE;
+    if (FixedPcdGetBool(PcdIsPowerOkImplemented)) {
+      Status = gEfiChargerExProtocol->IsPowerOk(EFI_CHARGER_EX_POWER_FLASH_BATTERY_VOLTAGE_TYPE, &FlashInfo);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "Failed to Check if Power is Ok! Status = %r\n", Status));
+        *Good = TRUE;
+      } else {
+        *Good = FlashInfo.bCanFlash;
+      }
     } else {
-      *Good = FlashInfo.bCanFlash;
+      *Good = TRUE;
     }
   }
 

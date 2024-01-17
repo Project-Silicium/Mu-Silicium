@@ -61,6 +61,9 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1440
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|24
 
+  # Power Services
+  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
+
 [Components.common]
   # Keypad
   QcomPkg/Drivers/KeypadDxe/KeypadDxe.inf
