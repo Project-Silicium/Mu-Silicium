@@ -99,9 +99,11 @@ APRIORI DXE {
   INF Binaries/alioth/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/alioth/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/alioth/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/alioth/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
   INF Binaries/alioth/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf

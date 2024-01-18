@@ -86,12 +86,12 @@
   INF Binaries/kebab/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/kebab/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/kebab/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
 
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  INF Binaries/kebab/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf

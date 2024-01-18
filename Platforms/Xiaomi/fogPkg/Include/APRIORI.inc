@@ -81,16 +81,14 @@ APRIORI DXE {
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/fog/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-
   INF Binaries/fog/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
 

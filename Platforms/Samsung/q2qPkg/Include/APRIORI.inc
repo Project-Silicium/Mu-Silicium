@@ -313,20 +313,9 @@ APRIORI DXE {
     SECTION UI = "XhciDxe"
   }
 
-  FILE DRIVER = 240612b7-a063-11d4-9a3a-0090273fc14d {
-    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.efi
-    SECTION UI = "UsbBusDxe"
-  }
-
-  FILE DRIVER = 2d2e62cf-9ecf-43b7-8219-94e7fc713dfe {
-    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.efi
-    SECTION UI = "UsbKbDxe"
-  }
-
-  FILE DRIVER = 9fb4b4a7-42c0-4bcd-8540-9bcc6711f83e {
-    SECTION PE32 =  Binaries/q2q/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.efi
-    SECTION UI = "UsbMassStorageDxe"
-  }
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   FILE DRIVER = cd823a4d-7dec-4531-ae5d-4134fa4127b8 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.depex
