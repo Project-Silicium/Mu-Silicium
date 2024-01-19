@@ -127,6 +127,13 @@ rm ./BootShim/BootShim.elf &> /dev/null
 rm ./ImageResources/bootpayload.bin &> /dev/null
 rm Mu-${TARGET_DEVICE}.img &> /dev/null
 
+
+# Apply Mu Patches
+cp ./MuPatches/UsbBus.patch ./Mu_Basecore/
+cd Mu_Basecore
+git apply UsbBus.patch &> /dev/null
+cd ..
+
 # Compile BootShim
 cd BootShim
 make UEFI_BASE=${TARGET_FD_BASE} UEFI_SIZE=${TARGET_FD_SIZE}||_error "\nFailed to Compile BootShim!\n"

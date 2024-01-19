@@ -98,9 +98,11 @@ APRIORI DXE {
   INF Binaries/lisa/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
   INF Binaries/lisa/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   

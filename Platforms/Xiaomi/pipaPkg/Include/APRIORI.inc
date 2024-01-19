@@ -101,9 +101,11 @@ APRIORI DXE {
   INF Binaries/pipa/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/pipa/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/pipa/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/pipa/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
   INF Binaries/pipa/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
