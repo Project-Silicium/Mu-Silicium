@@ -98,5 +98,5 @@
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-  #INF Binaries/fog/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/fog/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
