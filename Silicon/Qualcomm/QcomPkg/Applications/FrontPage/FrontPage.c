@@ -33,6 +33,7 @@
 #include <Protocol/SimpleWindowManager.h>
 #include <Protocol/FirmwareManagement.h>
 #include <Protocol/VariablePolicy.h>
+#include <Protocol/EFIPlatformInfo.h>
 
 #include <Library/DebugLib.h>
 #include <Library/BaseMemoryLib.h>
@@ -252,14 +253,133 @@ UpdateDisplayStrings (
   EFI_STATUS  Status      = EFI_SUCCESS;
   CHAR16     *NewString;
 
-  EFI_SMBIOS_PROTOCOL      *SmbiosProtocol;
-  EFI_SMBIOS_HANDLE        SmbiosHandle = SMBIOS_HANDLE_PI_RESERVED;
-  EFI_SMBIOS_TABLE_HEADER  *Record;
-  SMBIOS_TYPE              Type;
-  SMBIOS_TABLE_TYPE0       *Type0Record;
-  SMBIOS_TABLE_TYPE1       *Type1Record;
-  SMBIOS_TABLE_TYPE3       *Type3Record;
-  SMBIOS_TABLE_TYPE4       *Type4Record;
+  EFI_PLATFORMINFO_PLATFORM_INFO_TYPE PlatformInfo;
+
+  VOID *PlatformType = L"Unknown";
+
+  EFI_PLATFORMINFO_PROTOCOL *mPlatformInfoProtocol;
+  EFI_SMBIOS_PROTOCOL       *SmbiosProtocol;
+  EFI_SMBIOS_HANDLE          SmbiosHandle = SMBIOS_HANDLE_PI_RESERVED;
+  EFI_SMBIOS_TABLE_HEADER   *Record;
+  SMBIOS_TYPE                Type;
+  SMBIOS_TABLE_TYPE0        *Type0Record;
+  SMBIOS_TABLE_TYPE1        *Type1Record;
+  SMBIOS_TABLE_TYPE3        *Type3Record;
+  SMBIOS_TABLE_TYPE4        *Type4Record;
+
+  // Locate Platform Info Protocol
+  Status = gBS->LocateProtocol (&gEfiPlatformInfoProtocolGuid, NULL, (VOID *)&mPlatformInfoProtocol);
+  if (!EFI_ERROR (Status)) {
+    // Get Platform Infos
+    Status = mPlatformInfoProtocol->GetPlatformInfo (mPlatformInfoProtocol, &PlatformInfo);
+    if (!EFI_ERROR (Status)) {
+      // Check Wich Platform Type the Device is
+      if (PlatformInfo.platform == 0x1) {
+        // Set Platform Type to CDP
+        PlatformType = L"CDP";
+      } else if (PlatformInfo.platform == 0x2) {
+        // Set Platform Type to FFA
+        PlatformType = L"FFA";
+      } else if (PlatformInfo.platform == 0x3) {
+        // Set Platform Type to FLUID
+        PlatformType = L"FLUID";
+      } else if (PlatformInfo.platform == 0x5) {
+        // Set Platform Type to OEM
+        PlatformType = L"OEM";
+      } else if (PlatformInfo.platform == 0x6) {
+        // Set Platform Type to QT
+        PlatformType = L"QT";
+      } else if (PlatformInfo.platform == 0x8) {
+        // Set Platform Type to MTP
+        PlatformType = L"MTP";
+      } else if (PlatformInfo.platform == 0x9) {
+        // Set Platform Type to LiQUID
+        PlatformType = L"LiQUID";
+      } else if (PlatformInfo.platform == 0xA) {
+        // Set Platform Type to DragonBoard
+        PlatformType = L"DragonBoard";
+      } else if (PlatformInfo.platform == 0xB) {
+        // Set Platform Type to QRD
+        PlatformType = L"QRD";
+      } else if (PlatformInfo.platform == 0xC) {
+        // Set Platform Type to EVB
+        PlatformType = L"EVB";
+      } else if (PlatformInfo.platform == 0xD) {
+        // Set Platform Type to HRD
+        PlatformType = L"HRD";
+      } else if (PlatformInfo.platform == 0xE) {
+        // Set Platform Type to DTV
+        PlatformType = L"DTV";
+      } else if (PlatformInfo.platform == 0xF) {
+        // Set Platform Type to Rumi
+        PlatformType = L"Rumi";
+      } else if (PlatformInfo.platform == 0x10) {
+        // Set Platform Type to Virtio
+        PlatformType = L"Virtio";
+      } else if (PlatformInfo.platform == 0x11) {
+        // Set Platform Type to Gobi
+        PlatformType = L"Gobi";
+      } else if (PlatformInfo.platform == 0x12) {
+        // Set Platform Type to CBH
+        PlatformType = L"CBH";
+      } else if (PlatformInfo.platform == 0x13) {
+        // Set Platform Type to BTS
+        PlatformType = L"BTS";
+      } else if (PlatformInfo.platform == 0x14) {
+        // Set Platform Type to XPM
+        PlatformType = L"XPM";
+      } else if (PlatformInfo.platform == 0x15) {
+        // Set Platform Type to RCM
+        PlatformType = L"RCM";
+      } else if (PlatformInfo.platform == 0x16) {
+        // Set Platform Type to DMA
+        PlatformType = L"DMA";
+      } else if (PlatformInfo.platform == 0x17) {
+        // Set Platform Type to STP
+        PlatformType = L"STP";
+      } else if (PlatformInfo.platform == 0x18) {
+        // Set Platform Type to SBC
+        PlatformType = L"SBC";
+      } else if (PlatformInfo.platform == 0x19) {
+        // Set Platform Type to ADP
+        PlatformType = L"ADP";
+      } else if (PlatformInfo.platform == 0x1A) {
+        // Set Platform Type to CHI
+        PlatformType = L"CHI";
+      } else if (PlatformInfo.platform == 0x1B) {
+        // Set Platform Type to SDP
+        PlatformType = L"SDP";
+      } else if (PlatformInfo.platform == 0x1C) {
+        // Set Platform Type to RRP
+        PlatformType = L"RRP";
+      } else if (PlatformInfo.platform == 0x1D) {
+        // Set Platform Type to CLS
+        PlatformType = L"CLS";
+      } else if (PlatformInfo.platform == 0x1E) {
+        // Set Platform Type to TTP
+        PlatformType = L"TTP";
+      } else if (PlatformInfo.platform == 0x1F) {
+        // Set Platform Type to HDK
+        PlatformType = L"HDK";
+      } else if (PlatformInfo.platform == 0x20) {
+        // Set Platform Type to IOT
+        PlatformType = L"IOT";
+      } else if (PlatformInfo.platform == 0x21) {
+        // Set Platform Type to ATP
+        PlatformType = L"ATP";
+      } else if (PlatformInfo.platform == 0x22) {
+        // Set Platform Type to IDP
+        PlatformType = L"IDP";
+      }
+
+      // Update Platform Type HII String
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_PLATFORM_TYPE_VALUE), (CHAR16 *)PlatformType, NULL);
+    } else {
+      DEBUG ((EFI_D_ERROR, "Failed to Get Platform Infos! Status = %r\n", Status));
+    }
+  } else {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Platform Info Protocol! Status = %r\n", Status));
+  }
 
   // Get UEFI Version Value
   HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_UEFI_VERSION_VALUE), (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), NULL);

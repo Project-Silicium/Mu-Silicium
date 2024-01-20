@@ -155,6 +155,17 @@ formset
           text
             help    = STRING_TOKEN(STR_NULL_STRING),                                   // SPACING
             text    = STRING_TOKEN(STR_NULL_STRING);                                   //
+        subtitle text = STRING_TOKEN(STR_NULL_STRING),
+        flags = HORIZONTAL;
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // Platform Type
+            text    = STRING_TOKEN(STR_INF_VIEW_PLATFORM_TYPE);                        //
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // Platform Type Value
+            text    = STRING_TOKEN(STR_INF_VIEW_PLATFORM_TYPE_VALUE);                  //
+          text
+            help    = STRING_TOKEN(STR_NULL_STRING),                                   // SPACING
+            text    = STRING_TOKEN(STR_NULL_STRING);                                   //
     guidop
       guid     = GRID_END_OPCODE_GUID,                                           // Custom UI Grid opcode - END
     endguidop;
