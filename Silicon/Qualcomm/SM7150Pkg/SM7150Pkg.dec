@@ -4,8 +4,5 @@
   PACKAGE_GUID                        = ca3244d6-c836-48e7-b52b-0bfceea90cb9
   PACKAGE_VERSION                     = 0.1
 
-[Includes.common]
-  Include                               # Root include for the package
-
 [Guids.common]
   gSM7150PkgTokenSpaceGuid            = { 0xca3244d6, 0xc836, 0x48e7, { 0xb5, 0x2b, 0x0b, 0xfc, 0xee, 0xa9, 0x0c, 0xb9 } }

@@ -21,19 +21,11 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
   QcomPkg/QcomPkg.dec
-  SM7325Pkg/SM7325Pkg.dec
 
 [LibraryClasses]
-  ArmLib
-  ArmMmuLib
   BaseLib
-  DebugLib
   HobLib
-  IoLib
-  MemoryAllocationLib
   SerialPortLib
   MemoryMapHelperLib
   DeviceConfigurationMapLib
