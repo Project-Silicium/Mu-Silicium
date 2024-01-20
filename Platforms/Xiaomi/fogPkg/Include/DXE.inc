@@ -45,7 +45,6 @@
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/fog/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/VcsDxe/VcsDxe.inf

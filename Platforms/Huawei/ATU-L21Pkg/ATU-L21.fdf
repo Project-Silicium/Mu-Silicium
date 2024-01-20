@@ -99,8 +99,6 @@ READ_LOCK_STATUS   = TRUE
   # ACPI Tables
   !include Include/ACPI.inc
 
-  INF MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
-
   INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
   !include QcomPkg/Frontpage.fdf.inc

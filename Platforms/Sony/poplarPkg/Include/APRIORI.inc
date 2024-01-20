@@ -45,7 +45,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/QdssDxe/QdssDxe.inf
 

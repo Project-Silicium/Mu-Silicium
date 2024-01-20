@@ -50,7 +50,6 @@
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/pipa/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/ClockDxe/ClockDxe.inf

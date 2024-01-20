@@ -46,7 +46,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/9707f/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/UFSDxe/UFSDxe.inf

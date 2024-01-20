@@ -82,7 +82,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   FILE DRIVER = 0D35CD8E-97EA-4F9A-96AF-0F0D89F76567 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/UFSDxe/UFSDxe.depex

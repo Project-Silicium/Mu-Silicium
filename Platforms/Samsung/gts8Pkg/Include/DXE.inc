@@ -47,7 +47,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf

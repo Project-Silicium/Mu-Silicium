@@ -41,7 +41,6 @@ APRIORI DXE {
   INF Binaries/fog/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/fog/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/UFSDxe/UFSDxe.inf

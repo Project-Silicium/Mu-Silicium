@@ -147,7 +147,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   FILE DRIVER = F10F76DB-42C1-533F-34A8-69BE24653110 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/SdccDxe/SdccDxe.depex
