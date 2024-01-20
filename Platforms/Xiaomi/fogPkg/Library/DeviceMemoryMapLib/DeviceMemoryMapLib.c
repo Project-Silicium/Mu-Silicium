@@ -50,8 +50,7 @@ gDeviceMemoryDescriptorEx[] = {
   // DDR Bank 0 end
 
   // DDR Bank 1 start
-  {"RAM Partition",         0x80000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-  {"RAM Partition",         0xC0000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+  {"RAM Partition",         0x80000000, 0xC0000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 //=================================================================================================================
 #elif DEVICE_RAM == 6
 //==================================================6GB RAM Setup==================================================
@@ -60,8 +59,7 @@ gDeviceMemoryDescriptorEx[] = {
   // DDR Bank 0 end
 
   // DDR Bank 1 start
-  {"RAM Partition",         0x80000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-  {"RAM Partition",         0xC0000000, 0x100000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+  {"RAM Partition",         0x80000000, 0x140000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 //=================================================================================================================
 #endif
 
