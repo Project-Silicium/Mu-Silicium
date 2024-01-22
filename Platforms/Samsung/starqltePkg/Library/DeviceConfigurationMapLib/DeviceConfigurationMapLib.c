@@ -5,14 +5,12 @@ STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
   {"EnableShell", 0x1},
-  {"InitialPagePoolCount", 0x700},
   {"SharedIMEMBaseAddr", 0x146BF000},
   {"DloadCookieAddr", 0x01FD3000},
   {"DloadCookieValue", 0x10},
   {"NumCpus", 8},
   {"NumActiveCores", 8},
   {"MaxLogFileSize", 0x400000},
-  {"UefiMemUseThreshold", 0xE1},
   {"USBHS1_Config", 0x0},
   {"UsbFnIoRevNum", 0x00010001},
   {"PwrBtnShutdownFlag", 0x0},
