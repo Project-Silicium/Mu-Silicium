@@ -130,3 +130,7 @@
 
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE|BOOLEAN|0x0000a500
+
+  # Ram Partition
+  gQcomPkgTokenSpaceGuid.PcdEnableRamPartition|FALSE|BOOLEAN|0x0000a600
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000a601
