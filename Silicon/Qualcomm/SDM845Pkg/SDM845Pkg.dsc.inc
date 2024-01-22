@@ -11,7 +11,7 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER = 1
+  USE_PHYSICAL_TIMER = 0
 
 [BuildOptions.common]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
