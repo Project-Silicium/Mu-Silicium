@@ -33,36 +33,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"Log Buffer",            0x5FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",              0x5FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
 
-//=================================================================================================================
-#if DEVICE_RAM == 3
-//==================================================3GB RAM Setup==================================================
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
-  {"RAM Partition",       0x60000000, 0x1E580000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-  // DDR Bank 0 end
-
-  // DDR Bank 1 start
-  {"RAM Partition",       0x80000000, 0x80000000, AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-//=================================================================================================================
-#elif DEVICE_RAM == 4
-//==================================================4GB RAM Setup==================================================
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
-  {"RAM Partition",         0x60000000, 0x1DD00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-  // DDR Bank 0 end
-
-  // DDR Bank 1 start
-  {"RAM Partition",         0x80000000, 0xC0000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-//=================================================================================================================
-#elif DEVICE_RAM == 6
-//==================================================6GB RAM Setup==================================================
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
-  {"RAM Partition",         0x60000000, 0x1CC00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-  // DDR Bank 0 end
-
-  // DDR Bank 1 start
-  {"RAM Partition",         0x80000000, 0x140000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-//=================================================================================================================
-#endif
-
   // Other memory regions
   {"RPM_SS_MSG_RAM",        0x045F0000, 0x00007000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
   {"IMEM Base",             0x0C100000, 0x00026000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},

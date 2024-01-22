@@ -405,6 +405,7 @@
 
   QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  QcomPkg/Drivers/RamPartitionDxe/RamPartitionDxe.inf
 
 !if $(AB_SLOT_SUPPORT) == 1
   # Slot Switch App
