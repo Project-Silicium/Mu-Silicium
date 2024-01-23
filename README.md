@@ -25,7 +25,7 @@ Or [Mu-Samsung](https://github.com/sonic011gamer/Mu-Samsung), UEFI for Exynos De
 
 ## FAQ
 
-#### How is this diffrent from any other Qualcomm WoA Project?
+#### How is this different from any other Qualcomm WoA Project?
 
 ```
 Not Much is different, The only Thing we do different here is making a Stable and Safe UEFI for Phones / Tablets.
