@@ -28,7 +28,7 @@ Or [Mu-Samsung](https://github.com/sonic011gamer/Mu-Samsung), UEFI for Exynos De
 #### How is this diffrent from any other Qualcomm WoA Project?
 
 ```
-Not Much is diffrent, The only Thing we do diffrent here is making a Stable and Save UEFI for Phones / Tablets.
+Not Much is different, The only Thing we do different here is making a Stable and Safe UEFI for Phones / Tablets.
 Not Saying the Other WoA Projects are Bad, Make sure to check them out too!
 ```
 
@@ -41,15 +41,15 @@ Check the Status Page to see if your Device can run this UEFI.
 #### What if, My Device isn't Supported?
 
 ```
-We do have Porting Guides that will Guide you through the Porting Process.
+We have Porting Guides that will Guide you through the Porting Process.
 (And Please don't try Images from another Devices on yours. Please.)
 ```
 
 #### Can I run this on any Other Chipsets like Rockchip?
 
 ```
-Unfortunately No, This Repo is only dedecated to Qualcomm Devices.
-But we do have Other Repos that Support other Chipsets like Tegra or Exynos.
+Unfortunately No, This Repo is only dedicated to Qualcomm Devices.
+But we have Other Repos that Support other Chipsets like Tegra or Exynos.
 ```
 
 ## Credits
