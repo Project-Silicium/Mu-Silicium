@@ -34,6 +34,10 @@
   INF Binaries/starqlte/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
@@ -45,12 +49,12 @@
 
   INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
 
+  INF Binaries/starqlte/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-
   INF Binaries/starqlte/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-
   INF Binaries/starqlte/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
 !if $(USE_DISPLAYDXE) == 1
@@ -62,12 +66,12 @@
   INF Binaries/starqlte/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
