@@ -2,7 +2,7 @@
 
 # Function to display Help Message
 function _help(){
-	echo "Usage: ./build_uefi.sh -d <Codename> [-r <Build Mode> -m <RAM Size>]"
+	echo "Usage: ./build_uefi.sh -d <Codename> [-r <Build Mode>]"
 	echo
 	echo "Build Project Mu UEFI for Qualcomm Snapdragon Platforms."
 	echo
@@ -10,7 +10,6 @@ function _help(){
 	echo "	--device <Codename>, -d <Codename>:         Build a Device."
 	echo "	--release <Build Mode>, -r <Build Mode>:    Release mode for building, 'RELEASE' is the default or use 'DEBUG' alternatively."
 	echo "	--help, -h:                                 Shows this Help."
-	echo "	--memory <RAM Size>, -m <RAM Size>:         Define how much Memory your Device has."
 	echo "  --acpi, -a:                                 Use iasl to recompile device specific ACPI tables present on ACPI.inc."
 	echo
 	echo "MainPage: https://github.com/Robotix22/Mu-Qcom"
@@ -24,7 +23,6 @@ function _ntf(){ echo -e "\033[0;32m${@}\033[0m" >&2; }
 
 # Set Default Defines
 TARGET_BUILD_MODE=RELEASE
-MULTIPLE_RAM_SIZE="FALSE"
 
 function _acpi(){
 	echo -e "\nUpdating device ACPI tables\n"
@@ -81,14 +79,13 @@ function _acpi(){
 }
 
 # Check if any args were given
-OPTS="$(getopt -o d:hfbc:r:m:a -l device:,help,release:,memory:,acpi -n 'build_uefi.sh' -- "$@")"||exit 1
+OPTS="$(getopt -o d:hfbc:r:a -l device:,help,release:,acpi -n 'build_uefi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do	case "${1}" in
 		-d|--device) TARGET_DEVICE="${2}";shift 2;;
 		-h|--help) _help 0;shift;;
 		-r|--release) TARGET_BUILD_MODE="${2}";shift 2;;
-		-m|--memory) TARGET_RAM_SIZE="${2}";shift 2;;
 		-a|--acpi) _acpi;shift;;
 		--) shift;break;;
 		*) _help 1;;
@@ -111,13 +108,6 @@ esac
 if [ -f "configs/${TARGET_DEVICE}.conf" ]
 then source "configs/${TARGET_DEVICE}.conf"
 else _error "\nDevice configuration not found!\nCheck if your .conf File is in the 'configs' Folder\n"
-fi
-
-# Check if Device has more that one Static RAM Size
-if [ -z ${TARGET_RAM_SIZE} ]; then
-	if [ ${MULTIPLE_RAM_SIZE} == TRUE ]
-	then _warn "\nThe Device you chose has more than one RAM Size!\nUse -m or --memory to define how much RAM your Device has.\n" && exit 0
-	fi
 fi
 
 # Delete Output Files if present
@@ -143,7 +133,7 @@ git apply UsbBus.patch &> /dev/null
 cd ..
 
 # Start the Real Build of the UEFI
-python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TARGET=${_TARGET_BUILD_MODE}" "RAM_SIZE=${TARGET_RAM_SIZE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}"||_error "\nFailed to Compile UEFI!\n"
+python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TARGET=${_TARGET_BUILD_MODE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}"||_error "\nFailed to Compile UEFI!\n"
 
 # Execute Device Specific Boot Image Creation
 if [ -f "configs/${TARGET_DEVICE}.sh" ]

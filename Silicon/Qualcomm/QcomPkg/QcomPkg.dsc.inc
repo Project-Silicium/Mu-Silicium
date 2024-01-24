@@ -35,6 +35,8 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
 
 [PcdsFixedAtBuild.common]
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000             # 512 MB Size
+
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.3"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01231229
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
@@ -405,7 +407,7 @@
 
   QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-  QcomPkg/Drivers/RamPartitionDxe/RamPartitionDxe.inf
+  QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
 
 !if $(AB_SLOT_SUPPORT) == 1
   # Slot Switch App

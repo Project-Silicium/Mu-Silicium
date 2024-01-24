@@ -27,9 +27,6 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
 
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -DDEVICE_RAM=$(RAM_SIZE)
-
 [LibraryClasses.common]
   DeviceMemoryMapLib|fogPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|fogPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
@@ -37,7 +34,6 @@
 [PcdsFixedAtBuild.common]
   # Device Specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000            # Starting Address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000            # 3GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Statzar"  # Device Maintainer
 
@@ -61,8 +57,7 @@
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
 
-  # Ram partitions
-  gQcomPkgTokenSpaceGuid.PcdEnableRamPartition|TRUE
+  # Dynamic RAM
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
 
 [PcdsDynamicDefault.common]

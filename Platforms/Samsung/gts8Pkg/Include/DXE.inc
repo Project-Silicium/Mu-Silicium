@@ -63,6 +63,8 @@
   INF Binaries/gts8/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf

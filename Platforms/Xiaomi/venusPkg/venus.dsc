@@ -42,13 +42,6 @@
 [PcdsFixedAtBuild.common]
   # Device Specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000              # Starting Address
-!if $(RAM_SIZE) == 12
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000             # 12GB Size
-!elseif $(RAM_SIZE) == 8
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000             # 8GB Size
-!else
-!error "Invalid RAM Size! Use 12 or 8."
-!endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Daniel6745" # Device Maintainer
 
@@ -71,6 +64,9 @@
 
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
+
+  # Dynamic RAM
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE4E00000
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440

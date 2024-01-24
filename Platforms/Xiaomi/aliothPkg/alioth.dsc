@@ -33,7 +33,7 @@
   SOC_TYPE                       = 2
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDEVICE_RAM=$(RAM_SIZE)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
 [LibraryClasses.common]
   DeviceMemoryMapLib|aliothPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
@@ -42,7 +42,6 @@
 [PcdsFixedAtBuild.common]
   # Device Specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000                        # Starting Address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000                       # 6 GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"AdrianoA3 & N1kroks"  # Device Maintainer
 
@@ -66,8 +65,7 @@
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
 
-  # Ram partitions
-  gQcomPkgTokenSpaceGuid.PcdEnableRamPartition|TRUE
+  # Dynamic RAM
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 
 [PcdsDynamicDefault.common]

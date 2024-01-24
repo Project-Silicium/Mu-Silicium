@@ -42,15 +42,6 @@
 [PcdsFixedAtBuild.common]
   # Device Specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000            # Starting Address
-!if $(RAM_SIZE) == 6
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x150000000           # 6 GB Size
-!elseif $(RAM_SIZE) == 8
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000           # 8 GB Size
-!elseif $(RAM_SIZE) == 12
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000           # 12 GB Size
-!else
-!error "Invaild RAM Size! Use 6, 8 or 12."
-!endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"mat-777"  # Device Maintainer
 
@@ -73,6 +64,9 @@
 
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
+
+  # Dynamic RAM
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB9400000
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440

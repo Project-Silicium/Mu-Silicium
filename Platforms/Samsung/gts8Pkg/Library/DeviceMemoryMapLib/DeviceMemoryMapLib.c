@@ -36,9 +36,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"HYP Reserved",      0x830000000,0x10000000, AddDynamicMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"SEC Debug",         0x800000000,0x0B900000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
 
-  // RAM partition regions
-  {"RAM Partition",     0x840000000,0x140000000,AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
   // Other memory regions
   {"IMEM Base",         0x14680000, 0x0002A000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
   {"IMEM Cookie Base",  0x146AA000, 0x00016000, AddDev, MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},

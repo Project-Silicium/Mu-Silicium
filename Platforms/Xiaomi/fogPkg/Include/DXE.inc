@@ -37,7 +37,7 @@
   INF Binaries/fog/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/RamPartitionDxe/RamPartitionDxe.inf
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
   
   INF Binaries/fog/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/NpaDxe/NpaDxe.inf

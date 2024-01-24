@@ -34,7 +34,6 @@
 [PcdsFixedAtBuild.common]
   # Device Specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000             # Starting Address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000            # 4GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22" # Device Maintainer
 
@@ -57,6 +56,9 @@
 
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
+
+  # Dynamic RAM
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

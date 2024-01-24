@@ -42,7 +42,6 @@
 [PcdsFixedAtBuild.common]
   # Device Specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000              # Starting Address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000             # 4GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"AistopGit"  # Device Maintainer
 
@@ -66,8 +65,7 @@
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
 
-  # Ram partitions
-  gQcomPkgTokenSpaceGuid.PcdEnableRamPartition|TRUE
+  # Dynamic RAM
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
   
 [PcdsDynamicDefault.common]

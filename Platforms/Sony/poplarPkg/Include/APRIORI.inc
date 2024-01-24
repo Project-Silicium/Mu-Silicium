@@ -23,6 +23,9 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/poplar/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

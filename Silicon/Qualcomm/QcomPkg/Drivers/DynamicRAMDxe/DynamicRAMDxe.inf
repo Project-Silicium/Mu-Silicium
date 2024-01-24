@@ -1,13 +1,13 @@
 [Defines]
   INF_VERSION                    = 0x0010005
-  BASE_NAME                      = RamPartitionDxe
+  BASE_NAME                      = DynamicRAMDxe
   FILE_GUID                      = 16ff5d68-b234-429a-8517-6d09df626b27
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = RamPartitionDxeInit
+  ENTRY_POINT                    = AddRAMPartitions
 
 [Sources]
-  RamPartitionDxe.c
+  DynamicRAMDxe.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -16,22 +16,20 @@
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  BaseLib
-  UefiLib
   UefiBootServicesTableLib
   DxeServicesTableLib
   UefiDriverEntryPoint
   DebugLib
   PcdLib
+  DeviceMemoryMapLib
   ArmMmuLib
+
+[FixedPcd]
+  gArmTokenSpaceGuid.PcdSystemMemoryBase
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase
 
 [Protocols]
   gEfiSMEMProtocolGuid
 
-[FixedPcd]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase
-  gQcomPkgTokenSpaceGuid.PcdEnableRamPartition
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase
-
 [Depex]
-  gEfiSMEMProtocolGuid
+  TRUE

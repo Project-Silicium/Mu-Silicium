@@ -34,7 +34,6 @@
 [PcdsFixedAtBuild.common]
   # Device Specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000            # Starting Address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000           # 6GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Statzar"  # Device Maintainer
 
@@ -57,6 +56,9 @@
 
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
+
+  # Dynamic RAM
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

@@ -33,7 +33,7 @@
   SOC_TYPE                       = 0
 
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
 [LibraryClasses.common]
   DeviceMemoryMapLib|lisaPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
@@ -41,13 +41,6 @@
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000           # Starting address
-!if $(RAM_SIZE) == 6
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000          # 6GB Size
-!elseif $(RAM_SIZE) == 8
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000          # 8GB Size
-!else
-!error "Invalid RAM Size! Use 6 or 8."
-!endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"ETCHDEV" # Device Maintainer
 
@@ -70,6 +63,9 @@
 
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
+
+  # Dynamic RAM
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE3400000
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

@@ -24,6 +24,9 @@ APRIORI DXE {
 
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotBootFlagsDxe/MotBootFlagsDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/caprip/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

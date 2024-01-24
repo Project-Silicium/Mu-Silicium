@@ -36,6 +36,9 @@
   INF Binaries/spes/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/spes/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 
