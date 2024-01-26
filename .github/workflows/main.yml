@@ -32,7 +32,7 @@ jobs:
           ./setup_env.sh -p apt
       - name: Build an image for ${{ matrix.device }}
         run: |
-          /build_uefi.sh -d alioth
+          ./build_uefi.sh -d alioth
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
