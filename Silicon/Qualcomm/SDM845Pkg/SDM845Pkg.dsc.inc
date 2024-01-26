@@ -14,7 +14,7 @@
   USE_PHYSICAL_TIMER = 0
 
 [BuildOptions.common]
-  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
@@ -33,11 +33,12 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
 
 [LibraryClasses.common]
   PlatformPeiLib|SDM845Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SDM845Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  RFSProtectionLib|SDM845Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SDM845Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf

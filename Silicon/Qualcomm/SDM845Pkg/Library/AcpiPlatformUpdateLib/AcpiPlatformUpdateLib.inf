@@ -29,8 +29,10 @@
   UefiBootServicesTableLib
   UefiLib
   AslUpdateLib
+  RFSProtectionLib
   MemoryMapHelperLib
 
 [Protocols]
   gEfiChipInfoProtocolGuid                      ## CONSUMES
+  gEfiSMEMProtocolGuid                          ## CONSUMES
   gEfiPlatformInfoProtocolGuid                  ## CONSUMES

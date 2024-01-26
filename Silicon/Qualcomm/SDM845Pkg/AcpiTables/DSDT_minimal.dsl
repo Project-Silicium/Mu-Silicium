@@ -1,4 +1,4 @@
-DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
+DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8150 ", 0x00000003)
 {
     Scope (_SB)
     {
@@ -6,7 +6,42 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
         {
             Name (_HID, "ACPI0010" /* Processor Container Device */)  // _HID: Hardware ID
             Name (_UID, 0x00100000)  // _UID: Unique ID
-            Device (CLU0)
+            Name (_LPI, Package (0x04)  // _LPI: Low Power Idle States
+            {
+                Zero, 
+                0x01000000, 
+                One, 
+                Package (0x0A)
+                {
+                    0x251C, 
+                    0x1770, 
+                    One, 
+                    0x20, 
+                    Zero, 
+                    Zero, 
+                    0xA300, 
+                    ResourceTemplate ()
+                    {
+                        Register (SystemMemory, 
+                            0x00,               // Bit Width
+                            0x00,               // Bit Offset
+                            0x0000000000000000, // Address
+                            ,)
+                    }, 
+
+                    ResourceTemplate ()
+                    {
+                        Register (SystemMemory, 
+                            0x00,               // Bit Width
+                            0x00,               // Bit Offset
+                            0x0000000000000000, // Address
+                            ,)
+                    }, 
+
+                    "platform.DRIPS"
+                }
+            })
+            Device (CLUS)
             {
                 Name (_HID, "ACPI0010" /* Processor Container Device */)  // _HID: Hardware ID
                 Name (_UID, 0x10)  // _UID: Unique ID
@@ -17,8 +52,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                     0x02, 
                     Package (0x0A)
                     {
-                        0x01F8, 
-                        0x0086, 
+                        0x170C, 
+                        0x0BB8, 
                         Zero, 
                         Zero, 
                         Zero, 
@@ -42,13 +77,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                                 ,)
                         }, 
 
-                        "L2Active.D2"
+                        "L3Cluster.D2"
                     }, 
 
                     Package (0x0A)
                     {
-                        0x23DF, 
-                        0x11D2, 
+                        0x1770, 
+                        0x0CE4, 
                         One, 
                         Zero, 
                         Zero, 
@@ -72,7 +107,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                                 ,)
                         }, 
 
-                        "L2PowerCollapse.D4"
+                        "L3Cluster.D4"
                     }
                 })
                 Device (CPU0)
@@ -84,11 +119,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                         Return (0x0F)
                     }
 
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero, 
                         Zero, 
-                        0x03, 
+                        0x04, 
                         Package (0x0A)
                         {
                             Zero, 
@@ -130,8 +165,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x01F8, 
-                            0x56, 
+                            0x0190, 
+                            0x64, 
                             Zero, 
                             Zero, 
                             Zero, 
@@ -169,8 +204,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x23DF, 
-                            0x11D2, 
+                            0x0F0A, 
+                            0x035C, 
                             One, 
                             One, 
                             Zero, 
@@ -204,6 +239,45 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                             }, 
 
                             "KryoSilver0.C3"
+                        }, 
+
+                        Package (0x0A)
+                        {
+                            0x0F6E, 
+                            0x038E, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW, 
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            "KryoSilver0.C4"
                         }
                     })
                 }
@@ -217,11 +291,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                         Return (0x0F)
                     }
 
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero, 
                         Zero, 
-                        0x03, 
+                        0x04, 
                         Package (0x0A)
                         {
                             Zero, 
@@ -263,8 +337,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x01F8, 
-                            0x56, 
+                            0x0190, 
+                            0x64, 
                             Zero, 
                             Zero, 
                             Zero, 
@@ -302,8 +376,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x23DF, 
-                            0x11D2, 
+                            0x0F0A, 
+                            0x035C, 
                             One, 
                             One, 
                             Zero, 
@@ -337,6 +411,45 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                             }, 
 
                             "KryoSilver1.C3"
+                        }, 
+
+                        Package (0x0A)
+                        {
+                            0x0F6E, 
+                            0x038E, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW, 
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            "KryoSilver1.C4"
                         }
                     })
                 }
@@ -350,11 +463,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                         Return (0x0F)
                     }
 
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero, 
                         Zero, 
-                        0x03, 
+                        0x04, 
                         Package (0x0A)
                         {
                             Zero, 
@@ -396,8 +509,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x01F8, 
-                            0x56, 
+                            0x0190, 
+                            0x64, 
                             Zero, 
                             Zero, 
                             Zero, 
@@ -435,8 +548,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x23DF, 
-                            0x11D2, 
+                            0x0F0A, 
+                            0x035C, 
                             One, 
                             One, 
                             Zero, 
@@ -470,6 +583,45 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                             }, 
 
                             "KryoSilver2.C3"
+                        }, 
+
+                        Package (0x0A)
+                        {
+                            0x0F6E, 
+                            0x038E, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW, 
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            "KryoSilver2.C4"
                         }
                     })
                 }
@@ -483,11 +635,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                         Return (0x0F)
                     }
 
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero, 
                         Zero, 
-                        0x03, 
+                        0x04, 
                         Package (0x0A)
                         {
                             Zero, 
@@ -529,8 +681,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x01F8, 
-                            0x56, 
+                            0x0190, 
+                            0x64, 
                             Zero, 
                             Zero, 
                             Zero, 
@@ -568,8 +720,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x23DF, 
-                            0x11D2, 
+                            0x0F0A, 
+                            0x035C, 
                             One, 
                             One, 
                             Zero, 
@@ -603,80 +755,49 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                             }, 
 
                             "KryoSilver3.C3"
+                        }, 
+
+                        Package (0x0A)
+                        {
+                            0x0F6E, 
+                            0x038E, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW, 
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            "KryoSilver3.C4"
                         }
                     })
                 }
-            }
 
-            Device (CLU1)
-            {
-                Name (_HID, "ACPI0010" /* Processor Container Device */)  // _HID: Hardware ID
-                Name (_UID, 0x20)  // _UID: Unique ID
-                Name (_LPI, Package (0x05)  // _LPI: Low Power Idle States
-                {
-                    Zero, 
-                    0x01000000, 
-                    0x02, 
-                    Package (0x0A)
-                    {
-                        0x0516, 
-                        0x0052, 
-                        Zero, 
-                        Zero, 
-                        Zero, 
-                        Zero, 
-                        0x20, 
-                        ResourceTemplate ()
-                        {
-                            Register (SystemMemory, 
-                                0x00,               // Bit Width
-                                0x00,               // Bit Offset
-                                0x0000000000000000, // Address
-                                ,)
-                        }, 
-
-                        ResourceTemplate ()
-                        {
-                            Register (SystemMemory, 
-                                0x00,               // Bit Width
-                                0x00,               // Bit Offset
-                                0x0000000000000000, // Address
-                                ,)
-                        }, 
-
-                        "L2Active.D2"
-                    }, 
-
-                    Package (0x0A)
-                    {
-                        0x24CB, 
-                        0x07EB, 
-                        One, 
-                        Zero, 
-                        Zero, 
-                        One, 
-                        0x40, 
-                        ResourceTemplate ()
-                        {
-                            Register (SystemMemory, 
-                                0x00,               // Bit Width
-                                0x00,               // Bit Offset
-                                0x0000000000000000, // Address
-                                ,)
-                        }, 
-
-                        ResourceTemplate ()
-                        {
-                            Register (SystemMemory, 
-                                0x00,               // Bit Width
-                                0x00,               // Bit Offset
-                                0x0000000000000000, // Address
-                                ,)
-                        }, 
-
-                        "L2PowerCollapse.D4"
-                    }
-                })
                 Device (CPU4)
                 {
                     Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
@@ -686,11 +807,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                         Return (0x0F)
                     }
 
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero, 
                         Zero, 
-                        0x03, 
+                        0x04, 
                         Package (0x0A)
                         {
                             Zero, 
@@ -732,8 +853,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0204, 
-                            0x52, 
+                            0x0190, 
+                            0x64, 
                             Zero, 
                             Zero, 
                             Zero, 
@@ -771,8 +892,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x24CB, 
-                            0x07EB, 
+                            0x0F96, 
+                            0x03E8, 
                             One, 
                             One, 
                             Zero, 
@@ -806,6 +927,45 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                             }, 
 
                             "KryoGold0.C3"
+                        }, 
+
+                        Package (0x0A)
+                        {
+                            0x118A, 
+                            0x05DC, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW, 
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            "KryoGold0.C4"
                         }
                     })
                 }
@@ -819,11 +979,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                         Return (0x0F)
                     }
 
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero, 
                         Zero, 
-                        0x03, 
+                        0x04, 
                         Package (0x0A)
                         {
                             Zero, 
@@ -865,8 +1025,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0204, 
-                            0x52, 
+                            0x0190, 
+                            0x64, 
                             Zero, 
                             Zero, 
                             Zero, 
@@ -904,8 +1064,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x24CB, 
-                            0x07EB, 
+                            0x0F96, 
+                            0x03E8, 
                             One, 
                             One, 
                             Zero, 
@@ -939,6 +1099,45 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                             }, 
 
                             "KryoGold1.C3"
+                        }, 
+
+                        Package (0x0A)
+                        {
+                            0x118A, 
+                            0x05DC, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW, 
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            "KryoGold1.C4"
                         }
                     })
                 }
@@ -952,11 +1151,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                         Return (0x0F)
                     }
 
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero, 
                         Zero, 
-                        0x03, 
+                        0x04, 
                         Package (0x0A)
                         {
                             Zero, 
@@ -998,8 +1197,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0204, 
-                            0x52, 
+                            0x0190, 
+                            0x64, 
                             Zero, 
                             Zero, 
                             Zero, 
@@ -1037,8 +1236,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x24CB, 
-                            0x07EB, 
+                            0x0F96, 
+                            0x03E8, 
                             One, 
                             One, 
                             Zero, 
@@ -1072,6 +1271,45 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                             }, 
 
                             "KryoGold2.C3"
+                        }, 
+
+                        Package (0x0A)
+                        {
+                            0x118A, 
+                            0x05DC, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW, 
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            "KryoGold2.C4"
                         }
                     })
                 }
@@ -1085,11 +1323,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                         Return (0x0F)
                     }
 
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero, 
                         Zero, 
-                        0x03, 
+                        0x04, 
                         Package (0x0A)
                         {
                             Zero, 
@@ -1131,8 +1369,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x0204, 
-                            0x52, 
+                            0x0190, 
+                            0x64, 
                             Zero, 
                             Zero, 
                             Zero, 
@@ -1170,8 +1408,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
 
                         Package (0x0A)
                         {
-                            0x24CB, 
-                            0x07EB, 
+                            0x0F96, 
+                            0x03E8, 
                             One, 
                             One, 
                             Zero, 
@@ -1205,6 +1443,45 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM845 ", 0x00000003)
                             }, 
 
                             "KryoGold3.C3"
+                        }, 
+
+                        Package (0x0A)
+                        {
+                            0x118A, 
+                            0x05DC, 
+                            One, 
+                            One, 
+                            Zero, 
+                            0x02, 
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW, 
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory, 
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            }, 
+
+                            "KryoGold3.C4"
                         }
                     })
                 }

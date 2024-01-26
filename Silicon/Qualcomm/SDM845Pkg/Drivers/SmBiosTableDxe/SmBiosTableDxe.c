@@ -1,5 +1,5 @@
 /** @file
-  SMBIOS Table for Snapdragon 845
+  SMBIOS Table for Snapdragon 855/855+/860
   Derived from EmulatorPkg package
 
   Note SMBIOS 2.7.1 Required structures:
@@ -303,8 +303,13 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4 = {
         0  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-    2803,                  // MaxSpeed;
-    2803,                  // CurrentSpeed;
+#if SOC_TYPE == 0
+    2840,                  // MaxSpeed;
+    2840,                  // CurrentSpeed;
+#else
+    2960,                  // MaxSpeed;
+    2960,                  // CurrentSpeed;
+#endif
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;      ///< The enumeration value
                            // from PROCESSOR_UPGRADE.
@@ -331,9 +336,9 @@ CHAR8 *mProcessorInfoType4Strings[] = {
 SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1IC = {
     {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
     1,      // SocketDesignation String
-    0x0380, // Cache Configuration
-    0x0030, // Maximum Size
-    0x0030, // Install Size
+    0x0280, // Cache Configuration
+    0x0180, // Maximum Size
+    0x0180, // Install Size
     {
         // Supported SRAM Type
         0, // Other             :1
@@ -367,8 +372,8 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1DC = {
     {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
     1,      // SocketDesignation String
     0x0280, // Cache Configuration
-    0x0040, // Maximum Size
-    0x0040, // Install Size
+    0x0180, // Maximum Size
+    0x0180, // Install Size
     {
         // Supported SRAM Type
         0, // Other             :1
@@ -402,6 +407,41 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
     {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
     1,      // SocketDesignation String
     0x0281, // Cache Configuration
+    0x0500, // Maximum Size
+    0x0500, // Install Size
+    {
+        // Supported SRAM Type
+        0, // Other             :1
+        0, // Unknown           :1
+        0, // NonBurst          :1
+        0, // Burst             :1
+        0, // PiplelineBurst    :1
+        0, // Synchronous       :1
+        0, // Asynchronous      :1
+        0  // Reserved          :9
+    },
+    {
+        // Current SRAM Type
+        0, // Other             :1
+        0, // Unknown           :1
+        0, // NonBurst          :1
+        0, // Burst             :1
+        0, // PiplelineBurst    :1
+        0, // Synchronous       :1
+        0, // Asynchronous      :1
+        0  // Reserved          :9
+    },
+    0,                     // Cache Speed unknown
+    CacheErrorParity,      // Error Correction Multi
+    CacheTypeUnified,      // System Cache Type
+    CacheAssociativity8Way // Associativity
+};
+CHAR8 *mCacheInfoType7_L2CStrings[] = {"L2 Cache", NULL};
+
+SMBIOS_TABLE_TYPE7 mCacheInfoType7_L3C = {
+    {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
+    1,      // SocketDesignation String
+    0x0282, // Cache Configuration
     0x0800, // Maximum Size
     0x0800, // Install Size
     {
@@ -431,7 +471,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
     CacheTypeUnified,      // System Cache Type
     CacheAssociativity8Way // Associativity
 };
-CHAR8 *mCacheInfoType7_L2CStrings[] = {"L2 Cache", NULL};
+CHAR8 *mCacheInfoType7_L3CStrings[] = {"L3 Cache", NULL};
 
 /***********************************************************************
         SMBIOS data definition  TYPE16  Physical Memory ArrayInformation
@@ -491,7 +531,7 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
         0, // Unbuffered      :1;
         0, // Reserved1       :1;
     },
-    1866, // Speed;
+    2750, // Speed;
     2,    // Manufacturer String
     3,    // SerialNumber String
     4,    // AssetTag String
@@ -728,6 +768,10 @@ VOID CacheInfoUpdateSmbiosType7(VOID)
       (EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L2C,
       mCacheInfoType7_L2CStrings, &SmbiosHandle);
   mProcessorInfoType4.L2CacheHandle = (UINT16)SmbiosHandle;
+  LogSmbiosData(
+      (EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L3C,
+      mCacheInfoType7_L3CStrings, &SmbiosHandle);
+  mProcessorInfoType4.L3CacheHandle = (UINT16)SmbiosHandle;
 }
 
 /***********************************************************************
