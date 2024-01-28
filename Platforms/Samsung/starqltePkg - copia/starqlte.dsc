@@ -16,7 +16,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = starqlte
-  PLATFORM_GUID                  = 7b23c557-6bf5-4120-b9c7-8f9cb2137a00
+  PLATFORM_GUID                  = d6d8e3f8-5a15-4b49-844b-35efce9b947b
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/starqltePkg
@@ -26,24 +26,21 @@
   FLASH_DEFINITION               = starqltePkg/starqlte.fdf
   USE_DISPLAYDXE                 = 0
 
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
-
 [LibraryClasses.common]
   DeviceMemoryMapLib|starqltePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|starqltePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000            # Starting Address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000           # 6 GB Size
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000              # Starting Address
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000             # 4 GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"vice2008"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000         # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        # 256K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"

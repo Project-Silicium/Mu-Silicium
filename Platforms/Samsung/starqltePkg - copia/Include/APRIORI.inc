@@ -21,15 +21,15 @@ APRIORI DXE {
 
   INF Binaries/starqlte/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
-  INF Binaries/starqlte/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
-  INF Binaries/starqlte/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
-  INF Binaries/starqlte/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
-  INF Binaries/starqlte/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
-  INF Binaries/starqlte/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
+  INF Binaries/starqlte/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/starqlte/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
   INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf

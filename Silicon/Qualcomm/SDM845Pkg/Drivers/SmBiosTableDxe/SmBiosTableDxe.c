@@ -303,13 +303,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4 = {
         0  // ProcessorVoltageIndicateLegacy      :1;
     },
     0,                     // ExternalClock;
-#if SOC_TYPE == 0
     2840,                  // MaxSpeed;
     2840,                  // CurrentSpeed;
-#else
-    2960,                  // MaxSpeed;
-    2960,                  // CurrentSpeed;
-#endif
     0x41,                  // Status;
     ProcessorUpgradeOther, // ProcessorUpgrade;      ///< The enumeration value
                            // from PROCESSOR_UPGRADE.
