@@ -18,8 +18,14 @@ jobs:
     name: Image Build
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
     
+    strategy:
+      max-parallel: 8
+      matrix:
+          device:
+          # sm8150
+          - alioth
+          - pipa
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,8 +38,7 @@ jobs:
           ./setup_env.sh -p apt
       - name: Build an image for ${{ matrix.device }}
         run: |
-          ./build_uefi.sh -d alioth -m 8
-
+          ./build_uefi.sh --device ${{ matrix.device }} -m 8
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
         with: # Artifact name
