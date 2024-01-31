@@ -55,6 +55,7 @@ be found at http://opensource.org/licenses/bsd-license.php
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiDriverEntryPoint.h>
 #include <Library/UefiLib.h>
+#include <Library/RamPartitionTableLib.h>
 
 /* Used to read chip serial number */
 #include <Protocol/EFIChipInfo.h>
@@ -777,10 +778,10 @@ VOID CacheInfoUpdateSmbiosType7(VOID)
 /***********************************************************************
         SMBIOS data update  TYPE16  Physical Memory Array Information
 ************************************************************************/
-VOID PhyMemArrayInfoUpdateSmbiosType16(VOID)
+VOID PhyMemArrayInfoUpdateSmbiosType16(IN UINT64 SystemMemorySize)
 {
   EFI_SMBIOS_HANDLE MemArraySmbiosHande;
-
+  mPhyMemArrayInfoType16.ExtendedMaximumCapacity = SystemMemorySize;
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mPhyMemArrayInfoType16,
       mPhyMemArrayInfoType16Strings, &MemArraySmbiosHande);
@@ -794,9 +795,9 @@ VOID PhyMemArrayInfoUpdateSmbiosType16(VOID)
 /***********************************************************************
         SMBIOS data update  TYPE17  Memory Device Information
 ************************************************************************/
-VOID MemDevInfoUpdateSmbiosType17(VOID)
+VOID MemDevInfoUpdateSmbiosType17(IN UINT64 SystemMemorySize)
 {
-  mMemDevInfoType17.Size = FixedPcdGet64(PcdSystemMemorySize) / 0x100000;
+  mMemDevInfoType17.Size = SystemMemorySize / 0x100000;
 
   LogSmbiosData(
       (EFI_SMBIOS_TABLE_HEADER *)&mMemDevInfoType17, mMemDevInfoType17Strings,
@@ -806,12 +807,12 @@ VOID MemDevInfoUpdateSmbiosType17(VOID)
 /***********************************************************************
         SMBIOS data update  TYPE19  Memory Array Map Information
 ************************************************************************/
-VOID MemArrMapInfoUpdateSmbiosType19(VOID)
+VOID MemArrMapInfoUpdateSmbiosType19(IN UINT64 SystemMemorySize)
 {
   mMemArrMapInfoType19.StartingAddress =
       FixedPcdGet64(PcdSystemMemoryBase) / 1024;
   mMemArrMapInfoType19.EndingAddress =
-      (FixedPcdGet64(PcdSystemMemorySize) + FixedPcdGet64(PcdSystemMemoryBase) -
+      (SystemMemorySize + FixedPcdGet64(PcdSystemMemoryBase) -
        1) /
       1024;
 
@@ -828,11 +829,15 @@ EFIAPI
 SmBiosTableDxeInitialize(
     IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS               Status;
-  CHAR8                    serialNo[EFICHIPINFO_MAX_ID_LENGTH];
-  UINTN                    serialNoLength = EFICHIPINFO_MAX_ID_LENGTH;
-  EFIChipInfoSerialNumType serial;
-  EFI_CHIPINFO_PROTOCOL   *mBoardProtocol  = NULL;
+  EFI_STATUS                Status;
+  CHAR8                     serialNo[EFICHIPINFO_MAX_ID_LENGTH];
+  UINTN                     serialNoLength = EFICHIPINFO_MAX_ID_LENGTH;
+  EFIChipInfoSerialNumType  serial;
+  EFI_CHIPINFO_PROTOCOL    *mBoardProtocol  = NULL;
+  struct RAMPartitionTable *RAMPartitionTable = NULL;
+  UINT32                    NumPartitions = 0;
+  UINT32                    PartitionVersion = 0;
+  UINT64                    SystemMemorySize = 0;
 
   // Locate Qualcomm Board Protocol
   Status = gBS->LocateProtocol(
@@ -850,9 +855,46 @@ SmBiosTableDxeInitialize(
   EnclosureInfoUpdateSmbiosType3(serialNo);
   ProcessorInfoUpdateSmbiosType4();
   CacheInfoUpdateSmbiosType7();
-  PhyMemArrayInfoUpdateSmbiosType16();
-  MemDevInfoUpdateSmbiosType17();
-  MemArrMapInfoUpdateSmbiosType19();
+  // Locate Qualcomm Board Protocol
+  Status = gBS->LocateProtocol(
+      &gEfiChipInfoProtocolGuid, NULL, (VOID *)&mBoardProtocol);
+
+  if (mBoardProtocol != NULL) {
+    mBoardProtocol->GetSerialNumber(mBoardProtocol, &serial);
+    ZeroMem(serialNo, serialNoLength);
+    AsciiSPrint(serialNo, serialNoLength, "%lld", serial);
+  }
+
+  BIOSInfoUpdateSmbiosType0();
+  SysInfoUpdateSmbiosType1(serialNo, serial);
+  BoardInfoUpdateSmbiosType2(serialNo);
+  EnclosureInfoUpdateSmbiosType3(serialNo);
+  ProcessorInfoUpdateSmbiosType4();
+  CacheInfoUpdateSmbiosType7();
+
+  Status = GetRamPartitions (&RAMPartitionTable, &NumPartitions, &PartitionVersion);
+  if (EFI_ERROR (Status) || (NumPartitions < 1) || (PartitionVersion == 1)) {
+    FreePool(RAMPartitionTable);
+    RAMPartitionTable = NULL;
+    SystemMemorySize = FixedPcdGet64(PcdSystemMemorySize);
+  }
+
+  if(SystemMemorySize != FixedPcdGet64(PcdSystemMemorySize)) {
+    for(UINTN i = 0; i < NumPartitions; i++) {
+      if (RAMPartitionTable->RAMPartitionEntry[i].Type != RAM_PART_SYS_MEMORY || RAMPartitionTable->RAMPartitionEntry[i].Category != RAM_PART_SDRAM) { continue; }
+      SystemMemorySize += RAMPartitionTable->RAMPartitionEntry[i].AvailableLength;
+    }
+
+    UINTN DesignMemorySize = 0;
+    while(SystemMemorySize >= DesignMemorySize)
+      DesignMemorySize += 0x40000000; // 1GB
+
+    SystemMemorySize = DesignMemorySize;
+  }
+
+  PhyMemArrayInfoUpdateSmbiosType16(SystemMemorySize);
+  MemDevInfoUpdateSmbiosType17(SystemMemorySize);
+  MemArrMapInfoUpdateSmbiosType19(SystemMemorySize);
 
   return EFI_SUCCESS;
 }

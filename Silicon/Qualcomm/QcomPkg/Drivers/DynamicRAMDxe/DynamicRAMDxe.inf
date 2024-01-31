@@ -23,13 +23,11 @@
   PcdLib
   DeviceMemoryMapLib
   ArmMmuLib
+  RamPartitionTableLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase
-
-[Protocols]
-  gEfiSMEMProtocolGuid
 
 [Depex]
   TRUE
