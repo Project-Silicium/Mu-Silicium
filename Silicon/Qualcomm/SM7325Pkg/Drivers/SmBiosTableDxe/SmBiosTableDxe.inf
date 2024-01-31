@@ -42,6 +42,7 @@
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   UefiLib
+  RamPartitionTableLib
 
 [Protocols]
   gEfiChipInfoProtocolGuid
