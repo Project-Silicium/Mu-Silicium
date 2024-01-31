@@ -17,7 +17,7 @@ SetMaxFreq (
   // Locate Clock Protocol
   Status = gBS->LocateProtocol(&gEfiClockProtocolGuid, NULL, (VOID *)&mClockProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Clock Protocol! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Clock Protocol!\n"));
     goto exit;
   }
 
@@ -31,15 +31,15 @@ SetMaxFreq (
       // Get Max Perf Level of CPU Cores
       Status = mClockProtocol->GetMaxPerfLevel(mClockProtocol, i, &PerfLevel);
       if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "Failed to Get Max Perf Level of CPU Core %d! Status = %r\n", i, Status));
-        continue;
+        DEBUG ((EFI_D_ERROR, "Failed to Get Max Perf Level of CPU Core %d!\n", i));
+        goto exit;
       }
 
       // Set Max Perf Level for CPU Cores
       Status = mClockProtocol->SetCpuPerfLevel(mClockProtocol, i, PerfLevel, &HzFreq);
       if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "Failed to Set Max Perf Level of CPU Core %d! Status = %r\n", i, Status));
-        continue;
+        DEBUG ((EFI_D_ERROR, "Failed to Set Max Perf Level of CPU Core %d!\n", i));
+        goto exit;
       }
 
       DEBUG ((EFI_D_WARN, "CPU Core %d Now runs at %d Hz.\n", i, HzFreq));
@@ -49,5 +49,7 @@ SetMaxFreq (
   }
 
 exit:
-  return Status;
+  ASSERT_EFI_ERROR (Status);
+
+  return EFI_SUCCESS;
 }

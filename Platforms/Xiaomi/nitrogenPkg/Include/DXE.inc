@@ -33,6 +33,9 @@
   INF Binaries/nitrogen/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/nitrogen/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 

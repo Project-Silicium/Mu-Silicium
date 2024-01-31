@@ -34,62 +34,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"Log Buffer",        0x9FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",          0x9FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
 
-#if DEVICE_RAM == 8
-//==================================================8GB RAM Setup===================================================
-  /*   On 8GB device /sys/firmware/fdt
-    memory {
-        ddr_device_type = <0x08>;
-        device_type = "memory";
-        reg = <0x00 0x80000000 0x00 0x3bb00000 0x00 0xc0000000 0x01 0xc0000000>;
-    };
-    DDR Bank 0: 0x80000000 + 0x3BB00000 = 0xBBB00000
-  */
-  
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
-  {"RAM Partition",     0xA0000000, 0x1BB00000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 443 MB
-
-  // DDR Bank 0 end
-  
-  // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xBBB00000 - 0xBFFFFFFF (1 byte for spacing)
-  // Size: 0x44FFFFF (69 MB)
-  
-  // DDR Bank 1 start
-  {"RAM Partition",     0xC0000000, 0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 2048 MB
-  {"RAM Partition",     0x140000000,0xC0000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 3072 MB
-
-  // As RAM starts at 0x80000000 (2GB) and this is a 8GB device, so it must ends at 10GB, then 0x280000000 = 0x200000000 + 0x80000000
-  {"RAM Partition",     0x200000000,0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 2048 MB
-//==================================================================================================================
-#elif DEVICE_RAM == 12
-//==================================================12GB RAM Setup==================================================
-  /*   On 12GB device /sys/firmware/fdt
-    memory {
-      ddr_device_type = <0x08>;
-      device_type = "memory";
-      reg = <0x00 0x80000000 0x00 0x39900000 0x02 0x00 0x01 0x80000000 0x00 0xc0000000 0x01 0x40000000>;
-    };
-    DDR Bank 0: 0x80000000 + 0x39900000 = 0xB9900000
-  */
-  
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
-  {"RAM Partition",     0xA0000000, 0x19900000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 409 MB
-
-  // DDR Bank 0 end
-  
-  // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0xB9900000 - 0xBFFFFFFF (1 byte for spacing)
-  // Size: 0x66FFFFF (103 MB)
-  
-  // DDR Bank 1 start
-  {"RAM Partition",     0xC0000000, 0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 2048 MB
-  {"RAM Partition",     0x140000000,0xC0000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 3072 MB
-  {"RAM Partition",     0x200000000,0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 2048 MB
-  {"RAM Partition",     0x280000000,0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 2048 MB
-
-  // As RAM starts at 0x80000000 (2GB) and this is a 12GB device, so it must ends at 14GB, then 0x380000000 = 0x300000000 + 0x80000000
-  {"RAM Partition",     0x300000000,0x80000000, AddMem,  SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN}, // 2048 MB
-//==================================================================================================================
-#endif
-
   // Other memory regions
   {"IMEM Base",         0x14680000, 0x00040000, NoHob,  MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
   {"IMEM Cookie Base",  0x146BF000, 0x00001000, AddDev, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},

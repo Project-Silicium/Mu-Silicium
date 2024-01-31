@@ -37,7 +37,6 @@
   DfciPkg/DfciPkg.dec
   MsWheaPkg/MsWheaPkg.dec
   SecurityPkg/SecurityPkg.dec
-  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   BaseLib
@@ -94,7 +93,6 @@
   gEdkiiFormBrowserEx2ProtocolGuid              ## PROTOCOL CONSUMES
   gEfiFirmwareManagementProtocolGuid            ## PROTOCOL CONSUMES
   gEdkiiVariablePolicyProtocolGuid              ## PROTOCOL CONSUMES
-  gEfiPlatformInfoProtocolGuid                  ## CONSUMES
 
 [FeaturePcd]
   #gEfiMdePkgTokenSpaceGuid.PcdUefiVariableDefaultLangDeprecate

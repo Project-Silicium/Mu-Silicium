@@ -20,6 +20,9 @@ APRIORI DXE {
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/lisa/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/lisa/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
