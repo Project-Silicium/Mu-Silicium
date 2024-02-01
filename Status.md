@@ -287,7 +287,7 @@
 </details>
 
 <details>
-<summary><b><strong>Snapdragon 680 Devices</strong></b></summary>
+<summary><b><strong>Snapdragon 680/685 Devices</strong></b></summary>
 
 ## Xiaomi Redmi 10C
 
