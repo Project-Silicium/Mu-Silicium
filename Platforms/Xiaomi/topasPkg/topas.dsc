@@ -15,34 +15,34 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = spes
-  PLATFORM_GUID                  = a43a1082-0066-4cc0-bc78-e3a59a3e5832
+  PLATFORM_NAME                  = topas
+  PLATFORM_GUID                  = c62242f8-e275-4150-b6f3-1cc4fac6425c
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/spesPkg
+  OUTPUT_DIRECTORY               = Build/topasPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = spesPkg/spes.fdf
+  FLASH_DEFINITION               = topasPkg/topas.fdf
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM6225
   # 1 = SM6225-AD
-  SOC_TYPE                       = 0
+  SOC_TYPE                       = 1
 
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
 [LibraryClasses.common]
-  DeviceMemoryMapLib|spesPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|spesPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceMemoryMapLib|topasPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|topasPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000            # Starting Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x45700000            # Starting Address
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Statzar"  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"6adp"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
@@ -51,10 +51,10 @@
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 11"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"spes"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_11_spes"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 11"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 12"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"topas"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_12_topas"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi 12"
 
   # Simple FrameBuffer
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
