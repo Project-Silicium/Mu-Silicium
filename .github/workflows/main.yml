@@ -26,6 +26,7 @@ jobs:
           # sm8150
           - alioth
           - pipa
+          - lmi
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
