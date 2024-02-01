@@ -27,6 +27,13 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
 
+  # 0 = SM6225
+  # 1 = SM6225-AD
+  SOC_TYPE                       = 0
+
+[BuildOptions.common]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+
 [LibraryClasses.common]
   DeviceMemoryMapLib|fogPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|fogPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf

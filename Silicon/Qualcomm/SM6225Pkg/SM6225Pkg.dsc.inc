@@ -29,8 +29,13 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006225
   gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0xf200000
 
+!if $(SOC_TYPE) == 0
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680 @ 2.40 GHz"
   gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6225"
+!elseif $(SOC_TYPE) == 1
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685 @ 2.80 GHz"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6225-AD"
+!endif
 
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
