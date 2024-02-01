@@ -185,6 +185,7 @@
 
   AslUpdateLib|QcomPkg/Library/DxeAslUpdateLib/DxeAslUpdateLib.inf
   PlatformThemeLib|QcomPkg/Library/PlatformThemeLib/PlatformThemeLib.inf
+  RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
 
   #
   # Uncomment (and comment out the next line) For RealView Debugger. The Standard IO window
