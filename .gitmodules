@@ -1,6 +1,6 @@
 [submodule "Binaries"]
 	path = Binaries
-	url = https://github.com/Robotix22/Device-Binaries.git
+	url = https://github.com/yuweiyuan8/Device-Binaries.git
 [submodule "Common/Mu"]
 	path = Common/Mu
 	url = https://github.com/microsoft/mu_plus.git
