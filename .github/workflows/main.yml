@@ -39,7 +39,7 @@ jobs:
           ./setup_env.sh -p apt
       - name: Build an image for ${{ matrix.device }}
         run: |
-          ./build_uefi.sh --device ${{ matrix.device }} -m 8
+          ./build_uefi.sh --device ${{ matrix.device }}
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
         with: # Artifact name
