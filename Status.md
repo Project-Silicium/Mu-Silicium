@@ -287,7 +287,7 @@
 </details>
 
 <details>
-<summary><b><strong>Snapdragon 680 Devices</strong></b></summary>
+<summary><b><strong>Snapdragon 680/685 Devices</strong></b></summary>
 
 ## Xiaomi Redmi 10C
 
@@ -297,6 +297,97 @@
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
 **Contibuters: None** <br />
 **Tester: [Statzar](https://github.com/Statzar)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|No USB Power|⚠️|
+|SD Card||✅|
+|ACPI||✅|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|No USB Power|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|No USB Power|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## Xiaomi Redmi Note 12
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
+
+**Codename: topas** <br />
+**Maintainer: [6adp](https://github.com/6adp)** <br />
+**Contibuters: None** <br />
+**Tester: [6adp](https://github.com/6adp)**
 
 ### UEFI Status
 
