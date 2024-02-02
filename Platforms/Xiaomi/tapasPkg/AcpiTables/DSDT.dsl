@@ -39,29 +39,19 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM6225 ", 0x00000003)
 
         Include("ufs.dsl")
 
-        Include("sdc.asl")
-
         Include("abd.dsl")
 
         Include("pmic_core.dsl")
 
-        Include("bam.asl")
-
-        Include("buses.dsl")
-
         Include("scm.dsl");
 
         Include("spmi.dsl");
-
-        Include("qcgpio.asl");
 
         Include("btns.dsl");
 
         Include("pep_lpi.dsl");
 
         // Include("pep_lpi_8.dsl"); // Need for 8 cores, but slow work
-
-        Include("qgpi.asl")
 
         Include("usb.dsl");
 
