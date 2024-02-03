@@ -33,14 +33,14 @@
 
 [PcdsFixedAtBuild.common]
   # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000              # Starting Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000                  # Starting Address
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000           # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000               # 256K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Motorola Inc"
@@ -56,6 +56,9 @@
 
   # Dynamic RAM
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x68900000
+
+  # SD Card
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720

@@ -135,3 +135,6 @@
 
   # Dynamic RAM PCD
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000a600
+
+  # SD Card PCD
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE|BOOLEAN|0x0000a700

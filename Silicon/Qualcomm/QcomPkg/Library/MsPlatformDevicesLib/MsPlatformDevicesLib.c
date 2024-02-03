@@ -84,13 +84,15 @@ GetPlatformConnectList(VOID)
     gBS->CloseEvent  (UsbConfigEvt);
   }
 
-  // Notify the SDC Controller to Init SD Card Now
-  Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSDCardInitGuid, &SDCardEvt);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Signal SD Card Init Event! Status = %r\n", __FUNCTION__, Status));
-  } else {
-    gBS->SignalEvent (SDCardEvt);
-    gBS->CloseEvent  (SDCardEvt);
+  if (FixedPcdGetBool(PcdSDCardSlotPresent)) {
+    // Notify the SDC Controller to Init SD Card Now
+    Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSDCardInitGuid, &SDCardEvt);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Signal SD Card Init Event! Status = %r\n", __FUNCTION__, Status));
+    } else {
+      gBS->SignalEvent (SDCardEvt);
+      gBS->CloseEvent  (SDCardEvt);
+    }
   }
 
   return NULL;
