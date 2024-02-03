@@ -15,15 +15,15 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = topas
-  PLATFORM_GUID                  = c62242f8-e275-4150-b6f3-1cc4fac6425c
+  PLATFORM_NAME                  = tapas
+  PLATFORM_GUID                  = b365f6c4-95f6-4b2a-8014-2407fcec1ebf
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/topasPkg
+  OUTPUT_DIRECTORY               = Build/tapasPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = topasPkg/topas.fdf
+  FLASH_DEFINITION               = tapasPkg/tapas.fdf
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
 
@@ -35,8 +35,8 @@
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
 [LibraryClasses.common]
-  DeviceMemoryMapLib|topasPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|topasPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceMemoryMapLib|tapasPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|tapasPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Device Specific
@@ -52,8 +52,8 @@
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 12"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"topas"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_12_topas"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"tapas"
+  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_12_tapas"
   gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi 12"
 
   # Simple FrameBuffer

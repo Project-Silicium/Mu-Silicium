@@ -384,7 +384,7 @@
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
 
-**Codename: topas** <br />
+**Codename: tapas** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
 **Contibuters: None** <br />
 **Tester: [6adp](https://github.com/6adp)**

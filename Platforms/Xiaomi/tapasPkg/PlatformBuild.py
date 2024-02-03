@@ -28,10 +28,10 @@ class CommonPlatform():
     ''' Common settings for this platform.  Define static data here and use
         for the different parts of stuart
     '''
-    PackagesSupported = ("topasPkg")
+    PackagesSupported = ("tapasPkg")
     ArchSupported = ("AARCH64")
     TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('topas', 'gcc_aarch64_linux', 'edk2-build')
+    Scopes = ('tapas', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Xiaomi",
@@ -128,10 +128,10 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("topasPkg/topasNoSb.dsc", {})
+        return ("tapasPkg/tapasNoSb.dsc", {})
 
     def GetName(self):
-        return "topas"
+        return "tapas"
 
     def GetPackagesPath(self):
         ''' Return a list of paths that should be mapped as edk2 PackagesPath '''
@@ -179,7 +179,7 @@ class PlatformBuilder(UefiBuilder, BuildSettingsManager):
     def GetName(self):
         ''' Get the name of the repo, platform, or product being build '''
         ''' Used for naming the log file, among others '''
-        return "topasPkg"
+        return "tapasPkg"
 
     def GetLoggingLevel(self, loggerType):
         """Get the logging level depending on logger type.
@@ -202,8 +202,8 @@ class PlatformBuilder(UefiBuilder, BuildSettingsManager):
 
     def SetPlatformEnv(self):
         logging.debug("PlatformBuilder SetPlatformEnv")
-        self.env.SetValue("PRODUCT_NAME", "topas", "Platform Hardcoded")
-        self.env.SetValue("ACTIVE_PLATFORM", "topasPkg/topas.dsc", "Platform Hardcoded")
+        self.env.SetValue("PRODUCT_NAME", "tapas", "Platform Hardcoded")
+        self.env.SetValue("ACTIVE_PLATFORM", "tapasPkg/tapas.dsc", "Platform Hardcoded")
         self.env.SetValue("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
         self.env.SetValue("TOOL_CHAIN_TAG", "CLANG38", "set default to clang38")
         self.env.SetValue("EMPTY_DRIVE", "FALSE", "Default to false")
