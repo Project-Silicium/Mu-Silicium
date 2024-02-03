@@ -1,16 +1,11 @@
-#include <Uefi.h>
-
 #include <Library/DebugLib.h>
 #include <Library/PcdLib.h>
-#include <Library/UefiDriverEntryPoint.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/DxeServicesTableLib.h>
-#include <Library/DeviceMemoryMapLib.h>
 #include <Library/ArmMmuLib.h>
+#include <Library/RamPartitionTableLib.h>
 
 #include <Protocol/EFISmem.h>
-
-#include <Library/RamPartitionTableLib.h>
 
 #include "ExtendedMemoryMap.h"
 
@@ -49,17 +44,9 @@ AddRamPartition (
   }
 
   // Set New Memory Attributes
-  Status = ArmSetMemoryAttributes (Base, Length, ArmAttributes);
+  Status = ArmSetMemoryAttributes (Base, Length, ArmAttributes, 0);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Set Memory Attributes! Status = %r\n", Status));
-    goto exit;
-  }
-
-  // Clear NoExec and ReadOnly Memory Regions
-  Status  = ArmClearMemoryRegionNoExec   (Base, Length);
-  Status |= ArmClearMemoryRegionReadOnly (Base, Length);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Clear Memory Region! Status = %r\n", Status));
     goto exit;
   }
 

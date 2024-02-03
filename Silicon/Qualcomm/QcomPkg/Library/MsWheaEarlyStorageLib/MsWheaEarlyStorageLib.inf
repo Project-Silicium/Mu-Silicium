@@ -1,10 +1,9 @@
-## @file -- MsWheaEarlyStorageLib.inf
+##
+#  This Header Defines APIs to Utilize Special Memory for MsWheaReport during Early Stage.
 #
-#  This header defines APIs to utilize special memory for MsWheaReport during
-#  early stage.
+#  Copyright (C) Microsoft Corporation. All rights reserved.
 #
-# Copyright (C) Microsoft Corporation. All rights reserved.
-# SPDX-License-Identifier: BSD-2-Clause-Patent
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
 [Defines]
@@ -15,39 +14,19 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = MsWheaEarlyStorageLib
 
-#
-# The following information is for reference only and not required by the
-# build tools.
-#
-#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
-#
-
 [Sources]
   MsWheaEarlyStorageLib.c
 
 [Packages]
-  ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
   MsWheaPkg/MsWheaPkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  BaseLib
-  DebugLib
   IoLib
   PcdLib
-  BaseLib
-  BaseMemoryLib
   MemoryMapHelperLib
-
-[Protocols]
 
 [Pcd]
   gMsWheaPkgTokenSpaceGuid.PcdMsWheaEarlyStorageDefaultValue
   gMsWheaPkgTokenSpaceGuid.PcdMsWheaReportEarlyStorageCapacity
-
-[Guids]
-
-[BuildOptions]
-  *_GCC5_*_CC_FLAGS = -Wno-unused-function

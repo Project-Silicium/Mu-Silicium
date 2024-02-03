@@ -13,6 +13,13 @@
 
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
 
+  INF QcomPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf
+
+!if $(AB_SLOT_SUPPORT) == 1
+  INF QcomPkg/GPLDrivers/BootSlotDxe/BootSlotDxe.inf
+  INF QcomPkg/GPLApplications/SwitchSlotsApp/SwitchSlotsApp.inf
+!endif
+
   INF DfciPkg/Application/DfciMenu/DfciMenu.inf
 
   FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLogoFile_Small) {

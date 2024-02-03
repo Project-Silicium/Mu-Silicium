@@ -1,8 +1,9 @@
-## @file
-#  Dxe MsEarly Graphics library instance.
+##
+#  Dxe MsEarly Graphics Library Instance.
 #
-# Copyright (C) Microsoft Corporation. All rights reserved.
-# SPDX-License-Identifier: BSD-2-Clause-Patent
+#  Copyright (C) Microsoft Corporation. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
 [Defines]
@@ -13,12 +14,6 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = MsPlatformEarlyGraphicsLib|DXE_DRIVER DXE_RUNTIME_DRIVER
 
-#
-# The following information is for reference only and not required by the build tools.
-#
-#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
-#
-
 [Sources]
   MsEarlyGraphicsLib.c
 
@@ -28,15 +23,10 @@
   MsGraphicsPkg/MsGraphicsPkg.dec
 
 [LibraryClasses]
-  BaseMemoryLib
+  UefiLib
   DebugLib
   MemoryAllocationLib
-  PrintLib
   UefiBootServicesTableLib
-
-[Guids]
-
-[Protocols]
 
 [Depex]
   TRUE

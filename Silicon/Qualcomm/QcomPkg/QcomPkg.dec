@@ -4,11 +4,13 @@
   PACKAGE_GUID                        = 882f8c2b-9646-435f-8de5-f208ff80c1bd
   PACKAGE_VERSION                     = 0.1
 
-[Includes.common]
+[Includes]
   Include                              # Root include for the package
 
-[Guids.common]
+[Guids]
   gQcomPkgTokenSpaceGuid              = { 0x882f8c2b, 0x9646, 0x435f, { 0x8d, 0xe5, 0xf2, 0x08, 0xff, 0x80, 0xc1, 0xbd } }
+  gUsbControllerInitGuid              = { 0x1c0cffce, 0xfc8d, 0x4e44, { 0x8c, 0x78, 0x9c, 0x9e, 0x5b, 0x53, 0xd,  0x36 } }
+  gSDCardInitGuid                     = { 0xb7972c36, 0x8a4c, 0x4a56, { 0x8b, 0x02, 0x11, 0x59, 0xb5, 0x2d, 0x4b, 0xfb } }
 
   # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.UM.9.14.r1-20200.01-LAHAINA.QSSI12.0
 
@@ -84,7 +86,7 @@
   gQcomDisplayUtilsProtocolGuid       = { 0xc0dd69ac, 0x76ba, 0x11e6, { 0xab, 0x24, 0x1f, 0xc7, 0xf5, 0x57, 0x5f, 0x19 } }
   gEfiKernelProtocolGuid              = { 0xB5062BE7, 0x170B, 0x4A32, { 0xBE, 0x21, 0x68, 0x92, 0x62, 0xFF, 0x43, 0x99 } }
 
-[PcdsFixedAtBuild.common]
+[PcdsFixedAtBuild]
   # Clock Speed Up Driver PCDs
   gQcomPkgTokenSpaceGuid.PcdEnableMaxFreq|FALSE|BOOLEAN|0x0000a000
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000a001

@@ -1,4 +1,4 @@
-/** @file 
+/**
   Header file Ms Boot Options library
 
   Copyright (C) Microsoft Corporation. All rights reserved.
@@ -11,13 +11,11 @@
 #include <Library/UefiBootManagerLib.h>
 
 /**
-  Return the boot option corresponding to the Slot Switch App.
+  Return the Boot Option Corresponding to the Slot Switch App.
 
-  @param BootOption     Return a created Slot Switch App with the parameter passed
+  @param BootOption     - Return a Created Slot Switch App with the Parameter Passed.
 
-  @retval EFI_SUCCESS   The Slot Switch App is successfully returned.
-  @retval Status        Return status of gRT->SetVariable (). BootOption still points
-                        to the Slot Switch App even the Status is not EFI_SUCCESS.
+  @retval Status        - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
 EFIAPI

@@ -1,4 +1,4 @@
-## @file GpioButtons.inf
+##
 #
 # This module installs the MsButtonServicesProtocol.
 #
@@ -9,14 +9,14 @@
 
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = GpioButtons
+  BASE_NAME                      = MsButtonServiceDxe
   FILE_GUID                      = 964EFA94-9929-4EF8-9E68-8F6F6FA62E62
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = ButtonsInit
+  ENTRY_POINT                    = InitButtonService
 
 [Sources]
-  GpioButtons.c
+  MsButtonServiceDxe.c
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -32,8 +32,8 @@
   DevicePathLib
 
 [Protocols]
-  gMsButtonServicesProtocolGuid          #PRODUCES
-  gEfiSimpleTextInputExProtocolGuid      #Consumes
+  gMsButtonServicesProtocolGuid          # PRODUCES
+  gEfiSimpleTextInputExProtocolGuid      # CONSUMES
 
 [Depex]
   gEfiSimpleTextInputExProtocolGuid

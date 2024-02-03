@@ -11,14 +11,11 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  PcBdsPkg/PcBdsPkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   DebugLib
-  MemoryAllocationLib
   UefiBootServicesTableLib
-  UefiRuntimeServicesTableLib
 
 [Protocols]
   gEfiSMEMProtocolGuid

@@ -1,4 +1,4 @@
-/** @file
+/**
   Copyright (c) 2011-2012, ARM Limited. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -11,9 +11,9 @@
 #include "InitializationUtils.h"
 
 /**
-  Return the current Boot Mode
+  Return the Current Boot Mode.
 
-  This function returns the boot reason on the platform
+  This Function Returns the Boot Reason on the Device.
 **/
 EFI_BOOT_MODE
 ArmPlatformGetBootMode (VOID)
@@ -22,10 +22,9 @@ ArmPlatformGetBootMode (VOID)
 }
 
 /**
-  Initialize controllers that must setup in the normal world
+  Initialize Controllers that must Setup in the Normal World.
 
-  This function is called by the ArmPlatformPkg/PrePi or ArmPlatformPkg/PlatformPei
-  in the PEI phase.
+  This Function is called by the ArmPlatformPkg/PrePi or ArmPlatformPkg/PlatformPei in the PEI Phase.
 **/
 RETURN_STATUS
 ArmPlatformInitialize (IN UINTN MpId)

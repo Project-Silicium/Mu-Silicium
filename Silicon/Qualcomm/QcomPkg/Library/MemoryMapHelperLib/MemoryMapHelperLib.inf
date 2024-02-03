@@ -12,10 +12,7 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  BaseLib
   DeviceMemoryMapLib

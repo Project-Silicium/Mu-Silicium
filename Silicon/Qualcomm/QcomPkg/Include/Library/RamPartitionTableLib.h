@@ -1,5 +1,5 @@
-#ifndef _RAM_PARTITIONS_LIB_H
-#define _RAM_PARTITIONS_LIB_H
+#ifndef _RAM_PARTITION_TABLE_LIB_H_
+#define _RAM_PARTITION_TABLE_LIB_H_
 
 //
 // SMEM RAM Partition Defines
@@ -7,10 +7,8 @@
 #define SMEM_USABLE_RAM_PARTITION_TABLE 402
 
 #define RAM_NUM_PART_ENTRIES            32
-
 #define RAM_PART_MAGIC1                 0x9DA5E0A8
 #define RAM_PART_MAGIC2                 0xAF9EC4E2
-
 #define RAM_PART_SYS_MEMORY             1
 #define RAM_PART_SDRAM                  14
 
@@ -41,7 +39,7 @@ struct RAMPartitionEntry {
 //
 // RAM Partition Table Structure
 //
-struct RAMPartitionTable{
+struct RAMPartitionTable {
   UINT32                   Magic1;
   UINT32                   Magic2;
   UINT32                   Reserved1;
@@ -51,11 +49,20 @@ struct RAMPartitionTable{
   struct RAMPartitionEntry RAMPartitionEntry[RAM_NUM_PART_ENTRIES];
 };
 
+/**
+  This Function Returns the Amount of RAM Partitions and its Sizes.
+
+  @param[out] RAMPartitionTable     - The Structure of the RAM Partition.
+  @param[out] NumPartitions         - The Number of RAM Partitions.
+  @param[out] Version               - The Version of the RAM Partitions.
+
+  @retval Status                    - The EFI_STATUS returned by this Function.
+**/
 EFI_STATUS
 GetRamPartitions (
   OUT struct RAMPartitionTable **RAMPartitionTable,
   OUT UINT32                    *NumPartitions,
   OUT UINT32                    *Version
-);
+  );
 
-#endif /* _RAM_PARTITIONS_LIB_H */
+#endif /* _RAM_PARTITION_TABLE_LIB_H_ */

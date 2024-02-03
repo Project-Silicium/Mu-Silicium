@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/SWEET_K6A_UEFI.fd" > "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/SWEET_K6A_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/SWEET_K6A_UEFI.fd-bootshim" > "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/SWEET_K6A_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/SWEET_K6A_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/sweet_k6a.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SWEET_K6A_UEFI.fd" > "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SWEET_K6A_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SWEET_K6A_UEFI.fd-bootshim" > "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SWEET_K6A_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/sweet_k6aPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SWEET_K6A_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/sweet_k6a.dtb > ./ImageResources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \

@@ -1,7 +1,7 @@
 [Defines]
   INF_VERSION                    = 0x0010005
   BASE_NAME                      = ClockSpeedUpDxe
-  FILE_GUID                      = 3ef4e4ad-26ee-4160-861f-aefd68bef6e7
+  FILE_GUID                      = 3EF4E4AD-26EE-4160-861F-AEFD68BEF6E7
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
   ENTRY_POINT                    = SetMaxFreq

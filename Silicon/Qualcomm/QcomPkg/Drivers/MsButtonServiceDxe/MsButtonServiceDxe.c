@@ -1,4 +1,4 @@
-/** @file GpioButtons.c
+/**
 
   This module installs the MsButtonServicesProtocol.
 
@@ -6,9 +6,7 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
-#include <Uefi.h>
-
-#include <Library/BaseLib.h>
+//#include <Library/BaseLib.h>
 #include <Library/DebugLib.h>
 #include <Library/DevicePathLib.h>
 #include <Library/MemoryAllocationLib.h>
@@ -19,21 +17,21 @@
 
 #include <Configuration/BootDevices.h>
 
-#include "GpioButtons.h"
+#include "MsButtonServiceDxe.h"
 
 /**
-  Say volume up button is pressed because we want to go to Front Page.
+  Say Volume Up Button is Pressed because we want to go to Front Page.
 
-  @param[in]     - Button Services protocol pointer
-  @param[out]    - Pointer to a boolean value to receive the button state
+  @param[in]     - Button Services Protocol Pointer.
+  @param[out]    - Pointer to a boolean Value to receive the Button State.
 
   @retval        - EFI_SUCCESS;
 **/
 EFI_STATUS
 EFIAPI
-PreBootVolumeUpButtonThenPowerButtonCheck(
-    IN  MS_BUTTON_SERVICES_PROTOCOL *This,
-    OUT BOOLEAN                     *PreBootVolumeUpButtonThenPowerButton)
+PreBootVolumeUpButtonThenPowerButtonCheck (
+  IN  MS_BUTTON_SERVICES_PROTOCOL *This,
+  OUT BOOLEAN                     *PreBootVolumeUpButtonThenPowerButton)
 {
   GPIO_BUTTON_SERVICES_PROTOCOL *Bsp;
 
@@ -44,18 +42,18 @@ PreBootVolumeUpButtonThenPowerButtonCheck(
 }
 
 /**
-  Say volume down button is pressed because we want alt boot.
+  Say Volume Down Button is Pressed because we want to Switch Slots.
 
-  @param[in]     - Button Services protocol pointer
-  @param[out]    - Pointer to a boolean value to receive the button state
+  @param[in]     - Button Services Protocol Pointer.
+  @param[out]    - Pointer to a boolean Value to receive the Button State.
 
   @retval        - EFI_SUCCESS;
 **/
 EFI_STATUS
 EFIAPI
-PreBootVolumeDownButtonThenPowerButtonCheck(
-    IN  MS_BUTTON_SERVICES_PROTOCOL *This,
-    OUT BOOLEAN                     *PreBootVolumeDownButtonThenPowerButton)
+PreBootVolumeDownButtonThenPowerButtonCheck (
+  IN  MS_BUTTON_SERVICES_PROTOCOL *This,
+  OUT BOOLEAN                     *PreBootVolumeDownButtonThenPowerButton)
 {
   GPIO_BUTTON_SERVICES_PROTOCOL *Bsp;
 
@@ -68,13 +66,13 @@ PreBootVolumeDownButtonThenPowerButtonCheck(
 /**
   Clear current button state.
 
-  @param[in]     - Button Services protocol pointer
+  @param[in]     - Button Services protocol pointer.
 
   @retval        - EFI_SUCCESS;
 **/
 EFI_STATUS
 EFIAPI
-PreBootClearVolumeButtonState(IN MS_BUTTON_SERVICES_PROTOCOL *This)
+PreBootClearVolumeButtonState (IN MS_BUTTON_SERVICES_PROTOCOL *This)
 {
   GPIO_BUTTON_SERVICES_PROTOCOL *Bsp;
 
@@ -86,7 +84,7 @@ PreBootClearVolumeButtonState(IN MS_BUTTON_SERVICES_PROTOCOL *This)
 
 EFI_STATUS
 EFIAPI
-KeyNotify(IN EFI_KEY_DATA *KeyData)
+KeyNotify (IN EFI_KEY_DATA *KeyData)
 {
   if (gBsp == NULL) {
     return EFI_OUT_OF_RESOURCES;
@@ -102,54 +100,57 @@ KeyNotify(IN EFI_KEY_DATA *KeyData)
 }
 
 /**
-  GetButtonState gets the button state of the Vol+/Vol- buttons, and stores that
-  state in gButtonState.
+  GetButtonState gets the Button State of the Vol+/Vol- Buttons, and Stores that
+  State in gButtonState.
 
-  @param[in]    - Gpio Button Services Protocol pointer
+  @param[in]     - Gpio Button Services Protocol pointer.
 
-  @return EFI_SUCCESS - String buffer returned to caller
-  @return EFI_ERROR   - Error the string
+  @return Status - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
-GetButtonState()
+GetButtonState ()
 {
-  EFI_STATUS                         Status               = EFI_SUCCESS;
-  EFI_HANDLE                         Handle               = NULL;
-  EFI_DEVICE_PATH_PROTOCOL          *ButtonsDxeDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath;
+  EFI_STATUS                         Status            = EFI_SUCCESS;
+  EFI_HANDLE                         Handle            = NULL;
+  EFI_DEVICE_PATH_PROTOCOL          *ButtonsDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath;
   EFI_KEY_DATA                       KeyData;
-  VOID                              *NotifyHandle         = NULL;
-  EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *SimpleEx             = NULL;
+  VOID                              *NotifyHandle      = NULL;
+  EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *SimpleEx          = NULL;
 
-  Status = gBS->LocateDevicePath(&gEfiSimpleTextInputExProtocolGuid, &ButtonsDxeDevicePath, &Handle);
-  if (EFI_ERROR( Status)) {
+  // Locate Device Path of Buttons
+  Status = gBS->LocateDevicePath (&gEfiSimpleTextInputExProtocolGuid, &ButtonsDevicePath, &Handle);
+  if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate Device Path of Buttons! Status = %r\n", Status));
     goto exit;
   }
 
-  Status = gBS->OpenProtocol(Handle, &gEfiSimpleTextInputExProtocolGuid, (VOID **)&SimpleEx, gImageHandle, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
+  // Open the Protocol of the Buttons Driver
+  Status = gBS->OpenProtocol (Handle, &gEfiSimpleTextInputExProtocolGuid, (VOID **)&SimpleEx, gImageHandle, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Open Buttons Driver Protocol! Status = %r\n", Status));
     goto exit;
   }
 
-  // Prevent Key persistence when chainloaded
+  // Prevent Key Persistence when Chainloaded
   SimpleEx->Reset(SimpleEx, TRUE);
 
   KeyData.KeyState.KeyToggleState = 0;
   KeyData.KeyState.KeyShiftState  = 0;
 
-  KeyData.Key.UnicodeChar        = 0;
-  KeyData.Key.ScanCode           = SCAN_UP;
+  KeyData.Key.UnicodeChar         = 0;
+  KeyData.Key.ScanCode            = SCAN_UP;
 
-  Status = SimpleEx->RegisterKeyNotify(SimpleEx, &KeyData, &KeyNotify, &NotifyHandle);
+  // Register Key Notify for Volume Up
+  Status = SimpleEx->RegisterKeyNotify (SimpleEx, &KeyData, &KeyNotify, &NotifyHandle);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify of Volume Up! Status = %r\n", Status));
     goto exit;
   }
 
-  KeyData.Key.ScanCode = SCAN_DOWN;
+  KeyData.Key.ScanCode            = SCAN_DOWN;
 
-  Status = SimpleEx->RegisterKeyNotify(SimpleEx, &KeyData, &KeyNotify, &NotifyHandle);
+  // Register Key Notify for Volume Down
+  Status = SimpleEx->RegisterKeyNotify (SimpleEx, &KeyData, &KeyNotify, &NotifyHandle);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify of Volume Down! Status = %r\n", Status));
   }
@@ -159,20 +160,23 @@ exit:
 }
 
 /**
-  Constructor routine to install button services protocol and initialize anything
-  related to buttons
+  Constructor Routine to install Button Services Protocol and Initialize anything
+  related to Buttons.
 
-  @param[in]     - Image Handle of the process loading this module
-  @param[in]     - Efi System Table pointer
+  @param[in]     - Image Handle of the Process Loading this Driver.
+  @param[in]     - EFI System Table Pointer.
 
-  @retval        - EFI_SUCCESS
+  @retval Status - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
 EFIAPI
-ButtonsInit(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable)
+InitButtonService (
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS Status;
 
+  // Allocate Memory for the Ms Button Service Protocol
   gBsp = AllocateZeroPool(sizeof(GPIO_BUTTON_SERVICES_PROTOCOL));
   if (gBsp == NULL) {
     Status = EFI_OUT_OF_RESOURCES;
@@ -180,18 +184,20 @@ ButtonsInit(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable)
     goto exit;
   }
 
+  // Define each Button Checks
   gBsp->ButtonServicesProtocol.PreBootVolumeDownButtonThenPowerButtonCheck = PreBootVolumeDownButtonThenPowerButtonCheck;
   gBsp->ButtonServicesProtocol.PreBootVolumeUpButtonThenPowerButtonCheck   = PreBootVolumeUpButtonThenPowerButtonCheck;
   gBsp->ButtonServicesProtocol.PreBootClearVolumeButtonState               = PreBootClearVolumeButtonState;
   gBsp->ButtonState                                                        = NoButtons;
 
+  // Get the State of the Buttons
   Status = GetButtonState();
   if (EFI_ERROR (Status)) {
     FreePool(gBsp);
     goto exit;
   }
 
-  // Install the protocol
+  // Register the Ms Button Service Protocol
   Status = gBS->InstallMultipleProtocolInterfaces(&ImageHandle, &gMsButtonServicesProtocolGuid, gBsp, NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register Button Service Protocol! Status = %r\n", Status));

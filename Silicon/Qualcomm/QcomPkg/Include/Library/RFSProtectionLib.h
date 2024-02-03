@@ -3,6 +3,6 @@
 
 EFI_STATUS
 EFIAPI
-RFSLocateAndProtectSharedArea();
+RFSLocateAndProtectSharedArea ();
 
 #endif /* _RFS_PROTECTION_LIB_H_ */

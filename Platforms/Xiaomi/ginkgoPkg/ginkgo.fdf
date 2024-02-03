@@ -105,9 +105,7 @@ READ_LOCK_STATUS   = TRUE
 
   INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
-  !include QcomPkg/Frontpage.fdf.inc
-
-  INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
+  !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8

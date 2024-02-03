@@ -54,9 +54,6 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|24
 
-  # Power Services
-  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
-
   # Dynamic RAM
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 

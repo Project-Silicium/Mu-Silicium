@@ -34,6 +34,7 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
+  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
 
 [LibraryClasses.common]
   PlatformPeiLib|MSM8998Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

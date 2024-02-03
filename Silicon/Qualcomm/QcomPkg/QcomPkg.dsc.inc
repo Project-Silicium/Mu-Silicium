@@ -10,13 +10,16 @@
 ##
 
 [BuildOptions.common]
-  *_CLANG38_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
+  *_CLANGDWARF_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION]
   *_*_*_DLINK_FLAGS = -z common-page-size=0x1000
 
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
   *_*_AARCH64_DLINK_FLAGS = -z common-page-size=0x10000
+
+[BuildOptions.AARCH64.EDKII.MM_CORE_STANDALONE,BuildOptions.AARCH64.EDKII.MM_STANDALONE]
+  *_*_AARCH64_CC_FLAGS = -mstrict-align -march=armv8-a
 
 [PcdsFeatureFlag.common]
   gArmTokenSpaceGuid.PcdCpuDxeProduceDebugSupport|FALSE
@@ -48,6 +51,7 @@
   gEfiMdePkgTokenSpaceGuid.PcdMaximumLinkedListLength|1000000
   gEfiMdePkgTokenSpaceGuid.PcdSpinLockTimeout|10000000
   gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|320
+  gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x00
 
 !if $(TARGET) == DEBUG
   gEfiMdePkgTokenSpaceGuid.PcdDebugClearMemoryValue|0xAF
@@ -55,14 +59,12 @@
   gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x800fee0f
   gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask|1
   gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask|0
-  gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x07
 !else
   gEfiMdePkgTokenSpaceGuid.PcdDebugClearMemoryValue|0x00
   gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x00
   gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x00000000
   gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask|0
   gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask|0
-  gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x00
 !endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdResetOnMemoryTypeInformationChange|FALSE
@@ -350,7 +352,7 @@
   EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf {
     <LibraryClasses>
-      RealTimeClockLib|QcomPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
+      RealTimeClockLib|EmbeddedPkg/Library/TemplateRealTimeClockLib/TemplateRealTimeClockLib.inf
   }
 
   # Pci
@@ -405,7 +407,6 @@
   QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
   QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
 

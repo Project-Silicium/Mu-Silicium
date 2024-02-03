@@ -1,8 +1,9 @@
-## @file
-# Null Power Services Library class to support Platforms that dont have battery
+##
+#  Power Services Library Class to Support Platforms that have a Battery.
 #
-# Copyright (C) Microsoft Corporation. All rights reserved.
-# SPDX-License-Identifier: BSD-2-Clause-Patent
+#  Copyright (C) Microsoft Corporation. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
 [Defines]
@@ -12,12 +13,6 @@
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = PowerServicesLib|DXE_DRIVER
-
-#
-# The following information is for reference only and not required by the build tools.
-#
-#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
-#
 
 [Sources]
   PowerServicesLib.c
@@ -29,10 +24,7 @@
 
 [LibraryClasses]
   DebugLib
-  DevicePathLib
-  MemoryAllocationLib
   UefiBootServicesTableLib
-  UefiRuntimeServicesTableLib
   PcdLib
 
 [FixedPcd]

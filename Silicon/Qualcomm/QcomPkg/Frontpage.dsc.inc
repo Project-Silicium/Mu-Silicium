@@ -232,3 +232,5 @@
     <PcdsFixedAtBuild>
      !include CryptoPkg/Driver/Bin/Crypto.pcd.STANDARD.inc.dsc
   }
+
+  QcomPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf

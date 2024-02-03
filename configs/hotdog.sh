@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/HOTDOG_UEFI.fd" > "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/HOTDOG_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/HOTDOG_UEFI.fd-bootshim" > "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/HOTDOG_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/HOTDOG_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/hotdog.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/HOTDOG_UEFI.fd" > "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/HOTDOG_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/HOTDOG_UEFI.fd-bootshim" > "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/HOTDOG_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/hotdogPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/HOTDOG_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/hotdog.dtb > ./ImageResources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \

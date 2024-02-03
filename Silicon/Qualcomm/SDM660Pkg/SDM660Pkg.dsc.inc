@@ -44,6 +44,7 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
+  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
 
 [LibraryClasses.common]
   PlatformPeiLib|SDM660Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

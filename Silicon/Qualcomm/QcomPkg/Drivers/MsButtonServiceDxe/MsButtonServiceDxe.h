@@ -1,4 +1,4 @@
-/** @file GpioButtons.h
+/**
 
   This module installs the MsButtonServicesProtocol.
 
@@ -6,8 +6,9 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
-#ifndef _GPIO_BUTTONS_H_
-#define _GPIO_BUTTONS_H_
+
+#ifndef _MS_BUTTON_SERVICE_DXE_H_
+#define _MS_BUTTON_SERVICE_DXE_H_
 
 typedef enum {
   NoButtons     = SCAN_NULL,
@@ -24,4 +25,4 @@ GPIO_BUTTON_SERVICES_PROTOCOL *gBsp = NULL;
 
 #define MS_BSP_FROM_BSP(a) BASE_CR(a, GPIO_BUTTON_SERVICES_PROTOCOL, ButtonServicesProtocol)
 
-#endif /* _GPIO_BUTTONS_H_ */
+#endif /* _MS_BUTTON_SERVICE_DXE_H_ */

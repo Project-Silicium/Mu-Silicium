@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LISA_UEFI.fd" > "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LISA_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LISA_UEFI.fd-bootshim" > "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LISA_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANG38/FV/LISA_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/lisa.dtb > ./ImageResources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LISA_UEFI.fd" > "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LISA_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LISA_UEFI.fd-bootshim" > "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LISA_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/lisaPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LISA_UEFI.fd-bootshim.gz" ./ImageResources/DTBs/lisa.dtb > ./ImageResources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./ImageResources/mkbootimg.py \

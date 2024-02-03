@@ -1,15 +1,16 @@
-/** @file
-A shared place for all colors used in this package
+/**
+  A Shared Place for all Colors used in this Package.
 
-Copyright (C) Microsoft Corporation. All rights reserved.
-SPDX-License-Identifier: BSD-2-Clause-Patent
+  Copyright (C) Microsoft Corporation. All rights reserved.
 
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
 #include <Uefi.h>
 
-#include <Protocol/GraphicsOutput.h>
 #include <Library/MsColorTableLib.h>
+
+#include <Protocol/GraphicsOutput.h>
 
 // Predefined colors
 #define MS_GRAPHICS_WHITE_COLOR               {.Blue = 0xFF, .Green = 0xFF, .Red = 0xFF, .Reserved = 0xFF}

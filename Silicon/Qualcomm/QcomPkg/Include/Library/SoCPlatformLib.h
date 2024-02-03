@@ -4,6 +4,6 @@
 #include <Ppi/ArmMpCoreInfo.h>
 
 ARM_CORE_INFO*
-GetCoreTable(VOID);
+GetCoreTable (VOID);
 
 #endif /* _SOC_PLATFORM_LIB_H_ */

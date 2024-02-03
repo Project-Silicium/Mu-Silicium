@@ -39,6 +39,7 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
 
 [LibraryClasses.common]
   PlatformPeiLib|SM8450Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf

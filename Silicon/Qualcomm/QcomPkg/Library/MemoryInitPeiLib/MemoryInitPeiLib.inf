@@ -1,14 +1,13 @@
-#/** @file
-#
+##
 #  Copyright (c) 2011-2014, ARM Ltd. All rights reserved.<BR>
-#  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
-#**/
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
 
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = ArmMemoryInitPeiLib
-  FILE_GUID                      = 55ddb6e0-70b5-11e0-b33e-0002a5d5c51b
+  FILE_GUID                      = 55DDB6E0-70B5-11E0-B33E-0002A5D5C51B
   MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = MemoryInitPeiLib|SEC PEIM
@@ -16,29 +15,25 @@
 [Sources]
   MemoryInitPeiLib.c
 
-
 [Packages]
   MdePkg/MdePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
+  ArmPlatformLib
   DebugLib
   HobLib
   ArmMmuLib
   DeviceMemoryMapLib
-
-[Guids]
-  gEfiMemoryTypeInformationGuid
+  PcdLib
 
 [FeaturePcd]
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob
 
 [Pcd]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
 
 [Depex]
