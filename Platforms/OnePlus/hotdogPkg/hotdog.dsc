@@ -41,14 +41,14 @@
 
 [PcdsFixedAtBuild.common]
   # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000            # Starting Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000                  # Starting Address
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"mat-777"  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"  # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000         # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000               # 256K stack
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"OnePlus Technology Co., Ltd."
@@ -64,6 +64,9 @@
 
   # Dynamic RAM
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB9400000
+
+  # SD Card
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440

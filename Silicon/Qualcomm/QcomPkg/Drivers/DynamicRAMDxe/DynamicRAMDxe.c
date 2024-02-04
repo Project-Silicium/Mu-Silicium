@@ -93,6 +93,7 @@ AddRAMPartitions (
 
   for (INT32 i = 0; i < NumPartitions; i++) {
     if (RAMPartitionTable->RAMPartitionEntry[i].Type != RAM_PART_SYS_MEMORY || RAMPartitionTable->RAMPartitionEntry[i].Category != RAM_PART_SDRAM) { continue; }
+    if (RAMPartitionTable->RAMPartitionEntry[i].Base + RAMPartitionTable->RAMPartitionEntry[i].AvailableLength <= RAM_PARTITION_BASE) { continue; }
 
     DEBUG ((EFI_D_WARN, "\n"));
     DEBUG ((EFI_D_WARN, "RAM Partition Entry %d: 0x%08llx\n", i, RAMPartitionTable->RAMPartitionEntry[i].Base));
@@ -109,8 +110,10 @@ AddRAMPartitions (
       continue;
     }
 
-    MemoryDescriptor[Index].Address = RAMPartitionTable->RAMPartitionEntry[i].Base;
-    MemoryDescriptor[Index].Length  = RAMPartitionTable->RAMPartitionEntry[i].AvailableLength;
+    //MemoryDescriptor[Index].Address = RAMPartitionTable->RAMPartitionEntry[i].Base;
+    //MemoryDescriptor[Index].Length  = RAMPartitionTable->RAMPartitionEntry[i].AvailableLength;
+    MemoryDescriptor[Index].Address = RAM_PARTITION_BASE;
+    MemoryDescriptor[Index].Length  = RAMPartitionTable->RAMPartitionEntry[i].AvailableLength + GENERIC_RAM_BASE - RAM_PARTITION_BASE;
     Index++;
   }
 

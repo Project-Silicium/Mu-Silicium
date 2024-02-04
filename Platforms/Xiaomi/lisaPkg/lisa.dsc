@@ -64,6 +64,9 @@
   # Dynamic RAM
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE3400000
 
+  # SD Card
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
+
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400

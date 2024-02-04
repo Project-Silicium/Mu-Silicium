@@ -27,8 +27,12 @@
 [LibraryClasses]
   DebugLib
   DevicePathLib
+  PcdLib
   UefiBootServicesTableLib
   AcpiPlatformUpdateLib
+
+[FixedPcd]
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent
 
 [Guids]
   gUsbControllerInitGuid

@@ -99,92 +99,6 @@
 
 </td></tr> </table>
 
-## Xiaomi Pad 6
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Pad-6.png" width="500" alt="Preview">
-
-**Codename: pipa** <br />
-**Maintainer: [6adp](https://github.com/6adp)** <br />
-**Contibuters: [Statzar](https://github.com/Statzar), [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [6adp](https://github.com/6adp)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
-|Buttons||✅|
-|USB||✅|
-|ACPI||✅|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||✅|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||✅|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
   </summary>
 </details>
 
@@ -483,7 +397,7 @@
 
 **Codename: ginkgo** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Contibuters: [SwedMlite](https://github.com/SwedMlite), [Vicente Cortes](https://github.com/vicenteicc2008)** <br />
+**Contibuters: [SwedMlite](https://github.com/SwedMlite)** <br />
 **Testers: [SwedMlite](https://github.com/SwedMlite), [kubawis128](https://github.com/kubawis128)**
 
 ### UEFI Status
@@ -1255,6 +1169,92 @@
 
 </td></tr> </table>
 
+## Xiaomi Pad 6
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Pad-6.png" width="500" alt="Preview">
+
+**Codename: pipa** <br />
+**Maintainer: [6adp](https://github.com/6adp)** <br />
+**Contibuters: [Statzar](https://github.com/Statzar), [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [6adp](https://github.com/6adp)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB||✅|
+|ACPI||✅|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||✅|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||✅|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
   </summary>
 </details>
 
@@ -1263,12 +1263,14 @@
 
 ## OnePlus 7T Pro
 
+**WARNING: This Device has no Maintainer!** <br />
+
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
 
 **Codename: hotdog** <br />
-**Maintainer: mat-777** <br />
+**Maintainer: None** <br />
 **Contibuters: None** <br />
-**Tester: mat-777**
+**Tester: None**
 
 ### UEFI Status
 
@@ -1752,12 +1754,14 @@
 
 ## Motorola Moto G30
 
+**WARNING: This Device has no Maintainer!** <br />
+
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Motorola-Moto-G30.png" width="500" alt="Preview">
 
 **Codename: caprip** <br />
-**Maintainer: [Vicente Cortes](https://github.com/vicenteicc2008)** <br />
+**Maintainer: None** <br />
 **Contibuters: None** <br />
-**Tester: [Vicente Cortes](https://github.com/vicenteicc2008)**
+**Tester: None**
 
 ### UEFI Status
 
