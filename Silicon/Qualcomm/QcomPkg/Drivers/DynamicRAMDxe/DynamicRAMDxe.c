@@ -40,6 +40,7 @@ AddRamPartition (
   Status = gDS->AddMemorySpace (EfiGcdMemoryType, Base, Length, 0xF);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Add Memory Space! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Trying to add a ram partition: 0x%08llx 0x%08llx\n", Base, Length));
     goto exit;
   }
 
@@ -47,6 +48,7 @@ AddRamPartition (
   Status = ArmSetMemoryAttributes (Base, Length, ArmAttributes, 0);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Set Memory Attributes! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Trying to add a ram partition: 0x%08llx 0x%08llx\n", Base, Length));
     goto exit;
   }
 
@@ -54,6 +56,7 @@ AddRamPartition (
   Status = gDS->SetMemorySpaceAttributes (Base, Length, EFI_MEMORY_WB);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Set Memory Space Attributes! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Trying to add a ram partition: 0x%08llx 0x%08llx\n", Base, Length));
     goto exit;
   }
 
@@ -69,11 +72,12 @@ AddRAMPartitions (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS                       Status            = EFI_SUCCESS;
-  UINTN                            Index             = 1;
-  UINT32                           NumPartitions     = 0;
-  UINT32                           PartitionVersion  = 0;
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptor  = gExtendedMemoryDescriptor;
+  EFI_STATUS                       Status              = EFI_SUCCESS;
+  UINTN                            Index               = 1;
+  UINT32                           NumPartitions       = 0;
+  UINT32                           PartitionVersion    = 0;
+  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptor    = gExtendedMemoryDescriptor;
+  BOOLEAN                          AddedFirstPartition = FALSE;
 
   // Struct the RAMPartitionTable
   struct RAMPartitionTable        *RAMPartitionTable = NULL;
@@ -107,13 +111,20 @@ AddRAMPartitions (
       // Add New RAM Partition
       AddRamPartition (MemoryDescriptor[0].Address, MemoryDescriptor[0].Length, MemoryDescriptor[0].ArmAttributes, MemoryDescriptor[0].MemoryType);
 
+      AddedFirstPartition = TRUE;
+
       continue;
     }
 
-    //MemoryDescriptor[Index].Address = RAMPartitionTable->RAMPartitionEntry[i].Base;
-    //MemoryDescriptor[Index].Length  = RAMPartitionTable->RAMPartitionEntry[i].AvailableLength;
-    MemoryDescriptor[Index].Address = RAM_PARTITION_BASE;
-    MemoryDescriptor[Index].Length  = RAMPartitionTable->RAMPartitionEntry[i].AvailableLength + GENERIC_RAM_BASE - RAM_PARTITION_BASE;
+    if(!AddedFirstPartition) {
+      MemoryDescriptor[Index].Address = RAM_PARTITION_BASE;
+      MemoryDescriptor[Index].Length  = RAMPartitionTable->RAMPartitionEntry[i].AvailableLength + GENERIC_RAM_BASE - RAM_PARTITION_BASE;
+      AddedFirstPartition = TRUE;
+      continue;
+    }
+
+    MemoryDescriptor[Index].Address = RAMPartitionTable->RAMPartitionEntry[i].Base;
+    MemoryDescriptor[Index].Length  = RAMPartitionTable->RAMPartitionEntry[i].AvailableLength;
     Index++;
   }
 
