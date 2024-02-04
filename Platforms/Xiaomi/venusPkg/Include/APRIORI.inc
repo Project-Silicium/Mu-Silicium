@@ -104,6 +104,8 @@ APRIORI DXE {
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/venus/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/venus/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
 !if $(USE_DISPLAYDXE) == 1
