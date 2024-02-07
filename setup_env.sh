@@ -59,7 +59,7 @@ if [ ${VENV} = TRUE ]; then
     source .venv/bin/activate
 fi
 
-python3 -m pip install -r pip-requirements.txt||_error "\nFailed to install Pip Packages!\n"
+python3 -m pip install -r pip-requirements.txt --break-system-packages||_error "\nFailed to install Pip Packages!\n"
 
 export CLANGDWARF_BIN=/usr/lib/llvm-38/bin/
 export CLANGDWARF_AARCH64_PREFIX=aarch64-linux-gnu-
