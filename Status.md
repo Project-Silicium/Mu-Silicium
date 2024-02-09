@@ -300,7 +300,7 @@
 
 **Codename: tapas** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
-**Contibuters: None** <br />
+**Contibuters: [Statzar](https://github.com/Statzar)** <br />
 **Tester: [6adp](https://github.com/6adp)**
 
 ### UEFI Status
@@ -339,7 +339,7 @@
 |USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU|4 Cores only|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -370,7 +370,7 @@
 |USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU|4 Cores only|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
