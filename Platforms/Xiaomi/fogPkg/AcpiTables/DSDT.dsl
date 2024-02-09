@@ -59,8 +59,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM6225 ", 0x00000003)
 
         Include("pep_lpi.dsl");
 
-        // Include("pep_lpi_8.dsl"); // Need for 8 cores, but slow work
-
         Include("qgpi.asl")
 
         Include("usb.dsl");

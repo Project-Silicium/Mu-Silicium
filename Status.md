@@ -248,7 +248,7 @@
 |USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU|4 Cores only|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -279,7 +279,7 @@
 |USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU|4 Cores only|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
