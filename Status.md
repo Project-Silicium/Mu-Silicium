@@ -29,7 +29,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|Host Mode Only|⚠️|
+|USB|Dual Role Supported|✅|
 |ACPI||✅|
 |Slot Switch||✅|
 
