@@ -124,6 +124,7 @@ AddRamPartitions (
 
     MemoryDescriptor[Index].Address = RamPartitionTable->RamPartitionEntry[i].Base;
     MemoryDescriptor[Index].Length  = RamPartitionTable->RamPartitionEntry[i].AvailableLength;
+    Indxe++;
   }
 
   Index = 1;
