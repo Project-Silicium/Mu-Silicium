@@ -75,13 +75,15 @@ GetPlatformConnectList(VOID)
   // Update the ACPI Tables with SoC Runtime Information
   PlatformUpdateAcpiTables();
 
-  // Notify the USB Controller to Start Now
-  Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &UsbConfigEvt);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Signal USB Controller Start Event! Status = %r\n", __FUNCTION__, Status));
-  } else {
-    gBS->SignalEvent (UsbConfigEvt);
-    gBS->CloseEvent  (UsbConfigEvt);
+  if (FixedPcdGetBool(PcdUSBInitOnBoot)) {
+    // Notify the USB Controller to Start Now
+    Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &UsbConfigEvt);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Signal USB Controller Start Event! Status = %r\n", __FUNCTION__, Status));
+    } else {
+      gBS->SignalEvent (UsbConfigEvt);
+      gBS->CloseEvent  (UsbConfigEvt);
+    }
   }
 
   if (FixedPcdGetBool(PcdSDCardSlotPresent)) {

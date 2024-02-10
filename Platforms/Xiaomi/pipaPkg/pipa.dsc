@@ -69,6 +69,9 @@
   # SD Card
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
 
+  # Usb Init
+  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot|TRUE
+  
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1800
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2880
