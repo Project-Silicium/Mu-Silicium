@@ -18,7 +18,7 @@
 //
 // RAM Partition Entry Structure
 //
-struct RAMPartitionEntry {
+typedef struct ram_partition_entry {
   char   Name[16]; 
   UINT64 Base;
   UINT64 Length;
@@ -34,25 +34,25 @@ struct RAMPartitionEntry {
   UINT8  Reserved2;
   UINT32 MinPasrSize;
   UINT64 AvailableLength;
-};
+} RamPartitionEntry;
 
 //
 // RAM Partition Table Structure
 //
-struct RAMPartitionTable {
-  UINT32                   Magic1;
-  UINT32                   Magic2;
-  UINT32                   Reserved1;
-  UINT32                   Reserved2;
-  UINT32                   Version;
-  UINT32                   NumPartitions;
-  struct RAMPartitionEntry RAMPartitionEntry[RAM_NUM_PART_ENTRIES];
-};
+typedef struct ram_partition_table {
+  UINT32            Magic1;
+  UINT32            Magic2;
+  UINT32            Reserved1;
+  UINT32            Reserved2;
+  UINT32            Version;
+  UINT32            NumPartitions;
+  RamPartitionEntry RamPartitionEntry[RAM_NUM_PART_ENTRIES];
+} RamPartitionTable;
 
 /**
   This Function Returns the Amount of RAM Partitions and its Sizes.
 
-  @param[out] RAMPartitionTable     - The Structure of the RAM Partition.
+  @param[out] RamPartitionTable     - The Structure of the RAM Partition.
   @param[out] NumPartitions         - The Number of RAM Partitions.
   @param[out] Version               - The Version of the RAM Partitions.
 
@@ -60,9 +60,9 @@ struct RAMPartitionTable {
 **/
 EFI_STATUS
 GetRamPartitions (
-  OUT struct RAMPartitionTable **RAMPartitionTable,
-  OUT UINT32                    *NumPartitions,
-  OUT UINT32                    *Version
+  OUT RamPartitionTable **RamPartitionTable,
+  OUT UINT32             *NumPartitions,
+  OUT UINT32             *Version
   );
 
 #endif /* _RAM_PARTITION_TABLE_LIB_H_ */

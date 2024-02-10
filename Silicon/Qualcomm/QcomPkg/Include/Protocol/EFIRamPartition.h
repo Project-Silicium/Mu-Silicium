@@ -38,7 +38,7 @@ typedef struct _EFI_RAMPARTITION_PROTOCOL EFI_RAMPARTITION_PROTOCOL;
 /**
   Protocol version.
 */
-#define EFI_RAMPARTITION_PROTOCOL_REVISION 0x0000000000010001
+#define EFI_RAMPARTITION_PROTOCOL_REVISION 0x0000000000010002
 /** @} */ /* end_addtogroup efi_ramPartition_constants */
 
 /*  Protocol GUID definition */
@@ -63,6 +63,15 @@ typedef struct _RamPartition {
   UINT64 Base;
   UINT64 AvailableLength;
 } RamPartitionEntry;
+
+#define MAX_NAME_SZ 32
+
+typedef struct _PreLoadedImg
+{
+  CHAR8  Name[MAX_NAME_SZ];
+  UINT64 Base;
+  UINT64 Size;
+}PreLoadedImageEntry;
 
 /** @} */ /* end_addtogroup efi_ramPartition_data_types */
 
@@ -162,6 +171,31 @@ typedef EFI_STATUS (EFIAPI *EFI_RAMPARTITION_GETRAMPARTITIONS) (
     OUT RamPartitionEntry *RamPartitions,
     IN OUT UINT32 *NumPartition);
 
+/* ============================================================================
+**  Function : EFI_RamPartition_GetPreLoadedImageTable
+** ============================================================================
+*/
+/** @ingroup efi_ramPartition_getRamPartitions
+  @par Summary
+  Gets the Ram version as read from the hardware register.
+
+  @param[in]   This       Pointer to the EFI_RAMPARTITION_PROTOCOL instance.
+  @param[out]  pnVersion  Pointer to a UINT32 passed by the caller that
+                          will be populated by the driver.
+
+  @return
+  EFI_SUCCESS          -- Function completed successfully. \n
+  EFI_BUFFER_TOO_SMALL -- Returns number of partitions available
+  EFI_PROTOCOL_ERROR   -- Error occurred during the operation.
+*/
+typedef
+EFI_STATUS
+(EFIAPI *EFI_RAMPARTITION_GETPRELOADEDIMAGETABLE)(
+   IN EFI_RAMPARTITION_PROTOCOL* This,
+   OUT PreLoadedImageEntry       *PreLoadedImageTable,
+   IN OUT UINT32                 *NumPreloadedImg
+   );
+
 /*===========================================================================
   PROTOCOL INTERFACE
 ===========================================================================*/
@@ -172,11 +206,12 @@ typedef EFI_STATUS (EFIAPI *EFI_RAMPARTITION_GETRAMPARTITIONS) (
   @par Parameters
 */
 struct _EFI_RAMPARTITION_PROTOCOL {
-  UINT64 Revision;
-  EFI_RAMPARTITION_GETRAMPARTITIONVERSION GetRamPartitionVersion;
-  EFI_RAMPARTITION_GETHIGHESTBANKBIT GetHighestBankBit;
-  EFI_RAMPARTITION_GETRAMPARTITIONS GetRamPartitions;
-  EFI_RAMPARTITION_GETMINPASRSIZE GetMinPasrSize;
+   UINT64                                  Revision;
+   EFI_RAMPARTITION_GETRAMPARTITIONVERSION GetRamPartitionVersion;
+   EFI_RAMPARTITION_GETHIGHESTBANKBIT      GetHighestBankBit;
+   EFI_RAMPARTITION_GETRAMPARTITIONS       GetRamPartitions;
+   EFI_RAMPARTITION_GETMINPASRSIZE         GetMinPasrSize;
+   EFI_RAMPARTITION_GETPRELOADEDIMAGETABLE GetPreLoadedImageTable;
 };
 
 #endif /* __EFIRAMPARTITION_H__ */

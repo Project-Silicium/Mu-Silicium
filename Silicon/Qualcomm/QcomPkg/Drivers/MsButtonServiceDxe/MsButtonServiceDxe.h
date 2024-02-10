@@ -1,8 +1,9 @@
 /**
 
-  This module installs the MsButtonServicesProtocol.
+  This Module Installs the MsButtonServicesProtocol.
 
   Copyright (C) Microsoft Corporation. All rights reserved.
+
   SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
@@ -19,10 +20,10 @@ typedef enum {
 typedef struct {
   MS_BUTTON_SERVICES_PROTOCOL ButtonServicesProtocol;
   BUTTON_STATE                ButtonState;
-} GPIO_BUTTON_SERVICES_PROTOCOL;
+} MS_BUTTON_SERVICES;
 
-GPIO_BUTTON_SERVICES_PROTOCOL *gBsp = NULL;
+MS_BUTTON_SERVICES *gButtonService = NULL;
 
-#define MS_BSP_FROM_BSP(a) BASE_CR(a, GPIO_BUTTON_SERVICES_PROTOCOL, ButtonServicesProtocol)
+#define MS_BSP_FROM_BSP(a) BASE_CR(a, MS_BUTTON_SERVICES, ButtonServicesProtocol)
 
 #endif /* _MS_BUTTON_SERVICE_DXE_H_ */

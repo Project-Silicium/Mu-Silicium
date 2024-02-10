@@ -29,7 +29,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB||✅|
+|USB|Host Mode Only|⚠️|
 |ACPI||✅|
 |Slot Switch||✅|
 
@@ -123,7 +123,7 @@
 |Clocks||✅|
 |UFS|Disabled to prevent Wipe|✅|
 |Buttons||✅|
-|USB|Host Mode works once|⚠️|
+|USB|Host Mode Only & Only works once|⚠️|
 |SD Card||✅|
 |ACPI||✅|
 
@@ -221,7 +221,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Power|⚠️|
+|USB|Host Mode Only & No USB Power|⚠️|
 |SD Card||✅|
 |ACPI||✅|
 |Slot Switch||✅|
@@ -312,7 +312,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Power|⚠️|
+|USB|Host Mode Only & No USB Power|⚠️|
 |SD Card||✅|
 |ACPI||✅|
 |Slot Switch||✅|
@@ -409,7 +409,7 @@
 |Clocks||✅|
 |eMMC||✅|
 |Buttons||✅|
-|USB||✅|
+|USB|Host Mode Only|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 
@@ -503,7 +503,7 @@
 |Clocks||✅|
 |eMMC||✅|
 |Buttons||✅|
-|USB|No USB Host|⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 
@@ -607,7 +607,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons|Pwr Button does not work|⚠️|
-|USB|No USB Host & Power|⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card|Needs working SdccDxe|❌|
 |ACPI||✅|
 
@@ -705,7 +705,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons|Pwr Button does not work|⚠️|
-|USB|No USB Host & Power|⚠️|
+|USB|Device Mode only|⚠️|
 |ACPI||✅|
 
 ### OS Status
@@ -802,7 +802,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Power|⚠️|
+|USB|Host Mode Only & No USB Power|⚠️|
 |ACPI||✅|
 |Slot Switch||✅|
 
@@ -900,7 +900,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|Device Mode Only|⚠️|
 |ACPI||✅|
 |Slot Switch||✅|
 
@@ -1004,7 +1004,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Power|⚠️|
+|USB|Host Mode Only & No USB Power|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 |Slot Switch||✅|
@@ -1097,7 +1097,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Power|⚠️|
+|USB|Host Mode Only & No USB Power|⚠️|
 |ACPI||✅|
 |Slot Switch||✅|
 
@@ -1187,7 +1187,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB||✅|
+|USB|Host Mode Only|⚠️|
 |ACPI||✅|
 |Slot Switch||✅|
 
@@ -1281,7 +1281,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|Device Mode Only|⚠️|
 |ACPI||✅|
 
 ### OS Status
@@ -1476,7 +1476,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card||❌|
 |ACPI||❌|
 
@@ -1574,7 +1574,7 @@
 |Clocks|Screen dies|⚠️|
 |UFS||❔|
 |Buttons||❔|
-|USB|No USB Host & Power|❔|
+|USB||❔|
 |SD Card||❔|
 |ACPI||❌|
 |Slot Switch||❔|
@@ -1673,7 +1673,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card||❌|
 |ACPI||❌|
 |Slot Switch||✅|
@@ -1772,7 +1772,7 @@
 |Clocks||✅|
 |eMMC||✅|
 |Buttons|Pwr Button is Mapped as SUSPEND|⚠️|
-|USB|No USB Host & Power|⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 
@@ -1862,7 +1862,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|No USB Host & Power|⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 

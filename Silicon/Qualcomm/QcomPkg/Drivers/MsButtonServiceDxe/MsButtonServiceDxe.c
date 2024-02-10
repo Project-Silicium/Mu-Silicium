@@ -1,12 +1,13 @@
 /**
 
-  This module installs the MsButtonServicesProtocol.
+  This Module Installs the MsButtonServicesProtocol.
 
   Copyright (C) Microsoft Corporation. All rights reserved.
+
   SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
-//#include <Library/BaseLib.h>
+
 #include <Library/DebugLib.h>
 #include <Library/DevicePathLib.h>
 #include <Library/MemoryAllocationLib.h>
@@ -33,10 +34,10 @@ PreBootVolumeUpButtonThenPowerButtonCheck (
   IN  MS_BUTTON_SERVICES_PROTOCOL *This,
   OUT BOOLEAN                     *PreBootVolumeUpButtonThenPowerButton)
 {
-  GPIO_BUTTON_SERVICES_PROTOCOL *Bsp;
+  MS_BUTTON_SERVICES *ButtonService;
 
-  Bsp                                   = MS_BSP_FROM_BSP(This);
-  *PreBootVolumeUpButtonThenPowerButton = (Bsp->ButtonState == VolUpButton);
+  ButtonService                         = MS_BSP_FROM_BSP(This);
+  *PreBootVolumeUpButtonThenPowerButton = (ButtonService->ButtonState == VolUpButton);
 
   return EFI_SUCCESS;
 }
@@ -55,10 +56,10 @@ PreBootVolumeDownButtonThenPowerButtonCheck (
   IN  MS_BUTTON_SERVICES_PROTOCOL *This,
   OUT BOOLEAN                     *PreBootVolumeDownButtonThenPowerButton)
 {
-  GPIO_BUTTON_SERVICES_PROTOCOL *Bsp;
+  MS_BUTTON_SERVICES *ButtonService;
 
-  Bsp                                     = MS_BSP_FROM_BSP(This);
-  *PreBootVolumeDownButtonThenPowerButton = (Bsp->ButtonState == VolDownButton);
+  ButtonService                           = MS_BSP_FROM_BSP (This);
+  *PreBootVolumeDownButtonThenPowerButton = (ButtonService->ButtonState == VolDownButton);
 
   return EFI_SUCCESS;
 }
@@ -74,10 +75,10 @@ EFI_STATUS
 EFIAPI
 PreBootClearVolumeButtonState (IN MS_BUTTON_SERVICES_PROTOCOL *This)
 {
-  GPIO_BUTTON_SERVICES_PROTOCOL *Bsp;
+  MS_BUTTON_SERVICES *ButtonService;
 
-  Bsp              = MS_BSP_FROM_BSP(This);
-  Bsp->ButtonState = NoButtons;
+  ButtonService              = MS_BSP_FROM_BSP (This);
+  ButtonService->ButtonState = NoButtons;
 
   return EFI_SUCCESS;
 }
@@ -86,14 +87,14 @@ EFI_STATUS
 EFIAPI
 KeyNotify (IN EFI_KEY_DATA *KeyData)
 {
-  if (gBsp == NULL) {
+  if (gButtonService == NULL) {
     return EFI_OUT_OF_RESOURCES;
   }
 
   if (KeyData->Key.ScanCode == SCAN_UP) {
-    gBsp->ButtonState = VolUpButton;
+    gButtonService->ButtonState = VolUpButton;
   } else if (KeyData->Key.ScanCode == SCAN_DOWN) {
-    gBsp->ButtonState = VolDownButton;
+    gButtonService->ButtonState = VolDownButton;
   }
 
   return EFI_SUCCESS;
@@ -177,31 +178,31 @@ InitButtonService (
   EFI_STATUS Status;
 
   // Allocate Memory for the Ms Button Service Protocol
-  gBsp = AllocateZeroPool(sizeof(GPIO_BUTTON_SERVICES_PROTOCOL));
-  if (gBsp == NULL) {
+  gButtonService = AllocateZeroPool (sizeof(MS_BUTTON_SERVICES));
+  if (gButtonService == NULL) {
     Status = EFI_OUT_OF_RESOURCES;
     DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for Button Service Protocol! Status = %r\n", Status));
     goto exit;
   }
 
   // Define each Button Checks
-  gBsp->ButtonServicesProtocol.PreBootVolumeDownButtonThenPowerButtonCheck = PreBootVolumeDownButtonThenPowerButtonCheck;
-  gBsp->ButtonServicesProtocol.PreBootVolumeUpButtonThenPowerButtonCheck   = PreBootVolumeUpButtonThenPowerButtonCheck;
-  gBsp->ButtonServicesProtocol.PreBootClearVolumeButtonState               = PreBootClearVolumeButtonState;
-  gBsp->ButtonState                                                        = NoButtons;
+  gButtonService->ButtonServicesProtocol.PreBootVolumeDownButtonThenPowerButtonCheck = PreBootVolumeDownButtonThenPowerButtonCheck;
+  gButtonService->ButtonServicesProtocol.PreBootVolumeUpButtonThenPowerButtonCheck   = PreBootVolumeUpButtonThenPowerButtonCheck;
+  gButtonService->ButtonServicesProtocol.PreBootClearVolumeButtonState               = PreBootClearVolumeButtonState;
+  gButtonService->ButtonState                                                        = NoButtons;
 
   // Get the State of the Buttons
-  Status = GetButtonState();
+  Status = GetButtonState ();
   if (EFI_ERROR (Status)) {
-    FreePool(gBsp);
+    FreePool (gButtonService);
     goto exit;
   }
 
   // Register the Ms Button Service Protocol
-  Status = gBS->InstallMultipleProtocolInterfaces(&ImageHandle, &gMsButtonServicesProtocolGuid, gBsp, NULL);
+  Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gMsButtonServicesProtocolGuid, gButtonService, NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register Button Service Protocol! Status = %r\n", Status));
-    FreePool(gBsp);
+    FreePool (gButtonService);
   }
 
 exit:

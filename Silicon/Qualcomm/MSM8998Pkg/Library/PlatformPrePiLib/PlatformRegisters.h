@@ -1,0 +1,7 @@
+#ifndef _PLATFORM_REGISTERS_H_
+#define _PLATFORM_REGISTERS_H_
+
+#define APSS_WDT_BASE          0x17817000
+#define APSS_WDT_ENABLE_OFFSET 0x8
+
+#endif /* _PLATFORM_REGISTERS_H_ */

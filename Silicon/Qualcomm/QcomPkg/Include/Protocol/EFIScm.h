@@ -25,6 +25,14 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+
+/*
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ *
+ * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause-Clear
+ */
+
 #ifndef __EFISCM_H__
 #define __EFISCM_H__
 
@@ -32,6 +40,7 @@
   INCLUDE FILES
 ===========================================================================*/
 #include <Uefi.h>
+#include "EFIListenerDef.h"
 
 /*===========================================================================
   MACRO DECLARATIONS
@@ -39,7 +48,7 @@
 /** @ingroup efi_scm_constants
   Protocol version.
 */
-#define QCOM_SCM_PROTOCOL_REVISION 0x0000000000010001
+#define QCOM_SCM_PROTOCOL_REVISION 0x0000000000040001
 
 /*===========================================================================
   EXTERNAL VARIABLES
@@ -73,9 +82,12 @@ typedef enum {
   APP_REGISTER_LOG_BUF_COMMAND,      /**< Register log buffer. */
   APP_PROVISION_RPMB_KEY_COMMAND,    /**< Provision RPMB key. */
   APP_RPMB_ERASE_COMMAND,            /**< Erase RPMB. */
-  APP_RPMB_CHECK_PROV_STATUS_COMMAND /**< Checks the RPMB provisioning status.
-                                        */
-
+  APP_RPMB_CHECK_PROV_STATUS_COMMAND,
+                                  /**< Checks the RPMB provisioning status. */
+  APP_QUERY_EMBEDDED_IMAGES_SUPPORT_CMD, /**< Queries embedded images support
+                                         and loads commonlibs. */
+  APP_START_EMBEDDED_APP_CMD,           /**< Starts an embedded trusted app. */
+  APP_START_TZTESTEXEC_APP_CMD           /**< Starts tzt test app. */
 } AppCmdType;
 
 #define SCM_MAX_NUM_PARAMETERS 10
@@ -273,6 +285,25 @@ typedef EFI_STATUS (EFIAPI *QCOM_SCM_REGISTER_CALLBACK) (
     IN UINT8 *SharedBufferPtr,
     IN UINTN SharedBufferLen);
 
+/* QCOM_SCM_DEREGISTER_CALLBACK */
+/** @ingroup efi_scm_deregister_callback
+   @par Summary
+   Calls TrustZone to deregister a callback function.
+   The SCM DXE also delete record of this registration.
+
+   @param[in]  This             Pointer to the QCOM_SCM_PROTOCOL instance.
+   @param[in]  ListenerID       Listener ID.
+
+   @return
+   EFI_SUCCESS  -- Function completed successfully. \n
+   Other values -- Failure.
+*/
+typedef
+EFI_STATUS
+(EFIAPI * QCOM_SCM_DEREGISTER_CALLBACK)(
+    IN QCOM_SCM_PROTOCOL *This,
+    IN UINT32 ListenerID);
+
 /* QCOM_SCM_EXIT_BOOT_SERVICES */
 /** @ingroup efi_scm_exit_boot_services
   @par Summary
@@ -286,6 +317,53 @@ typedef EFI_STATUS (EFIAPI *QCOM_SCM_REGISTER_CALLBACK) (
 */
 typedef EFI_STATUS (EFIAPI *QCOM_SCM_EXIT_BOOT_SERVICES) (
     IN QCOM_SCM_PROTOCOL *This);
+
+/* QCOM_SCM_GET_CLIENT_ENV */
+/** @ingroup efi_scm_smc_invoke_service
+  @par Summary
+  Called when SMC invoke service is used.
+
+  @param[in]      This  Pointer to the QCOM_SCM_PROTOCOL instance.
+  @param[in/out]  Pointer to client object acquired, the caller needs
+                  to cast it to Object type when using it. object is
+                  defined in QcomPkg/Include objecg.h. Abstract pointer
+                  to comply with UEIF protocol folder restriction.
+
+  @return
+  EFI_SUCCESS  -- Function completed successfully. \n
+  Other values -- Failure.
+ */
+typedef
+EFI_STATUS
+(EFIAPI * QCOM_SCM_GET_CLIENT_ENV)(
+    IN  QCOM_SCM_PROTOCOL *This,
+    OUT VOID *ClientEnvObject);
+
+/* QCOM_SCM_QSEE_SYS_CALL */
+/** @ingroup efi_scm_qsee_sys_call
+  @par Summary
+  Slow call into TrustZone. This API should be used if the syscall owner are:
+    TZ_OWNER_TZ_APPS 48
+    TZ_OWNER_QSEE_OS 50
+  This API will handle listener request from TZ.
+
+  @param[in] This Pointer to the QCOM_SCM_PROTOCOL instance.
+  @param[in] SmcId Function ID for the TZ SIP Syscall to be made.
+  @param[in] ParamId Parameter ID for TZ SIP Syscall.
+  @param[in] Parameters Parameters struct for TZ SIP Sycall.
+  @param[out] Results Result struct from TZ SIP Syscall.
+
+  @return
+  EFI_SUCCESS -- Function completed successfully. \n
+  Other values -- Failure.
+*/
+typedef EFI_STATUS (EFIAPI *QCOM_SCM_QSEE_SYS_CALL) (
+    IN QCOM_SCM_PROTOCOL *This,
+    IN UINT32 SmcId,
+    IN UINT32 ParamId,
+    IN UINT64 Parameters[SCM_MAX_NUM_PARAMETERS],
+    OUT UINT64 Results[SCM_MAX_NUM_RESULTS]
+);
 /*===========================================================================
   PROTOCOL INTERFACE
 ===========================================================================*/
@@ -305,6 +383,9 @@ struct _QCOM_SCM_PROTOCOL {
   QCOM_SCM_SEND_COMMAND ScmSendCommand;
   QCOM_SCM_EXIT_BOOT_SERVICES ScmExitBootServicesHandler;
   QCOM_SCM_SIP_SYS_CALL ScmSipSysCall;
+  QCOM_SCM_DEREGISTER_CALLBACK ScmDeRegisterCallback;
+  QCOM_SCM_GET_CLIENT_ENV ScmGetClientEnv;
+  QCOM_SCM_QSEE_SYS_CALL ScmQseeSysCall;
 };
 
 #endif /* __EFISCM_H__ */

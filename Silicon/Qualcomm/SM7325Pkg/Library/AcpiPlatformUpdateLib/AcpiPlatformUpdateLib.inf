@@ -6,33 +6,21 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = AcpiPlatformUpdateLib|DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION
 
-#
-#  VALID_ARCHITECTURES           = IA32 X64
-#
-
 [Sources]
- AcpiPlatformUpdateLib.c
+  AcpiPlatformUpdateLib.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  PcBdsPkg/PcBdsPkg.dec
-  MsCorePkg/MsCorePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  BaseMemoryLib
-  DebugLib
-  DevicePathLib
-  IoLib
   UefiBootServicesTableLib
-  UefiLib
   AslUpdateLib
-  RFSProtectionLib
   MemoryMapHelperLib
+  RFSProtectionLib
 
 [Protocols]
-  gEfiChipInfoProtocolGuid                      ## CONSUMES
-  gEfiSMEMProtocolGuid                          ## CONSUMES
-  gEfiPlatformInfoProtocolGuid                  ## CONSUMES
+  gEfiChipInfoProtocolGuid
+  gEfiSMEMProtocolGuid
+  gEfiPlatformInfoProtocolGuid

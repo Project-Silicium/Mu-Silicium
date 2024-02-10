@@ -26,6 +26,42 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/* Changes from Qualcomm Innovation Center are provided under the following
+ * license:
+ *
+ * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted (subject to the limitations in the
+ * disclaimer below) provided that the following conditions are met:
+ *
+ *    * Redistributions of source code must retain the above copyright
+ *      notice, this list of conditions and the following disclaimer.
+ *
+ *    * Redistributions in binary form must reproduce the above
+ *      copyright notice, this list of conditions and the following
+ *      disclaimer in the documentation and/or other materials provided
+ *      with the distribution.
+ *
+ *    * Neither the name of Qualcomm Innovation Center, Inc. nor the names of
+ *      its contributors may be used to endorse or promote products derived
+ *      from this software without specific prior written permission.
+ *
+ * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
+ * GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+ * HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+ * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #ifndef __EFIVERIFIEDBOOT_H__
 #define __EFIVERIFIEDBOOT_H__
 
@@ -40,7 +76,8 @@
 /** @ingroup
   Protocol version.
 */
-#define QCOM_VERIFIEDBOOT_PROTOCOL_REVISION 0x0000000000010002
+#define QCOM_VERIFIEDBOOT_PROTOCOL_REVISION 0x0000000000010003
+#define QCOM_VERIFIEDBOOT_PROTOCOL_FIRST_REVISION 0x0000000000010001
 
 #define MAX_PNAME_LENGTH 32
 #define MAX_VERSION_LEN 64
@@ -236,6 +273,19 @@ typedef EFI_STATUS (EFIAPI *QCOM_VB_GET_CERT_FINGERPRINT) (
     OUT UINT8 *buf,
     IN UINTN buf_len,
     OUT UINTN *out_len);
+
+/**
+* Check if Keymaster is enabled.
+*
+* @return int
+* In case of success returns 0.
+*
+*
+*/
+typedef EFI_STATUS (EFIAPI *QCOM_VB_IS_KEYMASTER_ENABLED ) (
+  IN  QCOM_VERIFIEDBOOT_PROTOCOL   *This,
+  OUT BOOLEAN                      *KeymasterEnabled);
+
 /*===========================================================================
   PROTOCOL INTERFACE
 ===========================================================================*/
@@ -248,15 +298,16 @@ typedef EFI_STATUS (EFIAPI *QCOM_VB_GET_CERT_FINGERPRINT) (
 */
 struct _QCOM_VERIFIEDBOOT_PROTOCOL {
   UINT64 Revision;
-  QCOM_VB_RW_DEVICE_STATE VBRwDeviceState;
-  QCOM_VB_DEVICE_INIT VBDeviceInit;
-  QCOM_VB_SEND_ROT VBSendRot;
-  QCOM_VB_SEND_MILESTONE VBSendMilestone;
-  QCOM_VB_VERIFY_IMAGE VBVerifyImage;
-  QCOM_VB_RESET_STATE VBDeviceResetState;
-  QCOM_VB_IS_DEVICE_SECURE VBIsDeviceSecure;
-  QCOM_VB_GET_BOOT_STATE VBGetBootState;
+  QCOM_VB_RW_DEVICE_STATE      VBRwDeviceState;
+  QCOM_VB_DEVICE_INIT          VBDeviceInit;
+  QCOM_VB_SEND_ROT             VBSendRot;
+  QCOM_VB_SEND_MILESTONE       VBSendMilestone;
+  QCOM_VB_VERIFY_IMAGE         VBVerifyImage;
+  QCOM_VB_RESET_STATE          VBDeviceResetState;
+  QCOM_VB_IS_DEVICE_SECURE     VBIsDeviceSecure;
+  QCOM_VB_GET_BOOT_STATE       VBGetBootState;
   QCOM_VB_GET_CERT_FINGERPRINT VBGetCertFingerPrint;
+  QCOM_VB_IS_KEYMASTER_ENABLED VBIsKeymasterEnabled;
 };
 
 #endif /* __EFIVERIFIEDBOOT_H__ */

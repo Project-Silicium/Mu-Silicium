@@ -25,6 +25,14 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+
+/* Changes from Qualcomm Innovation Center are provided under the following
+ * license:
+ *
+ * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause-Clear
+*/
+
 #ifndef SCM_SIP_INTERFACE_H
 #define SCM_SIP_INTERFACE_H
 
@@ -697,6 +705,29 @@
           TZ_SYSCALL_CREATE_SMC_ID (TZ_OWNER_SIP, TZ_SVC_BOOT, 0x1E)
 
 #define TZ_UPDATE_ROLLBACK_VERSION_ID_PARAM_ID                                 \
+          TZ_SYSCALL_CREATE_PARAM_ID_0
+
+/**
+   @ingroup update_rollback_version
+
+   Subroutine used by Hlos (UEFI) to indicate that rollback
+   version can be updated
+
+    @smc_id
+      0x32000110
+
+    @param_id
+      0x00000000
+
+    @return
+      E_SUCCESS on Success; an error code otherwise. 
+*/
+
+#define TZ_UPDATE_ROLLBACK_VERSION_IF_A_B_PARTITION_FEATURE_ENABLED_ID \
+          TZ_SYSCALL_CREATE_SMC_ID (TZ_OWNER_QSEE_OS, TZ_SVC_APP_MGR, 0x10U)
+
+#define \
+ TZ_UPDATE_ROLLBACK_VERSION_IF_A_B_PARTITION_FEATURE_ENABLED_ID_PARAM_ID \
           TZ_SYSCALL_CREATE_PARAM_ID_0
 
 /**

@@ -1,6 +1,5 @@
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
-#include <Library/UefiDriverEntryPoint.h>
 #include <Library/UefiBootServicesTableLib.h>
 
 #include <Protocol/EFIClock.h>
