@@ -138,3 +138,6 @@
 
   # SD Card PCD
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE|BOOLEAN|0x0000A700
+
+  # USB Init On Boot PCD
+  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot|FALSE|BOOLEAN|0x0000A800
