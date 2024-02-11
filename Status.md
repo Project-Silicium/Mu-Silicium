@@ -1571,13 +1571,13 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks|Screen dies|⚠️|
-|UFS||❔|
-|Buttons||❔|
-|USB||❔|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|Host Mode Only & No USB Power|⚠️|
 |SD Card||❔|
-|ACPI||❌|
-|Slot Switch||❔|
+|ACPI||✅|
+|Slot Switch||✅|
 
 ### OS Status
 
@@ -1587,8 +1587,8 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Boot||✅|
+|UFS||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -1599,10 +1599,10 @@
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -1619,8 +1619,8 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Boot||✅|
+|UFS||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -1631,10 +1631,10 @@
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB|No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
