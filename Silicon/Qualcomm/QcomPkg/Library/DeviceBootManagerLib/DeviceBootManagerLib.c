@@ -413,7 +413,10 @@ EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
 DeviceBootManagerAfterConsole (VOID)
 {
-  EFI_STATUS Status;
+  EFI_STATUS                    Status;
+  EFI_GRAPHICS_OUTPUT_PROTOCOL *mConsoleOutHandle;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Black;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL White;
 
   // Check if System is Good to Go
   MsPreBootChecks ();
@@ -425,6 +428,26 @@ DeviceBootManagerAfterConsole (VOID)
   Status = DisplayBootGraphic (BG_SYSTEM_LOGO);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Display Boot Logo! Status = %r\n", __FUNCTION__, Status));
+  }
+
+  // Locate Console Out Handle
+  Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&mConsoleOutHandle);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Console Out Protocol! Status %r\n", __FUNCTION__, Status));
+  } else {
+    // Combo Message
+    CHAR16 *ComboMessage = L"[Volume Up] UEFI Menu - [Volume Down] Slot Switch";
+
+    // Set Pos for Combo Message
+    UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(ComboMessage) * EFI_GLYPH_WIDTH) / 2;
+    UINTN YPos = mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT - 10;
+
+    // Set Color for the Message
+    Black.Blue = Black.Green = Black.Red = Black.Reserved = 0;
+    White.Blue = White.Green = White.Red = White.Reserved = 0xFF;
+
+    // Display Combo Message
+    PrintXY (XPos, YPos, &White, &Black, ComboMessage);
   }
 
   return GetPlatformConnectList ();
