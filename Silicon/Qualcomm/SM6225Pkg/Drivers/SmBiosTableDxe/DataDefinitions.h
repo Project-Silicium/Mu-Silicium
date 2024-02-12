@@ -284,8 +284,13 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a73 = {
     0  // ProcessorVoltageIndicateLegacy
   },
   0,                     // ExternalClock
+#if SOC_TYPE == 0
   2400,                  // MaxSpeed
   2400,                  // CurrentSpeed
+#else
+  2800,                  // MaxSpeed
+  2800,                  // CurrentSpeed
+#endif
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
   0,                     // L1CacheHandle
