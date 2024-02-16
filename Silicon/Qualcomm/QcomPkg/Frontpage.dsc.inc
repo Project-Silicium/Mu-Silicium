@@ -142,8 +142,8 @@
 
   gMsGraphicsPkgTokenSpaceGuid.PcdUiThemeInDxe|TRUE
 
-  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000023
-  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20240120
+  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000024
+  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20240216
 
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor|0x0
 

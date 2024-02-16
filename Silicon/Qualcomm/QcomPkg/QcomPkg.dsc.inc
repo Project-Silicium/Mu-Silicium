@@ -40,7 +40,7 @@
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000             # 512 MB Size
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.3"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.4"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01231229
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
