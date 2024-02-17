@@ -43,7 +43,6 @@
   MsNVBootReasonLib
   BootGraphicsLib
   GraphicsConsoleHelperLib
-  UpdateFacsHardwareSignatureLib
 
 [Guids]
   gMsStartOfBdsNotifyGuid

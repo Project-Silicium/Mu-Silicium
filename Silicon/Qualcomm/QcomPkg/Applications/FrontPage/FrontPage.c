@@ -770,7 +770,7 @@ CallFrontPage (
     Index = ((FALSE == mShowFullMenu) ? mFormMap[Count].LimitedMenuIndex : mFormMap[Count].FullMenuIndex);
 
     if (Index == FormIndex) {
-      if (Index == 5) {
+      if (Index == 4) {
         // Power Off
         gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
 

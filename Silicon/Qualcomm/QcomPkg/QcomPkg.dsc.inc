@@ -22,17 +22,13 @@
   *_*_AARCH64_CC_FLAGS = -mstrict-align -march=armv8-a
 
 [PcdsFeatureFlag.common]
-  gArmTokenSpaceGuid.PcdCpuDxeProduceDebugSupport|FALSE
-
   gEfiMdePkgTokenSpaceGuid.PcdComponentNameDisable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdDriverDiagnosticsDisable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdComponentName2Disable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdDriverDiagnostics2Disable|TRUE
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdTurnOffUsbLegacySupport|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutGopSupport|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdSupportUpdateCapsuleReset|TRUE
-  gEfiMdeModulePkgTokenSpaceGuid.PcdPciBusHotplugDeviceSupport|FALSE
   gEfiMdeModulePkgTokenSpaceGuid.PcdInstallAcpiSdtProtocol|TRUE
 
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
@@ -90,7 +86,7 @@
   gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType|4
 
   # Boot Manager
-  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|3
+  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|5
 
   # FrameBuffer Delay
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|10000          # In Microseconds
@@ -101,7 +97,7 @@
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerInBootOrder|TRUE
+  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerInBootOrder|FALSE
   gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupport|FALSE
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x2000
@@ -141,7 +137,6 @@
   FileHandleLib|MdePkg/Library/UefiFileHandleLib/UefiFileHandleLib.inf
 
   UefiRuntimeLib|MdePkg/Library/UefiRuntimeLib/UefiRuntimeLib.inf
-  OrderedCollectionLib|MdePkg/Library/BaseOrderedCollectionRedBlackTreeLib/BaseOrderedCollectionRedBlackTreeLib.inf
 
   #
   # Allow dynamic PCDs
@@ -207,7 +202,6 @@
   AuthVariableLib|MdeModulePkg/Library/AuthVariableLibNull/AuthVariableLibNull.inf
   SecureBootVariableLib|SecurityPkg/Library/SecureBootVariableLib/SecureBootVariableLib.inf
 
-  LockBoxLib|MdeModulePkg/Library/LockBoxNullLib/LockBoxNullLib.inf
   PasswordPolicyLib|OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
   SecureBootKeyStoreLib|MsCorePkg/Library/SecureBootKeyStoreLibNull/SecureBootKeyStoreLibNull.inf
   PlatformPKProtectionLib|SecurityPkg/Library/PlatformPKProtectionLibVarPolicy/PlatformPKProtectionLibVarPolicy.inf
@@ -242,29 +236,6 @@
   ResetUtilityLib|MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
   FltUsedLib|MdePkg/Library/FltUsedLib/FltUsedLib.inf
 
-  # UI and graphics
-  FrameBufferMemDrawLib|MsGraphicsPkg/Library/FrameBufferMemDrawLib/FrameBufferMemDrawLibDxe.inf
-
-  # DFCI / XML / JSON Libraries
-  DfciUiSupportLib|OemPkg/Library/DfciUiSupportLib/DfciUiSupportLib.inf # Supports DFCI Groups.
-  DfciV1SupportLib|DfciPkg/Library/DfciV1SupportLibNull/DfciV1SupportLibNull.inf # Backwards compatibility with DFCI V1 functions.
-  DfciDeviceIdSupportLib|OemPkg/Library/DfciDeviceIdSupportLib/DfciDeviceIdSupportLib.inf
-  DfciGroupLib|OemPkg/Library/DfciGroupLib/DfciGroups.inf
-  DfciRecoveryLib|DfciPkg/Library/DfciRecoveryLib/DfciRecoveryLib.inf
-
-  # Zero Touch is part of DFCI
-  ZeroTouchSettingsLib|ZeroTouchPkg/Library/ZeroTouchSettings/ZeroTouchSettings.inf
-
-  # Libraries that understands the MsXml Settings Schema and providers helper functions
-  DfciXmlIdentitySchemaSupportLib|DfciPkg/Library/DfciXmlIdentitySchemaSupportLib/DfciXmlIdentitySchemaSupportLib.inf
-  DfciXmlDeviceIdSchemaSupportLib|DfciPkg/Library/DfciXmlDeviceIdSchemaSupportLib/DfciXmlDeviceIdSchemaSupportLib.inf
-  DfciXmlSettingSchemaSupportLib|DfciPkg/Library/DfciXmlSettingSchemaSupportLib/DfciXmlSettingSchemaSupportLib.inf
-  DfciXmlPermissionSchemaSupportLib|DfciPkg/Library/DfciXmlPermissionSchemaSupportLib/DfciXmlPermissionSchemaSupportLib.inf
-  DfciSettingChangedNotificationLib|DfciPkg/Library/DfciSettingChangedNotificationLib/DfciSettingChangedNotificationLibNull.inf
-
-  # Json parser
-  JsonLiteParserLib|MsCorePkg/Library/JsonLiteParser/JsonLiteParser.inf
-
   # TPM Libraries
   TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
 
@@ -275,17 +246,10 @@
   MemoryBinOverrideLib|MdeModulePkg/Library/MemoryBinOverrideLibNull/MemoryBinOverrideLibNull.inf
   PcdDatabaseLoaderLib|MdeModulePkg/Library/PcdDatabaseLoaderLib/Dxe/PcdDatabaseLoaderLibDxe.inf
 
-  HttpLib|NetworkPkg/Library/DxeHttpLib/DxeHttpLib.inf
-  NetLib|NetworkPkg/Library/DxeNetLib/DxeNetLib.inf
-
   ExtractGuidedSectionLib|EmbeddedPkg/Library/PrePiExtractGuidedSectionLib/PrePiExtractGuidedSectionLib.inf
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
 
   MemoryMapHelperLib|QcomPkg/Library/MemoryMapHelperLib/MemoryMapHelperLib.inf
-
-  UpdateFacsHardwareSignatureLib|OemPkg/Library/UpdateFacsHardwareSignatureLib/UpdateFacsHardwareSignatureLib.inf
-
-  ExceptionPersistenceLib|MdeModulePkg/Library/BaseExceptionPersistenceLibNull/BaseExceptionPersistenceLibNull.inf
 
 [LibraryClasses.common.SEC]
   HobLib|EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf
@@ -335,10 +299,7 @@
   }
 
   # PCD Database
-  MdeModulePkg/Universal/PCD/Dxe/Pcd.inf {
-    <LibraryClasses>
-      PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
-  }
+  MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   # Processor Core Services
   ArmPkg/Drivers/CpuDxe/CpuDxe.inf

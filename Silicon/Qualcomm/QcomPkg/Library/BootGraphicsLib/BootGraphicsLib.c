@@ -15,7 +15,6 @@
 #include <Library/DebugLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/BootGraphicsProviderLib.h>
-#include <Library/DisplayDeviceStateLib.h>
 #include <Library/BmpSupportLib.h>
 #include <Library/UefiLib.h>
 
@@ -76,9 +75,6 @@ DisplayBootGraphic (BOOT_GRAPHIC Graphic)
   Blt = (EFI_GRAPHICS_OUTPUT_BLT_PIXEL *)(&Color);
   GraphicsOutput->Blt (GraphicsOutput, Blt, EfiBltVideoFill, 0, 0, 0, 0, SizeOfX, SizeOfY, 0);
   Blt = NULL;
-
-  // Show the Device State
-  DisplayDeviceState ((INT32)SizeOfX, (INT32)SizeOfY);
 
   // Get the Requested Boot Graphic
   Status = GetBootGraphic (Graphic, &ImageSize, &ImageData);

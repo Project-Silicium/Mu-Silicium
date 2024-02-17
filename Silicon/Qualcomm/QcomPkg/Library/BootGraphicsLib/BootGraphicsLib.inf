@@ -28,7 +28,6 @@
   UefiLib
   DebugLib
   PcdLib
-  DisplayDeviceStateLib
   BootGraphicsProviderLib
   BmpSupportLib
   MemoryAllocationLib

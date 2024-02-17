@@ -342,13 +342,7 @@ PostReadyToBoot (
   IN EFI_EVENT Event,
   IN VOID     *Context)
 {
-  STATIC BOOLEAN FirstPass = TRUE;
-
-  if (FirstPass) {
-    FirstPass = FALSE;
-
-    UpdateFacsHardwareSignature (DefaultFacsHwSigAlgorithm);
-  }
+  // Do Nothing
 }
 
 /**

@@ -6,10 +6,8 @@
   INF OemPkg/BootMenu/BootMenu.inf
   INF QcomPkg/Applications/FrontPage/FrontPage.inf
   INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
-  INF DfciPkg/DfciManager/DfciManager.inf
   INF MsGraphicsPkg/OnScreenKeyboardDxe/OnScreenKeyboardDxe.inf
   INF MsGraphicsPkg/SimpleWindowManagerDxe/SimpleWindowManagerDxe.inf
-  INF MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
 
@@ -19,8 +17,6 @@
   INF QcomPkg/GPLDrivers/BootSlotDxe/BootSlotDxe.inf
   INF QcomPkg/GPLApplications/SwitchSlotsApp/SwitchSlotsApp.inf
 !endif
-
-  INF DfciPkg/Application/DfciMenu/DfciMenu.inf
 
   FILE FREEFORM = PCD(gQcomPkgTokenSpaceGuid.PcdLogoFile_Small) {
     SECTION RAW = QcomPkg/Include/Resources/BootLogo_Small.bmp
