@@ -434,7 +434,7 @@ DeviceBootManagerAfterConsole (VOID)
 
     // Set Pos for Combo Message
     UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(ComboMessage) * EFI_GLYPH_WIDTH) / 2;
-    UINTN YPos = mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT - 10;
+    UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
 
     // Set Color for the Message
     Black.Blue = Black.Green = Black.Red = Black.Reserved = 0;
