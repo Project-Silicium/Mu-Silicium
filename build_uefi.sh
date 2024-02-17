@@ -105,8 +105,8 @@ case "${TARGET_BUILD_MODE}" in
 esac
 
 # Include Device Config if it exists
-if [ -f "configs/${TARGET_DEVICE}.conf" ]
-then source "configs/${TARGET_DEVICE}.conf"
+if [ -f "Resources/Configs/${TARGET_DEVICE}.conf" ]
+then source "Resources/Configs/${TARGET_DEVICE}.conf"
 else _error "\nDevice configuration not found!\nCheck if your .conf File is in the 'configs' Folder\n"
 fi
 
@@ -114,8 +114,9 @@ fi
 rm -r Conf &> /dev/null
 rm ./BootShim/BootShim.bin &> /dev/null
 rm ./BootShim/BootShim.elf &> /dev/null
-rm ./ImageResources/bootpayload.bin &> /dev/null
+rm ./Resources/bootpayload.bin &> /dev/null
 rm Mu-${TARGET_DEVICE}.img &> /dev/null
+rm Mu-${TARGET_DEVICE}.tar &> /dev/null
 
 # Compile BootShim
 cd BootShim
@@ -129,23 +130,23 @@ python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py"
 # Apply Mu Patches
 
 ## Mu_Basecore
-cp ./MuPatches/UsbBus.patch ./Mu_Basecore/
-cd Mu_Basecore
-git apply UsbBus.patch &> /dev/null
-cd ..
+#cp ./MuPatches/UsbBus.patch ./Mu_Basecore/
+#cd Mu_Basecore
+#git apply UsbBus.patch &> /dev/null
+#cd ..
 
 ## Mu
-cp ./MuPatches/PlatformBm.patch ./Common/Mu/
-cd ./Common/Mu
-git apply PlatformBm.patch &> /dev/null
-cd ../..
+#cp ./MuPatches/PlatformBm.patch ./Common/Mu/
+#cd ./Common/Mu
+#git apply PlatformBm.patch &> /dev/null
+#cd ../..
 
 # Start the Real Build of the UEFI
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TARGET=${_TARGET_BUILD_MODE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}"||_error "\nFailed to Compile UEFI!\n"
 
 # Execute Device Specific Boot Image Creation
-if [ -f "configs/${TARGET_DEVICE}.sh" ]
-then source configs/${TARGET_DEVICE}.sh
+if [ -f "Resources/Scripts/${TARGET_DEVICE}.sh" ]
+then source Resources/Scripts/${TARGET_DEVICE}.sh
 else _warn "\nImage Creation Script of ${TARGET_DEVICE} has not been Found!\nNo Boot Image Was Generated.\n"
 fi
 
