@@ -13,8 +13,9 @@
 [Defines]
   USE_PHYSICAL_TIMER = 0
 
-[BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
+# TODO: Replace this with working one
+#[BuildOptions]
+#  *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Timer
