@@ -54,7 +54,7 @@ But we have Other Repos that Support other Chipsets like Tegra or Exynos.
 
 ## Credits
 
-Thanks to [Gustave Monce](https://github.com/gus33000) for his [SurfaceDuoPkg](https://github.com/WOA-Project/SurfaceDuoPkg), without it this repo would probally not exist.
+Thanks to [Gustave Monce](https://github.com/gus33000) for his [mu_andromeda_platforms](https://github.com/WOA-Project/mu_andromeda_platforms), without it this repo would probally not exist.
 
 ## License
 
