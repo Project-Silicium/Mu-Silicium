@@ -226,11 +226,4 @@
 
   DfciPkg/Application/DfciMenu/DfciMenu.inf
 
-  CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf 
-
-  CryptoPkg/Library/BaseCryptLibOnProtocolPpi/DxeCryptLib.inf {
-    <PcdsFixedAtBuild>
-     !include CryptoPkg/Driver/Bin/Crypto.pcd.STANDARD.inc.dsc
-  }
-
   QcomPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf

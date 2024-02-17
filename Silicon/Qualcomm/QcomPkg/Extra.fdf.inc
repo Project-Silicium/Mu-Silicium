@@ -101,5 +101,3 @@
     SECTION RAW = QcomPkg/Applications/FrontPage/Resources/NoBoot.bmp
     SECTION UI = "BootFailIndicator"
   }
-
-  INF CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf
