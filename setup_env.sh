@@ -8,9 +8,10 @@ function _help(){
     echo
     echo "Options:"
     echo "  --package-manager PAK, -p PAK:   Chose what Package Manager you use."
+    echo "  --break, -b:                     Run pip with --break-system-packages"
     echo "  --venv, -v:                      Installs pip requirements in venv not local."
     echo "  --help, -h:                      Shows this Help."
-    echo
+    echo 
     echo "MainPage: https://github.com/Robotix22/Mu-Qcom"
     exit 1
 }
@@ -21,14 +22,15 @@ function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2;exit 1; }
 
 # Set Default Defines
 VENV="FALSE"
-
+BREAK="FALSE"
 # Check if any args were given
-OPTS="$(getopt -o v,p:hfabcACDO: -l package-manager:,help,venv -n 'setup_env.sh' -- "$@")"||exit 1
+OPTS="$(getopt -o v,p:hfabcACDO: -l package-manager:,help,venv,break -n 'setup_env.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do  case "${1}" in
         -p|--package-manager) PAK="${2}";shift 2;;
         -v|-venv) VENV="TRUE";shift;;
+        -b|--break) BREAK="TRUE";shift;;
         -h|--help) _help 0;shift;;
         --) shift;break;;
         *) _help 1;;
@@ -58,8 +60,10 @@ if [ ${VENV} = TRUE ]; then
     python3 -m venv .venv
     source .venv/bin/activate
 fi
-
-python3 -m pip install -r pip-requirements.txt --break-system-packages||_error "\nFailed to install Pip Packages!\n"
-
+if [ ${BREAK} = TRUE ]; then
+    python3 -m pip install -r pip-requirements.txt --break-system-packages||_error "\nFailed to install Pip Packages!\n"
+else
+    python3 -m pip install -r pip-requirements.txt ||_error "\nFailed to install Pip Packages!\n"
+fi
 export CLANGDWARF_BIN=/usr/lib/llvm-38/bin/
 export CLANGDWARF_AARCH64_PREFIX=aarch64-linux-gnu-
