@@ -27,7 +27,7 @@
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xF200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0xF300000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xF200000
+  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xF300000
 
   # ACPI
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006125
