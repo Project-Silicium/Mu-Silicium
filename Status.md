@@ -1550,6 +1550,99 @@
 
 </td></tr> </table>
 
+## Lenovo Tab P11 Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Lenovo-Tab-P11-Pro-2020.png" width="500" alt="Preview">
+
+**Codename: j706f** <br />
+**Maintainer: [hyusang](https://github.com/cloudsweets/)** <br />
+**Contibuters: None** <br />
+**Tester: [hyusang](https://github.com/cloudsweets/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|ACPI||❌|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
   </summary>
 </details>
 

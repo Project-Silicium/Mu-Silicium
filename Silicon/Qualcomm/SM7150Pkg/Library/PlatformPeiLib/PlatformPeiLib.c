@@ -181,20 +181,24 @@ BuildMemHobForFv (IN UINT16 Type)
   }
 }
 
-STATIC GUID gEfiInfoBlkHobGuid = EFI_INFORMATION_BLOCK_GUID;
-STATIC GUID gEfiShLibHobGuid   = EFI_SHIM_LIBRARY_GUID;
+STATIC GUID gEfiShLibHobGuid    = EFI_SHIM_LIBRARY_GUID;
+STATIC GUID gEfiInfoBlkHobGuid  = EFI_INFORMATION_BLOCK_GUID;
+STATIC GUID gEfiProdmodeHobGuid = EFI_PRODMODE_INFORMATION_GUID;
 
 VOID
 InstallPlatformHob ()
 {
+  BOOLEAN Prodmode = FALSE;
   ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
   LocateMemoryMapAreaByName ("Info Blk", &InfoBlk);
 
   UINTN InfoBlkAddress = InfoBlk.Address;
   UINTN ShLibAddress   = (UINTN)&ShLib;
 
-  BuildGuidDataHob (&gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof(InfoBlkAddress));
-  BuildGuidDataHob (&gEfiShLibHobGuid,   &ShLibAddress,   sizeof(ShLibAddress));
+  BuildGuidDataHob (&gEfiInfoBlkHobGuid,  &InfoBlkAddress, sizeof(InfoBlkAddress));
+  BuildGuidDataHob (&gEfiShLibHobGuid,    &ShLibAddress,   sizeof(ShLibAddress));
+  BuildGuidDataHob (&gEfiProdmodeHobGuid, &Prodmode,       sizeof(Prodmode));
+
 }
 
 EFI_STATUS
