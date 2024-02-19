@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = j706f
+  PACKAGE_GUID                   = ec1c4aba-c35e-404f-b515-e616d5aa9bff
+  PACKAGE_VERSION                = 0.1
+
+[Includes.common]
+  Include                         # Root include for the package
+
+[Guids.common]
+  gj706fTokenSpaceGuid           = { 0xec1c4aba, 0xc35e, 0x404f, { 0xb5, 0x15, 0xe6, 0x16, 0xd5, 0xaa, 0x9b, 0xff } }
