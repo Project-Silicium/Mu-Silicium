@@ -22,6 +22,8 @@
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|27
+  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17100000
