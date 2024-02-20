@@ -1541,9 +1541,6 @@
 
 </td></tr> </table>
 
-  </summary>
-</details>
-
 <details>
 
 <details>
