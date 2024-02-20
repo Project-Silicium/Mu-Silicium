@@ -1541,7 +1541,8 @@
 
 </td></tr> </table>
 
-<details>
+  </summary>
+</details>
 
 <details>
 <summary><b><strong>Snapdragon 730/730G/732G Devices</strong></b></summary>
