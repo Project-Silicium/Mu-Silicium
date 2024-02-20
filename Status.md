@@ -1453,6 +1453,99 @@
   </summary>
 </details>
 
+## Samsung Galaxy A52s 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
+
+**Codename: ginkgo** <br />
+**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: [SwedMlite](https://github.com/SwedMlite)** <br />
+**Testers: [SwedMlite](https://github.com/SwedMlite), [kubawis128](https://github.com/kubawis128)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|eMMC||✅|
+|Buttons||✅|
+|USB|Host Mode Only|⚠️|
+|SD Card||❌|
+|ACPI||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|eMMC||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Battery||❌|
+|USB||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|eMMC||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+
 <details>
 <summary><b><strong>Snapdragon 730/730G/732G Devices</strong></b></summary>
 
