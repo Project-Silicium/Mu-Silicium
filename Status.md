@@ -1454,10 +1454,10 @@
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
 
-**Codename: ginkgo** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Contibuters: [SwedMlite](https://github.com/SwedMlite)** <br />
-**Testers: [SwedMlite](https://github.com/SwedMlite), [kubawis128](https://github.com/kubawis128)**
+**Codename: a52sxq** <br />
+**Maintainer: [arminask](https://github.com/arminask)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Testers: [arminask](https://github.com/arminask)**
 
 ### UEFI Status
 
@@ -1466,11 +1466,11 @@
 |Display||✅|
 |Touchscreen||❌|
 |Clocks||✅|
-|eMMC||✅|
-|Buttons||✅|
-|USB|Host Mode Only|⚠️|
+|UFS||❌|
+|Buttons|Vol-/Vol+ only|⚠️|
+|USB|❌|
 |SD Card||❌|
-|ACPI||✅|
+|ACPI||❌|
 
 ### OS Status
 
@@ -1480,8 +1480,8 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|eMMC||✅|
+|Boot||❌|
+|UFS||❌|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -1490,10 +1490,10 @@
 |Gyroscope Sensor||❌|
 |Fingerprint Sensor||❌|
 |Battery||❌|
-|USB||✅|
+|USB||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU|4 Cores only|⚠️|
+|CPU|❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -1503,7 +1503,7 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display||✅|
+|Display||❌|
 |Vibration||❌|
 
 </td><td>
@@ -1511,7 +1511,7 @@
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Boot||❌|
-|eMMC||❌|
+|UFS||❌|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
