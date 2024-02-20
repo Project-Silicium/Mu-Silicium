@@ -1452,7 +1452,7 @@
 
 ## Samsung Galaxy A52s 5G
 
-<img align="right" src="https://cdn.revendo.com/media/87/39/99/1661408173/samsung-galaxy-a52s-5g-awesome-black-guenstig-gebraucht-kaufen.png.png" width="600" alt="Preview">
+<img align="right" src="https://cdn.revendo.com/media/87/39/99/1661408173/samsung-galaxy-a52s-5g-awesome-black-guenstig-gebraucht-kaufen.png.png" width="601" alt="Preview">
 
 **Codename: a52sxq** <br />
 **Maintainer: [arminask](https://github.com/arminask)** <br />
@@ -1468,7 +1468,7 @@
 |Clocks||✅|
 |UFS||❌|
 |Buttons|Volume Up/Down only|⚠️|
-|USB|❌|
+|USB||❌|
 |SD Card||❌|
 |ACPI||❌|
 
@@ -1493,7 +1493,7 @@
 |USB||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU|❌|
+|CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
