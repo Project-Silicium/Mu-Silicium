@@ -1450,9 +1450,6 @@
 
 </td></tr> </table>
 
-  </summary>
-</details>
-
 ## Samsung Galaxy A52s 5G
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
