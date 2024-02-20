@@ -517,92 +517,114 @@
                         "PowerCollapse.D4"
                     }
                 })
-
-                Device (CL1)
+                Device (CPU4)
                 {
-                    Name (_HID, "ACPI0010" /* Processor Container Device */)  // _HID: Hardware ID
-                    Name (_UID, 0x20)  // _UID: Unique ID
-                    Name (_LPI, Package (0x06)  // _LPI: Low Power Idle States
+                    Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                    Name (_UID, 0x04)  // _UID: Unique ID
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    {
+                        Return (0x0F)
+                    }
+
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
                         Zero,
-                        0x01000000,
-                        0x03,
+                        Zero,
+                        0x04,
                         Package (0x0A)
                         {
-                            0x0384,
-                            0xC8,
                             Zero,
                             Zero,
-                            Zero,
-                            Zero,
-                            0x20,
-                            ResourceTemplate ()
-                            {
-                                Register (SystemMemory,
-                                    0x00,               // Bit Width
-                                    0x00,               // Bit Offset
-                                    0x0000000000000000, // Address
-                                    ,)
-                            },
-
-                            ResourceTemplate ()
-                            {
-                                Register (SystemMemory,
-                                    0x00,               // Bit Width
-                                    0x00,               // Bit Offset
-                                    0x0000000000000000, // Address
-                                    ,)
-                            },
-
-                            "L2_Gold.D2d"
-                        },
-
-                        Package (0x0A)
-                        {
-                            0x03E8,
-                            0x0190,
-                            Zero,
-                            Zero,
-                            Zero,
-                            Zero,
-                            0x30,
-                            ResourceTemplate ()
-                            {
-                                Register (SystemMemory,
-                                    0x00,               // Bit Width
-                                    0x00,               // Bit Offset
-                                    0x0000000000000000, // Address
-                                    ,)
-                            },
-
-                            ResourceTemplate ()
-                            {
-                                Register (SystemMemory,
-                                    0x00,               // Bit Width
-                                    0x00,               // Bit Offset
-                                    0x0000000000000000, // Address
-                                    ,)
-                            },
-
-                            "L2_Gold.D2e"
-                        },
-
-                        Package (0x0A)
-                        {
-                            0x1770,
-                            0x04B0,
                             One,
                             Zero,
                             Zero,
+                            Zero,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x00000000FFFFFFFF, // Address
+                                    0x04,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold0.C1"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x0258,
+                            0x50,
+                            Zero,
+                            Zero,
+                            Zero,
+                            Zero,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000002, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold0.C2d"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x1B58,
+                            0x5A,
+                            One,
+                            One,
+                            Zero,
                             0x03,
-                            0x40,
                             ResourceTemplate ()
                             {
-                                Register (SystemMemory,
-                                    0x00,               // Bit Width
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
                                     0x00,               // Bit Offset
-                                    0x0000000000000000, // Address
-                                    ,)
+                                    0x0000000040000003, // Address
+                                    0x03,               // Access Size
+                                    )
                             },
 
                             ResourceTemplate ()
@@ -614,696 +636,573 @@
                                     ,)
                             },
 
-                            "L2_Gold.D4"
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold0.C3"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x1B58,
+                            0x5A,
+                            Zero,
+                            One,
+                            Zero,
+                            0x03,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold0.C3_NI"
                         }
                     })
-                    Device (CPU4)
+                }
+
+                Device (CPU5)
+                {
+                    Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                    Name (_UID, 0x05)  // _UID: Unique ID
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
-                        Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-                        Name (_UID, 0x04)  // _UID: Unique ID
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
-                        {
-                            Return (0x0F)
-                        }
-
-                        Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
-                        {
-                            Zero,
-                            Zero,
-                            0x04,
-                            Package (0x0A)
-                            {
-                                Zero,
-                                Zero,
-                                One,
-                                Zero,
-                                Zero,
-                                Zero,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x00000000FFFFFFFF, // Address
-                                        0x04,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold0.C1"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x0258,
-                                0x50,
-                                Zero,
-                                Zero,
-                                Zero,
-                                Zero,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000002, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold0.C2d"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x1B58,
-                                0x5A,
-                                One,
-                                One,
-                                Zero,
-                                0x03,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000040000003, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold0.C3"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x1B58,
-                                0x5A,
-                                Zero,
-                                One,
-                                Zero,
-                                0x03,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000040000004, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold0.C3_NI"
-                            }
-                        })
+                        Return (0x0F)
                     }
 
-                    Device (CPU5)
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-                        Name (_UID, 0x05)  // _UID: Unique ID
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Zero,
+                        Zero,
+                        0x04,
+                        Package (0x0A)
                         {
-                            Return (0x0F)
+                            Zero,
+                            Zero,
+                            One,
+                            Zero,
+                            Zero,
+                            Zero,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x00000000FFFFFFFF, // Address
+                                    0x04,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold1.C1"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x0258,
+                            0x50,
+                            Zero,
+                            Zero,
+                            Zero,
+                            Zero,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000002, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold1.C2d"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x1B58,
+                            0x5A,
+                            One,
+                            One,
+                            Zero,
+                            0x03,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000003, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold1.C3"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x1B58,
+                            0x5A,
+                            Zero,
+                            One,
+                            Zero,
+                            0x03,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold1.C3_NI"
                         }
+                    })
+                }
 
-                        Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
-                        {
-                            Zero,
-                            Zero,
-                            0x04,
-                            Package (0x0A)
-                            {
-                                Zero,
-                                Zero,
-                                One,
-                                Zero,
-                                Zero,
-                                Zero,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x00000000FFFFFFFF, // Address
-                                        0x04,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold1.C1"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x0258,
-                                0x50,
-                                Zero,
-                                Zero,
-                                Zero,
-                                Zero,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000002, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold1.C2d"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x1B58,
-                                0x5A,
-                                One,
-                                One,
-                                Zero,
-                                0x03,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000040000003, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold1.C3"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x1B58,
-                                0x5A,
-                                Zero,
-                                One,
-                                Zero,
-                                0x03,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000040000004, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold1.C3_NI"
-                            }
-                        })
+                Device (CPU6)
+                {
+                    Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                    Name (_UID, 0x06)  // _UID: Unique ID
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    {
+                        Return (0x0F)
                     }
 
-                    Device (CPU6)
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-                        Name (_UID, 0x06)  // _UID: Unique ID
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Zero,
+                        Zero,
+                        0x04,
+                        Package (0x0A)
                         {
-                            Return (0x0F)
+                            Zero,
+                            Zero,
+                            One,
+                            Zero,
+                            Zero,
+                            Zero,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x00000000FFFFFFFF, // Address
+                                    0x04,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold2.C1"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x0258,
+                            0x50,
+                            Zero,
+                            Zero,
+                            Zero,
+                            Zero,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000002, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold2.C2d"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x1B58,
+                            0x5A,
+                            One,
+                            One,
+                            Zero,
+                            0x03,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000003, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold2.C3"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x1B58,
+                            0x5A,
+                            Zero,
+                            One,
+                            Zero,
+                            0x03,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold2.C3_NI"
                         }
+                    })
+                }
 
-                        Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
-                        {
-                            Zero,
-                            Zero,
-                            0x04,
-                            Package (0x0A)
-                            {
-                                Zero,
-                                Zero,
-                                One,
-                                Zero,
-                                Zero,
-                                Zero,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x00000000FFFFFFFF, // Address
-                                        0x04,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold2.C1"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x0258,
-                                0x50,
-                                Zero,
-                                Zero,
-                                Zero,
-                                Zero,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000002, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold2.C2d"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x1B58,
-                                0x5A,
-                                One,
-                                One,
-                                Zero,
-                                0x03,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000040000003, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold2.C3"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x1B58,
-                                0x5A,
-                                Zero,
-                                One,
-                                Zero,
-                                0x03,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000040000004, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold2.C3_NI"
-                            }
-                        })
+                Device (CPU7)
+                {
+                    Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
+                    Name (_UID, 0x07)  // _UID: Unique ID
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    {
+                        Return (0x0F)
                     }
 
-                    Device (CPU7)
+                    Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
                     {
-                        Name (_HID, "ACPI0007" /* Processor Device */)  // _HID: Hardware ID
-                        Name (_UID, 0x07)  // _UID: Unique ID
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Zero,
+                        Zero,
+                        0x04,
+                        Package (0x0A)
                         {
-                            Return (0x0F)
+                            Zero,
+                            Zero,
+                            One,
+                            Zero,
+                            Zero,
+                            Zero,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x00000000FFFFFFFF, // Address
+                                    0x04,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold3.C1"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x0258,
+                            0x50,
+                            Zero,
+                            Zero,
+                            Zero,
+                            Zero,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000002, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold3.C2d"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x1B58,
+                            0x5A,
+                            One,
+                            One,
+                            Zero,
+                            0x03,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000003, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold3.C3"
+                        },
+
+                        Package (0x0A)
+                        {
+                            0x1B58,
+                            0x5A,
+                            Zero,
+                            One,
+                            Zero,
+                            0x03,
+                            ResourceTemplate ()
+                            {
+                                Register (FFixedHW,
+                                    0x20,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000040000004, // Address
+                                    0x03,               // Access Size
+                                    )
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            ResourceTemplate ()
+                            {
+                                Register (SystemMemory,
+                                    0x00,               // Bit Width
+                                    0x00,               // Bit Offset
+                                    0x0000000000000000, // Address
+                                    ,)
+                            },
+
+                            "KryoGold3.C3_NI"
                         }
-
-                        Name (_LPI, Package (0x07)  // _LPI: Low Power Idle States
-                        {
-                            Zero,
-                            Zero,
-                            0x04,
-                            Package (0x0A)
-                            {
-                                Zero,
-                                Zero,
-                                One,
-                                Zero,
-                                Zero,
-                                Zero,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x00000000FFFFFFFF, // Address
-                                        0x04,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold3.C1"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x0258,
-                                0x50,
-                                Zero,
-                                Zero,
-                                Zero,
-                                Zero,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000002, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold3.C2d"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x1B58,
-                                0x5A,
-                                One,
-                                One,
-                                Zero,
-                                0x03,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000040000003, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold3.C3"
-                            },
-
-                            Package (0x0A)
-                            {
-                                0x1B58,
-                                0x5A,
-                                Zero,
-                                One,
-                                Zero,
-                                0x03,
-                                ResourceTemplate ()
-                                {
-                                    Register (FFixedHW,
-                                        0x20,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000040000004, // Address
-                                        0x03,               // Access Size
-                                        )
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                ResourceTemplate ()
-                                {
-                                    Register (SystemMemory,
-                                        0x00,               // Bit Width
-                                        0x00,               // Bit Offset
-                                        0x0000000000000000, // Address
-                                        ,)
-                                },
-
-                                "KryoGold3.C3_NI"
-                            }
-                        })
-                    }
+                    })
                 }
             }
         }
