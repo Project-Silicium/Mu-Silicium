@@ -1452,7 +1452,7 @@
 
 ## Samsung Galaxy A52s 5G
 
-<img align="right" src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-a528blvdins/gallery/in-galaxy-a52s-5g-a528-402506-sm-a528blvdins-496849343?$650_519_PNG$" width="500" alt="Preview">
+<img align="right" src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-a528blvdins/gallery/in-galaxy-a52s-5g-a528-402506-sm-a528blvdins-496849343?$650_519_PNG$" width="650" alt="Preview">
 
 **Codename: a52sxq** <br />
 **Maintainer: [arminask](https://github.com/arminask)** <br />
