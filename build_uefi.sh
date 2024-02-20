@@ -26,6 +26,7 @@ TARGET_BUILD_MODE=RELEASE
 
 function _acpi(){
 	echo -e "\nUpdating device ACPI tables\n"
+	[[ -d Build ]] || mkdir Build
 	echo -e "PROGRESS - ACPI updater" > ./Build/acpi.log
 	TARGET_DEVICE_VENDOR=$(grep TARGET_DEVICE_VENDOR ./Resources/Configs/$TARGET_DEVICE.conf | tr -d 'TARGET_DEVICE_VENDOR=' | tr -d '"')
 	if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc ]; then
