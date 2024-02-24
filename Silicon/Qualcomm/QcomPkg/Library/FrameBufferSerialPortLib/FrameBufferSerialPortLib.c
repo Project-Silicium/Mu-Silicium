@@ -188,7 +188,7 @@ newline:
   TotalPosition->y += SCALE_FACTOR;
   TotalPosition->x  = 0;
 
-  if (TotalPosition->y >= MaxPosition.y) {
+  if (TotalPosition->y >= MaxPosition.y - SCALE_FACTOR) {
     // Reset Frame Buffer
     ZeroMem ((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
 
