@@ -133,11 +133,11 @@
   # Power Services PCD
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE|BOOLEAN|0x0000A500
 
-  # Dynamic RAM PCD
+  # Dynamic RAM Start Address PCD
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000A600
 
-  # SD Card PCD
+  # SD Card Slot PCD
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE|BOOLEAN|0x0000A700
 
-  # USB Init On Boot PCD
-  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot|FALSE|BOOLEAN|0x0000A800
+  # USB Controller PCD
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000A800

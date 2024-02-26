@@ -75,7 +75,7 @@ GetPlatformConnectList(VOID)
   // Update the ACPI Tables with SoC Runtime Information
   PlatformUpdateAcpiTables();
 
-  if (FixedPcdGetBool(PcdUSBInitOnBoot)) {
+  if (FixedPcdGetBool(PcdStartUsbController)) {
     // Notify the USB Controller to Start Now
     Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &UsbConfigEvt);
     if (EFI_ERROR (Status)) {

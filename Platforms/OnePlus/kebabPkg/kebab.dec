@@ -1,11 +1,8 @@
 [Defines]
   DEC_SPECIFICATION              = 0x00010005
   PACKAGE_NAME                   = kebab
-  PACKAGE_GUID                   = b8df34e2-f093-45ed-a3ef-f2bdc4128daa
+  PACKAGE_GUID                   = B8DF34E2-F093-45ED-A3EF-F2BDC4128DAA
   PACKAGE_VERSION                = 0.1
 
-[Includes.common]
-  Include                         # Root include for the package
-
-[Guids.common]
-  gkebabTokenSpaceGuid           = { 0x1ead32ce, 0x3165, 0x49eb, { 0xa9, 0x2d, 0xe8, 0x8a, 0x42, 0x57, 0x20, 0x02 } }
+[Guids]
+  gkebabTokenSpaceGuid           = { 0x1EAD32CE, 0x3165, 0x49EB, { 0xA9, 0x2D, 0xE8, 0x8A, 0x42, 0x57, 0x20, 0x02 } }

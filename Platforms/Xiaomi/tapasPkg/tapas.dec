@@ -1,11 +1,8 @@
 [Defines]
   DEC_SPECIFICATION              = 0x0001001A
   PACKAGE_NAME                   = tapas
-  PACKAGE_GUID                   = b365f6c4-95f6-4b2a-8014-2407fcec1ebf
+  PACKAGE_GUID                   = B365F6C4-95F6-4B2A-8014-2407FCEC1EBF
   PACKAGE_VERSION                = 1.0
 
-[Includes.common]
-  Include                         # Root include for the package
-
-[Guids.common]
-  gtapasTokenSpaceGuid             = { 0xb365f6c4, 0x95f6, 0x4b2a, { 0x80, 0x14, 0x24, 0x07, 0xfc, 0xec, 0x1e, 0xbf } }
+[Guids]
+  gtapasTokenSpaceGuid             = { 0xB365F6C4, 0x95F6, 0x4B2A, { 0x80, 0x14, 0x24, 0x07, 0xFC, 0xEC, 0x1E, 0xBF } }

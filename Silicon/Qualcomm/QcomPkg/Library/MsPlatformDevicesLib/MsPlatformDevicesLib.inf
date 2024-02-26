@@ -32,7 +32,7 @@
   AcpiPlatformUpdateLib
 
 [FixedPcd]
-  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent
 
 [Guids]

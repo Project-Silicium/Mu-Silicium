@@ -13,7 +13,7 @@
 
 ## Xiaomi Poco F3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
 
 **Codename: alioth** <br />
 **Maintainers: [AdrianoA3](https://github.com/AdrianoA3), [N1kroks](https://github.com/N1kroks)** <br />
@@ -29,7 +29,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|Dual Role Supported|✅|
+|USB||✅|
 |ACPI||✅|
 |Slot Switch||✅|
 
@@ -107,7 +107,7 @@
 
 ## Sony Xperia XZ1
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Sony-Xperia-XZ1.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Sony-Xperia-XZ1.png" width="500" alt="Preview">
 
 **Codename: poplar** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -201,11 +201,204 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
+
+## Samsung Galaxy A52s 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
+
+**Codename: a52sxq** <br />
+**Maintainer: [arminask](https://github.com/arminask)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/), People from Group** <br />
+**Testers: [arminask](https://github.com/arminask)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||❌|
+|Buttons|Volume Up/Down only|⚠️|
+|USB||❌|
+|SD Card||❌|
+|ACPI||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 730/730G/732G Devices</strong></b></summary>
+
+## Lenovo Tab P11 Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-Tab-P11-Pro-2020.png" width="500" alt="Preview">
+
+**Codename: j706f** <br />
+**Maintainer: [hyusang](https://github.com/cloudsweets/)** <br />
+**Contibuters: None** <br />
+**Tester: [hyusang](https://github.com/cloudsweets/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|Device Mode only|⚠️|
+|SD Card||❌|
+|ACPI||✅|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 680/685 Devices</strong></b></summary>
 
 ## Xiaomi Redmi 10C
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-10C.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-10C.png" width="500" alt="Preview">
 
 **Codename: fog** <br />
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
@@ -296,11 +489,11 @@
 
 ## Xiaomi Redmi Note 12
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
 
 **Codename: tapas** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
-**Contibuters: None** <br />
+**Contibuters: [Statzar](https://github.com/Statzar)** <br />
 **Tester: [6adp](https://github.com/6adp)**
 
 ### UEFI Status
@@ -389,105 +582,11 @@
 </details>
 
 <details>
-<summary><b><strong>Snapdragon 665 Devices</strong></b></summary>
-
-## Xiaomi Redmi Note 8/8T
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
-
-**Codename: ginkgo** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Contibuters: [SwedMlite](https://github.com/SwedMlite)** <br />
-**Testers: [SwedMlite](https://github.com/SwedMlite), [kubawis128](https://github.com/kubawis128)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Clocks||✅|
-|eMMC||✅|
-|Buttons||✅|
-|USB|Host Mode Only|⚠️|
-|SD Card||❌|
-|ACPI||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||✅|
-|eMMC||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||✅|
-|Charging||❌|
-|WLAN||❌|
-|CPU|4 Cores only|⚠️|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|eMMC||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-<details>
 <summary><b><strong>Snapdragon 660/636/630 Devices</strong></b></summary>
 
 ## Xiaomi Mi Max 3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Mi-Max-3.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-Max-3.png" width="500" alt="Preview">
 
 **Codename: nitrogen** <br />
 **Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
@@ -503,8 +602,8 @@
 |Clocks||✅|
 |eMMC||✅|
 |Buttons||✅|
-|USB|Device Mode Only|⚠️|
-|SD Card||❌|
+|USB||✅|
+|SD Card||✅|
 |ACPI||✅|
 
 ### OS Status
@@ -587,11 +686,7 @@
 
 ## Samsung Galaxy Tab S8 5G
 
-**WARNING: This Device has no Maintainer!** <br />
-**WARNING: Only Debug Build work right now!** <br />
-**NOTE: A Protocol called DTBExt is missing wich leads to the Unstable State.**
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
 **Codename: gts8** <br />
 **Maintainer: None** <br />
@@ -689,7 +784,7 @@
 
 ## Samsung Galaxy Z Fold 3 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Samsung-Galaxy-Z-Fold-3-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Z-Fold-3-5G.png" width="500" alt="Preview">
 
 **Codename: q2q** <br />
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br />
@@ -786,7 +881,7 @@
 
 ## Xiaomi Mi 11
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Mi-11.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11.png" width="500" alt="Preview">
 
 **Codename: venus** <br />
 **Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
@@ -882,9 +977,7 @@
 
 ## Xiaomi 11T Pro
 
-**WARNING: This Device has no Maintainer!**
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
 
 **Codename: vili** <br />
 **Maintainer: None** <br />
@@ -986,9 +1079,7 @@
 
 ## Lenovo Legion Tab Y700
 
-**WARNING: This Device has no Maintainer!** <br />
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Lenovo-Legion-Tab-Y700.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-Legion-Tab-Y700.png" width="500" alt="Preview">
 
 **Codename: 9707f** <br />
 **Maintainer: None** <br />
@@ -1081,12 +1172,12 @@
 
 ## OnePlus 8T
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/OnePlus-8T.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/OnePlus-8T.png" width="500" alt="Preview">
 
 **Codename: kebab** <br />
-**Maintainer: [SwedMlite](https://github.com/SwedMlite)** <br />
+**Maintainer: None** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [SwedMlite](https://github.com/SwedMlite)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -1171,7 +1262,7 @@
 
 ## Xiaomi Pad 6
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Pad-6.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Pad-6.png" width="500" alt="Preview">
 
 **Codename: pipa** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
@@ -1255,6 +1346,99 @@
 
 </td></tr> </table>
 
+## Xiaomi Poco F2 Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Poco-F2-Pro.png" width="500" alt="Preview">
+
+**Codename: lmi** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|Host Mode Only & No USB Power|⚠️|
+|SD Card||❌|
+|ACPI||✅|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB|No USB Power|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
   </summary>
 </details>
 
@@ -1263,9 +1447,7 @@
 
 ## OnePlus 7T Pro
 
-**WARNING: This Device has no Maintainer!** <br />
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
 
 **Codename: hotdog** <br />
 **Maintainer: None** <br />
@@ -1360,12 +1542,12 @@
   
 ## Mi 11 Lite NE
 
-<img align="right" src="./Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
 **Codename: lisa** <br />
 **Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br />
-**Contibuter: People from Group & You** <br />
-**Tester: [ETCHDEV](https://github.com/ETCHDEV/), You**
+**Contibuter: People from Group** <br />
+**Tester: [ETCHDEV](https://github.com/ETCHDEV/)**
 
 ### UEFI Status
 
@@ -1450,94 +1632,6 @@
 
 </td></tr> </table>
 
-## Samsung Galaxy A52s 5G
-
-<img align="right" src="https://cdn.revendo.com/media/87/39/99/1661408173/samsung-galaxy-a52s-5g-awesome-black-guenstig-gebraucht-kaufen.png.png" width="601" alt="Preview">
-
-**Codename: a52sxq** <br />
-**Maintainer: [arminask](https://github.com/arminask)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/), People from Group & You** <br />
-**Testers: [arminask](https://github.com/arminask), You**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Clocks||✅|
-|UFS||❌|
-|Buttons|Volume Up/Down only|⚠️|
-|USB||❌|
-|SD Card||❌|
-|ACPI||❌|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td></tr> </table>
-
   </summary>
 </details>
 
@@ -1546,9 +1640,7 @@
 
 ## Xiaomi Redmi Note 12 Pro 4G
 
-**WARNING: This Device has no Maintainer!**
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
 
 **Codename: sweet_k6a** <br />
 **Maintainer: None** <br />
@@ -1638,99 +1730,6 @@
 
 </td></tr> </table>
 
-## Lenovo Tab P11 Pro
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Lenovo-Tab-P11-Pro-2020.png" width="500" alt="Preview">
-
-**Codename: j706f** <br />
-**Maintainer: [hyusang](https://github.com/cloudsweets/)** <br />
-**Contibuters: None** <br />
-**Tester: [hyusang](https://github.com/cloudsweets/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
-|Buttons||✅|
-|USB||❌|
-|SD Card||❌|
-|ACPI||❌|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td></tr> </table>
-
   </summary>
 </details>
 
@@ -1739,7 +1738,7 @@
 
 ## Xiaomi Redmi Note 11
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-Note-11.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-11.png" width="500" alt="Preview">
 
 **Codename: spes** <br />
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
@@ -1838,12 +1837,12 @@
 
 ## Xiaomi Mi A3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
 
 **Codename: laurel_sprout** <br />
-**Maintainer: [Kernel357](https://github.com/Kernel357)** <br />
+**Maintainer: None** <br />
 **Contibuters: None** <br />
-**Tester: [Kernel357](https://github.com/Kernel357)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -1927,6 +1926,94 @@
 
 </td></tr> </table>
 
+## Xiaomi Redmi Note 8/8T
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
+
+**Codename: ginkgo** <br />
+**Maintainer: None** <br />
+**Contibuters: [SwedMlite](https://github.com/SwedMlite)** <br />
+**Testers: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|eMMC||✅|
+|Buttons||✅|
+|USB|Host Mode Only|⚠️|
+|SD Card||❌|
+|ACPI||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|eMMC||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Battery||❌|
+|USB||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU|4 Cores only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|eMMC||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
   </summary>
 </details>
 
@@ -1935,9 +2022,7 @@
 
 ## Motorola Moto G30
 
-**WARNING: This Device has no Maintainer!** <br />
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Motorola-Moto-G30.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Motorola-Moto-G30.png" width="500" alt="Preview">
 
 **Codename: caprip** <br />
 **Maintainer: None** <br />
@@ -2027,12 +2112,12 @@
 
 ## Xiaomi Redmi 9T
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Pictures/Xiaomi-Redmi-9T.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-9T.png" width="500" alt="Preview">
 
 **Codename: lime** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Maintainer: None** <br />
 **Contibuters: None** <br />
-**Tester: [Xhelowrk](https://github.com/Xhelowrk)**
+**Tester: None**
 
 ### UEFI Status
 
