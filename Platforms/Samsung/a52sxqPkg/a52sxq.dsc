@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = a52sxq
-  PLATFORM_GUID                  = 28f1a3bf-193a-47e3-a7b9-5a435eaab2ee
+  PLATFORM_GUID                  = 04D1109C-6E8A-45DA-85C4-9D7FF2113B25
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/a52sxqPkg
@@ -28,28 +28,30 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
 
-  # If your SoC has multimple variants define the Number here
-  # If not don't add this Define
+  # 0 = SM7325
+  # 1 = SM7325-AE
+  # 2 = SM7325-AF
   SOC_TYPE                       = 0
 
-# If your SoC has multimple variants keep this Build Option
-# If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
-[BuildOptions.common]
+[BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
-[LibraryClasses.common]
+[LibraryClasses]
   DeviceMemoryMapLib|a52sxqPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|a52sxqPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000                 # Starting address
+[PcdsFixedAtBuild]
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000 
 
+  # Device Maintainer
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"arminask" # Device Maintainer
 
+  # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
+  # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000            # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
@@ -63,16 +65,16 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  # Dynamic RAM
+  # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xF0900000
 
-  # SD Card
+  # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
 
-  # Usb Init
-  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot|TRUE
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault.common]
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080

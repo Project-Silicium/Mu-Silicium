@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = j706f
-  PLATFORM_GUID                  = ec1c4aba-c35e-404f-b515-e616d5aa9bff
+  PLATFORM_GUID                  = EC1C4ABA-C35E-404F-B515-E616D5AA9BFF
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/j706fPkg
@@ -33,23 +33,26 @@
   # 2 = SM7150-AC
   SOC_TYPE                       = 1
 
-[BuildOptions.common]
+[BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
-[LibraryClasses.common]
+[LibraryClasses]
   DeviceMemoryMapLib|j706fPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|j706fPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
-  # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000                # Starting Address
+[PcdsFixedAtBuild]
+  # DDR Start Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"CloudSweets"  # Device Maintainer
+  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"CloudSweets"
 
+  # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
+  # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000             # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo Group Limited"
@@ -63,16 +66,16 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1600
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  # Dynamic RAM
+  # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA2370000
 
-  # SD Card
+  # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
   
-  # Usb Init
-  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot|TRUE
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault.common]
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|2560
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1600
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|2560

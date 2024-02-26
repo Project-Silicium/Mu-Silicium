@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = lisa
-  PLATFORM_GUID                  = 43c6bd82-8a2a-4256-8b40-0192bd310f58
+  PLATFORM_GUID                  = 43C6BD82-8A2A-4256-8B40-0192BD310F58
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/lisaPkg
@@ -33,22 +33,25 @@
   # 2 = SM7325-AF
   SOC_TYPE                       = 0
 
-[BuildOptions.common]
+[BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
-[LibraryClasses.common]
+[LibraryClasses]
   DeviceMemoryMapLib|lisaPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|lisaPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000           # Starting address
+[PcdsFixedAtBuild]
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
+  # Device Maintainer
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"ETCHDEV" # Device Maintainer
 
+  # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
+  # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
@@ -62,16 +65,16 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  # Dynamic RAM
+  # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE3400000
 
-  # SD Card
+  # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
 
-  # Usb Init
-  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot|TRUE
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
   
-[PcdsDynamicDefault.common]
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080

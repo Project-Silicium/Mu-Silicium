@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = laurel_sprout
-  PLATFORM_GUID                  = 30fa3a0b-87b1-4b91-a716-cd283a813c72
+  PLATFORM_GUID                  = 30FA3A0B-87B1-4B91-A716-CD283A813C72
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/laurel_sproutPkg
@@ -28,20 +28,23 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
 
-[LibraryClasses.common]
+[LibraryClasses]
   DeviceMemoryMapLib|laurel_sproutPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|laurel_sproutPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
-  # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000              # Starting Address
+[PcdsFixedAtBuild]
+  # DDR Start Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Kernel357"  # Device Maintainer
+  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Kernel357"
 
+  # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
+  # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000           # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
@@ -55,16 +58,16 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1560
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  # Dynamic RAM
+  # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
 
-  # SD Card
+  # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
   
-  # Usb Init
-  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot|TRUE
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault.common]
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1560
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|720

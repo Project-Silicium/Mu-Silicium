@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = kebab
-  PLATFORM_GUID                  = b8df34e2-f093-45ed-a3ef-f2bdc4128daa
+  PLATFORM_GUID                  = B8DF34E2-F093-45ED-A3EF-F2BDC4128DAA
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/kebabPkg
@@ -33,23 +33,26 @@
   # 2 = SM8250-AC
   SOC_TYPE                       = 0
 
-[BuildOptions.common]
+[BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
-[LibraryClasses.common]
+[LibraryClasses]
   DeviceMemoryMapLib|kebabPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|kebabPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
-  # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting Address
+[PcdsFixedAtBuild]
+  # DDR Start Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Swed"  # Device Maintainer
+  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"
 
+  # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
+  # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"OnePlus Technology Co., Ltd."
@@ -63,16 +66,16 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  # Dynamic RAM
+  # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB4500000
 
-  # SD Card
+  # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
   
-  # Usb Init
-  gQcomPkgTokenSpaceGuid.PcdUSBInitOnBoot|TRUE
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault.common]
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080

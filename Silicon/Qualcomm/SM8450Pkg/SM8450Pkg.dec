@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = SM8450Pkg
-  PACKAGE_GUID                        = 273ee000-ac94-42b2-ab45-8dcf7e92a937
-  PACKAGE_VERSION                     = 0.1
-
-[Guids.common]
-  gSM8450PkgTokenSpaceGuid            = { 0x273ee000, 0xac94, 0x42b2, { 0xab, 0x45, 0x8d, 0xcf, 0x7e, 0x92, 0xa9, 0x37 } }

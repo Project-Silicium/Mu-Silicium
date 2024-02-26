@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = SM8350Pkg
-  PACKAGE_GUID                        = 9b938f77-7926-4025-98b2-6f83c4dc74e0
-  PACKAGE_VERSION                     = 0.1
-
-[Guids.common]
-  gSM8350PkgTokenSpaceGuid            = { 0x9b938f77, 0x7926, 0x4025, { 0x98, 0xb2, 0x6f, 0x83, 0xc4, 0xdc, 0x74, 0xe0 } }

@@ -9,7 +9,7 @@
 #
 ##
 
-[BuildOptions.common]
+[BuildOptions]
   *_CLANGDWARF_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION]
@@ -18,10 +18,10 @@
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
   *_*_AARCH64_DLINK_FLAGS = -z common-page-size=0x10000
 
-[BuildOptions.AARCH64.EDKII.MM_CORE_STANDALONE,BuildOptions.AARCH64.EDKII.MM_STANDALONE]
+[BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
   *_*_AARCH64_CC_FLAGS = -mstrict-align -march=armv8-a
 
-[PcdsFeatureFlag.common]
+[PcdsFeatureFlag]
   gEfiMdePkgTokenSpaceGuid.PcdComponentNameDisable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdDriverDiagnosticsDisable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdComponentName2Disable|TRUE
@@ -33,7 +33,7 @@
 
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
 
-[PcdsFixedAtBuild.common]
+[PcdsFixedAtBuild]
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000             # 512 MB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.4"
@@ -104,7 +104,7 @@
 
 !include MdePkg/MdeLibs.dsc.inc
 
-[LibraryClasses.common]
+[LibraryClasses]
   DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
   DebugPrintErrorLevelLib|MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
 
@@ -283,7 +283,7 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLibRuntimeDxe.inf
 
-[Components.common]
+[Components]
   # PrePI
   QcomPkg/PrePi/PrePi.inf {
     <LibraryClasses>
