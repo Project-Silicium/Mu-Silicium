@@ -284,8 +284,16 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a77_Prime = {
     0  // ProcessorVoltageIndicateLegacy
   },
   0,                     // ExternalClock
-  2840,                  // MaxSpeed
-  2840,                  // CurrentSpeed
+#if SOC_TYPE == 2
+  3200,                  // MaxSpeed;
+  3200,                  // CurrentSpeed;
+#elif SOC_TYPE == 1
+  3100,                  // MaxSpeed;
+  3100,                  // CurrentSpeed;
+#else
+  2840,                  // MaxSpeed;
+  2840,                  // CurrentSpeed;
+#endif
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
   0,                     // L1CacheHandle
