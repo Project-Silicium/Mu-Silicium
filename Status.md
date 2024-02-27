@@ -2128,7 +2128,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|Device Mode Only|⚠️|
+|USB|Host Mode Only|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 
@@ -2152,7 +2152,7 @@
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU|4 Cores only|⚠️|
