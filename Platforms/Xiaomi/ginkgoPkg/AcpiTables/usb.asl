@@ -48,18 +48,7 @@ Name (QUFN, Zero)
         })
         Device (URS0)
         {
-            Method (URSI, 0, NotSerialized)
-            {
-                If ((QUFN == Zero))
-                {
-                    Return ("QCOM0497")
-                }
-                Else
-                {
-                    Return ("QCOM0498")
-                }
-            }
-            Alias (URSI, _HID)
+            Name (_HID, "QCOM0497")
             Name (_CID, "PNP0CA1")  // _CID: Compatible ID
             Name (_UID, Zero)  // _UID: Unique ID
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute

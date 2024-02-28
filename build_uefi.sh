@@ -124,6 +124,20 @@ cd BootShim
 make UEFI_BASE=${TARGET_FD_BASE} UEFI_SIZE=${TARGET_FD_SIZE}||_error "\nFailed to Compile BootShim!\n"
 cd ..
 
+# Remove Mu Patches
+
+## Mu_Basecore
+cd Mu_Basecore
+git reset --hard
+git clean --force
+cd ..
+
+## Mu
+cd ./Common/Mu
+git reset --hard
+git clean --force
+cd ../..
+
 # Setup & Update UEFI Enviroment
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --setup -t ${_TARGET_BUILD_MODE}||_error "\nFailed to Setup UEFI Env!\n"
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --update -t ${_TARGET_BUILD_MODE}||_error "\nFailed to Update UEFI Env!\n"
