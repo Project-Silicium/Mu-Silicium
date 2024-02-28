@@ -1613,19 +1613,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8250 ", 0x00000003)
         })
         Device (URS0)
         {
-            Method (URSI, 0, NotSerialized)
-            {
-                If ((QUFN == Zero))
-                {
-                    Return ("QCOM0497")
-                }
-                Else
-                {
-                    Return ("QCOM0498")
-                }
-            }
-
-            Alias (URSI, _HID)
+            Name (_HID, "QCOM0497")
             Name (_CID, "PNP0CA1")  // _CID: Compatible ID
             Alias (PSUB, _SUB)
             Name (_UID, Zero)  // _UID: Unique ID
