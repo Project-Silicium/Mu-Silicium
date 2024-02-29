@@ -13,6 +13,9 @@
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/i005d/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/i005d/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
