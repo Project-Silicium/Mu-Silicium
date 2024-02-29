@@ -100,7 +100,7 @@
 </td></tr> </table>
 
 
-## Xiaomi Poco F3
+## Realme GT NEO 2
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Realme-GT-NEO-2.png" width="500" alt="Preview">
 
