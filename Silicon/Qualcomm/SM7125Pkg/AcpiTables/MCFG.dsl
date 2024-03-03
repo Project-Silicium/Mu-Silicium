@@ -1,15 +1,3 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20230628 (64-bit version)
- * Copyright (c) 2000 - 2023 Intel Corporation
- * 
- * Disassembly of MCFG.aml, Thu Feb 29 21:51:11 2024
- *
- * ACPI Data Table [MCFG]
- *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
- */
-
 [000h 0000 004h]                   Signature : "MCFG"    [Memory Mapped Configuration Table]
 [004h 0004 004h]                Table Length : 0000006C
 [008h 0008 001h]                    Revision : 01
@@ -45,13 +33,3 @@
 [066h 0102 001h]            Start Bus Number : 00
 [067h 0103 001h]              End Bus Number : 01
 [068h 0104 004h]                    Reserved : 00000000
-
-Raw Table Data: Length 108 (0x6C)
-
-    0000: 4D 43 46 47 6C 00 00 00 01 00 51 43 4F 4D 20 20  // MCFGl.....QCOM  
-    0010: 51 43 4F 4D 45 44 4B 32 80 71 00 00 51 43 4F 4D  // QCOMEDK2.q..QCOM
-    0020: 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 60  // ...............`
-    0030: 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 68  // ...............h
-    0040: 00 00 00 00 01 00 00 01 00 00 00 00 00 00 00 70  // ...............p
-    0050: 00 00 00 00 02 00 00 01 00 00 00 00 00 00 00 40  // ...............@
-    0060: 00 00 00 00 03 00 00 01 00 00 00 00              // ............

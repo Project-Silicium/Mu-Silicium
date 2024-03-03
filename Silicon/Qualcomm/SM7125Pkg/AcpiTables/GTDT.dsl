@@ -1,15 +1,3 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20230628 (64-bit version)
- * Copyright (c) 2000 - 2023 Intel Corporation
- * 
- * Disassembly of GTDT.aml, Thu Feb 29 21:51:11 2024
- *
- * ACPI Data Table [GTDT]
- *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
- */
-
 [000h 0000 004h]                   Signature : "GTDT"    [Generic Timer Description Table]
 [004h 0004 004h]                Table Length : 0000009C
 [008h 0008 001h]                    Revision : 02
@@ -73,16 +61,3 @@
 [098h 0152 004h] Common Flags (decoded below) : 00000002
                                       Secure : 0
                                    Always On : 1
-
-Raw Table Data: Length 156 (0x9C)
-
-    0000: 47 54 44 54 9C 00 00 00 02 00 51 43 4F 4D 20 20  // GTDT......QCOM  
-    0010: 51 43 4F 4D 45 44 4B 32 80 71 00 00 51 43 4F 4D  // QCOMEDK2.q..QCOM
-    0020: 01 00 00 00 FF FF FF FF FF FF FF FF 00 00 00 00  // ................
-    0030: 11 00 00 00 00 00 00 00 12 00 00 00 00 00 00 00  // ................
-    0040: 13 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00  // ................
-    0050: FF FF FF FF FF FF FF FF 01 00 00 00 60 00 00 00  // ............`...
-    0060: 00 3C 00 00 00 00 C2 17 00 00 00 00 01 00 00 00  // .<..............
-    0070: 14 00 00 00 00 00 00 00 00 10 C2 17 00 00 00 00  // ................
-    0080: 00 20 C2 17 00 00 00 00 28 00 00 00 00 00 00 00  // . ......(.......
-    0090: 26 00 00 00 00 00 00 00 02 00 00 00              // &...........

@@ -1,15 +1,3 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20230628 (64-bit version)
- * Copyright (c) 2000 - 2023 Intel Corporation
- * 
- * Disassembly of FACS.aml, Sun Mar  3 19:08:23 2024
- *
- * ACPI Data Table [FACS]
- *
- * Format: [HexOffset DecimalOffset ByteLength]  FieldName : FieldValue (in hex)
- */
-
 [000h 0000 004h]                   Signature : "FACS"
 [004h 0004 004h]                      Length : 00000040
 [008h 0008 004h]          Hardware Signature : 00000000
@@ -23,10 +11,3 @@
 [021h 0033 003h]                    Reserved : 000000
 [024h 0036 004h]   OspmFlags (decoded below) : 00000000
                64-bit Wake Env Required (V2) : 0
-
-Raw Table Data: Length 64 (0x40)
-
-    0000: 46 41 43 53 40 00 00 00 00 00 00 00 00 00 00 00  // FACS@...........
-    0010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
-    0020: 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
-    0030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
