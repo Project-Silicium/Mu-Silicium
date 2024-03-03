@@ -99,6 +99,94 @@
 
 </td></tr> </table>
 
+
+## Realme GT NEO 2
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Realme-GT-NEO-2.png" width="500" alt="Preview">
+
+**Codename: bitra** <br />
+**Maintainers: [kubawis128](https://github.com/kubawis128)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/), [kubawis128](https://github.com/kubawis128)** <br />
+**Testers: [kubawis128](https://github.com/kubawis128)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||❌|
+|Buttons||✅|
+|USB|Host Mode Only & No USB Power|⚠️|
+|ACPI|USB only, 8 cores|⚠️|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot|WinPE only|⚠️|
+|UFS||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|Host Mode Only & No USB Power|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|Host Mode Only & No USB Power|✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
   </summary>
 </details>
 
@@ -2226,7 +2314,7 @@
 |Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|Host Mode Only|⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card||❌|
 |ACPI||✅|
 
@@ -2250,7 +2338,7 @@
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||✅|
+|USB||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU|4 Cores only|⚠️|
