@@ -1,4 +1,6 @@
 APRIORI DXE {
+
+  # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
@@ -7,8 +9,12 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
+
+  # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+
+  # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
@@ -43,7 +49,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  # INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/i005d/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
@@ -51,14 +56,18 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF Binaries/i005d/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/i005d/QcomPkg/Drivers/VariableDxe/VariableDxe.inf
+
+  INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
+
   INF Binaries/i005d/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-  INF Binaries/i005d/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
+
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+
   INF Binaries/i005d/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_DISPLAYDXE) == 1
-  INF Binaries/vili/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
+  INF Binaries/i005d/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
   INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
@@ -72,9 +81,7 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-
-  INF Binaries/i005d/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-
+  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
@@ -82,7 +89,9 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/i005d/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/i005d/QcomPkg/Drivers/QcomBds/QcomBds.inf
+
+  INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+
   INF Binaries/i005d/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
@@ -90,25 +99,25 @@ APRIORI DXE {
   INF Binaries/i005d/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
+  INF Binaries/i005d/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
-  INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/i005d/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/i005d/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
+!if $(USE_DISPLAYDXE) == 1
   INF Binaries/i005d/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+!endif
   INF Binaries/i005d/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  INF Binaries/i005d/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
 
+  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-
-  INF Binaries/i005d/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
-  INF Binaries/i005d/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
-  INF Binaries/i005d/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
 }

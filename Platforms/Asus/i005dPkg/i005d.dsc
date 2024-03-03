@@ -45,7 +45,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"alfaonyt"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
@@ -67,7 +67,7 @@
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xECA00000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE7400000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
