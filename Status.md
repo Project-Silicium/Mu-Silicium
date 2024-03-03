@@ -482,6 +482,104 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 720G Devices</strong></b></summary>
+
+## Xiaomi Redmi Note 9S
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-9S.png" width="500" alt="Preview">
+
+**Codename: miatoll** <br />
+**Maintainer: [N1kroks](https://github.com/N1kroks/)** <br />
+**Contibuters: None** <br />
+**Tester: [N1kroks](https://github.com/N1kroks/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|Host Mode only|⚠️|
+|SD Card||✅|
+|ACPI||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||✅|
+|UFS||✅|
+|SD Card||❌|
+|Buttons||✅|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||✅|
+|Charging||❌|
+|WLAN|Need manualy install driver|✅|
+|CPU||✅|
+|Touchscreen|Only on tianma panel|⚠️|
+|Bluetooth||✅|
+|GPS||✅|
+|Speakers|Sometimes the sound appears|⚠️|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU|Device sometimes freezes|⚠️|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 680/685 Devices</strong></b></summary>
 
 ## Xiaomi Redmi 10C
