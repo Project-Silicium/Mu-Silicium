@@ -1161,6 +1161,102 @@
 
 </td></tr> </table>
 
+## Asus ROG Phone 5
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Asus-ROG-Phone-5.png" width="500" alt="Preview">
+
+**Codename: i005d** <br />
+**Maintainer: [alfaonyt](https://github.com/alfaonyt/)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [alfaonyt](https://github.com/alfaonyt/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Clocks||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB|Host Mode Only & No USB Power|⚠️|
+|ACPI|Minimal SoC's ACPI for now|⚠️|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Gravity Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Gravity Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
 ## Xiaomi 11T Pro
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
