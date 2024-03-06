@@ -19,13 +19,13 @@ You need to have `git` installed.
 After the clone is done, proceed to open a shell/powershell/terminal inside the clone location
 For Linux/MacOS/BSD users, run:
 ```
-./docker-build.sh "-d <Codename> [-r <Build Mode>] [-m <RAM Size>]"
+./docker-build.sh "-d <Codename> [-r <Build Mode>]"
 ```
 You need the "double quotes"
 
 For Windows users, run (not tested):
 ```
-.\docker-build.cmd "-d <Codename> [-r <Build Mode>] [-m <RAM Size>]"
+.\docker-build.cmd "-d <Codename> [-r <Build Mode>]"
 ```
 You need the "double quotes".
 
@@ -47,14 +47,14 @@ cd Mu-Qcom
 After Cloning the repo we can now continue on Setting up the Environment. <br />
 First we need to install the needed Packages:
 ```
-./setup_env.sh -p <Package Manager> [-v]
+./setup_env.sh -p <Package Manager> [-v] [-b]
 ```
 
 ### Step 3:
 
 So now we are able to begin the real UEFI build:
 ```
-./build_uefi.sh -d <Codename> [-r <Build Mode>] [-m <RAM Size>]
+./build_uefi.sh -d <Codename> [-r <Build Mode>]
 ```
 
 When then Build is done you will find a `.img` File in the root of the repo.
