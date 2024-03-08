@@ -235,7 +235,7 @@
 |Hall Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB|Only works once|⚠️|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
