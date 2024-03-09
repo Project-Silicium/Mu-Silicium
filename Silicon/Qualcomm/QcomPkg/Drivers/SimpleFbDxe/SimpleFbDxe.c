@@ -101,8 +101,13 @@ InitializeDisplay (
   ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
   Status = LocateMemoryMapAreaByName ("Display Reserved", &DisplayMemoryRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Get Display Reserved Memory Region!\n"));
-    goto exit;
+    // Get Primary Frame Buffer Address
+    Status = LocateMemoryMapAreaByName ("Display Reserved-1", &DisplayMemoryRegion);
+
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Get Display Reserved Memory Region!\n"));
+      goto exit;
+    }
   }
 
   // Get the Width and Height of the Frame Buffer
