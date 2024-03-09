@@ -80,5 +80,7 @@ EFI_STATUS
 EFIAPI
 InitMemoryAttributeProtocol()
 {
-  return gBS->LocateProtocol(&gEfiMemoryAttributeProtocolGuid, NULL, (VOID **)&mMemoryAttributeProtocol);
+  gBS->LocateProtocol(&gEfiMemoryAttributeProtocolGuid, NULL, (VOID *)&mMemoryAttributeProtocol);
+
+  return EFI_SUCCESS;
 }
