@@ -21,7 +21,7 @@ Or [Mu-Samsung](https://github.com/sonic011gamer/Mu-Samsung), UEFI for Exynos De
 
 ## [Building](https://github.com/Robotix22/Mu-Qcom/blob/main/Building.md)
 
-## [Guides](https://github.com/Robotix22/UEFI-Guides/blob/main/Mu-Qcom/README.md)
+## [Guides](https://github.com/Robotix22/WoA-Guides/blob/main/Mu-Qcom/README.md)
 
 ## FAQ
 
