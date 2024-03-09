@@ -14,7 +14,6 @@
 
 [Sources]
   ArmPlatformLib.c
-  ArmPlatformLibMem.c
   InitializationUtils.c
 
 [Sources.AArch64]

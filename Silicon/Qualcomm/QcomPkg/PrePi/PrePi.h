@@ -1,9 +1,7 @@
-/** @file
-
+/**
   Copyright (c) 2011 - 2020, Arm Limited. All rights reserved.<BR>
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #ifndef _PREPI_H_
@@ -25,7 +23,7 @@ extern UINT64 mSystemMemoryEnd;
 
 RETURN_STATUS
 EFIAPI
-TimerConstructor (VOID);
+TimerConstructor ();
 
 VOID
 PrePiMain (IN UINT64 StartTimeStamp);
@@ -39,11 +37,11 @@ MemoryPeim (
 
 EFI_STATUS
 EFIAPI
-PlatformPeim (VOID);
+PlatformPeim ();
 
 // Either implemented by PrePiLib or by MemoryInitPei
 VOID
-BuildMemoryTypeInformationHob (VOID);
+BuildMemoryTypeInformationHob ();
 
 EFI_STATUS
 GetPlatformPpi (
@@ -53,10 +51,10 @@ GetPlatformPpi (
 
 // Initialize the Architecture specific controllers
 VOID
-ArchInitialize (VOID);
+ArchInitialize ();
 
 VOID
 EFIAPI
-ProcessLibraryConstructorList (VOID);
+ProcessLibraryConstructorList ();
 
 #endif /* _PREPI_H_ */

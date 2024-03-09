@@ -16,15 +16,15 @@
 
 #define FILLED_AT_RUNTIME  0
 
-#define FONT_DECL(TABLE, NAME) \
-  STATIC MS_UI_FONT_DESCRIPTION TABLE = { \
-    MS_UI_CUSTOM_FONT_ ## NAME ## _CELL_HEIGHT, \
-    MS_UI_CUSTOM_FONT_ ## NAME ## _CELL_WIDTH, \
-    MS_UI_CUSTOM_FONT_ ## NAME ## _MAX_ADVANCE, \
-    sizeof (mMsUiFontPackageHdr_ ## NAME), \
-    sizeof (mMsUiFontPackageGlyphs_ ## NAME), \
-    FILLED_AT_RUNTIME, \
-    FILLED_AT_RUNTIME \
+#define FONT_DECL(TABLE, NAME)                           \
+  STATIC MS_UI_FONT_DESCRIPTION TABLE = {                \
+    MS_UI_CUSTOM_FONT_ ## NAME ## _CELL_HEIGHT,          \
+    MS_UI_CUSTOM_FONT_ ## NAME ## _CELL_WIDTH,           \
+    MS_UI_CUSTOM_FONT_ ## NAME ## _MAX_ADVANCE,          \
+    sizeof (mMsUiFontPackageHdr_ ## NAME),               \
+    sizeof (mMsUiFontPackageGlyphs_ ## NAME),            \
+    FILLED_AT_RUNTIME,                                   \
+    FILLED_AT_RUNTIME                                    \
   };
 
 // Scale is a percentage of 3000x2000 (long story)

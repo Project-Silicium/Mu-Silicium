@@ -52,6 +52,9 @@
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
 
+  # CPU Max Freq
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE
+
 [LibraryClasses]
   PlatformPeiLib|SDM660Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SDM660Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

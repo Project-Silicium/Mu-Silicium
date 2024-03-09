@@ -52,6 +52,9 @@
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
 
+  # CPU Max Freq
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE
+
 [LibraryClasses]
   PlatformPeiLib|SM8150Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SM8150Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

@@ -44,6 +44,9 @@
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
 
+  # CPU Max Freq
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE
+
 [LibraryClasses]
   PlatformPeiLib|SM7125Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SM7125Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

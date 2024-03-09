@@ -66,14 +66,14 @@ LocalLoadImage (
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsSettingsBoot (VOID)
+MsBootPolicyLibIsSettingsBoot ()
 {
-  EFI_STATUS  Status      = EFI_SUCCESS;
-  BOOLEAN     BootToSetup = FALSE;
+  EFI_STATUS Status      = EFI_SUCCESS;
+  BOOLEAN    BootToSetup = FALSE;
 
   if (gButtonService == NULL) {
     // Locate Ms Button Services Protocol
-    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID **)&gButtonService);
+    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&gButtonService);
 
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Services Protocol! Status = %r\n", __FUNCTION__, Status));
@@ -99,14 +99,14 @@ exit:
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibSlotSwitch (VOID)
+MsBootPolicyLibSlotSwitch ()
 {
   EFI_STATUS Status     = EFI_SUCCESS;
   BOOLEAN    SlotSwitch = FALSE;
 
   if (gButtonService == NULL) {
     // Locate Ms Button Services Protocol
-    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID **)&gButtonService);
+    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&gButtonService);
 
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Services Protocol! Status = %r\n", __FUNCTION__, Status));
@@ -126,9 +126,9 @@ exit:
 
 EFI_STATUS
 EFIAPI
-MsBootPolicyLibClearBootRequests (VOID)
+MsBootPolicyLibClearBootRequests ()
 {
-  EFI_STATUS Status = EFI_UNSUPPORTED;
+  EFI_STATUS Status;
 
   if (gButtonService == NULL) {
     // Locate Ms Button Services Protocol
@@ -167,7 +167,7 @@ MsBootPolicyLibIsDevicePathBootable (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
   BOOLEAN                       EnableUsbBoot  = TRUE;
   BOOLEAN                       Boot           = TRUE;
 
-  if (NULL == DevicePath) {
+  if (DevicePath == NULL) {
     return TRUE;
   }
 

@@ -1,9 +1,7 @@
-/** @file
-
+/**
   Copyright (c) 2011-2017, ARM Limited. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #include <PiPei.h>
@@ -21,12 +19,9 @@
 #include <Ppi/ArmMpCoreInfo.h>
 #include <Ppi/SecPerformance.h>
 
-#include <Guid/DxeMemoryProtectionSettings.h>
-#include <Guid/MmMemoryProtectionSettings.h>
-
 #include "PrePi.h"
 
-#define IS_XIP()                (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) || ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
+#define IS_XIP()               (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) || ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
 UINT64                          mSystemMemoryEnd;
@@ -64,18 +59,16 @@ PrePiMain (IN UINT64 StartTimeStamp)
   ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeap;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStack;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
-  DXE_MEMORY_PROTECTION_SETTINGS  DxeSettings;
-  MM_MEMORY_PROTECTION_SETTINGS   MmSettings;
   FIRMWARE_SEC_PERFORMANCE        Performance;
   UINTN                           ArmCoreCount;
 
-  Status = LocateMemoryMapAreaByName("DXE Heap", &DxeHeap);
+  Status = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeap);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Get DXE Heap Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);
   }
 
-  Status = LocateMemoryMapAreaByName("UEFI Stack", &UefiStack);
+  Status = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStack);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Get UEFI Stack Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);
@@ -98,7 +91,7 @@ PrePiMain (IN UINT64 StartTimeStamp)
   ArchInitialize ();
 
   // Initialize the Debug Agent for Source Level Debugging
-  InitializeDebugAgent (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
+  InitializeDebugAgent          (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
   SaveAndSetDebugTimerInterrupt (TRUE);
 
   // Declare the PI/UEFI memory region
@@ -149,15 +142,6 @@ PrePiMain (IN UINT64 StartTimeStamp)
 
   // Initialize Platform HOBs (CpuHob and FvHob)
   PlatformPeim ();
-
-  // Disable Memory Protection & Enable Memory Attribute Protocol
-  DxeSettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_OFF;
-  DxeSettings.InstallMemoryAttributeProtocol = TRUE;
-
-  MmSettings = (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_OFF;
-
-  BuildGuidDataHob (&gDxeMemoryProtectionSettingsGuid, &DxeSettings, sizeof(DxeSettings));
-  BuildGuidDataHob (&gMmMemoryProtectionSettingsGuid,  &MmSettings,  sizeof(MmSettings));
 
   // Now, the HOB List has been initialized, we can register performance information
   PERF_START (NULL, "PEI", NULL, StartTimeStamp);
@@ -216,7 +200,7 @@ CEntryPoint ()
     }
   }
 
-  Status = LocateMemoryMapAreaByName("UEFI FD", &UefiFd);
+  Status = LocateMemoryMapAreaByName ("UEFI FD", &UefiFd);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Get UEFI FD Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);

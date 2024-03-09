@@ -1,11 +1,9 @@
 /**
-
   This Module Installs the MsButtonServicesProtocol.
 
   Copyright (C) Microsoft Corporation. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #include <Library/DebugLib.h>
@@ -18,26 +16,26 @@
 
 #include <Configuration/BootDevices.h>
 
-#include "MsButtonServiceDxe.h"
+#include "MsButtonService.h"
 
 /**
   Say Volume Up Button is Pressed because we want to go to Front Page.
 
-  @param[in]     - Button Services Protocol Pointer.
-  @param[out]    - Pointer to a boolean Value to receive the Button State.
+  @param[in]  This          - Button Services Protocol Pointer.
+  @param[out] ButtonPressed - Pointer to a boolean Value to receive the Button State.
 
-  @retval        - EFI_SUCCESS;
+  @retval Status            - EFI_SUCCESS;
 **/
 EFI_STATUS
 EFIAPI
 PreBootVolumeUpButtonThenPowerButtonCheck (
   IN  MS_BUTTON_SERVICES_PROTOCOL *This,
-  OUT BOOLEAN                     *PreBootVolumeUpButtonThenPowerButton)
+  OUT BOOLEAN                     *ButtonPressed)
 {
   MS_BUTTON_SERVICES *ButtonService;
 
-  ButtonService                         = MS_BSP_FROM_BSP(This);
-  *PreBootVolumeUpButtonThenPowerButton = (ButtonService->ButtonState == VolUpButton);
+  ButtonService  = MS_BSP_FROM_BSP(This);
+  *ButtonPressed = (ButtonService->ButtonState == VolUpButton);
 
   return EFI_SUCCESS;
 }
@@ -45,21 +43,21 @@ PreBootVolumeUpButtonThenPowerButtonCheck (
 /**
   Say Volume Down Button is Pressed because we want to Switch Slots.
 
-  @param[in]     - Button Services Protocol Pointer.
-  @param[out]    - Pointer to a boolean Value to receive the Button State.
+  @param[in]  This          - Button Services Protocol Pointer.
+  @param[out] ButtonPressed - Pointer to a boolean Value to receive the Button State.
 
-  @retval        - EFI_SUCCESS;
+  @retval Status            - EFI_SUCCESS;
 **/
 EFI_STATUS
 EFIAPI
 PreBootVolumeDownButtonThenPowerButtonCheck (
   IN  MS_BUTTON_SERVICES_PROTOCOL *This,
-  OUT BOOLEAN                     *PreBootVolumeDownButtonThenPowerButton)
+  OUT BOOLEAN                     *ButtonPressed)
 {
   MS_BUTTON_SERVICES *ButtonService;
 
-  ButtonService                           = MS_BSP_FROM_BSP (This);
-  *PreBootVolumeDownButtonThenPowerButton = (ButtonService->ButtonState == VolDownButton);
+  ButtonService  = MS_BSP_FROM_BSP (This);
+  *ButtonPressed = (ButtonService->ButtonState == VolDownButton);
 
   return EFI_SUCCESS;
 }
@@ -67,9 +65,9 @@ PreBootVolumeDownButtonThenPowerButtonCheck (
 /**
   Clear current button state.
 
-  @param[in]     - Button Services protocol pointer.
+  @param[in] This           - Button Services protocol pointer.
 
-  @retval        - EFI_SUCCESS;
+  @retval Status            - EFI_SUCCESS;
 **/
 EFI_STATUS
 EFIAPI
@@ -101,12 +99,9 @@ KeyNotify (IN EFI_KEY_DATA *KeyData)
 }
 
 /**
-  GetButtonState gets the Button State of the Vol+/Vol- Buttons, and Stores that
-  State in gButtonState.
+  GetButtonState gets the Button State of the Vol+/Vol- Buttons, and Stores that State in gButtonState.
 
-  @param[in]     - Gpio Button Services Protocol pointer.
-
-  @return Status - The EFI_STATUS returned by this Function.
+  @return Status            - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
 GetButtonState ()
@@ -164,10 +159,10 @@ exit:
   Constructor Routine to install Button Services Protocol and Initialize anything
   related to Buttons.
 
-  @param[in]     - Image Handle of the Process Loading this Driver.
-  @param[in]     - EFI System Table Pointer.
+  @param[in] ImageHandle    - Image Handle of the Process Loading this Driver.
+  @param[in] SystemTable    - EFI System Table Pointer.
 
-  @retval Status - The EFI_STATUS returned by this Function.
+  @retval Status            - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
 EFIAPI

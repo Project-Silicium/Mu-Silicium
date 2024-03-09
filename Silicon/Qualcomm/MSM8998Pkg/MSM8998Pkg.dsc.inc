@@ -44,6 +44,9 @@
   # Power Services
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
 
+  # CPU Max Freq
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE
+
 [LibraryClasses]
   PlatformPeiLib|MSM8998Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|MSM8998Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

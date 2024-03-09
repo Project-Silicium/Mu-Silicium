@@ -6,9 +6,6 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
-#include <Protocol/FirmwareVolume2.h>
-#include <Protocol/LoadedImage.h>
-
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/DevicePathLib.h>
@@ -19,6 +16,9 @@
 #include <Library/UefiBootManagerLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiLib.h>
+
+#include <Protocol/FirmwareVolume2.h>
+#include <Protocol/LoadedImage.h>
 
 /**
   This Function Builds a Firmware Load Option using the File and the Parameter.
@@ -92,8 +92,8 @@ exit:
 /**
   This Function Sets the Default Boot App.
 
-  @param BootOption              - Return a Created Boot Manager Menu with the Parameter Passed.
-  @param Parameter               - The Parameter to add to the Boot Option.
+  @param[in] BootOption          - Return a Created Boot Manager Menu with the Parameter Passed.
+  @param[in] Parameter           - The Parameter to add to the Boot Option.
 
   @return Status                 - The EFI_STATUS returned by this Function.
 **/
@@ -109,8 +109,8 @@ MsBootOptionsLibGetDefaultBootApp (
 /**
   This Function Return the Boot Option Corresponding to the Boot Manager Menu.
 
-  @param BootOption              - Return a Created Boot Manager Menu with the Parameter Passed.
-  @param Parameter               - The Parameter to add to the Boot Option.
+  @param[in] BootOption          - Return a Created Boot Manager Menu with the Parameter Passed.
+  @param[in] Parameter           - The Parameter to add to the Boot Option.
 
   @return Status                 - The EFI_STATUS returned by this Function.
 **/
@@ -126,8 +126,8 @@ MsBootOptionsLibGetBootManagerMenu (
 /**
   This Function Return the Boot Option Corresponding to the Slot Switch App.
 
-  @param BootOption              - Return a Created Boot Manager Menu with the Parameter Passed.
-  @param Parameter               - The Parameter to add to the Boot Option.
+  @param[in] BootOption          - Return a Created Boot Manager Menu with the Parameter Passed.
+  @param[in] Parameter           - The Parameter to add to the Boot Option.
 
   @return Status                 - The EFI_STATUS returned by this Function.
 **/
@@ -296,7 +296,7 @@ exit:
 
 VOID
 EFIAPI
-MsBootOptionsLibRegisterDefaultBootOptions (VOID)
+MsBootOptionsLibRegisterDefaultBootOptions ()
 {
   RegisterFvBootOption (&gMsBootPolicyFileGuid, L"Internal Storage", (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"SSD", sizeof ("SSD"));
   RegisterFvBootOption (&gMsBootPolicyFileGuid, L"USB Storage",      (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));

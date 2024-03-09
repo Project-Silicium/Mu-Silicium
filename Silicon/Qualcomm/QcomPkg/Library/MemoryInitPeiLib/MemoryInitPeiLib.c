@@ -13,7 +13,7 @@
 #include <Library/DeviceMemoryMapLib.h>
 
 VOID
-BuildMemoryTypeInformationHob (VOID);
+BuildMemoryTypeInformationHob ();
 
 STATIC
 EFI_STATUS
@@ -60,15 +60,16 @@ MemoryPeim (
   // Run through each Memory Descriptor
   while (MemoryDescriptorEx->Length != 0) {
     switch (MemoryDescriptorEx->HobOption) {
-    case AddMem:
-    case AddDev:
-    case HobOnlyNoCacheSetting:
-    case AllocOnly:
-      AddHob(MemoryDescriptorEx);
-      break;
-    case NoHob:
-    default:
-      goto update;
+      case AddMem:
+      case AddDev:
+      case HobOnlyNoCacheSetting:
+      case AllocOnly:
+        AddHob(MemoryDescriptorEx);
+        break;
+
+      case NoHob:
+      default:
+        goto update;
     }
 
     if (MemoryDescriptorEx->HobOption == HobOnlyNoCacheSetting) {

@@ -16,7 +16,7 @@
   This Function Returns the Boot Reason on the Device.
 **/
 EFI_BOOT_MODE
-ArmPlatformGetBootMode (VOID)
+ArmPlatformGetBootMode ()
 {
   return BOOT_WITH_DEFAULT_SETTINGS;
 }
@@ -33,7 +33,7 @@ ArmPlatformInitialize (IN UINTN MpId)
     return RETURN_SUCCESS;
   }
 
-  EarlyInitialization();
+  EarlyInitialization ();
 
   return RETURN_SUCCESS;
 }
@@ -45,7 +45,7 @@ PrePeiCoreGetMpCoreInfo (
 {
   if (ArmIsMpCore ()) {
     *CoreCount    = PcdGet32(PcdCoreCount);
-    *ArmCoreTable = GetCoreTable();
+    *ArmCoreTable = GetCoreTable ();
 
     return EFI_SUCCESS;
   } else {
@@ -55,7 +55,7 @@ PrePeiCoreGetMpCoreInfo (
 
 ARM_MP_CORE_INFO_PPI mMpCoreInfoPpi = { PrePeiCoreGetMpCoreInfo };
 
-EFI_PEI_PPI_DESCRIPTOR  gPlatformPpiTable[] = {
+EFI_PEI_PPI_DESCRIPTOR gPlatformPpiTable[] = {
   {
     EFI_PEI_PPI_DESCRIPTOR_PPI,
     &gArmMpCoreInfoPpiGuid,

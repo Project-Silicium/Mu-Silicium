@@ -17,7 +17,7 @@
 
 #include <Configuration/BootDevices.h>
 
-EFI_DEVICE_PATH_PROTOCOL *gPlatformConInDeviceList[] = {NULL};
+EFI_DEVICE_PATH_PROTOCOL *gPlatformConInDeviceList[] = { NULL };
 
 //
 // Predefined Platform Default Console Device Path
@@ -39,7 +39,7 @@ BDS_CONSOLE_CONNECT_ENTRY gPlatformConsoles[] = {
 
 EFI_DEVICE_PATH_PROTOCOL*
 EFIAPI
-GetSdCardDevicePath (VOID)
+GetSdCardDevicePath ()
 {
   return (EFI_DEVICE_PATH_PROTOCOL *)&SdcardDevicePath;
 }
@@ -62,22 +62,27 @@ PlatformIsDevicePathUsb (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 // Dummy Function Needed for Event Notification Callback
 STATIC
 VOID
-DummyNotify(IN EFI_EVENT Event, IN VOID *Context) {}
+DummyNotify (
+  IN EFI_EVENT Event,
+  IN VOID     *Context) 
+{
+  // Do Nothing
+}
 
 EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
-GetPlatformConnectList(VOID)
+GetPlatformConnectList ()
 {
   EFI_STATUS Status;
   EFI_EVENT  UsbConfigEvt;
   EFI_EVENT  SDCardEvt;
 
   // Update the ACPI Tables with SoC Runtime Information
-  PlatformUpdateAcpiTables();
+  PlatformUpdateAcpiTables ();
 
   if (FixedPcdGetBool(PcdStartUsbController)) {
     // Notify the USB Controller to Start Now
-    Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &UsbConfigEvt);
+    Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &UsbConfigEvt);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Signal USB Controller Start Event! Status = %r\n", __FUNCTION__, Status));
     } else {
@@ -88,7 +93,7 @@ GetPlatformConnectList(VOID)
 
   if (FixedPcdGetBool(PcdSDCardSlotPresent)) {
     // Notify the SDC Controller to Init SD Card Now
-    Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSDCardInitGuid, &SDCardEvt);
+    Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSDCardInitGuid, &SDCardEvt);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Signal SD Card Init Event! Status = %r\n", __FUNCTION__, Status));
     } else {
@@ -102,14 +107,14 @@ GetPlatformConnectList(VOID)
 
 BDS_CONSOLE_CONNECT_ENTRY*
 EFIAPI
-GetPlatformConsoleList (VOID)
+GetPlatformConsoleList ()
 {
   return (BDS_CONSOLE_CONNECT_ENTRY *)&gPlatformConsoles;
 }
 
 EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
-GetPlatformConnectOnConInList (VOID)
+GetPlatformConnectOnConInList ()
 {
   return (EFI_DEVICE_PATH_PROTOCOL **)&gPlatformConInDeviceList;
 }

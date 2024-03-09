@@ -87,7 +87,7 @@ mArmPlatformMpCoreInfoTable[] = {
 };
 
 ARM_CORE_INFO*
-GetCoreTable()
+GetCoreTable ()
 {
   return mArmPlatformMpCoreInfoTable;
 }

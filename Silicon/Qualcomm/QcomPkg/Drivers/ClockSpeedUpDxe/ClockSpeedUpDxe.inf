@@ -23,7 +23,7 @@
 [FixedPcd]
   gArmPlatformTokenSpaceGuid.PcdCoreCount
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache
-  gQcomPkgTokenSpaceGuid.PcdEnableMaxFreq
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported
 
 [Protocols]
   gEfiClockProtocolGuid

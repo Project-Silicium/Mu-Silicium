@@ -14,7 +14,7 @@ SetMaxFreq (
   EFI_CLOCK_PROTOCOL *mClockProtocol;
 
   // Check if Max Freq PCD is TRUE
-  if (FixedPcdGetBool(PcdEnableMaxFreq)) {
+  if (FixedPcdGetBool(PcdMaxFreqSupported)) {
     // Locate Clock Protocol
     Status = gBS->LocateProtocol (&gEfiClockProtocolGuid, NULL, (VOID *)&mClockProtocol);
     if (EFI_ERROR (Status)) {
@@ -44,7 +44,7 @@ SetMaxFreq (
       DEBUG ((EFI_D_WARN, "CPU Core %d Now runs at %d Hz.\n", i, HzFreq));
     }
   } else {
-    DEBUG ((EFI_D_WARN, "Max Freq PCD is Disabled.\n"));
+    DEBUG ((EFI_D_WARN, "Max Freq is not Supported on this SoC.\n"));
   }
 
   return EFI_SUCCESS;

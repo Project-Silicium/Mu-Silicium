@@ -1,9 +1,7 @@
-/** @file
-
+/**
   Copyright (c) 2011-2017, ARM Limited. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #include "PrePi.h"
@@ -11,7 +9,7 @@
 #include <Chipset/AArch64.h>
 
 VOID
-ArchInitialize (VOID)
+ArchInitialize ()
 {
   // Enable Floating Point
   if (FixedPcdGet32 (PcdVFPEnabled)) {

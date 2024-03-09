@@ -50,7 +50,7 @@ gDeviceConfigurationDescriptorEx[] = {
 };
 
 CONFIGURATION_DESCRIPTOR_EX
-*GetDeviceConfigurationMap()
+*GetDeviceConfigurationMap ()
 {
   return gDeviceConfigurationDescriptorEx;
 }

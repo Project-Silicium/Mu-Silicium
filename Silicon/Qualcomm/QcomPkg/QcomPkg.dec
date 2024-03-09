@@ -88,7 +88,7 @@
 
 [PcdsFixedAtBuild]
   # Clock Speed Up Driver PCDs
-  gQcomPkgTokenSpaceGuid.PcdEnableMaxFreq|FALSE|BOOLEAN|0x0000A000
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE|BOOLEAN|0x0000A000
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000A001
 
   # Slot Switch App PCD

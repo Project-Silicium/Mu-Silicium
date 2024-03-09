@@ -11,10 +11,9 @@
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
 
-FBCON_POSITION *TotalPosition    = NULL;
+FBCON_POSITION *CurrentPosition;
 FBCON_POSITION  MaxPosition;
 FBCON_COLOR     FrameBufferColor;
-BOOLEAN         m_Initialized    = FALSE;
 
 UINTN ScreenWidth      = FixedPcdGet32(PcdMipiFrameBufferWidth);
 UINTN ScreenHeight     = FixedPcdGet32(PcdMipiFrameBufferHeight);
@@ -152,7 +151,7 @@ Print:
     if (Buffer == '\n') {
       goto newline;
     } else if (Buffer == '\r') {
-      TotalPosition->x = 0;
+      CurrentPosition->x = 0;
       return;
     } else {
       return;
@@ -160,22 +159,22 @@ Print:
   }
 
   // Save some space
-  if (TotalPosition->x == 0 && (UINT8)Buffer == ' ') { return; }
+  if (CurrentPosition->x == 0 && (UINT8)Buffer == ' ') { return; }
 
   // Disable Interrupts
   if (InterruptsEnabled) { ArmDisableInterrupts (); }
 
   // Set Debug Message Configuration
   Pixels  = (VOID *)DisplayMemoryRegion.Address;
-  Pixels += TotalPosition->y * ((ScreenColorDepth / 8) * FONT_HEIGHT * ScreenWidth);
-  Pixels += TotalPosition->x * SCALE_FACTOR * ((ScreenColorDepth / 8) * (FONT_WIDTH + 1));
+  Pixels += CurrentPosition->y * ((ScreenColorDepth / 8) * FONT_HEIGHT * ScreenWidth);
+  Pixels += CurrentPosition->x * SCALE_FACTOR * ((ScreenColorDepth / 8) * (FONT_WIDTH + 1));
 
   // Draw Debug Message on Frame Buffer
   DrawDebugMessage (Pixels, ScreenWidth, (ScreenColorDepth / 8), font5x12 + (Buffer - 32) * 2);
 
-  TotalPosition->x++;
+  CurrentPosition->x++;
 
-  if (TotalPosition->x >= (INT32)(MaxPosition.x / SCALE_FACTOR)) { goto newline; }
+  if (CurrentPosition->x >= (INT32)(MaxPosition.x / SCALE_FACTOR)) { goto newline; }
 
   // Enable Interrupts
   if (InterruptsEnabled) { ArmEnableInterrupts (); }
@@ -185,18 +184,18 @@ Print:
 newline:
   MicroSecondDelay (PrintDelay);
 
-  TotalPosition->y += SCALE_FACTOR;
-  TotalPosition->x  = 0;
+  CurrentPosition->y += SCALE_FACTOR;
+  CurrentPosition->x  = 0;
 
-  if (TotalPosition->y >= MaxPosition.y - SCALE_FACTOR) {
+  if (CurrentPosition->y >= MaxPosition.y - SCALE_FACTOR) {
     // Reset Frame Buffer
     ZeroMem ((VOID *)DisplayMemoryRegion.Address, DisplayMemoryRegion.Length);
 
     // Flush Frame Buffer
     WriteBackInvalidateDataCacheRange ((VOID *)DisplayMemoryRegion.Address, (ScreenWidth * ScreenHeight * (ScreenColorDepth / 8)));
 
-    // Set TotalPosition Height to First Line
-    TotalPosition->y = -1;
+    // Set CurrentPosition Height to First Line
+    CurrentPosition->y = -1;
 
     // Enable Interrupts
     if (InterruptsEnabled) { ArmEnableInterrupts (); }
@@ -224,9 +223,7 @@ SerialPortWrite (
   if (InterruptState) { ArmDisableInterrupts (); }
 
   // Write Debug Message to Frame Buffer
-  while (Buffer < Final) {
-    WriteFrameBuffer (*Buffer++);
-  }
+  while (Buffer < Final) { WriteFrameBuffer (*Buffer++); }
 
   // Enable Interrupts
   if (InterruptState) { ArmEnableInterrupts (); }
@@ -245,7 +242,7 @@ SerialPortRead (
 
 BOOLEAN
 EFIAPI
-SerialPortPoll (VOID) { return FALSE; }
+SerialPortPoll () { return FALSE; }
 
 RETURN_STATUS
 EFIAPI
@@ -269,23 +266,27 @@ SerialPortSetAttributes (
 }
 
 UINTN
-SerialPortFlush (VOID) { return 0; }
+SerialPortFlush () { return 0; }
 
 VOID
-EnableSynchronousSerialPortIO (VOID) {}
+EnableSynchronousSerialPortIO () {}
 
 RETURN_STATUS
 EFIAPI
-SerialPortInitialize (VOID)
+SerialPortInitialize ()
 {
   EFI_STATUS Status;
 
   // Get Frame Buffer Base Address
   Status = LocateMemoryMapAreaByName ("Display Reserved", &DisplayMemoryRegion);
-  if (EFI_ERROR (Status)) { return RETURN_UNSUPPORTED; }
+  if (EFI_ERROR (Status)) { 
+    // Get Secondary Frame Buffer Base Address
+    Status = LocateMemoryMapAreaByName ("Display Reserved-2", &DisplayMemoryRegion);
+    if (EFI_ERROR (Status)) { return RETURN_UNSUPPORTED; }
+  }
 
   // Set Total Position
-  TotalPosition = (FBCON_POSITION *)(DisplayMemoryRegion.Address + (ScreenWidth * ScreenHeight * ScreenColorDepth / 8));
+  CurrentPosition = (FBCON_POSITION *)(DisplayMemoryRegion.Address + (ScreenWidth * ScreenHeight * ScreenColorDepth / 8));
 
   // Calculate Max Position.
   MaxPosition.x = ScreenWidth / (FONT_WIDTH + 1);

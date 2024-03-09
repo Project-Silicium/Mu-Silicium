@@ -12,7 +12,7 @@
 
 MS_UI_THEME_DESCRIPTION*
 EFIAPI
-PlatformThemeGet (VOID)
+PlatformThemeGet ()
 {
   FixedFont.Package               = FONT_PTR_SET  &mMsUiFontPackageHdr_Selawik_Regular_8pt_Fixed;
   FixedFont.Glyphs                = GLYPH_PTR_SET &mMsUiFontPackageGlyphs_Selawik_Regular_8pt_Fixed;

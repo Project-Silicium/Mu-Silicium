@@ -25,7 +25,7 @@ SystemPowerCheck (
 
   if (FixedPcdGetBool(PcdIsPowerOkImplemented)) {
     // Locate Charger Ex Protocol
-    Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID **)&gEfiChargerExProtocol);
+    Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID *)&gEfiChargerExProtocol);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Charger Ex Protocol! Status = %r\n", __FUNCTION__, Status));
       goto exit;

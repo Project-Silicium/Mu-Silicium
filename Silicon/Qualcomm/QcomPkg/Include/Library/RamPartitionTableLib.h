@@ -19,7 +19,7 @@
 // RAM Partition Entry Structure
 //
 typedef struct ram_partition_entry {
-  char   Name[16]; 
+  CHAR8  Name[16]; 
   UINT64 Base;
   UINT64 Length;
   UINT32 Attribute;

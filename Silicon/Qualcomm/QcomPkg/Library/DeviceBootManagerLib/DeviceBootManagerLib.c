@@ -42,7 +42,7 @@ STATIC EFI_EVENT mPostReadyToBootEvent;
 
 STATIC
 VOID
-ThermalFailureShutdown (VOID)
+ThermalFailureShutdown ()
 {
   EFI_STATUS  Status     = EFI_SUCCESS;
   EFI_EVENT   TimerEvent = NULL;
@@ -79,7 +79,7 @@ ThermalFailureShutdown (VOID)
 
 STATIC
 VOID
-PowerFailureShutdown (VOID)
+PowerFailureShutdown ()
 {
   EFI_STATUS  Status     = EFI_SUCCESS;
   EFI_EVENT   TimerEvent = NULL;
@@ -114,7 +114,7 @@ PowerFailureShutdown (VOID)
 
 STATIC
 EFI_STATUS
-MsPreBootChecks (VOID)
+MsPreBootChecks ()
 {
   EFI_STATUS  Status              = EFI_SUCCESS;
   EFI_STATUS  WaitStatus          = EFI_SUCCESS;
@@ -196,7 +196,7 @@ CleanUp:
 
 STATIC
 VOID
-BdsBootLockBootVariables (VOID)
+BdsBootLockBootVariables ()
 {
   EFI_STATUS                      Status              = EFI_SUCCESS;
   EDKII_VARIABLE_POLICY_PROTOCOL *VarPolicyProtocol   = NULL;
@@ -263,7 +263,7 @@ BdsBootLockBootVariables (VOID)
 
 STATIC
 VOID
-EnableOSK (VOID)
+EnableOSK ()
 {
   EFI_STATUS                         Status      = EFI_SUCCESS;
   MS_ONSCREEN_KEYBOARD_PROTOCOL     *OSKProtocol = NULL;
@@ -271,7 +271,6 @@ EnableOSK (VOID)
 
   // Locate OSK Protocol
   Status = gBS->LocateProtocol (&gMsOSKProtocolGuid, NULL, (VOID **)&OSKProtocol);
-
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate OSK Protocol! Status = %r\n", __FUNCTION__, Status));
   } else {
@@ -375,11 +374,11 @@ DeviceBootManagerConstructor (
 
 EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
-DeviceBootManagerOnDemandConInConnect (VOID) { return GetPlatformConnectOnConInList (); }
+DeviceBootManagerOnDemandConInConnect () { return GetPlatformConnectOnConInList (); }
 
 VOID
 EFIAPI
-DeviceBootManagerBdsEntry (VOID)
+DeviceBootManagerBdsEntry ()
 {
   // Signal that BDS Started
   EfiEventGroupSignal (&gMsStartOfBdsNotifyGuid);
@@ -405,7 +404,7 @@ DeviceBootManagerBeforeConsole (
 
 EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
-DeviceBootManagerAfterConsole (VOID)
+DeviceBootManagerAfterConsole ()
 {
   EFI_STATUS                    Status;
   EFI_GRAPHICS_OUTPUT_PROTOCOL *mConsoleOutHandle;
@@ -530,7 +529,7 @@ DeviceBootManagerPriorityBoot (EFI_BOOT_MANAGER_LOAD_OPTION *BootOption)
 
 VOID
 EFIAPI
-DeviceBootManagerUnableToBoot (VOID)
+DeviceBootManagerUnableToBoot ()
 {
   EFI_STATUS Status;
 

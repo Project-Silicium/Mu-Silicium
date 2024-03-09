@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = bitra
-  PLATFORM_GUID                  = 4f4872e2-a454-4ffa-9145-8c6f473a5d9e
+  PLATFORM_GUID                  = 4F4872E2-A454-4FFA-9145-8C6F473A5D9E
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/bitraPkg

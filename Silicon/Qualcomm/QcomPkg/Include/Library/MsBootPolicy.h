@@ -16,6 +16,6 @@
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibSlotSwitch (VOID);
+MsBootPolicyLibSlotSwitch ();
 
 #endif /* _MS_BOOT_POLICY_H_ */

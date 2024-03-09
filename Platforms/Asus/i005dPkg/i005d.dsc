@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = i005d
-  PLATFORM_GUID                  = dd9b11d5-d3a2-45a7-ada2-6ef6ebb9ccc8
+  PLATFORM_GUID                  = DD9B11D5-D3A2-45A7-ADA2-6EF6EBB9CCC8
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/i005dPkg

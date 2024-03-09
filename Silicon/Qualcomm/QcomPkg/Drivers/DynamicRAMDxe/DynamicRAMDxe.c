@@ -39,7 +39,7 @@ AddRamPartition (
   // Add New Memory Space
   Status = gDS->AddMemorySpace (EfiGcdMemoryType, Base, Length, 0xF);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Add Memory Space!\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Add Memory Space! Status = %r\n", Status));
     DEBUG ((EFI_D_WARN, "Trying to add Ram Partition: 0x%08llx 0x%08llx\n", Base, Length));
     goto exit;
   }
@@ -47,7 +47,7 @@ AddRamPartition (
   // Set New Memory Attributes
   Status = ArmSetMemoryAttributes (Base, Length, ArmAttributes, 0);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Set Memory Attributes!\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Set Memory Attributes! Status = %r\n", Status));
     DEBUG ((EFI_D_WARN, "Trying to add Ram Partition: 0x%08llx 0x%08llx\n", Base, Length));
     goto exit;
   }
@@ -55,7 +55,7 @@ AddRamPartition (
   // Set Memory Space Attributes
   Status = gDS->SetMemorySpaceAttributes (Base, Length, EFI_MEMORY_WB);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Set Memory Space Attributes!\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Set Memory Space Attributes! Status = %r\n", Status));
     DEBUG ((EFI_D_WARN, "Trying to add Ram Partition: 0x%08llx 0x%08llx\n", Base, Length));
     goto exit;
   }
@@ -89,7 +89,7 @@ AddRamPartitions (
     DEBUG ((EFI_D_ERROR, "RAM Partition Version 1 is not Supported!\n"));
     ASSERT_EFI_ERROR (EFI_UNSUPPORTED);
   } else {
-    DEBUG ((EFI_D_WARN, "RAM Partition version: %d\n", PartitionVersion));
+    DEBUG ((EFI_D_WARN, "RAM Partition Version: %d\n", PartitionVersion));
   }
 
   for (INT32 i = 0; i < NumPartitions; i++) {
@@ -98,7 +98,7 @@ AddRamPartitions (
 
     DEBUG ((EFI_D_WARN, "\n"));
     DEBUG ((EFI_D_WARN, "RAM Partition Entry %d: 0x%08llx\n", i, RamPartitionTable->RamPartitionEntry[i].Base));
-    DEBUG ((EFI_D_WARN, "AvailableLength:       0x%08llx\n",     RamPartitionTable->RamPartitionEntry[i].AvailableLength));
+    DEBUG ((EFI_D_WARN, "Available Length:      0x%08llx\n",     RamPartitionTable->RamPartitionEntry[i].AvailableLength));
     DEBUG ((EFI_D_WARN, "\n"));
 
     if (RamPartitionTable->RamPartitionEntry[i].Base == GENERIC_RAM_BASE) {
