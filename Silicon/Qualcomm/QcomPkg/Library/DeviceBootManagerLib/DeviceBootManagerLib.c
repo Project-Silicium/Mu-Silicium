@@ -430,7 +430,11 @@ DeviceBootManagerAfterConsole (VOID)
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Console Out Protocol! Status %r\n", __FUNCTION__, Status));
   } else {
     // Combo Message
+#if AB_SLOT_SUPPORT == 1
     CHAR16 *ComboMessage = L"[Volume Up] UEFI Menu - [Volume Down] Slot Switch";
+#else
+    CHAR16 *ComboMessage = L"[Volume Up] UEFI Menu";
+#endif
 
     // Set Pos for Combo Message
     UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(ComboMessage) * EFI_GLYPH_WIDTH) / 2;
@@ -506,15 +510,14 @@ DeviceBootManagerPriorityBoot (EFI_BOOT_MANAGER_LOAD_OPTION *BootOption)
   //   1.  Nothing pressed.             Return EFI_NOT_FOUND.
   //   2.  FrontPageBoot                Load FrontPage.
   //   3.  SlotSwitch                   Load Slot Switch App.
-  //   4   Both indicators are present  Load NetworkUnlock.
   //
 
   if (SlotSwitch) {
-    if (FrontPageBoot) {
-      Status = MsBootOptionsLibGetDefaultBootApp (BootOption, "NS");
-    } else {
-      Status = MsBootOptionsLibSlotSwitchApp (BootOption, "VOL-");
-    }
+#if AB_SLOT_SUPPORT == 1
+    Status = MsBootOptionsLibSlotSwitchApp (BootOption, "VOL-");
+#else
+    Status = EFI_NOT_FOUND;
+#endif
   } else if (FrontPageBoot) {
     Status = MsBootOptionsLibGetBootManagerMenu (BootOption, "VOL+");
     SetRebootReason (OEM_REBOOT_TO_SETUP_KEY);

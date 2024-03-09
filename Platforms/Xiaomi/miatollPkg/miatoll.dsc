@@ -28,6 +28,9 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
 
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
+
 [LibraryClasses]
   DeviceMemoryMapLib|miatollPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|miatollPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf

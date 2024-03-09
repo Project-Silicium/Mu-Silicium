@@ -33,7 +33,7 @@
   SOC_TYPE                       = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
 
 [LibraryClasses]
   DeviceMemoryMapLib|gts8Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

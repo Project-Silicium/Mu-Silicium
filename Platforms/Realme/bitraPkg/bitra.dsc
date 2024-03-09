@@ -1,9 +1,10 @@
-## @file
+##
 #
-#  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
+#  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
-#  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
+#  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
 #  Copyright (c) 2018, Bingxing Wang. All rights reserved.
+#  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -24,26 +25,22 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = bitraPkg/bitra.fdf
-  # Set this to 1 if your Device has a RGB Display (Newer Devices have BGR instead of RGB)
-  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
-  # Set this to 1 If your Device is A/B Device
   AB_SLOT_SUPPORT                = 0
 
-  # If your SoC has multimple variants define the Number here
-  # If not don't add this Define
+  # 0 = SM8250
+  # 1 = SM8250-AB
+  # 2 = SM8250-AC
   SOC_TYPE                       = 2
 
-# If your SoC has multimple variants keep this Build Option
-# If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
 
-[LibraryClasses.common]
+[LibraryClasses]
   DeviceMemoryMapLib|bitraPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|bitraPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
+[PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
@@ -78,7 +75,7 @@
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE
   
-[PcdsDynamicDefault.common]
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080

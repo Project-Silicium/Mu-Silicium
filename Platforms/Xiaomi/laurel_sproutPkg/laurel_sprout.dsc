@@ -28,6 +28,9 @@
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
 
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
+
 [LibraryClasses]
   DeviceMemoryMapLib|laurel_sproutPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|laurel_sproutPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
