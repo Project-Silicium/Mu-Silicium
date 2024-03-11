@@ -308,8 +308,8 @@
 |Touchscreen||❌|
 |Clocks||✅|
 |UFS||❌|
-|Buttons|Volume Up/Down only|⚠️|
-|USB||❌|
+|Buttons||✅|
+|USB|Host mode only & No USB power |⚠️|
 |SD Card||❌|
 |ACPI||❌|
 
