@@ -19,6 +19,9 @@
 #include <Ppi/ArmMpCoreInfo.h>
 #include <Ppi/SecPerformance.h>
 
+#include <Guid/DxeMemoryProtectionSettings.h>
+#include <Guid/MmMemoryProtectionSettings.h>
+
 #include "PrePi.h"
 
 #define IS_XIP()               (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) || ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
@@ -59,6 +62,8 @@ PrePiMain (IN UINT64 StartTimeStamp)
   ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeap;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStack;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
+  DXE_MEMORY_PROTECTION_SETTINGS  DxeSettings;
+  MM_MEMORY_PROTECTION_SETTINGS   MmSettings;
   FIRMWARE_SEC_PERFORMANCE        Performance;
   UINTN                           ArmCoreCount;
 
@@ -142,6 +147,14 @@ PrePiMain (IN UINT64 StartTimeStamp)
 
   // Initialize Platform HOBs (CpuHob and FvHob)
   PlatformPeim ();
+
+  // Set Memory Protection Settings
+  DxeSettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_ON;
+  MmSettings =  (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_ON;
+
+  // Enable Memory Protection
+  BuildGuidDataHob (&gDxeMemoryProtectionSettingsGuid, &DxeSettings, sizeof(DxeSettings));
+  BuildGuidDataHob (&gMmMemoryProtectionSettingsGuid,  &MmSettings,  sizeof(MmSettings));
 
   // Now, the HOB List has been initialized, we can register performance information
   PERF_START (NULL, "PEI", NULL, StartTimeStamp);
