@@ -45,7 +45,7 @@
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
 
   # CPU Max Freq
-  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE
 
 [LibraryClasses]
   PlatformPeiLib|SM6125Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
