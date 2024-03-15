@@ -77,7 +77,3 @@ GetBootGraphic (
   // Get the Specified Image from FV
   return GetSectionFromAnyFv (g, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
 }
-
-UINT32
-EFIAPI
-GetBackgroundColor () { return PcdGet32 (PcdPostBackgroundColor); }

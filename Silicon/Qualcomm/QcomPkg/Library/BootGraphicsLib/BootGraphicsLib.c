@@ -37,7 +37,6 @@ DisplayBootGraphic (BOOT_GRAPHIC Graphic)
   INTN                           DestY          = 0;
   UINT8                         *ImageData      = NULL;
   UINTN                          ImageSize      = 0;
-  UINT32                         Color          = 0;
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL *Blt            = NULL;
   UINTN                          BltSize        = 0;
   EFI_GRAPHICS_OUTPUT_PROTOCOL  *GraphicsOutput = NULL;
@@ -69,12 +68,6 @@ DisplayBootGraphic (BOOT_GRAPHIC Graphic)
 
   SizeOfX = GraphicsOutput->Mode->Info->HorizontalResolution;
   SizeOfY = GraphicsOutput->Mode->Info->VerticalResolution;
-  Color   = GetBackgroundColor ();
-
-  // Color the Background
-  Blt = (EFI_GRAPHICS_OUTPUT_BLT_PIXEL *)(&Color);
-  GraphicsOutput->Blt (GraphicsOutput, Blt, EfiBltVideoFill, 0, 0, 0, 0, SizeOfX, SizeOfY, 0);
-  Blt = NULL;
 
   // Get the Requested Boot Graphic
   Status = GetBootGraphic (Graphic, &ImageSize, &ImageData);
