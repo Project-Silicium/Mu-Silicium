@@ -37,6 +37,10 @@
   DeviceBootManagerLib
   HobLib
   PerformanceLib
+  PcdLib
+
+[Pcd]
+  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut
 
 [Protocols]
   gEfiPciRootBridgeIoProtocolGuid

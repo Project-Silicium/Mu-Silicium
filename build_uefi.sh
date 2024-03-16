@@ -125,7 +125,6 @@ make UEFI_BASE=${TARGET_FD_BASE} UEFI_SIZE=${TARGET_FD_SIZE}||_error "\nFailed t
 cd ..
 
 # Remove Mu Patches
-
 ## Mu_Basecore
 cd Mu_Basecore
 git reset --hard
@@ -137,18 +136,12 @@ python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py"
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --update -t ${_TARGET_BUILD_MODE}||_error "\nFailed to Update UEFI Env!\n"
 
 # Apply Mu Patches
-
 ## Mu_Basecore
-cp ./MuPatches/UsbBus.patch ./Mu_Basecore/
+cp ./MuPatches/UsbBus.patch ./MuPatches/BdsWait.patch ./Mu_Basecore/
 cd Mu_Basecore
 git apply UsbBus.patch &> /dev/null
+git apply BdsWait.patch &> /dev/null
 cd ..
-
-## Mu
-cp ./MuPatches/PlatformBm.patch ./Common/Mu/
-cd ./Common/Mu
-git apply PlatformBm.patch &> /dev/null
-cd ../..
 
 # Start the Real Build of the UEFI
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TARGET=${_TARGET_BUILD_MODE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}"||_error "\nFailed to Compile UEFI!\n"

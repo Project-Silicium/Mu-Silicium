@@ -16,6 +16,7 @@
 #include <Library/DeviceBootManagerLib.h>
 #include <Library/HobLib.h>
 #include <Library/PerformanceLib.h>
+#include <Library/PcdLib.h>
 
 #include <Guid/MemoryTypeInformation.h>
 #include <Guid/MemoryOverwriteControl.h>
@@ -301,12 +302,15 @@ PlatformBootManagerAfterConsole ()
   ProcessCapsules ();
 }
 
+STATIC UINTN                         XPos         = 0;
+STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGOPProtocol = NULL;
+
 VOID
 EFIAPI
 PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
 {
-  EFI_STATUS                    Status       = EFI_SUCCESS;
-  EFI_GRAPHICS_OUTPUT_PROTOCOL *mGOPProtocol = NULL;
+  EFI_STATUS                    Status;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
 
   // Locate GOP Protocol
   if (mGOPProtocol == NULL) {
@@ -318,22 +322,36 @@ PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
     }
   }
 
+  // Get Screen Size
+  UINT32 ScreenWidth  = mGOPProtocol->Mode->Info->HorizontalResolution;
+  UINT32 ScreenHeight = mGOPProtocol->Mode->Info->VerticalResolution;
+
+  // Default Y Position
+  UINTN YPos = ScreenHeight * 48 / 50;
+
+  // Get Timeout Time
+  UINT16 Timeout = PcdGet16(PcdPlatformBootTimeOut);
+
   if (!TimeoutRemain) {
-    EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
-
-    // Get Screen Size
-    UINT32 ScreenWidth  = mGOPProtocol->Mode->Info->HorizontalResolution;
-    UINT32 ScreenHeight = mGOPProtocol->Mode->Info->VerticalResolution;
-
-    // Calculate Clear Position
-    UINTN YPos = ScreenHeight * 48 / 50;
-  
     SetMem (&Color, sizeof(EFI_GRAPHICS_OUTPUT_BLT_PIXEL), 0x0);
 
-    // Clear Combo Message
+    // Clear Combo Message & Timeout Bar
     Status = mGOPProtocol->Blt (mGOPProtocol, &Color, EfiBltVideoFill, 0, 0, 0, YPos - EFI_GLYPH_HEIGHT, ScreenWidth, ScreenHeight - (YPos - EFI_GLYPH_HEIGHT), ScreenHeight * sizeof(EFI_GRAPHICS_OUTPUT_BLT_PIXEL));
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Clear Combo Message! Status = %r\n", __FUNCTION__, Status));
+    }
+  } else {
+    // Set Timeout Bar Color
+    Color.Blue = Color.Green = Color.Red = Color.Reserved = 0xFF;
+
+    for (UINTN i = 0; i < ScreenWidth / Timeout; i++) {
+      // Draw Timeout Bar
+      mGOPProtocol->Blt (mGOPProtocol, &Color, EfiBltVideoFill, 0, 0, XPos, YPos, 1, ScreenHeight / 50, (ScreenHeight / 50) * sizeof(EFI_GRAPHICS_OUTPUT_BLT_PIXEL));
+
+      XPos++;
+
+      // Wait
+      gBS->Stall (Timeout * 1000000 / ScreenWidth);
     }
   }
 }
