@@ -132,12 +132,6 @@ git reset --hard
 git clean --force
 cd ..
 
-## Mu
-cd ./Common/Mu
-git reset --hard
-git clean --force
-cd ../..
-
 # Setup & Update UEFI Enviroment
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --setup -t ${_TARGET_BUILD_MODE}||_error "\nFailed to Setup UEFI Env!\n"
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --update -t ${_TARGET_BUILD_MODE}||_error "\nFailed to Update UEFI Env!\n"
