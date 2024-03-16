@@ -152,8 +152,6 @@ PlatformBootManagerBeforeConsole ()
 
       FreePool (TempDevicePath);
 
-      DEBUG ((EFI_D_WARN, "3\n"));
-
       if (ConsoleOut != NULL) {
         // Set ConOut Variable
         Status = gRT->SetVariable (L"ConOut", &gEfiGlobalVariableGuid, EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_RUNTIME_ACCESS | EFI_VARIABLE_BOOTSERVICE_ACCESS, GetDevicePathSize (ConsoleOut), ConsoleOut);
