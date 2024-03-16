@@ -21,7 +21,7 @@
   UefiBootServicesTableLib
 
 [FixedPcd]
-  gArmPlatformTokenSpaceGuid.PcdCoreCount
+  gArmPlatformTokenSpaceGuid.PcdClusterCount
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported
 

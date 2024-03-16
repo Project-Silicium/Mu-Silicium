@@ -22,26 +22,26 @@ SetMaxFreq (
       return Status;
     }
 
-    // Set Max Freq for all CPU Cores
-    for (UINT32 i = 0; i < FixedPcdGet32(PcdCoreCount) + FixedPcdGetBool(PcdHasLevel3Cache); i++) {
+    // Set Max Freq for all CPU Clusters
+    for (UINT32 i = 0; i < FixedPcdGet32(PcdClusterCount) + FixedPcdGetBool(PcdHasLevel3Cache); i++) {
       UINT32 PerfLevel;
       UINT32 HzFreq;
 
-      // Get Max Perf Level of CPU Cores
+      // Get Max Perf Level of CPU Clusters
       Status = mClockProtocol->GetMaxPerfLevel (mClockProtocol, i, &PerfLevel);
       if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "Failed to Get Max Perf Level of CPU Core %d!\n", i));
+        DEBUG ((EFI_D_ERROR, "Failed to Get Max Perf Level of CPU Cluster %d!\n", i));
         ASSERT_EFI_ERROR (Status);
       }
 
-      // Set Max Perf Level for CPU Cores
+      // Set Max Perf Level for CPU Clusters
       Status = mClockProtocol->SetCpuPerfLevel (mClockProtocol, i, PerfLevel, &HzFreq);
       if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "Failed to Set Max Perf Level of CPU Core %d!\n", i));
+        DEBUG ((EFI_D_ERROR, "Failed to Set Max Perf Level of CPU Cluster %d!\n", i));
         ASSERT_EFI_ERROR (Status);
       }
 
-      DEBUG ((EFI_D_WARN, "CPU Core %d Now runs at %d Hz.\n", i, HzFreq));
+      DEBUG ((EFI_D_WARN, "CPU Cluster %d Now runs at %d Hz.\n", i, HzFreq));
     }
   } else {
     DEBUG ((EFI_D_WARN, "Max Freq is not Supported on this SoC.\n"));
