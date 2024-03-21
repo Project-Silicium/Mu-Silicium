@@ -5,20 +5,21 @@
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
-  INF Binaries/munch/MiPkg/Protocol/MiToken/MiToken.inf
+#  INF Binaries/munch/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
+#  INF Binaries/munch/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
+#  INF Binaries/munch/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
+#  INF Binaries/munch/MiPkg/Protocol/MiToken/MiToken.inf
   INF Binaries/munch/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
   INF Binaries/munch/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
-  INF Binaries/munch/MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/RscRtDxe.inf
-  INF Binaries/munch/MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/SCHandlerRtDxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/VariableDxe/VariableDxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
-  INF Binaries/munch/QcomPkg/Drivers/SimpleTextInOutSerialDxe/SimpleTextInOutSerial.inf
-  INF Binaries/munch/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
+  
+  INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
+  INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
+  INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
+  INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
+  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
@@ -54,7 +55,7 @@
   INF Binaries/munch/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF Binaries/munch/MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
+#  INF Binaries/munch/MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   
@@ -68,9 +69,11 @@
   INF Binaries/munch/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-#  INF Binaries/munch/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+  INF Binaries/munch/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+
+  # Only used for DisplayDxe for Qualcomm Demura
+  #INF Binaries/munch/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
 !if $(USE_DISPLAYDXE) == 1
@@ -92,12 +95,12 @@
   INF Binaries/munch/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/munch/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
   
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   
-  INF Binaries/munch/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
@@ -106,7 +109,9 @@
   INF Binaries/munch/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/MacDxe/MacDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  INF Binaries/munch/QcomPkg/Drivers/QcomBds/QcomBds.inf
+  
+  INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+  
   INF Binaries/munch/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
