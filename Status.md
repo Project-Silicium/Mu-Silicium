@@ -530,7 +530,7 @@
 |Charging||❌|
 |WLAN|Need manualy install driver|✅|
 |CPU||✅|
-|Touchscreen|Only on tianma panel|⚠️|
+|Touchscreen||✅|
 |Bluetooth||✅|
 |GPS||✅|
 |Speakers|Sometimes the sound appears|⚠️|
