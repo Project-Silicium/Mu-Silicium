@@ -1,23 +1,3 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20230628 (64-bit version)
- * Copyright (c) 2000 - 2023 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of DSDT.aml, Thu Feb 29 22:03:24 2024
- *
- * Original Table Header:
- *     Signature        "DSDT"
- *     Length           0x00034AA6 (215718)
- *     Revision         0x02
- *     Checksum         0x93
- *     OEM ID           "QCOMM "
- *     OEM Table ID     "SDM7180 "
- *     OEM Revision     0x00000003 (3)
- *     Compiler ID      "MSFT"
- *     Compiler Version 0x05000000 (83886080)
- */
 DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 {
     /*
@@ -474,7 +454,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (GEPT, 0, NotSerialized)
             {
-                Name (BUFF, Buffer (0x04){})
+                Name (BUFF, Buffer (0x04) {})
                 CreateByteField (BUFF, Zero, STAT)
                 CreateWordField (BUFF, 0x02, DATA)
                 DATA = 0x02
@@ -522,7 +502,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (_GRT, 0, NotSerialized)  // _GRT: Get Real Time
             {
-                Name (BUFF, Buffer (0x1A){})
+                Name (BUFF, Buffer (0x1A) {})
                 CreateField (BUFF, 0x10, 0x80, TME1)
                 CreateField (BUFF, 0x90, 0x20, ACT1)
                 CreateField (BUFF, 0xB0, 0x20, ACW1)
@@ -532,7 +512,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (_SRT, 1, NotSerialized)  // _SRT: Set Real Time
             {
-                Name (BUFF, Buffer (0x32){})
+                Name (BUFF, Buffer (0x32) {})
                 CreateByteField (BUFF, Zero, STAT)
                 CreateField (BUFF, 0x10, 0x80, TME1)
                 CreateField (BUFF, 0x90, 0x20, ACT1)
@@ -648,14 +628,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (GEPT, 0, NotSerialized)
             {
-                Name (BUFF, Buffer (0x04){})
+                Name (BUFF, Buffer (0x04) {})
                 CreateByteField (BUFF, Zero, STAT)
                 CreateWordField (BUFF, 0x02, DATA)
                 DATA = 0x03
                 Return (DATA) /* \_SB_.PMGK.GEPT.DATA */
             }
 
-            Name (BUFF, Buffer (0x32){})
+            Name (BUFF, Buffer (0x32) {})
             CreateField (BUFF, Zero, 0x08, BSTA)
             CreateField (BUFF, 0x08, 0x08, BSIZ)
             CreateField (BUFF, 0x10, 0x10, BVER)
@@ -1878,7 +1858,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (GEPT, 0, NotSerialized)
             {
-                Name (BUFF, Buffer (0x04){})
+                Name (BUFF, Buffer (0x04) {})
                 CreateByteField (BUFF, Zero, STAT)
                 CreateWordField (BUFF, 0x02, DATA)
                 DATA = One
@@ -22165,7 +22145,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                 Return (MPCC) /* \_SB_.PEP0.MPCC */
             }
 
-            Name (MPCC, Package (0x00){})
+            Name (MPCC, Package (0x00) {})
         }
 
         Scope (\_SB.PEP0)
@@ -48841,7 +48821,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (BLCP, 2, NotSerialized)
             {
-                Name (RBUF, Buffer (0x0100){})
+                Name (RBUF, Buffer (0x0100) {})
                 Return (RBUF) /* \_SB_.GPU0.BLCP.RBUF */
             }
 
@@ -51912,7 +51892,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
             {
                 "\\_SB.CAMS"
             })
-            Name (DBUF, Buffer (DBFL){})
+            Name (DBUF, Buffer (DBFL) {})
             CreateByteField (DBUF, Zero, STAT)
             CreateByteField (DBUF, 0x02, DVAL)
             CreateField (DBUF, 0x18, 0xA0, DEID)
@@ -51933,7 +51913,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
             {
-                DEID = Buffer (ESNL){}
+                DEID = Buffer (ESNL) {}
                 DVAL = Zero
                 DEID = PGID /* \_SB_.CAMS.PGID */
                 If (\_SB.ABD.AVBL)
@@ -51944,7 +51924,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
             {
-                DEID = Buffer (ESNL){}
+                DEID = Buffer (ESNL) {}
                 DVAL = 0x03
                 DEID = PGID /* \_SB_.CAMS.PGID */
                 If (\_SB.ABD.AVBL)
@@ -51986,7 +51966,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
             {
                 "\\_SB.CAMF"
             })
-            Name (DBUF, Buffer (DBFL){})
+            Name (DBUF, Buffer (DBFL) {})
             CreateByteField (DBUF, Zero, STAT)
             CreateByteField (DBUF, 0x02, DVAL)
             CreateField (DBUF, 0x18, 0xA0, DEID)
@@ -52007,7 +51987,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
             {
-                DEID = Buffer (ESNL){}
+                DEID = Buffer (ESNL) {}
                 DVAL = Zero
                 DEID = PGID /* \_SB_.CAMF.PGID */
                 If (\_SB.ABD.AVBL)
@@ -52018,7 +51998,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
             {
-                DEID = Buffer (ESNL){}
+                DEID = Buffer (ESNL) {}
                 DVAL = 0x03
                 DEID = PGID /* \_SB_.CAMF.PGID */
                 If (\_SB.ABD.AVBL)
@@ -52727,7 +52707,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
                 Method (PHYC, 0, NotSerialized)
                 {
-                    Name (CFG0, Package (0x00){})
+                    Name (CFG0, Package (0x00) {})
                     Return (CFG0) /* \_SB_.URS0.USB0.PHYC.CFG0 */
                 }
             }
@@ -52929,7 +52909,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
                 Method (PHYC, 0, NotSerialized)
                 {
-                    Name (CFG0, Package (0x00){})
+                    Name (CFG0, Package (0x00) {})
                     Return (CFG0) /* \_SB_.URS0.UFN0.PHYC.CFG0 */
                 }
             }
@@ -53820,7 +53800,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
             {
                 "\\_SB.TSC1"
             })
-            Name (DBUF, Buffer (DBFL){})
+            Name (DBUF, Buffer (DBFL) {})
             CreateByteField (DBUF, Zero, STAT)
             CreateByteField (DBUF, 0x02, DVAL)
             CreateField (DBUF, 0x18, 0xA0, DEID)
@@ -53841,7 +53821,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
             {
-                DEID = Buffer (ESNL){}
+                DEID = Buffer (ESNL) {}
                 DVAL = Zero
                 DEID = PGID /* \_SB_.TSC1.PGID */
                 If (\_SB.ABD.AVBL)
@@ -53852,7 +53832,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
             Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
             {
-                DEID = Buffer (ESNL){}
+                DEID = Buffer (ESNL) {}
                 DVAL = 0x03
                 DEID = PGID /* \_SB_.TSC1.PGID */
                 If (\_SB.ABD.AVBL)
