@@ -1,4 +1,4 @@
-FROM debian:trixie AS mu_builder
+FROM debian:bookworm AS mu_builder
 
 # Update package list and install necessary packages
 RUN apt update -y && \
