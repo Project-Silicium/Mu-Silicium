@@ -29,6 +29,7 @@ function _acpi(){
 	[[ -d Build ]] || mkdir Build
 	echo -e "PROGRESS - ACPI updater" > ./Build/acpi.log
 	TARGET_DEVICE_VENDOR=$(grep TARGET_DEVICE_VENDOR ./Resources/Configs/$TARGET_DEVICE.conf | tr -d 'TARGET_DEVICE_VENDOR=' | tr -d '"')
+	USE_ASL=$(grep USE_ASL ./Resources/Configs/$TARGET_DEVICE.conf | tr -d 'USE_ASL=')
 	if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc ]; then
 		TABLES="$(grep "SECTION RAW" ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc | sed '/#.*SECTION RAW/d' | grep $TARGET_DEVICE | awk '{print $4}')"
 		for TABLE in $TABLES; do
@@ -39,7 +40,11 @@ function _acpi(){
 			TABLE_NAME_DSL=$(basename $TABLE | sed 's/.aml$/.dsl/g')
 			[ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME ] && mv -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME.tablebkp > /dev/null 2>&1
 			if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL ]; then
-				RUN=$(iasl ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL 2>&1 >/dev/null)
+				if [ "${USE_ASL}" == "true" ]; then
+					RUN=$(wine ./tools/asl.exe ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL)
+				else
+					RUN=$(iasl ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL 2>&1 >/dev/null)
+				fi
 				if [ $(echo "$RUN" | grep Error |wc -c) -gt 1 ]; then
 					_warn "Could not update $TABLE_NAME: $RUN"
 					echo "DEBUG - Could not update $TABLE_NAME: $RUN" >> ./Build/acpi.log
@@ -49,7 +54,11 @@ function _acpi(){
 					echo "DEBUG - $TABLE_NAME updated successfully" >> ./Build/acpi.log
 				fi
 			elif [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL ]; then
-				RUN=$(iasl ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL 2>&1 >/dev/null)
+				if [ "${USE_ASL}" == "true" ]; then
+					RUN=$(wine ./tools/asl.exe ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL)
+				else
+					RUN=$(iasl ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL 2>&1 >/dev/null)
+				fi
 				if [ $(echo "$RUN" | grep Error |wc -c) -gt 1 ]; then
 					_warn "Could not update $TABLE_NAME: $RUN"
 					echo "DEBUG - Could not update $TABLE_NAME: $RUN" >> ./Build/acpi.log

@@ -536,7 +536,7 @@
 |Speakers|Sometimes the sound appears|⚠️|
 |3.5mm Audio Jack||❌|
 |Microphone||❌|
-|GPU|Device sometimes freezes|⚠️|
+|GPU||✅|
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
