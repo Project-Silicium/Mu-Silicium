@@ -45,9 +45,9 @@ APRIORI DXE {
   INF Binaries/munch/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/ResetRuntimeDxe/ResetRuntimeDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  INF Binaries/munch/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF Binaries/munch/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/munch/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
