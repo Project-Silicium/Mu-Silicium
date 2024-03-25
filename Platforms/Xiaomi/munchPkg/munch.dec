@@ -1,7 +1,7 @@
 [Defines]
   DEC_SPECIFICATION              = 0x00010005
   PACKAGE_NAME                   = munch
-  PACKAGE_GUID                   = 3D80EFD3-B29B-4953-9AC9-98 93 FE 08 99 7D
+  PACKAGE_GUID                   = 3D80EFD3-B29B-4953-9AC9-993FE08997D
   PACKAGE_VERSION                = 0.1
 
 [Guids]
