@@ -367,6 +367,7 @@
 
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
   QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 
 !if $(AB_SLOT_SUPPORT) == 1
   # Slot Switch App
