@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = miatollPkg/miatoll.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_DISPLAYDXE                 = 1
   AB_SLOT_SUPPORT                = 0
 
 [BuildOptions]
