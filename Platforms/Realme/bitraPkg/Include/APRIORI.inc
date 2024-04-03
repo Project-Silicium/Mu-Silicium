@@ -53,7 +53,7 @@ APRIORI DXE {
     INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
     INF Binaries/bitra/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-    #INF Binaries/bitra/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+    INF Binaries/bitra/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
     INF FatPkg/EnhancedFatDxe/Fat.inf
 
@@ -77,7 +77,7 @@ APRIORI DXE {
     !endif
 
     INF Binaries/bitra/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-    #INF Binaries/bitra/QcomPkg/Drivers/PILDxe/PILDxe.inf
+    INF Binaries/bitra/QcomPkg/Drivers/PILDxe/PILDxe.inf
     INF Binaries/bitra/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
 
     !if $(USE_DISPLAYDXE) == 1

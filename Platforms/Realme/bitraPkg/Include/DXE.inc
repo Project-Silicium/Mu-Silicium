@@ -68,7 +68,7 @@
   INF Binaries/bitra/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  #INF Binaries/bitra/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+  INF Binaries/bitra/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
   !if $(USE_DISPLAYDXE) == 1
@@ -110,7 +110,7 @@
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-  #INF Binaries/bitra/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/bitra/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
