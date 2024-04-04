@@ -37,6 +37,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SM8250 ", 0x00000003)
         Name (PRP5, 0xFFFFFFFF)
         Name (PRP6, 0xFFFFFFFF)
 
+        Include("ufs.dsl");
         Include("usb.dsl");
     }
 }
