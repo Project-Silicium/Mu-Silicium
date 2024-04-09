@@ -81,3 +81,6 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
 
 !include SM7125Pkg/SM7125Pkg.dsc.inc
+
+[LibraryClasses]
+  AcpiPlatformUpdateLib|miatollPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
