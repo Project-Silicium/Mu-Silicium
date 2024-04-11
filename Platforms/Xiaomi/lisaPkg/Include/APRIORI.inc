@@ -103,6 +103,7 @@ APRIORI DXE {
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF Binaries/lisa/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/lisa/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
