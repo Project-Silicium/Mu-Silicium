@@ -1822,7 +1822,7 @@
 <details>
 <summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
   
-## Mi 11 Lite NE
+## Xiaomi Mi 11 Lite NE
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 

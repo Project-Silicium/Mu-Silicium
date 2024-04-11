@@ -54,7 +54,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   
-  INF Binaries/lisa/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  #INF Binaries/lisa/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   
   INF FatPkg/EnhancedFatDxe/Fat.inf
@@ -103,6 +103,7 @@ APRIORI DXE {
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF Binaries/lisa/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/lisa/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
