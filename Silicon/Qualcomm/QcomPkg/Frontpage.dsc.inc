@@ -1,4 +1,4 @@
-[LibraryClasses.common]
+[LibraryClasses]
   #
   # Functions that should contain base logic for querying, setting, and verifying user passwords.
   #
@@ -24,16 +24,6 @@
   # This library contains access functions for dealing with the copying of an MS_UI_THEME
   #
   MsUiThemeCopyLib|MsGraphicsPkg/Library/MsUiThemeCopyLib/MsUiThemeCopyLib.inf
-
-  #
-  # Library to provide platform version information
-  #
-  MuUefiVersionLib|OemPkg/Library/MuUefiVersionLib/MuUefiVersionLib.inf
-
-  #
-  # Null ConsoleMsg Libary
-  #
-  ConsoleMsgLib|PcBdsPkg/Library/ConsoleMsgLibNull/ConsoleMsgLibNull.inf
 
   #
   # This is the Thermal Services Library that encapsulates the platform specific thermal information.
@@ -62,16 +52,6 @@
   #
   DeviceBootManagerLib|QcomPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
   MsPlatformDevicesLib|QcomPkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
-
-  #
-  # LIbrary to display the On screen notifications for the platform
-  #
-  UiRectangleLib|MsGraphicsPkg/Library/BaseUiRectangleLib/BaseUiRectangleLib.inf
-
-  #
-  # display the device state notifications for the platform using color bars
-  #
-  DisplayDeviceStateLib|MsGraphicsPkg/Library/ColorBarDisplayDeviceStateLib/ColorBarDisplayDeviceStateLib.inf
 
   #
   # interfaces with alternate boot variable
@@ -122,34 +102,50 @@
   # Supplies the theme for this platform to the UEFI settings UI
   #
   MsUiThemeLib|MsGraphicsPkg/Library/MsUiThemeLib/Dxe/MsUiThemeLib.inf
-
-  #
-  # Library for determining if Manufacturing mode should be enabled on this boot. 
-  # This libray is what everyone should use to determine which mode we are in.
-  # It can be called from PEI or DXE.
-  #
   UIToolKitLib|MsGraphicsPkg/Library/SimpleUIToolKit/SimpleUIToolKit.inf
-  MsWheaEarlyStorageLib|QcomPkg/Library/MsWheaEarlyStorageLib/MsWheaEarlyStorageLib.inf
-  CheckHwErrRecHeaderLib|MsWheaPkg/Library/CheckHwErrRecHeaderLib/CheckHwErrRecHeaderLib.inf
-  ParserRegistryLib|MsWheaPkg/Library/ParserRegistryLib/ParserRegistryLib.inf
-  Hash2CryptoLib|SecurityPkg/Library/DxeHash2CryptoLib/DxeHash2CryptoLib.inf
-  MsPlatformEarlyGraphicsLib|QcomPkg/Library/MsPlatformEarlyGraphicsLib/MsEarlyGraphicsLib.inf
 
-[PcdsFixedAtBuild.common]
+  #
+  # DFCI / XML / JSON Libraries
+  #
+  DfciUiSupportLib|OemPkg/Library/DfciUiSupportLib/DfciUiSupportLib.inf # Supports DFCI Groups.
+  DfciV1SupportLib|DfciPkg/Library/DfciV1SupportLibNull/DfciV1SupportLibNull.inf # Backwards compatibility with DFCI V1 functions.
+  DfciDeviceIdSupportLib|OemPkg/Library/DfciDeviceIdSupportLib/DfciDeviceIdSupportLib.inf
+  DfciGroupLib|OemPkg/Library/DfciGroupLib/DfciGroups.inf
+  DfciRecoveryLib|DfciPkg/Library/DfciRecoveryLib/DfciRecoveryLib.inf
+
+  #
+  # Zero Touch is part of DFCI
+  #
+  ZeroTouchSettingsLib|ZeroTouchPkg/Library/ZeroTouchSettings/ZeroTouchSettings.inf
+
+  #
+  # Libraries that understands the MsXml Settings Schema and providers helper functions
+  #
+  DfciXmlIdentitySchemaSupportLib|DfciPkg/Library/DfciXmlIdentitySchemaSupportLib/DfciXmlIdentitySchemaSupportLib.inf
+  DfciXmlDeviceIdSchemaSupportLib|DfciPkg/Library/DfciXmlDeviceIdSchemaSupportLib/DfciXmlDeviceIdSchemaSupportLib.inf
+  DfciXmlSettingSchemaSupportLib|DfciPkg/Library/DfciXmlSettingSchemaSupportLib/DfciXmlSettingSchemaSupportLib.inf
+  DfciXmlPermissionSchemaSupportLib|DfciPkg/Library/DfciXmlPermissionSchemaSupportLib/DfciXmlPermissionSchemaSupportLib.inf
+  DfciSettingChangedNotificationLib|DfciPkg/Library/DfciSettingChangedNotificationLib/DfciSettingChangedNotificationLibNull.inf
+
+[PcdsFeatureFlag]
+  gDfciPkgTokenSpaceGuid.PcdDfciEnabled|FALSE
+
+[PcdsFixedAtBuild]
   # The GUID of Frontpage.inf from MU_OEM_SAMPLE
   # 4042708A-0F2D-4823-AC60-0D77B3111889
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x8A, 0x70, 0x42, 0x40, 0x2D, 0x0F, 0x23, 0x48, 0xAC, 0x60, 0x0D, 0x77, 0xB3, 0x11, 0x18, 0x89 }
 
-  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000022
-  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20231217
+  gMsGraphicsPkgTokenSpaceGuid.PcdUiThemeInDxe|TRUE
+
+  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000025
+  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20240316
 
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor|0x0
 
-[LibraryClasses.AARCH64.DXE_DRIVER, LibraryClasses.AARCH64.UEFI_DRIVER, LibraryClasses.AARCH64.UEFI_APPLICATION, LibraryClasses.AARCH64.DXE_CORE]
+[LibraryClasses.common.DXE_DRIVER, LibraryClasses.common.UEFI_DRIVER, LibraryClasses.common.UEFI_APPLICATION, LibraryClasses.common.DXE_CORE]
   BaseCryptLib|CryptoPkg/Library/BaseCryptLibNull/BaseCryptLibNull.inf
-  TlsLib|CryptoPkg/Library/TlsLibNull/TlsLibNull.inf
 
-[Components.AARCH64]
+[Components]
   #
   # Application that presents and manages FrontPage.
   #
@@ -183,12 +179,6 @@
   # AuthManager provides authentication for DFCI.
   #
   DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
-  DfciPkg/AuthManagerNull/AuthManagerNull.inf
-
-  #
-  # Processes ingoing and outgoing DFCI settings requests.
-  #
-  DfciPkg/DfciManager/DfciManager.inf
 
   #
   # Manages windows and fonts to be drawn by the RenderingEngine.
@@ -220,13 +210,5 @@
   # Produces FORM DISPLAY ENGINE protocol. Handles input, displays strings.
   #
   MsGraphicsPkg/DisplayEngineDxe/DisplayEngineDxe.inf
-  MsGraphicsPkg/MsEarlyGraphics/Dxe/MsEarlyGraphics.inf
 
-  DfciPkg/Application/DfciMenu/DfciMenu.inf
-
-  CryptoPkg/Driver/Bin/CryptoDriverBin_STANDARD_Dxe_$(TARGET)_AARCH64.inf 
-
-  CryptoPkg/Library/BaseCryptLibOnProtocolPpi/DxeCryptLib.inf {
-    <PcdsFixedAtBuild>
-     !include CryptoPkg/Driver/Bin/Crypto.pcd.STANDARD.inc.dsc
-  }
+  QcomPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf

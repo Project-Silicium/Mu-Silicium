@@ -1,17 +1,13 @@
-/** @file
-  This BootGraphicsProviderLib is intended to abstract the source of the
-  BMP files from the caller
+/**
+  This BootGraphicsProviderLib is Intended to Abstract the Source of the
+  BMP Files from the Caller.
 
-  This instance uses defined PCDs and RAW FFS files
+  This Instance uses Defined PCDs and RAW FFS Files.
 
   Copyright (C) Microsoft Corporation. All rights reserved.
+
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
-
-#include <Uefi.h>
-
-#include <Pi/PiFirmwareFile.h>
 
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
@@ -19,19 +15,14 @@
 #include <Library/BootGraphics.h>
 #include <Library/DxeServicesLib.h>
 
-/**
-  Get the requested boot graphic
-
-**/
 EFI_STATUS
 EFIAPI
 GetBootGraphic (
-  BOOT_GRAPHIC  Graphic,
-  OUT UINTN     *ImageSize,
-  OUT UINT8     **ImageData
-  )
+  BOOT_GRAPHIC Graphic,
+  OUT UINTN   *ImageSize,
+  OUT UINT8  **ImageData)
 {
-  EFI_GUID  *g = NULL;
+  EFI_GUID *g = NULL;
 
   switch (Graphic) {
     case BG_SYSTEM_LOGO:
@@ -44,6 +35,7 @@ GetBootGraphic (
       }
 
       break;
+
     case BG_CRITICAL_OVER_TEMP:
       if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
         g = PcdGetPtr (PcdThermalFile_Small);
@@ -54,6 +46,7 @@ GetBootGraphic (
       }
 
       break;
+
     case BG_CRITICAL_LOW_BATTERY:
       if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
         g = PcdGetPtr (PcdLowBatteryFile_Small);
@@ -64,6 +57,7 @@ GetBootGraphic (
       }
 
       break;
+
     case BG_NO_BOOT_OS:
       if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
         g = PcdGetPtr (PcdNoBootOSFile_Small);
@@ -74,21 +68,12 @@ GetBootGraphic (
       }
 
       break;
+
     default:
-      DEBUG ((DEBUG_ERROR, "Unsupported Boot Graphic Type 0x%X\n", Graphic));
+      DEBUG ((EFI_D_ERROR, "%a: Unsupported Boot Graphic Type! 0x%x\n", __FUNCTION__, Graphic));
       return EFI_UNSUPPORTED;
   }
 
-  //
-  // Get the specified image from FV.
-  //
+  // Get the Specified Image from FV
   return GetSectionFromAnyFv (g, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
-}
-
-UINT32
-EFIAPI
-GetBackgroundColor (
-  )
-{
-  return PcdGet32 (PcdPostBackgroundColor);
 }

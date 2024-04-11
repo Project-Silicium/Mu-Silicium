@@ -1,6 +1,6 @@
 Build/
 Conf/
-ImageResources/bootpayload.bin
+Resources/bootpayload.bin
 Mu-*.img
 Mu-*.tar
 */*/*/__pycache__/

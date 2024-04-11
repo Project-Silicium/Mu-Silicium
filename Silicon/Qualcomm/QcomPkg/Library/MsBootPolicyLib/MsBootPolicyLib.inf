@@ -1,8 +1,9 @@
-## @file
-# Library that platform implemented to determine boot type
+##
+#  Library that Platform Implemented to Determine Boot Type.
 #
-# Copyright (C) Microsoft Corporation. All rights reserved.
-# SPDX-License-Identifier: BSD-2-Clause-Patent
+#  Copyright (C) Microsoft Corporation. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
 [Defines]
@@ -13,12 +14,6 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = MsBootPolicyLib|DXE_DRIVER UEFI_APPLICATION
   CONSTRUCTOR                    = MsBootPolicyLibConstructor
-
-#
-# The following information is for reference only and not required by the build tools.
-#
-#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
-#
 
 [Sources]
   MsBootPolicyLib.c
@@ -35,16 +30,12 @@
 [LibraryClasses]
   DebugLib
   DevicePathLib
-  MemoryAllocationLib
   UefiBootServicesTableLib
-  UefiRuntimeServicesTableLib
   MsPlatformDevicesLib
 
 [Protocols]
-  gDfciSettingAccessProtocolGuid      ## CONSUMES
-  gMsButtonServicesProtocolGuid       ## CONSUMES
-
-[Guids]
+  gDfciSettingAccessProtocolGuid
+  gMsButtonServicesProtocolGuid
 
 [Pcd]
   gPcBdsPkgTokenSpaceGuid.PcdBdsBootPolicy

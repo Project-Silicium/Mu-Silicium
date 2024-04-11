@@ -97,18 +97,12 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF SDM660Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  INF SDM660Pkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
-
   # ACPI Tables
   !include Include/ACPI.inc
 
-  INF MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
-
   INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
-  !include QcomPkg/Frontpage.fdf.inc
-
-  INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
+  !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
@@ -128,7 +122,7 @@ READ_STATUS        = TRUE
 READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
-  INF QcomPkg/PrePi/PeiUniCore.inf
+  INF QcomPkg/PrePi/PrePi.inf
 
   FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
     SECTION UI = "uefiplat.cfg"

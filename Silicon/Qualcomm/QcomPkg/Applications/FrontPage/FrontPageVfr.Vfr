@@ -363,4 +363,11 @@ formset
       key     = FRONT_PAGE_ACTION_EXIT_FRONTPAGE;
   endform;
 
+  /////////////////////////////////////////////////////////////////////////////
+  // Form ID 3: Power Off
+  //
+  form formid = FRONT_PAGE_FORM_ID_POWEROFF,                                            // Power Off form
+    title  = STRING_TOKEN(STR_NULL_STRING);                                             // Form title: None
+  endform;
+
 endformset;

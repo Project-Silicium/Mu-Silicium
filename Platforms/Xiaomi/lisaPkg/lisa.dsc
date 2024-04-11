@@ -1,9 +1,10 @@
-## @file
+##
 #
-#  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
+#  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
-#  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
+#  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
 #  Copyright (c) 2018, Bingxing Wang. All rights reserved.
+#  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -16,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = lisa
-  PLATFORM_GUID                  = 43c6bd82-8a2a-4256-8b40-0192bd310f58
+  PLATFORM_GUID                  = 43C6BD82-8A2A-4256-8B40-0192BD310F58
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/lisaPkg
@@ -24,7 +25,6 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = lisaPkg/lisa.fdf
-  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
 
@@ -33,29 +33,25 @@
   # 2 = SM7325-AF
   SOC_TYPE                       = 0
 
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DDISPLAY_USES_RGBA=$(DISPLAY_USES_RGBA)
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
 
-[LibraryClasses.common]
+[LibraryClasses]
   DeviceMemoryMapLib|lisaPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|lisaPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000           # Starting address
-!if $(RAM_SIZE) == 6
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000          # 6GB Size
-!elseif $(RAM_SIZE) == 8
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000          # 8GB Size
-!else
-!error "Invalid RAM Size! Use 6 or 8."
-!endif
+[PcdsFixedAtBuild]
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
+  # Device Maintainer
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"ETCHDEV" # Device Maintainer
 
+  # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
+  # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
@@ -67,9 +63,18 @@
   # Simple FrameBuffer
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-[PcdsDynamicDefault.common]
+  # Dynamic RAM Start Address
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE3400000
+
+  # SD Card Slot
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
+
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
+  
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080

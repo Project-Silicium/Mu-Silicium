@@ -1,11 +1,9 @@
-#/** @file
-#
+##
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
-#
-#**/
+##
 
 [Defines]
   INF_VERSION                    = 0x00010005
@@ -21,19 +19,10 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
   QcomPkg/QcomPkg.dec
-  SM7150Pkg/SM7150Pkg.dec
 
 [LibraryClasses]
-  ArmLib
-  ArmMmuLib
-  BaseLib
-  DebugLib
   HobLib
-  IoLib
-  MemoryAllocationLib
   SerialPortLib
   MemoryMapHelperLib
   DeviceConfigurationMapLib

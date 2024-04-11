@@ -1,38 +1,35 @@
-#include <Uefi.h>
-
 #include <Library/DebugLib.h>
-#include <Library/DeviceBootManagerLib.h>
-#include <Library/DevicePathLib.h>
 #include <Library/MemoryAllocationLib.h>
-#include <Library/MsPlatformDevicesLib.h>
-#include <Library/PrintLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/UefiLib.h>
-#include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/MemoryMapHelperLib.h>
-
 #include <Library/BaseMemoryLib.h>
+#include <Library/RFSProtectionLib.h>
+
 #include <Protocol/EFIScm.h>
 #include <Protocol/scm_sip_interface.h>
-
-#include <Library/RFSProtectionLib.h>
 
 #define MAX_DESTINATION_VMS 3
 
 EFI_STATUS
 EFIAPI
-RFSProtectSharedArea(UINT64 efsBaseAddr, UINT64 efsBaseSize)
+RFSProtectSharedArea (
+  UINT64 EfsBaseAddr,
+  UINT64 EfsSizeAddr)
 {
-  EFI_STATUS             Status                       = EFI_SUCCESS;
-  hyp_memprot_ipa_info_t ipaInfo;
-  QCOM_SCM_PROTOCOL     *pQcomScmProtocol             = NULL;
-  UINT32                 dataSize                     = 0;
-  UINT32                 sourceVM                     = AC_VM_HLOS;
-  UINT64                 results[SCM_MAX_NUM_RESULTS] = {0};
-  VOID                  *data                         = NULL;
+  EFI_STATUS             Status                                 = EFI_SUCCESS;
+  hyp_memprot_ipa_info_t IpaInfo;
+  QCOM_SCM_PROTOCOL     *mScmProtocol                           = NULL;
+  UINT64                 ParameterArray[SCM_MAX_NUM_PARAMETERS] = {0};
+  UINT64                 Results[SCM_MAX_NUM_RESULTS]           = {0};
+  UINT32                 DataSize                               = 0;
+  UINT32                 SourceVM                               = AC_VM_HLOS;
+  VOID                  *Data                                   = NULL;
+  hyp_memprot_assign_t  *Assign                                 = (hyp_memprot_assign_t *)ParameterArray;
 
-  // Allow both HLOS (Windows) and MSS (Modem Subsystem) to access the shared memory region
-  // This is needed otherwise the Modem Subsystem will CRASH when attempting to read data
+  //
+  // Allow both Windows / Linux and Modem Subsystem to Access the Shared Memory Region.
+  // This is needed otherwise the Modem Subsystem will Crash when Attempting to Read Data.
+  //
   hyp_memprot_dstVM_perm_info_t dstVM_perm_info[MAX_DESTINATION_VMS] = {
     {
       AC_VM_HLOS, 
@@ -54,90 +51,59 @@ RFSProtectSharedArea(UINT64 efsBaseAddr, UINT64 efsBaseSize)
     }
   };
 
-  UINT64                 parameterArray[SCM_MAX_NUM_PARAMETERS] = {0};
-  hyp_memprot_assign_t  *assign = (hyp_memprot_assign_t *)parameterArray;
-
-  Status = gBS->LocateProtocol(
-      &gQcomScmProtocolGuid, 
-      NULL, 
-      (VOID **)&pQcomScmProtocol
-  );
-
-  if (EFI_ERROR(Status)) {
+  // Locate SCM Protocol
+  Status = gBS->LocateProtocol (&gQcomScmProtocolGuid, NULL, (VOID *)&mScmProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate SCM Protocol! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  // Fill in the address details
-  ipaInfo.IPAaddr = efsBaseAddr;
-  ipaInfo.IPAsize = efsBaseSize;
+  // Fill the Address Details
+  IpaInfo.IPAaddr = EfsBaseAddr;
+  IpaInfo.IPAsize = EfsSizeAddr;
 
-  dataSize = sizeof(hyp_memprot_ipa_info_t) + 
-                  sizeof(sourceVM) +
-                  (MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t)) + 
-                  4;
+  DataSize = sizeof(hyp_memprot_ipa_info_t) + sizeof(SourceVM) + (MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t)) +  4;
 
-  data = AllocateZeroPool(dataSize);
-  if (data == NULL) {
+  Data = AllocateZeroPool (DataSize);
+  if (Data == NULL) {
+    DEBUG ((EFI_D_ERROR, "%a: Not Enough Memory!\n", __FUNCTION__));
     return EFI_OUT_OF_RESOURCES;
   }
 
-  assign->IPAinfolist = (UINT64)data;
+  Assign->IPAinfolist = (UINT64)Data;
 
-  CopyMem(
-    (VOID *)assign->IPAinfolist, 
-    &ipaInfo, 
-    sizeof(hyp_memprot_ipa_info_t)
-  );
+  CopyMem ((VOID *)Assign->IPAinfolist, &IpaInfo, sizeof(hyp_memprot_ipa_info_t));
 
-  assign->IPAinfolistsize = sizeof(hyp_memprot_ipa_info_t);
+  Assign->IPAinfolistsize = sizeof(hyp_memprot_ipa_info_t);
+  Assign->sourceVMlist = (UINT64)Data + sizeof(hyp_memprot_ipa_info_t);
 
-  assign->sourceVMlist =
-      (UINT64)data + 
-      sizeof(hyp_memprot_ipa_info_t);
+  CopyMem ((VOID *)Assign->sourceVMlist, &SourceVM, sizeof(SourceVM));
 
-  CopyMem(
-    (VOID *)assign->sourceVMlist, 
-    &sourceVM, 
-    sizeof(sourceVM)
-  );
+  Assign->srcVMlistsize = sizeof(SourceVM);
+  Assign->destVMlist = (UINT64)Data + sizeof(hyp_memprot_ipa_info_t) + sizeof(SourceVM) + 4;
 
-  assign->srcVMlistsize = sizeof(sourceVM);
+  CopyMem ((VOID *)Assign->destVMlist, dstVM_perm_info, MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t));
 
-  assign->destVMlist =
-      (UINT64)data + 
-      sizeof(hyp_memprot_ipa_info_t) + 
-      sizeof(sourceVM) + 
-      4;
+  Assign->destVMlistsize = MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t);
+  Assign->spare          = 0;
 
-  CopyMem(
-      (VOID *)assign->destVMlist, 
-      dstVM_perm_info,
-      MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t)
-  );
-
-  assign->destVMlistsize = MAX_DESTINATION_VMS * sizeof(hyp_memprot_dstVM_perm_info_t);
-  assign->spare          = 0;
-
-  // Send the hypervisor call
-  Status = pQcomScmProtocol->ScmSipSysCall(
-      pQcomScmProtocol, 
-      HYP_MEM_PROTECT_ASSIGN, 
-      HYP_MEM_PROTECT_ASSIGN_PARAM_ID,
-      parameterArray, 
-      results
-  );
+  // Send Hypervisor Call
+  Status = mScmProtocol->ScmSipSysCall (mScmProtocol, HYP_MEM_PROTECT_ASSIGN, HYP_MEM_PROTECT_ASSIGN_PARAM_ID, ParameterArray, Results);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Send the Hypervisor Call! Status = %r\n", __FUNCTION__, Status));
+  }
 
   return Status;
 }
 
 EFI_STATUS
 EFIAPI
-RFSLocateAndProtectSharedArea()
+RFSLocateAndProtectSharedArea ()
 {
   ARM_MEMORY_REGION_DESCRIPTOR_EX MpssEfs;
 
-  if (!EFI_ERROR(LocateMemoryMapAreaByName("MPSS_EFS", &MpssEfs))) {
-      return RFSProtectSharedArea(MpssEfs.Address, MpssEfs.Length);
+  if (!EFI_ERROR (LocateMemoryMapAreaByName ("MPSS_EFS", &MpssEfs))) {
+    return RFSProtectSharedArea(MpssEfs.Address, MpssEfs.Length);
   }
 
   return EFI_NOT_FOUND;

@@ -1,6 +1,5 @@
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
-#include <Library/UefiDriverEntryPoint.h>
 #include <Library/UefiBootServicesTableLib.h>
 
 #include <Protocol/EFIClock.h>
@@ -14,40 +13,39 @@ SetMaxFreq (
   EFI_STATUS          Status;
   EFI_CLOCK_PROTOCOL *mClockProtocol;
 
-  // Locate Clock Protocol
-  Status = gBS->LocateProtocol(&gEfiClockProtocolGuid, NULL, (VOID *)&mClockProtocol);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Clock Protocol! Status = %r\n", Status));
-    goto exit;
-  }
-
   // Check if Max Freq PCD is TRUE
-  if (FixedPcdGetBool(PcdEnableMaxFreq) == TRUE) {
-    // Set Max Freq for all CPU Cores
-    for (UINT32 i = 0; i < FixedPcdGet32(PcdCoreCount) + FixedPcdGetBool(PcdHasLevel3Cache); i++) {
+  if (FixedPcdGetBool(PcdMaxFreqSupported)) {
+    // Locate Clock Protocol
+    Status = gBS->LocateProtocol (&gEfiClockProtocolGuid, NULL, (VOID *)&mClockProtocol);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate Clock Protocol!\n"));
+      return Status;
+    }
+
+    // Set Max Freq for all CPU Clusters
+    for (UINT32 i = 0; i < FixedPcdGet32(PcdClusterCount) + FixedPcdGetBool(PcdHasLevel3Cache); i++) {
       UINT32 PerfLevel;
       UINT32 HzFreq;
 
-      // Get Max Perf Level of CPU Cores
-      Status = mClockProtocol->GetMaxPerfLevel(mClockProtocol, i, &PerfLevel);
+      // Get Max Perf Level of CPU Clusters
+      Status = mClockProtocol->GetMaxPerfLevel (mClockProtocol, i, &PerfLevel);
       if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "Failed to Get Max Perf Level of CPU Core %d! Status = %r\n", i, Status));
-        continue;
+        DEBUG ((EFI_D_ERROR, "Failed to Get Max Perf Level of CPU Cluster %d!\n", i));
+        ASSERT_EFI_ERROR (Status);
       }
 
-      // Set Max Perf Level for CPU Cores
-      Status = mClockProtocol->SetCpuPerfLevel(mClockProtocol, i, PerfLevel, &HzFreq);
+      // Set Max Perf Level for CPU Clusters
+      Status = mClockProtocol->SetCpuPerfLevel (mClockProtocol, i, PerfLevel, &HzFreq);
       if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "Failed to Set Max Perf Level of CPU Core %d! Status = %r\n", i, Status));
-        continue;
+        DEBUG ((EFI_D_ERROR, "Failed to Set Max Perf Level of CPU Cluster %d!\n", i));
+        ASSERT_EFI_ERROR (Status);
       }
 
-      DEBUG ((EFI_D_WARN, "CPU Core %d Now runs at %d Hz.\n", i, HzFreq));
+      DEBUG ((EFI_D_WARN, "CPU Cluster %d Now runs at %d Hz.\n", i, HzFreq));
     }
   } else {
-    DEBUG ((EFI_D_WARN, "Max Freq PCD is Disabled.\n"));
+    DEBUG ((EFI_D_WARN, "Max Freq is not Supported on this SoC.\n"));
   }
 
-exit:
-  return Status;
+  return EFI_SUCCESS;
 }

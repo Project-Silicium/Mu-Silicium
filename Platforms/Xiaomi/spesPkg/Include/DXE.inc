@@ -36,6 +36,9 @@
   INF Binaries/spes/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/spes/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 
@@ -45,7 +48,6 @@
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/spes/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/VcsDxe/VcsDxe.inf

@@ -34,6 +34,9 @@
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
@@ -47,7 +50,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ClockDxe/ClockDxe.inf

@@ -7,12 +7,18 @@ gDeviceMemoryDescriptorEx[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
 
   // DDR Regions
-  {"RAM Partition",         0x40000000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"RAM Partition",         0x40000000, 0x01AC0000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"HLOS 1",                0x41AC0000, 0x03C40000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"Hypervisor",            0x45700000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
-  {"RAM Partition",         0x45D00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"Runtime Data",          0x45D00000, 0x00080000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
+  {"Runtime Code",          0x45D80000, 0x00080000, AddMem, SYS_MEM, SYS_MEM_CAP, RtCode, WRITE_BACK_XN},
+  {"MPSS_EFS",              0x45E00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, UNCACHED_UNBUFFERED_XN},
   {"SMEM",                  0x46000000, 0x00200000, AddMem, MEM_RES, WRITE_COMBINEABLE,   Reserv, UNCACHED_UNBUFFERED_XN},
   {"RAM Partition",         0x46200000, 0x04900000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  {"PIL Reserved",          0x4AB00000, 0x0A400000, AddMem, MEM_RES, WRITE_COMBINEABLE,   Reserv, UNCACHED_UNBUFFERED_XN},
+  //{"PIL Reserved",          0x4AB00000, 0x0A400000, AddMem, MEM_RES, WRITE_COMBINEABLE,   Reserv, UNCACHED_UNBUFFERED_XN},
+  {"HLOS 2",                0x4AB00000, 0x04B00000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+  {"HLOS 3",                0x51A00000, 0x00800000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+  {"HLOS 4",                0x52200000, 0x02C00000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"RAM Partition",         0x54F00000, 0x01800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"DXE Heap",              0x63900000, 0x04500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"RAM Partition",         0x67E00000, 0x09B00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
@@ -29,36 +35,14 @@ gDeviceMemoryDescriptorEx[] = {
   {"CPU Vectors",           0x5FF8C000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"MMU PageTables",        0x5FF8D000, 0x00003000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"UEFI Stack",            0x5FF90000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
-  {"RAM Partition",         0x5FFD0000, 0x00027000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+  {"RSRV1",                 0x5FFD0000, 0x0000A000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"TPMControl",            0x5FFDA000, 0x00003000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"Reset Data",            0x5FFDD000, 0x00004000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"RSRV3",                 0x5FFE1000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"Capsule Header",        0x5FFE2000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"RSRV2",                 0x5FFE3000, 0x00014000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"Log Buffer",            0x5FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",              0x5FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
-
-//=================================================================================================================
-#if DEVICE_RAM == 3
-//==================================================3GB RAM Setup==================================================
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
-	{"RAM Partition",       0x60000000, 0x1E580000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-	// DDR Bank 0 end
-
-	// DDR Bank 1 start
-	{"RAM Partition",       0x80000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-
-	// As RAM starts at 0x80000000 (2GB) and this is a 3GB device, so it must ends at 5GB, then 0x140000000 = 0xC0000000 + 0x80000000
-  {"RAM Partition",		0xC0000000,0x80000000, AddMem,	SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-//=================================================================================================================
-#elif DEVICE_RAM == 4
-//==================================================4GB RAM Setup==================================================
-  // This RAM parition starts just after Info Blk and ends with DDR Bank 0
-	{"RAM Partition",         0x60000000, 0x1DD00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-	// DDR Bank 0 end
-
-	// DDR Bank 1 start
-	{"RAM Partition",         0x80000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-
-	// As RAM starts at 0x80000000 (2GB) and this is a 4GB device, so it must ends at 6GB, then 0x180000000 = 0x100000000 + 0x80000000
-  {"RAM Partition",         0xC0000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
-//=================================================================================================================
-#endif
 
   // Other memory regions
   {"RPM_SS_MSG_RAM",        0x045F0000, 0x00007000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
@@ -106,7 +90,7 @@ gDeviceMemoryDescriptorEx[] = {
 };
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX*
-GetDeviceMemoryMap()
+GetDeviceMemoryMap ()
 {
   return gDeviceMemoryDescriptorEx;
 }

@@ -1,0 +1,41 @@
+diff --git a/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.c b/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.c
+index 462acf3d57..0695dc6b7d 100644
+--- a/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.c
++++ b/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.c
+@@ -76,7 +76,10 @@ UsbIoControlTransfer (
+     return EFI_INVALID_PARAMETER;
+   }
+ 
+-  OldTpl = gBS->RaiseTPL (USB_BUS_TPL);
++  //
++  // BugBug: Raise TPL to callback level instead of USB_BUS_TPL to avoid TPL conflict
++  //
++  OldTpl = gBS->RaiseTPL (TPL_CALLBACK);
+ 
+   UsbIf = USB_INTERFACE_FROM_USBIO (This);
+   Dev   = UsbIf->Device;
+@@ -268,7 +271,10 @@ UsbIoBulkTransfer (
+     return EFI_INVALID_PARAMETER;
+   }
+ 
+-  OldTpl = gBS->RaiseTPL (USB_BUS_TPL);
++  //
++  // BugBug: Raise TPL to callback level instead of USB_BUS_TPL to avoid TPL conflict
++  //
++  OldTpl = gBS->RaiseTPL (TPL_CALLBACK);
+ 
+   UsbIf = USB_INTERFACE_FROM_USBIO (This);
+   Dev   = UsbIf->Device;
+@@ -452,7 +458,11 @@ UsbIoAsyncInterruptTransfer (
+     return EFI_INVALID_PARAMETER;
+   }
+ 
+-  OldTpl = gBS->RaiseTPL (USB_BUS_TPL);
++  //
++  // BugBug: Raise TPL to callback level instead of USB_BUS_TPL to avoid TPL conflict
++  //
++  OldTpl = gBS->RaiseTPL (TPL_CALLBACK);
++
+   UsbIf  = USB_INTERFACE_FROM_USBIO (This);
+   Dev    = UsbIf->Device;
+   // MS_CHANGE_166714

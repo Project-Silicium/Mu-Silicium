@@ -28,9 +28,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"ramoops",           0x64000000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN}, // pstore
   {"DXE Heap",          0x64400000, 0x04500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
-  // RAM partition regions
-  {"RAM Partition",     0x80000000, 0xC0000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
   // Other memory regions
   {"RPM_SS_MSG_RAM",    0x045F0000, 0x00007000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
   {"IMEM Base",         0x0C100000, 0x00026000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
@@ -76,7 +73,7 @@ gDeviceMemoryDescriptorEx[] = {
 };
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX*
-GetDeviceMemoryMap()
+GetDeviceMemoryMap ()
 {
   return gDeviceMemoryDescriptorEx;
 }

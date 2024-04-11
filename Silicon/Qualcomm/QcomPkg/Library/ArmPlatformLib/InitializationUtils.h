@@ -2,6 +2,6 @@
 #define _INITIALIZATION_UTILS_H_
 
 VOID
-EarlyInitialization(VOID);
+EarlyInitialization ();
 
 #endif /* _INITIALIZATION_UTILS_H_ */

@@ -7,7 +7,7 @@ gDeviceMemoryDescriptorEx[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
 
   // DDR Regions
-  {"Hypervisor",         0x80000000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"Hypervisor",        0x80000000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"Axon DMA",          0x80600000, 0x00100000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"BOOT",              0x80700000, 0x00100000, AddMem, MEM_RES, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"AOP CMD DB",        0x80860000, 0x00020000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
@@ -30,9 +30,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"TZApps Reserved",   0xDA000000, 0x06A00000, HobOnlyNoCacheSetting, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"DBI Dump",          0xE1A00000, 0x00F00000, NoHob,  MMAP_IO, INITIALIZED, Conv,   UNCACHED_UNBUFFERED_XN},
   {"Display Reserved",  0xE2A00000, 0x02400000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
-
-  // RAM partition regions
-  {"RAM Partition",      0xE4E00000, 0x19B200000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 
   // Other memory regions
   {"IMEM Base",         0x14680000, 0x00040000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
@@ -58,7 +55,7 @@ gDeviceMemoryDescriptorEx[] = {
 };
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX*
-GetDeviceMemoryMap()
+GetDeviceMemoryMap ()
 {
   return gDeviceMemoryDescriptorEx;
 }

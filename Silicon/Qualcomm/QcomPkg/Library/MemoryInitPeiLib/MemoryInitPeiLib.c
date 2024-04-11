@@ -1,12 +1,8 @@
-/** @file
-
+/**
   Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
-
-#include <PiPei.h>
 
 #include <Library/ArmMmuLib.h>
 #include <Library/ArmPlatformLib.h>
@@ -17,76 +13,63 @@
 #include <Library/DeviceMemoryMapLib.h>
 
 VOID
-BuildMemoryTypeInformationHob (VOID);
+BuildMemoryTypeInformationHob ();
 
 STATIC
-VOID
+EFI_STATUS
 InitMmu (IN ARM_MEMORY_REGION_DESCRIPTOR *MemoryTable)
 {
   VOID          *TranslationTableBase;
   UINTN          TranslationTableSize;
   RETURN_STATUS  Status;
 
-  // Note: Because we called PeiServicesInstallPeiMemory() before to call InitMmu() the MMU Page Table resides in
-  //      DRAM (even at the top of DRAM as it is the first permanent memory allocation)
+  // Note: Because we Called PeiServicesInstallPeiMemory() before to call InitMmu() the MMU Page Table resides in
+  //       DRAM (even at the top of DRAM as it is the first Permanent Memory Allocation)
   Status = ArmConfigureMmu (MemoryTable, &TranslationTableBase, &TranslationTableSize);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "Error: Failed to enable MMU\n"));
-  }
+
+  return Status;
 }
 
 STATIC
 VOID
-AddHob(PARM_MEMORY_REGION_DESCRIPTOR_EX Desc)
+AddHob (PARM_MEMORY_REGION_DESCRIPTOR_EX Desc)
 {
   if (Desc->HobOption != AllocOnly) {
-    BuildResourceDescriptorHob(Desc->ResourceType, Desc->ResourceAttribute, Desc->Address, Desc->Length);
+    BuildResourceDescriptorHob (Desc->ResourceType, Desc->ResourceAttribute, Desc->Address, Desc->Length);
   }
 
   if (Desc->ResourceType == EFI_RESOURCE_SYSTEM_MEMORY || Desc->MemoryType == EfiRuntimeServicesData) {
-    BuildMemoryAllocationHob(Desc->Address, Desc->Length, Desc->MemoryType);
+    BuildMemoryAllocationHob (Desc->Address, Desc->Length, Desc->MemoryType);
   }
 }
 
-/**
-
-Routine Description:
-
-Arguments:
-
-  FileHandle  - Handle of the file being invoked.
-  PeiServices - Describes the list of possible PEI Services.
-
-Returns:
-
-  Status -  EFI_SUCCESS if the boot mode could be set
-
-**/
 EFI_STATUS
 EFIAPI
 MemoryPeim (
-  IN EFI_PHYSICAL_ADDRESS  UefiMemoryBase,
-  IN UINT64                UefiMemorySize)
+  IN EFI_PHYSICAL_ADDRESS UefiMemoryBase,
+  IN UINT64               UefiMemorySize)
 {
+  EFI_STATUS                       Status;
   ARM_MEMORY_REGION_DESCRIPTOR     MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
   PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetDeviceMemoryMap();
   UINTN                            Index              = 0;
 
-  // Ensure PcdSystemMemorySize has been set
+  // Ensure PcdSystemMemorySize has been Set
   ASSERT (PcdGet64 (PcdSystemMemorySize) != 0);
 
-  // Run through each memory descriptor
+  // Run through each Memory Descriptor
   while (MemoryDescriptorEx->Length != 0) {
     switch (MemoryDescriptorEx->HobOption) {
-    case AddMem:
-    case AddDev:
-    case HobOnlyNoCacheSetting:
-    case AllocOnly:
-      AddHob(MemoryDescriptorEx);
-      break;
-    case NoHob:
-    default:
-      goto update;
+      case AddMem:
+      case AddDev:
+      case HobOnlyNoCacheSetting:
+      case AllocOnly:
+        AddHob(MemoryDescriptorEx);
+        break;
+
+      case NoHob:
+      default:
+        goto update;
     }
 
     if (MemoryDescriptorEx->HobOption == HobOnlyNoCacheSetting) {
@@ -95,7 +78,7 @@ MemoryPeim (
     }
 
   update:
-    ASSERT(Index < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
+    ASSERT (Index < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
 
     MemoryTable[Index].PhysicalBase = MemoryDescriptorEx->Address;
     MemoryTable[Index].VirtualBase  = MemoryDescriptorEx->Address;
@@ -107,19 +90,21 @@ MemoryPeim (
   }
 
   // Last one (terminator)
-  ASSERT(Index < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
+  ASSERT (Index < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
   MemoryTable[Index].PhysicalBase = 0;
   MemoryTable[Index].VirtualBase  = 0;
   MemoryTable[Index].Length       = 0;
   MemoryTable[Index].Attributes   = 0;
 
   // Build Memory Allocation Hob
-  InitMmu (MemoryTable);
+  Status = InitMmu (MemoryTable);
+  if (EFI_ERROR (Status)) { goto exit; }
 
   if (FeaturePcdGet (PcdPrePiProduceMemoryTypeInformationHob)) {
-    // Optional feature that helps prevent EFI memory map fragmentation.
+    // Optional Feature that Helps prevent EFI Memory Map fragmentation
     BuildMemoryTypeInformationHob ();
   }
 
-  return EFI_SUCCESS;
+exit:
+  return Status;
 }

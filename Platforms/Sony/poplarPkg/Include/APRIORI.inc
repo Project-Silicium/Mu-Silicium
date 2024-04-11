@@ -23,6 +23,9 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/poplar/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -45,7 +48,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/QdssDxe/QdssDxe.inf
 
@@ -76,15 +78,14 @@ APRIORI DXE {
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
 
   # DebugPortDxe
   # SerialDxe

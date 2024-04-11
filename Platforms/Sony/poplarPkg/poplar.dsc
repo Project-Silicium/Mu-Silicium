@@ -1,9 +1,10 @@
-## @file
+##
 #
-#  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
+#  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
-#  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
+#  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
 #  Copyright (c) 2018, Bingxing Wang. All rights reserved.
+#  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -16,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = poplar
-  PLATFORM_GUID                  = ef79c823-7988-42a1-8087-742f78a4734c
+  PLATFORM_GUID                  = EF79C823-7988-42A1-8087-742F78A4734C
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/poplarPkg
@@ -24,25 +25,29 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = poplarPkg/poplar.fdf
-  DISPLAY_USES_RGBA              = 1
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
 
-[LibraryClasses.common]
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
+
+[LibraryClasses]
   DeviceMemoryMapLib|poplarPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|poplarPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
-  # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000             # Starting Address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000            # 4GB Size
+[PcdsFixedAtBuild]
+  # DDR Start Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22" # Device Maintainer
+  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"
 
+  # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
+  # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000          # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Sony Group Corporation"
@@ -54,9 +59,18 @@
   # Simple FrameBuffer
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|24
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|24
 
-[PcdsDynamicDefault.common]
+  # Dynamic RAM Start Address
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
+
+  # SD Card Slot
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
+  
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
+
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1920
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080

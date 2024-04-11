@@ -1,32 +1,28 @@
-/** @file
-  MsPlatformDevicesLib  - Device specific library.
+/**
+  MsPlatformDevicesLib - Qcom Generic Library.
 
   Copyright (C) Microsoft Corporation. All rights reserved.
+
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
-#include <Uefi.h>
-
 #include <Library/AcpiPlatformUpdateLib.h>
-#include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/DeviceBootManagerLib.h>
 #include <Library/DevicePathLib.h>
-#include <Library/IoLib.h>
 #include <Library/MsPlatformDevicesLib.h>
-#include <Library/PcdLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/UefiLib.h>
 
 #include <Protocol/DevicePath.h>
 
 #include <Configuration/BootDevices.h>
 
+EFI_DEVICE_PATH_PROTOCOL *gPlatformConInDeviceList[] = { NULL };
+
 //
-// Predefined platform default console device path
+// Predefined Platform Default Console Device Path
 //
-BDS_CONSOLE_CONNECT_ENTRY gPlatformConsoles[] =
-{
+BDS_CONSOLE_CONNECT_ENTRY gPlatformConsoles[] = {
   {
     (EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath,
     CONSOLE_IN
@@ -41,26 +37,16 @@ BDS_CONSOLE_CONNECT_ENTRY gPlatformConsoles[] =
   }
 };
 
-EFI_DEVICE_PATH_PROTOCOL *gPlatformConInDeviceList[] = {NULL};
-
-/**
-  Library function used to provide the platform SD Card device path
-**/
 EFI_DEVICE_PATH_PROTOCOL*
 EFIAPI
-GetSdCardDevicePath(VOID)
+GetSdCardDevicePath ()
 {
   return (EFI_DEVICE_PATH_PROTOCOL *)&SdcardDevicePath;
 }
 
-/**
-  Library function used to determine if the DevicePath is a valid bootable 'USB'
-  device. USB here indicates the port connection type not the device protocol.
-  With TBT or USB4 support PCIe storage devices are valid 'USB' boot options.
-**/
 BOOLEAN
 EFIAPI
-PlatformIsDevicePathUsb(IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
+PlatformIsDevicePathUsb (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
   EFI_DEVICE_PATH_PROTOCOL *Node;
 
@@ -73,103 +59,87 @@ PlatformIsDevicePathUsb(IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
   return FALSE;
 }
 
-// Dummy function needed for event notification callback
+// Dummy Function Needed for Event Notification Callback
 STATIC
 VOID
-DummyNotify(IN EFI_EVENT Event, IN VOID *Context) {}
+DummyNotify (
+  IN EFI_EVENT Event,
+  IN VOID     *Context) 
+{
+  // Do Nothing
+}
 
-/**
-  Library function used to provide the list of platform devices that MUST be
-  connected at the beginning of BDS
-**/
 EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
-GetPlatformConnectList(VOID)
+GetPlatformConnectList ()
 {
   EFI_STATUS Status;
   EFI_EVENT  UsbConfigEvt;
   EFI_EVENT  SDCardEvt;
-  EFI_GUID   InitUsbControllerGuid    = { 0x1c0cffce, 0xfc8d, 0x4e44, { 0x8c, 0x78, 0x9c, 0x9e, 0x5b, 0x53, 0xd, 0x36 } };
-  EFI_GUID   InitSDCardControllerGuid = { 0xb7972c36, 0x8a4c, 0x4a56, { 0x8b, 0x02, 0x11, 0x59, 0xb5, 0x2d, 0x4b, 0xfb } };
 
-  // Update the ACPI tables with SOC runtime information
-  PlatformUpdateAcpiTables();
+  // Update the ACPI Tables with SoC Runtime Information
+  PlatformUpdateAcpiTables ();
 
-  // Notify the USB controller to start now
-  Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &InitUsbControllerGuid, &UsbConfigEvt);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Usb controller init event not signaled: %r\n", Status));
-  } else {
-    gBS->SignalEvent(UsbConfigEvt);
-    gBS->CloseEvent(UsbConfigEvt);
+  if (FixedPcdGetBool(PcdStartUsbController)) {
+    // Notify the USB Controller to Start Now
+    Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &UsbConfigEvt);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Signal USB Controller Start Event! Status = %r\n", __FUNCTION__, Status));
+    } else {
+      gBS->SignalEvent (UsbConfigEvt);
+      gBS->CloseEvent  (UsbConfigEvt);
+    }
   }
 
-  // Notify the SD Card Controller to Start Now
-  Status = gBS->CreateEventEx(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &InitSDCardControllerGuid, &SDCardEvt);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Signal EFI Event for SD Card Init! Status = %r\n", Status));
-  } else {
-    gBS->SignalEvent(SDCardEvt);
-    gBS->CloseEvent(SDCardEvt);
+  if (FixedPcdGetBool(PcdSDCardSlotPresent)) {
+    // Notify the SDC Controller to Init SD Card Now
+    Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSDCardInitGuid, &SDCardEvt);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Signal SD Card Init Event! Status = %r\n", __FUNCTION__, Status));
+    } else {
+      gBS->SignalEvent (SDCardEvt);
+      gBS->CloseEvent  (SDCardEvt);
+    }
   }
 
-  // We do not have any device to advertise for connection before BDS begins
   return NULL;
 }
 
-/**
-  Library function used to provide the list of platform console devices.
-**/
 BDS_CONSOLE_CONNECT_ENTRY*
 EFIAPI
-GetPlatformConsoleList(VOID)
+GetPlatformConsoleList ()
 {
   return (BDS_CONSOLE_CONNECT_ENTRY *)&gPlatformConsoles;
 }
 
-/**
-  Library function used to provide the list of platform devices that MUST be
-  connected to support ConsoleIn activity.  This call occurs on the ConIn connect
-  event, and allows platforms to do specific enablement for ConsoleIn support.
-**/
 EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
-GetPlatformConnectOnConInList(VOID)
+GetPlatformConnectOnConInList ()
 {
   return (EFI_DEVICE_PATH_PROTOCOL **)&gPlatformConInDeviceList;
 }
 
-/**
-  Library function used to provide the console type.  For ConType == DisplayPath,
-  device path is filled in to the exact controller to use.  For other ConTypes,
-  DisplayPath must NULL. The device path must NOT be freed.
-**/
 EFI_HANDLE
 EFIAPI
-GetPlatformPreferredConsole(OUT EFI_DEVICE_PATH_PROTOCOL **DevicePath)
+GetPlatformPreferredConsole (OUT EFI_DEVICE_PATH_PROTOCOL **DevicePath)
 {
   EFI_STATUS                Status;
   EFI_HANDLE                Handle = NULL;
-  EFI_DEVICE_PATH_PROTOCOL *TempDevicePath;
+  EFI_DEVICE_PATH_PROTOCOL *TempDevicePath = NULL;
 
   TempDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&DisplayDevicePath;
 
-  Status = gBS->LocateDevicePath(&gEfiGraphicsOutputProtocolGuid, &TempDevicePath, &Handle);
+  // Locate the GOP Protocol
+  Status = gBS->LocateDevicePath (&gEfiGraphicsOutputProtocolGuid, &TempDevicePath, &Handle);
   if (EFI_ERROR(Status) && !IsDevicePathEnd(TempDevicePath)) {
-    DEBUG ((EFI_D_ERROR, "%a - Unable to locate platform preferred console. Code=%r\n", __FUNCTION__, Status));
-    Status = EFI_DEVICE_ERROR;
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Device Path! Status = %r\n", __FUNCTION__, Status));
   }
 
   if (Handle != NULL) {
-    //
-    // Connect the GOP driver
-    //
+    // Connect the GOP Driver
     gBS->ConnectController(Handle, NULL, NULL, TRUE);
 
-    //
-    // Get the GOP device path
-    // NOTE: We may get a device path that contains Controller node in it.
-    //
+    // Get the GOP Device Path
     TempDevicePath = EfiBootManagerGetGopDevicePath(Handle);
     *DevicePath    = TempDevicePath;
   }

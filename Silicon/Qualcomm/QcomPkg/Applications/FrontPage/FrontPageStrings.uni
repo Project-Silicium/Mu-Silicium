@@ -27,6 +27,8 @@
 
 #string STR_MF_MENU_OP_EXIT        #language en-US    "Exit"
 
+#string STR_MF_MENU_OP_POWEROFF    #language en-US    "Power Off"
+
 ////////////////////////////////////////////////////////////////////////////////////
 // Generic Strings
 //

@@ -7,7 +7,7 @@
   LIBRARY_CLASS                  = PlatformPrePiLib
 
 [Sources]
-  PlatformUtils.c
+  PlatformPrePiLib.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -15,7 +15,6 @@
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  BaseLib
   PcdLib
   IoLib
 

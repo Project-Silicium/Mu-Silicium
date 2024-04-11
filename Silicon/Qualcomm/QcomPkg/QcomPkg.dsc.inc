@@ -9,8 +9,8 @@
 #
 ##
 
-[BuildOptions.common]
-  *_CLANG38_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
+[BuildOptions]
+  *_CLANGDWARF_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION]
   *_*_*_DLINK_FLAGS = -z common-page-size=0x1000
@@ -18,24 +18,25 @@
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
   *_*_AARCH64_DLINK_FLAGS = -z common-page-size=0x10000
 
-[PcdsFeatureFlag.common]
-  gArmTokenSpaceGuid.PcdCpuDxeProduceDebugSupport|FALSE
+[BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
+  *_*_AARCH64_CC_FLAGS = -mstrict-align -march=armv8-a
 
+[PcdsFeatureFlag]
   gEfiMdePkgTokenSpaceGuid.PcdComponentNameDisable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdDriverDiagnosticsDisable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdComponentName2Disable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdDriverDiagnostics2Disable|TRUE
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdTurnOffUsbLegacySupport|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutGopSupport|TRUE
   gEfiMdeModulePkgTokenSpaceGuid.PcdSupportUpdateCapsuleReset|TRUE
-  gEfiMdeModulePkgTokenSpaceGuid.PcdPciBusHotplugDeviceSupport|FALSE
   gEfiMdeModulePkgTokenSpaceGuid.PcdInstallAcpiSdtProtocol|TRUE
 
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
 
-[PcdsFixedAtBuild.common]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.2"
+[PcdsFixedAtBuild]
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000             # 512 MB Size
+
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.5"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01231229
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
@@ -46,6 +47,7 @@
   gEfiMdePkgTokenSpaceGuid.PcdMaximumLinkedListLength|1000000
   gEfiMdePkgTokenSpaceGuid.PcdSpinLockTimeout|10000000
   gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|320
+  gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x00
 
 !if $(TARGET) == DEBUG
   gEfiMdePkgTokenSpaceGuid.PcdDebugClearMemoryValue|0xAF
@@ -53,14 +55,12 @@
   gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x800fee0f
   gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask|1
   gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask|0
-  gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x07
 !else
   gEfiMdePkgTokenSpaceGuid.PcdDebugClearMemoryValue|0x00
   gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x00
   gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x00000000
   gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask|0
   gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask|0
-  gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x00
 !endif
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdResetOnMemoryTypeInformationChange|FALSE
@@ -86,26 +86,22 @@
   gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType|4
 
   # Boot Manager
-  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|3
+  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|5
 
   # FrameBuffer Delay
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|10000          # In Microseconds
 
-  # Max Freq for CPUs
-  gQcomPkgTokenSpaceGuid.PcdEnableMaxFreq|FALSE
-
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
 
-  gMsGraphicsPkgTokenSpaceGuid.PcdUiThemeInDxe|TRUE
-  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerInBootOrder|TRUE
+  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerInBootOrder|FALSE
   gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupport|FALSE
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x2000
 
 !include MdePkg/MdeLibs.dsc.inc
 
-[LibraryClasses.common]
+[LibraryClasses]
   DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
   DebugPrintErrorLevelLib|MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
 
@@ -138,7 +134,6 @@
   FileHandleLib|MdePkg/Library/UefiFileHandleLib/UefiFileHandleLib.inf
 
   UefiRuntimeLib|MdePkg/Library/UefiRuntimeLib/UefiRuntimeLib.inf
-  OrderedCollectionLib|MdePkg/Library/BaseOrderedCollectionRedBlackTreeLib/BaseOrderedCollectionRedBlackTreeLib.inf
 
   #
   # Allow dynamic PCDs
@@ -182,9 +177,9 @@
   SerialPortLib|QcomPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
 !endif
 
-  MallocLib|QcomPkg/Library/MallocLib/MallocLib.inf
   AslUpdateLib|QcomPkg/Library/DxeAslUpdateLib/DxeAslUpdateLib.inf
   PlatformThemeLib|QcomPkg/Library/PlatformThemeLib/PlatformThemeLib.inf
+  RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
 
   #
   # Uncomment (and comment out the next line) For RealView Debugger. The Standard IO window
@@ -204,9 +199,8 @@
   AuthVariableLib|MdeModulePkg/Library/AuthVariableLibNull/AuthVariableLibNull.inf
   SecureBootVariableLib|SecurityPkg/Library/SecureBootVariableLib/SecureBootVariableLib.inf
 
-  LockBoxLib            |MdeModulePkg/Library/LockBoxNullLib/LockBoxNullLib.inf
-  PasswordPolicyLib     |OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
-  SecureBootKeyStoreLib |MsCorePkg/Library/SecureBootKeyStoreLibNull/SecureBootKeyStoreLibNull.inf
+  PasswordPolicyLib|OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
+  SecureBootKeyStoreLib|MsCorePkg/Library/SecureBootKeyStoreLibNull/SecureBootKeyStoreLibNull.inf
   PlatformPKProtectionLib|SecurityPkg/Library/PlatformPKProtectionLibVarPolicy/PlatformPKProtectionLibVarPolicy.inf
   MuSecureBootKeySelectorLib|MsCorePkg/Library/MuSecureBootKeySelectorLib/MuSecureBootKeySelectorLib.inf
 
@@ -215,7 +209,7 @@
   VariablePolicyHelperLib|MdeModulePkg/Library/VariablePolicyHelperLib/VariablePolicyHelperLib.inf
 
   # Whea Libraries
-  MuTelemetryHelperLib  |MsWheaPkg/Library/MuTelemetryHelperLib/MuTelemetryHelperLib.inf
+  MuTelemetryHelperLib|MsWheaPkg/Library/MuTelemetryHelperLib/MuTelemetryHelperLib.inf
 
   UefiBootManagerLib|MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
 
@@ -228,12 +222,8 @@
   TimerLib|ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
 
   CapsuleLib|MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
-  PlatformBootManagerLib|MsCorePkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
-!if $(DISPLAY_USES_RGBA) == 1
-  FrameBufferBltLib|QcomPkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
-!else
+  PlatformBootManagerLib|QcomPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
   FrameBufferBltLib|MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
-!endif
 
   MemoryTypeInformationChangeLib|MsCorePkg/Library/MemoryTypeInformationChangeLib/MemoryTypeInformationChangeLib.inf
   DxeMemoryProtectionHobLib|MdeModulePkg/Library/MemoryProtectionHobLib/DxeMemoryProtectionHobLib.inf
@@ -243,29 +233,8 @@
   ResetUtilityLib|MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
   FltUsedLib|MdePkg/Library/FltUsedLib/FltUsedLib.inf
 
-  # UI and graphics
-  FrameBufferMemDrawLib    |MsGraphicsPkg/Library/FrameBufferMemDrawLib/FrameBufferMemDrawLibDxe.inf
-
-  # DFCI / XML / JSON Libraries
-  DfciUiSupportLib                  |OemPkg/Library/DfciUiSupportLib/DfciUiSupportLib.inf # Supports DFCI Groups.
-  DfciV1SupportLib                  |DfciPkg/Library/DfciV1SupportLibNull/DfciV1SupportLibNull.inf # Backwards compatibility with DFCI V1 functions.
-  DfciDeviceIdSupportLib            |OemPkg/Library/DfciDeviceIdSupportLib/DfciDeviceIdSupportLib.inf
-  DfciGroupLib                      |OemPkg/Library/DfciGroupLib/DfciGroups.inf
-  DfciRecoveryLib                   |DfciPkg/Library/DfciRecoveryLib/DfciRecoveryLib.inf
-   # Zero Touch is part of DFCI
-  ZeroTouchSettingsLib              |ZeroTouchPkg/Library/ZeroTouchSettings/ZeroTouchSettings.inf
-   # Libraries that understands the MsXml Settings Schema and providers helper functions
-  DfciXmlIdentitySchemaSupportLib   |DfciPkg/Library/DfciXmlIdentitySchemaSupportLib/DfciXmlIdentitySchemaSupportLib.inf
-  DfciXmlDeviceIdSchemaSupportLib   |DfciPkg/Library/DfciXmlDeviceIdSchemaSupportLib/DfciXmlDeviceIdSchemaSupportLib.inf
-  DfciXmlSettingSchemaSupportLib    |DfciPkg/Library/DfciXmlSettingSchemaSupportLib/DfciXmlSettingSchemaSupportLib.inf
-  DfciXmlPermissionSchemaSupportLib |DfciPkg/Library/DfciXmlPermissionSchemaSupportLib/DfciXmlPermissionSchemaSupportLib.inf
-  DfciSettingChangedNotificationLib |DfciPkg/Library/DfciSettingChangedNotificationLib/DfciSettingChangedNotificationLibNull.inf
-
-  # Json parser
-  JsonLiteParserLib |MsCorePkg/Library/JsonLiteParser/JsonLiteParser.inf
-
   # TPM Libraries
-  TpmMeasurementLib       |MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
+  TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
 
   ArmPlatformStackLib|ArmPlatformPkg/Library/ArmPlatformStackLib/ArmPlatformStackLib.inf
 
@@ -274,17 +243,10 @@
   MemoryBinOverrideLib|MdeModulePkg/Library/MemoryBinOverrideLibNull/MemoryBinOverrideLibNull.inf
   PcdDatabaseLoaderLib|MdeModulePkg/Library/PcdDatabaseLoaderLib/Dxe/PcdDatabaseLoaderLibDxe.inf
 
-  HttpLib|NetworkPkg/Library/DxeHttpLib/DxeHttpLib.inf
-  NetLib|NetworkPkg/Library/DxeNetLib/DxeNetLib.inf
-
   ExtractGuidedSectionLib|EmbeddedPkg/Library/PrePiExtractGuidedSectionLib/PrePiExtractGuidedSectionLib.inf
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
 
   MemoryMapHelperLib|QcomPkg/Library/MemoryMapHelperLib/MemoryMapHelperLib.inf
-
-  UpdateFacsHardwareSignatureLib|OemPkg/Library/UpdateFacsHardwareSignatureLib/UpdateFacsHardwareSignatureLib.inf
-
-  ExceptionPersistenceLib|MdeModulePkg/Library/BaseExceptionPersistenceLibNull/BaseExceptionPersistenceLibNull.inf
 
 [LibraryClasses.common.SEC]
   HobLib|EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf
@@ -318,26 +280,23 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLibRuntimeDxe.inf
 
-[Components.common]
+[Components]
   # PrePI
-  QcomPkg/PrePi/PeiUniCore.inf {
+  QcomPkg/PrePi/PrePi.inf {
     <LibraryClasses>
-    NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
   }
 
   # DXE Core
   MdeModulePkg/Core/Dxe/DxeMain.inf {
     <LibraryClasses>
-    NULL|MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
-    NULL|MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
-    NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+      NULL|MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+      NULL|MdeModulePkg/Library/DxeCrc32GuidedSectionExtractLib/DxeCrc32GuidedSectionExtractLib.inf
+      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
   }
 
   # PCD Database
-  MdeModulePkg/Universal/PCD/Dxe/Pcd.inf {
-    <LibraryClasses>
-    PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
-  }
+  MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   # Processor Core Services
   ArmPkg/Drivers/CpuDxe/CpuDxe.inf
@@ -351,17 +310,17 @@
   EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf {
     <LibraryClasses>
-	  RealTimeClockLib|QcomPkg/Library/VirtualRealTimeClockLib/VirtualRealTimeClockLib.inf
+      RealTimeClockLib|EmbeddedPkg/Library/TemplateRealTimeClockLib/TemplateRealTimeClockLib.inf
   }
 
   # Pci
+  # TODO: Fix Project Mu XHCI Driver for XhciPciEmulationDxe
   MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
 
   # USB
   MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
-  MdeModulePkg/Bus/Usb/UsbMouseDxe/UsbMouseDxe.inf
   MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   # Runtime Services
@@ -376,7 +335,6 @@
   MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
   FatPkg/EnhancedFatDxe/Fat.inf
 
   # BDS
@@ -395,7 +353,6 @@
   MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
-  MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
   MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
   MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
@@ -408,8 +365,9 @@
   QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  QcomPkg/Drivers/GpioButtons/GpioButtons.inf
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 
 !if $(AB_SLOT_SUPPORT) == 1
   # Slot Switch App

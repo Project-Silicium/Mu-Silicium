@@ -1,20 +1,21 @@
-## @file
-# DeviceBootManager - Ms Device specific extensions to BdsDxe.
+##
+#  DeviceBootManagerLib - Qcom Generic Extension to BdsDxe.
 #
-# Copyright (C) Microsoft Corporation. All rights reserved.
-# SPDX-License-Identifier: BSD-2-Clause-Patent
+#  Copyright (C) Microsoft Corporation. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
 [Defines]
-  EDK_RELEASE_VERSION             = 0x00020000
-  INF_VERSION                     = 0x00010017
-  BASE_NAME                       = DeviceBootManagerLib
-  FILE_GUID                       = 4734dddd-9054-4d42-acab-f8907886cc6f
-  VERSION_STRING                  = 1.0
-  MODULE_TYPE                     = DXE_DRIVER
-  UEFI_SPECIFICATION_VERSION      = 2.70
-  LIBRARY_CLASS                   = DeviceBootManagerLib|DXE_DRIVER
-  CONSTRUCTOR                     = DeviceBootManagerConstructor
+  EDK_RELEASE_VERSION            = 0x00020000
+  INF_VERSION                    = 0x00010017
+  BASE_NAME                      = DeviceBootManagerLib
+  FILE_GUID                      = 4734DDDD-9054-4D42-ACAB-F8907886CC6F
+  VERSION_STRING                 = 1.0
+  MODULE_TYPE                    = DXE_DRIVER
+  UEFI_SPECIFICATION_VERSION     = 2.70
+  LIBRARY_CLASS                  = DeviceBootManagerLib|DXE_DRIVER
+  CONSTRUCTOR                    = DeviceBootManagerConstructor
 
 [Sources]
   DeviceBootManagerLib.c
@@ -26,22 +27,14 @@
   MsGraphicsPkg/MsGraphicsPkg.dec
   PcBdsPkg/PcBdsPkg.dec
   DfciPkg/DfciPkg.dec
-  ShellPkg/ShellPkg.dec
-  MsWheaPkg/MsWheaPkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   DebugLib
-  HobLib
-  MemoryAllocationLib
-  BaseMemoryLib
-  DevicePathLib
   UefiBootServicesTableLib
   UefiRuntimeServicesTableLib
   MsPlatformDevicesLib
-  MsNetworkDependencyLib
   MsBootOptionsLib
-  ConsoleMsgLib
   MsBootPolicyLib
   MsBootManagerSettingsLib
   MsPlatformPowerCheckLib
@@ -50,34 +43,22 @@
   MsNVBootReasonLib
   BootGraphicsLib
   GraphicsConsoleHelperLib
-  MuTelemetryHelperLib
-  VariablePolicyHelperLib
-  UpdateFacsHardwareSignatureLib
 
 [Guids]
-  gUefiShellFileGuid
   gMsStartOfBdsNotifyGuid
   gDfciStartOfBdsNotifyGuid
   gMsBootMenuFormsetGuid
   gEfiEventPreReadyToBootGuid
   gEfiEventPostReadyToBootGuid
-  gDfciSettingsManagerVarNamespace
 
 [Protocols]
-  gMsOSKProtocolGuid                ## CONSUMES
-  gMsSWMProtocolGuid                ## CONSUMES
-  gTpmPpProtocolGuid                ## CONSUMES
-  gEdkiiVariablePolicyProtocolGuid  ## CONSUMES
+  gMsOSKProtocolGuid
+  gMsSWMProtocolGuid
 
 [Pcd]
   gPcBdsPkgTokenSpaceGuid.PcdPowerAndThermalRetries
   gPcBdsPkgTokenSpaceGuid.PcdShutdownGraphicDisplayTime
   gPcBdsPkgTokenSpaceGuid.PcdThermalControlRetryWait
-  gPcBdsPkgTokenSpaceGuid.PcdShellFile
-  gPcBdsPkgTokenSpaceGuid.PcdEnableMemMapOutput
-  gPcBdsPkgTokenSpaceGuid.PcdEnableMemMapTypes
-  gPcBdsPkgTokenSpaceGuid.PcdEnableMemMapDumpOutput
-  gPcBdsPkgTokenSpaceGuid.PcdLowResolutionInternalShell
 
 [Depex]
   TRUE

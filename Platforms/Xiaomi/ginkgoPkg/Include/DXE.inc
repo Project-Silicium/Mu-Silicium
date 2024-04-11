@@ -36,6 +36,9 @@
   INF Binaries/ginkgo/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/ginkgo/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 
@@ -43,7 +46,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/ginkgo/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
@@ -78,19 +80,15 @@
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
 
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/ginkgo/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-
   INF Binaries/ginkgo/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/RNGDxe/RngDxe.inf

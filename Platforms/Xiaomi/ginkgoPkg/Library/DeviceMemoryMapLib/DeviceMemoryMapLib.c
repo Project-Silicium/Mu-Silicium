@@ -27,111 +27,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"Log Buffer",        0x5FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",          0x5FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
 
-#if DEVICE_RAM == 3
-//==================================================3GB RAM Setup==================================================
-  /*  On 3GB device /sys/firmware/fdt
-
-    memory {
-      ddr_device_type = <0x07>;
-      device_type = "memory";
-      reg = <0x00 0x40000000 0x00 0x3e580000 0x00 0x80000000 0x00 0x80000000>;
-    };
-    
-            Start       Lenght     End
-    DDR Bank 0: 0x40000000 + 0x3e580000 = 0x7E580000
-  */
-
-  //
-  // This RAM partition starts just after Info Blk and ends with DDR Bank 0
-  // It starts at 0x5FFFF000 + 0x00001000 = 0x60000000
-  // It ends at 0x7E580000, so its length must be 0x7E580000 - 0x60000000 = 0x1E580000
-  //
-  {"RAM Partition",     0x60000000, 0x1E580000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 485.50 MB
-
-  // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0x7E580000 - 0x80000000
-  // Size: 0x1A80000 (26.50 MB, or 27,136.00 KB)
-
-  // Now starts DDR Bank 1 at 0x80000000 with 0x80000000 length
-  {"RAM Partition",     0x80000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 2048.00 MB
-
-  //
-  // And we reached the max ram size.
-  // As RAM starts at 0x40000000 (1GB) and this is a 3 GB device (0xC0000000), RAM must end at 0xC0000000 + 0x40000000 = 0x100000000 = 0x80000000 + 0x80000000
-  //
-//=================================================================================================================
-#elif DEVICE_RAM == 4
-//==================================================4GB RAM Setup==================================================
-  /*  On 4GB device /sys/firmware/fdt
-
-    memory {
-      ddr_device_type = <0x07>;
-      device_type = "memory";
-      reg = <0x00 0x40000000 0x00 0x3dd00000 0x00 0xc0000000 0x00 0x80000000 0x00 0x80000000 0x00 0x40000000>;
-    };
-    
-            Start       Lenght     End
-    DDR Bank 0: 0x40000000 + 0x3dd00000 = 0x7DD00000
-  */
-
-  //
-  // This RAM partition starts just after Info Blk and ends with DDR Bank 0
-  // It starts at 0x5FFFF000 + 0x00001000 = 0x60000000
-  // It ends at 0x7DD00000, so its length must be 0x7DD00000 - 0x60000000 = 0x1DD00000
-  //
-  {"RAM Partition",     0x60000000, 0x1DD00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 477.00 MB
-
-  // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0x7DD00000 - 0x80000000
-  // Size: 0x2300000 (35.00 MB, or 35,840.00 KB)
-
-  // Now starts DDR Bank 1 at 0x80000000 with 0x40000000 length
-  {"RAM Partition",     0x80000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 1024.00 MB
-
-  // Now starts DDR Bank 2 at 0xc0000000 with 0x80000000 length
-  {"RAM Partition",     0xC0000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 2048.00 MB
-
-  //
-  // And we reached the max ram size.
-  // As RAM starts at 0x40000000 (1GB) and this is a 4 GB device (0x100000000), RAM must end at 0x100000000 + 0x40000000 = 0x140000000 = 0xC0000000 + 0x80000000
-  //
-//=================================================================================================================
-#elif DEVICE_RAM == 6
-//==================================================6GB RAM Setup==================================================
-  /*  On 6GB device /sys/firmware/fdt IT MUST BE
-
-    memory {
-      ddr_device_type = <0x07>;
-      device_type = "memory";
-      reg = <0x00 0x40000000 0x00 0x3cc00000 0x00 0xc0000000 0x00 0x80000000 0x00 0x80000000 0x00 0x40000000>;
-    };
-    
-            Start       Lenght     End
-    DDR Bank 0: 0x40000000 + 0x3CC00000 = 0x7CC00000
-  */
-
-  //
-  //  This RAM partition starts just after Info Blk and ends with DDR Bank 0
-  // It starts at 0x5FFFF000 + 0x00001000 = 0x60000000
-  // It ends at 0x7CC00000, so its length must be 0x7CC00000 - 0x60000000 = 0x1CC00000
-  //
-  {"RAM Partition",     0x60000000, 0x1CC00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 460.00 MB
-
-  // Memory hole between DDR Bank 0 end and DDR Bank 1 start: 0x7CC00000 - 0x80000000
-  // Size: 0x2300000 (52.00 MB, or 53,248.00 KB)
-
-  // Now starts DDR Bank 1 at 0x80000000 with 0x40000000 length
-  {"RAM Partition",     0x80000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 1024.00 MB
-
-  // Now starts DDR Bank 2 at 0xc0000000 with 0x80000000 length
-  {"RAM Partition",     0xC0000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 2048.00 MB
-  {"RAM Partition",     0x140000000,0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN}, // 2048.00 MB
-
-  //
-  // And we reached the max ram size.
-  // As RAM starts at 0x40000000 (1GB) and this is a 6 GB device (0x180000000), RAM must end at 0x180000000 + 0x40000000 = 0x1C0000000 = 0x140000000 + 0x80000000
-  //
-//================================================================================================================
-#endif
-
   // Other memory regions
   {"AOP_SS_MSG_RAM",    0x045F0000, 0x00007000, NoHob,  MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
   {"IMEM Base",         0x0C100000, 0x00026000, NoHob,  MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
@@ -178,7 +73,7 @@ gDeviceMemoryDescriptorEx[] = {
 };
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX*
-GetDeviceMemoryMap()
+GetDeviceMemoryMap ()
 {
   return gDeviceMemoryDescriptorEx;
 }

@@ -34,6 +34,9 @@
   INF Binaries/poplar/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/poplar/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 
@@ -41,7 +44,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
@@ -68,7 +70,7 @@
   INF Binaries/poplar/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  #INF Binaries/poplar/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+  INF Binaries/poplar/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/poplar/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
@@ -78,19 +80,15 @@
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
 
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-
   INF Binaries/poplar/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 

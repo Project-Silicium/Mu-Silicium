@@ -36,6 +36,9 @@
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 
@@ -43,7 +46,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ClockDxe/ClockDxe.inf

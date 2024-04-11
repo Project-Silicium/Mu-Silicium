@@ -147,6 +147,11 @@ typedef enum {
     CE_HASH_IDX_INVALID = 0x7FFFFFFF
 } CE_HASH_IDX;
 
+typedef struct CE_RSA_PSS_PAD_INFO {
+  CE_HASH_IDX hashidx;
+  UINT32 saltlen;
+} CE_RSA_PSS_PAD_INFO;
+
 /*sign*/
 #define S_BIGINT_POS 0 /* positive */
 #define S_BIGINT_NEG 1 /* negative */

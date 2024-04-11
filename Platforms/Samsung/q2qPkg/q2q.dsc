@@ -1,9 +1,10 @@
-## @file
+##
 #
-#  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
+#  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
-#  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
+#  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
 #  Copyright (c) 2018, Bingxing Wang. All rights reserved.
+#  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 #
@@ -16,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = q2q
-  PLATFORM_GUID                  = d6d8e3f8-5a15-4b49-844b-35efce9b947b
+  PLATFORM_GUID                  = D6D8E3F8-5A15-4B49-844B-35EFCE9B947B
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/q2qPkg
@@ -24,7 +25,6 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = q2qPkg/q2q.fdf
-  DISPLAY_USES_RGBA              = 0
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 0
 
@@ -33,24 +33,26 @@
   # 2 = SM8350-AC
   SOC_TYPE                       = 0
 
-[BuildOptions.common]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
 
-[LibraryClasses.common]
+[LibraryClasses]
   DeviceMemoryMapLib|q2qPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|q2qPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
-[PcdsFixedAtBuild.common]
-  # Device Specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000           # Starting Address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000          # 12 GB Size
+[PcdsFixedAtBuild]
+  # DDR Start Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Azkali"  # Device Maintainer
+  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Azkali"
 
+  # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
 
+  # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"
@@ -62,9 +64,18 @@
   # Simple FrameBuffer
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2208
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1768
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
+  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-[PcdsDynamicDefault.common]
+  # Dynamic RAM Start Address
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xF0B00000
+
+  # SD Card Slot
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
+  
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
+
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|2208
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1768
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|2208

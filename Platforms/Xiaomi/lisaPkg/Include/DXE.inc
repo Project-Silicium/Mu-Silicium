@@ -39,7 +39,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/lisa/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
@@ -59,6 +58,8 @@
   INF Binaries/lisa/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
@@ -94,10 +95,12 @@
   INF Binaries/lisa/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
   INF Binaries/lisa/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf

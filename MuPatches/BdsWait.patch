@@ -1,0 +1,31 @@
+diff --git a/MdeModulePkg/Universal/BdsDxe/BdsEntry.c b/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
+index dc6fcfd3ab..2f4b85d675 100644
+--- a/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
++++ b/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
+@@ -318,7 +318,6 @@ BdsWait (
+   IN EFI_EVENT  HotkeyTriggered
+   )
+ {
+-  EFI_STATUS  Status;
+   UINT16      TimeoutRemain;
+ 
+   DEBUG ((DEBUG_INFO, "[Bds]BdsWait ...Zzzzzzzzzzzz...\n"));
+@@ -328,18 +327,6 @@ BdsWait (
+     DEBUG ((DEBUG_INFO, "[Bds]BdsWait(%d)..Zzzz...\n", (UINTN)TimeoutRemain));
+     PlatformBootManagerWaitCallback (TimeoutRemain);
+ 
+-    BdsReadKeys (); // BUGBUG: Only reading can signal HotkeyTriggered
+-                    //         Can be removed after all keyboard drivers invoke callback in timer callback.
+-
+-    if (HotkeyTriggered != NULL) {
+-      Status = BdsWaitForSingleEvent (HotkeyTriggered, EFI_TIMER_PERIOD_SECONDS (1));
+-      if (!EFI_ERROR (Status)) {
+-        break;
+-      }
+-    } else {
+-      gBS->Stall (1000000);
+-    }
+-
+     //
+     // 0xffff means waiting forever
+     // BDS with no hotkey provided and 0xffff as timeout will "hang" in the loop

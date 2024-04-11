@@ -1,12 +1,10 @@
 FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
-# SECTION RAW = SM6115Pkg/AcpiTables/APIC.aml
   SECTION RAW = SM6115Pkg/AcpiTables/APIC.4Cores.aml
-# SECTION RAW = SM6115Pkg/AcpiTables/APIC.UniCore.aml
 # SECTION RAW = SM6115Pkg/AcpiTables/BERT.aml
 # SECTION RAW = SM6115Pkg/AcpiTables/BGRT.aml
 # SECTION RAW = SM6115Pkg/AcpiTables/CSRT.aml
 # SECTION RAW = SM6115Pkg/AcpiTables/DBG2.aml
-  SECTION RAW = SM6115Pkg/AcpiTables/DSDT_minimal.aml
+  SECTION RAW = limePkg/AcpiTables/DSDT.aml
 # SECTION RAW = SM6115Pkg/AcpiTables/FADT.aml
   SECTION RAW = SM6115Pkg/AcpiTables/FACP.aml
   SECTION RAW = SM6115Pkg/AcpiTables/GTDT.aml

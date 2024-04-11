@@ -19,13 +19,13 @@ You need to have `git` installed.
 After the clone is done, proceed to open a shell/powershell/terminal inside the clone location
 For Linux/MacOS/BSD users, run:
 ```
-./docker-build.sh "-d <Codename> [-r <Build Mode>] [-m <RAM Size>]"
+./docker-build.sh "-d <Codename> [-r <Build Mode>]"
 ```
 You need the "double quotes"
 
 For Windows users, run (not tested):
 ```
-.\docker-build.cmd "-d <Codename> [-r <Build Mode>] [-m <RAM Size>]"
+.\docker-build.cmd "-d <Codename> [-r <Build Mode>]"
 ```
 You need the "double quotes".
 
@@ -47,14 +47,14 @@ cd Mu-Qcom
 After Cloning the repo we can now continue on Setting up the Environment. <br />
 First we need to install the needed Packages:
 ```
-./setup_env.sh -p <Package Manager> [-v]
+./setup_env.sh -p <Package Manager> [-v] [-b]
 ```
 
 ### Step 3:
 
 So now we are able to begin the real UEFI build:
 ```
-./build_uefi.sh -d <Codename> [-r <Build Mode>] [-m <RAM Size>]
+./build_uefi.sh -d <Codename> [-r <Build Mode>]
 ```
 
 When then Build is done you will find a `.img` File in the root of the repo.
@@ -62,8 +62,8 @@ When then Build is done you will find a `.img` File in the root of the repo.
 ## Troubleshooting:
 
 ### Python Requirements:
-   1. You may encounter an issue That the recuired package is not satisfied or something, If your Python Version is lower than 3.10 install Python 3.10 or newer
-   2. After installing Python 3.10 Linux won't automaticly chose Python 3.10 as default, To set it as default use these commands:
+   1. You may encounter an issue That the required package is not satisfied or something, If your Python Version is lower than 3.10 install Python 3.10 or newer
+   2. After installing Python 3.10 Linux won't automatically chose Python 3.10 as default, To set it as default use these commands:
       ```
       sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
       sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
@@ -85,4 +85,4 @@ When then Build is done you will find a `.img` File in the root of the repo.
 
    1. If your Device dosen't boot the UEFI and is just stuck on the boot screen then maybe the DTB is the Problem.
    2. Dump your DTB from Android `dd if=/sys/firmware/fdt of=/sdcard/<Device Codename>.dtb`.
-   3. After that replace `ImageResources/DTBs/<Device Codename>.dtb` with you dumped DTB.
+   3. After that replace `ImageResources/DTBs/<Device Codename>.dtb` with your dumped DTB.

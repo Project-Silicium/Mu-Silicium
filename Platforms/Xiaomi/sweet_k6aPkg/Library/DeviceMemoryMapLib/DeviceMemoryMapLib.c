@@ -25,9 +25,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"Info Blk",          0x9FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"DBI Dump",          0xA1600000, 0x00D70000, NoHob,  MMAP_IO, INITIALIZED, Conv,   UNCACHED_UNBUFFERED_XN},
 
-  // RAM partition regions
-  {"RAM Partition",     0xB0000000,0x1CBB00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-
   // Other memory regions
   {"AOP_SS_MSG_RAM",    0x0C300000, 0x00100000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
   {"IMEM Base",         0x14680000, 0x0002B000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
@@ -85,7 +82,7 @@ gDeviceMemoryDescriptorEx[] = {
 };
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX*
-GetDeviceMemoryMap()
+GetDeviceMemoryMap ()
 {
   return gDeviceMemoryDescriptorEx;
 }

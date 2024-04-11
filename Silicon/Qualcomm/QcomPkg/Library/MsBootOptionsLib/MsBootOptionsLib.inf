@@ -1,22 +1,18 @@
-## @file
-#  Library that is attached BdsDxe to implement Microsoft extensions to UefiBootManagerLib.
+##
+#  Library that is Attached to BdsDxe to Implement Microsoft Extensions to UefiBootManagerLib.
 #
-# Copyright (C) Microsoft Corporation. All rights reserved.
-# SPDX-License-Identifier: BSD-2-Clause-Patent
+#  Copyright (C) Microsoft Corporation. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = MsBootOptionsLib
-  FILE_GUID                      = f18d4fc6-f2ff-4f91-bbf9-9da16072b1e3
+  FILE_GUID                      = F18D4FC6-F2FF-4F91-BBF9-9DA16072B1E3
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  LIBRARY_CLASS                  = MsBootOptionsLib | DXE_DRIVER
-#
-# The following information is for reference only and not required by the build tools.
-#
-#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
-#
+  LIBRARY_CLASS                  = MsBootOptionsLib|DXE_DRIVER
 
 [Sources]
   MsBootOptionsLib.c
@@ -44,11 +40,8 @@
 [Protocols]
   gEfiFirmwareVolume2ProtocolGuid
 
-[FeaturePcd]
-
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile
-  gPcBdsPkgTokenSpaceGuid.PcdShellFile
   gQcomPkgTokenSpaceGuid.PcdSlotSwitchApp
 
 [Depex]

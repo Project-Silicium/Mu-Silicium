@@ -26,6 +26,42 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+ /*
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ *
+ * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted (subject to the limitations in the
+ *  disclaimer below) provided that the following conditions are met:
+ *
+ *      * Redistributions of source code must retain the above copyright
+ *        notice, this list of conditions and the following disclaimer.
+ *
+ *      * Redistributions in binary form must reproduce the above
+ *        copyright notice, this list of conditions and the following
+ *        disclaimer in the documentation and/or other materials provided
+ *        with the distribution.
+ *
+ *      * Neither the name of Qualcomm Innovation Center, Inc. nor the names of its
+ *        contributors may be used to endorse or promote products derived
+ *        from this software without specific prior written permission.
+ *
+ *  NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
+ *  GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+ *  HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+ *   WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ *  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ *  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ *  ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ *  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+ *  IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ *  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ *  IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 #ifndef __EFIPLATFORMINFOTYPES_H__
 #define __EFIPLATFORMINFOTYPES_H__
 
@@ -79,6 +115,10 @@ typedef enum {
   EFI_PLATFORMINFO_TYPE_IOT = 0x20,  /**< IOT device. */
   EFI_PLATFORMINFO_TYPE_ATP = 0x21,  /**< ATP device. */
   EFI_PLATFORMINFO_TYPE_IDP = 0x22,  /**< IDP device. */
+  EFI_PLATFORMINFO_TYPE_AEDK = 0x23, /**< AEDK device. */
+  EFI_PLATFORMINFO_TYPE_WDP = 0x24,  /**< WDP device. */
+  EFI_PLATFORMINFO_TYPE_QAM = 0x25,  /**< QAM device. */
+  EFI_PLATFORMINFO_TYPE_QXR = 0x26,  /**< QXR device. */
 
   EFI_PLATFORMINFO_NUM_TYPES, /**< Number of known targets
                                                  (including unknown). @newpage
@@ -91,15 +131,19 @@ typedef enum {
 /**
  * Keys to get data out of the CDT.
  */
-typedef enum {
-  EFI_PLATFORMINFO_KEY_UNKNOWN = 0x00,
-  EFI_PLATFORMINFO_KEY_DDR_FREQ = 0x01,
-  EFI_PLATFORMINFO_KEY_GFX_FREQ = 0x02,
-  EFI_PLATFORMINFO_KEY_CAMERA_FREQ = 0x03,
-  EFI_PLATFORMINFO_KEY_FUSION = 0x04,
-  EFI_PLATFORMINFO_KEY_CUST = 0x05,
+typedef enum
+{
+  EFI_PLATFORMINFO_KEY_UNKNOWN       = 0x00,
+  EFI_PLATFORMINFO_KEY_DDR_FREQ      = 0x01,
+  EFI_PLATFORMINFO_KEY_GFX_FREQ      = 0x02,
+  EFI_PLATFORMINFO_KEY_CAMERA_FREQ   = 0x03,
+  EFI_PLATFORMINFO_KEY_FUSION        = 0x04,
+  EFI_PLATFORMINFO_KEY_CUST          = 0x05,
+  EFI_PLATFORMINFO_KEY_NAND_SCRUB    = 0x07,
+  EFI_PLATFORMINFO_KEY_SLT           = 0x07,
+  EFI_PLATFORMINFO_KEY_PMIC          = 0x08,
 
-  EFI_PLATFORMINFO_NUM_KEYS = 0x06,
+  EFI_PLATFORMINFO_NUM_KEYS          = 0x09,
 
   /** @cond */
   EFI_PLATFORMINFO_KEY_32BITS = 0x7FFFFFFF

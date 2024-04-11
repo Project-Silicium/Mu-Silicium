@@ -20,6 +20,9 @@ APRIORI DXE {
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -38,7 +41,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UFSDxe/UFSDxe.inf

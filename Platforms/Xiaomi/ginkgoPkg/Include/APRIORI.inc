@@ -20,6 +20,9 @@ APRIORI DXE {
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/ginkgo/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/ginkgo/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -38,7 +41,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   # 8063CC34-459F-0B38-AF28-3BACE2E435A6 (Unknown)
   INF Binaries/ginkgo/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
@@ -82,16 +84,14 @@ APRIORI DXE {
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/ginkgo/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-
   INF Binaries/ginkgo/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
 

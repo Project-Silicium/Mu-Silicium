@@ -103,16 +103,9 @@ READ_LOCK_STATUS   = TRUE
   # ACPI Tables
   !include Include/ACPI.inc
 
-  INF MdeModulePkg/Universal/EsrtFmpDxe/EsrtFmpDxe.inf
-
   INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
-  !include QcomPkg/Frontpage.fdf.inc
-
-  INF QcomPkg/Drivers/GpioButtons/GpioButtons.inf
-
-  INF QcomPkg/GPLDrivers/BootSlotDxe/BootSlotDxe.inf
-  INF QcomPkg/GPLApplications/SwitchSlotsApp/SwitchSlotsApp.inf
+  !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
@@ -132,7 +125,7 @@ READ_STATUS        = TRUE
 READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
-  INF QcomPkg/PrePi/PeiUniCore.inf
+  INF QcomPkg/PrePi/PrePi.inf
 
   FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
     SECTION UI = "uefiplat.cfg"

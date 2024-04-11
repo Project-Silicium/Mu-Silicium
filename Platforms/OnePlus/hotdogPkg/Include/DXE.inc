@@ -35,6 +35,9 @@
 
   INF Binaries/hotdog/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/hotdog/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
@@ -46,7 +49,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/hotdog/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/ClockDxe/ClockDxe.inf

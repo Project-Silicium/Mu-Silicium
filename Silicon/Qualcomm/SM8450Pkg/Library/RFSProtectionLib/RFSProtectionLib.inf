@@ -6,30 +6,20 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = RFSProtectionLib|DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION
 
-#
-#  VALID_ARCHITECTURES           = IA32 X64
-#
-
 [Sources]
- RFSProtectionLib.c
+  RFSProtectionLib.c
 
 [Packages]
   MdePkg/MdePkg.dec
-  PcBdsPkg/PcBdsPkg.dec
-  MsCorePkg/MsCorePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
   ArmPkg/ArmPkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  ArmLib
   DebugLib
   MemoryAllocationLib
-  DevicePathLib
   UefiBootServicesTableLib
   MemoryMapHelperLib
+  BaseMemoryLib
 
 [Protocols]
-  gEfiGraphicsOutputProtocolGuid
-  gEfiSimpleTextInProtocolGuid
   gQcomScmProtocolGuid

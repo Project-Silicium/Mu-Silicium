@@ -82,7 +82,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   FILE DRIVER = 0D35CD8E-97EA-4F9A-96AF-0F0D89F76567 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/UFSDxe/UFSDxe.depex
@@ -145,6 +144,8 @@
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/SmemDxe/SmemDxe.efi
     SECTION UI = "SmemDxe"
   }
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
@@ -277,20 +278,10 @@
     SECTION UI = "XhciDxe"
   }
 
-  FILE DRIVER = 240612b7-a063-11d4-9a3a-0090273fc14d {
-    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.efi
-    SECTION UI = "UsbBusDxe"
-  }
-
-  FILE DRIVER = 2d2e62cf-9ecf-43b7-8219-94e7fc713dfe {
-    SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.efi
-    SECTION UI = "UsbKbDxe"
-  }
-
-  FILE DRIVER = 9fb4b4a7-42c0-4bcd-8540-9bcc6711f83e {
-    SECTION PE32 =  Binaries/q2q/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.efi
-    SECTION UI = "UsbMassStorageDxe"
-  }
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   FILE DRIVER = 5AF77F10-90DF-4E7E-8325-A17EC09D5443 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.depex

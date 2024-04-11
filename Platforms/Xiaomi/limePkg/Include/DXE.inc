@@ -36,6 +36,9 @@
   INF Binaries/lime/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/lime/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 
@@ -43,7 +46,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/lime/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
@@ -77,6 +79,9 @@
   INF Binaries/lime/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
+
+  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
+  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf

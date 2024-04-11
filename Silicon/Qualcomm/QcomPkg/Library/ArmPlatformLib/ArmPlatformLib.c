@@ -1,4 +1,4 @@
-/** @file
+/**
   Copyright (c) 2011-2012, ARM Limited. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -11,21 +11,20 @@
 #include "InitializationUtils.h"
 
 /**
-  Return the current Boot Mode
+  Return the Current Boot Mode.
 
-  This function returns the boot reason on the platform
+  This Function Returns the Boot Reason on the Device.
 **/
 EFI_BOOT_MODE
-ArmPlatformGetBootMode (VOID)
+ArmPlatformGetBootMode ()
 {
   return BOOT_WITH_DEFAULT_SETTINGS;
 }
 
 /**
-  Initialize controllers that must setup in the normal world
+  Initialize Controllers that must Setup in the Normal World.
 
-  This function is called by the ArmPlatformPkg/PrePi or ArmPlatformPkg/PlatformPei
-  in the PEI phase.
+  This Function is called by the ArmPlatformPkg/PrePi or ArmPlatformPkg/PlatformPei in the PEI Phase.
 **/
 RETURN_STATUS
 ArmPlatformInitialize (IN UINTN MpId)
@@ -34,7 +33,7 @@ ArmPlatformInitialize (IN UINTN MpId)
     return RETURN_SUCCESS;
   }
 
-  EarlyInitialization();
+  EarlyInitialization ();
 
   return RETURN_SUCCESS;
 }
@@ -46,7 +45,7 @@ PrePeiCoreGetMpCoreInfo (
 {
   if (ArmIsMpCore ()) {
     *CoreCount    = PcdGet32(PcdCoreCount);
-    *ArmCoreTable = GetCoreTable();
+    *ArmCoreTable = GetCoreTable ();
 
     return EFI_SUCCESS;
   } else {
@@ -56,7 +55,7 @@ PrePeiCoreGetMpCoreInfo (
 
 ARM_MP_CORE_INFO_PPI mMpCoreInfoPpi = { PrePeiCoreGetMpCoreInfo };
 
-EFI_PEI_PPI_DESCRIPTOR  gPlatformPpiTable[] = {
+EFI_PEI_PPI_DESCRIPTOR gPlatformPpiTable[] = {
   {
     EFI_PEI_PPI_DESCRIPTOR_PPI,
     &gArmMpCoreInfoPpiGuid,

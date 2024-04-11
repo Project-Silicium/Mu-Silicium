@@ -1,12 +1,10 @@
 #ifndef _BOOT_DEVICES_H_
 #define _BOOT_DEVICES_H_
 
-#include <Uefi.h>
-
-#include <Protocol/DevicePath.h>
-
 #include <Library/DevicePathLib.h>
 #include <Library/UefiLib.h>
+
+#include <Protocol/DevicePath.h>
 
 typedef struct {
   VENDOR_DEVICE_PATH       VendorDevicePath;
@@ -39,8 +37,7 @@ typedef struct {
     }                                                                          \
   }
 
-EFI_KEYPAD_DEVICE_PATH KeypadDevicePath =
-{
+EFI_KEYPAD_DEVICE_PATH KeypadDevicePath = {
   {
     {
       HARDWARE_DEVICE_PATH,
@@ -62,8 +59,7 @@ EFI_KEYPAD_DEVICE_PATH KeypadDevicePath =
   }
 };
 
-EFI_DISPLAY_DEVICE_PATH DisplayDevicePath =
-{
+EFI_DISPLAY_DEVICE_PATH DisplayDevicePath = {
   {
     {
       HARDWARE_DEVICE_PATH,
@@ -85,8 +81,7 @@ EFI_DISPLAY_DEVICE_PATH DisplayDevicePath =
   }
 };
 
-EFI_SDCARD_DEVICE_PATH SdcardDevicePath =
-{
+EFI_SDCARD_DEVICE_PATH SdcardDevicePath = {
   {
     {
       HARDWARE_DEVICE_PATH,
@@ -108,4 +103,4 @@ EFI_SDCARD_DEVICE_PATH SdcardDevicePath =
   }
 };
 
-#endif
+#endif /* _BOOT_DEVICES_H_ */

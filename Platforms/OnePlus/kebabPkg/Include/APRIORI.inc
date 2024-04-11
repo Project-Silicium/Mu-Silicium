@@ -20,6 +20,9 @@ APRIORI DXE {
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/kebab/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/kebab/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -49,7 +52,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/kebab/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
@@ -100,9 +102,11 @@ APRIORI DXE {
   INF Binaries/kebab/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-  INF Binaries/kebab/QcomPkg/Drivers/UsbBusDxe/UsbBusDxe.inf
-  INF Binaries/kebab/QcomPkg/Drivers/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/kebab/QcomPkg/Drivers/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
   INF Binaries/kebab/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/TsensDxe/TsensDxe.inf

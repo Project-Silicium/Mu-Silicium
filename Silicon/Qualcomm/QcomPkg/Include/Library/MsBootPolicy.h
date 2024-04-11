@@ -1,4 +1,4 @@
-/** @file
+/**
   Header file for Ms Boot Policy Library
 
   Copyright (C) Microsoft Corporation. All rights reserved.
@@ -9,13 +9,13 @@
 #define _MS_BOOT_POLICY_H_
 
 /**
-  Ask if the platform is requesting Slot Switch
+  Ask if the Device is Requesting Slot Switch.
 
-  @retval TRUE     System is requesting Slot Switch
-  @retval FALSE    System is not requesting Slot Switch.
+  @retval TRUE     - System is Requesting Slot Switch.
+  @retval FALSE    - System is not Requesting Slot Switch.
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibSlotSwitch (VOID);
+MsBootPolicyLibSlotSwitch ();
 
 #endif /* _MS_BOOT_POLICY_H_ */

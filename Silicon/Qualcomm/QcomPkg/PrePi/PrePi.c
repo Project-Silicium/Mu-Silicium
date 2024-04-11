@@ -1,9 +1,7 @@
-/** @file
-
+/**
   Copyright (c) 2011-2017, ARM Limited. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
-
 **/
 
 #include <PiPei.h>
@@ -26,26 +24,25 @@
 
 #include "PrePi.h"
 
-#define IS_XIP() (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) || ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
+#define IS_XIP()               (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) || ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
 
-UINT64 mSystemMemoryEnd = FixedPcdGet64 (PcdSystemMemoryBase) + FixedPcdGet64 (PcdSystemMemorySize) - 1;
+ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
+UINT64                          mSystemMemoryEnd;
 
 EFI_STATUS
 GetPlatformPpi (
   IN  EFI_GUID *PpiGuid,
   OUT VOID    **Ppi)
 {
-  UINTN                   PpiListSize;
-  UINTN                   PpiListCount;
-  EFI_PEI_PPI_DESCRIPTOR *PpiList;
-  UINTN                   Index;
-
-  PpiListSize = 0;
+  UINTN                   PpiListSize  = 0;
+  UINTN                   PpiListCount = 0;
+  EFI_PEI_PPI_DESCRIPTOR *PpiList      = NULL;
 
   ArmPlatformGetPlatformPpiList (&PpiListSize, &PpiList);
 
   PpiListCount = PpiListSize / sizeof (EFI_PEI_PPI_DESCRIPTOR);
-  for (Index = 0; Index < PpiListCount; Index++, PpiList++) {
+
+  for (UINTN Index = 0; Index < PpiListCount; Index++, PpiList++) {
     if (CompareGuid (PpiList->Guid, PpiGuid) == TRUE) {
       *Ppi = PpiList->Ppi;
       return EFI_SUCCESS;
@@ -58,44 +55,39 @@ GetPlatformPpi (
 VOID
 PrePiMain (IN UINT64 StartTimeStamp)
 {
-  EFI_HOB_HANDOFF_INFO_TABLE *HobList;
-  ARM_MP_CORE_INFO_PPI       *ArmMpCoreInfoPpi;
-  UINTN                       ArmCoreCount;
-  ARM_CORE_INFO              *ArmCoreInfoTable;
-  EFI_STATUS                  Status;
-  UINTN                       StacksSize;
-  FIRMWARE_SEC_PERFORMANCE    Performance;
-
-  DXE_MEMORY_PROTECTION_SETTINGS DxeSettings;
-  MM_MEMORY_PROTECTION_SETTINGS  MmSettings;
-
-  UINTN MemoryBase     = 0;
-  UINTN MemorySize     = 0;
-  UINTN UefiMemoryBase = 0;
-  UINTN UefiMemorySize = 0;
-  UINTN StacksBase     = 0;
-
+  EFI_STATUS                      Status;
+  EFI_HOB_HANDOFF_INFO_TABLE     *HobList;
+  ARM_MP_CORE_INFO_PPI           *ArmMpCoreInfoPpi;
+  ARM_CORE_INFO                  *ArmCoreInfoTable;
   ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeap;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStack;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
+  DXE_MEMORY_PROTECTION_SETTINGS  DxeSettings;
+  MM_MEMORY_PROTECTION_SETTINGS   MmSettings;
+  FIRMWARE_SEC_PERFORMANCE        Performance;
+  UINTN                           ArmCoreCount;
 
-  Status = LocateMemoryMapAreaByName("DXE Heap", &DxeHeap);
-  ASSERT_EFI_ERROR (Status);
+  Status = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeap);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Get DXE Heap Memory Region!\n"));
+    ASSERT_EFI_ERROR (Status);
+  }
 
-  Status = LocateMemoryMapAreaByName("UEFI Stack", &UefiStack);
-  ASSERT_EFI_ERROR (Status);
-
-  Status = LocateMemoryMapAreaByName("UEFI FD", &UefiFd);
-  ASSERT_EFI_ERROR (Status);
+  Status = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStack);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Get UEFI Stack Memory Region!\n"));
+    ASSERT_EFI_ERROR (Status);
+  }
 
   // Declare UEFI region
-  MemoryBase     = FixedPcdGet32(PcdSystemMemoryBase);
-  MemorySize     = FixedPcdGet32(PcdSystemMemorySize);
-  UefiMemoryBase = DxeHeap.Address;
-  UefiMemorySize = DxeHeap.Length;
-  StacksBase     = UefiStack.Address;
-  StacksSize     = UefiStack.Length;
-  StacksBase     = UefiMemoryBase + UefiMemorySize - StacksSize;
+  UINTN MemoryBase     = FixedPcdGet32(PcdSystemMemoryBase);
+  UINTN UefiMemoryBase = DxeHeap.Address;
+  UINTN UefiMemorySize = DxeHeap.Length;
+  UINTN StacksSize     = UefiStack.Length;
+  UINTN StacksBase     = UefiMemoryBase + UefiMemorySize - StacksSize;
+
+  // Get System Memory End
+  mSystemMemoryEnd = FixedPcdGet64 (PcdSystemMemoryBase) + FixedPcdGet64 (PcdSystemMemorySize) - 1;
 
   // If ensure the FD is either part of the System Memory or totally outside of the System Memory (XIP)
   ASSERT (IS_XIP () || ((UefiFd.Address >= MemoryBase) && ((UINT64)(UefiFd.Address + UefiFd.Length) <= (UINT64)mSystemMemoryEnd)));
@@ -104,16 +96,21 @@ PrePiMain (IN UINT64 StartTimeStamp)
   ArchInitialize ();
 
   // Initialize the Debug Agent for Source Level Debugging
-  InitializeDebugAgent (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
+  InitializeDebugAgent          (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
   SaveAndSetDebugTimerInterrupt (TRUE);
 
   // Declare the PI/UEFI memory region
   HobList = HobConstructor ((VOID *)UefiMemoryBase, UefiMemorySize, (VOID *)UefiMemoryBase, (VOID *)StacksBase);
   PrePeiSetHobList (HobList);
 
+  DEBUG ((EFI_D_WARN, "MMU In\r"));
+
   // Initialize MMU and Memory HOBs (Resource Descriptor HOBs)
   Status = MemoryPeim (UefiMemoryBase, UefiMemorySize);
-  ASSERT_EFI_ERROR (Status);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Enable MMU and Memory HOBs!\n"));
+    ASSERT_EFI_ERROR (Status);
+  }
 
   BuildStackHob (StacksBase, StacksSize);
 
@@ -125,7 +122,10 @@ PrePiMain (IN UINT64 StartTimeStamp)
     Status = GetPlatformPpi (&gArmMpCoreInfoPpiGuid, (VOID **)&ArmMpCoreInfoPpi);
 
     // On MP Core Platform we must implement the ARM MP Core Info PPI (gArmMpCoreInfoPpiGuid)
-    ASSERT_EFI_ERROR (Status);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Get Platform PPI!\n"));
+      ASSERT_EFI_ERROR (Status);
+    }
 
     // Build the MP Core Info Table
     ArmCoreCount = 0;
@@ -146,14 +146,15 @@ PrePiMain (IN UINT64 StartTimeStamp)
   SetBootMode (ArmPlatformGetBootMode ());
 
   // Initialize Platform HOBs (CpuHob and FvHob)
-  Status = PlatformPeim ();
-  ASSERT_EFI_ERROR (Status);
+  PlatformPeim ();
 
-  DxeSettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_OFF;
-  MmSettings  = (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_OFF;
+  // Set Memory Protection Settings
+  DxeSettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_ON;
+  MmSettings =  (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_ON;
 
-  BuildGuidDataHob(&gDxeMemoryProtectionSettingsGuid, &DxeSettings, sizeof(DxeSettings));
-  BuildGuidDataHob(&gMmMemoryProtectionSettingsGuid, &MmSettings, sizeof(MmSettings));
+  // Enable Memory Protection
+  BuildGuidDataHob (&gDxeMemoryProtectionSettingsGuid, &DxeSettings, sizeof(DxeSettings));
+  BuildGuidDataHob (&gMmMemoryProtectionSettingsGuid,  &MmSettings,  sizeof(MmSettings));
 
   // Now, the HOB List has been initialized, we can register performance information
   PERF_START (NULL, "PEI", NULL, StartTimeStamp);
@@ -163,19 +164,24 @@ PrePiMain (IN UINT64 StartTimeStamp)
 
   // Assume the FV that contains the SEC (our code) also contains a compressed FV.
   Status = DecompressFirstFv ();
-  ASSERT_EFI_ERROR (Status);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Decompress First FV!\n"));
+    ASSERT_EFI_ERROR (Status);
+  }
 
   // Load the DXE Core and transfer control to it
   Status = LoadDxeCoreFromFv (NULL, 0);
-  ASSERT_EFI_ERROR (Status);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Load DXE Core!\n"));
+    ASSERT_EFI_ERROR (Status);
+  }
 }
 
 VOID
 CEntryPoint ()
 {
-  UINT64  StartTimeStamp;
   EFI_STATUS Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
+  UINT64     StartTimeStamp;
 
   // Initialize the platform specific controllers
   ArmPlatformInitialize (0);
@@ -183,6 +189,7 @@ CEntryPoint ()
   if (PerformanceMeasurementEnabled ()) {
     // Initialize the Timer Library to setup the Timer HW controller
     TimerConstructor ();
+
     // We cannot call yet the PerformanceLib because the HOB List has not been initialized
     StartTimeStamp = GetPerformanceCounter ();
   } else {
@@ -206,14 +213,14 @@ CEntryPoint ()
     }
   }
 
-  Status = LocateMemoryMapAreaByName("UEFI FD", &UefiFd);
-  ASSERT_EFI_ERROR (Status);
+  Status = LocateMemoryMapAreaByName ("UEFI FD", &UefiFd);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Get UEFI FD Memory Region!\n"));
+    ASSERT_EFI_ERROR (Status);
+  }
 
   InvalidateDataCacheRange ((VOID *)UefiFd.Address, UefiFd.Length);
 
   // Goto primary Main.
   PrePiMain (StartTimeStamp);
-
-  // DXE Core should always load and never return
-  ASSERT (FALSE);
 }

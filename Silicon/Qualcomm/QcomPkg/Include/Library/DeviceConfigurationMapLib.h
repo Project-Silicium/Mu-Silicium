@@ -8,6 +8,6 @@ typedef struct {
   UINT64                       Value;
 } CONFIGURATION_DESCRIPTOR_EX, *PCONFIGURATION_DESCRIPTOR_EX;
 
-CONFIGURATION_DESCRIPTOR_EX *GetDeviceConfigurationMap();
+CONFIGURATION_DESCRIPTOR_EX *GetDeviceConfigurationMap ();
 
 #endif /* _DEVICE_CONFIGURATION_MAP_LIB_H_ */

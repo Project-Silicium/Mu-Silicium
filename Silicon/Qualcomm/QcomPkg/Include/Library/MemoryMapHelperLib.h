@@ -5,14 +5,14 @@
 
 EFI_STATUS
 EFIAPI
-LocateMemoryMapAreaByName(
+LocateMemoryMapAreaByName (
   CHAR8                           *MemoryMapAreaName,
   ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor
   );
 
 EFI_STATUS
 EFIAPI
-LocateMemoryMapAreaByAddress(
+LocateMemoryMapAreaByAddress (
   EFI_PHYSICAL_ADDRESS             MemoryMapAreaAddress,
   ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor
   );

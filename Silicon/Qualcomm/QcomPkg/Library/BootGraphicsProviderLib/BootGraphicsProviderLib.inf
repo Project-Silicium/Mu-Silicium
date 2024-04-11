@@ -1,9 +1,9 @@
-## @file
-# BootGraphicsProviderLib that uses PCDs and raw files in the firmware volumes
+##
+# BootGraphicsProviderLib that uses PCDs and RAW Files in the Firmware Volumes.
 #
 # Copyright (C) Microsoft Corporation. All rights reserved.
-# SPDX-License-Identifier: BSD-2-Clause-Patent
 #
+# SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
 [Defines]
@@ -14,18 +14,11 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = BootGraphicsProviderLib|DXE_DRIVER UEFI_APPLICATION
 
-#
-# The following information is for reference only and not required by the build tools.
-#
-#  VALID_ARCHITECTURES           = IA32 X64 AARCH64
-#
-
 [Sources]
   BootGraphicsProviderLib.c
 
 [Packages]
   MdePkg/MdePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
   OemPkg/OemPkg.dec
   MsGraphicsPkg/MsGraphicsPkg.dec
   QcomPkg/QcomPkg.dec
@@ -35,7 +28,6 @@
   DebugLib
   DxeServicesLib
   PcdLib
-  UefiBootServicesTableLib
 
 [Pcd]
   # Boot Logo Picture Sizes
@@ -59,5 +51,4 @@
   gQcomPkgTokenSpaceGuid.PcdNoBootOSFile_Big
 
   # Other PCDs
-  gOemPkgTokenSpaceGuid.PcdPostBackgroundColor
   gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth

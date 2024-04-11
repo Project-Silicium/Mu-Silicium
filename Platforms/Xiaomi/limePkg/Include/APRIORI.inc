@@ -20,6 +20,9 @@ APRIORI DXE {
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/lime/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+
   INF Binaries/lime/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/lime/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -39,7 +42,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/lime/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
@@ -86,10 +88,15 @@ APRIORI DXE {
   INF Binaries/lime/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
+  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
+  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
+
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/lime/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/lime/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/TsensDxe/TsensDxe.inf

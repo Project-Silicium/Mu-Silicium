@@ -251,6 +251,18 @@ typedef struct
   /**< SuperSpeed Binary Object Store. */
 } EFI_USB_SUPERSPEED_DEVICE_INFO;
 
+/* The set of USB descriptors and associated data struture **/
+typedef struct _USB_DESCRIPTOR_SET {
+  EFI_USB_DEVICE_DESCRIPTOR               DeviceDescriptor;
+  EFI_USB_DEVICE_DESCRIPTOR               SSDeviceDescriptor;
+  EFI_USB_DEVICE_QUALIFIER_DESCRIPTOR     DeviceQualifierDescriptor;
+  VOID                                  **Descriptors;
+  VOID                                  **SSDescriptors;
+  VOID                                   *BinaryDeviceOjectStore;
+  UINT8                                   StrDescCount;
+  EFI_USB_STRING_DESCRIPTOR             **StrDescriptors;
+} USB_DESCRIPTOR_SET;
+
 /** Transfer result. This structure is the payload for the
   EfiUsbMsgEndpointStatusChangedRx or EfiUsbMsgEndpointStatusChangedTx
   message. */
@@ -890,10 +902,37 @@ EFI_STATUS
   IN EFI_USB_SUPERSPEED_DEVICE_INFO  *SSDeviceInfo
   );
 
+/* EFI_USBFN_IO_Update_SS_Descriptor */
+/** @par Summary
+  Assuming that the hardware has already been initialized, this function
+  update the superspeed descriptors using the supplied DeviceInfo. This
+  function accepts DeviceInfo and SSDescriptorSet objects and updates these.
+
+  @param[in]  This              Pointer to the EFI_USBFN_IO_PROTOCOL instance.
+  @param[in]  DescriptorSet     Pointer to the #USB_DESCRIPTOR_SET data
+                                structure.
+
+  @return
+  EFI_SUCCESS           -- Function completed successfully. \n
+  EFI_INVALID_PARAMETER -- Parameter is invalid. \n
+  EFI_DEVICE_ERROR      -- Physical device reported an error. \n
+  EFI_NOT_READY         -- Physical device is busy or not ready to
+                           process this request. \n
+  EFI_OUT_OF_RESOURCES  -- Request could not be completed due to lack
+                           of resources.
+  EFI_UNSUPPORTED       -- This operation is not supported.
+*/
+typedef
+EFI_STATUS
+(EFIAPI *EFI_USBFN_IO_Update_SS_Descriptor)(
+  IN  EFI_USBFN_IO_PROTOCOL         *This,
+  OUT USB_DESCRIPTOR_SET    *DescriptorSet
+  );
+
 /** @addtogroup efi_usbfn_constants
 @{ */
 /** Protocol version. */
-#define EFI_USBFN_IO_PROTOCOL_REVISION  0x00010002
+#define EFI_USBFN_IO_PROTOCOL_REVISION  0x00010003
 /** @} */ /* end_addtogroup efi_usbfn_constants */
 
 /*===========================================================================
@@ -1002,6 +1041,11 @@ struct _EFI_USBFN_IO_PROTOCOL {
   /// descriptors. Enable the device by setting the run/stop bit.
   ///
   EFI_USBFN_IO_CONFIGURE_ENABLE_ENDPOINTS_EX  ConfigureEnableEndpointsEx;
+  ///
+  /// Update the Super speed descriptor of the device
+  ///
+  ///
+  EFI_USBFN_IO_Update_SS_Descriptor  UpdateSSDescriptor;
 };
 
 /** @cond */

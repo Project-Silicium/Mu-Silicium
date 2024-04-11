@@ -38,7 +38,6 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/venus/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
@@ -53,6 +52,8 @@
 
   INF Binaries/venus/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
+  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
@@ -91,8 +92,8 @@
   INF Binaries/venus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/venus/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
+  INF Binaries/venus/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
-  INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf

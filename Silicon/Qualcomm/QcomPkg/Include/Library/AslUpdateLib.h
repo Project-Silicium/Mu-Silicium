@@ -1,4 +1,4 @@
-/** @file
+/**
   ASL dynamic update library definitions.
 
   This library provides dynamic update to various ASL structures.
@@ -16,101 +16,84 @@
 #ifndef _ASL_UPDATE_LIB_H_
 #define _ASL_UPDATE_LIB_H_
 
-//
-// Include files
-//
-#include <Uefi/UefiBaseType.h>
-#include <IndustryStandard/Acpi.h>
 #include <Protocol/AcpiTable.h>
 #include <Protocol/AcpiSystemDescriptionTable.h>
 
 /**
-  This procedure will update immediate value assigned to a Name.
+  This Procedure will Update Immediate Value assigned to a Name.
 
-  @param[in] AslSignature               The signature of Operation Region that we want to update.
-  @param[in] Buffer                     source of data to be written over original aml
-  @param[in] Length                     length of data to be overwritten
+  @param[in] AslSignature             - The Signature of Operation Region that we want to Update.
+  @param[in] Buffer                   - Source of Data to be Written over Original AML.
+  @param[in] Length                   - Length of Data to be Overwritten.
 
-  @retval EFI_SUCCESS                  The function completed successfully.
-  @retval EFI_NOT_FOUND                Failed to locate AcpiTable.
-  @retval EFI_NOT_READY                Not ready to locate AcpiTable.
-  @retval EFI_UNSUPPORTED              The function is not supported in this library.
+  @retval Status                      - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
 EFIAPI
 UpdateNameAslCode (
-  IN     UINT32  AslSignature,
-  IN     VOID    *Buffer,
-  IN     UINTN   Length
+  IN UINT32 AslSignature,
+  IN VOID  *Buffer,
+  IN UINTN  Length
   );
 
 /**
-  This procedure will update immediate value assigned to a Name in SSDT table.
+  This Procedure will Update Immediate Value assigned to a Name in SSDT Table.
 
-  @param[in] TableId           - Pointer to an ASCII string containing the OEM Table ID from the ACPI table header
-  @param[in] TableIdSize       - Length of the TableId to match.  Table ID are 8 bytes long, this function
-  @param[in] AslSignature      - The signature of Operation Region that we want to update.
-  @param[in] Buffer            - source of data to be written over original aml
-  @param[in] Length            - length of data to be overwritten
+  @param[in] TableId                  - Pointer to an ASCII String containing the OEM Table ID from the ACPI Table Header.
+  @param[in] TableIdSize              - Length of the Table ID to match.
+  @param[in] AslSignature             - The Signature of Operation Region that we want to Update.
+  @param[in] Buffer                   - Source of Data to be Written over Original AML.
+  @param[in] Length                   - Length of Data to be Overwritten.
 
-  @retval EFI_SUCCESS          - The function completed successfully.
-  @retval EFI_NOT_FOUND        - Failed to locate AcpiTable.
-  @retval EFI_NOT_READY        - Not ready to locate AcpiTable.
-  @retval EFI_UNSUPPORTED      - The function is not supported in this library.
+  @retval Status                      - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
 EFIAPI
 UpdateSsdtNameAslCode (
-  IN     UINT8   *TableId,
-  IN     UINT8   TableIdSize,
-  IN     UINT32  AslSignature,
-  IN     VOID    *Buffer,
-  IN     UINTN   Length
+  IN UINT8 *TableId,
+  IN UINT8  TableIdSize,
+  IN UINT32 AslSignature,
+  IN VOID  *Buffer,
+  IN UINTN  Length
   );
 
 /**
-  This procedure will update the name of ASL Method.
+  This Procedure will Update the Name of ASL Method.
 
-  @param[in] AslSignature      - The signature of Operation Region that we want to update.
-  @param[in] Buffer            - source of data to be written over original aml
-  @param[in] Length            - length of data to be overwritten
+  @param[in] AslSignature             - The Signature of Operation Region that we want to Update.
+  @param[in] Buffer                   - Source of Data to be Written over Original AML.
+  @param[in] Length                   - Length of Data to be Overwritten.
 
-  @retval EFI_SUCCESS          - The function completed successfully.
-  @retval EFI_NOT_FOUND        - Failed to locate AcpiTable.
-  @retval EFI_NOT_READY        - Not ready to locate AcpiTable.
-  @retval EFI_UNSUPPORTED      - The function is not supported in this library.
+  @retval Status                      - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
 EFIAPI
 UpdateMethodAslCode (
-  IN     UINT32  AslSignature,
-  IN     VOID    *Buffer,
-  IN     UINTN   Length
+  IN UINT32 AslSignature,
+  IN VOID  *Buffer,
+  IN UINTN  Length
   );
 
 /**
-  This function uses the ACPI support protocol to locate an ACPI table.
-  It is really only useful for finding tables that only have a single instance,
-  e.g. FADT, FACS, MADT, etc.  It is not good for locating SSDT, etc.
-  Matches are determined by finding the table with ACPI table that has
-  a matching signature.
+  This Function uses the ACPI Support Protocol to Locate an ACPI Table.
+  It is really only useful for Finding Tables that only have a Single Instance,
+  e.g. FADT, FACS, MADT, etc.  It is not Good for Locating SSDT, etc.
+  Matches are Determined by Finding the Table with ACPI Table that has
+  a Matching Signature.
 
-  @param[in] Signature                  Pointer to an ASCII string containing the Signature to match
-  @param[in, out] Table                 Updated with a pointer to the table
-  @param[in, out] Handle                AcpiSupport protocol table handle for the table found
-                                        @see AcpiSupport protocol for details
+  @param[in] Signature                - Pointer to an ASCII String Containing the Signature to Match.
+  @param[in, out] Table               - Updated with a Pointer to the Table.
+  @param[in, out] Handle              - AcpiSupport Protocol Table Handle for the Table Found.
+                                      - @see AcpiSupport Protocol for Details.
 
-  @retval EFI_SUCCESS                   The function completed successfully.
-  @retval EFI_NOT_FOUND                 Failed to locate AcpiTable.
-  @retval EFI_NOT_READY                 Not ready to locate AcpiTable.
-  @retval EFI_UNSUPPORTED               The function is not supported in this library.
+  @retval Status                      - The EFI_STATUS returned by this Function.
 **/
 EFI_STATUS
 EFIAPI
 LocateAcpiTableBySignature (
-  IN      UINT32                       Signature,
-  IN OUT  EFI_ACPI_DESCRIPTION_HEADER  **Table,
-  IN OUT  UINTN                        *Handle
+  IN     UINT32                        Signature,
+  IN OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
+  IN OUT UINTN                        *Handle
   );
 
 #endif /* _ASL_UPDATE_LIB_H_ */
