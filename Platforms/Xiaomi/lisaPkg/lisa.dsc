@@ -26,7 +26,7 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = lisaPkg/lisa.fdf
   USE_DISPLAYDXE                 = 0
-  AB_SLOT_SUPPORT                = 1
+  AB_SLOT_SUPPORT                = 0
 
   # 0 = SM7325
   # 1 = SM7325-AE
