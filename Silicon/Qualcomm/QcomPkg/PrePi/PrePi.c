@@ -149,8 +149,8 @@ PrePiMain (IN UINT64 StartTimeStamp)
   PlatformPeim ();
 
   // Set Memory Protection Settings
-  DxeSettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_ON;
-  MmSettings =  (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_ON;
+  DxeSettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_OFF;
+  MmSettings =  (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_OFF;
 
   // Enable Memory Protection
   BuildGuidDataHob (&gDxeMemoryProtectionSettingsGuid, &DxeSettings, sizeof(DxeSettings));
