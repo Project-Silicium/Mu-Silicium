@@ -1822,7 +1822,7 @@
 <details>
 <summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
   
-## Mi 11 Lite NE
+## Xiaomi Mi 11 Lite NE
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
@@ -1840,9 +1840,9 @@
 |Clocks||⚠️|
 |UFS||✅|
 |Buttons||✅|
-|USB||❌|
+|USB|Requires patched Dxe and external power|⚠️|
 |SD Card||❌|
-|ACPI||❌|
+|ACPI|Only for booting WinPE|⚠️| 
 
 ### OS Status
 
@@ -1852,8 +1852,8 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Boot|WinPE only|⚠️|
+|UFS||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -1864,20 +1864,19 @@
 |Hall Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB|Requires patched Dxe and external power|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU|Only one core|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Speakers||❌|
-|3.5mm Audio Jack||❌|
 |Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 
 </td><td>
