@@ -36,6 +36,7 @@
 #define FirmwarePrint(x, ...)                                            DEBUG((EFI_D_ERROR, x, __VA_ARGS__));
 
 #define NT_OS_LOADER_ARM64_TRANSFER_TO_KERNEL_FUNCTION_OFFSET            0x400
+#define NT_OS_LOADER_ARM64_TRANSFER_TO_KERNEL_FUNCTION_OFFSET_GERMANIUM  0x480
 #define ARM64_INSTRUCTION_LENGTH                                         4
 #define ARM64_TOTAL_INSTRUCTION_LENGTH(x)                               (ARM64_INSTRUCTION_LENGTH * x)
 

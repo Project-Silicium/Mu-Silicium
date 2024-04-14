@@ -9,7 +9,5 @@ all: ShellCode.elf ShellCode.bin
 ShellCode.bin: ShellCode.elf
 	$(OBJCOPY) -O binary $< $@
 
-ShellCode.elf: ShellCode.S
+ShellCode.elf: ShellCode.WithoutLoop.S
 	$(CC) -c $< -o $@
-
-ShellCode.S:
