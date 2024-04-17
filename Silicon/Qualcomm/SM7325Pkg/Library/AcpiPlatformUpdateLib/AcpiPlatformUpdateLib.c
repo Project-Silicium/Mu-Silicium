@@ -14,6 +14,7 @@ PlatformUpdateAcpiTables ()
   EFI_STATUS                          Status;
   ARM_MEMORY_REGION_DESCRIPTOR_EX     MPSSEFSRegion;
   ARM_MEMORY_REGION_DESCRIPTOR_EX     ADSPEFSRegion;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX     TGCMRegion;
   EFI_CHIPINFO_PROTOCOL              *mChipInfoProtocol;
   EFI_PLATFORMINFO_PROTOCOL          *mPlatformInfoProtocol;
   EFI_SMEM_PROTOCOL                  *mSmemProtocol;
@@ -27,10 +28,10 @@ PlatformUpdateAcpiTables ()
   UINT32 SUFS                            = 0xFFFFFFFF;
   UINT32 PUS3                            = 0x1;
   UINT32 SUS3                            = 0xFFFFFFFF;
-  UINT32*pSIDT                           = (UINT32 *)0x784178;
+  UINT32*pSIDT                           = (UINT32 *)0x784180;
   UINT32 SIDT                            = (*pSIDT & 0xFF00000) >> 20;
-  UINT32*pSJTG                           = (UINT32 *)0x784178;
-  UINT32 SJTG                            = *pSJTG & 0xFFFFF;
+  //UINT32*pSJTG                           = (UINT32 *)0x784178;
+  UINT32 SJTG                            = 0x101930e1;
   UINT32*pEMUL                           = (UINT32 *)0x1FC8004;
   UINT32 EMUL                            = *pEMUL & 0x3;
   UINT32 SOSN1                           = 0;
@@ -49,6 +50,8 @@ PlatformUpdateAcpiTables ()
   UINT32 RFAS                            = 0;
   UINT32 TCMA                            = 0;
   UINT32 TCML                            = 0;
+  UINT32 SKUV                            = 1;
+  UINT32 SDDR                            = 4;
   UINT32 SmemSize                        = 0;
 
   // Locate Chip Info Protocol
@@ -95,8 +98,18 @@ PlatformUpdateAcpiTables ()
     RFAB = (UINT32)ADSPEFSRegion.Address;
     RFAS = (UINT32)ADSPEFSRegion.Length / 2;
   }
+  
+  if (!EFI_ERROR(LocateMemoryMapAreaByName("TGCM", &TGCMRegion))) {
+    TCMA = (UINT32)TGCMRegion.Address;
+    TCML = (UINT32)TGCMRegion.Length;
+  } else {
+    TCMA = 0xDEADBEEF;
+    TCML = 0xBEEFDEAD;
+  }
 
   UpdateNameAslCode (SIGNATURE_32('S', 'O', 'I', 'D'), &SOID, 4);
+  UpdateNameAslCode (SIGNATURE_32('S', 'K', 'U', 'V'), &SKUV, 4);
+  UpdateNameAslCode (SIGNATURE_32('S', 'D', 'D', 'R'), &SDDR, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'T', 'O', 'R'), &STOR, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'V'), &SIDV, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'V', 'M', 'J'), &SVMJ, 2);
