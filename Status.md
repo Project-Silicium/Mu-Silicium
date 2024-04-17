@@ -1824,7 +1824,7 @@
   
 ## Xiaomi Mi 11 Lite NE
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="450" alt="Preview">
 
 **Codename: lisa** <br />
 **Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br />
@@ -1837,12 +1837,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||⚠️|
+|Clocks||✅|
 |UFS||✅|
 |Buttons||✅|
-|USB|Requires patched Dxe and external power|⚠️|
+|USB|Requires External power and patch for UEFI|✅|
 |SD Card||❌|
-|ACPI|Only for booting WinPE|⚠️| 
+|ACPI| |✅| 
 
 ### OS Status
 
@@ -1852,10 +1852,10 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|WinPE only|⚠️|
+|Boot||✅|
 |UFS||✅|
 |SD Card||❌|
-|Buttons||❌|
+|Buttons||✅|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
 |Accelerometer Sensor||❌|
@@ -1864,13 +1864,13 @@
 |Hall Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|Requires patched Dxe and external power|⚠️|
+|USB|Requires external power|✅|
 |Charging||❌|
 |WLAN||❌|
-|CPU|Only one core|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
+|Bluetooth||✅|
+|GPS||✅|
 |Speakers||❌|
 |Microphone||❌|
 |GPU||❌|
@@ -1903,7 +1903,6 @@
 |Bluetooth||❌|
 |GPS||❌|
 |Speakers||❌|
-|3.5mm Audio Jack||❌|
 |Microphone||❌|
 |GPU||❌|
 |Camera||❌|
