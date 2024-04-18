@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = venusPkg/venus.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM8350
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"venus"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_venus"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"venus"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_venus"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE4E00000

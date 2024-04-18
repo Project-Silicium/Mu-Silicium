@@ -11,8 +11,12 @@
 ##
 
 [Defines]
+  # Timer
+  USE_CUSTOM_GIC     = 0
+  USE_CUSTOM_TIMER   = 0
   USE_PHYSICAL_TIMER = 1
-    
+
+  # KEP
   PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
   PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
@@ -39,11 +43,11 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680 @ 2.40 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6225"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680 @ 2.40 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6225"
 !elseif $(SOC_TYPE) == 1
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685 @ 2.80 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6225-AD"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685 @ 2.80 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6225-AD"
 !endif
 
   # CPU

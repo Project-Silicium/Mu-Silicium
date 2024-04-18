@@ -1,0 +1,29 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TegraGpioDxe
+  FILE_GUID                      = 4D0879A4-B726-4A14-A8ED-93F2FC150A46
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitGpioDriver
+
+[Sources.common]
+  TegraGpioDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  NVPkg/NVPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+  IoLib
+  MemoryMapHelperLib
+
+[Protocols]
+  gEfiTegraGpioProtocolGuid
+
+[Depex]
+  TRUE

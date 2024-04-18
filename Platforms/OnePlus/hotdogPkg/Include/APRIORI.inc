@@ -63,14 +63,14 @@ APRIORI DXE {
   INF Binaries/hotdog/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/hotdog/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif 
 
   INF Binaries/hotdog/QcomPkg/Drivers/PILDxe/PILDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/hotdog/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
 

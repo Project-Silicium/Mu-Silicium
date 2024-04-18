@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = poplarPkg/poplar.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
 
 [BuildOptions]
@@ -50,16 +50,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Sony Group Corporation"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Xperia XZ1"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"poplar"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xperia_XZ1_poplar"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Xperia XZ1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Sony Group Corporation"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Xperia XZ1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"poplar"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xperia_XZ1_poplar"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Xperia XZ1"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|24
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|24
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000

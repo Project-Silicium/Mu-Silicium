@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = capripPkg/caprip.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
 [BuildOptions]
@@ -50,16 +50,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Motorola Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Moto G30"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"caprip"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Moto_G30_caprip"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Moto G30"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Motorola Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Moto G30"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"caprip"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Moto_G30_caprip"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Moto G30"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1600
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1600
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x68900000

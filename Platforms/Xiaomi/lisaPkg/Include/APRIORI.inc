@@ -67,10 +67,10 @@ APRIORI DXE {
   INF Binaries/lisa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   #INF Binaries/lisa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/lisa/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/lisa/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
@@ -111,7 +111,7 @@ APRIORI DXE {
   
   INF Binaries/lisa/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/lisa/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/lisa/QcomPkg/Drivers/GpiDxe/GpiDxe.inf

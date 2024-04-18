@@ -14,6 +14,7 @@
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
   QcomPkg/QcomPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   DebugLib
@@ -29,13 +30,13 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku
 
 [Protocols]
   gEfiSmbiosProtocolGuid

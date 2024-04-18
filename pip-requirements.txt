@@ -1,4 +1,4 @@
-## @file
+##
 # EDK II Python PIP requirements file
 #
 # This file provides the list of python components to install using PIP.

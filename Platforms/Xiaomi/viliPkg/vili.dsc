@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = viliPkg/vili.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM8350
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000 
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"11T Pro"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"11T_Pro_vili"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"11T Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"11T Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"11T_Pro_vili"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"11T Pro"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xECA00000

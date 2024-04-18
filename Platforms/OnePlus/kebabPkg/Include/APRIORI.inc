@@ -66,16 +66,16 @@ APRIORI DXE {
   INF Binaries/kebab/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/kebab/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif 
 
   INF Binaries/kebab/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/kebab/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
 

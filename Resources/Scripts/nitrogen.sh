@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/NITROGEN_UEFI.fd" > "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/NITROGEN_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/NITROGEN_UEFI.fd" > "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/NITROGEN_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/NITROGEN_UEFI.fd-bootshim" > "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/NITROGEN_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/nitrogenPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/NITROGEN_UEFI.fd-bootshim.gz" ./Resources/DTBs/nitrogen.dtb > ./Resources/bootpayload.bin||exit 1
 

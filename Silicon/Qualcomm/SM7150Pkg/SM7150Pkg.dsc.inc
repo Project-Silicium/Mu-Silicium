@@ -11,8 +11,12 @@
 ##
 
 [Defines]
+  # Timer
+  USE_CUSTOM_GIC     = 0
+  USE_CUSTOM_TIMER   = 0
   USE_PHYSICAL_TIMER = 1
-  
+
+  # KEP
   PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
   PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
@@ -39,14 +43,14 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730 @ 2.21 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AA"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730 @ 2.21 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AA"
 !elseif $(SOC_TYPE) == 1
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G @ 2.21 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G @ 2.21 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AB"
 !elseif $(SOC_TYPE) == 2
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G @ 2.30 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G @ 2.30 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AC"
 !endif
 
   # CPU

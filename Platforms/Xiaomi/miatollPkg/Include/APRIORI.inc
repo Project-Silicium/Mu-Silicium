@@ -94,11 +94,11 @@ APRIORI DXE {
   INF Binaries/miatoll/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/miatoll/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
   INF QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/miatoll/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf

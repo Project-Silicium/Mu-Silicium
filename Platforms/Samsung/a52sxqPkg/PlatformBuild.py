@@ -1,4 +1,4 @@
-# @file
+##
 # Script to Build Samsung Galaxy A52s 5G UEFI firmware
 #
 # Copyright (c) Microsoft Corporation.
@@ -41,7 +41,8 @@ class CommonPlatform():
         "Features/DFCI",
         "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
-        "Silicon/Qualcomm"
+        "Silicon/Qualcomm",
+        "Silicon/Silicium"
     )
 
 

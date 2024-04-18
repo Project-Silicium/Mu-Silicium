@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/poplarPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/POPLAR_UEFI.fd" > "./Build/poplarPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/POPLAR_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/poplarPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/POPLAR_UEFI.fd" > "./Build/poplarPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/POPLAR_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/poplarPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/POPLAR_UEFI.fd-bootshim" > "./Build/poplarPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/POPLAR_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/poplarPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/POPLAR_UEFI.fd-bootshim.gz" ./Resources/DTBs/poplar.dtb > ./Resources/bootpayload.bin||exit 1
 

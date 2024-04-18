@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = fogPkg/fog.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM6225
@@ -54,16 +54,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 10C"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"fog"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_10C_fog"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi 10C"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 10C"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"fog"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_10C_fog"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi 10C"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1650
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1650
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000

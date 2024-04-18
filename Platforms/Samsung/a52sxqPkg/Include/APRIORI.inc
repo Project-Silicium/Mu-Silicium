@@ -71,10 +71,10 @@ APRIORI DXE {
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/a52sxq/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf

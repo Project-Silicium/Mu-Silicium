@@ -43,7 +43,7 @@
   INF Binaries/munch/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/munch/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
 
@@ -75,10 +75,10 @@
 
   INF Binaries/munch/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/munch/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/munch/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf

@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = sweet_k6aPkg/sweet_k6a.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
 
   # 0 = SM7150
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000 
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 12 Pro 4G"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"2209116AG"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_12_Pro_4G_2209116AG"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 12 Pro 4G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 12 Pro 4G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"2209116AG"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_12_Pro_4G_2209116AG"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 12 Pro 4G"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA2370000

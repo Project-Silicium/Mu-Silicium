@@ -41,7 +41,7 @@
   INF Binaries/sweet_k6a/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/sweet_k6a/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/sweet_k6a/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
@@ -67,10 +67,10 @@
   INF Binaries/sweet_k6a/QcomPkg/Drivers/AW8624Dxe/AW8624Dxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/sweet_k6a/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf

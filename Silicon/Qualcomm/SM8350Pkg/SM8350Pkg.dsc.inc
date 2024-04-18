@@ -11,8 +11,12 @@
 ##
 
 [Defines]
+  # Timer
+  USE_CUSTOM_GIC     = 0
+  USE_CUSTOM_TIMER   = 0
   USE_PHYSICAL_TIMER = 0
 
+  # KEP
   PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 1
   PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 1
@@ -39,14 +43,14 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 5G @ 2.84 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 5G @ 2.84 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350"
 !elseif $(SOC_TYPE) == 1
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888+ 5G @ 3.00 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888+ 5G @ 3.00 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AB"
 !elseif $(SOC_TYPE) == 2
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 4G @ 2.84 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 4G @ 2.84 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AC"
 !endif
 
   # CPU

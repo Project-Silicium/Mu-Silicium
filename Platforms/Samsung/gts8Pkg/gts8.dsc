@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = gts8Pkg/gts8.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
 
   # 0 = SM8450
@@ -54,16 +54,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8 5G"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"X706B"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8_5G_X706B"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"X706B"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8_5G_X706B"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8 5G"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1600
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2560
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1600
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2560
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x840000000     # This needs Adjustments

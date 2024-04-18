@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = spesPkg/spes.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM6225
@@ -54,16 +54,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 11"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"spes"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_11_spes"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 11"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 11"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"spes"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_11_spes"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 11"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000

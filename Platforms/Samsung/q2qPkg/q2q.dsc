@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = q2qPkg/q2q.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
 
   # 0 = SM8350
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Fold 3"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"q2q"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Fold_3_q2q"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Fold 3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Fold 3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"q2q"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Fold_3_q2q"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Fold 3"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2208
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1768
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2208
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1768
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xF0B00000

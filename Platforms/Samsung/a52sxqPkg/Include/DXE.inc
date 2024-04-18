@@ -68,7 +68,7 @@
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/a52sxq/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -76,10 +76,10 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   #INF Binaries/a52sxq/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   #INF Binaries/a52sxq/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf

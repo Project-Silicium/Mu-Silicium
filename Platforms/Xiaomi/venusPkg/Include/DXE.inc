@@ -62,7 +62,7 @@
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/venus/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/venus/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -75,10 +75,10 @@
   INF Binaries/venus/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/venus/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/venus/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf

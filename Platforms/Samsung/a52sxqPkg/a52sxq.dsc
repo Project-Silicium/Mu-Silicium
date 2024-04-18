@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = a52sxqPkg/a52sxq.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
 
   # 0 = SM7325
@@ -54,16 +54,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Samsung Galaxy A52s 5G"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"a52sxq"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A52s_5G_a52sxq"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy A52s 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Samsung Galaxy A52s 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"a52sxq"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A52s_5G_a52sxq"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy A52s 5G"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xF0900000
