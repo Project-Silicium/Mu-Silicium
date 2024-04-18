@@ -6,12 +6,12 @@
 
 EFI_STATUS
 GetRamPartitionVersion (
-  IN  RamPartitionTable *RamPartitionTable,
+  IN  RamPartitionTable *RamPartTable,
   OUT UINT32            *Version)
 {
   // Check if RAM Partition Magics are Valid
-  if (RamPartitionTable->Magic1 == RAM_PART_MAGIC1 && RamPartitionTable->Magic2 == RAM_PART_MAGIC2) {
-    *Version = RamPartitionTable->Version;
+  if (RamPartTable->Magic1 == RAM_PART_MAGIC1 && RamPartTable->Magic2 == RAM_PART_MAGIC2) {
+    *Version = RamPartTable->Version;
     return EFI_SUCCESS;
   }
 
@@ -20,12 +20,12 @@ GetRamPartitionVersion (
 
 EFI_STATUS
 GetRamPartitions (
-  OUT RamPartitionTable **RamPartitionTable,
-  OUT UINT32             *NumPartitions,
+  OUT RamPartitionTable **RamPartTable,
   OUT UINT32             *Version)
 {
   EFI_STATUS         Status        = EFI_SUCCESS;
   EFI_SMEM_PROTOCOL *gSmemProtocol = NULL;
+  UINT32 SmemSize = 0;
 
   // Locate SMEM Protocol
   Status = gBS->LocateProtocol (&gEfiSMEMProtocolGuid, NULL, (VOID *)&gSmemProtocol);
@@ -35,14 +35,14 @@ GetRamPartitions (
   }
 
   // Get the RAM Partition Table
-  Status = gSmemProtocol->GetFunc (SMEM_USABLE_RAM_PARTITION_TABLE, NumPartitions, (VOID *)RamPartitionTable);
+  Status = gSmemProtocol->GetFunc (SMEM_USABLE_RAM_PARTITION_TABLE, &SmemSize, (VOID *)RamPartTable);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to get RAM Partition Table! Status = %r\n", Status));
     goto exit;
   }
 
   // Get RAM Partition Version
-  Status = GetRamPartitionVersion (*RamPartitionTable, Version);
+  Status = GetRamPartitionVersion (*RamPartTable, Version);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to get RAM Partition Version! Status = %r\n", Status));
     goto exit;

@@ -4,6 +4,7 @@
 #include <Library/DxeServicesTableLib.h>
 #include <Library/ArmMmuLib.h>
 #include <Library/RamPartitionTableLib.h>
+#include <Library/SortLib.h>
 
 #include <Protocol/EFISmem.h>
 
@@ -66,6 +67,22 @@ exit:
   return Status;
 }
 
+INTN
+EFIAPI
+CompareBaseAddress (
+  CONST VOID *p1,
+  CONST VOID *p2
+) {
+  const RamPartitionEntry *part1 = (RamPartitionEntry*)p1;
+  const RamPartitionEntry *part2 = (RamPartitionEntry*)p2;
+  if(part1->Base < part2->Base)
+    return -1;
+  else if (part1->Base > part2->Base)
+    return 1;
+  else
+    return 0;
+}
+
 EFI_STATUS
 EFIAPI
 AddRamPartitions (
@@ -81,8 +98,10 @@ AddRamPartitions (
   RamPartitionTable               *RamPartitionTable   = NULL;
 
   // Get RAM Partition Infos
-  Status = GetRamPartitions (&RamPartitionTable, &NumPartitions, &PartitionVersion);
+  Status = GetRamPartitions (&RamPartitionTable, &PartitionVersion);
+  NumPartitions = RamPartitionTable->NumPartitions;
   ASSERT_EFI_ERROR (Status);
+  PerformQuickSort(RamPartitionTable->RamPartitionEntry, NumPartitions, sizeof(RamPartitionEntry), CompareBaseAddress);
 
   // Print RAM Partition Version
   if (PartitionVersion == 1) { 
@@ -101,21 +120,12 @@ AddRamPartitions (
     DEBUG ((EFI_D_WARN, "Available Length:      0x%08llx\n",     RamPartitionTable->RamPartitionEntry[i].AvailableLength));
     DEBUG ((EFI_D_WARN, "\n"));
 
-    if (RamPartitionTable->RamPartitionEntry[i].Base == GENERIC_RAM_BASE) {
+    if (RamPartitionTable->RamPartitionEntry[i].Base == GENERIC_RAM_BASE || !AddedFirstPartition) {
       MemoryDescriptor[0].Address = RAM_PARTITION_BASE;
-      MemoryDescriptor[0].Length  = RamPartitionTable->RamPartitionEntry[i].AvailableLength + GENERIC_RAM_BASE - RAM_PARTITION_BASE;
+      MemoryDescriptor[0].Length  = RamPartitionTable->RamPartitionEntry[i].AvailableLength - RAM_PARTITION_BASE + RamPartitionTable->RamPartitionEntry[i].Base;
 
       // Add New RAM Partition
       AddRamPartition (MemoryDescriptor[0].Address, MemoryDescriptor[0].Length, MemoryDescriptor[0].ArmAttributes, MemoryDescriptor[0].MemoryType);
-
-      AddedFirstPartition = TRUE;
-
-      continue;
-    }
-
-    if (!AddedFirstPartition) {
-      MemoryDescriptor[Index].Address = RAM_PARTITION_BASE;
-      MemoryDescriptor[Index].Length  = RamPartitionTable->RamPartitionEntry[i].AvailableLength + GENERIC_RAM_BASE - RAM_PARTITION_BASE;
 
       AddedFirstPartition = TRUE;
 
