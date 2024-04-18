@@ -681,9 +681,9 @@ NOTE: Needs Windows Drivers!
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
 
 **Codename: HAC-001** <br />
-**Maintainer: None** <br />
+**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
-**Tester: None**
+**Tester: [Robotix22](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
