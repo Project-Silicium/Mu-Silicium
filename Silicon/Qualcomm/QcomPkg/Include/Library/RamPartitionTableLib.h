@@ -42,10 +42,10 @@ typedef struct ram_partition_entry {
 typedef struct ram_partition_table {
   UINT32            Magic1;
   UINT32            Magic2;
-  UINT32            Reserved1;
-  UINT32            Reserved2;
   UINT32            Version;
+  UINT32            Reserved1;
   UINT32            NumPartitions;
+  UINT32            Reserved2;
   RamPartitionEntry RamPartitionEntry[RAM_NUM_PART_ENTRIES];
 } RamPartitionTable;
 
@@ -60,8 +60,7 @@ typedef struct ram_partition_table {
 **/
 EFI_STATUS
 GetRamPartitions (
-  OUT RamPartitionTable **RamPartitionTable,
-  OUT UINT32             *NumPartitions,
+  OUT RamPartitionTable **RamPartTable,
   OUT UINT32             *Version
   );
 

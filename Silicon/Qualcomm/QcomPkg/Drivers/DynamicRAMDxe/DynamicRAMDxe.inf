@@ -12,6 +12,7 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
   QcomPkg/QcomPkg.dec
   SiliciumPkg/SiliciumPkg.dec
@@ -25,6 +26,7 @@
   DeviceMemoryMapLib
   ArmMmuLib
   RamPartitionTableLib
+  SortLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
