@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = j706fPkg/j706f.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM7150-AA
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo Group Limited"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"P11 Pro"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"j706f"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"P11_Pro_j706f"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"P11 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo Group Limited"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"P11 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"j706f"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"P11_Pro_j706f"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"P11 Pro"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2560
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1600
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2560
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1600
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA2370000

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SPES_UEFI.fd" > "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SPES_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SPES_UEFI.fd" > "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SPES_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SPES_UEFI.fd-bootshim" > "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SPES_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/SPES_UEFI.fd-bootshim.gz" ./Resources/DTBs/spes.dtb > ./Resources/bootpayload.bin||exit 1
 

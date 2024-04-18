@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = pipaPkg/pipa.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM8250
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 6"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pipa"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Pad_pipa"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Pad 6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pipa"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Pad_pipa"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Pad 6"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1800
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2880
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1800
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2880
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB4500000

@@ -1,5 +1,5 @@
  
-# @file
+##
 # Script to Build Asus ROG Phone 5 UEFI firmware
 #
 # Copyright (c) Microsoft Corporation.
@@ -42,7 +42,8 @@ class CommonPlatform():
         "Features/DFCI",
         "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
-        "Silicon/Qualcomm"
+        "Silicon/Qualcomm",
+        "Silicon/Silicium"
     )
 
 
@@ -129,7 +130,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("i005dPkg/i005dNoSb.dsc", {})
+        return ("i005dPkg/i005d.dsc", {})
 
     def GetName(self):
         return "i005d"

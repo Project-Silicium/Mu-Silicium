@@ -1,4 +1,4 @@
-# @file
+##
 # Script to Build Xiaomi Pad 6 UEFI firmware
 #
 # Copyright (c) Microsoft Corporation.
@@ -41,7 +41,8 @@ class CommonPlatform():
         "Features/DFCI",
         "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
-        "Silicon/Qualcomm"
+        "Silicon/Qualcomm",
+        "Silicon/Silicium"
     )
 
 
@@ -128,7 +129,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("pipaPkg/pipaNoSb.dsc", {})
+        return ("pipaPkg/pipa.dsc", {})
 
     def GetName(self):
         return "pipa"

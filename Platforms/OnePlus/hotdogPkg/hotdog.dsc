@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = hotdogPkg/hotdog.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM8150
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"OnePlus Technology Co., Ltd."
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"7T Pro"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"hotdog"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"7T_Pro_hotdog"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"7T Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"OnePlus Technology Co., Ltd."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"7T Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"hotdog"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"7T_Pro_hotdog"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"7T Pro"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3120
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3120
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB9400000

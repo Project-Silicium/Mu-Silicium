@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/a52sxqPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/A52SXQ_UEFI.fd" > "./Build/a52sxqPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/A52SXQ_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/a52sxqPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/A52SXQ_UEFI.fd" > "./Build/a52sxqPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/A52SXQ_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/a52sxqPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/A52SXQ_UEFI.fd-bootshim" > "./Build/a52sxqPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/A52SXQ_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/a52sxqPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/A52SXQ_UEFI.fd-bootshim.gz" ./Resources/DTBs/a52sxq.dtb > ./Resources/bootpayload.bin||exit 1
 

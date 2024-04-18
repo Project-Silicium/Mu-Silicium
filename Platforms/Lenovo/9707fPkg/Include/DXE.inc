@@ -42,7 +42,7 @@
   INF Binaries/9707f/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/9707f/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/9707f/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
@@ -69,10 +69,10 @@
   INF Binaries/9707f/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   #INF Binaries/9707f/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/9707f/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/9707f/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf

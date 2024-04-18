@@ -11,8 +11,12 @@
 ##
 
 [Defines]
+  # Timer
+  USE_CUSTOM_GIC     = 0
+  USE_CUSTOM_TIMER   = 0
   USE_PHYSICAL_TIMER = 1
-    
+
+  # KEP
   PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
   PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
@@ -38,8 +42,8 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006125
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 665 @ 2.00 GHz"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6125"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 665 @ 2.00 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6125"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

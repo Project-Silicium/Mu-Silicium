@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = lisaPkg/lisa.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
 
   # 0 = SM7325
@@ -44,7 +44,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"ETCHDEV" # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"ETCHDEV"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
@@ -54,16 +54,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11 Lite NE"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lisa"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_Lite_NE_lisa"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11 Lite NE"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11 Lite NE"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lisa"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_Lite_NE_lisa"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11 Lite NE"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE3400000

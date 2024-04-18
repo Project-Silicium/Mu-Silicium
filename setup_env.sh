@@ -8,11 +8,9 @@ function _help(){
     echo
     echo "Options:"
     echo "  --package-manager PAK, -p PAK:   Chose what Package Manager you use."
-    echo "  --break, -b:                     Run pip with --break-system-packages"
-    echo "  --venv, -v:                      Installs pip requirements in venv not local."
     echo "  --help, -h:                      Shows this Help."
     echo 
-    echo "MainPage: https://github.com/Robotix22/Mu-Qcom"
+    echo "MainPage: https://github.com/Robotix22/Mu-Silicium"
     exit 1
 }
 
@@ -20,17 +18,12 @@ function _help(){
 function _error(){ echo -e "\033[1;31m${@}\033[0m" >&2;exit 1; }
 function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2;exit 1; }
 
-# Set Default Defines
-VENV="FALSE"
-BREAK="FALSE"
 # Check if any args were given
-OPTS="$(getopt -o v,p:hfabcACDO: -l package-manager:,help,venv,break -n 'setup_env.sh' -- "$@")"||exit 1
+OPTS="$(getopt -o p:hfacACDO: -l package-manager:,help -n 'setup_env.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do  case "${1}" in
         -p|--package-manager) PAK="${2}";shift 2;;
-        -v|-venv) VENV="TRUE";shift;;
-        -b|--break) BREAK="TRUE";shift;;
         -h|--help) _help 0;shift;;
         --) shift;break;;
         *) _help 1;;
@@ -44,26 +37,21 @@ fi
 
 # Install all needed Packages
 if [ ${PAK} = apt ]; then
-    sudo apt install -y pip git mono-devel build-essential lld nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl wine||_error "\nFailed to install Packages!\n"
+    sudo apt install -y pip git mono-devel build-essential lld nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl||_error "\nFailed to install Packages!\n"
 elif [ ${PAK} = dnf ]; then
-    sudo dnf install -y git mono-devel nuget iasl nasm make lld gcc automake gcc-aarch64-linux-gnu python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl wine||_error "\nFailed to install Packages!\n"
+    sudo dnf install -y git mono-devel nuget iasl nasm make lld gcc automake gcc-aarch64-linux-gnu arm-linux-gnueabihf-gcc python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl||_error "\nFailed to install Packages!\n"
 elif [ ${PAK} = pacman ] || [ ${PAK} = yay ]; then
     if [ ${PAK} = pacman ]; then
         sudo pacman -Syu --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     fi
-    yay -Sy git mono base-devel nuget uuid iasl lld nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-git python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv core-git clang llvm curl wine||_error "\nFailed to install Packages!\n"
+    yay -Sy git mono base-devel nuget uuid iasl lld nasm aarch64-linux-gnu-gcc arm-linux-gnueabihf-gcc python3 python python-distutils-extra python-git python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv core-git clang llvm curl||_error "\nFailed to install Packages!\n"
 else
     _error "\nInvaild Package Manager!\nAvailbe Package Managers: apt, dnf, pacman and yay\n"
 fi
 
-if [ ${VENV} = TRUE ]; then
-    python3 -m venv .venv
-    source .venv/bin/activate
-fi
-if [ ${BREAK} = TRUE ]; then
-    python3 -m pip install -r pip-requirements.txt --break-system-packages||_error "\nFailed to install Pip Packages!\n"
-else
-    python3 -m pip install -r pip-requirements.txt ||_error "\nFailed to install Pip Packages!\n"
-fi
+# Install Needed Python Packages
+python3 -m pip install -r pip-requirements.txt ||python3 -m pip install -r pip-requirements.txt --break-system-packages||_error "\nFailed to install Pip Packages!\n"
+
 export CLANGDWARF_BIN=/usr/lib/llvm-38/bin/
 export CLANGDWARF_AARCH64_PREFIX=aarch64-linux-gnu-
+export CLANGDWARF_ARM_PREFIX=arm-linux-gnueabihf-

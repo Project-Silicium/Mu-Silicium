@@ -1,4 +1,4 @@
-# @file
+##
 # Script to Build OnePlus 7T Pro UEFI firmware
 #
 # Copyright (c) Microsoft Corporation.
@@ -41,7 +41,8 @@ class CommonPlatform():
         "Features/DFCI",
         "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
-        "Silicon/Qualcomm"
+        "Silicon/Qualcomm",
+        "Silicon/Silicium"
     )
 
 
@@ -128,7 +129,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("hotdogPkg/hotdogNoSb.dsc", {})
+        return ("hotdogPkg/hotdog.dsc", {})
 
     def GetName(self):
         return "hotdog"

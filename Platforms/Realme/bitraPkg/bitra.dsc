@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = bitraPkg/bitra.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
 
   # 0 = SM8250
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Realme"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT NEO 2"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bitra"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT NEO 2"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT NEO 2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Realme"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT NEO 2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bitra"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT NEO 2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT NEO 2"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB0400000

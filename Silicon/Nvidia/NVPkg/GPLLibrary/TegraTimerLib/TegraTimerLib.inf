@@ -1,0 +1,29 @@
+##
+#  Copyright (c) 2011 - 2014, ARM Limited. All rights reserved.
+#  Copyright (C) 2022 Svyatoslav Ryhel <clamor95@gmail.com>
+#
+#  SPDX-License-Identifier: GPL-2.0+
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TegraTimerLib
+  FILE_GUID                      = F6853921-C5D6-428A-ACF3-C778A3362488
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = TimerLib
+  CONSTRUCTOR                    = TimerConstructor
+
+[Sources.common]
+  TegraTimerLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  ArmLib
+  MemoryMapHelperLib
+  IoLib

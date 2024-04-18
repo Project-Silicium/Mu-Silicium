@@ -65,10 +65,10 @@ APRIORI DXE {
 
   INF Binaries/vili/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/vili/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/vili/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
@@ -106,7 +106,7 @@ APRIORI DXE {
 
   INF Binaries/vili/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/vili/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/vili/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
