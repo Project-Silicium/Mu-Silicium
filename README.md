@@ -36,8 +36,8 @@ We have Porting Guides that will Guide you through the Porting Process.
 Many Thanks to these People:
 
 [Gustave Monce](https://github.com/gus33000) for his [mu_andromeda_platforms](https://github.com/WOA-Project/mu_andromeda_platforms), without it this Repo would probally not Exist.
-[sonic011gamer](https://github.com/sonic011gamer) for Providing some Exynos Code and Explaining some Exynos Stuff.
-The [OpenRT Comunity](https://openrt.gitbook.io/open-surfacert/) for some Tegra Specific Code and for Explaining many Things.
+[sonic011gamer](https://github.com/sonic011gamer) for Providing some Exynos Code and Explaining some Exynos Stuff. <br />
+The [OpenRT Comunity](https://openrt.gitbook.io/open-surfacert/) for some Tegra Specific Code and for Explaining many Things. <br />
 
 ## License
 
