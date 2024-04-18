@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/lmiPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LMI_UEFI.fd" > "./Build/lmiPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LMI_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/lmiPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LMI_UEFI.fd" > "./Build/lmiPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LMI_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/lmiPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LMI_UEFI.fd-bootshim" > "./Build/lmiPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LMI_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/lmiPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/LMI_UEFI.fd-bootshim.gz" ./Resources/DTBs/lmi.dtb > ./Resources/bootpayload.bin||exit 1
 

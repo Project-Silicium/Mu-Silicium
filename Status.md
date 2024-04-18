@@ -6,7 +6,12 @@
 |❌|**Not Working**|
 |❔|**Unknown**|
 
+NOTE: This Page might not Contain All Devices! Notify us if you Find one.
+
 ## Active Supported Devices
+
+<details>
+<summary><b><strong>Snapdragon Devices</strong></b></summary>
 
 <details>
 <summary><b><strong>Snapdragon 865/865+/870 Devices</strong></b></summary>
@@ -26,23 +31,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB||✅|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 |Slot Switch||✅|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -67,38 +71,7 @@
 |Display||✅|
 |Vibration||❌|
 
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
 </td></tr> </table>
-
 
 ## Realme GT NEO 2
 
@@ -115,11 +88,11 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||❌|
+|Internal Storage||❌|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
-|ACPI|USB only, 8 cores|⚠️|
+|Windows Boot||✅|
+|Linux Boot||✅|
 
 ### OS Status
 
@@ -129,8 +102,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|WinPE only|⚠️|
-|UFS||❌|
+|Internal Storage||✅|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -159,8 +131,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||❌|
+|Internal Storage||✅|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -170,7 +141,7 @@
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|Host Mode Only & No USB Power|✅|
+|USB|Host Mode Only & No USB Power|⚠️|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -208,23 +179,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
 |UFS|Disabled to prevent Wipe|✅|
 |Buttons||✅|
 |USB|Host Mode Only & Only works once|⚠️|
 |SD Card||✅|
-|ACPI||✅|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||❌|
+|Internal Storage||❌|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -251,38 +221,6 @@
 |Display||✅|
 |Vibration||❌|
 
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
 </td></tr> </table>
 
   </summary>
@@ -306,78 +244,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||❌|
+|Internal Storage||❌|
 |Buttons||✅|
 |USB|Host mode only & No USB power |⚠️|
 |SD Card||❌|
-|ACPI||❌|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td></tr> </table>
+|Windows Boot||❌|
+|Linux Boot||❌|
 
   </summary>
 </details>
@@ -400,24 +272,23 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Device Mode only|⚠️|
 |SD Card||❌|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 |Slot Switch||✅|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -432,38 +303,6 @@
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -499,23 +338,24 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode only|⚠️|
 |SD Card||✅|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
+
+NOTE: Needs Windows Drivers!
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||✅|
 |Proximity Sensor||❌|
@@ -542,38 +382,6 @@
 |Display||✅|
 |Vibration||❌|
 
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
 </td></tr> </table>
 
   </summary>
@@ -597,12 +405,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
 |SD Card||✅|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
 |Slot Switch||✅|
 
 ### OS Status
@@ -613,8 +421,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -644,8 +451,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -688,12 +494,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
 |SD Card||✅|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
 |Slot Switch||✅|
 
 ### OS Status
@@ -704,8 +510,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -735,8 +540,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -785,12 +589,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|eMMC||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB||✅|
 |SD Card||✅|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
 
 ### OS Status
 
@@ -800,8 +604,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|eMMC||❌|
+|Internal Storage||❌|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -832,8 +635,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|eMMC||❌|
+|Internal Storage||❌|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -865,7 +667,48 @@
   </summary>
 </details>
 
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Tegra Devices</strong></b></summary>
+
+<details>
+<summary><b><strong>Tegra 210 Devices</strong></b></summary>
+
+## Nintendo Switch
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
+
+**Codename: HAC-001** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Joy Cons||❌|
+|Buttons|No Power Button|⚠️|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+  </summary>
+</details>
+
 ## Inactive Supported Devices
+
+<details>
+<summary><b><strong>Snapdragon Devices</strong></b></summary>
 
 <details>
 <summary><b><strong>Snapdragon 8 Gen 1/8+ Gen 1 Devices</strong></b></summary>
@@ -885,23 +728,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons|Pwr Button does not work|⚠️|
 |USB|Device Mode Only|⚠️|
 |SD Card|Needs working SdccDxe|❌|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS|Needs Special Setup|✅|
+|Internal Storage|Needs Special Setup|✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -925,38 +767,6 @@
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
-|Vibration||❌|
-|S Pen||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
 |Vibration||❌|
 |S Pen||❌|
 
@@ -983,22 +793,21 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons|Pwr Button does not work|⚠️|
 |USB|Device Mode only|⚠️|
-|ACPI||✅|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||❌|
+|Internal Storage||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -1026,41 +835,6 @@
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Barometer Sensor||❌|
-|Pedometer Sensor||❌|
-|Geomagnetic Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Heart Rate Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -1080,23 +854,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
-|ACPI||✅|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
 |Slot Switch||✅|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||❌|
+|Internal Storage||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -1123,40 +896,6 @@
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Barometer Sensor||❌|
-|Geomagnetic Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Gravity Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -1176,86 +915,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
-|ACPI|Minimal SoC's ACPI for now|⚠️|
+|Windows Boot||❌|
+|Linux Boot||❌|
 |Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Barometer Sensor||❌|
-|Geomagnetic Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Gravity Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Barometer Sensor||❌|
-|Geomagnetic Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Gravity Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td></tr> </table>
 
 ## Xiaomi 11T Pro
 
@@ -1272,23 +937,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Device Mode Only|⚠️|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 |Slot Switch||✅|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -1315,40 +979,6 @@
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Barometer Sensor||❌|
-|Geomagnetic Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Gravity Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -1374,24 +1004,23 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
 |SD Card||❌|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 |Slot Switch||✅|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -1416,38 +1045,6 @@
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -1467,23 +1064,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 |Slot Switch||✅|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -1509,37 +1105,6 @@
 |Display||✅|
 |Vibration||❌|
 
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
 </td></tr> </table>
 
 ## Xiaomi Pad 6
@@ -1557,11 +1122,11 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only|⚠️|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
 |Slot Switch||✅|
 
 ### OS Status
@@ -1572,8 +1137,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -1601,8 +1165,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -1643,24 +1206,23 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
 |SD Card||❌|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 |Slot Switch||✅|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -1685,38 +1247,6 @@
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -1742,22 +1272,21 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Device Mode Only|⚠️|
-|ACPI||✅|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||❌|
+|Internal Storage||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -1783,37 +1312,6 @@
 |Display||✅|
 |Vibration||❌|
 
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
 </td></tr> </table>
 
   </summary>
@@ -1822,7 +1320,7 @@
 <details>
 <summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
   
-## Xiaomi Mi 11 Lite NE
+## Mi 11 Lite NE
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
@@ -1837,54 +1335,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||⚠️|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
-|USB|Requires patched Dxe and external power|⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card||❌|
-|ACPI|Only for booting WinPE|⚠️| 
+|Windows Boot||✅|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot|WinPE only|⚠️|
-|UFS||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB|Requires patched Dxe and external power|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU|Only one core|⚠️|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -1898,17 +1364,16 @@
 |USB||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU||❌|
+|CPU|Only one Core|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
 |Speakers||❌|
-|3.5mm Audio Jack||❌|
 |Microphone||❌|
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -1934,82 +1399,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Device Mode Only|⚠️|
 |SD Card||❌|
-|ACPI||❌|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td></tr> </table>
+|Windows Boot||❌|
+|Linux Boot||❌|
 
   </summary>
 </details>
@@ -2032,12 +1427,12 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
-|SD Card||❔|
-|ACPI||✅|
+|SD Card||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
 |Slot Switch||✅|
 
 ### OS Status
@@ -2048,8 +1443,7 @@
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -2073,15 +1467,14 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 
 </td><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -2105,7 +1498,7 @@
 |GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
-|Display||❌|
+|Display||✅|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -2131,81 +1524,13 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Device Mode Only|⚠️|
 |SD Card||❌|
-|ACPI||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
 |Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
-
-</td></tr> </table>
 
 ## Xiaomi Redmi Note 8/8T
 
@@ -2222,23 +1547,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|eMMC||✅|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only|⚠️|
 |SD Card||❌|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|eMMC||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -2261,36 +1585,6 @@
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|eMMC||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -2316,23 +1610,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|eMMC||✅|
+|Internal Storage||✅|
 |Buttons|Pwr Button is Mapped as SUSPEND|⚠️|
 |USB|Device Mode Only|⚠️|
 |SD Card||❌|
-|ACPI||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|eMMC||✅|
+|Internal Storage||✅|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -2356,37 +1649,6 @@
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Boot||❌|
-|eMMC||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
 |Vibration||❌|
 
 </td></tr> </table>
@@ -2406,23 +1668,22 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||✅|
-|UFS||✅|
+|Internal Storage||✅|
 |Buttons||✅|
-|USB|Device Mode Only|⚠️|
+|USB||✅|
 |SD Card||❌|
-|ACPI||✅|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||✅|
-|UFS||❌|
+|Internal Storage||❌|
 |SD Card||❌|
 |Buttons||❌|
 |Proximity Sensor||❌|
@@ -2433,7 +1694,7 @@
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU|4 Cores only|⚠️|
@@ -2449,39 +1710,230 @@
 |Display||✅|
 |Vibration||❌|
 
-</td><td>
+</td></tr> </table>
+
+  </summary>
+</details>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Exynos Devices</strong></b></summary>
+
+<details>
+<summary><b><strong>Exynos 9830 Devices</strong></b></summary>
+
+## Samsung Galaxy Note 20 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Note-20-5G.png" width="500" alt="Preview">
+
+**Codename: c1s** <br />
+**Maintainer: [BotchedRPR](https://github.com/BotchedRPR/)** <br />
+**Contibuters: [halal-beef](https://github.com/halal-beef/)** <br />
+**Tester: [BotchedRPR](https://github.com/BotchedRPR/)**
+
+### UEFI Status
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Boot||❌|
-|UFS||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||❌|
+|Display||✅|
 |Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||❌|
-|Vibration||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
 
-</td></tr> </table>
+## Samsung Galaxy S20 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
+
+**Codename: x1s** <br />
+**Maintainer: [halal-beef](https://github.com/halal-beef/)** <br />
+**Contibuters: None** <br />
+**Tester: [halal-beef](https://github.com/halal-beef/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Exynos 9820 Devices</strong></b></summary>
+
+## Samsung Galaxy S10
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S10.png" width="500" alt="Preview">
+
+**Codename: beyond1lte** <br />
+**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: None** <br />
+**Tester: [Robotix22](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Exynos 9810 Devices</strong></b></summary>
+
+## Samsung Galaxy S9
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S9.png" width="500" alt="Preview">
+
+**Codename: starlte** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Exynos 7885 Devices</strong></b></summary>
+
+## Samsung Galaxy A10
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A10.png" width="500" alt="Preview">
+
+**Codename: a10** <br />
+**Maintainer: [snaccy](https://github.com/sonic011gamer/)** <br />
+**Contibuters: None** <br />
+**Tester: [snaccy](https://github.com/sonic011gamer/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+## Samsung Galaxy A7
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A7.png" width="500" alt="Preview">
+
+**Codename: a7** <br />
+**Maintainer: [Icesito](https://github.com/Icesito68/)** <br />
+**Contibuters: None** <br />
+**Tester: [Icesito](https://github.com/Icesito68/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Tegra Devices</strong></b></summary>
+
+<details>
+<summary><b><strong>Tegra 3 Devices</strong></b></summary>
+
+## Microsoft Surface RT
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Microsoft-Surface-RT.png" width="500" alt="Preview">
+
+**Codename: oemk** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Touchcover||❌|
+|Buttons||❌|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+## Lenovo IdeaPad Yoga 11
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-IdeaPad-Yoga-11.png" width="500" alt="Preview">
+
+**Codename: Venus** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Keyboard|Some Functions are missing|⚠️|
+|Buttons|Isn't Tested|❔|
+|USB||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
 
   </summary>
 </details>

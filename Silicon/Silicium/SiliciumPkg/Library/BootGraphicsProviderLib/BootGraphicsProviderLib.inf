@@ -1,0 +1,54 @@
+##
+# BootGraphicsProviderLib that uses PCDs and RAW Files in the Firmware Volumes.
+#
+# Copyright (C) Microsoft Corporation. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BootGraphicsProviderLib
+  FILE_GUID                      = 3f7bd07a-1436-4486-8a8b-e7957d171ad7
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = BootGraphicsProviderLib|DXE_DRIVER UEFI_APPLICATION
+
+[Sources]
+  BootGraphicsProviderLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  OemPkg/OemPkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  BmpSupportLib
+  DebugLib
+  DxeServicesLib
+  PcdLib
+
+[Pcd]
+  # Boot Logo Picture Sizes
+  gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Small
+  gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Medium
+  gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Big
+
+  # Low Battery Picture Sizes
+  gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Small
+  gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Medium
+  gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Big
+
+  # Too Hot Picture Sizes
+  gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Small
+  gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Medium
+  gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Big
+
+  # No Boot OS Picture Sizes
+  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Small
+  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Medium
+  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Big
+
+  # Other PCDs
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth

@@ -1,0 +1,18 @@
+diff --git a/ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.c b/ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.c
+index 2bd8d252f3..9761f9da63 100644
+--- a/ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.c
++++ b/ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.c
+@@ -59,13 +59,6 @@ TimerConstructor (
+ 
+  #endif
+     }
+-
+-    //
+-    // Architectural Timer Frequency must be set in Secure privileged
+-    // mode (if secure extension is supported).
+-    // If the reset value (0) is returned, just ASSERT.
+-    //
+-    ASSERT (ArmGenericTimerGetTimerFreq () != 0);
+   } else {
+     DEBUG ((DEBUG_ERROR, "ARM Architectural Timer is not available in the CPU, hence this library cannot be used.\n"));
+     ASSERT (0);

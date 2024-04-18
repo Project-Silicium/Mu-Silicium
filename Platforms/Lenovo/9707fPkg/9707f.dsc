@@ -25,7 +25,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = 9707fPkg/9707f.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
   # 0 = SM8250
@@ -55,16 +55,16 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo Limited"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Legion Tab Y700"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"9707f"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Legion_Tab_Y700_9707f"
-  gQcomPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Legion Tab Y700"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo Limited"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Legion Tab Y700"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"9707f"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Legion_Tab_Y700_9707f"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Legion Tab Y700"
 
   # Simple FrameBuffer
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1600
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2560
-  gQcomPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1600
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2560
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000

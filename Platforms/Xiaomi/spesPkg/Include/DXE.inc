@@ -65,10 +65,10 @@
   INF Binaries/spes/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/spes/QcomPkg/Drivers/MinidumpTADxe/MinidumpSMEMTADxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/spes/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/spes/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf

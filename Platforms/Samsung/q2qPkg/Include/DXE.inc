@@ -154,7 +154,7 @@
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE DRIVER = 1B52138D-3FA3-4E50-B958-20887353F809 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/CPRDxe/CPRDxe.depex
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/CPRDxe/CPRDxe.efi
@@ -215,14 +215,14 @@
     SECTION UI = "MinidumpTADxe"
   }
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE DRIVER = 4138022F-06C7-4F79-9C94-7E33B511A4E7 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/DisplayDxe/DisplayDxe.depex
     SECTION PE32 = Binaries/q2q/QcomPkg/Drivers/DisplayDxe/DisplayDxe.efi
     SECTION UI = "DisplayDxe"
   }
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   FILE DRIVER = 5bd181db-0487-4f1a-ae73-820e165611b3 {

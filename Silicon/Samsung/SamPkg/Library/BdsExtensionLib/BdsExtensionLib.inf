@@ -1,0 +1,27 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BdsExtensionLib
+  FILE_GUID                      = 00EF5892-29B0-4D6A-BE06-754BD319FB08
+  VERSION_STRING                 = 1.0
+  MODULE_TYPE                    = DXE_DRIVER
+  LIBRARY_CLASS                  = BdsExtensionLib|DXE_DRIVER
+
+[Sources]
+  BdsExtensionLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MsCorePkg/MsCorePkg.dec
+  PcBdsPkg/PcBdsPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  MsBootPolicyLib
+  MsBootOptionsLib
+  UefiRuntimeServicesTableLib
+  MsNVBootReasonLib
+  UefiBootServicesTableLib
+  DeviceBootManagerLib
+  UefiLib

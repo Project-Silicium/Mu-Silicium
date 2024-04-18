@@ -66,10 +66,10 @@ APRIORI DXE {
 
   INF Binaries/i005d/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/i005d/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/i005d/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
@@ -109,7 +109,7 @@ APRIORI DXE {
   INF Binaries/i005d/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/i005d/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/i005d/QcomPkg/Drivers/GpiDxe/GpiDxe.inf

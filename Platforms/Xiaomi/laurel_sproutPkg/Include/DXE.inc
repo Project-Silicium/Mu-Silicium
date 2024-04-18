@@ -61,10 +61,10 @@
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
-  INF QcomPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf

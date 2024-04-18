@@ -1,0 +1,40 @@
+##
+#  Copyright (c) 2011-2014, ARM Ltd. All rights reserved.<BR>
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ArmMemoryInitPeiLib
+  FILE_GUID                      = 55DDB6E0-70B5-11E0-B33E-0002A5D5C51B
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MemoryInitPeiLib|SEC PEIM
+
+[Sources]
+  MemoryInitPeiLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  ArmPkg/ArmPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  ArmPlatformLib
+  DebugLib
+  HobLib
+  ArmMmuLib
+  DeviceMemoryMapLib
+  PcdLib
+
+[FeaturePcd]
+  gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob
+
+[Pcd]
+  gArmTokenSpaceGuid.PcdSystemMemorySize
+
+[Depex]
+  TRUE
