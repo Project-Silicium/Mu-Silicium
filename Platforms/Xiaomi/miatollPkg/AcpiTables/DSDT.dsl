@@ -1,5 +1,52 @@
+/*
+ * Intel ACPI Component Architecture
+ * AML/ASL+ Disassembler version 20221020 (32-bit version)
+ * Copyright (c) 2000 - 2022 Intel Corporation
+ * 
+ * Disassembling to symbolic ASL+ operators
+ *
+ * Disassembly of DSDT_7125_MIATOLL.aml, Thu Apr 18 17:52:52 2024
+ *
+ * Original Table Header:
+ *     Signature        "DSDT"
+ *     Length           0x000361F1 (221681)
+ *     Revision         0x02
+ *     Checksum         0x32
+ *     OEM ID           "QCOMM "
+ *     OEM Table ID     "SDM7180 "
+ *     OEM Revision     0x00000003 (3)
+ *     Compiler ID      "MSFT"
+ *     Compiler Version 0x05000000 (83886080)
+ */
 DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 {
+    /*
+     * iASL Warning: There was 1 external control method found during
+     * disassembly, but only 0 were resolved (1 unresolved). Additional
+     * ACPI tables may be required to properly disassemble the code. This
+     * resulting disassembler output file may not compile because the
+     * disassembler did not know how many arguments to assign to the
+     * unresolved methods. Note: SSDTs can be dynamically loaded at
+     * runtime and may or may not be available via the host OS.
+     *
+     * To specify the tables needed to resolve external control method
+     * references, the -e option can be used to specify the filenames.
+     * Example iASL invocations:
+     *     iasl -e ssdt1.aml ssdt2.aml ssdt3.aml -d dsdt.aml
+     *     iasl -e dsdt.aml ssdt2.aml -d ssdt1.aml
+     *     iasl -e ssdt*.aml -d dsdt.aml
+     *
+     * In addition, the -fe option can be used to specify a file containing
+     * control method external declarations with the associated method
+     * argument counts. Each line of the file must be of the form:
+     *     External (<method pathname>, MethodObj, <argument count>)
+     * Invocation:
+     *     iasl -fe refs.txt -d dsdt.aml
+     *
+     * The following methods were unresolved and many not compile properly
+     * because the disassembler had to guess at the number of arguments
+     * required for each:
+     */
     External (_BID, UnknownObj)
     External (_SB_.DPP0, IntObj)
     External (_SB_.DPP1, IntObj)
@@ -2741,7 +2788,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                         {
                             "PSTATE_SET", 
                             Zero, 
-                            Package (0x06)
+                            Package (0x05)
                             {
                                 "PSTATE", 
                                 Zero, 
@@ -2791,26 +2838,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                                         Zero, 
                                         One
                                     }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "TLMMGPIO", 
-                                    Package (0x08)
-                                    {
-                                        0x0E, 
-                                        One, 
-                                        One, 
-                                        Zero, 
-                                        0x02, 
-                                        Zero, 
-                                        Zero, 
-                                        One
-                                    }
                                 }
                             }, 
 
-                            Package (0x06)
+                            Package (0x05)
                             {
                                 "PSTATE", 
                                 One, 
@@ -2852,22 +2883,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                                     Package (0x08)
                                     {
                                         0x02, 
-                                        One, 
-                                        One, 
-                                        Zero, 
-                                        One, 
-                                        Zero, 
-                                        Zero, 
-                                        One
-                                    }
-                                }, 
-
-                                Package (0x02)
-                                {
-                                    "TLMMGPIO", 
-                                    Package (0x08)
-                                    {
-                                        0x0E, 
                                         One, 
                                         One, 
                                         Zero, 
@@ -40651,36 +40666,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                                 {   // Pin list
                                     0x003A
                                 }
-                            GpioIo (Exclusive, PullNone, 0x0000, 0x0640, IoRestrictionNone,
-                                "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                                )
-                                {   // Pin list
-                                    0x0033
-                                }
-                            GpioIo (Exclusive, PullNone, 0x0000, 0x0640, IoRestrictionNone,
-                                "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                                )
-                                {   // Pin list
-                                    0x0034
-                                }
-                            Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                            {
-                                0x00000148,
-                            }
-                            Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                            {
-                                0x00000149,
-                            }
-                            Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                            {
-                                0x00000147,
-                            }
-                            GpioInt (Edge, ActiveHigh, ExclusiveAndWake, PullDown, 0x0000,
-                                "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                                )
-                                {   // Pin list
-                                    0x0100
-                                }
                         })
                         Return (RBUF) /* \_SB_.ADSP.ADCM.AUDD._CRS.RBUF */
                     }
@@ -42095,38 +42080,38 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                             0x06, 
                             Package (0x02)
                             {
-                                0x0320, 
-                                0x0168
+                                0x0168, 
+                                0x0320
+                            }, 
+
+                            Package (0x02)
+                            {
+                                0x01E6, 
+                                0x0438
+                            }, 
+
+                            Package (0x02)
+                            {
+                                0x0240, 
+                                0x0500
+                            }, 
+
+                            Package (0x02)
+                            {
+                                0x0288, 
+                                0x05A0
+                            }, 
+
+                            Package (0x02)
+                            {
+                                0x02D0, 
+                                0x0640
                             }, 
 
                             Package (0x02)
                             {
                                 0x0438, 
-                                0x01E6
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0500, 
-                                0x0240
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x05A0, 
-                                0x0288
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0640, 
-                                0x02D0
-                            }, 
-
-                            Package (0x02)
-                            {
-                                0x0960, 
-                                0x0438
+                                0x0960
                             }
                         }
                     }, 
