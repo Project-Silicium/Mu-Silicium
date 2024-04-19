@@ -1352,7 +1352,7 @@ NOTE: Needs Windows Drivers!
 |:------|:----------|:---:|
 |Internal Storage||✅|
 |SD Card||❌|
-|Buttons||❌|
+|Buttons||✅|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
 |Accelerometer Sensor||❌|
@@ -1361,13 +1361,13 @@ NOTE: Needs Windows Drivers!
 |Hall Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB|External power required|⚠️|
 |Charging||❌|
 |WLAN||❌|
-|CPU|Only one Core|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
+|Bluetooth||✅|
+|GPS||✅|
 |Speakers||❌|
 |Microphone||❌|
 |GPU||❌|
