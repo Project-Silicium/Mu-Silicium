@@ -5,7 +5,7 @@
 #  SECTION RAW = Tegra30Pkg/AcpiTables/BGRT.aml
 #  SECTION RAW = Tegra30Pkg/AcpiTables/CSRT.aml
 #  SECTION RAW = Tegra30Pkg/AcpiTables/DBG2.aml
-#  SECTION RAW = VenusPkg/AcpiTables/DSDT.aml
+#  SECTION RAW = VenusTZPkg/AcpiTables/DSDT.aml
 #  SECTION RAW = Tegra30Pkg/AcpiTables/FACP.aml
 #  SECTION RAW = Tegra30Pkg/AcpiTables/FPDT.aml
 #  SECTION RAW = Tegra30Pkg/AcpiTables/GTDT.aml

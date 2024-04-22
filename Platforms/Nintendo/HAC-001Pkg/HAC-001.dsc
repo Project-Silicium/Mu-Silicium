@@ -26,6 +26,7 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = HAC-001Pkg/HAC-001.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
+  HAS_BUILD_IN_KEYBOARD          = 0
 
   # 0 = ODNX02-A2
   # 1 = TM670D-A1
@@ -43,7 +44,7 @@
 !endif
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
   DeviceMemoryMapLib|HAC-001Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

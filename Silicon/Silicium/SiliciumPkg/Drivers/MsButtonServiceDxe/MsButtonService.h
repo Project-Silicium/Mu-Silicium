@@ -1,19 +1,24 @@
 /**
-  This Module Installs the MsButtonServicesProtocol.
-
   Copyright (C) Microsoft Corporation. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
 #ifndef _MS_BUTTON_SERVICE_H_
 #define _MS_BUTTON_SERVICE_H_
 
+#if HAS_BUILD_IN_KEYBOARD == 1
+typedef enum {
+  NoButtons     = SCAN_NULL,
+  ESCButton     = SCAN_ESC,
+  EntfButton    = SCAN_DELETE
+} BUTTON_STATE;
+#else
 typedef enum {
   NoButtons     = SCAN_NULL,
   VolUpButton   = SCAN_UP,
   VolDownButton = SCAN_DOWN
 } BUTTON_STATE;
+#endif
 
 typedef struct {
   MS_BUTTON_SERVICES_PROTOCOL ButtonServicesProtocol;

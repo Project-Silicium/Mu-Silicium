@@ -16,16 +16,17 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = Venus
+  PLATFORM_NAME                  = VenusTZ
   PLATFORM_GUID                  = F9287658-DC58-4EE4-9606-9A3CFE9A0105
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/VenusPkg
+  OUTPUT_DIRECTORY               = Build/VenusTZPkg
   SUPPORTED_ARCHITECTURES        = ARM
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = VenusPkg/Venus.fdf
+  FLASH_DEFINITION               = VenusTZPkg/VenusTZ.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
+  HAS_BUILD_IN_KEYBOARD          = 1
 
   # 0 = T30L
   # 1 = T30
@@ -38,11 +39,11 @@
   RAM_MODEL                      = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DRAM_MODEL=$(RAM_MODEL)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DRAM_MODEL=$(RAM_MODEL) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
-  DeviceMemoryMapLib|VenusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  KeypadDeviceLib|VenusPkg/GPLLibrary/KeypadDeviceLib/KeypadDeviceLib.inf
+  DeviceMemoryMapLib|VenusTZPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  KeypadDeviceLib|VenusTZPkg/GPLLibrary/KeypadDeviceLib/KeypadDeviceLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address & DDR RAM Size (2 GB)
@@ -62,8 +63,8 @@
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo Group Limited"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"IdeaPad Yoga 11"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Venus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"IdeaPad_Yoga_11_Venus"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"VenusTZ"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"IdeaPad_Yoga_11_VenusTZ"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"IdeaPad Yoga 11"
 
   # Simple FrameBuffer

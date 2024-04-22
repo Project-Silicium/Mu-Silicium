@@ -96,7 +96,7 @@ python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py"
 
 # Apply Mu Patches
 ## Mu
-if [ ${TARGET_ARCH} == ARM ]; then
+if [ ${TARGET_ARCH} == "ARM" ]; then
 	cp ./MuPatches/Math.patch ./Common/Mu/
 	cd Common/Mu||exit 1
 	git apply Math.patch &> /dev/null

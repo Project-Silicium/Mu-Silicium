@@ -27,6 +27,10 @@
   FLASH_DEFINITION               = x1sPkg/x1s.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   BROKEN_CNTFRQ_EL0              = 1
+  HAS_BUILD_IN_KEYBOARD          = 0
+
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
   DeviceMemoryMapLib|x1sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

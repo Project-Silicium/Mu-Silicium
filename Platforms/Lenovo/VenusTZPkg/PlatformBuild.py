@@ -29,10 +29,10 @@ class CommonPlatform():
     ''' Common settings for this platform.  Define static data here and use
         for the different parts of stuart
     '''
-    PackagesSupported = ("VenusPkg")
+    PackagesSupported = ("VenusTZPkg")
     ArchSupported = ("ARM")
     TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('Venus', 'gcc_arm_linux', 'edk2-build')
+    Scopes = ('VenusTZ', 'gcc_arm_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Lenovo",
@@ -129,10 +129,10 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("VenusPkg/Venus.dsc", {})
+        return ("VenusTZPkg/VenusTZ.dsc", {})
 
     def GetName(self):
-        return "Venus"
+        return "VenusTZ"
 
     def GetPackagesPath(self):
         ''' Return a list of paths that should be mapped as edk2 PackagesPath '''
@@ -180,7 +180,7 @@ class PlatformBuilder(UefiBuilder, BuildSettingsManager):
     def GetName(self):
         ''' Get the name of the repo, platform, or product being build '''
         ''' Used for naming the log file, among others '''
-        return "VenusPkg"
+        return "VenusTZPkg"
 
     def GetLoggingLevel(self, loggerType):
         """Get the logging level depending on logger type.
@@ -203,8 +203,8 @@ class PlatformBuilder(UefiBuilder, BuildSettingsManager):
 
     def SetPlatformEnv(self):
         logging.debug("PlatformBuilder SetPlatformEnv")
-        self.env.SetValue("PRODUCT_NAME", "Venus", "Platform Hardcoded")
-        self.env.SetValue("ACTIVE_PLATFORM", "VenusPkg/Venus.dsc", "Platform Hardcoded")
+        self.env.SetValue("PRODUCT_NAME", "VenusTZ", "Platform Hardcoded")
+        self.env.SetValue("ACTIVE_PLATFORM", "VenusTZPkg/VenusTZ.dsc", "Platform Hardcoded")
         self.env.SetValue("TARGET_ARCH", "ARM", "Platform Hardcoded")
         self.env.SetValue("TOOL_CHAIN_TAG", "CLANGDWARF", "set default to clangdwarf")
         self.env.SetValue("EMPTY_DRIVE", "FALSE", "Default to false")

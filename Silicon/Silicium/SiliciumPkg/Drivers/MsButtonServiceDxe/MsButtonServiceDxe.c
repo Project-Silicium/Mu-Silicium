@@ -1,8 +1,5 @@
 /**
-  This Module Installs the MsButtonServicesProtocol.
-
   Copyright (C) Microsoft Corporation. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
@@ -19,6 +16,51 @@
 
 #include "MsButtonService.h"
 
+#if HAS_BUILD_IN_KEYBOARD == 1
+/**
+  Say ESC Button is Pressed because we want to go to Front Page.
+
+  @param[in]  This          - Button Services Protocol Pointer.
+  @param[out] ButtonPressed - Pointer to a boolean Value to receive the Button State.
+
+  @retval Status            - EFI_SUCCESS;
+**/
+EFI_STATUS
+EFIAPI
+PreBootESCButtonThenPowerButtonCheck (
+  IN  MS_BUTTON_SERVICES_PROTOCOL *This,
+  OUT BOOLEAN                     *ButtonPressed)
+{
+  MS_BUTTON_SERVICES *ButtonService;
+
+   ButtonService  = MS_BSP_FROM_BSP(This);
+  *ButtonPressed  = (ButtonService->ButtonState == ESCButton);
+
+  return EFI_SUCCESS;
+}
+
+/**
+  Say Entf Button is Pressed because we want to run Special Application.
+
+  @param[in]  This          - Button Services Protocol Pointer.
+  @param[out] ButtonPressed - Pointer to a boolean Value to receive the Button State.
+
+  @retval Status            - EFI_SUCCESS;
+**/
+EFI_STATUS
+EFIAPI
+PreBootEntfButtonThenPowerButtonCheck (
+  IN  MS_BUTTON_SERVICES_PROTOCOL *This,
+  OUT BOOLEAN                     *ButtonPressed)
+{
+  MS_BUTTON_SERVICES *ButtonService;
+
+   ButtonService  = MS_BSP_FROM_BSP (This);
+  *ButtonPressed  = (ButtonService->ButtonState == EntfButton);
+
+  return EFI_SUCCESS;
+}
+#else
 /**
   Say Volume Up Button is Pressed because we want to go to Front Page.
 
@@ -35,14 +77,14 @@ PreBootVolumeUpButtonThenPowerButtonCheck (
 {
   MS_BUTTON_SERVICES *ButtonService;
 
-  ButtonService  = MS_BSP_FROM_BSP(This);
-  *ButtonPressed = (ButtonService->ButtonState == VolUpButton);
+   ButtonService  = MS_BSP_FROM_BSP(This);
+  *ButtonPressed  = (ButtonService->ButtonState == VolUpButton);
 
   return EFI_SUCCESS;
 }
 
 /**
-  Say Volume Down Button is Pressed because we want to Switch Slots.
+  Say Volume Down Button is Pressed because we want to run Special Application.
 
   @param[in]  This          - Button Services Protocol Pointer.
   @param[out] ButtonPressed - Pointer to a boolean Value to receive the Button State.
@@ -57,11 +99,12 @@ PreBootVolumeDownButtonThenPowerButtonCheck (
 {
   MS_BUTTON_SERVICES *ButtonService;
 
-  ButtonService  = MS_BSP_FROM_BSP (This);
-  *ButtonPressed = (ButtonService->ButtonState == VolDownButton);
+   ButtonService  = MS_BSP_FROM_BSP (This);
+  *ButtonPressed  = (ButtonService->ButtonState == VolDownButton);
 
   return EFI_SUCCESS;
 }
+#endif
 
 /**
   Clear current button state.
@@ -90,11 +133,19 @@ KeyNotify (IN EFI_KEY_DATA *KeyData)
     return EFI_OUT_OF_RESOURCES;
   }
 
+#if HAS_BUILD_IN_KEYBOARD == 1
+  if (KeyData->Key.ScanCode == SCAN_ESC) {
+    gButtonService->ButtonState = ESCButton;
+  } else if (KeyData->Key.ScanCode == SCAN_DELETE) {
+    gButtonService->ButtonState = EntfButton;
+  }
+#else
   if (KeyData->Key.ScanCode == SCAN_UP) {
     gButtonService->ButtonState = VolUpButton;
   } else if (KeyData->Key.ScanCode == SCAN_DOWN) {
     gButtonService->ButtonState = VolDownButton;
   }
+#endif
 
   return EFI_SUCCESS;
 }
@@ -135,21 +186,29 @@ GetButtonState ()
   KeyData.KeyState.KeyShiftState  = 0;
 
   KeyData.Key.UnicodeChar         = 0;
+#if HAS_BUILD_IN_KEYBOARD == 1
+  KeyData.Key.ScanCode            = SCAN_ESC;
+#else
   KeyData.Key.ScanCode            = SCAN_UP;
+#endif
 
-  // Register Key Notify for Volume Up
+  // Register Key Notify for UEFI Menu Button
   Status = SimpleEx->RegisterKeyNotify (SimpleEx, &KeyData, &KeyNotify, &NotifyHandle);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify of Volume Up! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify of UEFI Menu Button! Status = %r\n", Status));
     goto exit;
   }
 
+#if HAS_BUILD_IN_KEYBOARD == 1
+  KeyData.Key.ScanCode            = SCAN_DELETE;
+#else
   KeyData.Key.ScanCode            = SCAN_DOWN;
+#endif
 
-  // Register Key Notify for Volume Down
+  // Register Key Notify for Special Application Button
   Status = SimpleEx->RegisterKeyNotify (SimpleEx, &KeyData, &KeyNotify, &NotifyHandle);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify of Volume Down! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify of Special Application Button! Status = %r\n", Status));
   }
 
 exit:
@@ -182,8 +241,13 @@ InitButtonService (
   }
 
   // Define each Button Checks
+#if HAS_BUILD_IN_KEYBOARD == 1
+  gButtonService->ButtonServicesProtocol.PreBootVolumeDownButtonThenPowerButtonCheck = PreBootESCButtonThenPowerButtonCheck;
+  gButtonService->ButtonServicesProtocol.PreBootVolumeUpButtonThenPowerButtonCheck   = PreBootEntfButtonThenPowerButtonCheck;
+#else
   gButtonService->ButtonServicesProtocol.PreBootVolumeDownButtonThenPowerButtonCheck = PreBootVolumeDownButtonThenPowerButtonCheck;
   gButtonService->ButtonServicesProtocol.PreBootVolumeUpButtonThenPowerButtonCheck   = PreBootVolumeUpButtonThenPowerButtonCheck;
+#endif
   gButtonService->ButtonServicesProtocol.PreBootClearVolumeButtonState               = PreBootClearVolumeButtonState;
   gButtonService->ButtonState                                                        = NoButtons;
 

@@ -56,16 +56,16 @@ STATIC
 EFI_STATUS
 EFIAPI
 DisplayBlt (
-  IN EFI_GRAPHICS_OUTPUT_PROTOCOL     *This,
-  IN EFI_GRAPHICS_OUTPUT_BLT_PIXEL    *BltBuffer,
-  IN EFI_GRAPHICS_OUTPUT_BLT_OPERATION BltOperation OPTIONAL,
-  IN UINTN                             SourceX,
-  IN UINTN                             SourceY,
-  IN UINTN                             DestinationX,
-  IN UINTN                             DestinationY,
-  IN UINTN                             Width,
-  IN UINTN                             Height,
-  IN UINTN                             Delta OPTIONAL)
+  IN EFI_GRAPHICS_OUTPUT_PROTOCOL      *This,
+  IN EFI_GRAPHICS_OUTPUT_BLT_PIXEL     *BltBuffer,
+  IN EFI_GRAPHICS_OUTPUT_BLT_OPERATION  BltOperation OPTIONAL,
+  IN UINTN                              SourceX,
+  IN UINTN                              SourceY,
+  IN UINTN                              DestinationX,
+  IN UINTN                              DestinationY,
+  IN UINTN                              Width,
+  IN UINTN                              Height,
+  IN UINTN                              Delta OPTIONAL)
 {
   RETURN_STATUS Status;
   EFI_TPL       Tpl;
@@ -129,7 +129,7 @@ InitializeDisplay (
       goto exit;
     }
 
-    ZeroMem(mDisplay.Mode, sizeof(EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE));
+    ZeroMem (mDisplay.Mode, sizeof(EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE));
   }
 
   if (mDisplay.Mode->Info == NULL) {
@@ -140,7 +140,7 @@ InitializeDisplay (
       goto exit;
     }
 
-    ZeroMem(mDisplay.Mode->Info, sizeof(EFI_GRAPHICS_OUTPUT_MODE_INFORMATION));
+    ZeroMem (mDisplay.Mode->Info, sizeof(EFI_GRAPHICS_OUTPUT_MODE_INFORMATION));
   }
 
   // Set Informations about Frame Buffer
@@ -196,7 +196,7 @@ InitializeDisplay (
   }
 
 exit:
-  ASSERT_EFI_ERROR(Status);
+  ASSERT_EFI_ERROR (Status);
 
   return EFI_SUCCESS;
 }
