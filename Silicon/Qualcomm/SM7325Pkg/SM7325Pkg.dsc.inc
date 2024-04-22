@@ -23,7 +23,7 @@
   PLATFORM_HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Timer
@@ -46,10 +46,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G @ 2.40 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7325"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G+ @ 2.50 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G Plus @ 2.52 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7325-AE"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 782G @ 2.70 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 782G @ 2.71 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7325-AF"
 !endif
 

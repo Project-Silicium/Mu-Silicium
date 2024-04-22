@@ -284,8 +284,16 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a78_Prime = {
     0  // ProcessorVoltageIndicateLegacy
   },
   0,                     // ExternalClock
+#if SOC_TYPE == 1
+  2520,                  // MaxSpeed
+  2520,                  // CurrentSpeed
+#elif SOC_TYPE == 2
+  2710,                  // MaxSpeed
+  2710,                  // CurrentSpeed
+#else
   2400,                  // MaxSpeed
   2400,                  // CurrentSpeed
+#endif
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
   0,                     // L1CacheHandle
