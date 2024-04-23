@@ -107,6 +107,8 @@ PlatformUpdateAcpiTables ()
     TCML = 0xBEEFDEAD;
   }
 
+  SOID = 0x237;
+
   UpdateNameAslCode (SIGNATURE_32('S', 'O', 'I', 'D'), &SOID, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'K', 'U', 'V'), &SKUV, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'D', 'D', 'R'), &SDDR, 4);
