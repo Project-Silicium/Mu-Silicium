@@ -284,6 +284,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Mobile Data||❌|
 |Display||✅|
 |Vibration||❌|
+|Temperature Sensor||✅|
 
 </td></tr> </table>
 
