@@ -30,6 +30,8 @@
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdFvSize
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr
+  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr
 
 [Pcd]
   gArmTokenSpaceGuid.PcdFvBaseAddress
