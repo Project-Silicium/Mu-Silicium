@@ -41,7 +41,7 @@ fi
 echo -e "\nUpdating device ACPI tables\n"
 [[ -d Build ]] || mkdir Build
 echo -e "PROGRESS - ACPI updater" > ./Build/acpi.log
-TARGET_DEVICE_VENDOR=$(grep TARGET_DEVICE_VENDOR ./Resources/Configs/$TARGET_DEVICE.conf | tr -d 'TARGET_DEVICE_VENDOR=' | tr -d '"')
+TARGET_DEVICE_VENDOR=$(grep TARGET_DEVICE_VENDOR ./Resources/Configs/$TARGET_DEVICE.conf | sed 's/\"/ /g' | awk '{print $2}')
 USE_ASL=$(grep USE_ASL ./Resources/Configs/$TARGET_DEVICE.conf | tr -d 'USE_ASL=')
 if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc ]; then
 	TABLES="$(grep "SECTION RAW" ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc | sed '/#.*SECTION RAW/d' | grep $TARGET_DEVICE | awk '{print $4}')"
