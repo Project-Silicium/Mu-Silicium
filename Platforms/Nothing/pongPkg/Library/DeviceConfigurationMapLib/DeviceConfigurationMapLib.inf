@@ -1,0 +1,17 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DeviceConfigurationMapLib
+  FILE_GUID                      = b7650575-3f2f-4ca0-835f-96ea8a01bc8e
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = DeviceConfigurationMapLib
+
+[Sources]
+  DeviceConfigurationMapLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  BaseLib

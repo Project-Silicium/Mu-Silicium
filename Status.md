@@ -14,6 +14,70 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <summary><b><strong>Snapdragon Devices</strong></b></summary>
 
 <details>
+<summary><b><strong>Snapdragon 8 Gen 1/8+ Gen 1 Devices</strong></b></summary>
+
+## Nothing Phone 2
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
+
+**Codename: pong** <br />
+**Maintainers: [Govro150](https://github.com/Govro150)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br />
+**Testers: [Govro150](https://github.com/Govro150)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB|Host Mode Only & No Power|⚠️|
+|Windows Boot|WinPE only|⚠️|
+|Linux Boot||❌|
+|Slot Switch||✅|
+|Glyphs Interface||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU|One Core Only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 865/865+/870 Devices</strong></b></summary>
 
 ## Xiaomi Poco F3
