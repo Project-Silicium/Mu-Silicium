@@ -44,6 +44,8 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <tr><th>Windows</th></tr>
 <tr><td>
 
+NOTE: Needs Windows Drivers!
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Internal Storage||✅|
@@ -256,6 +258,8 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
+
+NOTE: Needs Windows Drivers!
 
 |Feature|Description|State|
 |:------|:----------|:---:|
