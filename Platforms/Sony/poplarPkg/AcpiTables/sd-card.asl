@@ -18,10 +18,10 @@ Device (SDC2)
 
     Name (_CRS, ResourceTemplate ()                                                                                                     // Current Resource Settings
     {
-        Memory32Fixed (ReadWrite, 0x0C0A4900, 0x00000200)                                                                               // SDHCI Base Address & Length
+        Memory32Fixed (ReadWrite, 0x0C0A4900, 0x00000314)                                                                               // SDHCI Base Address & Length
 
         Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, ) { 0x9D }                                                        // Interrupt
-        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, ) { 0xFD }                                                        // Interrupt
+        //Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, ) { 0xFD }                                                      // Interrupt (Breaks Windows Boot)
 
         GpioInt (Edge, ActiveBoth, SharedAndWake, PullNone, 0x1388, "\\_SB.GPIO", 0, ResourceConsumer, ,) { 0x5F }                      // GPIO Pin
 

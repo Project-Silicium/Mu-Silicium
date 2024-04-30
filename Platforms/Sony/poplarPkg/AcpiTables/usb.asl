@@ -17,7 +17,7 @@ Device (URS0)
 
     Name (_CRS, ResourceTemplate ()                                                                                                     // Current Resource Settings
     {
-        Memory32Fixed (ReadWrite, 0x0A800000, 0x01816400)                                                                               // USB Base Address & Length
+        Memory32Fixed (ReadWrite, 0x0A800000, 0x00100000)                                                                               // USB Base Address & Length
     })
 
     Method (_STA, 0, NotSerialized) { Return (0x0F) }                                                                                   // Status
@@ -28,7 +28,7 @@ Device (URS0)
     Device (USB0)
     {
         Name (_ADR, 0)                                                                                                                  // Address
-        Name (_S0W, 3)                                                                                                                  // S0 Device Wake State
+        Name (_S0W, 0)                                                                                                                  // S0 Device Wake State
 
         Name (_UPC, Package ()                                                                                                          // USB Port Capabilities
         {
@@ -76,7 +76,7 @@ Device (URS0)
             Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, )        { 0xA3 }                                                // Interrupt
             Interrupt (ResourceConsumer, Level, ActiveHigh, SharedAndWake, ,, ) { 0x17B }                                               // Interrupt
             Interrupt (ResourceConsumer, Level, ActiveHigh, SharedAndWake, ,, ) { 0x113 }                                               // Interrupt
-            Interrupt (ResourceConsumer, Level, ActiveHigh, SharedAndWake, ,, ) { 0xD4 }                                                // Interrupt
+            Interrupt (ResourceConsumer, Edge,  ActiveHigh, SharedAndWake, ,, ) { 0xD4 }                                                // Interrupt (Might be wrong?)
         })
 
         Method (_STA, 0, NotSerialized) { Return (0x0F) }                                                                               // Status
@@ -86,15 +86,15 @@ Device (URS0)
         {
             Switch (ToBuffer (Arg0))
             {
-                Case (ToUUID ("ce2ee385-00e6-48cb-9f05-2edb927c4899"))                                                                  // USB Controller GUID
+                Case (ToUUID ("CE2EE385-00E6-48CB-9F05-2EDB927C4899"))                                                                  // USB Controller GUID
                 {
                     Switch (ToInteger (Arg2))
                     {
-                        Case (Zero)
+                        Case (0)
                         {
                             Switch (ToInteger (Arg1))
                             {
-                                Case (Zero)
+                                Case (0)
                                 {
                                     Return (Buffer () { 0x1D })
                                 }
