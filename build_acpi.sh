@@ -21,12 +21,12 @@ function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2; }
 function _ntf(){ echo -e "\033[0;32m${@}\033[0m" >&2; }
 
 # Check if any args were given
-OPTS="$(getopt -o d:hfbc:a -l device:,help,asl -n 'build_uefi.sh' -- "$@")"||exit 1
+OPTS="$(getopt -o d:ah -l device:,asl,help -n 'build_acpi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do	case "${1}" in
 		-d|--device) TARGET_DEVICE="${2}";shift 2;;
-        -a|--asl) USE_ASL="TRUE";shift 2;;
+        -a|--asl) USE_ASL="TRUE";shift;;
 		-h|--help) _help 0;shift;;
 		--) shift;break;;
 		*) _help 1;;
@@ -38,11 +38,11 @@ if [ -z ${TARGET_DEVICE} ]
 then _help
 fi
 
-echo -e "\nUpdating device ACPI tables\n"
+echo -e "\nUpdating device ACPI tables...\n"
 [[ -d Build ]] || mkdir Build
 echo -e "PROGRESS - ACPI updater" > ./Build/acpi.log
 TARGET_DEVICE_VENDOR=$(grep TARGET_DEVICE_VENDOR ./Resources/Configs/$TARGET_DEVICE.conf | sed 's/\"/ /g' | awk '{print $2}')
-USE_ASL=$(grep USE_ASL ./Resources/Configs/$TARGET_DEVICE.conf | tr -d 'USE_ASL=')
+[ -z $USE_ASL ] && USE_ASL=$(grep USE_ASL ./Resources/Configs/$TARGET_DEVICE.conf | tr -d 'USE_ASL=')
 if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc ]; then
 	TABLES="$(grep "SECTION RAW" ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc | sed '/#.*SECTION RAW/d' | grep $TARGET_DEVICE | awk '{print $4}')"
 	for TABLE in $TABLES; do
@@ -52,32 +52,28 @@ if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc ]
 		TABLE_NAME_ASL=$(basename $TABLE | sed 's/.aml$/.asl/g')
 		TABLE_NAME_DSL=$(basename $TABLE | sed 's/.aml$/.dsl/g')
 		[ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME ] && mv -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME.tablebkp > /dev/null 2>&1
-		if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL ]; then
-			if [ "${USE_ASL}" == "true" ]; then
-				RUN=$(wine ./tools/asl.exe ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL)
+		if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL ] || [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL ]; then
+			[ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL ] && TABLE_NAME_OUT=$TABLE_NAME_ASL
+			[ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL ] && TABLE_NAME_OUT=$TABLE_NAME_DSL
+			if [ "$USE_ASL" == "TRUE" ]; then
+				if [[ $(grep -i Microsoft /proc/version) ]]; then
+					chmod 777 ./tools/asl.exe > /dev/null 2>&1
+					echo -e "Running asl.exe using Windows itself...\n"
+					RUN=$(./tools/asl.exe ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_OUT)
+				else
+					echo -e "Running asl.exe using wine...\n"
+					RUN=$(wine ./tools/asl.exe ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_OUT)
+				fi
 			else
-				RUN=$(iasl ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_ASL 2>&1 >/dev/null)
+				echo -e "Running iasl...\n"
+				RUN=$(iasl ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_OUT 2>&1 >/dev/null)
 			fi
 			if [ $(echo "$RUN" | grep Error |wc -c) -gt 1 ]; then
 				_warn "Could not update $TABLE_NAME: $RUN"
 				echo "DEBUG - Could not update $TABLE_NAME: $RUN" >> ./Build/acpi.log
 				sleep 3
 			else
-				_ntf "$TABLE_NAME updated successfully"
-				echo "DEBUG - $TABLE_NAME updated successfully" >> ./Build/acpi.log
-			fi
-		elif [ -f ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL ]; then
-			if [ "${USE_ASL}" == "true" ]; then
-				RUN=$(wine ./tools/asl.exe ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL)
-			else
-				RUN=$(iasl ./Platforms/$TARGET_DEVICE_VENDOR/$TABLE_DIR/$TABLE_NAME_DSL 2>&1 >/dev/null)
-			fi
-			if [ $(echo "$RUN" | grep Error |wc -c) -gt 1 ]; then
-				_warn "Could not update $TABLE_NAME: $RUN"
-				echo "DEBUG - Could not update $TABLE_NAME: $RUN" >> ./Build/acpi.log
-				sleep 3
-			else
-				_ntf "$TABLE_NAME updated successfully"
+				_ntf "$TABLE_NAME updated successfully!"
 				echo "DEBUG - $TABLE_NAME updated successfully" >> ./Build/acpi.log
 			fi
 		else
@@ -92,7 +88,7 @@ if [ -f ./Platforms/$TARGET_DEVICE_VENDOR/${TARGET_DEVICE}Pkg/Include/ACPI.inc ]
 		fi
 		echo
 	done
-	echo -e "ACPI update done\n\n"
+	echo -e "ACPI update done!\n\n"
 	echo -e "PROGRESS - ACPI update done" >> ./Build/acpi.log
 	sleep 2
 else
