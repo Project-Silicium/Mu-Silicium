@@ -21,7 +21,7 @@ function _error(){ echo -e "\033[1;31m${@}\033[0m" >&2;exit 1; }
 function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2; }
 
 # Check if any args were given
-OPTS="$(getopt -o d:hfbc:r:m: -l device:,help,release:,model: -n 'build_uefi.sh' -- "$@")"||exit 1
+OPTS="$(getopt -o d:hr:m: -l device:,help,release:,model: -n 'build_uefi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 while true
 do	case "${1}" in

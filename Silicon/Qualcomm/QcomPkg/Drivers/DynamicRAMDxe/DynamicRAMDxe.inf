@@ -32,5 +32,8 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase
 
+[Protocols]
+  gArmPageTableMemoryAllocationProtocolGuid
+
 [Depex]
   TRUE

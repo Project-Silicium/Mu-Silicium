@@ -123,6 +123,42 @@ typedef struct {
   LOAD_LIB    LoadLib;
 } ShLibLoaderType;
 
+typedef struct {
+  UINT64 Reversion;
+  VOID *SecFdtInitRootHandle;
+  VOID *unknow_func0;
+  VOID *unknow_func1;
+  VOID *dtb_get_reg_info;
+  VOID *unknow_func2;
+  VOID *SecFdtGetNodeHandle;
+  VOID *unknow_func3;
+  VOID *unknow_func4;
+  VOID *unknow_func5;
+  VOID *unknow_func6;
+  VOID *unknow_func7;
+  VOID *unknow_func8;
+  VOID *unknow_func9;
+  VOID *unknow_func10;
+  VOID *unknow_func11;
+  VOID *unknow_func12;
+  VOID *unknow_func13;
+  VOID *unknow_func14;
+  VOID *unknow_func15;
+  VOID *unknow_func16;
+  VOID *fdt_get_uint32_prop_list;
+  VOID *unknow_func17;
+  VOID *unknow_func18;
+  VOID *unknow_func19;
+  VOID *unknow_func20;
+  VOID *unknow_func21;
+  VOID *unknow_func22;
+  VOID *unknow_func23;
+  VOID *unknow_func24;
+  VOID *unknow_func25;
+  VOID *unknow_func26;
+  VOID *unknow_func27;
+} EFI_DTB_EXTN_PROTOCOL;
+
 #define EFI_SHIM_LIBRARY_GUID                                                  \
   {                                                                            \
     0xbedaeabc, 0x5e70, 0x4d66,                                                \
@@ -144,6 +180,22 @@ typedef struct {
     0x12dbd93d, 0x402a, 0x416e,                                                \
     {                                                                          \
       0xec, 0x20, 0x5f, 0x80, 0xcf, 0x5f, 0x7f, 0xe7                           \
+    }                                                                          \
+  }
+
+#define EFI_SCHED_INTF_GUID                                                    \
+  {                                                                            \
+    0x8ec2bd8d, 0x56d7, 0x49ef,                                                \
+    {                                                                          \
+      0x87, 0x96, 0x63, 0x17, 0x78, 0xf8, 0xeb, 0xf8                           \
+    }                                                                          \
+  }
+
+#define EFI_DTB_EXTN_GUID                                                      \
+  {                                                                            \
+    0x3A06E1E8, 0x61F6, 0x11EB,                                                \
+    {                                                                          \
+      0xBB, 0xED, 0x4B, 0x47, 0x6E, 0x2F, 0xF6, 0xA7                           \
     }                                                                          \
   }
 

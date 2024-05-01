@@ -15,11 +15,7 @@ Device (GPIO)
         Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, ) { 0xF0 }                                                           // Interrupt
     })
 
-    Name (OFNI, Buffer ()
-    { 
-        0x96, 0x00
-    })
-
+    Name (OFNI, Buffer () { 0x96, 0x00 }) 
     Name (GABL, 0)
 
     Method (_REG, 2, NotSerialized)                                                                                                     // Region Availability

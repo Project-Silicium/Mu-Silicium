@@ -27,10 +27,10 @@
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|11
   gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|10
 !else
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|30
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|31
-  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|28
-  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|27
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|27
+  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
 !endif
 
   # GIC

@@ -30,8 +30,8 @@
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
-  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
-  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
+  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|19
+  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|16
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xF200000

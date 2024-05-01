@@ -14,6 +14,70 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <summary><b><strong>Snapdragon Devices</strong></b></summary>
 
 <details>
+<summary><b><strong>Snapdragon 8 Gen 1/8+ Gen 1 Devices</strong></b></summary>
+
+## Nothing Phone 2
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
+
+**Codename: pong** <br />
+**Maintainers: [Govro150](https://github.com/Govro150)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br />
+**Testers: [Govro150](https://github.com/Govro150)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB|Host Mode Only & No Power|⚠️|
+|Windows Boot|WinPE only|⚠️|
+|Linux Boot||❌|
+|Slot Switch||✅|
+|Glyphs Interface||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU|One Core Only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 865/865+/870 Devices</strong></b></summary>
 
 ## Xiaomi Poco F3
@@ -43,6 +107,8 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
+
+NOTE: Needs Windows Drivers!
 
 |Feature|Description|State|
 |:------|:----------|:---:|
@@ -88,7 +154,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Internal Storage||❌|
+|Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No USB Power|⚠️|
 |Windows Boot||✅|
@@ -192,10 +258,12 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <tr><th>Windows</th></tr>
 <tr><td>
 
+NOTE: Needs Drivers
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Internal Storage||❌|
-|SD Card||❌|
+|SD Card||✅|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -229,14 +297,14 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <details>
 <summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
 
-## Samsung Galaxy A52s 5G
+## Mi 11 Lite NE
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
-**Codename: a52sxq** <br />
-**Maintainer: [arminask](https://github.com/arminask)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/), People from Group** <br />
-**Testers: [arminask](https://github.com/arminask)**
+**Codename: lisa** <br />
+**Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br />
+**Contibuter: People from Group** <br />
+**Tester: [ETCHDEV](https://github.com/ETCHDEV/)**
 
 ### UEFI Status
 
@@ -244,12 +312,51 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Internal Storage||❌|
+|Internal Storage||✅|
 |Buttons||✅|
-|USB|Host mode only & No USB power |⚠️|
+|USB|Device Mode Only|⚠️|
 |SD Card||❌|
-|Windows Boot||❌|
+|Windows Boot||✅|
 |Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+NOTE: Needs Windows Drivers!
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card||❌|
+|Buttons||✅|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|External power required|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||✅|
+|GPS||✅|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+|Temperature Sensor||✅|
+
+</td></tr> </table>
 
   </summary>
 </details>
@@ -377,286 +484,6 @@ NOTE: Needs Windows Drivers!
 |3.5mm Audio Jack||❌|
 |Microphone||❌|
 |GPU||✅|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 680/685 Devices</strong></b></summary>
-
-## Xiaomi Redmi 10C
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-10C.png" width="500" alt="Preview">
-
-**Codename: fog** <br />
-**Maintainer: [Statzar](https://github.com/Statzar)** <br />
-**Contibuters: None** <br />
-**Tester: [Statzar](https://github.com/Statzar)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
-|SD Card||✅|
-|Windows Boot||✅|
-|Linux Boot||✅|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB|No USB Power|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB|No USB Power|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-## Xiaomi Redmi Note 12
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
-
-**Codename: tapas** <br />
-**Maintainer: [6adp](https://github.com/6adp)** <br />
-**Contibuters: [Statzar](https://github.com/Statzar)** <br />
-**Tester: [6adp](https://github.com/6adp)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
-|SD Card||✅|
-|Windows Boot||✅|
-|Linux Boot||✅|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB|No USB Power|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB|No USB Power|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 660/636/630 Devices</strong></b></summary>
-
-## Xiaomi Mi Max 3
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-Max-3.png" width="500" alt="Preview">
-
-**Codename: nitrogen** <br />
-**Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [AistopGit](https://github.com/AistopGit)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB||✅|
-|SD Card||✅|
-|Windows Boot||✅|
-|Linux Boot||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB|Unstable|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||❌|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||✅|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
 |Camera||❌|
 |Mobile Data||❌|
 |Display||✅|
@@ -1319,15 +1146,15 @@ NOTE: Needs Windows Drivers!
 
 <details>
 <summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
-  
-## Mi 11 Lite NE
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
+## Samsung Galaxy A52s 5G
 
-**Codename: lisa** <br />
-**Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br />
-**Contibuter: People from Group** <br />
-**Tester: [ETCHDEV](https://github.com/ETCHDEV/)**
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
+
+**Codename: a52sxq** <br />
+**Maintainer: [arminask](https://github.com/arminask)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/), People from Group** <br />
+**Testers: [arminask](https://github.com/arminask)**
 
 ### UEFI Status
 
@@ -1335,48 +1162,12 @@ NOTE: Needs Windows Drivers!
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Internal Storage||✅|
+|Internal Storage||❌|
 |Buttons||✅|
-|USB|Device Mode Only|⚠️|
+|USB|Host mode only & No USB power |⚠️|
 |SD Card||❌|
-|Windows Boot||✅|
+|Windows Boot||❌|
 |Linux Boot||❌|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|SD Card||❌|
-|Buttons||✅|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB|External power required|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||✅|
-|GPS||✅|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
 
   </summary>
 </details>
@@ -1410,7 +1201,185 @@ NOTE: Needs Windows Drivers!
 </details>
 
 <details>
-<summary><b><strong>Snapdragon 680 Devices</strong></b></summary>
+<summary><b><strong>Snapdragon 680/685 Devices</strong></b></summary>
+
+## Xiaomi Redmi 10C
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-10C.png" width="500" alt="Preview">
+
+**Codename: fog** <br />
+**Maintainer: [Statzar](https://github.com/Statzar)** <br />
+**Contibuters: None** <br />
+**Tester: [Statzar](https://github.com/Statzar)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB|Host Mode Only & No USB Power|⚠️|
+|SD Card||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|No USB Power|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|No USB Power|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## Xiaomi Redmi Note 12
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
+
+**Codename: tapas** <br />
+**Maintainer: [6adp](https://github.com/6adp)** <br />
+**Contibuters: [Statzar](https://github.com/Statzar)** <br />
+**Tester: [6adp](https://github.com/6adp)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB|Host Mode Only & No USB Power|⚠️|
+|SD Card||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|No USB Power|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB|No USB Power|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
 
 ## Xiaomi Redmi Note 11
 
@@ -1698,6 +1667,102 @@ NOTE: Needs Windows Drivers!
 |Charging||❌|
 |WLAN||❌|
 |CPU|4 Cores only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 660/636/630 Devices</strong></b></summary>
+
+## Xiaomi Mi Max 3
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-Max-3.png" width="500" alt="Preview">
+
+**Codename: nitrogen** <br />
+**Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [AistopGit](https://github.com/AistopGit)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB||✅|
+|SD Card||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB|Unstable|⚠️|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
