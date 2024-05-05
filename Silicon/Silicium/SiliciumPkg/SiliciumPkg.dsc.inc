@@ -44,7 +44,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
 
 [PcdsFixedAtBuild]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.5"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.6"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01231229
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"SILICI"
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
