@@ -3,12 +3,12 @@
 //
 Device (SDC2)
 {
-    Name (_HID, "QCOM2466")                                                                                                             // Hardware ID
-    Name (_CID, "ACPIQCOM2466")                                                                                                         // Compatible ID
+    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
+
+    Name (_HID, "QCOM24BF")                                                                                                             // Hardware ID
+    Name (_CID, "ACPI\QCOM24BF")                                                                                                        // Compatible ID
     Name (_UID, 0)                                                                                                                      // Unique ID
     Name (_CCA, 0)                                                                                                                      // Cache Coherency Attribute
-
-    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
 
     Name (_DEP, Package ()                                                                                                              // Operation Region Dependencies
     {
@@ -20,12 +20,11 @@ Device (SDC2)
     {
         Memory32Fixed (ReadWrite, 0x0C0A4900, 0x00000314)                                                                               // SDHCI Base Address & Length
 
-        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, ) { 0x9D }                                                        // Interrupt
-        //Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, ) { 0xFD }                                                      // Interrupt (Breaks Windows Boot)
+        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, ) { 157 }                                                         // Interrupt
+        //Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, ) { 253 }                                                       // Interrupt (Breaks Windows Boot)
 
-        GpioInt (Edge, ActiveBoth, SharedAndWake, PullNone, 0x1388, "\\_SB.GPIO", 0, ResourceConsumer, ,) { 0x5F }                      // GPIO Pin
-
-        GpioIo  (Shared, PullNone, 0, 0, IoRestrictionNone, "\\_SB.GPIO", 0, ResourceConsumer,, RawDataBuffer () { 1 }) { 0x5F }        // GPIO IO
+        GpioInt (Edge, ActiveBoth, SharedAndWake, PullNone, 0x1388, "\\_SB.GPIO", 0, ResourceConsumer, ,) { 95 }                        // GPIO Pin
+        GpioIo  (Shared, PullNone, 0, 0, IoRestrictionNone, "\\_SB.GPIO", 0, ResourceConsumer,, RawDataBuffer () { 1 }) { 95 }          // GPIO IO
     })
 
     Method (_DIS, 0, NotSerialized) {}                                                                                                  // Disable Device

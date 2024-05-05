@@ -3,16 +3,10 @@
 //
 Device (PMIC)
 {
-    Name (_HID, "QCOM0063")                                                                                                             // Hardware ID
-
     Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
 
-    Name (_DEP, Package ()                                                                                                              // Operation Region Dependencies
-    {
-        \_SB.SPMI
-    })
-
-    Method (_STA, 0, NotSerialized) { Return (0x0F) }                                                                                   // Status
+    Name (_HID, "QCOM0063")                                                                                                             // Hardware ID
+    Name (_DEP, Package () { \_SB.SPMI })                                                                                               // Operation Region Dependencies
 
     Name (PMCF, Package ()                                                                                                              // PMIC Configuration
     {
@@ -35,6 +29,8 @@ Device (PMIC)
             5                                                                                                                           // PMIC Nr. 6
         },
     })
+
+    Method (_STA, 0, NotSerialized) { Return (0x0F) }                                                                                   // Status
 }
 
 //
@@ -42,22 +38,19 @@ Device (PMIC)
 //
 Device (PM01)
 {
+    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
+
     Name (_HID, "QCOM0066")                                                                                                             // Hardware ID
     Name (_UID, 1)                                                                                                                      // Unique ID
 
-    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
-
-    Name (_DEP, Package ()                                                                                                              // Operation Region Dependencies
-    {
-        \_SB.PMIC
-    })
-
-    Method (_STA, 0, NotSerialized) { Return (0x0B) }                                                                                   // Status
+    Name (_DEP, Package () { \_SB.PMIC })                                                                                               // Operation Region Dependencies
 
     Name (_CRS, ResourceTemplate ()                                                                                                     // Current Resource Settings
     {
-        Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, ) { 0x166 }                                                          // Interrupt
+        Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, ) { 358 }                                                            // Interrupt
     })
+
+    Name (PMIO, Package () { 0, 0, 4160, 64, 26, 192, 0, 160, 0, 0, 0 })
 
     Name (CONF, Buffer ()                                                                                                               // Configuration
     {
@@ -66,6 +59,8 @@ Device (PM01)
         0x00, 0x01, 0x08, 0x00, 0x00, 0x00, 0x02, 0x80,
         0x00, 0x00
     })
+
+    Method (_STA, 0, NotSerialized) { Return (0x0F) }                                                                                   // Status
 
     Method (_DSM, 4, Serialized)                                                                                                        // Device-Specific Method
     {
@@ -101,26 +96,24 @@ Device (PM01)
 }
 
 //
-// PMIC PM8998 Nr. 2
+// PMIC PM8998 Nr. 2 (Disabled because it dosen't have GPIOs)
 //
+/*
 Device (PM02)
 {
+    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
+
     Name (_HID, "QCOM0066")                                                                                                             // Hardware ID
     Name (_UID, 2)                                                                                                                      // Unique ID
 
-    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
-
-    Name (_DEP, Package ()                                                                                                              // Operation Region Dependencies
-    {
-        \_SB.PMIC
-    })
-
-    Method (_STA, 0, NotSerialized) { Return (0x0B) }                                                                                   // Status
+    Name (_DEP, Package () { \_SB.PMIC })                                                                                               // Operation Region Dependencies
 
     Name (_CRS, ResourceTemplate ()                                                                                                     // Current Resource Settings
     {
-        Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, ) { 0x166 }                                                          // Interrupt
+        Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, ) { 358 }                                                            // Interrupt
     })
+
+    Name (PMIO, Package () { 1, 2, 4160, 64, 14, 192, 0, 160, 0, 0, 0 })
 
     Name (CONF, Buffer ()                                                                                                               // Configuration
     {
@@ -129,6 +122,8 @@ Device (PM02)
         0x00, 0x01, 0x08, 0x00, 0x00, 0x00, 0x02, 0x80,
         0x00, 0x00
     })
+
+    Method (_STA, 0, NotSerialized) { Return (0x0F) }                                                                                   // Status
 
     Method (_DSM, 4, Serialized)                                                                                                        // Device-Specific Method
     {
@@ -145,7 +140,7 @@ Device (PM02)
 
                     Case (1)
                     {
-                        Return (Package () { 0x40, 0x41 })
+                        Return (Package () { 0x1001, 0x1002, 0x8A })
                     }
 
                     Default
@@ -162,35 +157,4 @@ Device (PM02)
         }
     }
 }
-
-//
-// PMIC Apps
-//
-Device (PMAP)
-{
-    Name (_HID, "QCOM0065")                                                                                                             // Hardware ID
-    Name (BUFF, Buffer (4) {})                                                                                                          // Buffer
-
-    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
-
-    Name (_DEP, Package ()                                                                                                              // Dependencies
-    {
-        \_SB.PMIC, 
-        \_SB.ABD, 
-        \_SB.SCM0
-    })
-
-    Method (_STA, 0, NotSerialized) { Return (0x0B) }                                                                                   // Status
-
-    Method (GEPT, 0, Serialized)
-    {
-        //CreateByteField (BUFF, 0, STAT)
-        CreateWordField (BUFF, 2, DATA)
-
-        DATA = 2
-
-        Return (DATA)
-    }
-
-    Name (_CRS, Buffer () { 0x79, 0x00 })                                                                                               // Current Resource Settings
-}
+*/

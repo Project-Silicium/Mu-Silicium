@@ -1,4 +1,4 @@
-DefinitionBlock ("", "DSDT", 2, "QCOM  ", "MSM8998 ", 0x00000003)
+DefinitionBlock ("DSDT.aml", "DSDT", 2, "QCOM  ", "MSM8998 ", 3)
 {
     Scope (\_SB)
     {
@@ -13,12 +13,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOM  ", "MSM8998 ", 0x00000003)
         Include ("sd-card.asl")
 
         //
-        // ABD
-        //
-        Include ("abd.asl")
-
-        //
-        // PMIC (Maybe Finisched?)
+        // PMIC (Incomplete)
         //
         Include ("pmic.asl")
 
@@ -26,11 +21,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOM  ", "MSM8998 ", 0x00000003)
         // PEP (Incomplete)
         //
         Include ("pep.asl")
-
-        //
-        // SCM
-        //
-        Include ("scm.asl")
 
         //
         // SPMI
@@ -51,5 +41,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOM  ", "MSM8998 ", 0x00000003)
         // USB Port (Incomplete)
         //
         Include ("usb.asl")
+
+        //
+        // Buttons (Incomplete and Broken?)
+        //
+        //Include ("buttons.asl")
     }
 }

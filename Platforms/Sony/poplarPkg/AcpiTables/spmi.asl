@@ -3,11 +3,11 @@
 //
 Device (SPMI)
 {
+    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
+
     Name (_HID, "QCOM0015")                                                                                                             // Hardware ID
     Name (_UID, 0)                                                                                                                      // Unique ID
     Name (_CCA, 0)                                                                                                                      // Cache Coherency Attribute
-
-    Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
 
     Name (_CRS, ResourceTemplate ()                                                                                                     // Current Resource Settings
     {
@@ -33,4 +33,6 @@ Device (SPMI)
         0x08, 0x00, 0x00, 0x00,                                                                                                         // Physical Address 0 (Byte3, Byte2, Byte1, Byte0)
         0x02, 0x80, 0x00, 0x00                                                                                                          // Physical Length 0  (Byte3, Byte2, Byte1, Byte0)
     })
+
+    Method (_STA, 0, NotSerialized) { Return (0x0F) }                                                                                   // Status
 }
