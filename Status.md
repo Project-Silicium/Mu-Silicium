@@ -23,7 +23,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **Codename: pong** <br />
 **Maintainers: [Govro150](https://github.com/Govro150)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br />
-**Testers: [Govro150](https://github.com/Govro150)**
+**Testers: [Govro150](https://github.com/Govro150) [nokii1337](https://github.com/nokii1337)**
 
 ### UEFI Status
 
@@ -34,7 +34,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No Power|⚠️|
-|Windows Boot|✅|
+|Windows Boot||✅|
 |Linux Boot||❌|
 |Slot Switch||✅|
 |Glyphs Interface||❌|
