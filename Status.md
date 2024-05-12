@@ -34,7 +34,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Internal Storage||✅|
 |Buttons||✅|
 |USB|Host Mode Only & No Power|⚠️|
-|Windows Boot|WinPE only|⚠️|
+|Windows Boot|✅|
 |Linux Boot||❌|
 |Slot Switch||✅|
 |Glyphs Interface||❌|
@@ -47,7 +47,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Internal Storage||❌|
+|Internal Storage||✅|
 |Buttons||❌|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
