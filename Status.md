@@ -8,10 +8,12 @@
 
 NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
-## Active Supported Devices
+## Supported Devices
 
 <details>
 <summary><b><strong>Snapdragon Devices</strong></b></summary>
+
+<br />
 
 <details>
 <summary><b><strong>Snapdragon 8 Gen 1/8+ Gen 1 Devices</strong></b></summary>
@@ -20,6 +22,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
 
+**State: Active** <br />
 **Codename: pong** <br />
 **Maintainers: [Govro150](https://github.com/Govro150)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br />
@@ -33,7 +36,8 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Host Mode Only & No Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Windows Boot||✅|
 |Linux Boot||❌|
 |Slot Switch||✅|
@@ -57,10 +61,295 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU|One Core Only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## Samsung Galaxy Tab S8 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: gts8** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons|Pwr Button does not work|⚠️|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
+|SD Card|Needs working SdccDxe|❌|
+|Windows Boot||✅|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage|Needs Special Setup|✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|Only One Core working right now|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+|S Pen||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 888/888+ Devices</strong></b></summary>
+
+## Samsung Galaxy Z Fold 3 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Z-Fold-3-5G.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: q2q** <br />
+**Maintainer: [Azkali](https://github.com/Azkali/)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [Azkali](https://github.com/Azkali/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons|Pwr Button does not work|⚠️|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Pedometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Heart Rate Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|Only One Core working right now|️⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## Xiaomi Mi 11
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: venus** <br />
+**Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Gravity Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|None|❌|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|Only One Core working right now|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## Asus ROG Phone 5
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Asus-ROG-Phone-5.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: i005d** <br />
+**Maintainer: [alfaonyt](https://github.com/alfaonyt/)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [alfaonyt](https://github.com/alfaonyt/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+|Slot Switch||✅|
+
+## Xiaomi 11T Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: vili** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
+|Windows Boot||✅|
+|Linux Boot||❌|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Barometer Sensor||❌|
+|Geomagnetic Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Gravity Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|Only One Core working right now|⚠️|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|
@@ -84,6 +373,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
 
+**State: Active** <br />
 **Codename: alioth** <br />
 **Maintainers: [AdrianoA3](https://github.com/AdrianoA3), [N1kroks](https://github.com/N1kroks)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite), [hyusang](https://github.com/cloudsweets/)** <br />
@@ -97,7 +387,8 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB||✅|
+|USB Mode|Dualrole|✅|
+|USB PD||✅|
 |Windows Boot||✅|
 |Linux Boot||❌|
 |Slot Switch||✅|
@@ -122,7 +413,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||✅|
+|USB Mode|Host Mode only|⚠️|
+|USB PD||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -143,6 +435,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Realme-GT-NEO-2.png" width="500" alt="Preview">
 
+**State: Active** <br />
 **Codename: bitra** <br />
 **Maintainers: [kubawis128](https://github.com/kubawis128)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/), [kubawis128](https://github.com/kubawis128)** <br />
@@ -156,7 +449,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Windows Boot||✅|
 |Linux Boot||✅|
 
@@ -178,7 +472,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|Host Mode Only & No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -207,7 +502,349 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|Host Mode Only & No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## Lenovo Legion Tab Y700
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-Legion-Tab-Y700.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: 9707f** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||✅|
+|Linux Boot||❌|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## OnePlus 8T
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/OnePlus-8T.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: kebab** <br />
+**Maintainer: None** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Windows Boot||✅|
+|Linux Boot||❌|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## Xiaomi Pad 6
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Pad-6.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: pipa** <br />
+**Maintainer: [6adp](https://github.com/6adp)** <br />
+**Contibuters: [Statzar](https://github.com/Statzar), [Robotix22](https://github.com/Robotix22/)** <br />
+**Tester: [6adp](https://github.com/6adp)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||✅|
+|Windows Boot||✅|
+|Linux Boot||✅|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||✅|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+## Xiaomi Poco F2 Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Poco-F2-Pro.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: lmi** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||✅|
+|Linux Boot||❌|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 855/855+/860 Devices</strong></b></summary>
+
+## OnePlus 7T Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: hotdog** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|None|❌|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -234,6 +871,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Sony-Xperia-XZ1.png" width="500" alt="Preview">
 
+**State: Active** <br />
 **Codename: poplar** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuter: None** <br />
@@ -247,7 +885,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |UFS|Disabled to prevent Wipe|✅|
 |Buttons||✅|
-|USB|Host Mode Only & Only works once|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD|Unstable|⚠️|
 |SD Card||✅|
 |Windows Boot|Windows PE only|⚠️|
 |Linux Boot||❌|
@@ -273,7 +912,8 @@ NOTE: Needs Drivers
 |Hall Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|Only works once|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD|Unstable|⚠️|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -301,6 +941,7 @@ NOTE: Needs Drivers
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
+**State: Active** <br />
 **Codename: lisa** <br />
 **Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br />
 **Contibuter: People from Group** <br />
@@ -314,7 +955,8 @@ NOTE: Needs Drivers
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Device Mode Only|⚠️|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
 |SD Card||❌|
 |Windows Boot||✅|
 |Linux Boot||❌|
@@ -340,7 +982,8 @@ NOTE: Needs Windows Drivers!
 |Hall Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|External power required|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -358,6 +1001,30 @@ NOTE: Needs Windows Drivers!
 
 </td></tr> </table>
 
+## Samsung Galaxy A52s 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: a52sxq** <br />
+**Maintainer: [arminask](https://github.com/arminask)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/), People from Group** <br />
+**Testers: [arminask](https://github.com/arminask)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
   </summary>
 </details>
 
@@ -368,6 +1035,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-Tab-P11-Pro-2020.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: j706f** <br />
 **Maintainer: [hyusang](https://github.com/cloudsweets/)** <br />
 **Contibuters: None** <br />
@@ -381,7 +1049,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Device Mode only|⚠️|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
 |SD Card||❌|
 |Windows Boot||✅|
 |Linux Boot||❌|
@@ -406,7 +1075,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |Hall Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB Mode|None|❌|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -424,6 +1094,30 @@ NOTE: Needs Windows Drivers!
 
 </td></tr> </table>
 
+## Xiaomi Redmi Note 12 Pro 4G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: sweet_k6a** <br />
+**Maintainer: None** <br />
+**Contibuter: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
   </summary>
 </details>
 
@@ -434,6 +1128,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-9S.png" width="500" alt="Preview">
 
+**State: Active** <br />
 **Codename: miatoll** <br />
 **Maintainer: [N1kroks](https://github.com/N1kroks/)** <br />
 **Contibuters: None** <br />
@@ -447,7 +1142,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Host Mode only|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||✅|
 |SD Card||✅|
 |Windows Boot||✅|
 |Linux Boot||❌|
@@ -494,712 +1190,6 @@ NOTE: Needs Windows Drivers!
   </summary>
 </details>
 
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Tegra Devices</strong></b></summary>
-
-<details>
-<summary><b><strong>Tegra 210 Devices</strong></b></summary>
-
-## Nintendo Switch
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
-
-**Codename: HAC-001** <br />
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
-**Contibuters: None** <br />
-**Tester: [Robotix22](https://github.com/Robotix22/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||❌|
-|Joy Cons||❌|
-|Buttons|No Power Button|⚠️|
-|USB||❌|
-|SD Card||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-
-  </summary>
-</details>
-
-  </summary>
-</details>
-
-## Inactive Supported Devices
-
-<details>
-<summary><b><strong>Snapdragon Devices</strong></b></summary>
-
-<details>
-<summary><b><strong>Snapdragon 8 Gen 1/8+ Gen 1 Devices</strong></b></summary>
-
-## Samsung Galaxy Tab S8 5G
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
-
-**Codename: gts8** <br />
-**Maintainer: None** <br />
-**Contibuters: None** <br />
-**Tester: None**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons|Pwr Button does not work|⚠️|
-|USB|Device Mode Only|⚠️|
-|SD Card|Needs working SdccDxe|❌|
-|Windows Boot||✅|
-|Linux Boot||❌|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage|Needs Special Setup|✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-|S Pen||❌|
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 888/888+ Devices</strong></b></summary>
-
-## Samsung Galaxy Z Fold 3 5G
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Z-Fold-3-5G.png" width="500" alt="Preview">
-
-**Codename: q2q** <br />
-**Maintainer: [Azkali](https://github.com/Azkali/)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [Azkali](https://github.com/Azkali/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons|Pwr Button does not work|⚠️|
-|USB|Device Mode only|⚠️|
-|Windows Boot|Windows PE only|⚠️|
-|Linux Boot||❌|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Barometer Sensor||❌|
-|Pedometer Sensor||❌|
-|Geomagnetic Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Heart Rate Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-## Xiaomi Mi 11
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11.png" width="500" alt="Preview">
-
-**Codename: venus** <br />
-**Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
-|Windows Boot|Windows PE only|⚠️|
-|Linux Boot||❌|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Barometer Sensor||❌|
-|Geomagnetic Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Gravity Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-## Asus ROG Phone 5
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Asus-ROG-Phone-5.png" width="500" alt="Preview">
-
-**Codename: i005d** <br />
-**Maintainer: [alfaonyt](https://github.com/alfaonyt/)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [alfaonyt](https://github.com/alfaonyt/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
-|Windows Boot||❌|
-|Linux Boot||❌|
-|Slot Switch||✅|
-
-## Xiaomi 11T Pro
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
-
-**Codename: vili** <br />
-**Maintainer: None** <br />
-**Contibuters: None** <br />
-**Tester: None**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Device Mode Only|⚠️|
-|Windows Boot||✅|
-|Linux Boot||❌|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Barometer Sensor||❌|
-|Geomagnetic Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Gravity Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 865/865+/870 Devices</strong></b></summary>
-
-## Lenovo Legion Tab Y700
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-Legion-Tab-Y700.png" width="500" alt="Preview">
-
-**Codename: 9707f** <br />
-**Maintainer: None** <br />
-**Contibuters: None** <br />
-**Tester: None**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
-|SD Card||❌|
-|Windows Boot||✅|
-|Linux Boot||❌|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB|No USB Power|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-## OnePlus 8T
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/OnePlus-8T.png" width="500" alt="Preview">
-
-**Codename: kebab** <br />
-**Maintainer: None** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: None**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
-|Windows Boot||✅|
-|Linux Boot||❌|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|NFC Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB|No USB Power|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-## Xiaomi Pad 6
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Pad-6.png" width="500" alt="Preview">
-
-**Codename: pipa** <br />
-**Maintainer: [6adp](https://github.com/6adp)** <br />
-**Contibuters: [Statzar](https://github.com/Statzar), [Robotix22](https://github.com/Robotix22/)** <br />
-**Tester: [6adp](https://github.com/6adp)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Host Mode Only|⚠️|
-|Windows Boot||✅|
-|Linux Boot||✅|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||✅|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB||✅|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-## Xiaomi Poco F2 Pro
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Poco-F2-Pro.png" width="500" alt="Preview">
-
-**Codename: lmi** <br />
-**Maintainer: None** <br />
-**Contibuters: None** <br />
-**Tester: None**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
-|SD Card||❌|
-|Windows Boot||✅|
-|Linux Boot||❌|
-|Slot Switch||✅|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||✅|
-|SD Card||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
-|USB|No USB Power|⚠️|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 855/855+/860 Devices</strong></b></summary>
-
-## OnePlus 7T Pro
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
-
-**Codename: hotdog** <br />
-**Maintainer: None** <br />
-**Contibuters: None** <br />
-**Tester: None**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Device Mode Only|⚠️|
-|Windows Boot|Windows PE only|⚠️|
-|Linux Boot||❌|
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||❌|
-|Buttons||❌|
-|Proximity Sensor||❌|
-|Light Sensor||❌|
-|Accelerometer Sensor||❌|
-|Compass Sensor||❌|
-|Gyroscope Sensor||❌|
-|Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|NFC Sensor||❌|
-|Battery||❌|
-|USB||❌|
-|Charging||❌|
-|WLAN||❌|
-|CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
-|GPS||❌|
-|Speakers||❌|
-|Microphone||❌|
-|GPU||❌|
-|Camera||❌|
-|Mobile Data||❌|
-|Display||✅|
-|Vibration||❌|
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
-
-## Samsung Galaxy A52s 5G
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
-
-**Codename: a52sxq** <br />
-**Maintainer: [arminask](https://github.com/arminask)** <br />
-**Contibuters: [Robotix22](https://github.com/Robotix22/), People from Group** <br />
-**Testers: [arminask](https://github.com/arminask)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||❌|
-|Buttons||✅|
-|USB|Host mode only & No USB power |⚠️|
-|SD Card||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 730/730G/732G Devices</strong></b></summary>
-
-## Xiaomi Redmi Note 12 Pro 4G
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
-
-**Codename: sweet_k6a** <br />
-**Maintainer: None** <br />
-**Contibuter: None** <br />
-**Tester: None**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||✅|
-|Buttons||✅|
-|USB|Device Mode Only|⚠️|
-|SD Card||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-
-  </summary>
-</details>
-
 <details>
 <summary><b><strong>Snapdragon 680/685 Devices</strong></b></summary>
 
@@ -1207,6 +1197,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-10C.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: fog** <br />
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
 **Contibuters: None** <br />
@@ -1220,7 +1211,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |SD Card||✅|
 |Windows Boot||✅|
 |Linux Boot||✅|
@@ -1244,7 +1236,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -1274,7 +1267,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -1296,6 +1290,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: tapas** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
 **Contibuters: [Statzar](https://github.com/Statzar)** <br />
@@ -1309,7 +1304,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |SD Card||✅|
 |Windows Boot||✅|
 |Linux Boot||✅|
@@ -1333,7 +1329,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -1363,7 +1360,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -1385,6 +1383,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-11.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: spes** <br />
 **Maintainer: [Statzar](https://github.com/Statzar)** <br />
 **Contibuters: None** <br />
@@ -1398,7 +1397,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Host Mode Only & No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |SD Card||✅|
 |Windows Boot||✅|
 |Linux Boot||✅|
@@ -1423,7 +1423,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -1454,7 +1455,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB|No USB Power|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU||✅|
@@ -1482,6 +1484,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: laurel_sprout** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -1495,7 +1498,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Device Mode Only|⚠️|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
 |SD Card||❌|
 |Windows Boot||❌|
 |Linux Boot||❌|
@@ -1505,6 +1509,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: ginkgo** <br />
 **Maintainer: None** <br />
 **Contibuters: [SwedMlite](https://github.com/SwedMlite)** <br />
@@ -1518,7 +1523,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB|Host Mode Only|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||✅|
 |SD Card||❌|
 |Windows Boot||✅|
 |Linux Boot||❌|
@@ -1540,7 +1546,8 @@ NOTE: Needs Windows Drivers!
 |Gyroscope Sensor||❌|
 |Fingerprint Sensor||❌|
 |Battery||❌|
-|USB||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU|4 Cores only|⚠️|
@@ -1568,6 +1575,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Motorola-Moto-G30.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: caprip** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -1581,7 +1589,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons|Pwr Button is Mapped as SUSPEND|⚠️|
-|USB|Device Mode Only|⚠️|
+|USB Mode|Device Mode Only|⚠️|
+|USB PD||❌|
 |SD Card||❌|
 |Windows Boot||✅|
 |Linux Boot||❌|
@@ -1604,7 +1613,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||❌|
+|USB Mode|None|❌|
+|USB PD||❌|
 |Charging||❌|
 |WLAN||❌|
 |CPU|4 Cores only|⚠️|
@@ -1626,6 +1636,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-9T.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: lime** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -1639,7 +1650,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||✅|
 |SD Card||❌|
 |Windows Boot|Windows PE only|⚠️|
 |Linux Boot||❌|
@@ -1663,7 +1675,8 @@ NOTE: Needs Windows Drivers!
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
 |Battery||❌|
-|USB||✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||✅|
 |Charging||❌|
 |WLAN||❌|
 |CPU|4 Cores only|⚠️|
@@ -1691,6 +1704,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-Max-3.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: nitrogen** <br />
 **Maintainer: [AistopGit](https://github.com/AistopGit)** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
@@ -1704,7 +1718,8 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB||✅|
+|USB Mode|Dualrole|✅|
+|USB PD||✅|
 |SD Card||✅|
 |Windows Boot||✅|
 |Linux Boot||✅|
@@ -1783,67 +1798,22 @@ NOTE: Needs Windows Drivers!
   </summary>
 </details>
 
-<details>
-<summary><b><strong>Exynos Devices</strong></b></summary>
+<br />
 
 <details>
-<summary><b><strong>Exynos 9830 Devices</strong></b></summary>
+<summary><b><strong>Tegra Devices</strong></b></summary>
 
-## Samsung Galaxy Note 20 5G
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Note-20-5G.png" width="500" alt="Preview">
-
-**Codename: c1s** <br />
-**Maintainer: [BotchedRPR](https://github.com/BotchedRPR/)** <br />
-**Contibuters: [halal-beef](https://github.com/halal-beef/)** <br />
-**Tester: [BotchedRPR](https://github.com/BotchedRPR/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||❌|
-|Buttons||✅|
-|USB||❌|
-|SD Card||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-
-## Samsung Galaxy S20 5G
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
-
-**Codename: x1s** <br />
-**Maintainer: [halal-beef](https://github.com/halal-beef/)** <br />
-**Contibuters: None** <br />
-**Tester: [halal-beef](https://github.com/halal-beef/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||❌|
-|Buttons||✅|
-|USB||❌|
-|SD Card||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-
-  </summary>
-</details>
+<br />
 
 <details>
-<summary><b><strong>Exynos 9820 Devices</strong></b></summary>
+<summary><b><strong>Tegra X1 Devices</strong></b></summary>
 
-## Samsung Galaxy S10
+## Nintendo Switch
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S10.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
 
-**Codename: beyond1lte** <br />
+**State: Active** <br />
+**Codename: HAC-001** <br />
 **Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
 **Contibuters: None** <br />
 **Tester: [Robotix22](https://github.com/Robotix22/)**
@@ -1855,98 +1825,16 @@ NOTE: Needs Windows Drivers!
 |Display||✅|
 |Touchscreen||❌|
 |Internal Storage||❌|
-|Buttons||✅|
-|USB||❌|
+|Joy Cons||❌|
+|Buttons|No Power Button|⚠️|
+|USB Mode|None|❌|
+|USB PD||❌|
 |SD Card||❌|
 |Windows Boot||❌|
 |Linux Boot||❌|
 
   </summary>
 </details>
-
-<details>
-<summary><b><strong>Exynos 9810 Devices</strong></b></summary>
-
-## Samsung Galaxy S9
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S9.png" width="500" alt="Preview">
-
-**Codename: starlte** <br />
-**Maintainer: None** <br />
-**Contibuters: None** <br />
-**Tester: None**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||❌|
-|Buttons||✅|
-|USB||❌|
-|SD Card||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Exynos 7885 Devices</strong></b></summary>
-
-## Samsung Galaxy A10
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A10.png" width="500" alt="Preview">
-
-**Codename: a10** <br />
-**Maintainer: [snaccy](https://github.com/sonic011gamer/)** <br />
-**Contibuters: None** <br />
-**Tester: [snaccy](https://github.com/sonic011gamer/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||❌|
-|Buttons||✅|
-|USB||❌|
-|SD Card||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-
-## Samsung Galaxy A7
-
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A7.png" width="500" alt="Preview">
-
-**Codename: a7** <br />
-**Maintainer: [Icesito](https://github.com/Icesito68/)** <br />
-**Contibuters: None** <br />
-**Tester: [Icesito](https://github.com/Icesito68/)**
-
-### UEFI Status
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
-|Internal Storage||❌|
-|Buttons||✅|
-|USB||❌|
-|SD Card||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-
-  </summary>
-</details>
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Tegra Devices</strong></b></summary>
 
 <details>
 <summary><b><strong>Tegra 3 Devices</strong></b></summary>
@@ -1955,6 +1843,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Microsoft-Surface-RT.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: oemk** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -1969,7 +1858,8 @@ NOTE: Needs Windows Drivers!
 |Internal Storage||❌|
 |Touchcover||❌|
 |Buttons||❌|
-|USB||❌|
+|USB Mode|None|❌|
+|USB PD||❌|
 |SD Card||❌|
 |Windows Boot||❌|
 |Linux Boot||❌|
@@ -1978,6 +1868,7 @@ NOTE: Needs Windows Drivers!
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-IdeaPad-Yoga-11.png" width="500" alt="Preview">
 
+**State: Inactive** <br />
 **Codename: Venus** <br />
 **Maintainer: None** <br />
 **Contibuters: None** <br />
@@ -1992,7 +1883,186 @@ NOTE: Needs Windows Drivers!
 |Internal Storage||❌|
 |Keyboard|Some Functions are missing|⚠️|
 |Buttons|Isn't Tested|❔|
-|USB||❌|
+|USB Mode|None|❌|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+  </summary>
+</details>
+
+<br />
+
+<details>
+<summary><b><strong>Exynos Devices</strong></b></summary>
+
+<br />
+
+<details>
+<summary><b><strong>Exynos 9830 Devices</strong></b></summary>
+
+## Samsung Galaxy Note 20 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Note-20-5G.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: c1s** <br />
+**Maintainer: [BotchedRPR](https://github.com/BotchedRPR/)** <br />
+**Contibuters: [halal-beef](https://github.com/halal-beef/)** <br />
+**Tester: [BotchedRPR](https://github.com/BotchedRPR/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB Mode|None|❌|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+## Samsung Galaxy S20 5G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: x1s** <br />
+**Maintainer: [halal-beef](https://github.com/halal-beef/)** <br />
+**Contibuters: None** <br />
+**Tester: [halal-beef](https://github.com/halal-beef/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB Mode|None|❌|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Exynos 9820 Devices</strong></b></summary>
+
+## Samsung Galaxy S10
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S10.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: beyond1lte** <br />
+**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: None** <br />
+**Tester: [Robotix22](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB Mode|None|❌|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Exynos 9810 Devices</strong></b></summary>
+
+## Samsung Galaxy S9
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S9.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: starlte** <br />
+**Maintainer: None** <br />
+**Contibuters: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB Mode|None|❌|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Exynos 7885 Devices</strong></b></summary>
+
+## Samsung Galaxy A10
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A10.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: a10** <br />
+**Maintainer: [snaccy](https://github.com/sonic011gamer/)** <br />
+**Contibuters: None** <br />
+**Tester: [snaccy](https://github.com/sonic011gamer/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB Mode|None|❌|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+## Samsung Galaxy A7
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A7.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: a7** <br />
+**Maintainer: [Icesito](https://github.com/Icesito68/)** <br />
+**Contibuters: None** <br />
+**Tester: [Icesito](https://github.com/Icesito68/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||❌|
+|Buttons||✅|
+|USB Mode|None|❌|
+|USB PD||❌|
 |SD Card||❌|
 |Windows Boot||❌|
 |Linux Boot||❌|
