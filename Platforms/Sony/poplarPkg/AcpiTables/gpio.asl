@@ -13,6 +13,8 @@ Device (GPIO)
         Memory32Fixed (ReadWrite, 0x03400000, 0x00C00000)                                                                               // Pinctrl Base Address & Length
 
         Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, ) { 0xF0 }                                                           // Interrupt
+        Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, ) { 0xF0 }                                                           // Interrupt
+        Interrupt (ResourceConsumer, Level, ActiveHigh, Shared, ,, ) { 0xF0 }                                                           // Interrupt
     })
 
     Name (OFNI, Buffer () { 0x96, 0x00 }) 

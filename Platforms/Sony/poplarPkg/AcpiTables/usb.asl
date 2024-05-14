@@ -10,8 +10,6 @@ Device (URS0)
     Name (_UID, 0)                                                                                                                      // Unique ID
     Name (_CCA, 0)                                                                                                                      // Cache Coherency Attribute
 
-    Name (_DEP, Package () { \_SB.PEP0 })                                                                                               // Operation Region Dependencies
-
     Name (_CRS, ResourceTemplate ()                                                                                                     // Current Resource Settings
     {
         Memory32Fixed (ReadWrite, 0x0A800000, 0x00100000)                                                                               // USB Base Address & Length

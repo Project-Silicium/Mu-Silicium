@@ -5,14 +5,13 @@ Device (SDC2)
 {
     Alias (\_SB.PSUB, _SUB)                                                                                                             // Subsystem ID
 
-    Name (_HID, "QCOM24BF")                                                                                                             // Hardware ID
-    Name (_CID, "ACPI\QCOM24BF")                                                                                                        // Compatible ID
+    Name (_HID, "QCOM2466")                                                                                                             // Hardware ID
+    Name (_CID, "ACPI\QCOM2466")                                                                                                        // Compatible ID
     Name (_UID, 0)                                                                                                                      // Unique ID
     Name (_CCA, 0)                                                                                                                      // Cache Coherency Attribute
 
     Name (_DEP, Package ()                                                                                                              // Operation Region Dependencies
     {
-        \_SB.PEP0,
         \_SB.GPIO
     })
 

@@ -18,11 +18,6 @@ DefinitionBlock ("DSDT.aml", "DSDT", 2, "QCOM  ", "MSM8998 ", 3)
         Include ("pmic.asl")
 
         //
-        // PEP (Incomplete)
-        //
-        Include ("pep.asl")
-
-        //
         // SPMI
         //
         Include ("spmi.asl")
