@@ -123,20 +123,4 @@ typedef struct {
   LOAD_LIB    LoadLib;
 } ShLibLoaderType;
 
-#define EFI_SHIM_LIBRARY_GUID                                                  \
-  {                                                                            \
-    0xbedaeabc, 0x5e70, 0x4d66,                                                \
-    {                                                                          \
-      0x97, 0x33, 0x21, 0x3d, 0x07, 0x2b, 0x9d, 0x04                           \
-    }                                                                          \
-  }
-
-#define EFI_INFORMATION_BLOCK_GUID                                             \
-  {                                                                            \
-    0x90a49afd, 0x422f, 0x08ae,                                                \
-    {                                                                          \
-      0x96, 0x11, 0xe7, 0x88, 0xd3, 0x80, 0x48, 0x45                           \
-    }                                                                          \
-  }
-
 #endif /* _PLATFORM_PEI_LIB_H_ */

@@ -34,5 +34,10 @@
 [Pcd]
   gArmTokenSpaceGuid.PcdFvBaseAddress
 
+[Guids]
+  gEfiInfoBlkHobGuid
+  gEfiShimLibraryHobGuid
+  gFvDecompressHobGuid
+
 [Depex]
   gEfiPeiMemoryDiscoveredPpiGuid

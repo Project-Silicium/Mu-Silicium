@@ -92,7 +92,7 @@ CfgGetCfgInfoVal64 (
 
 STATIC
 UINTN
-SFlush (VOID) { return EFI_SUCCESS; }
+SFlush () { return EFI_SUCCESS; }
 
 STATIC
 UINTN
@@ -105,11 +105,11 @@ SControl (
 
 STATIC
 BOOLEAN
-SPoll (VOID) { return TRUE; }
+SPoll () { return TRUE; }
 
 STATIC
 UINTN
-SDrain (VOID) { return EFI_SUCCESS; }
+SDrain () { return EFI_SUCCESS; }
 
 STATIC
 EFI_STATUS
@@ -181,34 +181,31 @@ BuildMemHobForFv (IN UINT16 Type)
   }
 }
 
-STATIC GUID gEfiShLibHobGuid    = EFI_SHIM_LIBRARY_GUID;
-STATIC GUID gEfiInfoBlkHobGuid  = EFI_INFORMATION_BLOCK_GUID;
-STATIC GUID gEfiProdmodeHobGuid = EFI_PRODMODE_INFORMATION_GUID;
-
 VOID
 InstallPlatformHob ()
 {
-  BOOLEAN Prodmode = FALSE;
   ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
+
   LocateMemoryMapAreaByName ("Info Blk", &InfoBlk);
 
-  UINTN InfoBlkAddress = InfoBlk.Address;
-  UINTN ShLibAddress   = (UINTN)&ShLib;
+  UINTN   InfoBlkAddress = InfoBlk.Address;
+  UINTN   ShLibAddress   = (UINTN)&ShLib;
+  BOOLEAN Prodmode       = FALSE;
 
-  BuildGuidDataHob (&gEfiInfoBlkHobGuid,  &InfoBlkAddress, sizeof(InfoBlkAddress));
-  BuildGuidDataHob (&gEfiShLibHobGuid,    &ShLibAddress,   sizeof(ShLibAddress));
-  BuildGuidDataHob (&gEfiProdmodeHobGuid, &Prodmode, sizeof(Prodmode));
+  BuildGuidDataHob (&gEfiInfoBlkHobGuid,     &InfoBlkAddress, sizeof(InfoBlkAddress));
+  BuildGuidDataHob (&gEfiShimLibraryHobGuid, &ShLibAddress,   sizeof(ShLibAddress));
+  BuildGuidDataHob (&gEfiProdmodeHobGuid,    &Prodmode,       sizeof(Prodmode));
 }
 
 EFI_STATUS
 EFIAPI
-PlatformPeim (VOID)
+PlatformPeim ()
 {
   BuildFvHob (PcdGet64(PcdFvBaseAddress), PcdGet32(PcdFvSize));
 
   BuildMemHobForFv (EFI_HOB_TYPE_FV2);
 
-  InstallPlatformHob();
+  InstallPlatformHob ();
 
   return EFI_SUCCESS;
 }
