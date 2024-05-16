@@ -77,4 +77,4 @@
 [Components]
   Tegra210Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-!include NVPkg/NVPkg.dsc.inc
+!include NvidiaPkg/NvidiaPkg.dsc.inc

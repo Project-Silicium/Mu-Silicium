@@ -20,7 +20,7 @@
 #
 ################################################################################
 
-[FD.Venus_UEFI]
+[FD.oemk_UEFI]
 BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
 Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1
@@ -101,7 +101,7 @@ READ_LOCK_STATUS   = TRUE
 
   INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
-  !include NVPkg/Extra.fdf.inc
+  !include NvidiaPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8

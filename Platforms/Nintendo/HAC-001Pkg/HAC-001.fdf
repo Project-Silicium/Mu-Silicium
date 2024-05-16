@@ -101,7 +101,7 @@ READ_LOCK_STATUS   = TRUE
 
   INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
-  !include NVPkg/Extra.fdf.inc
+  !include NvidiaPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8

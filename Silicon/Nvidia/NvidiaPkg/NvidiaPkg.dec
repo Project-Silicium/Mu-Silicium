@@ -1,0 +1,23 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = Nvidiakg
+  PACKAGE_GUID                        = 8CD16071-0693-4422-8042-4EBC09563BE3
+  PACKAGE_VERSION                     = 0.1
+
+[Includes]
+  Include                               # Root include for the package
+
+[Guids]
+  gNvidiaPkgTokenSpaceGuid            = { 0x8CD16071, 0x0693, 0x4422, { 0x80, 0x42, 0x4E, 0xBC, 0x09, 0x56, 0x3B, 0xE3 } }
+
+[Protocols]
+  gEfiTegraGpioProtocolGuid           = { 0xF5A3B253, 0x587D, 0x4EE5, { 0xA3, 0x4A, 0xF4, 0x86, 0x63, 0x1D, 0x9F, 0x2E } }
+
+[PcdsFixedAtBuild]
+  # Timer
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1|0|UINT32|0x0000B000
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt2|0|UINT32|0x0000B001
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt3|0|UINT32|0x0000B002
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4|0|UINT32|0x0000B003
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5|0|UINT32|0x0000B004
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6|0|UINT32|0x0000B005

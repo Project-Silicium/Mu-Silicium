@@ -59,4 +59,4 @@
 [Components]
   E9810Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-!include SamPkg/SamPkg.dsc.inc
+!include SamsungPkg/SamsungPkg.dsc.inc

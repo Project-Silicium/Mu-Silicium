@@ -14,7 +14,7 @@
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
-  NVPkg/NVPkg.dec
+  NvidiaPkg/NvidiaPkg.dec
 
 [LibraryClasses]
   BaseMemoryLib

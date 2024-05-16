@@ -23,7 +23,7 @@
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  NVPkg/NVPkg.dec
+  NvidiaPkg/NvidiaPkg.dec
 
 [LibraryClasses]
   ArmLib
@@ -40,12 +40,12 @@
   gHardwareInterruptProtocolGuid
 
 [Pcd.common]
-  gNVPkgTokenSpaceGuid.PcdTegraTimerInterrupt1
-  gNVPkgTokenSpaceGuid.PcdTegraTimerInterrupt2
-  gNVPkgTokenSpaceGuid.PcdTegraTimerInterrupt3
-  gNVPkgTokenSpaceGuid.PcdTegraTimerInterrupt4
-  gNVPkgTokenSpaceGuid.PcdTegraTimerInterrupt5
-  gNVPkgTokenSpaceGuid.PcdTegraTimerInterrupt6
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt2
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt3
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6
 
 [Depex]
   gHardwareInterruptProtocolGuid

@@ -12,19 +12,10 @@
 [LibraryClasses]
   # Custom Libraries
   PowerServicesLib|PcBdsPkg/Library/PowerServicesLibNull/PowerServicesLibNull.inf
-  BdsExtensionLib|NVPkg/Library/BdsExtensionLib/BdsExtensionLib.inf
-!if $(USE_CUSTOM_TIMER) == 1
-  TimerLib|NVPkg/GPLLibrary/TegraTimerLib/TegraTimerLib.inf
-!endif
+  BdsExtensionLib|SamsungPkg/Library/BdsExtensionLib/BdsExtensionLib.inf
 
 [Components]
   # BDS
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-
-  # Custom Tegra Drivers
-  NVPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
-!if $(USE_CUSTOM_TIMER) == 1
-  NVPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf
-!endif
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc

@@ -23,7 +23,7 @@
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
-  INF NVPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
+  INF NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf

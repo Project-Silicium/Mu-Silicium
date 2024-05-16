@@ -59,4 +59,4 @@
 [Components]
   E7885Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-!include SamPkg/SamPkg.dsc.inc
+!include SamsungPkg/SamsungPkg.dsc.inc

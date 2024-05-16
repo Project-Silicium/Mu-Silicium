@@ -16,7 +16,7 @@ APRIORI DXE {
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
-  INF NVPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
+  INF NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf

@@ -12,7 +12,7 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  NVPkg/NVPkg.dec
+  NvidiaPkg/NvidiaPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]

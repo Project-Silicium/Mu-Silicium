@@ -20,9 +20,9 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
-  INF NVPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf
 
-  INF NVPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
+  INF NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf
+  INF NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
