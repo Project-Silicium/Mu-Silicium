@@ -1,6 +1,6 @@
 [Defines]
   DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = Nvidiakg
+  PACKAGE_NAME                        = NvidiaPkg
   PACKAGE_GUID                        = 8CD16071-0693-4422-8042-4EBC09563BE3
   PACKAGE_VERSION                     = 0.1
 
