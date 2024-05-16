@@ -52,10 +52,39 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+!if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9S"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"miatoll"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9S_miatoll"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9S_curtana"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 9S"
+!elseif $(DEVICE_MODEL) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro India"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9_Pro_India_curtana"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 9 Pro India"
+!elseif $(DEVICE_MODEL) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 10 Lite"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_10_Lite_curtana"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 10 Lite"
+!elseif $(DEVICE_MODEL) == 3
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro Global"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"joyeuse"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9_Pro_Global_joyeuse"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 9 Pro Global"
+!elseif $(DEVICE_MODEL) == 4
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro Max India"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"excalibur"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9_Pro_India_excalibur"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 9 Pro Max India"
+!elseif $(DEVICE_MODEL) == 5
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco M2 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gram"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_M2_Pro_gram"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco M2 Pro"
+!else
+!error "Invalid Model Type! 0, 1, 2, 3, 4 or 5 are Valid Model Types."
+!endif
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080

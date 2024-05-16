@@ -68,8 +68,13 @@
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Nintendo K.K."
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
+!if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"HAC-001"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Switch_HAC-001"
+!elseif $(DEVICE_MODEL) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"HAC-001(-01)"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Switch_HAC-001(-01)"
+!endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch"
 
   # Simple FrameBuffer (TODO: Rotate Screen Somehow)
