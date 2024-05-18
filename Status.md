@@ -33,7 +33,6 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -94,7 +93,6 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons|Pwr Button does not work|⚠️|
 |USB Mode|Device Mode Only|⚠️|
@@ -162,7 +160,6 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons|Pwr Button does not work|⚠️|
 |USB Mode|Device Mode Only|⚠️|
@@ -226,7 +223,6 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -290,7 +286,6 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -314,7 +309,6 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Device Mode Only|⚠️|
@@ -384,7 +378,6 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Dualrole|✅|
@@ -446,7 +439,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -535,7 +527,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -598,7 +589,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -659,7 +649,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -747,7 +736,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -816,7 +804,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Device Mode Only|⚠️|
@@ -882,7 +869,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |UFS|Disabled to prevent Wipe|✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -952,7 +938,6 @@ NOTE: Needs Drivers
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Device Mode Only|⚠️|
@@ -1016,7 +1001,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -1046,7 +1030,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Device Mode Only|⚠️|
@@ -1109,7 +1092,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Device Mode Only|⚠️|
@@ -1139,7 +1121,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -1208,7 +1189,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -1301,7 +1281,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -1394,7 +1373,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -1495,7 +1473,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Device Mode Only|⚠️|
@@ -1520,7 +1497,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -1586,7 +1562,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons|Pwr Button is Mapped as SUSPEND|⚠️|
 |USB Mode|Device Mode Only|⚠️|
@@ -1647,7 +1622,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
@@ -1715,7 +1689,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode|Dualrole|✅|
@@ -1822,8 +1795,7 @@ NOTE: Needs Windows Drivers!
 
 |Feature|Description|State|
 |:------|:----------|:---:|
-|Display||✅|
-|Touchscreen||❌|
+|Display|Wrong Orientation|⚠️|
 |Internal Storage||❌|
 |Joy Cons||❌|
 |Buttons|No Power Button|⚠️|
@@ -1854,7 +1826,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Touchcover||❌|
 |Buttons||❌|
@@ -1879,7 +1850,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Keyboard|Some Functions are missing|⚠️|
 |Buttons|Isn't Tested|❔|
@@ -1920,7 +1890,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Buttons||✅|
 |USB Mode|None|❌|
@@ -1944,7 +1913,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Buttons||✅|
 |USB Mode|None|❌|
@@ -1974,7 +1942,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Buttons||✅|
 |USB Mode|None|❌|
@@ -2004,7 +1971,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Buttons||✅|
 |USB Mode|None|❌|
@@ -2034,7 +2000,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Buttons||✅|
 |USB Mode|None|❌|
@@ -2058,7 +2023,6 @@ NOTE: Needs Windows Drivers!
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Touchscreen||❌|
 |Internal Storage||❌|
 |Buttons||✅|
 |USB Mode|None|❌|
