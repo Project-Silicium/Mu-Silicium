@@ -38,9 +38,9 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |USB Mode|Host Mode Only|⚠️|
 |USB PD||❌|
 |Windows Boot||✅|
-|Linux Boot||❌|
+|Linux Boot||❔|
 |Slot Switch||✅|
-|Glyphs Interface||❌|
+
 
 ### OS Status
 
