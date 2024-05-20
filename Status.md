@@ -392,7 +392,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <tr><th>Windows</th></tr>
 <tr><td>
 
-NOTE: Needs Windows Drivers!
+NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 |Feature|Description|State|
 |:------|:----------|:---:|
@@ -1106,7 +1106,7 @@ NOTE: Needs Windows Drivers!
 <details>
 <summary><b><strong>Snapdragon 720G Devices</strong></b></summary>
 
-## Xiaomi Redmi Note 9S
+## Xiaomi Redmi Note 9 Pro / 9 Pro India / 9 Pro Max India / 10 Lite / 9S / Poco M2 Pro
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-9S.png" width="500" alt="Preview">
 
@@ -1135,12 +1135,12 @@ NOTE: Needs Windows Drivers!
 <tr><th>Windows</th></tr>
 <tr><td>
 
-NOTE: Needs Windows Drivers!
+NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/latest)!
 
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Internal Storage||✅|
-|SD Card||❌|
+|SD Card|Only if inserted before OS boots, and hot plugging doesn't work|⚠️|
 |Buttons||✅|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
@@ -1152,17 +1152,17 @@ NOTE: Needs Windows Drivers!
 |Battery||❌|
 |USB||✅|
 |Charging||❌|
-|WLAN|Need manualy install driver|✅|
+|WLAN||✅|
 |CPU||✅|
 |Touchscreen||✅|
 |Bluetooth||✅|
 |GPS||✅|
-|Speakers|Sometimes the sound appears|⚠️|
+|Speakers||❌|
 |3.5mm Audio Jack||❌|
 |Microphone||❌|
 |GPU||✅|
 |Camera||❌|
-|Mobile Data||❌|
+|Mobile Data||✅|
 |Display||✅|
 |Vibration||❌|
 
