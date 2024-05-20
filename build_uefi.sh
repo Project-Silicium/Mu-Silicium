@@ -42,8 +42,8 @@ fi
 
 # Set Release Type of UEFI
 case "${TARGET_BUILD_MODE}" in
-	RELEASE) _TARGET_BUILD_MODE=RELEASE;;
-	*) _TARGET_BUILD_MODE=DEBUG;;
+	DEBUG) _TARGET_BUILD_MODE=DEBUG;;
+	*) _TARGET_BUILD_MODE=RELEASE;;
 esac
 
 # Include Device Config if it exists
