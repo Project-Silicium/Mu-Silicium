@@ -29,15 +29,6 @@
   # Set this to 1 If your Device is A/B Device
   AB_SLOT_SUPPORT                = 1
 
-  # If your SoC has multimple variants define the Number here
-  # If not don't add this Define
-  SOC_TYPE                       = 2
-
-# If your SoC has multimple variants keep this Build Option
-# If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
-[BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
-
 [LibraryClasses]
   DeviceMemoryMapLib|marblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|marblePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
