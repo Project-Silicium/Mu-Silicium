@@ -94,7 +94,7 @@ CfgGetCfgInfoVal64 (
 
 STATIC
 UINTN
-SFlush (VOID) { return EFI_SUCCESS; }
+SFlush () { return EFI_SUCCESS; }
 
 STATIC
 UINTN
@@ -107,11 +107,11 @@ SControl (
 
 STATIC
 BOOLEAN
-SPoll (VOID) { return TRUE; }
+SPoll () { return TRUE; }
 
 STATIC
 UINTN
-SDrain (VOID) { return EFI_SUCCESS; }
+SDrain () { return EFI_SUCCESS; }
 
 STATIC
 EFI_STATUS
@@ -183,12 +183,6 @@ BuildMemHobForFv (IN UINT16 Type)
   }
 }
 
-STATIC GUID gEfiInfoBlkHobGuid   = EFI_INFORMATION_BLOCK_GUID;
-STATIC GUID gEfiShLibHobGuid     = EFI_SHIM_LIBRARY_GUID;
-STATIC GUID gFvDecompressHobGuid = EFI_FV_DECOMPRESS_GUID;
-STATIC GUID gEfiSchedIntfGuid    = EFI_SCHED_INTF_GUID;
-STATIC GUID gEfiDTBExtnGuid      = EFI_DTB_EXTN_GUID;
-
 VOID
 InstallPlatformHob ()
 {
@@ -198,32 +192,34 @@ InstallPlatformHob ()
   LocateMemoryMapAreaByName ("Info Blk", &InfoBlk);
   LocateMemoryMapAreaByName ("UEFI FD",  &UefiFd);
 
-  UINTN InfoBlkAddress      = InfoBlk.Address;
-  UINTN ShLibAddress        = (UINTN)&ShLib;
-  UINTN FvDecompressAddress = UefiFd.Address + 0x403D0;
+  UINTN   InfoBlkAddress      = InfoBlk.Address;
+  UINTN   ShLibAddress        = (UINTN)&ShLib;
+  UINTN   FvDecompressAddress = UefiFd.Address + 0x403D0;
+  BOOLEAN Prodmode            = FALSE;
 
-  BuildGuidDataHob (&gEfiInfoBlkHobGuid,   &InfoBlkAddress,      sizeof(InfoBlkAddress));
-  BuildGuidDataHob (&gEfiShLibHobGuid,     &ShLibAddress,        sizeof(ShLibAddress));
-  BuildGuidDataHob (&gFvDecompressHobGuid, &FvDecompressAddress, sizeof(FvDecompressAddress));
+  BuildGuidDataHob (&gEfiInfoBlkHobGuid,     &InfoBlkAddress,      sizeof(InfoBlkAddress));
+  BuildGuidDataHob (&gEfiShimLibraryHobGuid, &ShLibAddress,        sizeof(ShLibAddress));
+  BuildGuidDataHob (&gFvDecompressHobGuid,   &FvDecompressAddress, sizeof(FvDecompressAddress));
+  BuildGuidDataHob (&gEfiProdmodeHobGuid,    &Prodmode,            sizeof(Prodmode));
 
   if (PcdGet64(PcdScheduleInterfaceAddr) != 0 && PcdGet64(PcdDTBExtensionAddr) != 0) {
     EFI_KERNEL_PROTOCOL   *SchedIntf       = (VOID *)PcdGet64(PcdScheduleInterfaceAddr);
     EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)PcdGet64(PcdDTBExtensionAddr);
 
-    BuildGuidDataHob (&gEfiSchedIntfGuid,    &SchedIntf,           sizeof(SchedIntf));
-    BuildGuidDataHob (&gEfiDTBExtnGuid,      &DTBExtnProtocol,     sizeof(DTBExtnProtocol));
+    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntf,       sizeof(SchedIntf));
+    BuildGuidDataHob (&gEfiDTBExtnHobGuid,           &DTBExtnProtocol, sizeof(DTBExtnProtocol));
   }
 }
 
 EFI_STATUS
 EFIAPI
-PlatformPeim (VOID)
+PlatformPeim ()
 {
   BuildFvHob (PcdGet64(PcdFvBaseAddress), PcdGet32(PcdFvSize));
 
   BuildMemHobForFv (EFI_HOB_TYPE_FV2);
 
-  InstallPlatformHob();
+  InstallPlatformHob ();
 
   return EFI_SUCCESS;
 }

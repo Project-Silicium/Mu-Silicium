@@ -159,44 +159,4 @@ typedef struct {
   VOID *unknow_func27;
 } EFI_DTB_EXTN_PROTOCOL;
 
-#define EFI_SHIM_LIBRARY_GUID                                                  \
-  {                                                                            \
-    0xbedaeabc, 0x5e70, 0x4d66,                                                \
-    {                                                                          \
-      0x97, 0x33, 0x21, 0x3d, 0x07, 0x2b, 0x9d, 0x04                           \
-    }                                                                          \
-  }
-
-#define EFI_INFORMATION_BLOCK_GUID                                             \
-  {                                                                            \
-    0x90a49afd, 0x422f, 0x08ae,                                                \
-    {                                                                          \
-      0x96, 0x11, 0xe7, 0x88, 0xd3, 0x80, 0x48, 0x45                           \
-    }                                                                          \
-  }
-
-#define EFI_FV_DECOMPRESS_GUID                                                 \
-  {                                                                            \
-    0x12dbd93d, 0x402a, 0x416e,                                                \
-    {                                                                          \
-      0xec, 0x20, 0x5f, 0x80, 0xcf, 0x5f, 0x7f, 0xe7                           \
-    }                                                                          \
-  }
-
-#define EFI_SCHED_INTF_GUID                                                    \
-  {                                                                            \
-    0x8ec2bd8d, 0x56d7, 0x49ef,                                                \
-    {                                                                          \
-      0x87, 0x96, 0x63, 0x17, 0x78, 0xf8, 0xeb, 0xf8                           \
-    }                                                                          \
-  }
-
-#define EFI_DTB_EXTN_GUID                                                      \
-  {                                                                            \
-    0x3A06E1E8, 0x61F6, 0x11EB,                                                \
-    {                                                                          \
-      0xBB, 0xED, 0x4B, 0x47, 0x6E, 0x2F, 0xF6, 0xA7                           \
-    }                                                                          \
-  }
-
 #endif /* _PLATFORM_PEI_LIB_H_ */

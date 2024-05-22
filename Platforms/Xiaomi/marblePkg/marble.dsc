@@ -26,7 +26,6 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = marblePkg/marble.fdf
   USE_DISPLAYDXE                 = 0
-  # Set this to 1 If your Device is A/B Device
   AB_SLOT_SUPPORT                = 1
 
 [LibraryClasses]
@@ -67,10 +66,10 @@
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x80000000
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE             # If your Phone has no SD Card Slot, Set it to FALSE.
+  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
   
   # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE            # This should be TRUE unless your UsbConfigDxe is Patched to be Dual Role.
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
