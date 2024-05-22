@@ -1,11 +1,7 @@
 ##
-#
-# This Module Installs the MsButtonServicesProtocol.
-#
 # Copyright (C) Microsoft Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
 
 [Defines]
@@ -26,17 +22,16 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  BaseLib
   DebugLib
   MemoryAllocationLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   DevicePathLib
-  UefiBootManagerLib
 
 [Protocols]
-  gMsButtonServicesProtocolGuid          # PRODUCES
-  gEfiSimpleTextInputExProtocolGuid      # CONSUMES
+  gMsButtonServicesProtocolGuid
+  gEfiSimpleTextInputExProtocolGuid
+  gKeypadDeviceProtocolGuid
 
 [Depex]
-  gEfiSimpleTextInputExProtocolGuid
+  TRUE
