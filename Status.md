@@ -143,6 +143,35 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 7+ Gen 2 Devices</strong></b></summary>
+
+## Xiaomi Poco F5
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Poco-F5.png" width="500" alt="Preview">
+
+**State: Active** <br />
+**Codename: marble** <br />
+**Maintainers: [tagicmi](https://github.com/tagicmi)** <br />
+**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
+**Testers: [tagicmi](https://github.com/tagicmi) [bubyldian](https://github.com/bubyldian),[Xhdsos](https://github.com/Xhdsos)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||❌|
+|Buttons|Volume buttons only|⚠️|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+|Slot Switch||❌|
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 888/888+ Devices</strong></b></summary>
 
 ## Samsung Galaxy Z Fold 3 5G
