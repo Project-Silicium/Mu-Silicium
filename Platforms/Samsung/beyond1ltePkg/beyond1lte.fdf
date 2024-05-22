@@ -101,7 +101,7 @@ READ_LOCK_STATUS   = TRUE
 
   INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
-  !include SamPkg/Extra.fdf.inc
+  !include SamsungPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8

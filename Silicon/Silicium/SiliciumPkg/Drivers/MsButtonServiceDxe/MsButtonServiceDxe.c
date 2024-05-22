@@ -7,7 +7,6 @@
 #include <Library/DevicePathLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/UefiBootManagerLib.h>
 
 #include <Protocol/ButtonServices.h>
 #include <Protocol/SimpleTextInEx.h>
@@ -230,7 +229,9 @@ InitButtonService (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS Status;
+  EFI_STATUS  Status;
+  EFI_HANDLE *HandleBuffer;
+  UINTN       HandleCount;
 
   // Allocate Memory for the Ms Button Service Protocol
   gButtonService = AllocateZeroPool (sizeof(MS_BUTTON_SERVICES));
@@ -251,9 +252,13 @@ InitButtonService (
   gButtonService->ButtonServicesProtocol.PreBootClearVolumeButtonState               = PreBootClearVolumeButtonState;
   gButtonService->ButtonState                                                        = NoButtons;
 
-  // Start all Controllers
-  // TODO: Replace with better Code
-  EfiBootManagerConnectAll ();
+  // Locate Keypad Controller
+  gBS->LocateHandleBuffer (ByProtocol, &gKeypadDeviceProtocolGuid, NULL, &HandleCount, &HandleBuffer);
+
+  // Start all Keypad Controllers
+  for (UINTN i = 0; i < HandleCount; i++) {
+    gBS->ConnectController (HandleBuffer[i], NULL, NULL, TRUE);
+  }
 
   // Get the State of the Buttons
   Status = GetButtonState ();
