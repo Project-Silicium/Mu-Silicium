@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = miatoll
-  PACKAGE_GUID                   = 3BFFEB18-3948-4022-888F-608530C61CDD
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  gmiatollTokenSpaceGuid         = { 0x3BFFEB18, 0x3948, 0x4022, { 0x88, 0x8F, 0x60, 0x85, 0x30, 0xC6, 0x1C, 0xDD } }

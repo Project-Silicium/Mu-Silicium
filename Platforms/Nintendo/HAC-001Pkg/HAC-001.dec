@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = HAC-001
-  PACKAGE_GUID                   = 2FA9729E-6BED-4F30-ACDD-8EB3C1B4ACA5
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  gHAC-001TokenSpaceGuid         = { 0x2FA9729E, 0x6BED, 0x4F30, { 0xAC, 0xDD, 0x8E, 0xB3, 0xC1, 0xB4, 0xAC, 0xA5 } }
