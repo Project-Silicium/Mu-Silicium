@@ -651,7 +651,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 |Display||✅|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB Mode|Host Mode Only|⚠️|
+|USB Mode|Dualrole|✅|
 |USB PD||✅|
 |Windows Boot||✅|
 |Linux Boot||✅|
@@ -663,18 +663,20 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
+NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
+
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Internal Storage||✅|
-|Buttons||❌|
+|Buttons||✅|
 |Proximity Sensor||❌|
 |Light Sensor||❌|
 |Accelerometer Sensor||❌|
 |Compass Sensor||❌|
 |Gyroscope Sensor||❌|
 |Hall Sensor||❌|
-|Battery||❌|
-|USB Mode|Host Mode Only|⚠️|
+|Battery||✅|
+|USB Mode|Host Mode only|⚠️|
 |USB PD||✅|
 |Charging||❌|
 |WLAN||❌|
