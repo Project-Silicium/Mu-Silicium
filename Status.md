@@ -1129,6 +1129,32 @@ NOTE: Needs Windows Drivers!
 |Windows Boot||❌|
 |Linux Boot||❌|
 
+</td></tr> </table>
+
+## POCO X3 NFC
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-POCO-X3-NFC.png" width="500" alt="Preview">
+
+**State: Active** <br />
+**Codename: surya** <br />
+**Maintainer: remtrik** <br />
+**Contibuter: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode||❌|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
   </summary>
 </details>
 
