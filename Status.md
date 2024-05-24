@@ -405,7 +405,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 |Gyroscope Sensor||❌|
 |Fingerprint Sensor||❌|
 |NFC Sensor||❌|
-|Battery||❌|
+|Battery||✅|
 |USB Mode|Host Mode only|⚠️|
 |USB PD||✅|
 |Charging||❌|
@@ -641,7 +641,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 **State: Inactive** <br />
 **Codename: pipa** <br />
 **Maintainer: [6adp](https://github.com/6adp)** <br />
-**Contibuters: [Statzar](https://github.com/Statzar), [Robotix22](https://github.com/Robotix22/)** <br />
+**Contibuters: [Statzar](https://github.com/Statzar), [N1kroks](https://github.com/N1kroks), [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [6adp](https://github.com/6adp)**
 
 ### UEFI Status
