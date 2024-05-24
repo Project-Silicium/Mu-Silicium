@@ -1,4 +1,4 @@
-##
+## @file
 #
 #  Copyright (c) 2018, Linaro Limited. All rights reserved.
 #
@@ -20,7 +20,7 @@
 #
 ################################################################################
 
-[FD.c1s_UEFI]
+[FD.marble_UEFI]
 BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
 Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1
@@ -83,6 +83,7 @@ READ_LOCK_STATUS   = TRUE
 
   !include Include/APRIORI.inc
   !include Include/DXE.inc
+  !include Include/RAW.inc
 
   INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
 
@@ -94,14 +95,14 @@ READ_LOCK_STATUS   = TRUE
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  INF E9830Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  INF SM7475Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI Tables
   !include Include/ACPI.inc
 
-  INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
+  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
-  !include SamsungPkg/Extra.fdf.inc
+  !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
@@ -122,6 +123,11 @@ READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
   INF SiliciumPkg/PrePi/PrePi.inf
+
+  FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
+    SECTION UI = "uefiplat.cfg"
+    SECTION RAW = Binaries/marble/RawFiles/uefiplat.cfg
+  }
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {
     SECTION GUIDED EE4E5898-3914-4259-9D6E-DC7BD79403CF PROCESSING_REQUIRED = TRUE {
