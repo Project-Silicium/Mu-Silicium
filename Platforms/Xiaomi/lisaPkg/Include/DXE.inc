@@ -44,7 +44,7 @@
 
   INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
 
-  INF Binaries/lisa/QcomPkg/Drivers/SdccDxe/SdccDxe.patched.inf
+  INF Binaries/lisa/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
@@ -73,7 +73,7 @@
 !endif
   INF Binaries/lisa/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.patched.inf
+  INF Binaries/lisa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/lisa/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -81,7 +81,7 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/lisa/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.patched.inf
+  INF Binaries/lisa/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
