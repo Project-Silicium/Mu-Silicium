@@ -4,7 +4,7 @@ APRIORI DXE {
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
   
-  #INF Binaries/lisa/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
+  INF Binaries/lisa/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
@@ -54,7 +54,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   
-  #INF Binaries/lisa/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  INF Binaries/lisa/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   
   INF FatPkg/EnhancedFatDxe/Fat.inf
@@ -63,9 +63,9 @@ APRIORI DXE {
   
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   
-  #INF Binaries/lisa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
+  INF Binaries/lisa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-  #INF Binaries/lisa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+  INF Binaries/lisa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/lisa/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
