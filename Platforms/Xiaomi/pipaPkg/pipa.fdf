@@ -97,8 +97,8 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # Usb Power Enabler
-  INF SM8250Pkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
+  # Usb Helper
+  INF SM8250Pkg/Drivers/UsbHelperDxe/UsbHelperDxe.inf
 
   # ACPI Tables
   !include Include/ACPI.inc

@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of DSDT_7125_MIATOLL.aml, Thu Apr 18 17:52:52 2024
+ * Disassembly of DSDT_7125_MIATOLL.aml, Fri May 24 19:23:47 2024
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x000361F1 (221681)
+ *     Length           0x000361D5 (221653)
  *     Revision         0x02
- *     Checksum         0x32
+ *     Checksum         0x3B
  *     OEM ID           "QCOMM "
  *     OEM Table ID     "SDM7180 "
  *     OEM Revision     0x00000003 (3)
@@ -236,11 +236,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
         Device (SDC2)
         {
-            Name (_DEP, Package (0x02)  // _DEP: Dependencies
-            {
-                \_SB.PEP0, 
-                \_SB.GIO0
-            })
             Name (_HID, "QCOM2466")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
@@ -257,13 +252,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                     {
                         0x000000EC,
                     }
-                    GpioInt (Edge, ActiveBoth, SharedAndWake, PullUp, 0x1388,
+                    GpioInt (Edge, ActiveBoth, SharedAndWake, PullUp, 0x0000,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
                             0x00C0
                         }
-                    GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
+                    GpioIo (Shared, PullDown, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list

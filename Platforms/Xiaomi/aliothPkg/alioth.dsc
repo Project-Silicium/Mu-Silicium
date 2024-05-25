@@ -87,3 +87,6 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
 
 !include SM8250Pkg/SM8250Pkg.dsc.inc
+
+[LibraryClasses]
+  AcpiPlatformUpdateLib|aliothPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf

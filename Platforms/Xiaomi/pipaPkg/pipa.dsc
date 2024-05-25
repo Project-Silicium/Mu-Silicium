@@ -74,7 +74,7 @@
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
 
   # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE
   
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1800
