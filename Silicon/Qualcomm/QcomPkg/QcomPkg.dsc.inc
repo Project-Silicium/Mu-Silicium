@@ -40,7 +40,7 @@
 [Components]
   # Custom Drivers
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-  QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 !if $(AB_SLOT_SUPPORT) == 1
   QcomPkg/GPLDrivers/BootSlotDxe/BootSlotDxe.inf
