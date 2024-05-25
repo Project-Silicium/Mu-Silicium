@@ -38,6 +38,7 @@
   gEfiInfoBlkHobGuid
   gEfiShimLibraryHobGuid
   gFvDecompressHobGuid
+  gEfiScheduleInterfaceHobGuid
 
 [Depex]
   gEfiPeiMemoryDiscoveredPpiGuid

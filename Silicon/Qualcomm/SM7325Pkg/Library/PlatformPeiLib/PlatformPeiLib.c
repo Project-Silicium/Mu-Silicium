@@ -197,6 +197,12 @@ InstallPlatformHob ()
   BuildGuidDataHob (&gEfiInfoBlkHobGuid,     &InfoBlkAddress,      sizeof(InfoBlkAddress));
   BuildGuidDataHob (&gEfiShimLibraryHobGuid, &ShLibAddress,        sizeof(ShLibAddress));
   BuildGuidDataHob (&gFvDecompressHobGuid,   &FvDecompressAddress, sizeof(FvDecompressAddress));
+
+  if (PcdGet64(PcdScheduleInterfaceAddr) != 0) {
+    UINTN SchedIntfAddress = PcdGet64(PcdScheduleInterfaceAddr);
+
+    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntfAddress, sizeof(SchedIntfAddress));
+  }
 }
 
 EFI_STATUS
