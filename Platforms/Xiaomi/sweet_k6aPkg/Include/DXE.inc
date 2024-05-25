@@ -35,7 +35,7 @@
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/NpaDxe/NpaDxe.inf

@@ -4,18 +4,16 @@
   FILE_GUID                      = BB137A47-96F3-4A7B-BFA3-BDBFF9678076
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = DisplayReEnablerDxeInitialization
+  ENTRY_POINT                    = ReEnableDisplay
 
 [Sources]
   DisplayReEnablerDxe.c
 
 [Packages]
-  ArmPlatformPkg/ArmPlatformPkg.dec
   MdePkg/MdePkg.dec
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  PcdLib
   DebugLib
   UefiDriverEntryPoint
   UefiBootServicesTableLib

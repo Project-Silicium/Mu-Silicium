@@ -25,7 +25,7 @@ GetRamPartitions (
 {
   EFI_STATUS         Status        = EFI_SUCCESS;
   EFI_SMEM_PROTOCOL *gSmemProtocol = NULL;
-  UINT32 SmemSize = 0;
+  UINT32             SmemSize      = 0;
 
   // Locate SMEM Protocol
   Status = gBS->LocateProtocol (&gEfiSMEMProtocolGuid, NULL, (VOID *)&gSmemProtocol);

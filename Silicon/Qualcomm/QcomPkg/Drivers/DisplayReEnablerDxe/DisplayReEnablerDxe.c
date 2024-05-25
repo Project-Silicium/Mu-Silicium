@@ -1,4 +1,3 @@
-#include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 
@@ -6,32 +5,37 @@
 
 EFI_STATUS
 EFIAPI
-DisplayReEnablerDxeInitialization (
+ReEnableDisplay (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS          Status;
+  EFI_STATUS                  Status;
   EFI_DISPLAY_POWER_PROTOCOL *mDisplayPowerProtocol;
 
+  // Locate Display Power State Protocol
   Status = gBS->LocateProtocol (&gEfiDisplayPowerStateProtocolGuid, NULL, (VOID *)&mDisplayPowerProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Display Power Protocol!\n"));
-    return Status;
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Display Power State Protocol! Status = %r\n", Status));
+    goto exit;
   }
 
-  Status = mDisplayPowerProtocol->SetDisplayPowerState(mDisplayPowerProtocol, EfiDisplayPowerStateOff);
+  // Turn Off Display
+  Status = mDisplayPowerProtocol->SetDisplayPowerState (mDisplayPowerProtocol, EfiDisplayPowerStateOff);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Disable Display!\n"));
-    return Status;
+    DEBUG ((EFI_D_ERROR, "Failed to Turn Off Display! Status = %r\n", Status));
+    goto exit;
   }
 
-  gBS->Stall(1000);
+  // Wait a bit
+  gBS->Stall (1000);
 
-  Status = mDisplayPowerProtocol->SetDisplayPowerState(mDisplayPowerProtocol, EfiDisplayPowerStateOn);
+  // Turn On Display
+  Status = mDisplayPowerProtocol->SetDisplayPowerState (mDisplayPowerProtocol, EfiDisplayPowerStateOn);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Enable Display!\n"));
-    return Status;
+    DEBUG ((EFI_D_ERROR, "Failed to Turn On Display!\n"));
+    ASSERT_EFI_ERROR (Status);
   }
 
-  return EFI_SUCCESS;
+exit:
+  return Status;
 }

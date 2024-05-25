@@ -21,7 +21,7 @@ APRIORI DXE {
 
   INF Binaries/a52sxq/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

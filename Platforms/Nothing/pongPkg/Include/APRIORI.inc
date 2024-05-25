@@ -20,7 +20,7 @@ APRIORI DXE {
 
   INF Binaries/pong/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF Binaries/pong/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

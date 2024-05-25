@@ -35,7 +35,7 @@
   INF Binaries/poplar/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/NpaDxe/NpaDxe.inf

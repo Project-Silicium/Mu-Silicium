@@ -1,6 +1,4 @@
 /**
-  Power Services Library Class.
-
   Copyright (C) Microsoft Corporation. All rights reserved.
 
   SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -19,8 +17,8 @@ SystemPowerCheck (
   IN  POWER_CASE Case,
   OUT BOOLEAN   *Good)
 {
-  EFI_STATUS                Status                = EFI_SUCCESS;
-  EFI_CHARGER_EX_PROTOCOL  *gEfiChargerExProtocol = NULL;
+  EFI_STATUS                Status;
+  EFI_CHARGER_EX_PROTOCOL  *gEfiChargerExProtocol;
   EFI_CHARGER_EX_FLASH_INFO FlashInfo;
 
   if (FixedPcdGetBool(PcdIsPowerOkImplemented)) {
@@ -28,6 +26,7 @@ SystemPowerCheck (
     Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID *)&gEfiChargerExProtocol);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Charger Ex Protocol! Status = %r\n", __FUNCTION__, Status));
+      *Good = TRUE;
       goto exit;
     }
 
@@ -49,7 +48,4 @@ exit:
 
 EFI_STATUS
 EFIAPI
-SystemPowerMitigate (IN POWER_CASE Case)
-{
-  return EFI_UNSUPPORTED;
-}
+SystemPowerMitigate (IN POWER_CASE Case) { return EFI_UNSUPPORTED; }

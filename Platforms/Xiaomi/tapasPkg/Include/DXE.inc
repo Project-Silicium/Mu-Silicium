@@ -37,7 +37,7 @@
   INF Binaries/tapas/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   
   INF Binaries/tapas/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/NpaDxe/NpaDxe.inf

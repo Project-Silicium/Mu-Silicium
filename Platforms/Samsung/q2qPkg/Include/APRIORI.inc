@@ -29,7 +29,7 @@ APRIORI DXE {
     SECTION UI = "SmemDxe"
   }
 
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   FILE DRIVER = 8E9BD160-B184-11DF-94E2-0800200C9A66 {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.depex

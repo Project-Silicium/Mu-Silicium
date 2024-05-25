@@ -36,7 +36,7 @@
   INF Binaries/munch/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   
   INF Binaries/munch/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/munch/QcomPkg/Drivers/NpaDxe/NpaDxe.inf

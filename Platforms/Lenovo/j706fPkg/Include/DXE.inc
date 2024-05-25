@@ -40,7 +40,7 @@
     INF Binaries/j706f/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
     INF Binaries/j706f/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-    INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+    INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
     INF Binaries/j706f/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
     INF Binaries/j706f/QcomPkg/Drivers/NpaDxe/NpaDxe.inf

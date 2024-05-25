@@ -10,15 +10,15 @@ SetMaxFreq (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS          Status;
-  EFI_CLOCK_PROTOCOL *mClockProtocol;
-
   // Check if Max Freq PCD is TRUE
   if (FixedPcdGetBool(PcdMaxFreqSupported)) {
+    EFI_STATUS          Status;
+    EFI_CLOCK_PROTOCOL *mClockProtocol;
+
     // Locate Clock Protocol
     Status = gBS->LocateProtocol (&gEfiClockProtocolGuid, NULL, (VOID *)&mClockProtocol);
     if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Locate Clock Protocol!\n"));
+      DEBUG ((EFI_D_ERROR, "Failed to Locate Clock Protocol! Status = %r\n", Status));
       return Status;
     }
 

@@ -35,7 +35,7 @@
   INF Binaries/kebab/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF Binaries/kebab/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/NpaDxe/NpaDxe.inf

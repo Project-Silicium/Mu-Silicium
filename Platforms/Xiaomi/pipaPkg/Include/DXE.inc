@@ -35,7 +35,7 @@
   INF Binaries/pipa/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/DynamicRAMDxe/DynamicRAMDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF Binaries/pipa/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
