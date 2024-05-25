@@ -26,7 +26,6 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = a7Pkg/a7.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  BROKEN_CNTFRQ_EL0              = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
 [BuildOptions]

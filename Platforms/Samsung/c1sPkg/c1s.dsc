@@ -26,7 +26,6 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = c1sPkg/c1s.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  BROKEN_CNTFRQ_EL0              = 1
   HAS_BUILD_IN_KEYBOARD          = 0
 
 [BuildOptions]

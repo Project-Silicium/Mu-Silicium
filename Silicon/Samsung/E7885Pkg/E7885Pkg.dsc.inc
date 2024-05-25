@@ -21,17 +21,10 @@
 [PcdsFixedAtBuild]
   # Timer
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
-!if $(BROKEN_CNTFRQ_EL0) == 1
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|13
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|14
-  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|11
-  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|10
-!else
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|27
   gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
-!endif
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x12301000
