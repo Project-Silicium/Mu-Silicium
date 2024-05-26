@@ -16,14 +16,15 @@
 #ifndef _EFI_EXYNOS_GPA_H_
 #define _EFI_EXYNOS_GPA_H_
 
-#define GPA_PER_BANK    8
-
 #define GPA_PULL_NONE   0
 #define GPA_PULL_DOWN   1
 #define GPA_PULL_UP     3
 
 #define GPA_DRV_FAST    0
 #define GPA_DRV_SLOW    1
+
+#define GPA_INPUT       0
+#define GPA_OUTPUT      1
 
 //
 // Global GUID for the Exynos Gpa Protocol

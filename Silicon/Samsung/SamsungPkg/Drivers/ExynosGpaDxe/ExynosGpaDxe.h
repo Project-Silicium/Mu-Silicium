@@ -31,7 +31,4 @@
 #define RATE_MASK(x)     (0x1 << (x + 16))
 #define RATE_SET(x)      (0x1 << (x + 16))
 
-#define GPA_INPUT         0x0
-#define GPA_OUTPUT        0x1
-
 #endif /* _EXYNOS_GPA_DXE_H_ */
