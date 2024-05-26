@@ -1,0 +1,14 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = SamsungPkg
+  PACKAGE_GUID                        = 6E9CD12A-F8EB-4C8D-BE8C-C1AE935D25B6
+  PACKAGE_VERSION                     = 0.1
+
+[Includes]
+  Include                               # Root include for the package
+
+[Guids]
+  gSamsungPkgTokenSpaceGuid           = { 0x6E9CD12A, 0xF8EB, 0x4C8D, { 0xBE, 0x8C, 0xC1, 0xAE, 0x93, 0x5D, 0x25, 0xB6 } }
+
+[Protocols]
+  gEfiExynosGpaProtocolGuid           = { 0x1C592EB4, 0x22F9, 0x4174, { 0x81, 0xB7, 0x66, 0x11, 0xB6, 0xCA, 0x4F, 0xC9 } }

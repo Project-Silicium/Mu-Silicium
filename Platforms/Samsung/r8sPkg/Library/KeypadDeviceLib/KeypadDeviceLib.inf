@@ -12,6 +12,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
@@ -19,4 +20,6 @@
   UefiLib
   TimerLib
   DebugLib
-  IoLib
+
+[Protocols]
+  gEfiExynosGpaProtocolGuid

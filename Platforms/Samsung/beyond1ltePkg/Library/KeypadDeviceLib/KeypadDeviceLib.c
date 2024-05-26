@@ -7,11 +7,15 @@
 #include <Library/DebugLib.h>
 #include <Library/IoLib.h>
 
+#include <Protocol/EfiExynosGpa.h>
+
+EFI_EXYNOS_GPA_PROTOCOL *mGpaProtocol;
+
 typedef struct {
   KEY_CONTEXT EfiKeyContext;
-  UINT32      PinctrlBase;
+  UINT64      PinctrlBase;
   UINT32      BankOffset;
-  UINT32      PinNumber;
+  INT32       Pin;
 } KEY_CONTEXT_PRIVATE;
 
 UINTN gBitmapScanCodes[BITMAP_NUM_WORDS(0x18)]    = {0};
@@ -182,7 +186,7 @@ KeypadInitializeKeyContextPrivate (KEY_CONTEXT_PRIVATE *Context)
 {
   Context->PinctrlBase = 0;
   Context->BankOffset  = 0;
-  Context->PinNumber   = 0;
+  Context->Pin         = 0;
 }
 
 STATIC
@@ -206,6 +210,7 @@ RETURN_STATUS
 EFIAPI
 KeypadDeviceConstructor ()
 {
+  EFI_STATUS           Status;
   KEY_CONTEXT_PRIVATE *StaticContext;
   UINTN                Index;
 
@@ -214,30 +219,36 @@ KeypadDeviceConstructor ()
     KeypadInitializeKeyContextPrivate(KeyList[Index]);
   }
 
-  // Configure keys
-  /// Volume Up Button
-  StaticContext              = KeypadKeyCodeToKeyContext (115);
-  StaticContext->PinctrlBase = 0x15850000;
-  StaticContext->BankOffset  = 0x0;
-  StaticContext->PinNumber   = 0x3;
+  // Locate Gpa Protocol
+  Status = gBS->LocateProtocol (&gEfiExynosGpaProtocolGuid, NULL, (VOID *)&mGpaProtocol);
+  if (!EFI_ERROR (Status)) {
+    // Configure keys
+    /// Volume Up Button
+    StaticContext              = KeypadKeyCodeToKeyContext (115);
+    StaticContext->PinctrlBase = 0x15850000;
+    StaticContext->BankOffset  = 0x0;
+    StaticContext->Pin         = 0x3;
 
-  /// Volume Down Button
-  StaticContext              = KeypadKeyCodeToKeyContext (116);
-  StaticContext->PinctrlBase = 0x15850000;
-  StaticContext->BankOffset  = 0x0;
-  StaticContext->PinNumber   = 0x4;
+    /// Volume Down Button
+    StaticContext              = KeypadKeyCodeToKeyContext (116);
+    StaticContext->PinctrlBase = 0x15850000;
+    StaticContext->BankOffset  = 0x0;
+    StaticContext->Pin         = 0x4;
 
-  /// Power Button
-  StaticContext              = KeypadKeyCodeToKeyContext (117);
-  StaticContext->PinctrlBase = 0x15850000;
-  StaticContext->BankOffset  = 0x40;
-  StaticContext->PinNumber   = 0x4;
+    /// Power Button
+    StaticContext              = KeypadKeyCodeToKeyContext (117);
+    StaticContext->PinctrlBase = 0x15850000;
+    StaticContext->BankOffset  = 0x40;
+    StaticContext->Pin         = 0x4;
 
-  /// Special Button
-  StaticContext              = KeypadKeyCodeToKeyContext (118);
-  StaticContext->PinctrlBase = 0x15850000;
-  StaticContext->BankOffset  = 0x0;
-  StaticContext->PinNumber   = 0x6;
+    /// Special Button
+    StaticContext              = KeypadKeyCodeToKeyContext (118);
+    StaticContext->PinctrlBase = 0x15850000;
+    StaticContext->BankOffset  = 0x0;
+    StaticContext->Pin         = 0x6;
+  } else {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Exynos GPA Protocol! Status = %r\n", __FUNCTION__, Status));
+  }
 
   return RETURN_SUCCESS;
 }
@@ -269,11 +280,14 @@ KeypadDeviceGetKeys (
 {
   BOOLEAN IsPressed = FALSE;
 
-  for (UINTN Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
-    KEY_CONTEXT_PRIVATE *Context    = KeyList[Index];
-    UINT32               PinAddress = ((Context->PinctrlBase + Context->BankOffset) + 0x4);
+  if (mGpaProtocol == NULL) {
+    return EFI_SUCCESS;
+  }
 
-    IsPressed = !(MmioRead32 (PinAddress) & (1 << Context->PinNumber));
+  for (UINTN Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
+    KEY_CONTEXT_PRIVATE *Context = KeyList[Index];
+
+    IsPressed = !mGpaProtocol->GetGpa ((ExynosGpaBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin);
 
     LibKeyUpdateKeyStatus (&Context->EfiKeyContext, KeypadReturnApi, IsPressed, Delta);
   }
