@@ -1,7 +1,7 @@
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = DeviceMemoryMapLib
-  FILE_GUID                      = a8f6d2f5-07e6-4b36-b7e2-37ec9807546f
+  FILE_GUID                      = 375C4FF0-1905-4BA7-A5CA-7D40D25F5EF3
   MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = DeviceMemoryMapLib
@@ -13,6 +13,3 @@
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
-
-[LibraryClasses]
-  BaseLib

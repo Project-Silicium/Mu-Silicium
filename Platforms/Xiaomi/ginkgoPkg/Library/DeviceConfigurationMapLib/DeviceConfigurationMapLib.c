@@ -1,4 +1,3 @@
-#include <Library/BaseLib.h>
 #include <Library/DeviceConfigurationMapLib.h>
 
 STATIC

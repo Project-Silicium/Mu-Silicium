@@ -1,4 +1,3 @@
-#include <Library/BaseLib.h>
 #include <Library/DeviceMemoryMapLib.h>
 
 STATIC
@@ -45,7 +44,7 @@ gDeviceMemoryDescriptorEx[] = {
    EFI_RESOURCE_SYSTEM_MEMORY, SYSTEM_MEMORY_RESOURCE_ATTR_CAPABILITIES,
    EfiConventionalMemory, ARM_MEMORY_REGION_ATTRIBUTE_WRITE_BACK},
 
-  // Register regions
+  // Register Regions
   {"Gic Distributor", 0x50041000, 0x00001000, AddDev,
    EFI_RESOURCE_MEMORY_MAPPED_IO, EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE,
    EfiMemoryMappedIO, ARM_MEMORY_REGION_ATTRIBUTE_DEVICE},
