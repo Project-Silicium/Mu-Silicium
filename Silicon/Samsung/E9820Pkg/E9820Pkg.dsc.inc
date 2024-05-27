@@ -46,6 +46,7 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|E9820Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  ExynosSpeedyLib|E9820Pkg/Library/ExynosSpeedyLib/ExynosSpeedyLib.inf
 
 [Components]
   E9820Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

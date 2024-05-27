@@ -24,6 +24,7 @@
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF SamsungPkg/Drivers/ExynosGpaDxe/ExynosGpaDxe.inf
+  INF SamsungPkg/Drivers/ExynosSpeedyDxe/ExynosSpeedyDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
