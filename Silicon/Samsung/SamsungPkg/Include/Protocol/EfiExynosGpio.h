@@ -13,8 +13,8 @@
   published by the Free Software Foundation.
 **/
 
-#ifndef _EFI_EXYNOS_GPA_H_
-#define _EFI_EXYNOS_GPA_H_
+#ifndef _EFI_EXYNOS_GPIO_H_
+#define _EFI_EXYNOS_GPIO_H_
 
 #define GPA_PULL_NONE   0
 #define GPA_PULL_DOWN   1
@@ -27,16 +27,16 @@
 #define GPA_OUTPUT      1
 
 //
-// Global GUID for the Exynos Gpa Protocol
+// Global GUID for the Exynos Gpio Protocol
 //
-#define EFI_EXYNOS_GPA_PROTOCOL_GUID { 0x1C592EB4, 0x22F9, 0x4174, { 0x81, 0xB7, 0x66, 0x11, 0xB6, 0xCA, 0x4F, 0xC9 } }
+#define EFI_EXYNOS_GPIO_PROTOCOL_GUID { 0x1C592EB4, 0x22F9, 0x4174, { 0x81, 0xB7, 0x66, 0x11, 0xB6, 0xCA, 0x4F, 0xC9 } }
 
 //
-// Declare forward Reference to the Exynos Gpa Protocol
+// Declare forward Reference to the Exynos Gpio Protocol
 //
-typedef struct _EFI_EXYNOS_GPA_PROTOCOL EFI_EXYNOS_GPA_PROTOCOL;
+typedef struct _EFI_EXYNOS_GPIO_PROTOCOL EFI_EXYNOS_GPIO_PROTOCOL;
 
-typedef struct exynos_gpa_bank {
+typedef struct exynos_gpio_bank {
   UINT32 Con;
   UINT32 Dat;
   UINT32 Pull;
@@ -44,7 +44,7 @@ typedef struct exynos_gpa_bank {
   UINT32 PdnCon;
   UINT32 PdnPull;
   UINT8  Reserved[8];
-} ExynosGpaBank;
+} ExynosGpioBank;
 
 /**
   This Function Configure the Defined Pin.
@@ -57,7 +57,7 @@ typedef struct exynos_gpa_bank {
 typedef
 VOID
 (EFIAPI *EFI_CONFIGURE_PIN) (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   INT32          Config
@@ -74,7 +74,7 @@ VOID
 typedef
 VOID
 (EFIAPI *EFI_SET_DIRECTION_OUTPUT) (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   BOOLEAN        Enable
@@ -90,7 +90,7 @@ VOID
 typedef
 VOID
 (EFIAPI *EFI_SET_DIRECTION_INPUT) (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin
   );
@@ -106,8 +106,8 @@ VOID
 **/
 typedef
 UINT32
-(EFIAPI *EFI_GET_GPA) (
-  ExynosGpaBank *Bank,
+(EFIAPI *EFI_GET_GPIO) (
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin
   );
@@ -123,7 +123,7 @@ UINT32
 typedef
 VOID
 (EFIAPI *EFI_SET_PULL) (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   INT32          Mode
@@ -140,7 +140,7 @@ VOID
 typedef
 VOID
 (EFIAPI *EFI_SET_DRV) (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   INT32          Mode
@@ -157,7 +157,7 @@ VOID
 typedef
 VOID
 (EFIAPI *EFI_SET_RATE) (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   INT32          Mode
@@ -166,16 +166,16 @@ VOID
 //
 // Define Protocol Functions
 //
-struct _EFI_EXYNOS_GPA_PROTOCOL {
+struct _EFI_EXYNOS_GPIO_PROTOCOL {
   EFI_CONFIGURE_PIN        ConfigurePin;
   EFI_SET_DIRECTION_OUTPUT SetDirectionOutput;
   EFI_SET_DIRECTION_INPUT  SetDirectionInput;
-  EFI_GET_GPA              GetGpa;
+  EFI_GET_GPIO             GetGpio;
   EFI_SET_PULL             SetPull;
   EFI_SET_DRV              SetDrv;
   EFI_SET_RATE             SetRate;
 };
 
-extern EFI_GUID gEfiExynosGpaProtocolGuid;
+extern EFI_GUID gEfiExynosGpioProtocolGuid;
 
-#endif /* _EFI_EXYNOS_GPA_H_ */
+#endif /* _EFI_EXYNOS_GPIO_H_ */

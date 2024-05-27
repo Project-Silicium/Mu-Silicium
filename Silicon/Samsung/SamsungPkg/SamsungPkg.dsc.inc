@@ -19,7 +19,7 @@
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   # Custom Drivers
-  SamsungPkg/Drivers/ExynosGpaDxe/ExynosGpaDxe.inf
+  SamsungPkg/Drivers/ExynosGpioDxe/ExynosGpioDxe.inf
   SamsungPkg/Drivers/ExynosSpeedyDxe/ExynosSpeedyDxe.inf
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc

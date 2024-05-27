@@ -7,9 +7,9 @@
 #include <Library/DebugLib.h>
 #include <Library/IoLib.h>
 
-#include <Protocol/EfiExynosGpa.h>
+#include <Protocol/EfiExynosGpio.h>
 
-EFI_EXYNOS_GPA_PROTOCOL *mGpaProtocol;
+EFI_EXYNOS_GPIO_PROTOCOL *mGpioProtocol;
 
 typedef struct {
   KEY_CONTEXT EfiKeyContext;
@@ -216,8 +216,8 @@ KeypadDeviceConstructor ()
     KeypadInitializeKeyContextPrivate(KeyList[Index]);
   }
 
-  // Locate Gpa Protocol
-  Status = gBS->LocateProtocol (&gEfiExynosGpaProtocolGuid, NULL, (VOID *)&mGpaProtocol);
+  // Locate Gpio Protocol
+  Status = gBS->LocateProtocol (&gEfiExynosGpioProtocolGuid, NULL, (VOID *)&mGpioProtocol);
   if (!EFI_ERROR (Status)) {
     // Configure keys
     /// Volume Up Button
@@ -238,7 +238,7 @@ KeypadDeviceConstructor ()
     StaticContext->BankOffset  = 0x60;
     StaticContext->Pin         = 0x7;
   } else {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Exynos GPA Protocol! Status = %r\n", __FUNCTION__, Status));
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Exynos GPIO Protocol! Status = %r\n", __FUNCTION__, Status));
   }
 
   return RETURN_SUCCESS;
@@ -268,14 +268,14 @@ KeypadDeviceGetKeys (
 {
   BOOLEAN IsPressed = FALSE;
 
-  if (mGpaProtocol == NULL) {
+  if (mGpioProtocol == NULL) {
     return EFI_SUCCESS;
   }
 
   for (UINTN Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
     KEY_CONTEXT_PRIVATE *Context = KeyList[Index];
 
-    IsPressed = !mGpaProtocol->GetGpa ((ExynosGpaBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin);
+    IsPressed = !mGpioProtocol->GetGpio ((ExynosGpioBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin);
 
     LibKeyUpdateKeyStatus (&Context->EfiKeyContext, KeypadReturnApi, IsPressed, Delta);
   }

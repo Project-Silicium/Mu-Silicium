@@ -1,13 +1,13 @@
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = ExynosGpaDxe
+  BASE_NAME                      = ExynosGpioDxe
   FILE_GUID                      = EE3A2698-EFBB-4E07-8A2F-82C92C371456
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = InitGpaDriver
+  ENTRY_POINT                    = InitGpioDriver
 
 [Sources.common]
-  ExynosGpaDxe.c
+  ExynosGpioDxe.c
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -21,7 +21,7 @@
   IoLib
 
 [Protocols]
-  gEfiExynosGpaProtocolGuid
+  gEfiExynosGpioProtocolGuid
 
 [Depex]
   TRUE

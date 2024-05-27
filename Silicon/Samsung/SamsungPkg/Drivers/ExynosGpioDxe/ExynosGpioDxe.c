@@ -17,13 +17,13 @@
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/IoLib.h>
 
-#include <Protocol/EfiExynosGpa.h>
+#include <Protocol/EfiExynosGpio.h>
 
-#include "ExynosGpaDxe.h"
+#include "ExynosGpioDxe.h"
 
 VOID
 ConfigurePin (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   INT32          Config)
@@ -39,7 +39,7 @@ ConfigurePin (
 
 VOID
 SetDirectionOutput (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   BOOLEAN        Enable)
@@ -60,7 +60,7 @@ SetDirectionOutput (
 
 VOID
 SetDirectionInput (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin)
 {
@@ -68,8 +68,8 @@ SetDirectionInput (
 }
 
 UINT32
-GetGpa (
-  ExynosGpaBank *Bank,
+GetGpio (
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin)
 {
@@ -82,7 +82,7 @@ GetGpa (
 
 VOID
 SetPull (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   INT32          Mode)
@@ -108,7 +108,7 @@ SetPull (
 
 VOID
 SetDrv (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   INT32          Mode)
@@ -124,7 +124,7 @@ SetDrv (
 
 VOID
 SetRate (
-  ExynosGpaBank *Bank,
+  ExynosGpioBank *Bank,
   UINT32         Offset,
   INT32          Pin,
   INT32          Mode)
@@ -147,11 +147,11 @@ SetRate (
   MmioWrite32 ((UINTN)&Bank->Drv + Offset, Value);
 }
 
-STATIC EFI_EXYNOS_GPA_PROTOCOL mExynosGpa = {
+STATIC EFI_EXYNOS_GPIO_PROTOCOL mExynosGpio = {
   ConfigurePin,
   SetDirectionOutput,
   SetDirectionInput,
-  GetGpa,
+  GetGpio,
   SetPull,
   SetDrv,
   SetRate
@@ -159,16 +159,16 @@ STATIC EFI_EXYNOS_GPA_PROTOCOL mExynosGpa = {
 
 EFI_STATUS
 EFIAPI
-InitGpaDriver (
+InitGpioDriver (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS Status;
 
-  // Install Exynos Gpa Protocol in a new Handle
-  Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gEfiExynosGpaProtocolGuid, &mExynosGpa, NULL);
+  // Install Exynos Gpio Protocol in a new Handle
+  Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gEfiExynosGpioProtocolGuid, &mExynosGpio, NULL);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Register Exynos GPA Protocol!\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Register Exynos GPIO Protocol!\n"));
     ASSERT_EFI_ERROR (Status);
   }
 
