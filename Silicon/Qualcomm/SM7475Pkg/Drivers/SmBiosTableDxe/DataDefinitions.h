@@ -285,11 +285,11 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_x2 = {
   },
   0,                     // ExternalClock
 #if SOC_TYPE == 0
-  3000,                  // MaxSpeed
-  3000,                  // CurrentSpeed
+  2918,                  // MaxSpeed
+  2918,                  // CurrentSpeed
 #else
-  3200,                  // MaxSpeed
-  3200,                  // CurrentSpeed
+  2918,                  // MaxSpeed
+  2918,                  // CurrentSpeed
 #endif
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
@@ -368,11 +368,11 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a71 = {
   },
   0,                     // ExternalClock
 #if SOC_TYPE == 0
-  2500,                  // MaxSpeed
-  2500,                  // CurrentSpeed
+  2496,                  // MaxSpeed
+  2496,                  // CurrentSpeed
 #else
-  2750,                  // MaxSpeed
-  2750,                  // CurrentSpeed
+  2496,                  // MaxSpeed
+  2496,                  // CurrentSpeed
 #endif
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
@@ -451,11 +451,11 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a51 = {
   },
   0,                     // ExternalClock
 #if SOC_TYPE == 0
-  1800,                  // MaxSpeed
-  1800,                  // CurrentSpeed
+  1804,                  // MaxSpeed
+  1804,                  // CurrentSpeed
 #else
-  2000,                  // MaxSpeed
-  2000,                  // CurrentSpeed
+  1804,                  // MaxSpeed
+  1804,                  // CurrentSpeed
 #endif
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
