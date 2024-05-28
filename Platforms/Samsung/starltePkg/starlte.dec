@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = starlte
-  PACKAGE_GUID                   = A1B48372-32DF-4294-BE88-10BF0EE9F11B
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  gstarlteTokenSpaceGuid         = { 0xA1B48372, 0x32DF, 0x4294, { 0xBE, 0x88, 0x10, 0xBF, 0x0E, 0xE9, 0xF1, 0x1B } }

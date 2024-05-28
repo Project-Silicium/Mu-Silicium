@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = a52sxq
-  PACKAGE_GUID                        = 04D1109C-6E8A-45DA-85C4-9D7FF2113B25
-  PACKAGE_VERSION                     = 0.1
-
-[Guids]
-  ga52sxqTokenSpaceGuid               = { 04D1109C, 0x6E8A, 0x45DA, { 0x85, 0xC4, 0x9D, 0x7F, 0xF2, 0x11, 0x3B, 0x25 } }

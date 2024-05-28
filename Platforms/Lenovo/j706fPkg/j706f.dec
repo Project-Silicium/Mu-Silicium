@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = j706f
-  PACKAGE_GUID                   = EC1C4ABA-C35E-404F-B515-E616D5AA9BFF
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  gj706fTokenSpaceGuid           = { 0xEC1C4ABA, 0xC35E, 0x404F, { 0xB5, 0x15, 0xE6, 0x16, 0xD5, 0xAA, 0x9B, 0xFF } }

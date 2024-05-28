@@ -1,3 +1,0 @@
-REPO:   https://github.com/u-boot/u-boot/
-BRANCH: master
-FILE:   drivers/timer/tegra-timer.c

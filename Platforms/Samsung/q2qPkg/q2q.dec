@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = q2q
-  PACKAGE_GUID                   = D6D8E3F8-5A15-4B49-844B-35EFCE9B947B
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  gq2qTokenSpaceGuid             = { 0xD6D8E3F8, 0x5A15, 0x4B49, { 0x84, 0x4B, 0x35, 0xEF, 0xCE, 0x9B, 0x94, 0x7B } }

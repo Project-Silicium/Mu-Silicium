@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = lmi
-  PACKAGE_GUID                   = 28F1A3BF-193A-47E3-A7B9-5A435EAAB2EE
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  glmiTokenSpaceGuid             = { 0x28F1A3BF, 0x193A, 0x47E3, { 0xB5, 0xDD, 0x5A, 0x43, 0x5E, 0xAA, 0xB2, 0xEE } }
