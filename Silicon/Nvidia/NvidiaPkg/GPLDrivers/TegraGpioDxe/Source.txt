@@ -1,3 +1,0 @@
-REPO:   https://github.com/Open-Surface-RT/u-boot/
-BRANCH: master
-FILE:   drivers/gpio/tegra_gpio.c

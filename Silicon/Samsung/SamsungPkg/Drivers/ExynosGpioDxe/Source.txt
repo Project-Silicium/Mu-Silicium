@@ -1,3 +1,0 @@
-REPO:   https://github.com/halal-beef/lk/
-BRANCH: linaro-e850-96-android-t
-FILE:   platform/exynos/gpio.c
