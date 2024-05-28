@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = poplar
-  PACKAGE_GUID                   = EF79C823-7988-42A1-8087-742F78A4734C
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  gpoplarTokenSpaceGuid          = { 0xEF79C823, 0x7988, 0x42A1, { 0x80, 0x87, 0x74, 0x2F, 0x78, 0xA4, 0x73, 0x4C } }

@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = venus
-  PACKAGE_GUID                   = 03624C85-9D74-4E7E-85FF-A6B77DC2EEFA
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  gvenusTokenSpaceGuid           = { 0x03624C85, 0x9D74, 0x4E7E, { 0x85, 0xFF, 0xA6, 0xB7, 0x7D, 0xC2, 0xEE, 0xFA } }
