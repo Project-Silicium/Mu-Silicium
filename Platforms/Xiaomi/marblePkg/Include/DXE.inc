@@ -46,7 +46,7 @@
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  #INF Binaries/marble/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+  INF Binaries/marble/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
