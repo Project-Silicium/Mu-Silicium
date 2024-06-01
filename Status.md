@@ -1604,6 +1604,66 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 <details>
 <summary><b><strong>Snapdragon 662 Devices</strong></b></summary>
 
+## Motorola Moto G9 Power
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Motorola-Moto-G9-Power.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: cebu** <br />
+**Maintainer: hiprivsid, remtrik** <br />
+**Contibuters: hiprivsid, remtrik** <br />
+**Tester: hiprivsid**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||✅|
+|Buttons|Works|✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD|Doesn't work all the time|⚠️|
+|SD Card||❌|
+|Windows Boot|Doesn't tested it|❌|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|None|❌|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
 ## Motorola Moto G30
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Motorola-Moto-G30.png" width="500" alt="Preview">
@@ -1663,6 +1723,8 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 |Vibration||❌|
 
 </td></tr> </table>
+
+
 
 ## Xiaomi Redmi 9T
 
