@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION              = 0x0001001A
+  PACKAGE_NAME                   = caymanslm
+  PACKAGE_GUID                   = ef79c823-7988-42a1-8087-742f78a4734d
+  PACKAGE_VERSION                = 1.0
+
+[Includes.common]
+  Include                         # Root include for the package
+
+[Guids.common]
+  gcaymanslmTokenSpaceGuid          = { 0xef79c823, 0x7988, 0x42a1, { 0x80, 0x87, 0x74, 0x2f, 0x78, 0xa4, 0x73, 0x4d } }
