@@ -55,7 +55,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  #INF Binaries/marble/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+  INF Binaries/marble/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
 

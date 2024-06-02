@@ -10,7 +10,7 @@
 First of you need the sourcecode to compile a UEFI Image. <br />
 Clone the Repo by using:
 ```
-git clone https://github.com/Robotix22/Mu-Silicium.git --recursive
+git clone https://github.com/Project-Silicium/Mu-Silicium.git --recursive
 cd Mu-Silicium
 ```
 
@@ -40,7 +40,7 @@ When the Build is Done, You will Find one of these Files: `.img`, `.tar` or `.bi
 First of you need the sourcecode to compile a UEFI Image. <br />
 Clone the Repo by using:
 ```
-git clone https://github.com/Robotix22/Mu-Silicium.git --recursive
+git clone https://github.com/Project-Silicium/Mu-Silicium.git --recursive
 cd Mu-Silicium
 ```
 

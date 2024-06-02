@@ -12,7 +12,7 @@ function _help(){
 	echo "  --model <Device Model>, -m <Device Model>:  Defines the Model Type of the Selected Target Device."
 	echo "	--help, -h:                                 Shows this Help."
 	echo
-	echo "MainPage: https://github.com/Robotix22/Mu-Silicium"
+	echo "MainPage: https://github.com/Project-Silicium/Mu-Silicium"
 	exit 1
 }
 

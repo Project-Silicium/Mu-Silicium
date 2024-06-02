@@ -1,6 +1,6 @@
 # [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for various AARCH64/ARM Devices
 
-<!-- ![Banner](https://github.com/Robotix22/Mu-Silicium/blob/main/Pictures/Banner.png) -->
+<!-- ![Banner](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Pictures/Banner.png) -->
 
 ## Description
 
@@ -10,11 +10,11 @@ This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Wi
 
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
 
-## [Status](https://github.com/Robotix22/Mu-Silicium/blob/main/Status.md)
+## [Status](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Status.md)
 
-## [Building](https://github.com/Robotix22/Mu-Silicium/blob/main/Building.md)
+## [Building](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Building.md)
 
-## [Guides](https://github.com/Robotix22/WoA-Guides/blob/main/README.md)
+## [Guides](https://github.com/Project-Silicium/WoA-Guides/blob/main/README.md)
 
 ## FAQ
 
