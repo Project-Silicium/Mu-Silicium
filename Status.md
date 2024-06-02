@@ -160,13 +160,49 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Internal Storage||❌|
-|Buttons|Volume buttons only|⚠️|
+|Internal Storage||✅|
+|Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
 |USB PD||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-|Slot Switch||❌|
+|Windows Boot||✅|
+|Linux Boot||❔|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|One Core Only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
 
   </summary>
 </details>
