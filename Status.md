@@ -2032,7 +2032,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Samsung Galaxy Note 20 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Note-20-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Note20-5G.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: c1s** <br />
