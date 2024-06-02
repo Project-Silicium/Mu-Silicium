@@ -7,26 +7,26 @@ gDeviceMemoryDescriptorEx[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
   // DDR Regions
 
-  {"Kernel",             0x80000000,0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN },
-  {"RAM Partition",      0x85700000,0x00800000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN },
-  {"HLOS1",              0x85F00000,0x000C0000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN },
-  {"QTEE",               0x85fc0000,0x02f40000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE },
-  {"AOP CMD DB",         0x85FE0000,0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN },
-  {"SMEM",               0x86000000,0x00200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN },
-  {"RAM Partition",      0x86200000,0x11A00000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE },
-  {"DXE Heap",           0x97C00000,0x05730000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN },
-  {"DBI Dump",           0x9D330000,0x000D0000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE  },
-  {"Display Reserved",   0x9D400000,0x02400000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN },
-  {"FV Region",          0x9F800000,0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN },
-  {"ABOOT FV",           0x9FA00000,0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN },
-  {"UEFI FD",            0x9FC00000,0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK },
-  {"SEC Heap",           0x9FF00000,0x0008C000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN },
-  {"CPU Vectors",        0x9FF8C000,0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK },
-  {"MMU PageTables" ,    0x9FF8D000,0x00003000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN },
-  {"UEFI Stack",         0x9FF90000,0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN },
-  {"HLOS2",              0x9FFD0000,0x00027000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN },
-  {"Log Buffer",         0x9FFF7000,0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN },
-  {"Info Blk",           0x9FFFF000,0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN },
+  {"Kernel",             0x80000000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"RAM Partition",      0x85700000, 0x00800000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"HLOS1",              0x85F00000, 0x000C0000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+  {"QTEE",               0x85fc0000, 0x02f40000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
+  {"AOP CMD DB",         0x85FE0000, 0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"SMEM",               0x86000000, 0x00200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"RAM Partition",      0x86200000, 0x11A00000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
+  {"DXE Heap",           0x97C00000, 0x05730000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"DBI Dump",           0x9D330000, 0x000D0000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
+  {"Display Reserved",   0x9D400000, 0x02400000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
+  {"FV Region",          0x9F800000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+  {"ABOOT FV",           0x9FA00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"UEFI FD",            0x9FC00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+  {"SEC Heap",           0x9FF00000, 0x0008C000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+  {"CPU Vectors",        0x9FF8C000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+  {"MMU PageTables" ,    0x9FF8D000, 0x00003000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+  {"UEFI Stack",         0x9FF90000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+  {"HLOS2",              0x9FFD0000, 0x00027000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
+  {"Log Buffer",         0x9FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
+  {"Info Blk",           0x9FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
 
   // Other Memory Regions
   {"AOP_SS_MSG_RAM",     0x0C300000, 0x00100000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
@@ -88,11 +88,12 @@ gDeviceMemoryDescriptorEx[] = {
   {"PCIE_0_WRAPPER_AXI", 0x60000000, 0x01000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
 
   /* Terminator for MMU */
-  {"Terminator", 0, 0, 0, 0, 0, 0, 0}};
+  {"Terminator", 0, 0, 0, 0, 0, 0, 0}
+};
 
 
 ARM_MEMORY_REGION_DESCRIPTOR_EX*
 GetDeviceMemoryMap ()
 {
-    return gDeviceMemoryMapEx;
+    return gDeviceMemoryDescriptorEx;
 }

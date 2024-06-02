@@ -919,6 +919,77 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 </details>
 
 <details>
+
+<summary><b><strong>Snapdragon 845 Devices</strong></b></summary>
+
+## LG Velvet 4G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Silicium/blob/main/Resources/Pictures/LG-Velvet-caymanslm.png" width="300" alt="Preview">
+
+**State: Active** <br />
+**Codename: caymanslm** <br />
+**Maintainer: [CodeLindro](https://github.com/leandrofriedrich/)** <br />
+**Contibuter: None** <br />
+**Tester: [CodeLindro](https://github.com/leandrofriedrich/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB Mode|Device Mode Only, Host Mode is broken|⚠️|
+|USB PD||❔|
+|SD Card|Probably needs DXE Patches|❌|
+|Windows Boot||✅|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+NOTE: Needs Drivers
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card|Controller gets recognized but no SD shows up yet|❌|
+|Buttons||✅|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❔|
+|Charging||✅|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||✅|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+
 <summary><b><strong>Snapdragon 835 Devices</strong></b></summary>
 
 ## Sony Xperia XZ1
