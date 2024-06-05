@@ -93,7 +93,6 @@ AddRamPartitions (
   UINT32                           NumPartitions       = 0;
   UINT32                           PartitionVersion    = 0;
   PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptor    = gExtendedMemoryDescriptor;
-  BOOLEAN                          AddedFirstPartition = FALSE;
   RamPartitionTable               *RamPartitionTable   = NULL;
 
   // Get RAM Partition Infos
@@ -120,15 +119,12 @@ AddRamPartitions (
     if (RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength <= RAM_PARTITION_BASE) { continue; }
 
     // Add First RAM Partition
-    if (RamPartitionTable->RamPartitionEntry[i].Base == GENERIC_RAM_BASE || !AddedFirstPartition) {
+    if (!AnyRamPartitionAdded) {
       MemoryDescriptor[0].Address = RAM_PARTITION_BASE;
       MemoryDescriptor[0].Length  = RamPartitionTable->RamPartitionEntry[i].AvailableLength - RAM_PARTITION_BASE + RamPartitionTable->RamPartitionEntry[i].Base;
 
       // Add New RAM Partition
       AddRamPartition (MemoryDescriptor[0].Address, MemoryDescriptor[0].Length, MemoryDescriptor[0].ArmAttributes, MemoryDescriptor[0].MemoryType);
-
-      AddedFirstPartition = TRUE;
-
       continue;
     }
 
