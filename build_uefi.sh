@@ -9,7 +9,7 @@ function _help(){
 	echo "Options:"
 	echo "	--device <Codename>, -d <Codename>:         Build a Device."
 	echo "	--release <Build Mode>, -r <Build Mode>:    Release mode for building, 'RELEASE' is the default or use 'DEBUG' alternatively."
-	echo "  --model <Device Model>, -m <Device Model>:  Defines the Model Type of the Selected Target Device."
+	echo "	--model <Device Model>, -m <Device Model>:  Defines the Model Type of the Selected Target Device."
 	echo "	--help, -h:                                 Shows this Help."
 	echo
 	echo "MainPage: https://github.com/Project-Silicium/Mu-Silicium"
