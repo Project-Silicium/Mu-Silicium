@@ -16,5 +16,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: uefi-images
-          path: ./Mu-*.img
+          path: ./Mu-*
           compression-level: 9
