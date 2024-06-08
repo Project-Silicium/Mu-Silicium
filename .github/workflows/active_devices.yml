@@ -1,0 +1,20 @@
+name: Build uefi for active devices
+on:
+  push:
+  workflow_dispatch :
+env:
+  CI_BUILD: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build uefi for active devices
+        run: bash ./setup_env.sh -p apt && bash ./build_active_devices.sh
+
+      - name: Upload UEFI images
+        uses: actions/upload-artifact@v4
+        with:
+          name: uefi-images
+          path: ./Mu-*.img
+          compression-level: 9
