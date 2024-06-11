@@ -1246,7 +1246,7 @@ NOTE: Needs Windows Drivers!
 
 **State: Active** <br />
 **Codename: surya** <br />
-**Maintainer: remtrik** <br />
+**Maintainer: [remtrik](https://github.com/remtrik)** <br />
 **Contibuter: None** <br />
 **Tester: None**
 
@@ -1258,7 +1258,33 @@ NOTE: Needs Windows Drivers!
 |Touchscreen||❌|
 |Internal Storage||✅|
 |Buttons||✅|
-|USB Mode||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD|It looks like it works|⚠️|
+|SD Card||✅|
+|Windows Boot||✅|
+|Linux Boot||❌|
+
+</td></tr> </table>
+
+## Redmi Note 10 Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-10-Pro.png" width="500" alt="Preview">
+
+**State: Active** <br />
+**Codename: sweet** <br />
+**Maintainer: [remtrik](https://github.com/remtrik), [hiprivsid](https://github.com/hiprivsid)** <br />
+**Contibuter: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
 |USB PD||❌|
 |SD Card||❌|
 |Windows Boot||❌|
