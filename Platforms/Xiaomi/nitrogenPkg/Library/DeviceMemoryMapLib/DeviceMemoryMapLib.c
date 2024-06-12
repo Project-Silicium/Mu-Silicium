@@ -1,4 +1,3 @@
-#include <Library/BaseLib.h>
 #include <Library/DeviceMemoryMapLib.h>
 
 STATIC
@@ -22,12 +21,12 @@ gDeviceMemoryDescriptorEx[] = {
   {"Log Buffer",        0x9FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",          0x9FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
     
-  // Other memory regions
+  // Other Memory Regions
   {"IMEM Base",         0x14680000, 0x00040000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
   {"IMEM Cookie Base",  0x146BF000, 0x00001000, AddDev, MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
   {"QDSS_STM",          0x16000000, 0x01000000, AddDev, MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
 
-  // Register regions
+  // Register Regions
   {"BOOT_CONFIG",       0x00070000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"UFS_RUMI",          0x00620000, 0x00020000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"GCC CLK CTL",       0x00100000, 0x000B0000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},

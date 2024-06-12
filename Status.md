@@ -160,13 +160,49 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Feature|Description|State|
 |:------|:----------|:---:|
 |Display||✅|
-|Internal Storage||❌|
-|Buttons|Volume buttons only|⚠️|
+|Internal Storage||✅|
+|Buttons||✅|
 |USB Mode|Host Mode Only|⚠️|
 |USB PD||❌|
-|Windows Boot||❌|
-|Linux Boot||❌|
-|Slot Switch||❌|
+|Windows Boot||✅|
+|Linux Boot||❔|
+|Slot Switch||✅|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU|One Core Only|⚠️|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
 
   </summary>
 </details>
@@ -883,6 +919,77 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 </details>
 
 <details>
+
+<summary><b><strong>Snapdragon 845 Devices</strong></b></summary>
+
+## LG Velvet 4G
+
+<img align="right" src="https://github.com/Robotix22/Mu-Silicium/blob/main/Resources/Pictures/LG-Velvet-caymanslm.png" width="300" alt="Preview">
+
+**State: Active** <br />
+**Codename: caymanslm** <br />
+**Maintainer: [CodeLindro](https://github.com/leandrofriedrich/)** <br />
+**Contibuter: None** <br />
+**Tester: [CodeLindro](https://github.com/leandrofriedrich/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|UFS||✅|
+|Buttons||✅|
+|USB Mode|Device Mode Only, Host Mode is broken|⚠️|
+|USB PD||❔|
+|SD Card|Probably needs DXE Patches|❌|
+|Windows Boot||✅|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+NOTE: Needs Drivers
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card|Controller gets recognized but no SD shows up yet|❌|
+|Buttons||✅|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Fingerprint Sensor||❌|
+|Hall Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD||❔|
+|Charging||✅|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||✅|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
+
 <summary><b><strong>Snapdragon 835 Devices</strong></b></summary>
 
 ## Sony Xperia XZ1
@@ -1152,6 +1259,32 @@ NOTE: Needs Windows Drivers!
 |Internal Storage||✅|
 |Buttons||✅|
 |USB Mode||❌|
+|USB PD||❌|
+|SD Card||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+</td></tr> </table>
+
+## Redmi Note 10 Pro
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-10-Pro.png" width="500" alt="Preview">
+
+**State: Active** <br />
+**Codename: sweet** <br />
+**Maintainer: [remtrik](https://github.com/remtrik), [hiprivsid](https://github.com/hiprivsid)** <br />
+**Contibuter: None** <br />
+**Tester: None**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen||❌|
+|Internal Storage||✅|
+|Buttons||✅|
+|USB Mode|Host Mode Only|⚠️|
 |USB PD||❌|
 |SD Card||❌|
 |Windows Boot||❌|
@@ -1604,6 +1737,66 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 <details>
 <summary><b><strong>Snapdragon 662 Devices</strong></b></summary>
 
+## Motorola Moto G9 Power
+
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Motorola-Moto-G9-Power.png" width="500" alt="Preview">
+
+**State: Inactive** <br />
+**Codename: cebu** <br />
+**Maintainer: hiprivsid, remtrik** <br />
+**Contibuters: hiprivsid, remtrik** <br />
+**Tester: hiprivsid**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||✅|
+|Buttons|Works|✅|
+|USB Mode|Host Mode Only|⚠️|
+|USB PD|Doesn't work all the time|⚠️|
+|SD Card||❌|
+|Windows Boot|Doesn't tested it|❌|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|SD Card||❌|
+|Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||❌|
+|USB Mode|None|❌|
+|USB PD||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
 ## Motorola Moto G30
 
 <img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Motorola-Moto-G30.png" width="500" alt="Preview">
@@ -1663,6 +1856,8 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 |Vibration||❌|
 
 </td></tr> </table>
+
+
 
 ## Xiaomi Redmi 9T
 
@@ -1934,7 +2129,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Samsung Galaxy Note 20 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Note-20-5G.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Note20-5G.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: c1s** <br />

@@ -1,5 +1,4 @@
 ##
-#
 #  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
@@ -7,7 +6,6 @@
 #  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
 
 [Defines]
@@ -48,6 +46,7 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|E9810Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  ExynosSpeedyLib|E9810Pkg/Library/ExynosSpeedyLib/ExynosSpeedyLib.inf
 
 [Components]
   E9810Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

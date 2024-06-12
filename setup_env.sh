@@ -10,7 +10,7 @@ function _help(){
     echo "  --package-manager PAK, -p PAK:   Chose what Package Manager you use."
     echo "  --help, -h:                      Shows this Help."
     echo 
-    echo "MainPage: https://github.com/Robotix22/Mu-Silicium"
+    echo "MainPage: https://github.com/Project-Silicium/Mu-Silicium"
     exit 1
 }
 
@@ -37,6 +37,10 @@ fi
 
 # Install all needed Packages
 if [ ${PAK} = apt ]; then
+    if [ $CI_BUILD == "true" ]; then
+        sudo apt update
+        sudo apt -y upgrade
+    fi
     sudo apt install -y pip git mono-devel build-essential lld nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl||_error "\nFailed to install Packages!\n"
 elif [ ${PAK} = dnf ]; then
     sudo dnf install -y git mono-devel nuget iasl nasm make lld gcc automake gcc-aarch64-linux-gnu arm-linux-gnueabihf-gcc python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl||_error "\nFailed to install Packages!\n"

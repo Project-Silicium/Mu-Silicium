@@ -11,7 +11,7 @@ function _help(){
     echo "  --asl, -a:                                  Use asl.exe instead of iasl to compile ACPI Tables."
     echo "	--help, -h:                                 Shows this Help."
 	echo
-	echo "MainPage: https://github.com/Robotix22/Mu-Silicium"
+	echo "MainPage: https://github.com/Project-Silicium/Mu-Silicium"
 	exit 1
 }
 

@@ -1,4 +1,3 @@
-#include <Library/BaseLib.h>
 #include <Library/DeviceConfigurationMapLib.h>
 
 STATIC
@@ -44,7 +43,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableVariablePolicyEngine", 0},
   {"EnableACPIFallback", 0x0},
 
-  /* Terminator */
+  // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
 

@@ -33,7 +33,6 @@ ReEnableDisplay (
   Status = mDisplayPowerProtocol->SetDisplayPowerState (mDisplayPowerProtocol, EfiDisplayPowerStateOn);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Turn On Display!\n"));
-    ASSERT_EFI_ERROR (Status);
   }
 
 exit:

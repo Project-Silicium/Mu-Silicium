@@ -1,5 +1,4 @@
 ##
-#
 #  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
@@ -7,7 +6,6 @@
 #  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
 
 ################################################################################
@@ -92,7 +90,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA1200000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
@@ -111,6 +109,3 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
 
 !include SM7125Pkg/SM7125Pkg.dsc.inc
-
-[LibraryClasses]
-  AcpiPlatformUpdateLib|miatollPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf

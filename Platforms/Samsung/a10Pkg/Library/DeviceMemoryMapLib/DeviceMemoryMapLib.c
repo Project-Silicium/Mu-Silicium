@@ -1,4 +1,3 @@
-#include <Library/BaseLib.h>
 #include <Library/DeviceMemoryMapLib.h>
 
 STATIC
@@ -73,7 +72,7 @@ gDeviceMemoryDescriptorEx[] = {
   
   // NOTE: I have no Idea when Memory Ends here.
 
-  // Register regions
+  // Register Regions
   {"Gic Distributor", 0x12301000, 0x00001000, AddDev,
    EFI_RESOURCE_MEMORY_MAPPED_IO, EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE,
    EfiMemoryMappedIO, ARM_MEMORY_REGION_ATTRIBUTE_DEVICE},
@@ -83,6 +82,10 @@ gDeviceMemoryDescriptorEx[] = {
    EfiMemoryMappedIO, ARM_MEMORY_REGION_ATTRIBUTE_DEVICE},
   
   {"Pinctrl", 0x11CB0000, 0x00001000, AddDev,
+   EFI_RESOURCE_MEMORY_MAPPED_IO, EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE,
+   EfiMemoryMappedIO, ARM_MEMORY_REGION_ATTRIBUTE_DEVICE},
+  
+  {"Speedy", 0x11CE0000, 0x00002000, AddDev,
    EFI_RESOURCE_MEMORY_MAPPED_IO, EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE,
    EfiMemoryMappedIO, ARM_MEMORY_REGION_ATTRIBUTE_DEVICE},
 

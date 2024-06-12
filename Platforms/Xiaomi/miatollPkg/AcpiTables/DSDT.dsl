@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of DSDT_7125_MIATOLL.aml, Fri May 24 19:23:47 2024
+ * Disassembly of DSDT_7125_MIATOLL.aml, Wed Jun  5 20:55:22 2024
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x000361D5 (221653)
+ *     Length           0x00036263 (221795)
  *     Revision         0x02
- *     Checksum         0x3B
+ *     Checksum         0x8A
  *     OEM ID           "QCOMM "
  *     OEM Table ID     "SDM7180 "
  *     OEM Revision     0x00000003 (3)
@@ -141,7 +141,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
         Name (PRP1, 0xFFFFFFFF)
         Name (PRP2, 0xFFFFFFFF)
         Name (PRP3, 0xFFFFFFFF)
-        Name (PNID, 0xFFFFFFFF)
         Device (UFS0)
         {
             Name (_HID, "QCOM24A5")  // _HID: Hardware ID
@@ -236,6 +235,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
 
         Device (SDC2)
         {
+            Name (_DEP, Package (0x02)  // _DEP: Dependencies
+            {
+                \_SB.PEP0, 
+                \_SB.GIO0
+            })
             Name (_HID, "QCOM2466")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
             Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
@@ -252,7 +256,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                     {
                         0x000000EC,
                     }
-                    GpioInt (Edge, ActiveBoth, SharedAndWake, PullUp, 0x0000,
+                    GpioInt (Edge, ActiveBoth, SharedAndWake, PullDown, 0x1388,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
@@ -3407,142 +3411,142 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                     {
                         "COMPONENT", 
                         0x0B, 
-                        Package (0x06)
+                        Package (0x02)
                         {
                             "FSTATE", 
-                            Zero, 
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x41, 
-                                    One, 
-                                    One, 
-                                    One, 
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x42, 
-                                    One, 
-                                    One, 
-                                    One, 
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x3F, 
-                                    One, 
-                                    One, 
-                                    One, 
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x40, 
-                                    One, 
-                                    One, 
-                                    One, 
-                                    One, 
-                                    Zero
-                                }
-                            }
+                            Zero
                         }, 
 
-                        Package (0x06)
+                        Package (0x02)
                         {
                             "FSTATE", 
-                            One, 
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x41, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero, 
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x42, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero, 
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x3F, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero, 
-                                    One, 
-                                    Zero
-                                }
-                            }, 
-
-                            Package (0x02)
-                            {
-                                "TLMMGPIO", 
-                                Package (0x06)
-                                {
-                                    0x40, 
-                                    Zero, 
-                                    Zero, 
-                                    Zero, 
-                                    One, 
-                                    Zero
-                                }
-                            }
+                            One
                         }, 
 
                         Package (0x04)
                         {
                             "PSTATE_SET", 
                             Zero, 
-                            Package (0x02)
+                            Package (0x06)
                             {
                                 "PSTATE", 
-                                Zero
+                                Zero, 
+                                Package (0x02)
+                                {
+                                    "TLMMGPIO", 
+                                    Package (0x06)
+                                    {
+                                        0x41, 
+                                        One, 
+                                        One, 
+                                        One, 
+                                        One, 
+                                        Zero
+                                    }
+                                }, 
+
+                                Package (0x02)
+                                {
+                                    "TLMMGPIO", 
+                                    Package (0x06)
+                                    {
+                                        0x42, 
+                                        One, 
+                                        One, 
+                                        One, 
+                                        One, 
+                                        Zero
+                                    }
+                                }, 
+
+                                Package (0x02)
+                                {
+                                    "TLMMGPIO", 
+                                    Package (0x06)
+                                    {
+                                        0x3F, 
+                                        One, 
+                                        One, 
+                                        One, 
+                                        One, 
+                                        Zero
+                                    }
+                                }, 
+
+                                Package (0x02)
+                                {
+                                    "TLMMGPIO", 
+                                    Package (0x06)
+                                    {
+                                        0x40, 
+                                        One, 
+                                        One, 
+                                        One, 
+                                        One, 
+                                        Zero
+                                    }
+                                }
                             }, 
 
-                            Package (0x02)
+                            Package (0x06)
                             {
                                 "PSTATE", 
-                                One
+                                One, 
+                                Package (0x02)
+                                {
+                                    "TLMMGPIO", 
+                                    Package (0x06)
+                                    {
+                                        0x41, 
+                                        Zero, 
+                                        Zero, 
+                                        Zero, 
+                                        One, 
+                                        Zero
+                                    }
+                                }, 
+
+                                Package (0x02)
+                                {
+                                    "TLMMGPIO", 
+                                    Package (0x06)
+                                    {
+                                        0x42, 
+                                        Zero, 
+                                        Zero, 
+                                        Zero, 
+                                        One, 
+                                        Zero
+                                    }
+                                }, 
+
+                                Package (0x02)
+                                {
+                                    "TLMMGPIO", 
+                                    Package (0x06)
+                                    {
+                                        0x3F, 
+                                        Zero, 
+                                        Zero, 
+                                        Zero, 
+                                        One, 
+                                        Zero
+                                    }
+                                }, 
+
+                                Package (0x02)
+                                {
+                                    "TLMMGPIO", 
+                                    Package (0x06)
+                                    {
+                                        0x40, 
+                                        Zero, 
+                                        Zero, 
+                                        Zero, 
+                                        One, 
+                                        Zero
+                                    }
+                                }
                             }
                         }
                     }, 
@@ -40661,6 +40665,36 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                                 {   // Pin list
                                     0x003A
                                 }
+                            GpioIo (Exclusive, PullNone, 0x0000, 0x0640, IoRestrictionNone,
+                                "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                                )
+                                {   // Pin list
+                                    0x0033
+                                }
+                            GpioIo (Exclusive, PullNone, 0x0000, 0x0640, IoRestrictionNone,
+                                "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                                )
+                                {   // Pin list
+                                    0x0034
+                                }
+                            Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                            {
+                                0x00000148,
+                            }
+                            Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                            {
+                                0x00000149,
+                            }
+                            Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                            {
+                                0x00000147,
+                            }
+                            GpioInt (Edge, ActiveHigh, ExclusiveAndWake, PullDown, 0x0000,
+                                "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                                )
+                                {   // Pin list
+                                    0x0100
+                                }
                         })
                         Return (RBUF) /* \_SB_.ADSP.ADCM.AUDD._CRS.RBUF */
                     }
@@ -52415,7 +52449,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
             Name (_UID, Zero)  // _UID: Unique ID
         }
 
-        Name (HWNL, One)
+        Name (HWNL, Zero)
         Device (HWN0)
         {
             Name (_HID, "QCOM086D")  // _HID: Hardware ID
@@ -52438,7 +52472,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
                 Name (CFG0, Package (0x10)
                 {
                     0x02, 
-                    One, 
+                    0x03, 
                     0x019B, 
                     0x14, 
                     Zero, 
@@ -54530,88 +54564,81 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM7180 ", 0x00000003)
             }
         }
 
-        Device (TSC1)
+        Device (TSCS)
         {
-            Method (_HID, 0, Serialized)  // _HID: Hardware ID
-            {
-                If ((PNID == 0x8756))
-                {
-                    Return ("FTTS8756")
-                }
-                Else
-                {
-                    Return ("NTTS3652")
-                }
-            }
-
+            Name (_HID, "TSCS0000")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
-            Name (_DEP, Package (0x03)  // _DEP: Dependencies
+            Device (TSC1)
             {
-                \_SB.PEP0, 
-                \_SB.GIO0, 
-                \_SB.SP12
-            })
-            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-            {
-                Name (RBUF, ResourceTemplate ()
+                Name (_ADR, Zero)  // _ADR: Address
+                Name (_DEP, Package (0x03)  // _DEP: Dependencies
                 {
-                    SpiSerialBusV2 (0x0000, PolarityLow, FourWireMode, 0x08,
-                        ControllerInitiated, 0x007A1200, ClockPolarityLow,
-                        ClockPhaseFirst, "\\_SB.SP12",
-                        0x00, ResourceConsumer, , Exclusive,
-                        )
-                    GpioInt (Edge, ActiveLow, ExclusiveAndWake, PullUp, 0x0000,
-                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                        )
-                        {   // Pin list
-                            0x0009
-                        }
+                    \_SB.PEP0, 
+                    \_SB.GIO0, 
+                    \_SB.SP12
                 })
-                Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
-            }
-
-            Name (PGID, Buffer (0x0A)
-            {
-                "\\_SB.TSC1"
-            })
-            Name (DBUF, Buffer (DBFL){})
-            CreateByteField (DBUF, Zero, STAT)
-            CreateByteField (DBUF, 0x02, DVAL)
-            CreateField (DBUF, 0x18, 0xA0, DEID)
-            Method (_S1D, 0, NotSerialized)  // _S1D: S1 Device State
-            {
-                Return (0x03)
-            }
-
-            Method (_S2D, 0, NotSerialized)  // _S2D: S2 Device State
-            {
-                Return (0x03)
-            }
-
-            Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
-            {
-                Return (0x03)
-            }
-
-            Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
-            {
-                DEID = Buffer (ESNL){}
-                DVAL = Zero
-                DEID = PGID /* \_SB_.TSC1.PGID */
-                If (\_SB.ABD.AVBL)
+                Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
-                    \_SB.PEP0.FLD0 = DBUF /* \_SB_.TSC1.DBUF */
+                    Name (RBUF, ResourceTemplate ()
+                    {
+                        SpiSerialBusV2 (0x0000, PolarityLow, FourWireMode, 0x08,
+                            ControllerInitiated, 0x007A1200, ClockPolarityLow,
+                            ClockPhaseFirst, "\\_SB.SP12",
+                            0x00, ResourceConsumer, , Exclusive,
+                            )
+                        GpioInt (Edge, ActiveLow, ExclusiveAndWake, PullUp, 0x0000,
+                            "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                            )
+                            {   // Pin list
+                                0x0009
+                            }
+                    })
+                    Return (RBUF) /* \_SB_.TSCS.TSC1._CRS.RBUF */
                 }
-            }
 
-            Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
-            {
-                DEID = Buffer (ESNL){}
-                DVAL = 0x03
-                DEID = PGID /* \_SB_.TSC1.PGID */
-                If (\_SB.ABD.AVBL)
+                Name (PGID, Buffer (0x0A)
                 {
-                    \_SB.PEP0.FLD0 = DBUF /* \_SB_.TSC1.DBUF */
+                    "\\_SB.TSC1"
+                })
+                Name (DBUF, Buffer (DBFL){})
+                CreateByteField (DBUF, Zero, STAT)
+                CreateByteField (DBUF, 0x02, DVAL)
+                CreateField (DBUF, 0x18, 0xA0, DEID)
+                Method (_S1D, 0, NotSerialized)  // _S1D: S1 Device State
+                {
+                    Return (0x03)
+                }
+
+                Method (_S2D, 0, NotSerialized)  // _S2D: S2 Device State
+                {
+                    Return (0x03)
+                }
+
+                Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
+                {
+                    Return (0x03)
+                }
+
+                Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+                {
+                    DEID = Buffer (ESNL){}
+                    DVAL = Zero
+                    DEID = PGID /* \_SB_.TSCS.TSC1.PGID */
+                    If (\_SB.ABD.AVBL)
+                    {
+                        \_SB.PEP0.FLD0 = DBUF /* \_SB_.TSCS.TSC1.DBUF */
+                    }
+                }
+
+                Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
+                {
+                    DEID = Buffer (ESNL){}
+                    DVAL = 0x03
+                    DEID = PGID /* \_SB_.TSCS.TSC1.PGID */
+                    If (\_SB.ABD.AVBL)
+                    {
+                        \_SB.PEP0.FLD0 = DBUF /* \_SB_.TSCS.TSC1.DBUF */
+                    }
                 }
             }
         }

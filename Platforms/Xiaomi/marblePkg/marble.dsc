@@ -1,5 +1,4 @@
 ##
-#
 #  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
@@ -7,7 +6,6 @@
 #  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
 
 ################################################################################
@@ -27,6 +25,9 @@
   FLASH_DEFINITION               = marblePkg/marble.fdf
   USE_DISPLAYDXE                 = 0
   AB_SLOT_SUPPORT                = 1
+  
+  [BuildOptions]
+  *_*_*_CC_FLAGS = -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT)
 
 [LibraryClasses]
   DeviceMemoryMapLib|marblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

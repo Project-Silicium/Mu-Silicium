@@ -1,4 +1,3 @@
-#include <Library/BaseLib.h>
 #include <Library/DeviceConfigurationMapLib.h>
 
 STATIC
@@ -45,12 +44,12 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EUDEnableAddr", 0x88E2000},
   {"MinidumpTALoadingCfg", 0x0},
 
-  /* Terminator */
+  // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
 
-CONFIGURATION_DESCRIPTOR_EX
-*GetDeviceConfigurationMap ()
+CONFIGURATION_DESCRIPTOR_EX*
+GetDeviceConfigurationMap ()
 {
   return gDeviceConfigurationDescriptorEx;
 }

@@ -17,8 +17,8 @@ SystemPowerCheck (
   IN  POWER_CASE Case,
   OUT BOOLEAN   *Good)
 {
-  EFI_STATUS                Status;
-  EFI_CHARGER_EX_PROTOCOL  *gEfiChargerExProtocol;
+  EFI_STATUS                Status                = EFI_SUCCESS;
+  EFI_CHARGER_EX_PROTOCOL  *gEfiChargerExProtocol = NULL;
   EFI_CHARGER_EX_FLASH_INFO FlashInfo;
 
   if (FixedPcdGetBool(PcdIsPowerOkImplemented)) {

@@ -1,12 +1,10 @@
 ##
-#
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014-2016, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2017, Intel Corporation. All rights reserved.
 #  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
 
 ################################################################################
