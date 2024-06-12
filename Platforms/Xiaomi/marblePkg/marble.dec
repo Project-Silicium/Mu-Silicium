@@ -5,6 +5,4 @@
   PACKAGE_VERSION                     = 0.1
 
 [Guids]
-  # NOTE: For these Values you need to use the GUID you generated earlier!
-  # These are just example Values.
   gmarbleTokenSpaceGuid    = { 0x1ead32ce, 0x3165, 0x49eb, { 0xa9, 0x2d, 0xe8, 0x8a, 0x42, 0x57, 0x20, 0x02 } }
