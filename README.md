@@ -10,9 +10,9 @@ This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Wi
 
 [Discord Server](https://discord.gg/Dx2QgMx7Sv)
 
-## [Status](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Status.md)
+## [Status](Status.md)
 
-## [Building](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Building.md)
+## [Building](Building.md)
 
 ## [Guides](https://github.com/Project-Silicium/WoA-Guides/blob/main/README.md)
 

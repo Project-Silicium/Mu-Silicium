@@ -20,7 +20,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Nothing Phone 2
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: pong** <br />
@@ -80,7 +80,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Samsung Galaxy Tab S8 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: gts8** <br />
@@ -147,7 +147,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Xiaomi Poco F5
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Poco-F5.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Poco-F5.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: marble** <br />
@@ -212,7 +212,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Samsung Galaxy Z Fold 3 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Z-Fold-3-5G.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Z-Fold-3-5G.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: q2q** <br />
@@ -275,7 +275,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Xiaomi Mi 11
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-11.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: venus** <br />
@@ -338,7 +338,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Asus ROG Phone 5
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Asus-ROG-Phone-5.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Asus-ROG-Phone-5.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: i005d** <br />
@@ -361,7 +361,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Xiaomi 11T Pro
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: vili** <br />
@@ -430,7 +430,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Xiaomi Poco F3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: alioth** <br />
@@ -491,7 +491,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 ## Realme GT NEO 2
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Realme-GT-NEO-2.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Realme-GT-NEO-2.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: bitra** <br />
@@ -579,7 +579,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 ## Lenovo Legion Tab Y700
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-Legion-Tab-Y700.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Lenovo-Legion-Tab-Y700.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: 9707f** <br />
@@ -641,7 +641,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 ## OnePlus 8T
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/OnePlus-8T.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/OnePlus-8T.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: kebab** <br />
@@ -701,7 +701,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 ## Xiaomi Pad 6
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Pad-6.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Pad-6.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: pipa** <br />
@@ -790,7 +790,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 ## Xiaomi Poco F2 Pro
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Poco-F2-Pro.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-F2-Pro.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: lmi** <br />
@@ -858,7 +858,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 ## OnePlus 7T Pro
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: hotdog** <br />
@@ -924,7 +924,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 ## LG Velvet 4G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Silicium/blob/main/Resources/Pictures/LG-Velvet-caymanslm.png" width="300" alt="Preview">
+<img align="right" src="Resources/Pictures/LG-Velvet-caymanslm.png" width="300" alt="Preview">
 
 **State: Active** <br />
 **Codename: caymanslm** <br />
@@ -994,7 +994,7 @@ NOTE: Needs Drivers
 
 ## Sony Xperia XZ1
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Sony-Xperia-XZ1.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Sony-Xperia-XZ1.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: poplar** <br />
@@ -1063,7 +1063,7 @@ NOTE: Needs Drivers
 
 ## Mi 11 Lite NE
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: lisa** <br />
@@ -1126,7 +1126,7 @@ NOTE: Needs Windows Drivers!
 
 ## Samsung Galaxy A52s 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: a52sxq** <br />
@@ -1155,7 +1155,7 @@ NOTE: Needs Windows Drivers!
 
 ## Lenovo Tab P11 Pro
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-Tab-P11-Pro-2020.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Lenovo-Tab-P11-Pro-2020.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: j706f** <br />
@@ -1217,7 +1217,7 @@ NOTE: Needs Windows Drivers!
 
 ## Xiaomi Redmi Note 12 Pro 4G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: sweet_k6a** <br />
@@ -1242,7 +1242,7 @@ NOTE: Needs Windows Drivers!
 
 ## POCO X3 NFC
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Poco-X3-NFC.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-X3-NFC.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: surya** <br />
@@ -1268,7 +1268,7 @@ NOTE: Needs Windows Drivers!
 
 ## Redmi Note 10 Pro
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-10-Pro.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-10-Pro.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: sweet** <br />
@@ -1298,7 +1298,7 @@ NOTE: Needs Windows Drivers!
 
 ## Xiaomi Redmi Note 9 Pro / 9 Pro India / 9 Pro Max India / 10 Lite / 9S / Poco M2 Pro
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-9S.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-9S.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: miatoll** <br />
@@ -1366,7 +1366,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Xiaomi Redmi 10C
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-10C.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-10C.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: fog** <br />
@@ -1458,7 +1458,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Xiaomi Redmi Note 12
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-12.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: tapas** <br />
@@ -1550,7 +1550,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Xiaomi Redmi Note 11
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-11.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-11.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: spes** <br />
@@ -1650,7 +1650,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Xiaomi Mi A3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-A3.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: laurel_sprout** <br />
@@ -1674,7 +1674,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Xiaomi Redmi Note 8/8T
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: ginkgo** <br />
@@ -1739,7 +1739,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Motorola Moto G9 Power
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Motorola-Moto-G9-Power.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Motorola-Moto-G9-Power.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: cebu** <br />
@@ -1799,7 +1799,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Motorola Moto G30
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Motorola-Moto-G30.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Motorola-Moto-G30.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: caprip** <br />
@@ -1861,7 +1861,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Xiaomi Redmi 9T
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Redmi-9T.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-9T.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: lime** <br />
@@ -1928,7 +1928,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Xiaomi Mi Max 3
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Xiaomi-Mi-Max-3.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-Max-3.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: nitrogen** <br />
@@ -2035,7 +2035,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Nintendo Switch
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
 
 **State: Active** <br />
 **Codename: HAC-001** <br />
@@ -2065,7 +2065,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Microsoft Surface RT
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Microsoft-Surface-RT.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Microsoft-Surface-RT.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: oemk** <br />
@@ -2089,7 +2089,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Lenovo IdeaPad Yoga 11
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Lenovo-IdeaPad-Yoga-11.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Lenovo-IdeaPad-Yoga-11.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: Venus** <br />
@@ -2129,7 +2129,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Samsung Galaxy Note 20 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-Note20-5G.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Note20-5G.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: c1s** <br />
@@ -2152,7 +2152,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Samsung Galaxy S20 5G
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: x1s** <br />
@@ -2181,7 +2181,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Samsung Galaxy S10
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S10.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S10.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: beyond1lte** <br />
@@ -2210,7 +2210,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Samsung Galaxy S9
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-S9.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S9.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: starlte** <br />
@@ -2239,7 +2239,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Samsung Galaxy A10
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A10.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-A10.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: a10** <br />
@@ -2262,7 +2262,7 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 
 ## Samsung Galaxy A7
 
-<img align="right" src="https://github.com/Robotix22/Mu-Qcom/blob/main/Resources/Pictures/Samsung-Galaxy-A7.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-A7.png" width="500" alt="Preview">
 
 **State: Inactive** <br />
 **Codename: a7** <br />
