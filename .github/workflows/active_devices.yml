@@ -4,23 +4,23 @@ on:
     branches: ["main"]
     paths:
       - 'Binaries'
-      - 'Common'
-      - 'Features'
+      - 'Common/**'
+      - 'Features/**'
       - 'Mu_Basecore'
-      - 'MuPatches'
-      - 'Platforms'
-      - 'Silicon'
+      - 'MuPatches/**'
+      - 'Platforms/**'
+      - 'Silicon/**'
   workflow_dispatch:
   pull_request:
     types: [opened, reopened]
     paths:
       - 'Binaries'
-      - 'Common'
-      - 'Features'
+      - 'Common/**'
+      - 'Features/**'
       - 'Mu_Basecore'
-      - 'MuPatches'
-      - 'Platforms'
-      - 'Silicon'
+      - 'MuPatches/**'
+      - 'Platforms/**'
+      - 'Silicon/**'
 env:
   CI_BUILD: true
 jobs:
