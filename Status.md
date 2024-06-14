@@ -1317,12 +1317,12 @@ NOTE: Needs Windows Drivers!
 |USB PD||✅|
 |SD Card||✅|
 |Windows Boot||✅|
-|Linux Boot||❌|
+|Linux Boot||✅|
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th></tr>
+<tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
 NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/latest)!
@@ -1338,8 +1338,8 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 |Compass Sensor||❌|
 |Gyroscope Sensor||❌|
 |Fingerprint Sensor||❌|
-|Hall Sensor||❌|
-|Battery||❌|
+|NFC Sensor||❌|
+|Battery||✅|
 |USB||✅|
 |Charging||❌|
 |WLAN||✅|
@@ -1348,6 +1348,39 @@ NOTE: Needs Windows [Drivers](https://github.com/N1kroks/7xx-Drivers/releases/la
 |Bluetooth||✅|
 |GPS||✅|
 |Speakers||❌|
+|3.5mm Audio Jack||❌|
+|Microphone||❌|
+|GPU||✅|
+|Camera||❌|
+|Mobile Data||✅|
+|Display||✅|
+|Vibration||❌|
+
+</td><td>
+
+NOTE: Needs [Linux Fork](https://github.com/N1kroks/linux-7125)!
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|SD Card||✅|
+|Buttons||✅|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Battery||✅|
+|USB||✅|
+|Charging||❌|
+|WLAN||✅|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||✅|
 |3.5mm Audio Jack||❌|
 |Microphone||❌|
 |GPU||✅|
