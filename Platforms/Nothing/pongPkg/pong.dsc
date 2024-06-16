@@ -68,7 +68,7 @@
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703C0C8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFC500000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
