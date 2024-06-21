@@ -3,6 +3,8 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+  INF Binaries/gts8/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
+  
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
   # Next, install cpu protocol and enable the interrupt controller
@@ -13,8 +15,14 @@ APRIORI DXE {
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
-  #INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-  #INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  
+  INF Binaries/gts8/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
+
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf

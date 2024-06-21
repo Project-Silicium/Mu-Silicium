@@ -1,6 +1,9 @@
   
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+  
+  INF Binaries/gts8/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
+  
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
@@ -18,6 +21,11 @@
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
+  
+  INF Binaries/gts8/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
@@ -26,7 +34,8 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   
   #INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-  #INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
