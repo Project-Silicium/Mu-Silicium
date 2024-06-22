@@ -28,6 +28,8 @@
 !endif
   RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
 
+  ConfigurationMapHelperLib|QcomPkg/Library/ConfigurationMapHelperLib/ConfigurationMapHelperLib.inf
+
 [Components]
   # Custom Drivers
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
