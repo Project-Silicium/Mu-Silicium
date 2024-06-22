@@ -53,6 +53,7 @@
 [LibraryClasses]
   PlatformPeiLib|E7885Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|E7885Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|E7885Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
