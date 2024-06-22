@@ -12,6 +12,7 @@
 #include <Library/MsPlatformDevicesLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/BdsExtensionLib.h>
+#include <Library/AcpiPlatformUpdateLib.h>
 
 #include <Protocol/DevicePath.h>
 
@@ -63,6 +64,9 @@ EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
 GetPlatformConnectList ()
 {
+  // Update the ACPI Tables
+  PlatformUpdateAcpiTables ();
+
   return NULL;
 }
 

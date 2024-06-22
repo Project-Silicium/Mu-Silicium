@@ -197,6 +197,7 @@
 !endif
 
   PlatformThemeLib|SiliciumPkg/Library/PlatformThemeLib/PlatformThemeLib.inf
+  AslUpdateLib|SiliciumPkg/Library/DxeAslUpdateLib/DxeAslUpdateLib.inf
 
   #
   # Uncomment (and comment out the next line) For RealView Debugger. The Standard IO window

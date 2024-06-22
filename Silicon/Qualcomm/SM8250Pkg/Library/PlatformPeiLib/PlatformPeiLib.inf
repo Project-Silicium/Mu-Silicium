@@ -26,7 +26,7 @@
   HobLib
   SerialPortLib
   MemoryMapHelperLib
-  DeviceConfigurationMapLib
+  ConfigurationMapHelperLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdFvSize

@@ -20,7 +20,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  QcomPkg/QcomPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   UefiBootServicesTableLib

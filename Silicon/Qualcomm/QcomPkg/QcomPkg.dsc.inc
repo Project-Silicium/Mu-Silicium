@@ -26,8 +26,9 @@
 !if $(AB_SLOT_SUPPORT) == 1
   BootSlotLib|QcomPkg/GPLLibrary/BootSlotLib/BootSlotLib.inf
 !endif
-  AslUpdateLib|QcomPkg/Library/DxeAslUpdateLib/DxeAslUpdateLib.inf
   RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
+
+  ConfigurationMapHelperLib|QcomPkg/Library/ConfigurationMapHelperLib/ConfigurationMapHelperLib.inf
 
 [Components]
   # Custom Drivers

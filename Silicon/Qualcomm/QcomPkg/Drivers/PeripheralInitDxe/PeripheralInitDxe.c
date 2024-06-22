@@ -1,7 +1,6 @@
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/AcpiPlatformUpdateLib.h>
 
 STATIC
 VOID
@@ -19,9 +18,6 @@ InitPeripherals (
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS Status = EFI_SUCCESS;
-
-  // Update the ACPI Tables
-  PlatformUpdateAcpiTables ();
 
   // Start the USB Port Controller
   if (FixedPcdGetBool(PcdStartUsbController)) {

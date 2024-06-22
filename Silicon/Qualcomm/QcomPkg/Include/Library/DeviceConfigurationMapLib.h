@@ -1,6 +1,8 @@
 #ifndef _DEVICE_CONFIGURATION_MAP_LIB_H_
 #define _DEVICE_CONFIGURATION_MAP_LIB_H_
 
+#include <PiPei.h>
+
 #define CONFIGURATION_NAME_MAX_LENGTH 64
 
 typedef struct {
