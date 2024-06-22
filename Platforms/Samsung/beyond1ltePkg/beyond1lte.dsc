@@ -40,7 +40,7 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Robotix22"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80302000

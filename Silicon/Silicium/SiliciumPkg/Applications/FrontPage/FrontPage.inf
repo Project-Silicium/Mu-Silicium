@@ -37,6 +37,7 @@
   DfciPkg/DfciPkg.dec
   MsWheaPkg/MsWheaPkg.dec
   SecurityPkg/SecurityPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   BaseLib
@@ -114,8 +115,7 @@
   gMsGraphicsPkgTokenSpaceGuid.PcdCurrentPointerState
   gDfciPkgTokenSpaceGuid.PcdSetupUiReducedFunction
   gDfciPkgTokenSpaceGuid.PcdDfciEnabled
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
 
 [Depex]
   TRUE

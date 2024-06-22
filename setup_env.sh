@@ -41,14 +41,14 @@ if [ ${PAK} = apt ]; then
         sudo apt update
         sudo apt -y upgrade
     fi
-    sudo apt install -y pip git mono-devel build-essential lld nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl||_error "\nFailed to install Packages!\n"
+    sudo apt install -y pip git mono-devel build-essential lld nuget uuid-dev iasl nasm gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
 elif [ ${PAK} = dnf ]; then
-    sudo dnf install -y git mono-devel nuget iasl nasm make lld gcc automake gcc-aarch64-linux-gnu arm-linux-gnueabihf-gcc python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl||_error "\nFailed to install Packages!\n"
+    sudo dnf install -y git mono-devel nuget iasl nasm make lld gcc automake gcc-aarch64-linux-gnu arm-linux-gnueabihf-gcc python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
 elif [ ${PAK} = pacman ] || [ ${PAK} = yay ]; then
     if [ ${PAK} = pacman ]; then
         sudo pacman -Syu --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     fi
-    yay -Sy git mono base-devel nuget uuid iasl lld nasm aarch64-linux-gnu-gcc arm-linux-gnueabihf-gcc python3 python python-distutils-extra python-git python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv core-git clang llvm curl||_error "\nFailed to install Packages!\n"
+    yay -Sy git mono base-devel nuget uuid iasl lld nasm aarch64-linux-gnu-gcc arm-linux-gnueabihf-gcc python3 python python-distutils-extra python-git python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv core-git clang llvm curl lld||_error "\nFailed to install Packages!\n"
 else
     _error "\nInvaild Package Manager!\nAvailbe Package Managers: apt, dnf, pacman and yay\n"
 fi
@@ -56,6 +56,5 @@ fi
 # Install Needed Python Packages
 python3 -m pip install -r pip-requirements.txt ||python3 -m pip install -r pip-requirements.txt --break-system-packages||_error "\nFailed to install Pip Packages!\n"
 
-export CLANGDWARF_BIN=/usr/lib/llvm-38/bin/
-export CLANGDWARF_AARCH64_PREFIX=aarch64-linux-gnu-
+export CLANGPDB_AARCH64_PREFIX=aarch64-linux-gnu-
 export CLANGDWARF_ARM_PREFIX=arm-linux-gnueabihf-

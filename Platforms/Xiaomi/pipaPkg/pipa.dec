@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = pipa
-  PACKAGE_GUID                   = 0965E99C-81B3-4F49-9ABF-A7A39F591528
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  gpipaTokenSpaceGuid            = { 0x0965E99C, 0x81B3, 0x4F49, { 0x9A, 0xBF, 0xA7, 0xA3, 0x9F, 0x59, 0x15, 0x28 } }

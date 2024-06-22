@@ -28,7 +28,6 @@
 
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/caymanslm/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -39,7 +38,7 @@
   INF Binaries/caymanslm/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/caymanslm/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/caymanslm/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
@@ -62,7 +61,7 @@
   INF Binaries/caymanslm/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/caymanslm/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf

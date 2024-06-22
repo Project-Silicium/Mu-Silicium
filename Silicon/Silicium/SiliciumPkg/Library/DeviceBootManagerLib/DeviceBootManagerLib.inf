@@ -43,7 +43,6 @@
   MsNVBootReasonLib
   BootGraphicsLib
   GraphicsConsoleHelperLib
-  BdsExtensionLib
 
 [Guids]
   gMsStartOfBdsNotifyGuid
@@ -60,6 +59,7 @@
   gPcBdsPkgTokenSpaceGuid.PcdPowerAndThermalRetries
   gPcBdsPkgTokenSpaceGuid.PcdShutdownGraphicDisplayTime
   gPcBdsPkgTokenSpaceGuid.PcdThermalControlRetryWait
+  gSiliciumPkgTokenSpaceGuid.PcdSpecificApp
 
 [Depex]
   TRUE

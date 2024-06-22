@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = a10
-  PACKAGE_GUID                   = F54E021F-3F08-4971-9860-56892E7E78CB
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  ga10TokenSpaceGuid             = { 0xF54E021F, 0x3F08, 0x4971, { 0x98, 0x60, 0x56, 0x89, 0x2E, 0x7E, 0x78, 0xCB } }

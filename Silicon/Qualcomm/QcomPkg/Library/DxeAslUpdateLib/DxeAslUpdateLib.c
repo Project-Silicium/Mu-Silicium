@@ -170,10 +170,7 @@ UpdateNameAslCode (
 
   // Locate ACPI Table with matching Signature
   Status = LocateAcpiTableBySignature (EFI_ACPI_3_0_DIFFERENTIATED_SYSTEM_DESCRIPTION_TABLE_SIGNATURE, (EFI_ACPI_DESCRIPTION_HEADER **)&Table, &Handle);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate ACPI Table with its Signature! Status = %r\n", Status));
-    goto exit;
-  }
+  if (EFI_ERROR (Status)) { goto exit; }
 
   // Point to the Beginning of the DSDT Table
   CurrPtr = (UINT8 *)Table;
@@ -334,10 +331,7 @@ UpdateMethodAslCode (
 
   // Locate ACPI Table with matching Signature
   Status = LocateAcpiTableBySignature (EFI_ACPI_3_0_DIFFERENTIATED_SYSTEM_DESCRIPTION_TABLE_SIGNATURE, (EFI_ACPI_DESCRIPTION_HEADER **)&Table, &Handle);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate ACPI Table with its Signature! Status = %r\n", Status));
-    goto exit;
-  }
+  if (EFI_ERROR (Status)) { goto exit; }
 
   // Point to the Beginning of the DSDT Table
   CurrPtr = (UINT8 *)Table;

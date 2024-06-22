@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = alioth
-  PACKAGE_GUID                   = 7F67CDAE-8312-4ECC-B948-D86C870D04D9
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  galiothTokenSpaceGuid          = { 0x7F67CDAE, 0x8312, 0x4ECC, { 0xB9, 0x48, 0xD8, 0x6C, 0x87, 0x0D, 0x04, 0xD9 } }

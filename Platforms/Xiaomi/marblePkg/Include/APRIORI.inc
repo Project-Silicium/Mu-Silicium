@@ -16,7 +16,6 @@ APRIORI DXE {
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
@@ -67,7 +66,7 @@ APRIORI DXE {
   INF Binaries/marble/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/marble/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
@@ -110,7 +109,7 @@ APRIORI DXE {
   INF Binaries/marble/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-!if $(USE_DISPLAYDXE) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/marble/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/marble/QcomPkg/Drivers/GpiDxe/GpiDxe.inf

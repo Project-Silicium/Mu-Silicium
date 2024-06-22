@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MUNCH_UEFI.fd" > "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MUNCH_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MUNCH_UEFI.fd-bootshim" > "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MUNCH_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MUNCH_UEFI.fd-bootshim.gz" ./Resources/DTBs/munch.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MUNCH_UEFI.fd" > "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MUNCH_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MUNCH_UEFI.fd-bootshim" > "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MUNCH_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/munchPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MUNCH_UEFI.fd-bootshim.gz" ./Resources/DTBs/munch.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = x1s
-  PACKAGE_GUID                   = FFFA8AF8-0C7A-4240-A68F-4F3611DB3547
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  gx1sTokenSpaceGuid             = { 0xFFFA8AF8, 0x0C7A, 0x4240, { 0xA6, 0x8F, 0x4F, 0x36, 0x11, 0xDB, 0x35, 0x47 } }

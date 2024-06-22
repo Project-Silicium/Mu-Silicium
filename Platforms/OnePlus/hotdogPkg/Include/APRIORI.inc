@@ -17,7 +17,6 @@ APRIORI DXE {
   # Core Drivers
   INF Binaries/hotdog/EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/hotdog/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 

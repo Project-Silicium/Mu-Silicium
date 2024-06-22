@@ -17,10 +17,10 @@
 STATIC EFI_EXIT_BOOT_SERVICES mOriginalEfiExitBootServices = NULL;
 EFI_EVENT                     mReadyToBootEvent;
 
-#if PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 0
-#if PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA == 0
-#if PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA == 0
-#if PLATFORM_HAS_PSCI_MEMPROTECT_FAILING_ERRATA == 0
+#if HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 0
+#if HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA == 0
+#if HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA == 0
+#if HAS_PSCI_MEMPROTECT_FAILING_ERRATA == 0
 #error "No errata to patch"
 #endif
 #endif
@@ -29,7 +29,7 @@ EFI_EVENT                     mReadyToBootEvent;
 
 // Please see ./ShellCode/Reference/ShellCode.c for what this does
 UINT8 OslArm64TransferToKernelShellCode[] = {
-  #if PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 1
+  #if HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 1
     // ACTLR_EL1
     0xEB, 0x03, 0x00, 0xAA, 0x68, 0x0D, 0x41, 0xF8, 0x1F, 0x01, 0x0B, 0xEB,
     0x20, 0x04, 0x00, 0x54, 0x06, 0x05, 0x82, 0x52, 0x06, 0xA7, 0xBA, 0x72,
@@ -45,7 +45,7 @@ UINT8 OslArm64TransferToKernelShellCode[] = {
     0xF8, 0xFF, 0xFF, 0x17, 0x00, 0x00, 0x00, 0x14, 0x1F, 0x20, 0x03, 0xD5,
 #endif
 
-#if PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA == 1
+#if HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA == 1
     // AMCNTENSET0_EL0
     0xE8, 0x03, 0x00, 0xAA, 0x06, 0x0D, 0x41, 0xF8, 0xDF, 0x00, 0x08, 0xEB,
     0x20, 0x03, 0x00, 0x54, 0x05, 0x55, 0x9A, 0x52, 0x65, 0xA7, 0xBA, 0x72,
@@ -59,7 +59,7 @@ UINT8 OslArm64TransferToKernelShellCode[] = {
     0x1F, 0x20, 0x03, 0xD5,
 #endif
 
-#if PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA == 1
+#if HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA == 1
     // IRM
     0xEA, 0x03, 0x00, 0xAA, 0x49, 0x0D, 0x41, 0xF8, 0x3F, 0x01, 0x0A, 0xEB,
     0xA0, 0x0C, 0x00, 0x54, 0x03, 0x00, 0x80, 0xD2, 0x04, 0x00, 0x80, 0xD2,
@@ -135,7 +135,7 @@ UINT8 OslArm64TransferToKernelShellCode[] = {
     0x1F, 0x20, 0x03, 0xD5, 0x1F, 0x20, 0x03, 0xD5,
 #endif
 
-#if PLATFORM_HAS_PSCI_MEMPROTECT_FAILING_ERRATA == 1
+#if HAS_PSCI_MEMPROTECT_FAILING_ERRATA == 1
     // PSCI_MEMPROTECT
     0xEC, 0x03, 0x00, 0xAA, 0x88, 0x0D, 0x41, 0xF8, 0x1F, 0x01, 0x0C, 0xEB,
     0x20, 0x06, 0x00, 0x54, 0xA6, 0x5A, 0x80, 0xD2, 0x06, 0x00, 0xA3, 0xF2,
@@ -158,7 +158,7 @@ UINT8 OslArm64TransferToKernelShellCode[] = {
 #endif
 };
 
-#if PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 1
+#if HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 1
 VOID
 KernelErrataPatcherApplyReadACTLREL1Patches(
   EFI_PHYSICAL_ADDRESS Base,
@@ -203,7 +203,7 @@ KernelErrataPatcherExitBootServices(
   // This fixes Boot Debugger
   FirmwarePrint("Patching OsLoader         -> (phys) 0x%p (size) 0x%p\n", fwpKernelSetupPhase1, SCAN_MAX);
 
-#if PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 1
+#if HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 1
   KernelErrataPatcherApplyReadACTLREL1Patches(fwpKernelSetupPhase1, SCAN_MAX);
 #endif
 

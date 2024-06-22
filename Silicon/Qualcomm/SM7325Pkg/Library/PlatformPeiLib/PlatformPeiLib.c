@@ -198,7 +198,7 @@ InstallPlatformHob ()
   BuildGuidDataHob (&gEfiShimLibraryHobGuid, &ShLibAddress,        sizeof(ShLibAddress));
   BuildGuidDataHob (&gFvDecompressHobGuid,   &FvDecompressAddress, sizeof(FvDecompressAddress));
 
-  if (PcdGet64(PcdScheduleInterfaceAddr) != 0) {
+  if (PcdGet64(PcdScheduleInterfaceAddr)) {
     UINTN SchedIntfAddress = PcdGet64(PcdScheduleInterfaceAddr);
 
     BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntfAddress, sizeof(SchedIntfAddress));

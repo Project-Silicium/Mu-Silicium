@@ -40,7 +40,7 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"halal-beef"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"halal-beef"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80001000

@@ -8,11 +8,6 @@
     SECTION UI = "BDS_Menu.cfg"
   }
 
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E23030794 {
-    SECTION RAW = Binaries/a52sxq/RawFiles/logo1.bmp
-    SECTION UI = "logo1.bmp"
-  }
-
   FILE FREEFORM = D7170685-5965-4B44-9305-37CDB199B9BE {
     SECTION RAW = Binaries/a52sxq/RawFiles/Panel_boe_amoled_fhd_dsc_cmd.xml
     SECTION UI = "Panel_boe_amoled_fhd_dsc_cmd.xml"

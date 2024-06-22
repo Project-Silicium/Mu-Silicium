@@ -65,7 +65,7 @@ LocalLoadImage (
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsVolumeUp ()
+MsBootPolicyLibIsSettingsBoot ()
 {
   EFI_STATUS Status              = EFI_SUCCESS;
   BOOLEAN    VolumeUpApplication = FALSE;
@@ -98,7 +98,7 @@ exit:
 **/
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsVolumeDown ()
+MsBootPolicyLibIsAltBoot ()
 {
   EFI_STATUS Status                = EFI_SUCCESS;
   BOOLEAN    VolumeDownApplication = FALSE;

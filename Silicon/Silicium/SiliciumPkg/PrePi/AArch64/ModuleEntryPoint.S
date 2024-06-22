@@ -12,15 +12,6 @@
 
 .set CTRL_SPAN_BIT, (1 << 23)
 
-.global _StackBase
-.global _StackSize
-
-_StackBase:
-  .quad FixedPcdGet32(PcdPrePiStackBase)
-
-_StackSize:
-  .quad FixedPcdGet32(PcdPrePiStackSize)
-
 ASM_FUNC(_ModuleEntryPoint)
   // Do early platform specific actions
   bl    ASM_PFX(ArmPlatformPeiBootAction)
@@ -71,8 +62,8 @@ _DonNotTrap_VFP_SIMD:
   isb sy
 
 _SetupPrimaryCoreStack:
-  ldr x0, _StackBase     /* Stack base arg0 */
-  ldr x1, _StackSize     /* Stack size arg1 */
+  ldr x0, =FixedPcdGet32(PcdPrePiStackBase)     /* Stack base arg0 */
+  ldr x1, =FixedPcdGet32(PcdPrePiStackSize)     /* Stack size arg1 */
 
   /* Zero Init stack */
   add x2, x0, x1         /* End of Stack */

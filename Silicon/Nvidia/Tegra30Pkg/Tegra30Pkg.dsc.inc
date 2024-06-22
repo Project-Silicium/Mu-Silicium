@@ -9,9 +9,19 @@
 ##
 
 [Defines]
-  USE_CUSTOM_GIC     = 0             # Might be needed Later?
-  USE_CUSTOM_TIMER   = 1
-  USE_PHYSICAL_TIMER = 1
+  # GIC
+  USE_CUSTOM_GIC                             = 0   # Might be needed Later?
+
+  # Timer
+  USE_CUSTOM_TIMER                           = 1
+  USE_PHYSICAL_TIMER                         = 1
+
+  # KEP
+  ENABLE_KEP                                 = 0
+  HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
+  HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
+  HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
+  HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [PcdsFixedAtBuild]
   # Timer

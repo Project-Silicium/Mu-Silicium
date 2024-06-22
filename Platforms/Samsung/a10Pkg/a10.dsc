@@ -40,7 +40,7 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"snaccy"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"snaccy"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80004000

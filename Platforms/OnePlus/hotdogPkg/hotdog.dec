@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = hotdog
-  PACKAGE_GUID                   = 7B23C557-6BF5-4120-B9C7-8F9CB2137A00
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  ghotdogTokenSpaceGuid          = { 0x7B23C557, 0x6BF5, 0x4120, { 0xB9, 0xC7, 0x8F, 0x9C, 0xB2, 0x13, 0x7A, 0x00 } }

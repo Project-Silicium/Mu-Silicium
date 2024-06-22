@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = vili
-  PACKAGE_GUID                   = 1EAD32CE-3165-49EB-A92D-E88A42572002
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  gviliTokenSpaceGuid            = { 0x1EAD32CE, 0x3165, 0x49EB, { 0xA9, 0x2D, 0xE8, 0x8A, 0x42, 0x57, 0x20, 0x02 } }

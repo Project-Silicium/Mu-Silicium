@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = kebab
-  PACKAGE_GUID                   = B8DF34E2-F093-45ED-A3EF-F2BDC4128DAA
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  gkebabTokenSpaceGuid           = { 0xB8DF34E2, 0xF093, 0x45ED, { 0xA3, 0xEF, 0xF2, 0xBD, 0xC4, 0x12, 0x8D, 0xAA } }

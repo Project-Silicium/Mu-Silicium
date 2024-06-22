@@ -26,14 +26,18 @@
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   HAS_BUILD_IN_KEYBOARD          = 1
 
+  #
   # 0 = T30L
   # 1 = T30
   # 2 = AP33
   # 3 = T33
+  #
   SOC_TYPE                       = 1
 
+  #
   # 0 = DDR3-L
   # 1 = LPDDR2
+  #
   RAM_MODEL                      = 0
 
 [BuildOptions]
@@ -49,7 +53,7 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x80000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80200000

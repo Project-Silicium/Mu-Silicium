@@ -63,8 +63,6 @@ EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
 GetPlatformConnectList ()
 {
-  BdsExtensionPlatformConnectList ();
-
   return NULL;
 }
 
