@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/DAVINCI_UEFI.fd" > "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/DAVINCI_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/DAVINCI_UEFI.fd-bootshim" > "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/DAVINCI_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/DAVINCI_UEFI.fd-bootshim.gz" ./Resources/DTBs/davinci.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/DAVINCI_UEFI.fd" > "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/DAVINCI_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/DAVINCI_UEFI.fd-bootshim" > "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/DAVINCI_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/davinciPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/DAVINCI_UEFI.fd-bootshim.gz" ./Resources/DTBs/davinci.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

@@ -4,12 +4,6 @@ FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
 }
 
 
-FILE FREEFORM = A91D838E-A5FA-4138-825D-455E23030794 {
-    SECTION UI = "logo1.bmp"
-    SECTION RAW = Binaries/davinci/RawFiles/logo1.bmp
-}
-
-
 FILE FREEFORM = 88CA5ABF-D0AC-4093-A68C-0CFAE1EF9635 {
     SECTION UI = "Panel_boe_amoled_wqhd_dsc_cmd.xml"
     SECTION RAW = Binaries/davinci/RawFiles/Panel_boe_amoled_wqhd_dsc_cmd.xml
@@ -109,12 +103,6 @@ FILE FREEFORM = CF65ABBD-9041-464B-84F4-2ACD1AC44A0D {
 FILE FREEFORM = F898317F-88CE-4839-89ED-B80E94E4CBBC {
     SECTION UI = "Panel_sharp_qsync_fhd_cmd.xml"
     SECTION RAW = Binaries/davinci/RawFiles/Panel_sharp_qsync_fhd_cmd.xml
-}
-
-
-FILE FREEFORM = 3E5584ED-05D4-4267-9048-0D47F76F4248 {
-    SECTION UI = "battery_symbol_Soc10.bmp"
-    SECTION RAW = Binaries/davinci/RawFiles/battery_symbol_Soc10.bmp
 }
 
 
