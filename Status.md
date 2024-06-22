@@ -1289,6 +1289,30 @@ NOTE: Needs Windows Drivers!
 |Windows Boot||❌|
 |Linux Boot||❌|
 
+## Xiaomi Mi 9T
+
+<img align="right" src="Resources/Pictures/Mi-9T.png" width="500" alt="Preview">
+
+**State: Active** <br />
+**Codename: davinci** <br />
+**Maintainer: [tagicmi](https://github.com/tagicmi)** <br />
+**Contibuter: None** <br />
+**Tester: [danya2271](https://github.com/danya2271)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||❌|
+|Buttons|Volume buttons only|⚠️|
+|USB Mode||❔|
+|USB PD||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
+
+</td></tr> </table>
+
   </summary>
 </details>
 
