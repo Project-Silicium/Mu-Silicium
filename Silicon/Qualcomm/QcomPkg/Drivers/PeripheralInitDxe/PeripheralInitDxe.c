@@ -18,14 +18,15 @@ InitPeripherals (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS Status;
-  EFI_EVENT  InitEvent;
+  EFI_STATUS Status = EFI_SUCCESS;
 
   // Update the ACPI Tables
   PlatformUpdateAcpiTables ();
 
   // Start the USB Port Controller
   if (FixedPcdGetBool(PcdStartUsbController)) {
+    EFI_EVENT InitEvent;
+
     Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &InitEvent);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Create USB Port Controller Start Event! Status = %r\n", Status));
@@ -37,6 +38,8 @@ InitPeripherals (
 
   // Init SD Card Slot
   if (FixedPcdGetBool(PcdInitCardSlot)) {
+    EFI_EVENT InitEvent;
+
     Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSDCardInitGuid, &InitEvent);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Create SD Card Init Event! Status = %r\n", Status));
