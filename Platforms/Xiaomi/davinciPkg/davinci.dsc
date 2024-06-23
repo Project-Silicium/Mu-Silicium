@@ -34,7 +34,7 @@
   SOC_TYPE                       = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) 
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
   DeviceMemoryMapLib|davinciPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
@@ -45,7 +45,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|L"tagicmi"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"tagicmi"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
