@@ -1,8 +1,1 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = davinci
-  PACKAGE_GUID                   = 354418E6-314C-40AF-923B-783228326352
-  PACKAGE_VERSION                = 0.1
 
-[Guids]
-  gdavinciTokenSpaceGuid           = { 0x354418E6, 0x314C, 0x40AF, { 0x92, 0x3B, 0x78, 0x32, 0x28, 0x32, 0x63, 0x52 } }
