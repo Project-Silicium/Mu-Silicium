@@ -66,6 +66,7 @@ class SettingsManager (UpdateSettingsManager, SetupSettingsManager, PrEvalSettin
             RequiredSubmodule ("Features/DFCI", True),
             RequiredSubmodule ("Mu_Basecore", True),
             RequiredSubmodule ("Silicon/Arm/Mu_Tiano", True),
+            RequiredSubmodule ("Silicium-ACPI", True),
         ]
 
     def SetArchitectures (self, list_of_requested_architectures):
