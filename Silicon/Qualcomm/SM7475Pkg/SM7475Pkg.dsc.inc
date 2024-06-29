@@ -45,7 +45,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 7+ Gen 2 @ 2.90 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7475"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7475-AB"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
