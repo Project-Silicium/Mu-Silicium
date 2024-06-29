@@ -1077,11 +1077,11 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <details>
 <summary><b><strong>Snapdragon 7+ Gen 2 Devices</strong></b></summary>
 
-## Xiaomi Poco F5
+## Xiaomi Poco F5/Redmi Note 12 Turbo
 
 <img align="right" src="Resources/Pictures/Poco-F5.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: marble** <br>
 **Maintainers: [tagicmi](https://github.com/tagicmi)** <br>
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br>
