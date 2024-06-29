@@ -38,7 +38,9 @@ class CommonPlatform ():
         "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
         "Silicon/Qualcomm",
-        "Silicon/Silicium"
+        "Silicon/Silicium",
+        "Silicium-ACPI/Platforms/Xiaomi",
+        "Silicium-ACPI/SoCs/Qualcomm"
     )
 
 # ####################################################################################### #

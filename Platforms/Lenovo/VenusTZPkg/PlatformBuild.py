@@ -38,7 +38,9 @@ class CommonPlatform ():
         "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
         "Silicon/Nvidia",
-        "Silicon/Silicium"
+        "Silicon/Silicium",
+        "Silicium-ACPI/Platforms/Lenovo",
+        "Silicium-ACPI/SoCs/Nvidia"
     )
 
 # ####################################################################################### #

@@ -117,12 +117,15 @@ cd Silicon/Arm/Mu_Tiano||exit 1
 git apply Timer.patch &> /dev/null
 cd ../../..
 
+# Compile ACPI Tables
+source Resources/Scripts/UEFI-Build/build_acpi.sh||exit 1
+
 # Start the Real Build of the UEFI
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TARGET=${_TARGET_BUILD_MODE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}" "DEVICE_MODEL=${TARGET_DEVICE_MODEL}"||_error "\nFailed to Compile UEFI!\n"
 
 # Execute Device Specific Image Creation
-if [ -f "Resources/Scripts/${TARGET_DEVICE}.sh" ]
-then source Resources/Scripts/${TARGET_DEVICE}.sh
+if [ -f "Resources/Scripts/Image-Output/${TARGET_DEVICE}.sh" ]
+then source Resources/Scripts/Image-Output/${TARGET_DEVICE}.sh
 else _warn "\nImage Creation Script of ${TARGET_DEVICE} has not been Found!\nNo Image Was Generated.\n"
 fi
 
