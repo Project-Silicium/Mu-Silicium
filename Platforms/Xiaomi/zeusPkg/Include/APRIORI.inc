@@ -3,7 +3,7 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF Binaries/gts8/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
@@ -16,12 +16,22 @@ APRIORI DXE {
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
   
-  INF Binaries/gts8/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf

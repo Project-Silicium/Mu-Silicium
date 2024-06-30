@@ -64,6 +64,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
+  ### XBL Protocols
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920
+  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703B0C8
+
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x840000000     # This needs Adjustments
 
