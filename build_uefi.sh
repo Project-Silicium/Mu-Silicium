@@ -117,15 +117,48 @@ cd Silicon/Arm/Mu_Tiano||exit 1
 git apply Timer.patch &> /dev/null
 cd ../../..
 
-# Compile ACPI Tables
-source Resources/Scripts/UEFI-Build/build_acpi.sh||exit 1
+# Set Mu-Silicium Path
+SILICIUM_HOME_PATH="${PWD}"
+
+# Set Tools Path
+TOOL_PATH="${SILICIUM_HOME_PATH}/tools"
+
+# Delete Device Output Files
+rm "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.aml" &> /dev/null
+rm "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.pre" &> /dev/null
+
+# Delete SoC Output Files
+if [ ${TARGET_COMPILE_SOC_ACPI} == "TRUE" ]; then
+	rm Silicium-ACPI/SoCs/${TARGET_SOC_VENDOR}/${TARGET_SOC}/*.aml &> /dev/null
+	rm Silicium-ACPI/SoCs/${TARGET_SOC_VENDOR}/${TARGET_SOC}/*.pre &> /dev/null
+fi
+
+# Compile Device DSDT
+cd Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}
+
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+	${TOOL_PATH}/asl.exe DSDT.asl || (${TOOL_PATH}/asl.exe DSDT.dsl || (${TOOL_PATH}/iasl.exe DSDT.asl || (${TOOL_PATH}/iasl.exe DSDT.dsl || _error "\nFailed to Compile ${TARGET_DEVICE} DSDT Table!\n")))
+else
+	wine ${TOOL_PATH}/asl.exe DSDT.asl || (wine ${TOOL_PATH}/asl.exe DSDT.dsl || (wine ${TOOL_PATH}/iasl.exe DSDT.asl || (wine ${TOOL_PATH}/iasl.exe DSDT.dsl || _error "\nFailed to Compile ${TARGET_DEVICE} DSDT Table!\n")))
+fi
+
+cd ${SILICIUM_HOME_PATH}
+
+# Compile SoC ACPI Tables
+if [ ${TARGET_COMPILE_SOC_ACPI} == "TRUE" ]; then
+	cd Silicium-ACPI/SoCs/${TARGET_SOC_VENDOR}/${TARGET_SOC}
+
+	${TOOL_PATH}/iasl.exe *.dsl || (wine ${TOOL_PATH}/iasl.exe *.dsl || _error "\nFailed to Compile ${TARGET_SOC} ACPI Tables!\n")
+
+	cd ${SILICIUM_HOME_PATH}
+fi
 
 # Start the Real Build of the UEFI
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TARGET=${_TARGET_BUILD_MODE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}" "DEVICE_MODEL=${TARGET_DEVICE_MODEL}"||_error "\nFailed to Compile UEFI!\n"
 
 # Execute Device Specific Image Creation
-if [ -f "Resources/Scripts/Image-Output/${TARGET_DEVICE}.sh" ]
-then source Resources/Scripts/Image-Output/${TARGET_DEVICE}.sh
+if [ -f "Resources/Scripts/${TARGET_DEVICE}.sh" ]
+then source Resources/Scripts/${TARGET_DEVICE}.sh
 else _warn "\nImage Creation Script of ${TARGET_DEVICE} has not been Found!\nNo Image Was Generated.\n"
 fi
 
