@@ -27,9 +27,11 @@
   AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
+  #
   # 0 = SM8250
   # 1 = SM8250-AB
   # 2 = SM8250-AC
+  #
   SOC_TYPE                       = 2
 
 [BuildOptions]
@@ -44,7 +46,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"kubawis128"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"kubawis128"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
@@ -69,7 +71,7 @@
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB0400000
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
   
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE

@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = sweet_k6a
-  PACKAGE_GUID                   = 13D651DF-5D7E-4516-AB02-371A565AB594
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  gsweet_k6aTokenSpaceGuid       = { 0x13D651DF, 0x5D7E, 0x4516, { 0xAB, 0x02, 0x37, 0x1A, 0x56, 0x5A, 0xB5, 0x94 } }

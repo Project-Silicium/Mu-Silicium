@@ -31,6 +31,11 @@
   ThermalServicesLib|PcBdsPkg/Library/ThermalServicesLibNull/ThermalServicesLibNull.inf
 
   #
+  # Null Power Services Library class to support Platforms that dont have battery
+  #
+  PowerServicesLib|PcBdsPkg/Library/PowerServicesLibNull/PowerServicesLibNull.inf
+
+  #
   # Empty Platform Library of power check.
   #
   MsPlatformPowerCheckLib|PcBdsPkg/Library/MsPlatformPowerCheckLibNull/MsPlatformPowerCheckLibNull.inf
@@ -132,8 +137,8 @@
 
   gMsGraphicsPkgTokenSpaceGuid.PcdUiThemeInDxe|TRUE
 
-  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000026
-  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20240505
+  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x0000027
+  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20240622
 
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor|0x0
 

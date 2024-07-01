@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = gts8
-  PACKAGE_GUID                   = 539F03C6-9EF9-4B7D-B7B8-455ABE2BCC2E
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  ggts8TokenSpaceGuid            = { 0x539F03C6, 0x9EF9, 0x4B7D, { 0xB7, 0xB8, 0x45, 0x5A, 0xBE, 0x2B, 0xCC, 0x2E } }

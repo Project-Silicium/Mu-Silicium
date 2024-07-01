@@ -27,8 +27,10 @@
   AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
+  #
   # 0 = SM8450
   # 1 = SM8475
+  #
   SOC_TYPE                       = 0
 
 [BuildOptions]
@@ -43,7 +45,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000  
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
@@ -64,11 +66,14 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2560
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
+  # XBL Protocol
+  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703B0C8
+
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x840000000     # This needs Adjustments
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
   
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE

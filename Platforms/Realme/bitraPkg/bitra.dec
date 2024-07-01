@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = bitra
-  PACKAGE_GUID                   = 4F4872E2-A454-4FFA-9145-8C6F473A5D9E
-  PACKAGE_VERSION                = 0.1
-
-[Guids]
-  gbitraTokenSpaceGuid          = { 0x4F4872E2, 0xA454, 0x4FFA, { 0x91, 0x45, 0x8C, 0x6F, 0x47, 0x3A, 0x5D, 0x9E } }

@@ -45,7 +45,6 @@
 
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   FILE DRIVER = 10E193DF-9966-44E7-B17C-59DD831E20FC {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.depex

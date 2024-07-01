@@ -27,9 +27,11 @@
   AB_SLOT_SUPPORT                = 1
   HAS_BUILD_IN_KEYBOARD          = 0
 
+  #
   # 0 = SM8350
   # 1 = SM8350-AB
   # 2 = SM8350-AC
+  #
   SOC_TYPE                       = 0
 
 [BuildOptions]
@@ -44,7 +46,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"alfaonyt"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"alfaonyt"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
@@ -65,11 +67,14 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2448
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
+  # XBL Protocol
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37968
+
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE7400000
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE

@@ -12,6 +12,7 @@
 #include <Library/DeviceConfigurationMapLib.h>
 #include <Library/SerialPortLib.h>
 #include <Library/MemoryMapHelperLib.h>
+#include <Library/ConfigurationMapHelperLib.h>
 
 #include <Protocol/EFIKernelInterface.h>
 
@@ -56,19 +57,7 @@ CfgGetCfgInfoVal (
   CHAR8  *Key,
   UINT32 *Value)
 {
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
-
-  // Run through each Configuration Descriptor
-  while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
-    if (AsciiStriCmp (Key, ConfigurationDescriptorEx->Name) == 0) {
-      *Value = (UINT32)(ConfigurationDescriptorEx->Value & 0xFFFFFFFF);
-      return EFI_SUCCESS;
-    }
-
-    ConfigurationDescriptorEx++;
-  }
-
-  return EFI_NOT_FOUND;
+  return LocateConfigurationMapUINT32ByName(Key, Value);
 }
 
 STATIC
@@ -77,19 +66,7 @@ CfgGetCfgInfoVal64 (
   CHAR8  *Key,
   UINT64 *Value)
 {
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
-
-  // Run through each Configuration Descriptor
-  while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
-    if (AsciiStriCmp (Key, ConfigurationDescriptorEx->Name) == 0) {
-      *Value = ConfigurationDescriptorEx->Value;
-      return EFI_SUCCESS;
-    }
-
-    ConfigurationDescriptorEx++;
-  }
-
-  return EFI_NOT_FOUND;
+  return LocateConfigurationMapUINT64ByName(Key, Value);
 }
 
 STATIC
@@ -202,12 +179,16 @@ InstallPlatformHob ()
   BuildGuidDataHob (&gFvDecompressHobGuid,   &FvDecompressAddress, sizeof(FvDecompressAddress));
   BuildGuidDataHob (&gEfiProdmodeHobGuid,    &Prodmode,            sizeof(Prodmode));
 
-  if (PcdGet64(PcdScheduleInterfaceAddr) != 0 && PcdGet64(PcdDTBExtensionAddr) != 0) {
-    EFI_KERNEL_PROTOCOL   *SchedIntf       = (VOID *)PcdGet64(PcdScheduleInterfaceAddr);
+  if (PcdGet64(PcdScheduleInterfaceAddr)) {
+    EFI_KERNEL_PROTOCOL *SchedIntf = (VOID *)PcdGet64(PcdScheduleInterfaceAddr);
+
+    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntf, sizeof(SchedIntf));
+  }
+
+  if (PcdGet64(PcdDTBExtensionAddr)) {
     EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)PcdGet64(PcdDTBExtensionAddr);
 
-    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntf,       sizeof(SchedIntf));
-    BuildGuidDataHob (&gEfiDTBExtnHobGuid,           &DTBExtnProtocol, sizeof(DTBExtnProtocol));
+    BuildGuidDataHob (&gEfiDTBExtnHobGuid, &DTBExtnProtocol, sizeof(DTBExtnProtocol));
   }
 }
 

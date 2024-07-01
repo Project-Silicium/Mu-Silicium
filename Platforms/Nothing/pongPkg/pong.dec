@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = pong
-  PACKAGE_GUID                        = B1604F78-DF37-4803-8BC0-BEF397B882B9
-  PACKAGE_VERSION                     = 0.1
-
-[Guids]
-  gpongTokenSpaceGuid                 = { 0xB1604F78, 0xDF37, 0x4803, { 0x8B, 0xC0, 0xBE, 0xF3, 0x97, 0xB8, 0x82, 0xB9 } }

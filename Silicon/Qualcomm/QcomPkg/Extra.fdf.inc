@@ -3,4 +3,6 @@
   INF QcomPkg/GPLApplications/SwitchSlotsApp/SwitchSlotsApp.inf
 !endif
 
+  INF QcomPkg/Drivers/PeripheralInitDxe/PeripheralInitDxe.inf
+
 !include SiliciumPkg/Extra.fdf.inc

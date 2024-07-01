@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MIATOLL_UEFI.fd" > "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MIATOLL_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MIATOLL_UEFI.fd-bootshim" > "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MIATOLL_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MIATOLL_UEFI.fd-bootshim.gz" ./Resources/DTBs/miatoll.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MIATOLL_UEFI.fd" > "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MIATOLL_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MIATOLL_UEFI.fd-bootshim" > "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MIATOLL_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/miatollPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MIATOLL_UEFI.fd-bootshim.gz" ./Resources/DTBs/miatoll.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

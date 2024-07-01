@@ -21,7 +21,6 @@ APRIORI DXE {
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   FILE DRIVER = F541D663-4A48-40AA-AABF-FF158CCAE34C {
     SECTION DXE_DEPEX = Binaries/q2q/QcomPkg/Drivers/SmemDxe/SmemDxe.depex

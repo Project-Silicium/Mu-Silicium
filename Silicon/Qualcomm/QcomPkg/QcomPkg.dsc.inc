@@ -10,38 +10,32 @@
 ##
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DPLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA=$(PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA) -DPLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA=$(PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA) -DPLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA=$(PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA) -DPLATFORM_HAS_PSCI_MEMPROTECT_FAILING_ERRATA=$(PLATFORM_HAS_PSCI_MEMPROTECT_FAILING_ERRATA)
+  *_*_*_CC_FLAGS = -DHAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA=$(HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA) -DHAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA=$(HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA) -DHAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA=$(HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA) -DHAS_PSCI_MEMPROTECT_FAILING_ERRATA=$(HAS_PSCI_MEMPROTECT_FAILING_ERRATA)
 
 [PcdsFixedAtBuild]
   # RAM Size (512 MB)
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
+
+!if $(AB_SLOT_SUPPORT) == 1
+  # Slot Switch App GUID
+  gSiliciumPkgTokenSpaceGuid.PcdSpecificApp|{ 0xB1, 0x0F, 0xBC, 0xD5, 0x33, 0xA8, 0x07, 0x46, 0xB7, 0xB6, 0x5E, 0xF9, 0xD1, 0x0B, 0xEE, 0xB7 }
+!endif
 
 [LibraryClasses]
   # Custom Libraries
 !if $(AB_SLOT_SUPPORT) == 1
   BootSlotLib|QcomPkg/GPLLibrary/BootSlotLib/BootSlotLib.inf
 !endif
-  AslUpdateLib|QcomPkg/Library/DxeAslUpdateLib/DxeAslUpdateLib.inf
   RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
-  PowerServicesLib|QcomPkg/Library/PowerServicesLib/PowerServicesLib.inf
-  BdsExtensionLib|QcomPkg/Library/BdsExtensionLib/BdsExtensionLib.inf
 
-[Components.AArch64]
-  # BDS
-  MdeModulePkg/Universal/BdsDxe/BdsDxe.inf {
-    <LibraryClasses>
-      NULL|QcomPkg/Library/KernelErrataPatcherLib/KernelErrataPatcherLib.inf
-  }
-
-[Components.Arm]
-  # BDS
-  MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+  ConfigurationMapHelperLib|QcomPkg/Library/ConfigurationMapHelperLib/ConfigurationMapHelperLib.inf
 
 [Components]
   # Custom Drivers
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
   QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
+  QcomPkg/Drivers/PeripheralInitDxe/PeripheralInitDxe.inf
 !if $(AB_SLOT_SUPPORT) == 1
   QcomPkg/GPLDrivers/BootSlotDxe/BootSlotDxe.inf
   QcomPkg/GPLApplications/SwitchSlotsApp/SwitchSlotsApp.inf

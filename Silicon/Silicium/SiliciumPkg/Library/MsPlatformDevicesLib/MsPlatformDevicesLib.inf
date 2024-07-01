@@ -29,3 +29,4 @@
   DevicePathLib
   PcdLib
   UefiBootServicesTableLib
+  AcpiPlatformUpdateLib

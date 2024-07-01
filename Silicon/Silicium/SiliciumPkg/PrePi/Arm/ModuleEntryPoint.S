@@ -19,15 +19,6 @@
 #define LoadConstantToReg(Data, Reg) \
     ldr Reg, =Data
 
-.global _StackBase
-.global _StackSize
-
-_StackBase:
-  .quad FixedPcdGet32(PcdPrePiStackBase)
-
-_StackSize:
-  .quad FixedPcdGet32(PcdPrePiStackSize)
-
 ASM_FUNC(_ModuleEntryPoint)
   mov r0, #0
   bl ASM_PFX(ArmReadMpidr)
@@ -57,8 +48,8 @@ _FillVectors:
   bne     _FillVectors
 
 _SetupPrimaryCoreStack:
-  ldr r0, _StackBase     /* Stack base arg0 */
-  ldr r1, _StackSize     /* Stack size arg1 */
+  ldr r0, =FixedPcdGet32(PcdPrePiStackBase)     /* Stack base arg0 */
+  ldr r1, =FixedPcdGet32(PcdPrePiStackSize)     /* Stack size arg1 */
 
   add r4, r0, r1
   add sp, r4, #0

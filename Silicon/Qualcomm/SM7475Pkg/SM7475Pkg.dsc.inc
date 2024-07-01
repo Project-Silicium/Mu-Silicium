@@ -9,16 +9,19 @@
 ##
 
 [Defines]
+  # GIC
+  USE_CUSTOM_GIC                             = 0
+
   # Timer
-  USE_CUSTOM_GIC     = 0
-  USE_CUSTOM_TIMER   = 0
-  USE_PHYSICAL_TIMER = 0
+  USE_CUSTOM_TIMER                           = 0
+  USE_PHYSICAL_TIMER                         = 0
 
   # KEP
-  PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 1
-  PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
-  PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
-  PLATFORM_HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
+  ENABLE_KEP                                 = 1
+  HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 1
+  HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
+  HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
+  HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 # TODO: Replace this with working one
 #[BuildOptions]
@@ -42,15 +45,12 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 7+ Gen 2 @ 2.90 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7475"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7475-AB"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
-
-  # Power Services
-  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
 
   # CPU Max Freq
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE

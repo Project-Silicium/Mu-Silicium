@@ -26,8 +26,6 @@
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
@@ -35,6 +33,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
 
 [Protocols]
   gEfiSmbiosProtocolGuid

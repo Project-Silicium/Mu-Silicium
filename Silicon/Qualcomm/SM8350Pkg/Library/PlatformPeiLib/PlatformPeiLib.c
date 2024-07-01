@@ -12,6 +12,7 @@
 #include <Library/DeviceConfigurationMapLib.h>
 #include <Library/SerialPortLib.h>
 #include <Library/MemoryMapHelperLib.h>
+#include <Library/ConfigurationMapHelperLib.h>
 
 #include "PlatformPeiLib.h"
 
@@ -54,19 +55,7 @@ CfgGetCfgInfoVal (
   CHAR8  *Key,
   UINT32 *Value)
 {
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
-
-  // Run through each Configuration Descriptor
-  while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
-    if (AsciiStriCmp (Key, ConfigurationDescriptorEx->Name) == 0) {
-      *Value = (UINT32)(ConfigurationDescriptorEx->Value & 0xFFFFFFFF);
-      return EFI_SUCCESS;
-    }
-
-    ConfigurationDescriptorEx++;
-  }
-
-  return EFI_NOT_FOUND;
+  return LocateConfigurationMapUINT32ByName(Key, Value);
 }
 
 STATIC
@@ -75,19 +64,7 @@ CfgGetCfgInfoVal64 (
   CHAR8  *Key,
   UINT64 *Value)
 {
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
-
-  // Run through each Configuration Descriptor
-  while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
-    if (AsciiStriCmp (Key, ConfigurationDescriptorEx->Name) == 0) {
-      *Value = ConfigurationDescriptorEx->Value;
-      return EFI_SUCCESS;
-    }
-
-    ConfigurationDescriptorEx++;
-  }
-
-  return EFI_NOT_FOUND;
+  return LocateConfigurationMapUINT64ByName(Key, Value);
 }
 
 STATIC
@@ -198,7 +175,7 @@ InstallPlatformHob ()
   BuildGuidDataHob (&gEfiShimLibraryHobGuid, &ShLibAddress,        sizeof(ShLibAddress));
   BuildGuidDataHob (&gFvDecompressHobGuid,   &FvDecompressAddress, sizeof(FvDecompressAddress));
 
-  if (PcdGet64(PcdScheduleInterfaceAddr) != 0) {
+  if (PcdGet64(PcdScheduleInterfaceAddr)) {
     UINTN SchedIntfAddress = PcdGet64(PcdScheduleInterfaceAddr);
 
     BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntfAddress, sizeof(SchedIntfAddress));

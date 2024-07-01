@@ -30,7 +30,6 @@
 
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF Binaries/surya/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
