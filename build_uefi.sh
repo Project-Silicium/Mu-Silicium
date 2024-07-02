@@ -17,11 +17,17 @@ function _help(){
 }
 
 # Functions to display the Message Type (Error or Warning)
-function _error(){ echo -e "\033[1;31m${@}\033[0m" >&2;exit 1; }
+function _error(){ echo -e "\033[1;31m${@}\033[0m" >&2; exit 1; }
 function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2; }
 
+# Set Mu-Silicium Path
+SILICIUM_HOME_PATH="${PWD}"
+
+# Set Tools Path
+TOOL_PATH="${SILICIUM_HOME_PATH}/tools"
+
 # Check if any args were given
-OPTS="$(getopt -o d:hr:m: -l device:,help,release:,model: -n 'build_uefi.sh' -- "$@")"||exit 1
+OPTS="$(getopt -o d:hr:m: -l device:,help,release:,model: -n 'build_uefi.sh' -- "$@")" || exit 1
 eval set -- "${OPTS}"
 while true
 do	case "${1}" in
@@ -55,7 +61,7 @@ fi
 # Check if the Device has Multiple Models
 if [ ${TARGET_MULTIPLE_MODELS} == "TRUE" ]; then
 	if [ -z ${TARGET_DEVICE_MODEL} ];
-	then _error "\nThis Device has multiple Models.\nUse -m or --model To define wich Model.\n"
+	then _error "\nThis Device has multiple Models.\nUse -m or --model To define wich Model with Numbers.\n"
 	fi
 fi
 
@@ -67,45 +73,45 @@ rm ./Resources/bootpayload.bin &> /dev/null
 rm Mu-${TARGET_DEVICE}.* &> /dev/null
 
 # Compile BootShim
-cd BootShim/${TARGET_ARCH}||exit 1
+cd BootShim/${TARGET_ARCH} || exit 1
 make UEFI_BASE=${TARGET_FD_BASE} UEFI_SIZE=${TARGET_FD_SIZE}||_error "\nFailed to Compile BootShim!\n"
 cd ../..
 
 # Remove Mu Patches
 ## Mu
-cd Common/Mu||exit 1
+cd Common/Mu || exit 1
 git reset --hard
 git clean --force
 cd ../..
 
 ## Mu_Basecore
-cd Mu_Basecore||exit 1
+cd Mu_Basecore || exit 1
 git reset --hard
 git clean --force
 cd ..
 
 ## Mu_Tiano
-cd Silicon/Arm/Mu_Tiano||exit 1
+cd Silicon/Arm/Mu_Tiano || exit 1
 git reset --hard
 git clean --force
 cd ../../..
 
 # Setup & Update UEFI Enviroment
-python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --setup -t ${_TARGET_BUILD_MODE}||_error "\nFailed to Setup UEFI Env!\n"
-python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --update -t ${_TARGET_BUILD_MODE}||_error "\nFailed to Update UEFI Env!\n"
+python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --setup -t ${_TARGET_BUILD_MODE} || _error "\nFailed to Setup UEFI Env!\n"
+python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --update -t ${_TARGET_BUILD_MODE} || _error "\nFailed to Update UEFI Env!\n"
 
 # Apply Mu Patches
 ## Mu
 if [ ${TARGET_ARCH} == "ARM" ]; then
 	cp ./MuPatches/Math.patch ./Common/Mu/
-	cd Common/Mu||exit 1
+	cd Common/Mu || exit 1
 	git apply Math.patch &> /dev/null
 	cd ../..
 fi
 
 ## Mu_Basecore
 cp ./MuPatches/UsbBus.patch ./MuPatches/BdsWait.patch ./MuPatches/Tools-Conf.patch ./Mu_Basecore/
-cd Mu_Basecore||exit 1
+cd Mu_Basecore || exit 1
 git apply UsbBus.patch &> /dev/null
 git apply BdsWait.patch &> /dev/null
 git apply Tools-Conf.patch &> /dev/null
@@ -113,15 +119,9 @@ cd ..
 
 ## Mu_Tiano
 cp ./MuPatches/Timer.patch ./Silicon/Arm/Mu_Tiano/
-cd Silicon/Arm/Mu_Tiano||exit 1
+cd Silicon/Arm/Mu_Tiano || exit 1
 git apply Timer.patch &> /dev/null
 cd ../../..
-
-# Set Mu-Silicium Path
-SILICIUM_HOME_PATH="${PWD}"
-
-# Set Tools Path
-TOOL_PATH="${SILICIUM_HOME_PATH}/tools"
 
 # Delete Device Output Files
 rm "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.aml" &> /dev/null
@@ -134,37 +134,55 @@ if [ ${TARGET_COMPILE_SOC_ACPI} == "TRUE" ]; then
 fi
 
 # Compile Device DSDT
-cd Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}
+if [ -f "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.asl" ] || [ -f "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.dsl" ]; then
+	cd Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}
 
-if [[ $(grep -i Microsoft /proc/version) ]]; then
-	${TOOL_PATH}/asl.exe DSDT.asl || (${TOOL_PATH}/asl.exe DSDT.dsl || (${TOOL_PATH}/iasl.exe DSDT.asl || (${TOOL_PATH}/iasl.exe DSDT.dsl || _error "\nFailed to Compile ${TARGET_DEVICE} DSDT Table!\n")))
-else
-	wine ${TOOL_PATH}/asl.exe DSDT.asl || (wine ${TOOL_PATH}/asl.exe DSDT.dsl || (wine ${TOOL_PATH}/iasl.exe DSDT.asl || (wine ${TOOL_PATH}/iasl.exe DSDT.dsl || _error "\nFailed to Compile ${TARGET_DEVICE} DSDT Table!\n")))
+	if [[ $(grep -i Microsoft /proc/version) ]]; then
+		${TOOL_PATH}/asl.exe DSDT.asl || ${TOOL_PATH}/asl.exe DSDT.dsl
+		if [ $? != 0 ]; then
+			${TOOL_PATH}/iasl.exe DSDT.asl || ${TOOL_PATH}/iasl.exe DSDT.dsl
+			if [ $? != 0 ]
+			then _error "\nFailed to Compile ${TARGET_DEVICE} DSDT Table!\n"
+			fi
+		fi
+	else
+		wine ${TOOL_PATH}/asl.exe DSDT.asl || wine ${TOOL_PATH}/asl.exe DSDT.dsl
+		if [ $? != 0 ]; then
+			wine ${TOOL_PATH}/iasl.exe DSDT.asl || wine ${TOOL_PATH}/iasl.exe DSDT.dsl
+			if [ $? != 0 ]
+			then _error "\nFailed to Compile ${TARGET_DEVICE} DSDT Table!\n"
+			fi
+		fi
+	fi
+
+	cd ${SILICIUM_HOME_PATH}
 fi
 
-cd ${SILICIUM_HOME_PATH}
-
 # Compile SoC ACPI Tables
-if [ ${TARGET_COMPILE_SOC_ACPI} == "TRUE" ]; then
+if [ ${TARGET_COMPILE_SOC_ACPI} == "TRUE" ] && [ ! -f "Silicium-ACPI/SoCs/${TARGET_SOC_VENDOR}/${TARGET_SOC}/.dummy" ]; then
 	cd Silicium-ACPI/SoCs/${TARGET_SOC_VENDOR}/${TARGET_SOC}
 
-	${TOOL_PATH}/iasl.exe *.dsl || (wine ${TOOL_PATH}/iasl.exe *.dsl || _error "\nFailed to Compile ${TARGET_SOC} ACPI Tables!\n")
+	if [[ $(grep -i Microsoft /proc/version) ]]; then
+		${TOOL_PATH}/iasl.exe *.dsl || _error "\nFailed to Compile ${TARGET_SOC} ACPI Tables!\n"
+	else
+		wine ${TOOL_PATH}/iasl.exe *.dsl || _error "\nFailed to Compile ${TARGET_SOC} ACPI Tables!\n"
+	fi
 
 	cd ${SILICIUM_HOME_PATH}
 fi
 
 # Start the Real Build of the UEFI
-python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TARGET=${_TARGET_BUILD_MODE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}" "DEVICE_MODEL=${TARGET_DEVICE_MODEL}"||_error "\nFailed to Compile UEFI!\n"
+python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" "TARGET=${_TARGET_BUILD_MODE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}" "DEVICE_MODEL=${TARGET_DEVICE_MODEL}" || _error "\nFailed to Compile UEFI!\n"
 
 # Execute Device Specific Image Creation
 if [ -f "Resources/Scripts/${TARGET_DEVICE}.sh" ]
 then source Resources/Scripts/${TARGET_DEVICE}.sh
-else _warn "\nImage Creation Script of ${TARGET_DEVICE} has not been Found!\nNo Image Was Generated.\n"
+else _warn "\nImage Creation Script of ${TARGET_DEVICE} was not Found!\nNo Image Was Generated.\n"
 fi
 
 # Check for Updates
 git fetch &> /dev/null
 UPDATE_CHECK=$(git status)
 if [[ ${UPDATE_CHECK} == *"git pull"* ]];
-then _warn "\nYou are using an old Version of Mu-Silicium.\nPlease Update to use newest Fixes and Features.\n"
+then _warn "\nYou are using an old Version of Mu-Silicium.\nPlease Update to use newest Fixes and Features.\nUse 'git pull' to Update your Local Repo.\n"
 fi
