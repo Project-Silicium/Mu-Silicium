@@ -123,9 +123,6 @@ cd Silicon/Arm/Mu_Tiano || exit 1
 git apply Timer.patch &> /dev/null
 cd ../../..
 
-# Delete Device Output Files
-rm "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.aml" &> /dev/null
-rm "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.pre" &> /dev/null
 
 # Delete SoC Output Files
 if [ ${TARGET_COMPILE_SOC_ACPI} == "TRUE" ]; then
@@ -135,6 +132,10 @@ fi
 
 # Compile Device DSDT
 if [ -f "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.asl" ] || [ -f "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.dsl" ]; then
+	# Delete Device Output Files
+	rm "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.aml" &> /dev/null
+	rm "Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}/DSDT.pre" &> /dev/null
+
 	cd Silicium-ACPI/Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}
 
 	if [[ $(grep -i Microsoft /proc/version) ]]; then
