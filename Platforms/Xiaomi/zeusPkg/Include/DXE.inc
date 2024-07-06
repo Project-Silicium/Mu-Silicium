@@ -12,6 +12,7 @@
 
   INF Binaries/zeus/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/zeus/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
+  INF Binaries/zeus/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -21,6 +22,9 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/FontDxe/FontDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -67,8 +71,17 @@
 
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 
+  INF Binaries/zeus/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
   INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf

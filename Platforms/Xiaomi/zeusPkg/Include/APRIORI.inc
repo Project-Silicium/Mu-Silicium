@@ -53,9 +53,20 @@ APRIORI DXE {
   INF Binaries/zeus/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
+
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
+  INF Binaries/zeus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
@@ -65,11 +76,20 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
+ 
+  INF Binaries/zeus/QcomPkg/Drivers/FontDxe/FontDxe.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
+
   INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
+
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
