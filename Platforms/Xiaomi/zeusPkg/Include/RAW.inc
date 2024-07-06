@@ -1,3 +1,13 @@
+  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
+    SECTION UI = "BDS_Menu.cfg"
+    SECTION RAW = Binaries/zeus/RawFiles/BDS_Menu.cfg
+  }
+
+  FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
+    SECTION UI = "SecParti.cfg"
+    SECTION RAW = Binaries/zeus/RawFiles/SecParti.cfg
+  }
+
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
     SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
     SECTION RAW = Binaries/zeus/RawFiles/Panel_truly_wqxga_dsc_cmd.xml

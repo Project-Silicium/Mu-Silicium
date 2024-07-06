@@ -25,18 +25,33 @@ APRIORI DXE {
   INF Binaries/zeus/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
-  #INF Binaries/zeus/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
-  #INF Binaries/zeus/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
-  #INF Binaries/zeus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
+  INF Binaries/zeus/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
+  INF Binaries/zeus/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
 
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 

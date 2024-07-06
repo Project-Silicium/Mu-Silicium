@@ -9,6 +9,10 @@
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
+  INF Binaries/zeus/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
+
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
@@ -24,11 +28,14 @@
   
   INF Binaries/zeus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
-  #INF Binaries/zeus/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
@@ -36,14 +43,17 @@
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
+  INF Binaries/zeus/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
-  #INF Binaries/zeus/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/VcsDxe/VcsDxe.inf  
-  #INF Binaries/zeus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  #INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
