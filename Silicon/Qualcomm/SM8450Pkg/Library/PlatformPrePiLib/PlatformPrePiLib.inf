@@ -12,11 +12,13 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
+  QcomPkg/QcomPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   PcdLib
   IoLib
+  ConfigurationMapHelperLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdGicRedistributorsBase
