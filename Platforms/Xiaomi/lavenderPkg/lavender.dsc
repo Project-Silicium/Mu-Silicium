@@ -46,8 +46,8 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Redmi"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Note 7"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 7"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lavender"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Note 7_lavender"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Note 7"
