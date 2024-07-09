@@ -235,8 +235,6 @@
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmMmuLib|ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib.inf
 
-  ArmPlatformLib|SiliciumPkg/Library/ArmPlatformLib/ArmPlatformLib.inf
-
 !if $(USE_CUSTOM_TIMER) == 0
   TimerLib|ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
 !endif
@@ -255,8 +253,6 @@
 
   # TPM Libraries
   TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
-
-  ArmPlatformStackLib|ArmPlatformPkg/Library/ArmPlatformStackLib/ArmPlatformStackLib.inf
 
   CompilerIntrinsicsLib|MdePkg/Library/CompilerIntrinsicsLib/ArmCompilerIntrinsicsLib.inf  # MU_CHANGE
 
@@ -304,12 +300,6 @@
   VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLibRuntimeDxe.inf
 
 [Components]
-  # PrePI
-  SiliciumPkg/PrePi/PrePi.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
-  }
-
   # DXE Core
   MdeModulePkg/Core/Dxe/DxeMain.inf {
     <LibraryClasses>
