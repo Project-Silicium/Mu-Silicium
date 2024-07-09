@@ -2164,7 +2164,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Redmi Note 7
 
-<img align="right" src="Resources/Pictures/Redmi-Note-7.jpg" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-7.png" width="500" alt="Preview">
 
 **State: Active** <br>
 **Codename: lavender** <br>
