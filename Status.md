@@ -2161,14 +2161,38 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 </td></tr> </table>
 
+
+## Xiaomi Redmi Note 7
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-7.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: lavender** <br>
+**Maintainer: [index986 (a.k.a govro150)](https://github.com/index986)** <br>
+**Contibuters: None** <br>
+**Tester: [index986 (a.k.a govro150)](https://github.com/index986)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||✅|
+|Side Buttons||✅|
+|USB Host Mode||❌|
+|USB Device Mode||✅|
+|USB Power Delivery||✅|
+|SD Card||✅|
+|Windows Boot||❌|
+|Linux Boot||❌|
   </summary>
 </details>
 
   </summary>
 </details>
+
 
 <br>
-
 <details>
 <summary><b><strong>Tegra Devices</strong></b></summary>
 
