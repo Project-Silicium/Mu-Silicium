@@ -2162,7 +2162,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 </td></tr> </table>
 
 
-## Redmi Note 7
+## Xiaomi Redmi Note 7
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-7.png" width="500" alt="Preview">
 
