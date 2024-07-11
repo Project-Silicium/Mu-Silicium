@@ -89,6 +89,9 @@ APRIORI DXE {
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/zeus/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/UCDxe/UCDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

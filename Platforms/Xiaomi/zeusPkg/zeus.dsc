@@ -24,7 +24,7 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = zeusPkg/zeus.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  AB_SLOT_SUPPORT                = 1
+  AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
   # 0 = SM8450
@@ -43,7 +43,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000  
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"petro"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
@@ -54,10 +54,10 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Xiaomi 12 PRO"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"12 PRO"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"zeus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_12_PRO_zeus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Xiaomi 12 PRO"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"12 PRO"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440

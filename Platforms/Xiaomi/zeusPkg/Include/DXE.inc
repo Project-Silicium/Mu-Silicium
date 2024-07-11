@@ -85,3 +85,6 @@
   INF Binaries/zeus/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/UCDxe/UCDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
