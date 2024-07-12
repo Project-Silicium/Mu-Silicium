@@ -112,6 +112,7 @@ APRIORI DXE {
   INF Binaries/lisa/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/lisa/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+  INF QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 !endif
   INF Binaries/lisa/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/UCDxe/UCDxe.inf
