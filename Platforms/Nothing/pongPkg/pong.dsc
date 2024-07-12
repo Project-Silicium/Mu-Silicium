@@ -23,11 +23,13 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = pongPkg/pong.fdf
-  USE_DISPLAYDXE                 = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 1
 
+  #
   # 0 = SM8450
   # 1 = SM8475
+  #
   SOC_TYPE                       = 1
 
 [BuildOptions]
@@ -36,13 +38,14 @@
 [LibraryClasses]
   DeviceMemoryMapLib|pongPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|pongPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|pongPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"govro150"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"govro150"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
@@ -68,10 +71,10 @@
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703C0C8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFC500000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
   
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE

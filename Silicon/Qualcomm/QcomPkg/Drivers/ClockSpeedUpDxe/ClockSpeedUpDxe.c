@@ -41,7 +41,7 @@ SetMaxFreq (
         ASSERT_EFI_ERROR (Status);
       }
 
-      DEBUG ((EFI_D_WARN, "CPU Cluster %d Now runs at %d Hz.\n", i, HzFreq));
+      DEBUG ((EFI_D_WARN, "CPU Cluster %d Now runs at %u Hz.\n", i, HzFreq));
     }
   } else {
     DEBUG ((EFI_D_WARN, "Max Freq is not Supported on this SoC.\n"));

@@ -32,6 +32,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|beyond1ltePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|beyond1ltePkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
+  DevicePrePiLib|beyond1ltePkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address & DDR RAM Size (8 GB)
@@ -40,7 +41,7 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Robotix22"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80302000

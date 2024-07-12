@@ -89,4 +89,5 @@ When the Build is Done, You will Find one of these Files: `.img`, `.tar` or `.bi
 
    1. Newer Fedora Releases don't have gnueabihf ARM Toolchains, So we will use an external Repo to get that Package.
    2. Run this Command: `sudo dnf copr enable lantw44/arm-linux-gnueabihf-toolchain` to Enable the external Repo.
-   3. Then you can just `Run the setup_env.sh` Script again. (You might have to restart your Terminal)
+   3. If you are above Fedora 39, You will need `libgnat-13.3.1-1` from [here](https://koji.fedoraproject.org/koji/buildinfo?buildID=2454974)
+   4. Then you can just `Run the setup_env.sh` Script again. (You might have to restart your Terminal)

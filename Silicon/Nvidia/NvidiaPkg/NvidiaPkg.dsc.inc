@@ -11,15 +11,16 @@
 
 [LibraryClasses]
   # Custom Libraries
-  PowerServicesLib|PcBdsPkg/Library/PowerServicesLibNull/PowerServicesLibNull.inf
-  BdsExtensionLib|NvidiaPkg/Library/BdsExtensionLib/BdsExtensionLib.inf
 !if $(USE_CUSTOM_TIMER) == 1
   TimerLib|NvidiaPkg/GPLLibrary/TegraTimerLib/TegraTimerLib.inf
 !endif
 
 [Components]
-  # BDS
-  MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+  # PrePI
+  NvidiaPkg/PrePi/PrePi.inf {
+    <LibraryClasses>
+      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+  }
 
   # Custom Tegra Drivers
   NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf

@@ -32,6 +32,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|r8sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|r8sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
+  DevicePrePiLib|r8sPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address & DDR RAM Size (8 GB)
@@ -40,7 +41,7 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x200000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Sota4Ever"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Sota4Ever"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80001000

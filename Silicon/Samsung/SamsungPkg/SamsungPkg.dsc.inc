@@ -9,16 +9,14 @@
 #
 ##
 
-[LibraryClasses]
-  # Custom Libraries
-  PowerServicesLib|PcBdsPkg/Library/PowerServicesLibNull/PowerServicesLibNull.inf
-  BdsExtensionLib|SamsungPkg/Library/BdsExtensionLib/BdsExtensionLib.inf
-
 [Components]
-  # BDS
-  MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+  # PrePI
+  SamsungPkg/PrePi/PrePi.inf {
+    <LibraryClasses>
+      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+  }
 
-  # Custom Drivers
+  # Custom Exynos Drivers
   SamsungPkg/Drivers/ExynosGpioDxe/ExynosGpioDxe.inf
   SamsungPkg/Drivers/ExynosSpeedyDxe/ExynosSpeedyDxe.inf
 

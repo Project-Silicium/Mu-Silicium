@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = lisa
-  PACKAGE_GUID                        = 43C6BD82-8A2A-4256-8B40-0192BD310F58
-  PACKAGE_VERSION                     = 0.1
-
-[Guids]
-  glisaTokenSpaceGuid                 = { 0x43C6BD82, 0x8A2A, 0x4256, { 0x8B, 0x40, 0x01, 0x92, 0xBD, 0x31, 0x0F, 0x58 } }

@@ -14,7 +14,6 @@ APRIORI DXE {
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF SamsungPkg/Drivers/ExynosGpioDxe/ExynosGpioDxe.inf
   INF SamsungPkg/Drivers/ExynosSpeedyDxe/ExynosSpeedyDxe.inf

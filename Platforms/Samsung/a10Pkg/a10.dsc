@@ -32,6 +32,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|a10Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|a10Pkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
+  DevicePrePiLib|a10Pkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address & DDR RAM Size (4 GB)
@@ -40,7 +41,7 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"snaccy"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"snaccy"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80004000

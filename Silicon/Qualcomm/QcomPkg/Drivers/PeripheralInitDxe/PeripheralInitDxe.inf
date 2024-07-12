@@ -1,0 +1,32 @@
+[Defines]
+  INF_VERSION                    = 0x0010005
+  BASE_NAME                      = PeripheralInitDxe
+  FILE_GUID                      = 1706748B-CD5E-4589-A6CF-047DBA0A72A0
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitPeripherals
+
+[Sources]
+  PeripheralInitDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  PcdLib
+  DebugLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  AcpiPlatformUpdateLib
+
+[FixedPcd]
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot
+
+[Guids]
+  gUsbControllerInitGuid
+  gSDCardInitGuid
+
+[Depex]
+  TRUE

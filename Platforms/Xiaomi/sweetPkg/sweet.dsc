@@ -27,9 +27,11 @@
   AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
+  #
   # 0 = SM7150
   # 1 = SM7150-AB
   # 2 = SM7150-AC
+  #
   SOC_TYPE                       = 2
 
 [BuildOptions]
@@ -38,13 +40,14 @@
 [LibraryClasses]
   DeviceMemoryMapLib|sweetPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|sweetPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|sweetPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000 
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"remtrik, hiprivsid"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"remtrik, hiprivsid"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
@@ -69,7 +72,7 @@
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA2370000
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE

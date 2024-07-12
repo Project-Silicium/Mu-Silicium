@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = oemk
-  PACKAGE_GUID                   = B4DCB236-A5F5-411D-91F4-E446D4A8D2E8
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  goemkTokenSpaceGuid            = { 0xB4DCB236, 0xA5F5, 0x411D, { 0x91, 0xF4, 0xE4, 0x46, 0xD4, 0xA8, 0xD2, 0xE8 } }

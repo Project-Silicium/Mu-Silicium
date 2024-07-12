@@ -17,8 +17,6 @@ APRIORI DXE {
     # Core Drivers
     INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
     INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-    INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
-
 
     INF Binaries/bitra/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
     INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf

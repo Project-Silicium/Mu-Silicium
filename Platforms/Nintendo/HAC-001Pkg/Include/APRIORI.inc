@@ -14,7 +14,6 @@ APRIORI DXE {
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
   INF NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 

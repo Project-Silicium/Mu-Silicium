@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = VenusTZ
-  PACKAGE_GUID                   = F9287658-DC58-4EE4-9606-9A3CFE9A0105
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  gVenusTZTokenSpaceGuid         = { 0xF9287658, 0xDC58, 0x4EE4, { 0x96, 0x06, 0x9A, 0x3C, 0xFE, 0x9A, 0x01, 0x05 } }

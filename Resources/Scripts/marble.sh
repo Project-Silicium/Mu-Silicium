@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MARBLE_UEFI.fd" > "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MARBLE_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MARBLE_UEFI.fd-bootshim" > "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MARBLE_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGDWARF/FV/MARBLE_UEFI.fd-bootshim.gz" ./Resources/DTBs/marble.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd" > "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim" > "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/marblePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim.gz" ./Resources/DTBs/marble.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

@@ -261,12 +261,6 @@ UpdateDisplayStrings (
   SMBIOS_TABLE_TYPE3       *Type3Record;
   SMBIOS_TABLE_TYPE4       *Type4Record;
 
-  // Get UEFI Version Value
-  HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_UEFI_VERSION_VALUE), (CHAR16 *)PcdGetPtr(PcdFirmwareVersionString), NULL);
-
-  // Get Device Maintainer Value
-  HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_DEVICE_MAINTAINER_VALUE), (CHAR16 *)PcdGetPtr(PcdFirmwareVendor), NULL);
-
   Status = gBS->LocateProtocol (&gEfiSmbiosProtocolGuid, NULL, (VOID **)&SmbiosProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Could not locate SMBIOS protocol.  %r\n", Status));
@@ -278,6 +272,18 @@ UpdateDisplayStrings (
   Status       = SmbiosProtocol->GetNext (SmbiosProtocol, &SmbiosHandle, &Type, &Record, NULL);
   if (!EFI_ERROR (Status)) {
     Type0Record = (SMBIOS_TABLE_TYPE0 *)Record;
+
+    Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type0Record + Type0Record->Hdr.Length), Type0Record->Vendor, &NewString);
+    if (!EFI_ERROR (Status)) {
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_DEVICE_MAINTAINER_VALUE), NewString, NULL);
+      FreePool (NewString);
+    }
+
+    Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type0Record + Type0Record->Hdr.Length), Type0Record->BiosVersion, &NewString);
+    if (!EFI_ERROR (Status)) {
+      HiiSetString (HiiHandle, STRING_TOKEN (STR_INF_VIEW_UEFI_VERSION_VALUE), NewString, NULL);
+      FreePool (NewString);
+    }
 
     Status = GetOptionalStringByIndex ((CHAR8 *)((UINT8 *)Type0Record + Type0Record->Hdr.Length), Type0Record->BiosReleaseDate, &NewString);
     if (!EFI_ERROR (Status)) {

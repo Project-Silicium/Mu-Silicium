@@ -19,3 +19,6 @@
 [submodule "Silicon/Arm/Mu_Tiano"]
 	path = Silicon/Arm/Mu_Tiano
 	url = https://github.com/microsoft/mu_silicon_arm_tiano.git
+[submodule "Silicium-ACPI"]
+	path = Silicium-ACPI
+	url = https://github.com/Project-Silicium/Silicium-ACPI.git

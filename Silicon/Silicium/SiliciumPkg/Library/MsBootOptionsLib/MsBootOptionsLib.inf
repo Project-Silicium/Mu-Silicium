@@ -42,6 +42,7 @@
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile
+  gSiliciumPkgTokenSpaceGuid.PcdSpecificApp
 
 [Depex]
   TRUE

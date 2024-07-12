@@ -9,16 +9,19 @@
 ##
 
 [Defines]
+  # GIC
+  USE_CUSTOM_GIC                             = 0
+
   # Timer
-  USE_CUSTOM_GIC     = 0
-  USE_CUSTOM_TIMER   = 0
-  USE_PHYSICAL_TIMER = 1
+  USE_CUSTOM_TIMER                           = 0
+  USE_PHYSICAL_TIMER                         = 1
 
   # KEP
-  PLATFORM_HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
-  PLATFORM_HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
-  PLATFORM_HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
-  PLATFORM_HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 1
+  ENABLE_KEP                                 = 1
+  HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
+  HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
+  HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
+  HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 1
 
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
@@ -55,9 +58,6 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
-
-  # Power Services
-  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE
 
   # CPU Max Freq
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE

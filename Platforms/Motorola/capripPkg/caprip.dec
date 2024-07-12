@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x0001001A
-  PACKAGE_NAME                   = caprip
-  PACKAGE_GUID                   = 01132323-0EEB-46B1-A847-680594920C62
-  PACKAGE_VERSION                = 1.0
-
-[Guids]
-  gcapripTokenSpaceGuid          = { 0x01132323, 0x0EEB, 0x46B1, { 0xA8, 0x47, 0x68, 0x05, 0x94, 0x92, 0x0C, 0x62 } }

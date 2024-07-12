@@ -33,13 +33,14 @@
 [LibraryClasses]
   DeviceMemoryMapLib|laurel_sproutPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|laurel_sproutPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|laurel_sproutPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Kernel357"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Kernel357"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
@@ -64,7 +65,7 @@
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|TRUE
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
   
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE

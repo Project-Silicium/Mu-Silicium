@@ -27,9 +27,11 @@
   AB_SLOT_SUPPORT                = 1
   HAS_BUILD_IN_KEYBOARD          = 0
 
+  #
   # 0 = SM8250
   # 1 = SM8250-AB
   # 2 = SM8250-AC
+  #
   SOC_TYPE                       = 0
 
 [BuildOptions]
@@ -38,13 +40,14 @@
 [LibraryClasses]
   DeviceMemoryMapLib|kebabPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|kebabPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|kebabPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
@@ -69,7 +72,7 @@
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB4500000
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
   
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE

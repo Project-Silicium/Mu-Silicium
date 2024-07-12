@@ -104,14 +104,12 @@
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE|BOOLEAN|0x0000A200
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000A201
 
-  # USB Controller PCD
+  # Start USB Controller PCD
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000A300
 
-  # SD Card Slot PCD
-  gQcomPkgTokenSpaceGuid.PcdSDCardSlotPresent|FALSE|BOOLEAN|0x0000A400
+  # SD Card Init PCD
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000A400
 
   # Power Services PCD
   gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE|BOOLEAN|0x0000A500
 
-  # Slot Switch App PCD
-  gQcomPkgTokenSpaceGuid.PcdSlotSwitchApp|{ 0xB1, 0x0F, 0xBC, 0xD5, 0x33, 0xA8, 0x07, 0x46, 0xB7, 0xB6, 0x5E, 0xF9, 0xD1, 0x0B, 0xEE, 0xB7 }|VOID*|0x0000A600

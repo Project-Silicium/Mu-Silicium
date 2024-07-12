@@ -45,6 +45,7 @@
 #include <Library/DebugLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/UefiLib.h>
+#include <Library/PrintLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/RamPartitionTableLib.h>
 
@@ -123,9 +124,16 @@ LogSmbiosData (
 VOID
 BIOSInfoUpdateSmbiosType0 ()
 {
+  CHAR8 FirmwareVendor[100] = "";
+
+  // Give Space to FirmwareVendor Variable
+  ZeroMem (FirmwareVendor, 100);
+
+  // Append Device Maintainer
+  AsciiSPrint (FirmwareVendor, sizeof(FirmwareVendor), "Project Silicium & %a", FixedPcdGetPtr(PcdDeviceMaintainer));
+
   // Update String Table
-  mBIOSInfoType0Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdFirmwareVendor);
-  mBIOSInfoType0Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdFirmwareVersionString);
+  mBIOSInfoType0Strings[0] = FirmwareVendor;
 
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mBIOSInfoType0, mBIOSInfoType0Strings, NULL);
 }

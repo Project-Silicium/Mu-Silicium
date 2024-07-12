@@ -1,7 +1,28 @@
-name: Build uefi for active devices
+name: Build UEFI for active devices
 on:
   push:
-  workflow_dispatch :
+    branches: ["main"]
+    paths:
+      - 'Binaries'
+      - 'Common/**'
+      - 'Features/**'
+      - 'Mu_Basecore'
+      - 'MuPatches/**'
+      - 'Platforms/**'
+      - 'Silicon/**'
+      - 'Silicium-ACPI'
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+    paths:
+      - 'Binaries'
+      - 'Common/**'
+      - 'Features/**'
+      - 'Mu_Basecore'
+      - 'MuPatches/**'
+      - 'Platforms/**'
+      - 'Silicon/**'
+      - 'Silicium-ACPI'
 env:
   CI_BUILD: true
 jobs:
@@ -9,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: build uefi for active devices
+      - name: Build UEFI for active devices
         run: bash ./setup_env.sh -p apt && bash ./build_active_devices.sh
 
       - name: Upload UEFI images

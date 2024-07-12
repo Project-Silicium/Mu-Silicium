@@ -102,7 +102,7 @@ MsBootOptionsLibGetDefaultBootApp (
   IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
   IN     CHAR8                        *Parameter)
 {
-  return BuildFwLoadOption (BootOption, &gMsBootPolicyFileGuid, Parameter);
+  return BuildFwLoadOption (BootOption, PcdGetPtr (PcdSpecificApp), Parameter);
 }
 
 /**

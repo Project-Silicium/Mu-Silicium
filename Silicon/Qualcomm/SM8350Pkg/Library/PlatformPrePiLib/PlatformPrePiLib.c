@@ -1,20 +1,26 @@
 #include <Library/IoLib.h>
 #include <Library/PlatformPrePiLib.h>
+#include <Library/DevicePrePiLib.h>
 #include <Library/PcdLib.h>
+#include <Library/ConfigurationMapHelperLib.h>
 
 #include "PlatformRegisters.h"
 
 VOID
 PlatformInitialize ()
 {
-  // Initialize GIC
-  // Wake up redistributor for CPU 0
-  MmioWrite32(
-      GICR_WAKER_CURRENT_CPU,
-      (MmioRead32(GICR_WAKER_CURRENT_CPU) & ~GIC_WAKER_PROCESSORSLEEP));
+  EFI_STATUS Status;
+  UINT32     EarlyInitCoreCnt;
 
-  // Wake up redistributor for CPU 1
-  MmioWrite32(
-      GICR_WAKER_CPU(1),
-      (MmioRead32(GICR_WAKER_CPU(1)) & ~GIC_WAKER_PROCESSORSLEEP));
+  // Get Early Cores Count
+  Status = LocateConfigurationMapUINT32ByName("EarlyInitCoreCnt", &EarlyInitCoreCnt);
+  if (!EFI_ERROR (Status)) {
+    // Wake Up all Cores
+    for (UINTN i = 0; i < EarlyInitCoreCnt; i++) {
+      MmioWrite32 (GICR_WAKER_CPU(i), (MmioRead32 (GICR_WAKER_CPU(i)) & ~GIC_WAKER_PROCESSORSLEEP));
+    }
+  }
+
+  // Run Device Specific Code
+  DeviceInitialize ();
 }
