@@ -41,18 +41,6 @@ if [ ${PAK} = apt ]; then
         # Update CI Ubuntu
         sudo apt update
         sudo apt -y upgrade
-
-        # Wine Setup
-        sudo dpkg --add-architecture i386
-        sudo mkdir -pm755 /etc/apt/keyrings
-        sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
-        sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
-
-        # Update Package List
-        sudo apt update
-
-        # Install Wine
-        sudo apt install --install-recommends winehq-stable
     fi
     sudo apt install -y pip git mono-devel build-essential lld nuget uuid-dev nasm gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
 elif [ ${PAK} = dnf ]; then
@@ -68,8 +56,6 @@ fi
 
 # Install Needed Python Packages
 python3 -m pip install -r pip-requirements.txt ||python3 -m pip install -r pip-requirements.txt --break-system-packages||_error "\nFailed to install Pip Packages!\n"
-
-echo "Make Sure that you Manually install wine on your System!"
 
 export CLANGPDB_AARCH64_PREFIX=aarch64-linux-gnu-
 export CLANGDWARF_ARM_PREFIX=arm-linux-gnueabihf-
