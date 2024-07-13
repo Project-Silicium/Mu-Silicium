@@ -24,9 +24,9 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 **State: Active** <br>
 **Codename: pong** <br>
-**Maintainers: [Govro150](https://github.com/Govro150)** <br>
+**Maintainers: [index986](https://github.com/index986)** <br>
 **Contibuters: [Robotix22](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br>
-**Testers: [Govro150](https://github.com/Govro150) [nokii1337](https://github.com/nokii1337)**
+**Testers: [index986](https://github.com/index986) [nokii1337](https://github.com/nokii1337)**
 
 ### UEFI Status
 
