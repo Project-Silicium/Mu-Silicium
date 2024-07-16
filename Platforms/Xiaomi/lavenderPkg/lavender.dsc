@@ -25,7 +25,18 @@
   FLASH_DEFINITION               = lavenderPkg/lavender.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
+  HAS_BUILD_IN_KEYBOARD          = 0
 
+  #
+  # 0 = SDM660
+  # 1 = SDM636
+  # 2 = SDM630
+  #
+  SOC_TYPE                       = 0
+
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+  
 [LibraryClasses]
   DeviceMemoryMapLib|lavenderPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|lavenderPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf

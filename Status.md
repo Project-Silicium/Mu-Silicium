@@ -2183,7 +2183,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |USB Device Mode||✅|
 |USB Power Delivery||✅|
 |SD Card||✅|
-|Windows Boot||❌|
+|Windows Boot|Windows PE only|⚠️|
 |Linux Boot||❌|
   </summary>
 </details>
