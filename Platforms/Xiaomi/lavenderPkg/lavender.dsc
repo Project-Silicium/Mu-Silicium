@@ -33,8 +33,12 @@
   # 2 = SDM630
   #
   SOC_TYPE                       = 0
+
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+  
 [LibraryClasses]
-  DeviceMemoryMapLib|nitrogenPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf    # Temporarly solution until i fix lavenders memmap
+  DeviceMemoryMapLib|lavenderPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|lavenderPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
   DevicePrePiLib|lavenderPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
