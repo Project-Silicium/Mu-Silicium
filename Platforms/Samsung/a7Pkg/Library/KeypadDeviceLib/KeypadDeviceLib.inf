@@ -13,6 +13,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
 
 [LibraryClasses]
   BaseMemoryLib

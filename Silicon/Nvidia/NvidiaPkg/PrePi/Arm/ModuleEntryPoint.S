@@ -58,8 +58,8 @@ EnableCaches:
 JumpToC:
   // Restore Values
   mov  r0, r8
-  mov  r1, =FixedPcdGet32(PcdPrePiStackBase)
-  mov  r2, =FixedPcdGet32(PcdPrePiStackSize)
+  ldr  r1, =FixedPcdGet32(PcdPrePiStackBase)
+  ldr  r2, =FixedPcdGet32(PcdPrePiStackSize)
   mov  r3, sp
 
   // Set Jump Location

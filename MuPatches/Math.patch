@@ -1,5 +1,5 @@
 diff --git a/MsCorePkg/Library/MathLib/MathLib.c b/MsCorePkg/Library/MathLib/MathLib.c
-index 1dfa4bae..7e3d1ae9 100644
+index 3fe27b12..55ef10a8 100644
 --- a/MsCorePkg/Library/MathLib/MathLib.c
 +++ b/MsCorePkg/Library/MathLib/MathLib.c
 @@ -142,14 +142,14 @@ cos_d (
@@ -10,13 +10,14 @@ index 1dfa4bae..7e3d1ae9 100644
 +// Bit scan reverse for 32 bit values
  static inline UINT16
 -bsr64 (
+-  UINT64  value
 +bsr32 (
-   UINT64  value
++  UINT32  value
    )
  {
   #if __GNUC__ > 3 // if we are using GCC take advantage of their builtins
--  return 64 - __builtin_clzl (value);
-+  return 32 - __builtin_clzl (value);
+-  return 64 - __builtin_clzll (value);
++  return 32 - __builtin_clzll (value);
  
   #elif _MSC_VER > 1500 // if we are using MS VS compiler 15 or greater
    unsigned long  result;
@@ -49,7 +50,7 @@ index 1dfa4bae..7e3d1ae9 100644
    double  x          = 0;
    double  prevX      = -1;
  
-@@ -230,11 +229,11 @@ sqrt_d (
+@@ -230,14 +229,14 @@ sqrt_d (
    // find a reasonable first approximation for faster convergence
    // sqrt(input) = sqrt(a) * 2^n roughly equals 2^n
    // We find the highest order bit and xor everything else
@@ -63,7 +64,11 @@ index 1dfa4bae..7e3d1ae9 100644
 +  UINT16  highestOrderBitPosition = bsr32 (highestOrderBit);
  
    // our first guess is then just 2 ^ (n/2)
-   firstGuess = (UINT64)1 << highestOrderBitPosition/2;
+-  firstGuess = (UINT64)1 << highestOrderBitPosition/2;
++  firstGuess = (UINT32)1 << highestOrderBitPosition/2;
+ 
+   // make sure our first guess is at least above zero
+   if (firstGuess == 0) {
 @@ -251,7 +250,7 @@ sqrt_d (
    // do 7 iterations
    // any further iterations yields no accuracy benefits
