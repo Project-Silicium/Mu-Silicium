@@ -62,7 +62,7 @@ ProcessLibraryConstructorList ();
     .Fields.EfiLoaderCode               = 1,             \
     .Fields.EfiLoaderData               = 1,             \
     .Fields.EfiBootServicesCode         = 1,             \
-    .Fields.EfiBootServicesData         = 1,             \
+    .Fields.EfiBootServicesData         = 0,             \
     .Fields.EfiRuntimeServicesCode      = 1,             \
     .Fields.EfiRuntimeServicesData      = 1,             \
     .Fields.EfiConventionalMemory       = 1,             \
@@ -98,7 +98,7 @@ ProcessLibraryConstructorList ();
     .Fields.OSReserved                  = 1              \
   },                                                     \
   {                                                      \
-    .Fields.EfiReservedMemoryType       = 1,             \
+    .Fields.EfiReservedMemoryType       = 0,             \
     .Fields.EfiLoaderCode               = 1,             \
     .Fields.EfiLoaderData               = 1,             \
     .Fields.EfiBootServicesCode         = 1,             \
