@@ -12,7 +12,6 @@
 !if $(TARGET) == DEBUG
   *_CLANG*_*_CC_FLAGS = -D EFI_DEBUG
 !endif
-  #*_CLANGDWARF_ARM_CC_FLAGS = -fno-asynchronous-unwind-tables
   *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
