@@ -55,6 +55,8 @@
 [Guids]
   gArmMpCoreInfoGuid
   gEfiFirmwarePerformanceGuid
+  gMmMemoryProtectionSettingsGuid
+  gDxeMemoryProtectionSettingsGuid
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdVFPEnabled

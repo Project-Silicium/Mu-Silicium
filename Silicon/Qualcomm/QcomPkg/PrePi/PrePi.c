@@ -21,6 +21,9 @@
 
 #include "PrePi.h"
 
+#include <Guid/DxeMemoryProtectionSettings.h>
+#include <Guid/MmMemoryProtectionSettings.h>
+
 STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
 
 EFI_STATUS
@@ -73,6 +76,8 @@ PrePiMain (IN UINT64 StartTimeStamp)
   ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeap;
   ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStack;
   FIRMWARE_SEC_PERFORMANCE        Performance;
+  DXE_MEMORY_PROTECTION_SETTINGS  DxeMemorySettings;
+  MM_MEMORY_PROTECTION_SETTINGS   MmMemorySettings;
 
   // Get DXE Heap Memory Region Infos
   Status = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeap);
@@ -154,6 +159,14 @@ PrePiMain (IN UINT64 StartTimeStamp)
 
   // Init Platform HOBs
   PlatformPeim ();
+
+  // Set Memory Protection Settings
+  DxeMemorySettings = (DXE_MEMORY_PROTECTION_SETTINGS)DXE_MEMORY_PROTECTION_SETTINGS_ON;
+  MmMemorySettings  = (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_ON;
+
+  // Apply Memory Protection Settings
+  BuildGuidDataHob (&gDxeMemoryProtectionSettingsGuid, &DxeMemorySettings, sizeof(DxeMemorySettings));
+  BuildGuidDataHob (&gMmMemoryProtectionSettingsGuid,  &MmMemorySettings,  sizeof(MmMemorySettings));
 
   // Register Performance Info
   PERF_START (NULL, "PEI", NULL, StartTimeStamp);
