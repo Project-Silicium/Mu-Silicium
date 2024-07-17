@@ -12,8 +12,8 @@
 # https://www.python.org/dev/peps/pep-0440/#version-specifiers
 ##
 
-edk2-pytool-library~=0.21.5 # MU_CHANGE
-edk2-pytool-extensions~=0.27.3
+edk2-pytool-library~=0.21.8 # MU_CHANGE
+edk2-pytool-extensions~=0.27.9
 antlr4-python3-runtime==4.13.1
 regex==2024.5.15
 pefile~=2023.2.7
