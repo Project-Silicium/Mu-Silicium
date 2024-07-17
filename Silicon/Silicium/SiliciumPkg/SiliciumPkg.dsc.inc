@@ -103,7 +103,7 @@
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|5
 
   # FrameBuffer Delay
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|300000          # In Microseconds
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|10000          # In Microseconds
 
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
