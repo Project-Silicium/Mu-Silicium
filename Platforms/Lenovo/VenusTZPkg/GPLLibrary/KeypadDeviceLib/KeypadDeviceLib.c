@@ -332,7 +332,7 @@ KeypadDeviceGetKeys (
   KEYPAD_RETURN_API      *KeypadReturnApi,
   UINT64                  Delta)
 {
-  UINT32 fifo_cnt;
+  UINT32 fifo_cnt = 0;
 
   if (EnableKeyboard) {
     fifo_cnt = (MmioRead32(KbcMemoryRegion.Address + KBC_INT_0) >> 4) & 0xF;
@@ -340,7 +340,7 @@ KeypadDeviceGetKeys (
 
   if (EnableKeyboard && fifo_cnt) {
     for (UINT32 i = 0; i < KBC_MAX_KPENT; i++) {
-      UINT32 kp_ent0;
+      UINT32 kp_ent0 = 0;
 
       // Get Next Word
       if ((i % 4) == 0) {

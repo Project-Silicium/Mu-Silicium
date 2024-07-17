@@ -233,6 +233,8 @@ CEntryPoint ()
 
     // Get Start Time Stamp
     StartTimeStamp = GetPerformanceCounter ();
+  } else {
+    StartTimeStamp = 0;
   }
 
   // Disable Data Cache
