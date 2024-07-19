@@ -37,6 +37,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|zeusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|zeusPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|zeusPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -75,7 +76,7 @@
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
   
   # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440
