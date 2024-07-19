@@ -5,6 +5,8 @@ on:
       - "*"
 env:
   CI_BUILD: true
+permissions:
+  contents: write
 jobs:
   build_release:
     runs-on: ubuntu-latest
