@@ -111,7 +111,7 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 
 CHAR8 *mBIOSInfoType0Strings[] = {
   "Not Specified", // Vendor String
-  "2.7",           // BiosVersion String
+  "2.8",           // BiosVersion String
   __DATE__,        // BiosReleaseDate String
   NULL
 };
@@ -284,13 +284,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_x2 = {
     0  // ProcessorVoltageIndicateLegacy
   },
   0,                     // ExternalClock
-#if SOC_TYPE == 0
-  3000,                  // MaxSpeed
-  3000,                  // CurrentSpeed
-#else
-  3200,                  // MaxSpeed
-  3200,                  // CurrentSpeed
-#endif
+  2910,                  // MaxSpeed
+  2910,                  // CurrentSpeed
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
   0,                     // L1CacheHandle
@@ -367,13 +362,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a71 = {
     0  // ProcessorVoltageIndicateLegacy
   },
   0,                     // ExternalClock
-#if SOC_TYPE == 0
-  2500,                  // MaxSpeed
-  2500,                  // CurrentSpeed
-#else
-  2750,                  // MaxSpeed
-  2750,                  // CurrentSpeed
-#endif
+  2490,                  // MaxSpeed
+  2490,                  // CurrentSpeed
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
   0,                     // L1CacheHandle
@@ -450,13 +440,8 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a51 = {
     0  // ProcessorVoltageIndicateLegacy
   },
   0,                     // ExternalClock
-#if SOC_TYPE == 0
   1800,                  // MaxSpeed
   1800,                  // CurrentSpeed
-#else
-  2000,                  // MaxSpeed
-  2000,                  // CurrentSpeed
-#endif
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
   0,                     // L1CacheHandle

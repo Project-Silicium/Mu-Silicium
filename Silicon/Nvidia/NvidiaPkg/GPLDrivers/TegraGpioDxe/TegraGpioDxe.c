@@ -1,8 +1,5 @@
 /**
-  Tegra GPIO Driver
-
   Copyright (C) 2010-2012, 2015, NVIDIA Corporation <www.nvidia.com>
-
   SPDX-License-Identifier: GPL-2.0+
 **/
 
@@ -24,14 +21,16 @@ STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX GpioMemoryRegion;
 
 STATIC
 INT32
-GetConfig (UINTN Gpio)
+GetConfig (IN UINTN Gpio)
 {
   UINT32 Value;
   INT32  Type;
 
+  // Get GPIO Bank
   GpioCtrl     *Ctrl = (GpioCtrl *)GpioMemoryRegion.Address;
   GpioCtrlBank *Bank = &Ctrl->GpioBank[GPIO_BANK(Gpio)];
 
+  // Get Current GPIO Config
   Value = MmioRead32 ((UINTN)&Bank->GpioConfig[GPIO_PORT(Gpio)]);
   Type  = (Value >> GPIO_BIT(Gpio)) & 1;
 
@@ -41,16 +40,19 @@ GetConfig (UINTN Gpio)
 STATIC
 EFI_STATUS
 SetConfig (
-  UINTN Gpio,
-  INT32 Type)
+  IN UINTN Gpio,
+  IN INT32 Type)
 {
   UINT32 Value;
 
+  // Get GPIO Bank
   GpioCtrl     *Ctrl = (GpioCtrl *)GpioMemoryRegion.Address;
   GpioCtrlBank *Bank = &Ctrl->GpioBank[GPIO_BANK(Gpio)];
 
+  // Get Current GPIO Config
   Value = MmioRead32 ((UINTN)&Bank->GpioConfig[GPIO_PORT(Gpio)]);
 
+  // Set new GPIO Config
   if (Type == CONFIG_GPIO) {
     Value |= 1 << GPIO_BIT(Gpio);
   } else if (Type == CONFIG_SFIO) {
@@ -60,6 +62,7 @@ SetConfig (
     return EFI_INVALID_PARAMETER;
   }
 
+  // Write New GPIO Config
   MmioWrite32 ((UINTN)&Bank->GpioConfig[GPIO_PORT(Gpio)], Value);
 
   return EFI_SUCCESS;
@@ -67,14 +70,16 @@ SetConfig (
 
 STATIC
 INT32
-GetDirection (UINTN Gpio)
+GetDirection (IN UINTN Gpio)
 {
   UINT32 Value;
   INT32  Direction;
 
+  // Get GPIO Bank
   GpioCtrl     *Ctrl = (GpioCtrl *)GpioMemoryRegion.Address;
   GpioCtrlBank *Bank = &Ctrl->GpioBank[GPIO_BANK(Gpio)];
 
+  // Get Current Direction
   Value     = MmioRead32 ((UINTN)&Bank->GpioDirection[GPIO_PORT(Gpio)]);
   Direction = (Value >> GPIO_BIT(Gpio)) & 1;
 
@@ -84,16 +89,19 @@ GetDirection (UINTN Gpio)
 STATIC
 EFI_STATUS
 SetDirection (
-  UINTN Gpio,
-  INT32 Direction)
+  IN UINTN Gpio,
+  IN INT32 Direction)
 {
   UINT32 Value;
 
+  // Get GPIO Bank
   GpioCtrl     *Ctrl = (GpioCtrl *)GpioMemoryRegion.Address;
   GpioCtrlBank *Bank = &Ctrl->GpioBank[GPIO_BANK(Gpio)];
 
+  // Get Current GPIO Direction
   Value = MmioRead32 ((UINTN)&Bank->GpioDirection[GPIO_PORT(Gpio)]);
 
+  // Set New GPIO Direction
   if (Direction == DIRECTION_OUTPUT) {
     Value |= 1 << GPIO_BIT(Gpio);
   } else if (Direction == DIRECTION_INPUT) {
@@ -103,6 +111,7 @@ SetDirection (
     return EFI_INVALID_PARAMETER;
   }
 
+  // Write New GPIO Direction
   MmioWrite32 ((UINTN)&Bank->GpioDirection[GPIO_PORT(Gpio)], Value);
 
   return EFI_SUCCESS;
@@ -111,40 +120,47 @@ SetDirection (
 STATIC
 VOID
 SetLevel (
-  UINTN   Gpio,
-  BOOLEAN High)
+  IN UINTN   Gpio,
+  IN BOOLEAN High)
 {
   UINT32 Value;
 
+  // Get GPIO Bank
   GpioCtrl     *Ctrl = (GpioCtrl *)GpioMemoryRegion.Address;
   GpioCtrlBank *Bank = &Ctrl->GpioBank[GPIO_BANK(Gpio)];
 
+  // Get Current GPIO Level
   Value = MmioRead32 ((UINTN)&Bank->GpioOut[GPIO_PORT(Gpio)]);
 
+  // Set New GPIO Level
   if (High) {
     Value |= 1 << GPIO_BIT(Gpio);
   } else {
     Value &= ~(1 << GPIO_BIT(Gpio));
   }
 
+  // Write New GPIO Level
   MmioWrite32 ((UINTN)&Bank->GpioOut[GPIO_PORT(Gpio)], Value);
 }
 
 STATIC
 INT32
-GetState (UINTN Gpio)
+GetState (IN UINTN Gpio)
 {
   UINT32 Value;
 
+  // Get GPIO Bank
   GpioCtrl     *Ctrl = (GpioCtrl *)GpioMemoryRegion.Address;
   GpioCtrlBank *Bank = &Ctrl->GpioBank[GPIO_BANK(Gpio)];
 
+  // Get Current State of Defined GPIO
   if (GetDirection(Gpio) == DIRECTION_INPUT) {
     Value = MmioRead32 ((UINTN)&Bank->GpioIn[GPIO_PORT(Gpio)]);
   } else {
     Value = MmioRead32 ((UINTN)&Bank->GpioOut[GPIO_PORT(Gpio)]);
   }
 
+  // Return GPIO State
   return (Value >> GPIO_BIT(Gpio)) & 1;
 }
 
@@ -172,7 +188,7 @@ InitGpioDriver (
     goto exit;
   }
 
-  // Install Tegra Gpio Protocol in a new Handle
+  // Register Tegra GPIO Protocol
   Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gEfiTegraGpioProtocolGuid, &mTegraGpio, NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register Tegra GPIO Protocol!\n"));

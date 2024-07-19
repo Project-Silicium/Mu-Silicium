@@ -16,13 +16,16 @@
 #ifndef _EFI_EXYNOS_GPIO_H_
 #define _EFI_EXYNOS_GPIO_H_
 
+// GPA Pull Modes
 #define GPA_PULL_NONE   0
 #define GPA_PULL_DOWN   1
 #define GPA_PULL_UP     3
 
+// GPA DRV Speed Values
 #define GPA_DRV_FAST    0
 #define GPA_DRV_SLOW    1
 
+// GPA Directions
 #define GPA_INPUT       0
 #define GPA_OUTPUT      1
 
@@ -36,6 +39,9 @@
 //
 typedef struct _EFI_EXYNOS_GPIO_PROTOCOL EFI_EXYNOS_GPIO_PROTOCOL;
 
+//
+// Exynos GPIO Bank Structure
+//
 typedef struct exynos_gpio_bank {
   UINT32 Con;
   UINT32 Dat;
@@ -49,118 +55,118 @@ typedef struct exynos_gpio_bank {
 /**
   This Function Configure the Defined Pin.
 
-  @param Bank               - The Exynos Gpa Bank.
-  @param Offset             - The Bank Offset.
-  @param Pin                - The Gpa Pin.
-  @param Config             - The Configuration.
+  @param[in] Bank               - The Exynos Gpa Bank.
+  @param[in] Offset             - The Bank Offset.
+  @param[in] Pin                - The Gpa Pin.
+  @param[in] Config             - The Configuration.
 **/
 typedef
 VOID
 (EFIAPI *EFI_CONFIGURE_PIN) (
-  ExynosGpioBank *Bank,
-  UINT32         Offset,
-  INT32          Pin,
-  INT32          Config
+  IN ExynosGpioBank *Bank,
+  IN UINT32         Offset,
+  IN INT32          Pin,
+  IN INT32          Config
   );
 
 /**
   This Function Sets the Direction to Output on the defined Pin.
 
-  @param Bank               - The Exynos Gpa Bank.
-  @param Offset             - The Bank Offset.
-  @param Pin                - The Gpa Pin.
-  @param Enable             - Enable Output?
+  @param[in] Bank               - The Exynos Gpa Bank.
+  @param[in] Offset             - The Bank Offset.
+  @param[in] Pin                - The Gpa Pin.
+  @param[in] Enable             - Enable Output?
 **/
 typedef
 VOID
 (EFIAPI *EFI_SET_DIRECTION_OUTPUT) (
-  ExynosGpioBank *Bank,
-  UINT32         Offset,
-  INT32          Pin,
-  BOOLEAN        Enable
+  IN ExynosGpioBank *Bank,
+  IN UINT32         Offset,
+  IN INT32          Pin,
+  IN BOOLEAN        Enable
   );
 
 /**
   This Function Sets the Direction to Input on the defined Pin.
 
-  @param Bank               - The Exynos Gpa Bank.
-  @param Offset             - The Bank Offset.
-  @param Pin                - The Gpa Pin.
+  @param[in] Bank               - The Exynos Gpa Bank.
+  @param[in] Offset             - The Bank Offset.
+  @param[in] Pin                - The Gpa Pin.
 **/
 typedef
 VOID
 (EFIAPI *EFI_SET_DIRECTION_INPUT) (
-  ExynosGpioBank *Bank,
-  UINT32         Offset,
-  INT32          Pin
+  IN ExynosGpioBank *Bank,
+  IN UINT32         Offset,
+  IN INT32          Pin
   );
 
 /**
   This Function Gets the Current State of the defined Pin.
 
-  @param Bank               - The Exynos Gpa Bank.
-  @param Offset             - The Bank Offset.
-  @param Pin                - The Gpa Pin.
+  @param[in] Bank               - The Exynos Gpa Bank.
+  @param[in] Offset             - The Bank Offset.
+  @param[in] Pin                - The Gpa Pin.
 
   @return State             - The State of the Pin.
 **/
 typedef
 UINT32
-(EFIAPI *EFI_GET_GPIO) (
-  ExynosGpioBank *Bank,
-  UINT32         Offset,
-  INT32          Pin
+(EFIAPI *EFI_GET_PIN) (
+  IN ExynosGpioBank *Bank,
+  IN UINT32         Offset,
+  IN INT32          Pin
   );
 
 /**
   This Function Sets the Pull Mode to the defined Pin.
 
-  @param Bank               - The Exynos Gpa Bank.
-  @param Offset             - The Bank Offset.
-  @param Pin                - The Gpa Pin.
-  @param Mode               - The Mode.
+  @param[in] Bank               - The Exynos Gpa Bank.
+  @param[in] Offset             - The Bank Offset.
+  @param[in] Pin                - The Gpa Pin.
+  @param[in] Mode               - The Mode.
 **/
 typedef
 VOID
 (EFIAPI *EFI_SET_PULL) (
-  ExynosGpioBank *Bank,
-  UINT32         Offset,
-  INT32          Pin,
-  INT32          Mode
+  IN ExynosGpioBank *Bank,
+  IN UINT32         Offset,
+  IN INT32          Pin,
+  IN INT32          Mode
   );
 
 /**
   This Function Sets the Drv Mode to the defined Pin.
 
-  @param Bank               - The Exynos Gpa Bank.
-  @param Offset             - The Bank Offset.
-  @param Pin                - The Gpa Pin.
-  @param Mode               - The Mode.
+  @param[in] Bank               - The Exynos Gpa Bank.
+  @param[in] Offset             - The Bank Offset.
+  @param[in] Pin                - The Gpa Pin.
+  @param[in] Mode               - The Mode.
 **/
 typedef
 VOID
 (EFIAPI *EFI_SET_DRV) (
-  ExynosGpioBank *Bank,
-  UINT32         Offset,
-  INT32          Pin,
-  INT32          Mode
+  IN ExynosGpioBank *Bank,
+  IN UINT32         Offset,
+  IN INT32          Pin,
+  IN INT32          Mode
   );
 
 /**
   This Function Sets the Speed of the defined Pin.
 
-  @param Bank               - The Exynos Gpa Bank.
-  @param Offset             - The Bank Offset.
-  @param Pin                - The Gpa Pin.
-  @param Mode               - The Mode.
+  @param[in] Bank               - The Exynos Gpa Bank.
+  @param[in] Offset             - The Bank Offset.
+  @param[in] Pin                - The Gpa Pin.
+  @param[in] Mode               - The Mode.
 **/
 typedef
 VOID
 (EFIAPI *EFI_SET_RATE) (
-  ExynosGpioBank *Bank,
-  UINT32         Offset,
-  INT32          Pin,
-  INT32          Mode
+  IN ExynosGpioBank *Bank,
+  IN UINT32         Offset,
+  IN INT32          Pin,
+  IN INT32          Mode
   );
 
 //
@@ -170,7 +176,7 @@ struct _EFI_EXYNOS_GPIO_PROTOCOL {
   EFI_CONFIGURE_PIN        ConfigurePin;
   EFI_SET_DIRECTION_OUTPUT SetDirectionOutput;
   EFI_SET_DIRECTION_INPUT  SetDirectionInput;
-  EFI_GET_GPIO             GetGpio;
+  EFI_GET_PIN              GetPin;
   EFI_SET_PULL             SetPull;
   EFI_SET_DRV              SetDrv;
   EFI_SET_RATE             SetRate;

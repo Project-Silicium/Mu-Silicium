@@ -47,9 +47,9 @@
 !endif
 
   INF Binaries/pipa/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
-  INF Binaries/pipa/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF Binaries/pipa/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 

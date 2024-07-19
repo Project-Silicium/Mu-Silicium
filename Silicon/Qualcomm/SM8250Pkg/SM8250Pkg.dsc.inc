@@ -59,9 +59,6 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
 
-  # Power Services
-  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|TRUE
-
   # CPU Max Freq
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE
 

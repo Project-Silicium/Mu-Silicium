@@ -105,4 +105,6 @@
   INF Binaries/poplar/SomcPkg/Drivers/XBootPALDxe/XBootPALDxe.inf
   INF Binaries/poplar/SomcPkg/Drivers/XDeviceTreeDxe/XDeviceTreeDxe.inf
   INF Binaries/poplar/SomcPkg/Drivers/TaDxe/TaDxe.inf
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/poplar/SomcPkg/Drivers/XDisplayDxe/XDisplayDxe.inf
+!endif

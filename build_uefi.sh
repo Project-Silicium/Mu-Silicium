@@ -97,14 +97,14 @@ python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py"
 # Apply Mu Patches
 ## Mu
 if [ ${TARGET_ARCH} == "ARM" ]; then
-	cp ./MuPatches/Math.patch ./Common/Mu/
+	cp ./Resources/MuPatches/Math.patch ./Common/Mu/
 	cd Common/Mu || exit 1
 	git apply Math.patch &> /dev/null
 	cd ../..
 fi
 
 ## Mu_Basecore
-cp ./MuPatches/UsbBus.patch ./MuPatches/BdsWait.patch ./MuPatches/Tools-Conf.patch ./MuPatches/PdbPointer.patch ./Mu_Basecore/
+cp ./Resources/MuPatches/UsbBus.patch ./Resources/MuPatches/BdsWait.patch ./Resources/MuPatches/Tools-Conf.patch ./Resources/MuPatches/PdbPointer.patch ./Mu_Basecore/
 cd Mu_Basecore || exit 1
 git apply UsbBus.patch &> /dev/null
 git apply BdsWait.patch &> /dev/null
@@ -113,7 +113,7 @@ git apply PdbPointer.patch &> /dev/null
 cd ..
 
 ## Mu_Tiano
-cp ./MuPatches/Timer.patch ./Silicon/Arm/Mu_Tiano/
+cp ./Resources/MuPatches/Timer.patch ./Silicon/Arm/Mu_Tiano/
 cd Silicon/Arm/Mu_Tiano || exit 1
 git apply Timer.patch &> /dev/null
 cd ../../..

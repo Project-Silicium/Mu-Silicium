@@ -15,7 +15,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"TZ",                0x46200000, 0x02D00000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
   {"TZApps",            0x46D00000, 0x02200000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
   {"PIL Reserved",      0x4AB00000, 0x0D200000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-//{"DXE Heap",          0x58900000, 0x02800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"DBI Dump",          0x5B100000, 0x00A00000, NoHob,  MMAP_IO, INITIALIZED, Conv,   UNCACHED_UNBUFFERED_XN},
   {"Sched Heap",        0x5BC00000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"Display Reserved",  0x5C000000, 0x01000000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},

@@ -55,11 +55,14 @@
   gMsOSKProtocolGuid
   gMsSWMProtocolGuid
 
+[FixedPcd]
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName
+
 [Pcd]
   gPcBdsPkgTokenSpaceGuid.PcdPowerAndThermalRetries
   gPcBdsPkgTokenSpaceGuid.PcdShutdownGraphicDisplayTime
   gPcBdsPkgTokenSpaceGuid.PcdThermalControlRetryWait
-  gSiliciumPkgTokenSpaceGuid.PcdSpecificApp
 
 [Depex]
   TRUE

@@ -1,12 +1,11 @@
-#include <Library/BaseLib.h>
 #include <Library/DeviceMemoryMapLib.h>
 
 STATIC
 ARM_MEMORY_REGION_DESCRIPTOR_EX
 gDeviceMemoryDescriptorEx[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
-  // DDR Regions
 
+  // DDR Regions
   {"Kernel",             0x80000000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"RAM Partition",      0x85700000, 0x00800000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"HLOS1",              0x85F00000, 0x000C0000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
@@ -87,7 +86,7 @@ gDeviceMemoryDescriptorEx[] = {
   {"PCIE_1_WRAPPER_AXI", 0x40000000, 0x02000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"PCIE_0_WRAPPER_AXI", 0x60000000, 0x01000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
 
-  /* Terminator for MMU */
+  // Terminator for MMU
   {"Terminator", 0, 0, 0, 0, 0, 0, 0}
 };
 
@@ -95,5 +94,5 @@ gDeviceMemoryDescriptorEx[] = {
 ARM_MEMORY_REGION_DESCRIPTOR_EX*
 GetDeviceMemoryMap ()
 {
-    return gDeviceMemoryDescriptorEx;
+  return gDeviceMemoryDescriptorEx;
 }

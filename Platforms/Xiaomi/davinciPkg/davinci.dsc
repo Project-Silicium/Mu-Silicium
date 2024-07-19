@@ -26,6 +26,7 @@
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
+
   #
   # 0 = SM7150-AA
   # 1 = SM7150-AB

@@ -47,7 +47,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000        
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"AdrianoA3 & N1kroks"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000

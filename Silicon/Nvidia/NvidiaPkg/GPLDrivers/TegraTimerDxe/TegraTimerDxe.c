@@ -4,6 +4,7 @@
 
   SPDX-License-Identifier: GPL-2.0+
 **/
+
 #include <PiDxe.h>
 
 #include <Library/ArmLib.h>

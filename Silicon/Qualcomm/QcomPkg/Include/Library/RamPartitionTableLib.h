@@ -53,7 +53,6 @@ typedef struct ram_partition_table {
   This Function Returns the Amount of RAM Partitions and its Sizes.
 
   @param[out] RamPartitionTable     - The Structure of the RAM Partition.
-  @param[out] NumPartitions         - The Number of RAM Partitions.
   @param[out] Version               - The Version of the RAM Partitions.
 
   @retval Status                    - The EFI_STATUS returned by this Function.

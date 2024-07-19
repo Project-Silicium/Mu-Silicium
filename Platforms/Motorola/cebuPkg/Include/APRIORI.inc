@@ -1,5 +1,4 @@
 APRIORI DXE {
-
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
@@ -43,7 +42,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  # 8063CC34-459F-0B38-AF28-3BACE2E435A6
+  # SdccDxe_SDBoot
   INF Binaries/cebu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
@@ -59,17 +58,11 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
-														 
-																	 
-
   INF Binaries/cebu/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   INF Binaries/cebu/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
   INF Binaries/cebu/MbmPkg/Core/Drivers/MotUtagsDxe/MotUtagsDxe.inf
   INF Binaries/cebu/MbmPkg/Core/Drivers/MotUtagsDictDxe/MotUtagsDictDxe.inf
   INF Binaries/cebu/MbmPkg/Core/Drivers/MotHwIdDxe/MotHwIdDxe.inf
-													 
-	  
-
   INF Binaries/cebu/QcomPkg/Drivers/PILDxe/PILDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf

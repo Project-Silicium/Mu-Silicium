@@ -47,88 +47,91 @@ typedef struct _EFI_TEGRA_GPIO_PROTOCOL EFI_TEGRA_GPIO_PROTOCOL;
 #define TEGRA_GPIO_PORT_EE 30
 #define TEGRA_GPIO_PORT_FF 31
 
+//
+// Small Code to Get GPIO as Number
+//
 #define TEGRA_GPIO(port, offset) ((TEGRA_GPIO_PORT_##port * 8) + offset)
 
 /**
   This Function Gets the Current Configuration of the Defined GPIO.
   
-  @param  Gpio        The Gpio.
+  @param[in]  Gpio        The Gpio.
   
-  @return Type        The Configuration Type.
+  @return Type            The Configuration Type.
 **/
 typedef
 INT32
 (EFIAPI *EFI_GET_CONFIG) (
-  UINTN Gpio
+  IN UINTN Gpio
   );
 
 /**
   This Function Sets the Defined Configuration to the defined GPIO.
 
-  @param  Gpio        The Gpio.
-  @param  Type        The Configuration.
+  @param[in]  Gpio        The Gpio.
+  @param[in]  Type        The Configuration.
 
   @return EFI_SUCCESS The Configuration was set Successfully.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_CONFIG) (
-  UINTN Gpio,
-  INT32 Type
+  IN UINTN Gpio,
+  IN INT32 Type
   );
 
 /**
   This Function Gets the Current Direction of the Defined GPIO.
 
-  @param  Gpio        The Gpio.
+  @param[in]  Gpio        The Gpio.
 
-  @return Direction   The Direction.
+  @return Direction       The Direction.
 **/
 typedef
 INT32
 (EFIAPI *EFI_GET_DIRECTION) (
-  UINTN Gpio
+  IN UINTN Gpio
   );
 
 /**
   This Function Sets the Defined Direction to the Defined GPIO.
 
-  @param  Gpio        The Gpio.
-  @param  Direction   The Direction.
+  @param[in]  Gpio        The Gpio.
+  @param[in]  Direction   The Direction.
 
-  @return EFI_SUCCESS The Direction was set Successfully.
+  @return EFI_SUCCESS     The Direction was set Successfully.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_DIRECTION) (
-  UINTN Gpio,
-  INT32 Direction
+  IN UINTN Gpio,
+  IN INT32 Direction
   );
 
 /**
   This Function Sets the Level of the Defined GPIO.
 
-  @param  Gpio        The Gpio.
-  @param  High        The Level, TRUE if High, FALSE if Low.
+  @param[in]  Gpio        The Gpio.
+  @param[in]  High        The Level, TRUE if High, FALSE if Low.
 **/
 typedef
 VOID
 (EFIAPI *EFI_SET_LEVEL) (
-  UINTN   Gpio,
-  BOOLEAN High
+  IN UINTN   Gpio,
+  IN BOOLEAN High
   );
 
 /**
   This Function gets the Current State of the defined GPIO.
 
-  @param  Gpio        The Gpio.
+  @param[in]  Gpio        The Gpio.
 
-  @return State       The Current State.
+  @return State           The Current State.
 **/
 typedef
 INT32
 (EFIAPI *EFI_GET_STATE) (
-  UINTN Gpio
+  IN UINTN Gpio
   );
 
 //

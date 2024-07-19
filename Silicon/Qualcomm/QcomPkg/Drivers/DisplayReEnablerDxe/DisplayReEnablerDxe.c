@@ -30,10 +30,7 @@ ReEnableDisplay (
   gBS->Stall (1000);
 
   // Turn On Display
-  Status = mDisplayPowerProtocol->SetDisplayPowerState (mDisplayPowerProtocol, EfiDisplayPowerStateOn);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Turn On Display!\n"));
-  }
+  mDisplayPowerProtocol->SetDisplayPowerState (mDisplayPowerProtocol, EfiDisplayPowerStateOn);
 
 exit:
   return Status;

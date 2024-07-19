@@ -275,7 +275,7 @@ KeypadDeviceGetKeys (
   for (UINTN Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
     KEY_CONTEXT_PRIVATE *Context = KeyList[Index];
 
-    IsPressed = !mGpioProtocol->GetGpio ((ExynosGpioBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin);
+    IsPressed = !mGpioProtocol->GetPin ((ExynosGpioBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin);
 
     LibKeyUpdateKeyStatus (&Context->EfiKeyContext, KeypadReturnApi, IsPressed, Delta);
   }

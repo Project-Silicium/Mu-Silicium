@@ -1,5 +1,4 @@
 APRIORI DXE {
-
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
@@ -105,5 +104,4 @@ APRIORI DXE {
   INF Binaries/lavender/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
-
 }

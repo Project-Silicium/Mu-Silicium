@@ -6,13 +6,21 @@
   transcribed, stored in a retrieval system or translated into any human or computer language in any form by any means,
   electronic, mechanical, manual or otherwise, or disclosed
   to third parties without the express written permission of Samsung Electronics.
+
+  Alternatively, this program is free software in case of open source project
+  you can redistribute it and/or modify
+  it under the terms of the GNU General Public License version 2 as
+  published by the Free Software Foundation.
 **/
 
 #ifndef _EFI_EXYNOS_SPEEDY_H_
 #define _EFI_EXYNOS_SPEEDY_H_
 
+// Speedy Access Modes
 #define ACCESS_BURST     0
 #define ACCESS_RANDOM    1
+
+// Speedy Read Directions
 #define DIRECTION_READ   0
 #define DIRECTION_WRITE  1
 
@@ -29,84 +37,84 @@ typedef struct _EFI_EXYNOS_SPEEDY_PROTOCOL EFI_EXYNOS_SPEEDY_PROTOCOL;
 /**
   This Function Resets Speedy Fifo.
 
-  @param SpeedyBase         - The Speedy Base Address.
+  @param[in] SpeedyBase          - The Speedy Base Address.
 **/
 typedef
 VOID
 (EFIAPI *EFI_RESET_SPEEDY_FIFO) (
-  UINT32 SpeedyBase
+  IN UINT32 SpeedyBase
   );
 
 /**
   This Function Reads from Speedy.
 
-  @param SpeedyBase         - The Speedy Base Address.
-  @param Slave              - The Slave Address.
-  @param Addr               - The Address.
-  @param Data               - The Data of Speedy.
+  @param[in]  SpeedyBase         - The Speedy Base Address.
+  @param[in]  Slave              - The Slave Address.
+  @param[in]  Addr               - The Address.
+  @param[out] Data               - The Data of Speedy.
 **/
 typedef
 VOID
 (EFIAPI *EFI_READ_SPEEDY) (
-  UINT32 SpeedyBase,
-  UINT8  Slave,
-  UINT8  Addr,
-  UINT8 *Data
+  IN  UINT32 SpeedyBase,
+  IN  UINT8  Slave,
+  IN  UINT8  Addr,
+  OUT UINT8 *Data
   );
 
 /**
   This Function Burst Reads from Speedy.
 
-  @param SpeedyBase         - The Speedy Base Address.
-  @param Slave              - The Slave Address.
-  @param Addr               - The Address.
-  @param Data               - The Data of Speedy.
-  @param Count              - The Count of Reads.
+  @param[in]  SpeedyBase         - The Speedy Base Address.
+  @param[in]  Slave              - The Slave Address.
+  @param[in]  Addr               - The Address.
+  @param[out] Data               - The Data of Speedy.
+  @param[in]  Count              - The Count of Reads.
 **/
 typedef
 VOID
 (EFIAPI *EFI_BURST_READ_SPEEDY) (
-  UINT32 SpeedyBase,
-  UINT8  Slave,
-  UINT8  Addr,
-  UINT8 *Data,
-  UINT8  Count
+  IN  UINT32 SpeedyBase,
+  IN  UINT8  Slave,
+  IN  UINT8  Addr,
+  OUT UINT8 *Data,
+  IN  UINT8  Count
   );
 
 /**
   This Function Writes to Speedy.
 
-  @param SpeedyBase         - The Speedy Base Address.
-  @param Slave              - The Slave Address.
-  @param Addr               - The Address.
-  @param Data               - The Data for Speedy.
+  @param[in] SpeedyBase          - The Speedy Base Address.
+  @param[in] Slave               - The Slave Address.
+  @param[in] Addr                - The Address.
+  @param[in] Data                - The Data for Speedy.
 **/
 typedef
 VOID
 (EFIAPI *EFI_WRITE_SPEEDY) (
-  UINT32 SpeedyBase,
-  UINT8  Slave,
-  UINT8  Addr,
-  UINT8  Data
+  IN  UINT32 SpeedyBase,
+  IN  UINT8  Slave,
+  IN  UINT8  Addr,
+  IN  UINT8  Data
   );
 
 /**
   This Function Burst Writes to Speedy.
 
-  @param SpeedyBase         - The Speedy Base Address.
-  @param Slave              - The Slave Address.
-  @param Addr               - The Address.
-  @param Data               - The Data for Speedy.
-  @param Count              - The Count of Writes.
+  @param[in] SpeedyBase          - The Speedy Base Address.
+  @param[in] Slave               - The Slave Address.
+  @param[in] Addr                - The Address.
+  @param[in] Data                - The Data for Speedy.
+  @param[in] Count               - The Count of Writes.
 **/
 typedef
 VOID
 (EFIAPI *EFI_BURST_WRITE_SPEEDY) (
-  UINT32 SpeedyBase,
-  UINT8  Slave,
-  UINT8  Addr,
-  UINT8 *Data,
-  UINT8  Count
+  IN  UINT32 SpeedyBase,
+  IN  UINT8  Slave,
+  IN  UINT8  Addr,
+  IN  UINT8 *Data,
+  IN  UINT8  Count
   );
 
 //
