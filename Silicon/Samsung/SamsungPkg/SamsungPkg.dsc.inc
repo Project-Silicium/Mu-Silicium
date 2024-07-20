@@ -17,5 +17,6 @@
   # Custom Exynos Drivers
   SamsungPkg/Drivers/ExynosGpioDxe/ExynosGpioDxe.inf
   SamsungPkg/Drivers/ExynosSpeedyDxe/ExynosSpeedyDxe.inf
+  SamsungPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc

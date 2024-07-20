@@ -30,8 +30,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"RAM Partition",      0xFAA00000, 0x05600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   
   // Memory Hole: 0x100000000 -> 0x880000000 (0x780000000)
-  
-  {"RAM Partition",      0x880000000,0x260000000,AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
   // Register Regions
   {"GIC Distributor",    0x10101000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
