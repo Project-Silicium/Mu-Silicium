@@ -165,8 +165,8 @@ PrePiMain (IN UINT64 StartTimeStamp)
   MmMemorySettings  = (MM_MEMORY_PROTECTION_SETTINGS)MM_MEMORY_PROTECTION_SETTINGS_ON;
 
   // Apply Memory Protection Settings
-  BuildGuidDataHob (&gDxeMemoryProtectionSettingsGuid, &DxeMemorySettings, sizeof(DxeMemorySettings));
-  BuildGuidDataHob (&gMmMemoryProtectionSettingsGuid,  &MmMemorySettings,  sizeof(MmMemorySettings));
+  //BuildGuidDataHob (&gDxeMemoryProtectionSettingsGuid, &DxeMemorySettings, sizeof(DxeMemorySettings));
+  //BuildGuidDataHob (&gMmMemoryProtectionSettingsGuid,  &MmMemorySettings,  sizeof(MmMemorySettings));
 
   // Register Performance Info
   PERF_START (NULL, "PEI", NULL, StartTimeStamp);
