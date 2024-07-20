@@ -44,10 +44,12 @@
   PcdLib
   BaseMemoryLib
   DebugLib
+  IoLib
   SerialPortLib
   PlatformPrePiLib
   MemoryInitPeiLib
   PlatformPeiLib
+  EarlyFdtLib
 
 [Ppis]
   gArmMpCoreInfoPpiGuid

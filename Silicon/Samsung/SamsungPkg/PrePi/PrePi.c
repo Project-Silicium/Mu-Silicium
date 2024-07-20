@@ -14,8 +14,10 @@
 #include <Library/PcdLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
+#include <Library/IoLib.h>
 #include <Library/SerialPortLib.h>
 #include <Library/PlatformPrePiLib.h>
+#include <Library/libfdt.h>
 
 #include <Ppi/SecPerformance.h>
 
@@ -181,6 +183,7 @@ CEntryPoint ()
 {
   EFI_STATUS                      Status;
   ARM_MEMORY_REGION_DESCRIPTOR_EX Display;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointer;
   UINT64                          StartTimeStamp;
 
   // Init Serial Port
@@ -202,6 +205,33 @@ CEntryPoint ()
 
   // Run Specific SoC Code
   PlatformInitialize ();
+
+  // Locate and Enable Decon
+  Status = LocateMemoryMapAreaByName ("FDT", &FdtPointer);
+  if (!EFI_ERROR (Status)) {
+    CONST VOID *FDT = (CONST VOID*)(uintptr_t)MmioRead32(FdtPointer.Address);
+    if(fdt_check_header(FDT) == 0) {
+      INT32 NodeOffset = 0;
+      while ((NodeOffset = fdt_next_node(FDT, NodeOffset, NULL)) >= 0) {
+        CONST CHAR8 *NodeName = fdt_get_name(FDT, NodeOffset, NULL);
+
+        if(NodeName && AsciiStrStr(NodeName, "decon_f@")) {
+          INT32 RegLength;
+          CONST fdt32_t *Reg = fdt_getprop(FDT, NodeOffset, "reg", &RegLength);
+
+          if (Reg && RegLength > 0) {
+            INT32 NumberOfRegs = RegLength / sizeof(fdt32_t);
+
+	    for (INT32 i = 0; i < NumberOfRegs; i++) {
+	      UINT32 RegValue = fdt32_to_cpu(Reg[i]);
+
+	      if (RegValue != 0x0 && RegValue != 0x10000) MmioWrite32(RegValue + 0x70, 0x1281); // Enable Decon
+	    }
+          }
+        }
+      }
+    }
+  }
 
   // Clear Screen
   Status = LocateMemoryMapAreaByName ("Display Reserved", &Display);
