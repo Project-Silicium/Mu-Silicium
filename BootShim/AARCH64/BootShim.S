@@ -15,6 +15,8 @@ _StackSize:
   .long 0               /* Reserved */
 
 _Start:
+  mov   x10, (UEFI_BASE + UEFI_SIZE)
+  str   x0, [x10]
   mov   x4, x1
   ldr   x5, _StackBase
   cmp   x4, x5
