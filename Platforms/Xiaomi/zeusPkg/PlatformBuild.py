@@ -204,25 +204,23 @@ class PlatformBuilder(UefiBuilder, BuildSettingsManager):
         return super().GetLoggingLevel(loggerType)
 
     def SetPlatformEnv(self):
-        logging.debug("PlatformBuilder SetPlatformEnv")
-        self.env.SetValue("PRODUCT_NAME", "zeus", "Platform Hardcoded")
-        self.env.SetValue("ACTIVE_PLATFORM", "zeusPkg/zeus.dsc", "Platform Hardcoded")
-        self.env.SetValue("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
-        self.env.SetValue("TOOL_CHAIN_TAG", "CLANGDWARF", "set default to clangdwarf")
-        self.env.SetValue("EMPTY_DRIVE", "FALSE", "Default to false")
-        self.env.SetValue("RUN_TESTS", "FALSE", "Default to false")
-        self.env.SetValue("SHUTDOWN_AFTER_RUN", "FALSE", "Default to false")
-        # needed to make FV size build report happy
-        self.env.SetValue("BLD_*_BUILDID_STRING", "Unknown", "Default")
-        # Default turn on build reporting.
-        self.env.SetValue("BUILDREPORTING", "TRUE", "Enabling build report")
-        self.env.SetValue("BUILDREPORT_TYPES", "PCD DEPEX FLASH BUILD_FLAGS LIBRARY FIXED_ADDRESS HASH", "Setting build report types")
-        self.env.SetValue("BLD_*_MEMORY_PROTECTION", "TRUE", "Default")
-        # Include the MFCI test cert by default, override on the commandline with "BLD_*_SHIP_MODE=TRUE" if you want the retail MFCI cert
-        self.env.SetValue("BLD_*_SHIP_MODE", "FALSE", "Default")
-        self.env.SetValue("BLD_*_FD_BASE", self.env.GetValue("FD_BASE"), "Default")
-        self.env.SetValue("BLD_*_FD_SIZE", self.env.GetValue("FD_SIZE"), "Default")
-        self.env.SetValue("BLD_*_FD_BLOCKS", self.env.GetValue("FD_BLOCKS"), "Default")
+        logging.debug ("PlatformBuilder SetPlatformEnv")
+
+        self.env.SetValue ("PRODUCT_NAME", "zeus", "Platform Hardcoded")
+        self.env.SetValue ("ACTIVE_PLATFORM", "zeusPkg/zeus.dsc", "Platform Hardcoded")
+        self.env.SetValue ("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
+        self.env.SetValue ("TOOL_CHAIN_TAG", "CLANGPDB", "set default to clangpdb")
+        self.env.SetValue ("EMPTY_DRIVE", "FALSE", "Default to false")
+        self.env.SetValue ("RUN_TESTS", "FALSE", "Default to false")
+        self.env.SetValue ("SHUTDOWN_AFTER_RUN", "FALSE", "Default to false")
+        self.env.SetValue ("BLD_*_BUILDID_STRING", "Unknown", "Default")
+        self.env.SetValue ("BUILDREPORTING", "TRUE", "Enabling build report")
+        self.env.SetValue ("BUILDREPORT_TYPES", "PCD DEPEX FLASH BUILD_FLAGS LIBRARY FIXED_ADDRESS HASH", "Setting build report types")
+        self.env.SetValue ("BLD_*_MEMORY_PROTECTION", "TRUE", "Default")
+        self.env.SetValue ("BLD_*_SHIP_MODE", "FALSE", "Default")
+        self.env.SetValue ("BLD_*_FD_BASE", self.env.GetValue("FD_BASE"), "Default")
+        self.env.SetValue ("BLD_*_FD_SIZE", self.env.GetValue("FD_SIZE"), "Default")
+        self.env.SetValue ("BLD_*_FD_BLOCKS", self.env.GetValue("FD_BLOCKS"), "Default")
         return 0
 
     def PlatformPreBuild(self):
