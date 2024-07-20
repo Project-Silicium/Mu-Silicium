@@ -26,6 +26,7 @@
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
+
   #
   # 0 = SM7150-AA
   # 1 = SM7150-AB
@@ -39,6 +40,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|davinciPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|davinciPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|davinciPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address

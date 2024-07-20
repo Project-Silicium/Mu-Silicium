@@ -41,25 +41,22 @@
   INF Binaries/bitra/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
-    INF Binaries/bitra/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-  !endif
-
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  INF Binaries/bitra/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+!endif
   INF Binaries/bitra/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
-  INF Binaries/bitra/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF Binaries/bitra/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/bitra/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  # Again alioth has it it might be needed later
   INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
 
   INF Binaries/bitra/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
-
   INF Binaries/bitra/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -70,11 +67,12 @@
   INF Binaries/bitra/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
-    INF Binaries/bitra/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-  !else
-    INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-  !endif
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  INF Binaries/bitra/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
+!else
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!endif
+
   INF Binaries/bitra/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
@@ -94,8 +92,8 @@
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
-
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
   INF Binaries/bitra/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
@@ -104,7 +102,6 @@
   INF Binaries/bitra/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/MacDxe/MacDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-
   INF Binaries/bitra/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
@@ -113,4 +110,3 @@
   INF Binaries/bitra/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
-

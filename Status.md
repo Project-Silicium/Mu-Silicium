@@ -24,9 +24,9 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 **State: Active** <br>
 **Codename: pong** <br>
-**Maintainers: [Govro150](https://github.com/Govro150)** <br>
+**Maintainers: [index986](https://github.com/index986)** <br>
 **Contibuters: [Robotix22](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br>
-**Testers: [Govro150](https://github.com/Govro150) [nokii1337](https://github.com/nokii1337)**
+**Testers: [index986](https://github.com/index986) [nokii1337](https://github.com/nokii1337)**
 
 ### UEFI Status
 
@@ -2161,14 +2161,38 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 </td></tr> </table>
 
+
+## Xiaomi Redmi Note 7
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-7.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: lavender** <br>
+**Maintainer: [index986 (a.k.a govro150)](https://github.com/index986)** <br>
+**Contibuters: None** <br>
+**Tester: [index986 (a.k.a govro150)](https://github.com/index986)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||✅|
+|Side Buttons||✅|
+|USB Host Mode||❌|
+|USB Device Mode||✅|
+|USB Power Delivery||✅|
+|SD Card||✅|
+|Windows Boot|Windows PE only|⚠️|
+|Linux Boot||❌|
   </summary>
 </details>
 
   </summary>
 </details>
+
 
 <br>
-
 <details>
 <summary><b><strong>Tegra Devices</strong></b></summary>
 

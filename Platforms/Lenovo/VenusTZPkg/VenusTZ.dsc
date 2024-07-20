@@ -46,6 +46,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|VenusTZPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|VenusTZPkg/GPLLibrary/KeypadDeviceLib/KeypadDeviceLib.inf
+  DevicePrePiLib|VenusTZPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address & DDR RAM Size (2 GB)

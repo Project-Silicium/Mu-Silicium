@@ -18,7 +18,7 @@
   gEfiScheduleInterfaceHobGuid        = { 0x8EC2BD8D, 0x56D7, 0x49EF, { 0x87, 0x96, 0x63, 0x17, 0x78, 0xF8, 0xEB, 0xF8 } }
   gEfiDTBExtnHobGuid                  = { 0x3A06E1E8, 0x61F6, 0x11EB, { 0xBB, 0xED, 0x4B, 0x47, 0x6E, 0x2F, 0xF6, 0xA7 } }
 
-  # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.VENDOR.1.0.r1-24600-WAIPIO.QSSI14.0
+  # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.VENDOR.1.0.r2-11700-WAIPIO.QSSI15.0
 
   gEfiPartitionTypeGuid               = { 0x6848DE61, 0xEB61, 0x4DEF, { 0x9A, 0x8E, 0x38, 0x17, 0xCB, 0xEB, 0x8F, 0x1C } }
   gEfiEmmcUserPartitionGuid           = { 0xB615F1F5, 0x5088, 0x43CD, { 0x80, 0x9C, 0xA1, 0x6E, 0x52, 0x48, 0x7D, 0x00 } }
@@ -60,7 +60,7 @@
   gEfiSMEMProtocolGuid                = { 0xF4E5C7D0, 0xD239, 0x47CB, { 0xAA, 0xCD, 0x7F, 0x66, 0xEF, 0x76, 0x32, 0x38 } }
   gEfiClockProtocolGuid               = { 0x241AFAE6, 0x885F, 0x4F6C, { 0xA7, 0xEA, 0xC2, 0x8E, 0xAB, 0x79, 0xC3, 0xE5 } }
 
-  # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.VENDOR.1.0.r1-24600-WAIPIO.QSSI14.0
+  # From https://git.codelinaro.org/clo/la/abl/tianocore/edk2/-/tree/LA.VENDOR.1.0.r2-11700-WAIPIO.QSSI15.0
 
   gQcomScmProtocolGuid                = { 0x77ED108D, 0x8524, 0x4B8B, { 0x9D, 0x2E, 0x34, 0x98, 0x7A, 0xEC, 0xB9, 0xC1 } }
   gEfiPlatformInfoProtocolGuid        = { 0x157A5C45, 0x21B2, 0x43C5, { 0xBA, 0x7C, 0x82, 0x2F, 0xEE, 0x5F, 0xE5, 0x99 } }
@@ -94,22 +94,18 @@
 
 [PcdsFixedAtBuild]
   # XBL Protocol Addresses
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000A000
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0|UINT64|0x0000A001
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000B000
+  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0|UINT64|0x0000B001
 
   # Dynamic RAM Start Address PCD
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000A100
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B100
 
   # Clock Speed Up Driver PCDs
-  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE|BOOLEAN|0x0000A200
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000A201
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE|BOOLEAN|0x0000B200
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B201
 
   # Start USB Controller PCD
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000A300
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B300
 
   # SD Card Init PCD
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000A400
-
-  # Power Services PCD
-  gQcomPkgTokenSpaceGuid.PcdIsPowerOkImplemented|FALSE|BOOLEAN|0x0000A500
-
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B400

@@ -10,7 +10,7 @@ on:
       - 'MuPatches/**'
       - 'Platforms/**'
       - 'Silicon/**'
-      - 'Silicium-ACPI/**'
+      - 'Silicium-ACPI'
   workflow_dispatch:
   pull_request:
     types: [opened, reopened]
@@ -22,7 +22,7 @@ on:
       - 'MuPatches/**'
       - 'Platforms/**'
       - 'Silicon/**'
-      - 'Silicium-ACPI/**'
+      - 'Silicium-ACPI'
 env:
   CI_BUILD: true
 jobs:

@@ -32,6 +32,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|r8sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|r8sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
+  DevicePrePiLib|r8sPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address & DDR RAM Size (8 GB)

@@ -111,7 +111,7 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
 
 CHAR8 *mBIOSInfoType0Strings[] = {
   "Not Specified", // Vendor String
-  "2.7",           // BiosVersion String
+  "2.8",           // BiosVersion String
   __DATE__,        // BiosReleaseDate String
   NULL
 };

@@ -23,7 +23,6 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  ArmPlatformLib
   DebugLib
   HobLib
   ArmMmuLib

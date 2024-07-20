@@ -23,7 +23,6 @@ typedef enum {
   AddMem,
   AddDev,
   HobOnlyNoCacheSetting,
-  AddDynamicMem,
   AllocOnly,
   MaxMem
 } DeviceMemoryAddHob;

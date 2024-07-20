@@ -224,19 +224,19 @@ KeypadDeviceConstructor ()
     StaticContext              = KeypadKeyCodeToKeyContext (115);
     StaticContext->PinctrlBase = 0x11CB0000;
     StaticContext->BankOffset  = 0x60;
-    StaticContext->PinNumber   = 0x5;
+    StaticContext->Pin         = 0x5;
 
     /// Volume Down Button
     StaticContext              = KeypadKeyCodeToKeyContext (116);
     StaticContext->PinctrlBase = 0x11CB0000;
     StaticContext->BankOffset  = 0x60;
-    StaticContext->PinNumber   = 0x6;
+    StaticContext->Pin         = 0x6;
 
     /// Power Button
     StaticContext              = KeypadKeyCodeToKeyContext (117);
     StaticContext->PinctrlBase = 0x11CB0000;
     StaticContext->BankOffset  = 0x60;
-    StaticContext->PinNumber   = 0x7;
+    StaticContext->Pin         = 0x7;
   } else {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Exynos GPIO Protocol! Status = %r\n", __FUNCTION__, Status));
   }
@@ -275,7 +275,7 @@ KeypadDeviceGetKeys (
   for (UINTN Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
     KEY_CONTEXT_PRIVATE *Context    = KeyList[Index];
 
-    IsPressed = !mGpioProtocol->GetGpio ((ExynosGpioBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin);
+    IsPressed = !mGpioProtocol->GetPin ((ExynosGpioBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin);
 
     LibKeyUpdateKeyStatus (&Context->EfiKeyContext, KeypadReturnApi, IsPressed, Delta);
   }

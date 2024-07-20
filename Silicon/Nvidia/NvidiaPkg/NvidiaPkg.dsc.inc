@@ -16,6 +16,12 @@
 !endif
 
 [Components]
+  # PrePI
+  NvidiaPkg/PrePi/PrePi.inf {
+    <LibraryClasses>
+      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
+  }
+
   # Custom Tegra Drivers
   NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 !if $(USE_CUSTOM_TIMER) == 1

@@ -92,8 +92,8 @@
   INF Binaries/gts8/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
-  INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
@@ -103,8 +103,8 @@
   INF Binaries/gts8/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-  INF Binaries/sweet_k6a/QcomPkg/Drivers/CipherDxe/CipherDxe.inf         # Use sweet_k6a CipherDxe as gts8 UCDxe needs DTBExt Protocol we don't have
-  INF Binaries/sweet_k6a/QcomPkg/Drivers/RNGDxe/RngDxe.inf               # Use sweet_k6a RngDxe as gts8 RngDxe needs DTBExt Protocol we don't have
+  INF Binaries/gts8/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   #INF Binaries/gts8/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf

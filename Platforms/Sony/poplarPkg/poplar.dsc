@@ -33,6 +33,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|poplarPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|poplarPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|poplarPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -67,7 +68,7 @@
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
   
   # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

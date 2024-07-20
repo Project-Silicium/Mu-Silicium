@@ -74,7 +74,6 @@
   INF Binaries/cebu/MbmPkg/Core/Drivers/MotSolDxe/MotSolDxe.inf
   INF Binaries/cebu/MbmPkg/Core/Drivers/BacklightDxe/BacklightDxe.inf
 
-
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/cebu/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else

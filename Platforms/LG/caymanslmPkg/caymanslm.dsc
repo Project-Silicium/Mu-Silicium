@@ -1,5 +1,4 @@
 ##
-#
 #  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
@@ -7,7 +6,6 @@
 #  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
 
 ################################################################################
@@ -17,7 +15,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = caymanslm
-  PLATFORM_GUID                  = ef79c823-7988-42a1-8087-742f78a4734d
+  PLATFORM_GUID                  = EF79C823-7988-42A1-8087-742F78A4734D
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/caymanslmPkg
@@ -35,6 +33,7 @@
 [LibraryClasses.common]
   DeviceMemoryMapLib|caymanslmPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|caymanslmPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|caymanslmPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild.common]
   # DDR Start Address
@@ -77,8 +76,8 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2460
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|101
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|129
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|101
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|129
 
 !include SDM845Pkg/SDM845Pkg.dsc.inc

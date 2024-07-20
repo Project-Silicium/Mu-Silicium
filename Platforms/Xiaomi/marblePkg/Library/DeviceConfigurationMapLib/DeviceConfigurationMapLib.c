@@ -47,8 +47,8 @@ gDeviceConfigurationDescriptorEx[] = {
   {"Terminator", 0xFFFFFFFF}
 };
 
-CONFIGURATION_DESCRIPTOR_EX
-*GetDeviceConfigurationMap()
+CONFIGURATION_DESCRIPTOR_EX*
+GetDeviceConfigurationMap ()
 {
   return gDeviceConfigurationDescriptorEx;
 }

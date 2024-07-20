@@ -6,6 +6,11 @@
   transcribed, stored in a retrieval system or translated into any human or computer language in any form by any means,
   electronic, mechanical, manual or otherwise, or disclosed
   to third parties without the express written permission of Samsung Electronics.
+
+  Alternatively, this program is free software in case of open source project
+  you can redistribute it and/or modify
+  it under the terms of the GNU General Public License version 2 as
+  published by the Free Software Foundation.
 **/
 
 #include <Library/DebugLib.h>
@@ -18,7 +23,7 @@
 
 STATIC
 VOID
-ResetSpeedyFifo (UINT32 SpeedyBase)
+ResetSpeedyFifo (IN UINT32 SpeedyBase)
 {
   UINT32 SpeedyFifoCtrl;
 
@@ -133,10 +138,10 @@ WaitSpeedyTransfer (UINT32 SpeedyBase)
 
 VOID
 ReadSpeedy (
-  UINT32 SpeedyBase,
-  UINT8  Slave,
-  UINT8  Addr,
-  UINT8 *Data)
+  IN  UINT32 SpeedyBase,
+  IN  UINT8  Slave,
+  IN  UINT8  Addr,
+  OUT UINT8 *Data)
 {
   EFI_STATUS Status;
   UINT16     Address;
@@ -158,11 +163,11 @@ ReadSpeedy (
 
 VOID
 BurstReadSpeedy (
-  UINT32 SpeedyBase,
-  UINT8  Slave,
-  UINT8  Addr,
-  UINT8 *Data,
-  UINT8  Count)
+  IN  UINT32 SpeedyBase,
+  IN  UINT8  Slave,
+  IN  UINT8  Addr,
+  OUT UINT8 *Data,
+  IN  UINT8  Count)
 {
   EFI_STATUS Status;
   UINT16     Address;
@@ -186,10 +191,10 @@ BurstReadSpeedy (
 
 VOID
 WriteSpeedy (
-  UINT32 SpeedyBase,
-  UINT8  Slave,
-  UINT8  Addr,
-  UINT8  Data)
+  IN UINT32 SpeedyBase,
+  IN UINT8  Slave,
+  IN UINT8  Addr,
+  IN UINT8  Data)
 {
   EFI_STATUS Status;
   UINT16     Address;
@@ -212,11 +217,11 @@ WriteSpeedy (
 
 VOID
 BurstWriteSpeedy (
-  UINT32 SpeedyBase,
-  UINT8  Slave,
-  UINT8  Addr,
-  UINT8 *Data,
-  UINT8  Count)
+  IN UINT32 SpeedyBase,
+  IN UINT8  Slave,
+  IN UINT8  Addr,
+  IN UINT8 *Data,
+  IN UINT8  Count)
 {
   EFI_STATUS Status;
   UINT16     Address;

@@ -1,6 +1,5 @@
 /**
   Copyright (C) 2022 Svyatoslav Ryhel <clamor95@gmail.com>
-
   SPDX-License-Identifier: GPL-2.0+
 **/
 

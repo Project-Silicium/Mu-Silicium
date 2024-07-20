@@ -8,28 +8,26 @@
 ##
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
+  *_CLANG*_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG
 !if $(TARGET) == DEBUG
-  *_*_*_CC_FLAGS = -D EFI_DEBUG
+  *_CLANG*_*_CC_FLAGS = -D EFI_DEBUG
 !endif
-  *_*_ARM_CC_FLAGS = -fno-asynchronous-unwind-tables
+  *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY -D HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA=$(HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA) -D HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA=$(HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA) -D HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA=$(HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA) -D HAS_PSCI_MEMPROTECT_FAILING_ERRATA=$(HAS_PSCI_MEMPROTECT_FAILING_ERRATA)
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
-  GCC:*_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
-  GCC:*_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000
+  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
+  *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION,BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
-  GCC:*_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
-  GCC:*_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000
+  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
+  *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000
 
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
-  GCC:*_CLANGDWARF_ARM_DLINK_FLAGS = -z common-page-size=0x1000
-  GCC:*_CLANGDWARF_AARCH64_DLINK_FLAGS = -z common-page-size=0x10000
-  GCC:*_CLANGPDB_AARCH64_DLINK_FLAGS = /ALIGN:0x10000
-  RVCT:*_*_ARM_DLINK_FLAGS = --scatter $(EDK_TOOLS_PATH)/Scripts/Rvct-Align4K.sct
+  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
+  *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x10000
 
 [BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
-  GCC:*_*_AARCH64_CC_FLAGS = -mstrict-align -march=armv8-a
+  *_CLANGPDB_AARCH64_CC_FLAGS = -mstrict-align
 
 [PcdsFixedAtBuild.AArch64]
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|44
@@ -50,7 +48,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob|TRUE
 
 [PcdsFixedAtBuild]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.7"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2.8"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01231229
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"SILICI"
@@ -235,8 +233,6 @@
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmMmuLib|ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib.inf
 
-  ArmPlatformLib|SiliciumPkg/Library/ArmPlatformLib/ArmPlatformLib.inf
-
 !if $(USE_CUSTOM_TIMER) == 0
   TimerLib|ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
 !endif
@@ -255,8 +251,6 @@
 
   # TPM Libraries
   TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
-
-  ArmPlatformStackLib|ArmPlatformPkg/Library/ArmPlatformStackLib/ArmPlatformStackLib.inf
 
   CompilerIntrinsicsLib|MdePkg/Library/CompilerIntrinsicsLib/ArmCompilerIntrinsicsLib.inf  # MU_CHANGE
 
@@ -304,12 +298,6 @@
   VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLibRuntimeDxe.inf
 
 [Components]
-  # PrePI
-  SiliciumPkg/PrePi/PrePi.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
-  }
-
   # DXE Core
   MdeModulePkg/Core/Dxe/DxeMain.inf {
     <LibraryClasses>

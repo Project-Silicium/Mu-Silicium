@@ -18,7 +18,6 @@
   DebugLib
   UefiDriverEntryPoint
   UefiBootServicesTableLib
-  AcpiPlatformUpdateLib
 
 [FixedPcd]
   gQcomPkgTokenSpaceGuid.PcdStartUsbController

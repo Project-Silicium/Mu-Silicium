@@ -19,7 +19,7 @@
   # KEP
   ENABLE_KEP                                 = 1
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 1
-  HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
+  HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 1
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
@@ -45,7 +45,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 7+ Gen 2 @ 2.90 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7475-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7475"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

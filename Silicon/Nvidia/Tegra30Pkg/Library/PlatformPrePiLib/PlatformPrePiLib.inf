@@ -9,6 +9,13 @@
 [Sources]
   PlatformPrePiLib.c
 
+[Sources.Arm]
+  Arm/PlatformPrePiLib.S
+
 [Packages]
+  ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  DevicePrePiLib
