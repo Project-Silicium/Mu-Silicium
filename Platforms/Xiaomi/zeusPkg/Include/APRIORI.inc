@@ -1,8 +1,8 @@
 APRIORI DXE {
-
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+
   INF Binaries/zeus/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
@@ -17,7 +17,9 @@ APRIORI DXE {
   #INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
   
   INF Binaries/zeus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
   INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+
   INF Binaries/zeus/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
