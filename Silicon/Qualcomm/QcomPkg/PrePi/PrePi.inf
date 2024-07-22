@@ -31,6 +31,7 @@
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   CacheMaintenanceLib
@@ -71,6 +72,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize
 
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
+  gQcomPkgTokenSpaceGuid.PcdMemoryProtection
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
