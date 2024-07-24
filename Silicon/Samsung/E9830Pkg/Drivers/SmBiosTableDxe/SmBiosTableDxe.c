@@ -47,10 +47,86 @@
 #include <Library/UefiLib.h>
 #include <Library/PrintLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/IoLib.h>
+#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
+#include <Library/libfdt.h>
+#include <Library/MemoryMapHelperLib.h>
+#endif
 
 #include <Protocol/Smbios.h>
 
 #include "DataDefinitions.h"
+
+#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
+typedef struct {
+  UINT64 StartAddress;
+  UINT64 Size;
+} MEMORY_NODE;
+
+MEMORY_NODE*
+GetMemoryNodes(const void *fdt, UINTN *NodeCount) {
+  INT32 Node;
+  INT32 AddrCells, SizeCells;
+  CONST UINT32 *Reg;
+  INT32 Len;
+  UINTN Count = 0;
+  MEMORY_NODE *Nodes = NULL;
+  UINTN CurrentSize = 0;
+
+  Node = fdt_path_offset(fdt, "/");
+
+  if (Node < 0) {
+    DEBUG((EFI_D_ERROR, "Error finding root node: %a\n", fdt_strerror(Node)));
+    ASSERT(FALSE);
+  }
+
+  AddrCells = fdt_address_cells(fdt, Node);
+  SizeCells = fdt_size_cells(fdt, Node);
+  if (AddrCells < 0 || SizeCells < 0) {
+      DEBUG((EFI_D_ERROR, "Error finding address or size cells\n"));
+      ASSERT(FALSE);
+  }
+
+  fdt_for_each_subnode(Node, fdt, Node) {
+    CONST CHAR8 *DeviceType = fdt_getprop(fdt, Node, "device_type", NULL);
+
+    if (DeviceType && AsciiStrCmp(DeviceType, "memory") == 0) {
+      Reg = fdt_getprop(fdt, Node, "reg", &Len);
+
+      if (!Reg) {
+        DEBUG((EFI_D_ERROR, "Error reading 'reg' property: %a\n", fdt_strerror(Len)));
+        ASSERT(FALSE);
+      }
+
+      INT32 RegSize = (AddrCells + SizeCells) * sizeof(UINT32);
+      INT32 NumRegs = Len / RegSize;
+      UINTN NewSize = (Count + NumRegs) * sizeof(MEMORY_NODE);
+
+      Nodes = ReallocatePool(CurrentSize, NewSize, Nodes);
+      CurrentSize = NewSize;
+
+      for (INT32 i = 0; i < NumRegs; i++) {
+        UINT64 Start = 0, Size = 0;
+
+        for (INT32 j = 0; j < AddrCells; j++) {
+          Start = (Start << 32) | fdt32_to_cpu(Reg[i * (AddrCells + SizeCells) + j]);
+        }
+
+        for (INT32 j = 0; j < SizeCells; j++) {
+          Size = (Size << 32) | fdt32_to_cpu(Reg[i * (AddrCells + SizeCells) + AddrCells + j]);
+        }
+
+        Nodes[Count].StartAddress = Start;
+        Nodes[Count].Size = Size;
+        Count++;
+      }
+    }
+  }
+
+  *NodeCount = Count;
+  return Nodes;
+}
+#endif
 
 EFI_STATUS
 EFIAPI
@@ -222,6 +298,37 @@ CacheInfoUpdateSmbiosType7 ()
   mProcessorInfoType4_a76.L3CacheHandle = (UINT16)SmbiosHandle;
 }
 
+#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
+VOID
+PhyMemArrayInfoUpdateSmbiosType16 (UINT64 SystemMemorySize)
+{
+  EFI_SMBIOS_HANDLE MemArraySmbiosHande;
+
+  mPhyMemArrayInfoType16.ExtendedMaximumCapacity = SystemMemorySize;
+
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mPhyMemArrayInfoType16, mPhyMemArrayInfoType16Strings, &MemArraySmbiosHande);
+
+  // Update the Memory Device Information
+  mMemDevInfoType17.MemoryArrayHandle = MemArraySmbiosHande;
+}
+
+VOID
+MemDevInfoUpdateSmbiosType17 (UINT64 SystemMemorySize)
+{
+  mMemDevInfoType17.Size = SystemMemorySize / 0x100000;
+
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemDevInfoType17, mMemDevInfoType17Strings, NULL);
+}
+
+VOID
+MemArrMapInfoUpdateSmbiosType19 (UINT64 SystemMemorySize)
+{
+  mMemArrMapInfoType19.StartingAddress = FixedPcdGet64(PcdSystemMemoryBase) / 1024;
+  mMemArrMapInfoType19.EndingAddress   = (SystemMemorySize + FixedPcdGet64(PcdSystemMemoryBase) - 1) / 1024;
+
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19, mMemArrMapInfoType19Strings, NULL);
+}
+#else
 VOID
 PhyMemArrayInfoUpdateSmbiosType16 ()
 {
@@ -251,6 +358,7 @@ MemArrMapInfoUpdateSmbiosType19 ()
 
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19, mMemArrMapInfoType19Strings, NULL);
 }
+#endif
 
 EFI_STATUS
 EFIAPI
@@ -258,6 +366,15 @@ InitializeSmBiosTable (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
+#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
+  EFI_STATUS 			  Status = EFI_SUCCESS;
+  UINT64             		  SystemMemorySize = 0;
+  UINT64 	     		  DesignMemorySize = 0;
+  UINTN 	     		  NodeCount;
+  MEMORY_NODE 	     		  *Nodes;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointer;
+#endif
+
   // Update SmBios Data Definitions
   BIOSInfoUpdateSmbiosType0         ();
   SysInfoUpdateSmbiosType1          ();
@@ -265,9 +382,32 @@ InitializeSmBiosTable (
   EnclosureInfoUpdateSmbiosType3    ();
   ProcessorInfoUpdateSmbiosType4    ();
   CacheInfoUpdateSmbiosType7        ();
+
+#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
+  Status = LocateMemoryMapAreaByName ("FDT", &FdtPointer);
+  if (!EFI_ERROR (Status)) {
+    CONST VOID *FDT = (CONST VOID*)(uintptr_t)MmioRead32(FdtPointer.Address);
+    Nodes = GetMemoryNodes(FDT, &NodeCount);
+
+    for (UINTN i = 0; i < NodeCount; i++) {
+      SystemMemorySize += Nodes[i].Size;
+    }
+
+    while (SystemMemorySize >= DesignMemorySize) {
+      DesignMemorySize += 0x40000000; // 1GiB
+    }
+
+    SystemMemorySize = DesignMemorySize;
+  }
+
+  PhyMemArrayInfoUpdateSmbiosType16 (SystemMemorySize);
+  MemDevInfoUpdateSmbiosType17      (SystemMemorySize);
+  MemArrMapInfoUpdateSmbiosType19   (SystemMemorySize);
+#else
   PhyMemArrayInfoUpdateSmbiosType16 ();
   MemDevInfoUpdateSmbiosType17      ();
   MemArrMapInfoUpdateSmbiosType19   ();
+#endif
 
   return EFI_SUCCESS;
 }

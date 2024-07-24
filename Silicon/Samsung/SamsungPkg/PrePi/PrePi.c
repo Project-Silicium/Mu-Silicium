@@ -17,7 +17,9 @@
 #include <Library/IoLib.h>
 #include <Library/SerialPortLib.h>
 #include <Library/PlatformPrePiLib.h>
+#if DEVICE_PRESERVES_FDT == 1
 #include <Library/libfdt.h>
+#endif
 
 #include <Ppi/SecPerformance.h>
 
@@ -183,7 +185,9 @@ CEntryPoint ()
 {
   EFI_STATUS                      Status;
   ARM_MEMORY_REGION_DESCRIPTOR_EX Display;
+#if DEVICE_PRESERVES_FDT == 1
   ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointer;
+#endif
   UINT64                          StartTimeStamp;
 
   // Init Serial Port
@@ -207,6 +211,7 @@ CEntryPoint ()
   PlatformInitialize ();
 
   // Locate and Enable Decon
+#if DEVICE_PRESERVES_FDT == 1
   Status = LocateMemoryMapAreaByName ("FDT", &FdtPointer);
   if (!EFI_ERROR (Status)) {
     CONST VOID *FDT = (CONST VOID*)(uintptr_t)MmioRead32(FdtPointer.Address);
@@ -232,6 +237,7 @@ CEntryPoint ()
       }
     }
   }
+#endif
 
   // Clear Screen
   Status = LocateMemoryMapAreaByName ("Display Reserved", &Display);

@@ -16,9 +16,8 @@ gDeviceMemoryDescriptorEx[] = {
   {"MM Debug",           0x91200000, 0x00001000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED},
   {"RAM Partition",      0x91201000, 0x01DFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"UEFI FD",            0x93000000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
-  {"FDT",		 0x93200000, 0x00001000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, UNCACHED_UNBUFFERED},
-  {"DXE Heap",           0x93201000, 0x03C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"RAM Partition",      0x96E01000, 0x23CFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"DXE Heap",           0x92200000, 0x03C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"RAM Partition",      0x95E00000, 0x24D00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   
   // Memory Hole: 0xBAB00000 -> 0xC0000000 (0x05500000)
 

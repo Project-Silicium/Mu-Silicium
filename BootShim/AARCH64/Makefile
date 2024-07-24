@@ -10,6 +10,6 @@ BootShim.bin: BootShim.elf
 	$(OBJCOPY) -O binary $< $@
 
 BootShim.elf: BootShim.S
-	$(CC) -c $< -o $@ -DUEFI_BASE=$(UEFI_BASE) -DUEFI_SIZE=$(UEFI_SIZE)
+	$(CC) -c $< -o $@ -DUEFI_BASE=$(UEFI_BASE) -DUEFI_SIZE=$(UEFI_SIZE) -DDEVICE_PRESERVES_FDT=$(DEVICE_PRESERVES_FDT)
 
 BootShim.S:

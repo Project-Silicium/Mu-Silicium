@@ -14,20 +14,22 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = x1s
-  PLATFORM_GUID                  = FFFA8AF8-0C7A-4240-A68F-4F3611DB3547
-  PLATFORM_VERSION               = 0.1
-  DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/x1sPkg
-  SUPPORTED_ARCHITECTURES        = AARCH64
-  BUILD_TARGETS                  = RELEASE|DEBUG
-  SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = x1sPkg/x1s.fdf
-  USE_CUSTOM_DISPLAY_DRIVER      = 0
-  HAS_BUILD_IN_KEYBOARD          = 0
+  PLATFORM_NAME					= x1s
+  PLATFORM_GUID					= FFFA8AF8-0C7A-4240-A68F-4F3611DB3547
+  PLATFORM_VERSION				= 0.1
+  DSC_SPECIFICATION				= 0x00010005
+  OUTPUT_DIRECTORY				= Build/x1sPkg
+  SUPPORTED_ARCHITECTURES			= AARCH64
+  BUILD_TARGETS					= RELEASE|DEBUG
+  SKUID_IDENTIFIER				= DEFAULT
+  FLASH_DEFINITION				= x1sPkg/x1s.fdf
+  USE_CUSTOM_DISPLAY_DRIVER			= 0
+  HAS_BUILD_IN_KEYBOARD				= 0
+  DEVICE_PRESERVES_FDT				= 1
+  DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION = 1
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) -DDEVICE_PRESERVES_FDT=$(DEVICE_PRESERVES_FDT) -DDEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION=$(DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION)
 
 [LibraryClasses]
   DeviceMemoryMapLib|x1sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
@@ -35,10 +37,11 @@
   DevicePrePiLib|x1sPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
-  # DDR Start Address & DDR RAM Size (12 GB)
-  # TODO: Add Dynamic RAM Detection for Exynos Devices
+  # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
+!if $(DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION) == 0
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000
+!endif
 
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"halal-beef"

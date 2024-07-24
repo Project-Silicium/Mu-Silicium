@@ -49,6 +49,7 @@
   PlatformPrePiLib
   MemoryInitPeiLib
   PlatformPeiLib
+  EarlyFdtLib
 
 [Ppis]
   gArmMpCoreInfoPpiGuid
