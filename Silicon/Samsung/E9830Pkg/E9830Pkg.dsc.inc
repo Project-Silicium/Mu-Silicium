@@ -60,6 +60,10 @@
   ExynosSpeedyLib|E9830Pkg/Library/ExynosSpeedyLib/ExynosSpeedyLib.inf
 
 [Components]
+!if $(DEVICE_PRESERVES_FDT) == 1 && $(DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION) == 1
+  E9830Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxeDynamic.inf
+!else
   E9830Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+!endif
 
 !include SamsungPkg/SamsungPkg.dsc.inc

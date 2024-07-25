@@ -1,0 +1,29 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = EarlyFdtLib
+  FILE_GUID                      = BF5331E8-C33B-40CF-AB04-BB0A83B2D633
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = EarlyFdtLib
+
+[Sources]
+  fdt.c
+  fdt_addresses.c
+  fdt_check.c
+  fdt_empty_tree.c
+  fdt_overlay.c
+  fdt_ro.c
+  fdt_rw.c
+  fdt_strerror.c
+  fdt_sw.c
+  fdt_strfuncs.c
+  fdt_wip.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  IoLib
+  DebugLib
+  BaseLib

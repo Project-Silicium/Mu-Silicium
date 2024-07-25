@@ -92,7 +92,11 @@ READ_LOCK_STATUS   = TRUE
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+!if $(DEVICE_PRESERVES_FDT) == 1 && $(DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION) == 1
+  INF E9830Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxeDynamic.inf
+!else
   INF E9830Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+!endif
 
   # ACPI Tables
   !include Include/ACPI.inc
@@ -119,7 +123,11 @@ READ_STATUS        = TRUE
 READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
+!if $(DEVICE_PRESERVES_FDT) == 1
+  INF SamsungPkg/PrePi/PrePiUniversalDecon.inf
+!else
   INF SamsungPkg/PrePi/PrePi.inf
+!endif
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {
     SECTION GUIDED EE4E5898-3914-4259-9D6E-DC7BD79403CF PROCESSING_REQUIRED = TRUE {

@@ -66,9 +66,18 @@ rm ./BootShim/${TARGET_ARCH}/BootShim.elf &> /dev/null
 rm ./Resources/bootpayload.bin &> /dev/null
 rm Mu-${TARGET_DEVICE}.* &> /dev/null
 
+DSC_FILE="Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/${TARGET_DEVICE}.dsc"
+KEY="DEVICE_PRESERVES_FDT"
+
+value=$(grep -E "^[[:space:]]*$KEY[[:space:]]*=" "$DSC_FILE" | sed -E "s/^[[:space:]]*$KEY[[:space:]]*=[[:space:]]*//")
+
+if [ -z "$value" ]; then
+  value=0
+fi
+
 # Compile BootShim
 cd BootShim/${TARGET_ARCH} || exit 1
-make UEFI_BASE=${TARGET_FD_BASE} UEFI_SIZE=${TARGET_FD_SIZE}||_error "\nFailed to Compile BootShim!\n"
+make DEVICE_PRESERVES_FDT=${value} UEFI_BASE=${TARGET_FD_BASE} UEFI_SIZE=${TARGET_FD_SIZE}||_error "\nFailed to Compile BootShim!\n"
 cd ../..
 
 # Remove Mu Patches

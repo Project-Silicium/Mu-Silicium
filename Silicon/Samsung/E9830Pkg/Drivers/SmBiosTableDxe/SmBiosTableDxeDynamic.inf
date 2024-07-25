@@ -23,6 +23,8 @@
   MemoryAllocationLib
   UefiLib
   IoLib
+  EarlyFdtLib
+  MemoryMapHelperLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
