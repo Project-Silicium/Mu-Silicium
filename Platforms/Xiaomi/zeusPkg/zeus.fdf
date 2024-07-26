@@ -98,7 +98,7 @@ READ_LOCK_STATUS   = TRUE
   # ACPI Tables
   !include Include/ACPI.inc
 
-  INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
+  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
   !include QcomPkg/Extra.fdf.inc
 

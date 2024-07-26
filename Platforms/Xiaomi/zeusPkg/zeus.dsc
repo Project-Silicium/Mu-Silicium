@@ -27,8 +27,10 @@
   AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
+  #
   # 0 = SM8450
   # 1 = SM8475
+  #
   SOC_TYPE                       = 0
 
 [BuildOptions]
@@ -55,31 +57,28 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"12 PRO"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"12 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"zeus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_12_PRO_zeus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"12 PRO"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_12_Pro_zeus"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"12 Pro"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  ### XBL Protocols
+  # XBL Protocols
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703B0C8
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
 
-  # Memory Protection
-  gQcomPkgTokenSpaceGuid.PcdMemoryProtection|FALSE
-
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
   
   # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440

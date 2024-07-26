@@ -92,93 +92,93 @@
     SECTION UI = "Panel_r66451_120hz_fhd_plus_dsc_vid.xml"
     SECTION RAW = Binaries/zeus/RawFiles/Panel_r66451_120hz_fhd_plus_dsc_vid.xml
   }
-  
-    FILE FREEFORM = D3F8580C-CCB8-4804-BB03-776E7B542FC2 {
-    SECTION UI    = "Panel_secondary_truly_1080p_cmd.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_secondary_truly_1080p_cmd.xml
+
+  FILE FREEFORM = D3F8580C-CCB8-4804-BB03-776E7B542FC2 {
+    SECTION UI = "Panel_secondary_truly_1080p_cmd.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_secondary_truly_1080p_cmd.xml
   }
 
   FILE FREEFORM = D192FEE9-6A04-4BE8-ABFE-5534E2B457EC {
-    SECTION UI    = "Panel_secondary_truly_1080p_vid.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_secondary_truly_1080p_vid.xml
+    SECTION UI = "Panel_secondary_truly_1080p_vid.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_secondary_truly_1080p_vid.xml
   }
 
   FILE FREEFORM = 714A3E09-FCBF-41BE-983D-65C015E0349E {
-    SECTION UI    = "Panel_r66451_60hz_fhd_plus_dsc_cmd_cphy.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_r66451_60hz_fhd_plus_dsc_cmd_cphy.xml
+    SECTION UI = "Panel_r66451_60hz_fhd_plus_dsc_cmd_cphy.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_r66451_60hz_fhd_plus_dsc_cmd_cphy.xml
   }
 
   FILE FREEFORM = 9599E50D-172D-403A-859E-3B744465D998 {
-    SECTION UI    = "Panel_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml
+    SECTION UI = "Panel_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml
   }
 
   FILE FREEFORM = CDE28842-A59C-46A0-B43B-1E1E49ACEE5A {
-    SECTION UI    = "Panel_secondary_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_secondary_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml
+    SECTION UI = "Panel_secondary_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_secondary_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml
   }
 
   FILE FREEFORM = 9874B60A-6B80-4D76-8EEB-7862C780EC03 {
-    SECTION UI    = "Panel_r66451_144hz_fhd_plus_dsc_cmd_cphy.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_r66451_144hz_fhd_plus_dsc_cmd_cphy.xml
+    SECTION UI = "Panel_r66451_144hz_fhd_plus_dsc_cmd_cphy.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_r66451_144hz_fhd_plus_dsc_cmd_cphy.xml
   }
 
   FILE FREEFORM = BC28E12E-C7E0-47F9-BBF9-0B45ED6F4B18 {
-    SECTION UI    = "Panel_r66451_144hz_fhd_plus_dsc_vid_cphy.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_r66451_144hz_fhd_plus_dsc_vid_cphy.xml
+    SECTION UI = "Panel_r66451_144hz_fhd_plus_dsc_vid_cphy.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_r66451_144hz_fhd_plus_dsc_vid_cphy.xml
   }
 
   FILE FREEFORM = 637AD94D-7D9B-4D5F-B420-770B65BECDA8 {
-    SECTION UI    = "Panel_r66451_60hz_fhd_plus_dsc_vid.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_r66451_60hz_fhd_plus_dsc_vid.xml
+    SECTION UI = "Panel_r66451_60hz_fhd_plus_dsc_vid.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_r66451_60hz_fhd_plus_dsc_vid.xml
   }
 
   FILE FREEFORM = 602CFFCD-8A5E-438E-B432-BF1A656A2561 {
-    SECTION UI    = "Panel_secondary_r66451_fhd_plus_dsc_cmd.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_secondary_r66451_fhd_plus_dsc_cmd.xml
+    SECTION UI = "Panel_secondary_r66451_fhd_plus_dsc_cmd.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_secondary_r66451_fhd_plus_dsc_cmd.xml
   }
 
   FILE FREEFORM = B2F70E67-7F12-4CA9-8E05-70D2A06A720D {
-    SECTION UI    = "Panel_secondary_r66451_120hz_fhd_plus_dsc_cmd.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_secondary_r66451_120hz_fhd_plus_dsc_cmd.xml
+    SECTION UI = "Panel_secondary_r66451_120hz_fhd_plus_dsc_cmd.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_secondary_r66451_120hz_fhd_plus_dsc_cmd.xml
   }
 
   FILE FREEFORM = EB0A97F6-39DB-41D4-9B3C-CA3BADC144B4 {
-    SECTION UI    = "Panel_truly_wqxga_cmd_splitlink.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_truly_wqxga_cmd_splitlink.xml
+    SECTION UI = "Panel_truly_wqxga_cmd_splitlink.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_truly_wqxga_cmd_splitlink.xml
   }
 
   FILE FREEFORM = F4A245C8-940E-4523-A53B-82E3C8BC6970 {
-    SECTION UI    = "Panel_r66451_120hz_fhd_plus_dsc_cmd_demura.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_r66451_120hz_fhd_plus_dsc_cmd_demura.xml
+    SECTION UI = "Panel_r66451_120hz_fhd_plus_dsc_cmd_demura.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_r66451_120hz_fhd_plus_dsc_cmd_demura.xml
   }
 
   FILE FREEFORM = 2C56DB5F-4DB8-4CF7-8151-435ABB1959DE {
-    SECTION UI    = "Panel_secondary_r66451_120hz_fhd_plus_dsc_vid.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_secondary_r66451_120hz_fhd_plus_dsc_vid.xml
+    SECTION UI = "Panel_secondary_r66451_120hz_fhd_plus_dsc_vid.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_secondary_r66451_120hz_fhd_plus_dsc_vid.xml
   }
 
   FILE FREEFORM = 03E9256F-E621-48D8-8576-7E3B4FCF2D41 {
-    SECTION UI    = "PanelSimConfig.csv"
-    SECTION RAW   = Binaries/zeus/RawFiles/PanelSimConfig.csv
+    SECTION UI = "PanelSimConfig.csv"
+    SECTION RAW = Binaries/zeus/RawFiles/PanelSimConfig.csv
   }
 
   FILE FREEFORM = 1DAAE311-3216-4A2F-BB8E-F571356FCFF7 {
-    SECTION UI    = "Panel_L2_38_0c_0a_ltpo_dsc_cmd.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_L2_38_0c_0a_ltpo_dsc_cmd.xml
+    SECTION UI = "Panel_L2_38_0c_0a_ltpo_dsc_cmd.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_L2_38_0c_0a_ltpo_dsc_cmd.xml
   }
 
   FILE FREEFORM = A1C281C5-E39F-48F4-8D25-185F2922CB7A {
-    SECTION UI    = "Panel_L3_42_02_0a_amoled_dsc_cmd.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_L3_42_02_0a_amoled_dsc_cmd.xml
+    SECTION UI = "Panel_L3_42_02_0a_amoled_dsc_cmd.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_L3_42_02_0a_amoled_dsc_cmd.xml
   }
 
   FILE FREEFORM = A1C281C5-E39F-48F4-8D25-155F29D10B7A {
-    SECTION UI    = "Panel_L10_42_02_0a_amoled_dsc_cmd.xml"
-    SECTION RAW   = Binaries/zeus/RawFiles/Panel_L10_42_02_0a_amoled_dsc_cmd.xml
+    SECTION UI = "Panel_L10_42_02_0a_amoled_dsc_cmd.xml"
+    SECTION RAW = Binaries/zeus/RawFiles/Panel_L10_42_02_0a_amoled_dsc_cmd.xml
   }
-  
-    FILE FREEFORM = 1DEAE31F-3216-4A2F-BC8E-F571356FCFF9 {
+
+  FILE FREEFORM = 1DEAE31F-3216-4A2F-BC8E-F571356FCFF9 {
     SECTION UI = "Panel_L1_38_0c_0a_ltpo_dsc_cmd.xml"
     SECTION RAW = Binaries/zeus/RawFiles/Panel_L1_38_0c_0a_ltpo_dsc_cmd.xml
   }
@@ -212,4 +212,3 @@
     SECTION UI = "QcomChargerCfg.cfg"
     SECTION RAW = Binaries/zeus/RawFiles/QcomChargerCfg.cfg
   }
-  

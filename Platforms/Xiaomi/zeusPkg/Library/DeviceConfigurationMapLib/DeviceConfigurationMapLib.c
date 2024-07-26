@@ -39,7 +39,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableDisplayImageFv", 0x0},
   {"PrimaryLogoIndex", 1},
   {"SecondaryLogoIndex", 2},
-  //{"UARTLogBufferSize", 0x80000},
+  {"UARTLogBufferSize", 0x80000},
   {"DDRInfoNotifyFlag", 0x0},
   {"EnableMultiCoreFvDecompression", 1},
   {"EnableVariablePolicyEngine", 0},

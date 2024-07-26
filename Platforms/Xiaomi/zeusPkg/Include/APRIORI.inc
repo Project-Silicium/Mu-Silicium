@@ -5,6 +5,8 @@ APRIORI DXE {
 
   INF Binaries/zeus/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   
+  INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
+  INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
   # Next, install cpu protocol and enable the interrupt controller
@@ -14,7 +16,6 @@ APRIORI DXE {
   # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  #INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
   
   INF Binaries/zeus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
@@ -24,6 +25,7 @@ APRIORI DXE {
   INF Binaries/zeus/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ProjectInfoDxe/ProjectInfoDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -47,11 +49,13 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/zeus/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ExLEDDxe/ExLEDDxe.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
+  INF Binaries/zeus/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
@@ -62,8 +66,13 @@ APRIORI DXE {
 
   INF Binaries/zeus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  INF Binaries/zeus/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
+!else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!endif
 
   INF Binaries/zeus/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
@@ -84,19 +93,34 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/zeus/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
+  INF Binaries/zeus/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
-  INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/zeus/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  INF Binaries/zeus/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+!endif
   INF Binaries/zeus/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/UCDxe/UCDxe.inf
-  #INF Binaries/zeus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  INF Binaries/zeus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+
+  INF Binaries/zeus/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 }
