@@ -94,7 +94,7 @@ APRIORI DXE {
 
   INF Binaries/zeus/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-  INF Binaries/zeus/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/zeus/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
@@ -115,12 +115,12 @@ APRIORI DXE {
 !endif
   INF Binaries/zeus/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/UCDxe/UCDxe.inf
-  INF Binaries/zeus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-  INF Binaries/zeus/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 }

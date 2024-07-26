@@ -89,7 +89,7 @@
   INF Binaries/zeus/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
-  INF Binaries/zeus/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/zeus/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
@@ -107,12 +107,12 @@
   INF Binaries/zeus/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/UCDxe/UCDxe.inf
-  INF Binaries/zeus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  INF Binaries/zeus/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
+  #INF Binaries/zeus/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
   
