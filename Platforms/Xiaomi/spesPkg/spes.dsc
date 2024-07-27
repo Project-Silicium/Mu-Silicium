@@ -24,7 +24,6 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = spesPkg/spes.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  AB_SLOT_SUPPORT                = 1
   HAS_BUILD_IN_KEYBOARD          = 0
 
   #
@@ -34,7 +33,7 @@
   SOC_TYPE                       = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
   DeviceMemoryMapLib|spesPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
