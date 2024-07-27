@@ -995,7 +995,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |:------|:----------|:---:|
 |Display||✅|
 |UFS||✅|
-|Side Buttons|Needs patch (Soon will be added)|⚠️|
+|Side Buttons||✅|
 |USB Host Mode||✅||
 |USB Device Mode||❌|
 |USB Power Delivery||❌|
