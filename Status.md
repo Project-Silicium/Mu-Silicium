@@ -981,7 +981,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## Xiaomi Mi 8 Pro
 
-<img align="right" src="Resources/Pictures/Mi-8-Pro-equuleus.png" width="300" alt="Preview">
+<img align="right" src="Resources/Pictures/Mi-8-Pro-equuleus.png" width="500" alt="Preview">
 
 **State: Active** <br>
 **Codename: equuleus** <br>
