@@ -23,7 +23,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = equuleusPkg/equuleus.fdf
-  USE_CUSTOM_DISPLAY_DRIVER      = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 1
 
 [LibraryClasses]
   DeviceMemoryMapLib|equuleusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
