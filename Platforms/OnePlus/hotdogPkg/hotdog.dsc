@@ -70,6 +70,9 @@
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB9400000
 
+  # Memory Protection
+  gQcomPkgTokenSpaceGuid.PcdMemoryProtection|TRUE
+
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
   
