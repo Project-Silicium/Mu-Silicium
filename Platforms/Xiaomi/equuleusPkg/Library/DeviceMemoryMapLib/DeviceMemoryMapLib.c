@@ -10,7 +10,6 @@ gDeviceMemoryDescriptorEx[] = {
 {"ipc_shm",           0x85CD0000, 0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
 {"boot_info",         0x85CF0000, 0x00010000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
 {"HLOS1",             0x85F00000, 0x000C0000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
-{"RAM Partition",     0x85FC0000, 0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 {"AOP CMD DB",        0x85FE0000, 0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
 {"SMEM",              0x86000000, 0x00200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
 {"DXE Heap",          0x97C00000, 0x05730000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
