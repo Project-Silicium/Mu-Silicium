@@ -48,8 +48,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 8 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"equuleus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"8_pro_equuleus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"8 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi 8_pro_equuleus"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 8 Pro"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
@@ -74,8 +74,8 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2248
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|124
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|118
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|124
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|118
 
 !include SDM845Pkg/SDM845Pkg.dsc.inc
