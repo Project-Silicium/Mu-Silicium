@@ -94,8 +94,8 @@
   INF Binaries/vili/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/vili/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
+  INF Binaries/vili/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
-  INF MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
@@ -107,7 +107,7 @@
   INF Binaries/vili/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  #INF Binaries/vili/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/vili/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf

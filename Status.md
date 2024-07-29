@@ -26,7 +26,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Active** <br>
 **Codename: pong** <br>
 **Maintainers: [index986](https://github.com/index986)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br>
 **Testers: [index986](https://github.com/index986) [nokii1337](https://github.com/nokii1337)**
 
 ### UEFI Status
@@ -87,7 +87,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Active** <br>
 **Codename: zeus** <br>
 **Maintainers: [2petro](https://github.com/2Petro)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/), [2petro](https://github.com/2Petro)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/), [2petro](https://github.com/2Petro)** <br>
 **Testers: [2petro](https://github.com/2Petro)**
 
 ### UEFI Status
@@ -181,7 +181,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Inactive** <br>
 **Codename: q2q** <br>
 **Maintainer: [Azkali](https://github.com/Azkali/)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: [Azkali](https://github.com/Azkali/)**
 
 ### UEFI Status
@@ -247,7 +247,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Inactive** <br>
 **Codename: venus** <br>
 **Maintainer: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: [Daniel224455/Daniel6745](https://github.com/Daniel224455/)**
 
 ### UEFI Status
@@ -312,7 +312,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Inactive** <br>
 **Codename: i005d** <br>
 **Maintainer: [alfaonyt](https://github.com/alfaonyt/)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: [alfaonyt](https://github.com/alfaonyt/)**
 
 ### UEFI Status
@@ -332,11 +332,11 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="Resources/Pictures/Xiaomi-11T-Pro.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: vili** <br>
-**Maintainer: None** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contibuters: None** <br>
-**Tester: None**
+**Tester: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -408,7 +408,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Active** <br>
 **Codename: alioth** <br>
 **Maintainers: [AdrianoA3](https://github.com/AdrianoA3), [N1kroks](https://github.com/N1kroks)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite), [hyusang](https://github.com/cloudsweets/)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite), [hyusang](https://github.com/cloudsweets/)** <br>
 **Testers: [AdrianoA3](https://github.com/AdrianoA3), [N1kroks](https://github.com/N1kroks)**
 
 ### UEFI Status
@@ -470,7 +470,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Active** <br>
 **Codename: bitra** <br>
 **Maintainers: [kubawis128](https://github.com/kubawis128)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/), [kubawis128](https://github.com/kubawis128)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/), [kubawis128](https://github.com/kubawis128)** <br>
 **Testers: [kubawis128](https://github.com/kubawis128)**
 
 ### UEFI Status
@@ -627,7 +627,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Inactive** <br>
 **Codename: kebab** <br>
 **Maintainer: None** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: None**
 
 ### UEFI Status
@@ -689,7 +689,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Inactive** <br>
 **Codename: pipa** <br>
 **Maintainer: [6adp](https://github.com/6adp)** <br>
-**Contibuters: [Statzar](https://github.com/Statzar), [N1kroks](https://github.com/N1kroks), [Robotix22](https://github.com/Robotix22/)** <br>
+**Contibuters: [Statzar](https://github.com/Statzar), [N1kroks](https://github.com/N1kroks), [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: [6adp](https://github.com/6adp)**
 
 ### UEFI Status
@@ -1013,9 +1013,9 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 **State: Active** <br>
 **Codename: poplar** <br>
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contibuter: None** <br>
-**Tester: [Robotix22](https://github.com/Robotix22/)**
+**Tester: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1122,7 +1122,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Inactive** <br>
 **Codename: marble** <br>
 **Maintainers: [tagicmi](https://github.com/tagicmi)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/)** <br>
 **Testers: [tagicmi](https://github.com/tagicmi), [bubyldian](https://github.com/bubyldian), [Xhdsos](https://github.com/Xhdsos)**
 
 ### UEFI Status
@@ -1254,7 +1254,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Inactive** <br>
 **Codename: a52sxq** <br>
 **Maintainer: [arminask](https://github.com/arminask)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/), People from Group** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/), People from Group** <br>
 **Testers: [arminask](https://github.com/arminask)**
 
 ### UEFI Status
@@ -2102,7 +2102,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **State: Inactive** <br>
 **Codename: nitrogen** <br>
 **Maintainer: [AistopGit](https://github.com/AistopGit)** <br>
-**Contibuters: [Robotix22](https://github.com/Robotix22/)** <br>
+**Contibuters: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: [AistopGit](https://github.com/AistopGit)**
 
 ### UEFI Status
@@ -2239,9 +2239,9 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 **State: Inactive** <br>
 **Codename: HAC-001** <br>
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contibuters: None** <br>
-**Tester: [Robotix22](https://github.com/Robotix22/)**
+**Tester: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -2390,9 +2390,9 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 **State: Inactive** <br>
 **Codename: beyond1lte** <br>
-**Maintainer: [Robotix22](https://github.com/Robotix22/)** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contibuters: None** <br>
-**Tester: [Robotix22](https://github.com/Robotix22/)**
+**Tester: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
