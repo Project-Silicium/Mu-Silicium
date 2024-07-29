@@ -100,9 +100,6 @@
   # Dynamic RAM Start Address PCD
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B100
 
-  # Memory Protection
-  gQcomPkgTokenSpaceGuid.PcdMemoryProtection|FALSE|BOOLEAN|0x0000B101
-
   # Clock Speed Up Driver PCDs
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE|BOOLEAN|0x0000B200
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B201

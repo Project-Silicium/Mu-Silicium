@@ -92,4 +92,3 @@
   INF Binaries/equuleus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-

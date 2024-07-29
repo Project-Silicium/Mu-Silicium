@@ -97,12 +97,11 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Display||✅|
 |Internal Storage||✅|
 |Side Buttons||✅|
-|USB Host Mode||❔|
-|USB Device Mode||❔|
+|USB Host Mode||❌|
+|USB Device Mode||✅|
 |USB Power Delivery||❌|
-|Windows Boot||❔|
+|Windows Boot||❌|
 |Linux Boot||❌|
-|Slot Switch||❌|
 
 ## Samsung Galaxy Tab S8 5G
 
@@ -381,7 +380,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |USB Power Delivery||❌|
 |Charging||❌|
 |WLAN||❌|
-|CPU|Only One Core working right now|⚠️|
+|CPU||✅|
 |Touchscreen||❌|
 |Bluetooth||❌|
 |GPS||❌|

@@ -3,7 +3,6 @@
 STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
-// Configuration Map
   {"NumCpusFuseAddr", 0x5C04C},
   {"EnableShell", 0x1},
   {"SharedIMEMBaseAddr", 0x146BF000},
@@ -28,7 +27,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableLogFsSyncInRetail", 0x1},
   {"EnableSecurityHoleForSplashPartition", 0x1},
  
- // Terminator
+  // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
 

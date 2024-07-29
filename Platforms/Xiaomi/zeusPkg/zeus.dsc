@@ -59,7 +59,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"12 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"zeus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xiaomi_12_Pro_zeus"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"12_Pro_zeus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"12 Pro"
 
   # Simple FrameBuffer

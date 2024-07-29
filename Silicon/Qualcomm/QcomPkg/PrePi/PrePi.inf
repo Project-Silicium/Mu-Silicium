@@ -72,7 +72,6 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize
 
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
-  gQcomPkgTokenSpaceGuid.PcdMemoryProtection
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
