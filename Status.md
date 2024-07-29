@@ -1013,9 +1013,9 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 **State: Active** <br>
 **Codename: poplar** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
+**Maintainer: None** <br>
 **Contibuter: None** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
+**Tester: None**
 
 ### UEFI Status
 
