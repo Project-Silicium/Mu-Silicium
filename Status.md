@@ -1,4 +1,5 @@
-# Status
+</details>
+
 
 |✅|Working|
 |-|-------|
@@ -976,8 +977,30 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Display||✅|
 |Vibration||❌|
 
-</td></tr> </table>
+</td></tr> </table> 
 
+## Xiaomi Mi 8 Pro
+
+<img align="right" src="Resources/Pictures/Mi-8-Pro-equuleus.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: equuleus** <br>
+**Maintainer: [index986](https://github.com/index986)** <br>
+**Contibuter: None** <br>
+**Tester: [index986](https://github.com/index986)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|UFS||✅|
+|Side Buttons||✅|
+|USB Host Mode||✅||
+|USB Device Mode||❌|
+|USB Power Delivery||❌|
+|Windows Boot||❌|
+|Linux Boot||❌|
   </summary>
 </details>
 
