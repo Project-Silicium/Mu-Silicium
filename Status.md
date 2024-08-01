@@ -982,11 +982,11 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="Resources/Pictures/Mi-8-Pro-equuleus.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: equuleus** <br>
-**Maintainer: [index986](https://github.com/index986)** <br>
+**Maintainer: None** <br>
 **Contibuter: None** <br>
-**Tester: [index986](https://github.com/index986)**
+**Tester: None**
 
 ### UEFI Status
 
