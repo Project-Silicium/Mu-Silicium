@@ -13,7 +13,7 @@
   #
   # This library is for showing the main system boot graphics.
   #
-  BootGraphicsLib|SiliciumPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
+  BootGraphicsLib|MsGraphicsPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
 
   #
   # BootGraphicsProviderLib that uses PCDs and raw files in the firmware volumes
@@ -52,6 +52,16 @@
   #
   DeviceBootManagerLib|SiliciumPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
   MsPlatformDevicesLib|SiliciumPkg/Library/MsPlatformDevicesLib/MsPlatformDevicesLib.inf
+
+  #
+  # LIbrary to display the On screen notifications for the platform
+  #
+  UiRectangleLib|MsGraphicsPkg/Library/BaseUiRectangleLib/BaseUiRectangleLib.inf
+
+  #
+  # display the device state notifications for the platform using color bars
+  #
+  DisplayDeviceStateLib|MsGraphicsPkg/Library/ColorBarDisplayDeviceStateLib/ColorBarDisplayDeviceStateLib.inf
 
   #
   # interfaces with alternate boot variable

@@ -13,64 +13,44 @@
 
   INF SiliciumPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Small) {
-    SECTION RAW = SiliciumPkg/Include/Resources/BootLogo_Small.bmp
-    SECTION UI = "Logo Small"
+  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/BootLogo.bmp
+    SECTION UI = "Boot Logo"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Medium) {
-    SECTION RAW = SiliciumPkg/Include/Resources/BootLogo_Medium.bmp
-    SECTION UI = "Logo Medium"
+  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLowBatteryFile) {
+    SECTION RAW = OemPkg/FrontPage/Resources/LBAT.bmp
+    SECTION UI = "Low Battery"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Big) {
-    SECTION RAW = SiliciumPkg/Include/Resources/BootLogo_Big.bmp
-    SECTION UI = "Logo Big"
+  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdThermalFile) {
+    SECTION RAW = OemPkg/FrontPage/Resources/THOT.bmp
+    SECTION UI = "Too Hot"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Small) {
-    SECTION RAW = SiliciumPkg/Include/Resources/NoBootOS_Small.bmp
-    SECTION UI = "No OS Logo Small"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/NoBootOS.bmp
+    SECTION UI = "No Operating System"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Medium) {
-    SECTION RAW = SiliciumPkg/Include/Resources/NoBootOS_Medium.bmp
-    SECTION UI = "No OS Logo Medium"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdWarningFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Warning.bmp
+    SECTION UI = "Mass Storage Warning"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Big) {
-    SECTION RAW = SiliciumPkg/Include/Resources/NoBootOS_Big.bmp
-    SECTION UI = "No OS Logo Big"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Connected.bmp
+    SECTION UI = "Mass Storage Connected"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Small) {
-    SECTION RAW = SiliciumPkg/Include/Resources/LBAT_Small.bmp
-    SECTION UI = "Low Battery Small"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Disconnected.bmp
+    SECTION UI = "Mass Storage Disconnected"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Medium) {
-    SECTION RAW = SiliciumPkg/Include/Resources/LBAT_Medium.bmp
-    SECTION UI = "Low Battery Medium"
-  }
-
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Big) {
-    SECTION RAW = SiliciumPkg/Include/Resources/LBAT_Big.bmp
-    SECTION UI = "Low Battery Big"
-  }
-
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Small) {
-    SECTION RAW = SiliciumPkg/Include/Resources/THOT_Small.bmp
-    SECTION UI = "Too Hot Small"
-  }
-
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Medium) {
-    SECTION RAW = SiliciumPkg/Include/Resources/THOT_Medium.bmp
-    SECTION UI = "Too Hot Medium"
-  }
-
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Big) {
-    SECTION RAW = SiliciumPkg/Include/Resources/THOT_Big.bmp
-    SECTION UI = "Too Hot Big"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdErrorFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Error.bmp
+    SECTION UI = "Mass Storage Error"
   }
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdFrontPageLogoFile) {

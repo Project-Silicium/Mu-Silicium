@@ -252,6 +252,9 @@
   ResetUtilityLib|MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
   FltUsedLib|MdePkg/Library/FltUsedLib/FltUsedLib.inf
 
+  # UI and graphics
+  FrameBufferMemDrawLib|MsGraphicsPkg/Library/FrameBufferMemDrawLib/FrameBufferMemDrawLibDxe.inf
+
   # TPM Libraries
   TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
 

@@ -11,6 +11,10 @@
   # RAM Size (512 MB)
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
 
+  # Mass Storage App
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp|{ 0xD8, 0xEC, 0x14, 0xFB, 0x32, 0x94, 0xB8, 0x48, 0xA6, 0x92, 0xAE, 0x4B, 0xC1, 0x9D, 0x56, 0x8B }
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName|"Mass Storage"
+
 [LibraryClasses]
   # Custom Libraries
   RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
@@ -28,5 +32,8 @@
   QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
   QcomPkg/Drivers/PeripheralInitDxe/PeripheralInitDxe.inf
+
+  # Custom Snapdragon Apps
+  QcomPkg/Applications/MassStorage/MassStorage.inf
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc

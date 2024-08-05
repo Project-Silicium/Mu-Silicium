@@ -419,16 +419,16 @@ DeviceBootManagerAfterConsole ()
 #endif
     } else {
       // More Memory for Combo Message
-      ComboMessage = AllocateZeroPool (100);
+      ComboMessage = AllocateZeroPool (150);
       if (ComboMessage == NULL) {
         DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for Combo Message! Status = %r\n", Status));
         goto exit;
       }
 
 #if HAS_BUILD_IN_KEYBOARD == 1
-      UnicodeSPrint (ComboMessage, 100, L"[Escape] UEFI Menu - [Delete] %a", FixedPcdGetPtr(PcdSpecialAppName));
+      UnicodeSPrint (ComboMessage, 150, L"[Escape] UEFI Menu - [Delete] %a", FixedPcdGetPtr(PcdSpecialAppName));
 #else
-      UnicodeSPrint (ComboMessage, 100, L"[Volume Up] UEFI Menu - [Volume Down] %a", FixedPcdGetPtr(PcdSpecialAppName));
+      UnicodeSPrint (ComboMessage, 150, L"[Volume Up] UEFI Menu - [Volume Down] %a", FixedPcdGetPtr(PcdSpecialAppName));
 #endif
     }
 

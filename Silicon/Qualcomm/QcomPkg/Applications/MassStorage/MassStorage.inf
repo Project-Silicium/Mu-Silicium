@@ -1,0 +1,32 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MassStorage
+  FILE_GUID                      = FB14ECD8-9432-48B8-A692-AE4BC19D568B
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitMassStorage
+
+[Sources]
+  MassStorage.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
+  QcomPkg/QcomPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  DebugLib
+  UefiBootServicesTableLib
+  BootGraphicsLib
+  UefiRuntimeServicesTableLib
+  UefiLib
+
+[FixedPcd]
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor
+
+[Protocols]
+  gEfiBlockIoProtocolGuid
+  gChargerExProtocolGuid
+  gEfiUsbMsdProtocolGuid

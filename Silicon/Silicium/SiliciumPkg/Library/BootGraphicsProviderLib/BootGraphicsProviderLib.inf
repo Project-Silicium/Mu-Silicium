@@ -30,25 +30,13 @@
   PcdLib
 
 [Pcd]
-  # Boot Logo Picture Sizes
-  gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Small
-  gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Medium
-  gSiliciumPkgTokenSpaceGuid.PcdLogoFile_Big
+  gOemPkgTokenSpaceGuid.PcdLogoFile
+  gOemPkgTokenSpaceGuid.PcdLowBatteryFile
+  gOemPkgTokenSpaceGuid.PcdThermalFile
+  gOemPkgTokenSpaceGuid.PcdPostBackgroundColor
 
-  # Low Battery Picture Sizes
-  gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Small
-  gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Medium
-  gSiliciumPkgTokenSpaceGuid.PcdLowBatteryFile_Big
-
-  # Too Hot Picture Sizes
-  gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Small
-  gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Medium
-  gSiliciumPkgTokenSpaceGuid.PcdThermalFile_Big
-
-  # No Boot OS Picture Sizes
-  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Small
-  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Medium
-  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile_Big
-
-  # Other PCDs
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth
+  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdWarningFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdErrorFile

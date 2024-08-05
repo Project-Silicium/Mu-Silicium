@@ -26,47 +26,35 @@ GetBootGraphic (
 
   switch (Graphic) {
     case BG_SYSTEM_LOGO:
-      if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
-        g = PcdGetPtr (PcdLogoFile_Small);
-      } else if (PcdGet32(PcdMipiFrameBufferWidth) >= 1800) {
-        g = PcdGetPtr (PcdLogoFile_Big);
-      } else {
-        g = PcdGetPtr (PcdLogoFile_Medium);
-      }
-
+      g = PcdGetPtr (PcdLogoFile);
       break;
 
     case BG_CRITICAL_OVER_TEMP:
-      if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
-        g = PcdGetPtr (PcdThermalFile_Small);
-      } else if (PcdGet32(PcdMipiFrameBufferWidth) >= 1800) {
-        g = PcdGetPtr (PcdThermalFile_Big);
-      } else {
-        g = PcdGetPtr (PcdThermalFile_Medium);
-      }
-
+      g = PcdGetPtr (PcdThermalFile);
       break;
 
     case BG_CRITICAL_LOW_BATTERY:
-      if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
-        g = PcdGetPtr (PcdLowBatteryFile_Small);
-      } else if (PcdGet32(PcdMipiFrameBufferWidth) >= 1800) {
-        g = PcdGetPtr (PcdLowBatteryFile_Big);
-      } else {
-        g = PcdGetPtr (PcdLowBatteryFile_Medium);
-      }
-
+      g = PcdGetPtr (PcdLowBatteryFile);
       break;
 
     case BG_NO_BOOT_OS:
-      if (PcdGet32(PcdMipiFrameBufferWidth) <= 720) {
-        g = PcdGetPtr (PcdNoBootOSFile_Small);
-      } else if (PcdGet32(PcdMipiFrameBufferWidth) >= 1800) {
-        g = PcdGetPtr (PcdNoBootOSFile_Big);
-      } else {
-        g = PcdGetPtr (PcdNoBootOSFile_Medium);
-      }
+      g = PcdGetPtr (PcdNoBootOSFile);
+      break;
+    
+    case BG_MSD_WARNING:
+      g = PcdGetPtr (PcdMsdWarningFile);
+      break;
+    
+    case BG_MSD_CONNECTED:
+      g = PcdGetPtr (PcdMsdConnectedFile);
+      break;
+    
+    case BG_MSD_DISCONNECTED:
+      g = PcdGetPtr (PcdMsdDisconnectedFile);
+      break;
 
+    case BG_MSD_ERROR:
+      g = PcdGetPtr (PcdMsdErrorFile);
       break;
 
     default:
@@ -76,4 +64,11 @@ GetBootGraphic (
 
   // Get the Specified Image from FV
   return GetSectionFromAnyFv (g, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
+}
+
+UINT32
+EFIAPI
+GetBackgroundColor ()
+{
+  return PcdGet32 (PcdPostBackgroundColor);
 }
