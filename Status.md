@@ -2248,10 +2248,10 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |USB Host Mode||❌|
 |USB Device Mode||✅|
 |USB Power Delivery||✅|
-|Mass Storage|Crashes|❌|
+|Mass Storage||✅|
 |SD Card||✅|
 |Windows Boot|Windows PE only|⚠️|
-|Linux Boot||❌|
+|Linux Boot||❔|
 
   </summary>
 </details>
