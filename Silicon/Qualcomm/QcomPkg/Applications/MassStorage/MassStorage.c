@@ -16,14 +16,9 @@ STATIC EFI_USB_MSD_PROTOCOL         *mUsbMsdProtocol;
 STATIC EFI_CHARGER_EX_PROTOCOL      *mChargerExProtocol;
 STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mConsoleOutHandle;
 
-EFI_STATUS
-StartMassStorage ()
+VOID
+PrintGUI (CHAR16 *Message)
 {
-  EFI_STATUS    Status          = EFI_SUCCESS;
-  BOOLEAN       DisplayedNotice = FALSE;
-  BOOLEAN       Connected       = FALSE;
-  UINTN         CurrentSplash   = 0;
-
   // Black & White Color
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL Black;
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL White;
@@ -31,6 +26,22 @@ StartMassStorage ()
   // Set Color of the Message
   Black.Blue = Black.Green = Black.Red = Black.Reserved = 0x00;
   White.Blue = White.Green = White.Red = White.Reserved = 0xFF;
+
+  // Set Position of Message
+  UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(Message) * EFI_GLYPH_WIDTH) / 2;
+  UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
+
+  // Print New Message
+  PrintXY (XPos, YPos, &White, &Black, Message);
+}
+
+EFI_STATUS
+StartMassStorage ()
+{
+  EFI_STATUS    Status          = EFI_SUCCESS;
+  BOOLEAN       DisplayedNotice = FALSE;
+  BOOLEAN       Connected       = FALSE;
+  UINTN         CurrentSplash   = 0;
 
   // Start Mass Storage
   Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
@@ -56,14 +67,7 @@ StartMassStorage ()
       CurrentSplash = BG_MSD_CONNECTED;
 
       // New Message
-      CHAR16 *HintMessage = L"Disconnect your Device to Enable Exit Function.";
-
-      // Set Position of Message
-      UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(HintMessage) * EFI_GLYPH_WIDTH) / 2;
-      UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
-
-      // Print New Message
-      PrintXY (XPos, YPos, &White, &Black, HintMessage);
+      PrintGUI (L"Disconnect your Device to Enable Exit Function.");
 
       // Reset Notice Message
       DisplayedNotice = FALSE;
@@ -75,14 +79,7 @@ StartMassStorage ()
       CurrentSplash = BG_MSD_DISCONNECTED;
 
       // New Message
-      CHAR16 *ExitMessage = L"Press Volume Up Button to Exit Mass Storage.";
-
-      // Set Position of Message
-      UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(ExitMessage) * EFI_GLYPH_WIDTH) / 2;
-      UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
-
-      // Print New Message 
-      PrintXY (XPos, YPos, &White, &Black, ExitMessage);
+      PrintGUI (L"Press Volume Up Button to Exit Mass Storage.");
     }
 
     // Get current Key
@@ -91,14 +88,7 @@ StartMassStorage ()
     // Display Confirm Message
     if (!Connected) {
       if (Key.ScanCode == SCAN_UP && DisplayedNotice == FALSE) {
-        CHAR16 *ConfirmMessage = L"Press Power Button to Confirm Exiting Mass Storage.";
-
-        // Set Position of Message
-        UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(ConfirmMessage) * EFI_GLYPH_WIDTH) / 2;
-        UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
-
-        // Print New Message 
-        PrintXY (XPos, YPos, &White, &Black, ConfirmMessage);
+        PrintGUI (L"Press Power Button to Confirm Exiting Mass Storage.");
 
         DisplayedNotice = TRUE;
       }
@@ -109,7 +99,7 @@ StartMassStorage ()
         mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
 
         // Remove Assigned BLK IO Protocol
-        mUsbMsdProtocol->AssingBlkIoHandle (mUsbMsdProtocol, NULL, 0);
+        mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, 0);
 
         // Exit Application
         break;
@@ -171,9 +161,9 @@ PrepareMassStorage ()
     }
 
     // Assign Protocol
-    Status = mUsbMsdProtocol->AssingBlkIoHandle (mUsbMsdProtocol, UFSBlkIoProtocol, 0);
+    Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, UFSBlkIoProtocol, 0);
     if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Assing UFS BLK IO Protocol! Status = %r\n", Status));
+      DEBUG ((EFI_D_ERROR, "Failed to Assign UFS BLK IO Protocol! Status = %r\n", Status));
       goto exit;
     }
   }
@@ -188,9 +178,9 @@ PrepareMassStorage ()
     }
 
     // Assign Protocol
-    Status = mUsbMsdProtocol->AssingBlkIoHandle (mUsbMsdProtocol, eMMCBlkIoProtocol, 0);
+    Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, eMMCBlkIoProtocol, 0);
     if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Assing eMMC BLK IO Protocol! Status = %r\n", Status));
+      DEBUG ((EFI_D_ERROR, "Failed to Assign eMMC BLK IO Protocol! Status = %r\n", Status));
       goto exit;
     }
   }
