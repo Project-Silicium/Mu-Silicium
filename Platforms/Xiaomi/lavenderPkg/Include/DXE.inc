@@ -67,7 +67,7 @@
   INF Binaries/lavender/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  #INF Binaries/lavender/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+  INF Binaries/lavender/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/lavender/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/TsensDxe/TsensDxe.inf

@@ -19,7 +19,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <details>
 <summary><b><strong>Snapdragon 8 Gen 1/8+ Gen 1 Devices</strong></b></summary>
 
-## Nothing Phone 2
+## Nothing Phone (2)
 
 <img align="right" src="Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
 
@@ -2248,10 +2248,10 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |USB Host Mode||❌|
 |USB Device Mode||✅|
 |USB Power Delivery||✅|
-|Mass Storage|Crashes|❌|
+|Mass Storage||✅|
 |SD Card||✅|
 |Windows Boot|Windows PE only|⚠️|
-|Linux Boot||❌|
+|Linux Boot||❔|
 
   </summary>
 </details>
