@@ -16,67 +16,99 @@ STATIC EFI_USB_MSD_PROTOCOL         *mUsbMsdProtocol;
 STATIC EFI_CHARGER_EX_PROTOCOL      *mChargerExProtocol;
 STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mConsoleOutHandle;
 
-EFI_STATUS
-EFIAPI
-InitMassStorage (
-  IN EFI_HANDLE        ImageHandle,
-  IN EFI_SYSTEM_TABLE *SystemTable)
+VOID
+PrintGUI (CHAR16 *Message)
 {
-  EFI_STATUS Status;
+  // Black & White Color
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Black;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL White;
 
-  // Check for Sony & Google
-  if (FixedPcdGetPtr (PcdSmbiosSystemVendor) == "Sony Group Corporation" || FixedPcdGetPtr (PcdSmbiosSystemVendor) == "Google LLC") {
-    return EFI_UNSUPPORTED;
-  }
+  // Set Color of the Message
+  Black.Blue = Black.Green = Black.Red = Black.Reserved = 0x00;
+  White.Blue = White.Green = White.Red = White.Reserved = 0xFF;
 
-  // Reset Input Protocol
-  gST->ConIn->Reset (gST->ConIn, TRUE);
+  // Set Position of Message
+  UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(Message) * EFI_GLYPH_WIDTH) / 2;
+  UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
 
-  // Display Warning Message
-  DisplayBootGraphic (BG_MSD_WARNING);
+  // Print New Message
+  PrintXY (XPos, YPos, &White, &Black, Message);
+}
 
-  // Check For Key Press
-  do {
-    EFI_INPUT_KEY Key;
-
-    // Get Current Key Press
-    gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
-
-    // Leave Loop
-    if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
-      break;
-    }
-
-    // Exit Mass Storage
-    if (Key.ScanCode == SCAN_UP) {
-      return EFI_ABORTED;
-    }
-  } while (TRUE);
-
-  // Disable WatchDog Timer
-  gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
-
-  // Prepare Mass Storage
-  Status = PrepareMassStorage ();
-  if (EFI_ERROR (Status)) {
-    goto error;
-  }
+EFI_STATUS
+StartMassStorage ()
+{
+  EFI_STATUS    Status          = EFI_SUCCESS;
+  BOOLEAN       DisplayedNotice = FALSE;
+  BOOLEAN       Connected       = FALSE;
+  UINTN         CurrentSplash   = 0;
 
   // Start Mass Storage
-  Status = StartMassStorage ();
-  if (!EFI_ERROR (Status)) {
+  Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
+  if (EFI_ERROR (Status)) {
     goto exit;
   }
 
-error:
-  // Display Failed Splash
-  DisplayBootGraphic (BG_MSD_ERROR);
+  do {
+    EFI_INPUT_KEY Key;
 
-  // Check for Any Button
-  gBS->WaitForEvent (1, gST->ConIn->WaitForKey, 0);
+    // Execute Event Handler
+    mUsbMsdProtocol->EventHandler (mUsbMsdProtocol);
+
+    // Get Charger Presence
+    mChargerExProtocol->GetChargerPresence (&Connected);
+
+    // Display Splash depending on Connect State
+    if (Connected && CurrentSplash != BG_MSD_CONNECTED) {
+      // Display Connected Splash
+      DisplayBootGraphic (BG_MSD_CONNECTED);
+
+      // Set Current Splash Value
+      CurrentSplash = BG_MSD_CONNECTED;
+
+      // New Message
+      PrintGUI (L"Disconnect your Device to Enable Exit Function.");
+
+      // Reset Notice Message
+      DisplayedNotice = FALSE;
+    } else if (!Connected && CurrentSplash != BG_MSD_DISCONNECTED) {
+      // Display Disconnected Splash
+      DisplayBootGraphic (BG_MSD_DISCONNECTED);
+
+      // Set Current Splash Value
+      CurrentSplash = BG_MSD_DISCONNECTED;
+
+      // New Message
+      PrintGUI (L"Press Volume Up Button to Exit Mass Storage.");
+    }
+
+    // Get current Key
+    gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
+
+    // Display Confirm Message
+    if (!Connected) {
+      if (Key.ScanCode == SCAN_UP && DisplayedNotice == FALSE) {
+        PrintGUI (L"Press Power Button to Confirm Exiting Mass Storage.");
+
+        DisplayedNotice = TRUE;
+      }
+
+      // Leave Loop
+      if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN && DisplayedNotice == TRUE) {
+        // Stop Mass Storage
+        mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
+
+        // Remove Assigned BLK IO Protocol
+        mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, 0);
+
+        // Exit Application
+        break;
+      }
+    }
+  } while (TRUE);
 
 exit:
-  return EFI_SUCCESS;
+  return Status;
 }
 
 EFI_STATUS
@@ -158,99 +190,64 @@ exit:
 }
 
 EFI_STATUS
-StartMassStorage ()
+EFIAPI
+InitMassStorage (
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS    Status          = EFI_SUCCESS;
-  BOOLEAN       DisplayedNotice = FALSE;
-  BOOLEAN       Connected       = FALSE;
-  UINTN         CurrentSplash   = 0;
+  EFI_STATUS Status;
 
-  // Start Mass Storage
-  Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
-  if (EFI_ERROR (Status)) {
-    goto exit;
+  // Check for Sony & Google
+  if (FixedPcdGetPtr (PcdSmbiosSystemVendor) == "Sony Group Corporation" || FixedPcdGetPtr (PcdSmbiosSystemVendor) == "Google LLC") {
+    return EFI_UNSUPPORTED;
   }
 
+  // Reset Input Protocol
+  gST->ConIn->Reset (gST->ConIn, TRUE);
+
+  // Display Warning Message
+  DisplayBootGraphic (BG_MSD_WARNING);
+
+  // Check For Key Press
   do {
     EFI_INPUT_KEY Key;
 
-    // Execute Event Handler
-    mUsbMsdProtocol->EventHandler (mUsbMsdProtocol);
-
-    // Get Charger Presence
-    mChargerExProtocol->GetChargerPresence (&Connected);
-
-    // Display Splash depending on Connect State
-    if (Connected && CurrentSplash != BG_MSD_CONNECTED) {
-      // Display Connected Splash
-      DisplayBootGraphic (BG_MSD_CONNECTED);
-
-      // Set Current Splash Value
-      CurrentSplash = BG_MSD_CONNECTED;
-
-      // New Message
-      CHAR16 *HintMessage = L"Disconnect your Device to Enable Exit Function.";
-	  PrintGUI (HintMessage);
-
-      // Reset Notice Message
-      DisplayedNotice = FALSE;
-    } else if (!Connected && CurrentSplash != BG_MSD_DISCONNECTED) {
-      // Display Disconnected Splash
-      DisplayBootGraphic (BG_MSD_DISCONNECTED);
-
-      // Set Current Splash Value
-      CurrentSplash = BG_MSD_DISCONNECTED;
-
-      // New Message
-      CHAR16 *ExitMessage = L"Press Volume Up Button to Exit Mass Storage.";
-	  PrintGUI (ExitMessage);
-    }
-
-    // Get current Key
+    // Get Current Key Press
     gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
 
-    // Display Confirm Message
-    if (!Connected) {
-      if (Key.ScanCode == SCAN_UP && DisplayedNotice == FALSE) {
-        CHAR16 *ConfirmMessage = L"Press Power Button to Confirm Exiting Mass Storage.";
-		PrintGUI (ConfirmMessage);
+    // Leave Loop
+    if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
+      break;
+    }
 
-        DisplayedNotice = TRUE;
-      }
-
-      // Leave Loop
-      if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN && DisplayedNotice == TRUE) {
-        // Stop Mass Storage
-        mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
-
-        // Remove Assigned BLK IO Protocol
-        mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, 0);
-
-        // Exit Application
-        break;
-      }
+    // Exit Mass Storage
+    if (Key.ScanCode == SCAN_UP) {
+      return EFI_ABORTED;
     }
   } while (TRUE);
 
+  // Disable WatchDog Timer
+  gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
+
+  // Prepare Mass Storage
+  Status = PrepareMassStorage ();
+  if (EFI_ERROR (Status)) {
+    goto error;
+  }
+
+  // Start Mass Storage
+  Status = StartMassStorage ();
+  if (!EFI_ERROR (Status)) {
+    goto exit;
+  }
+
+error:
+  // Display Failed Splash
+  DisplayBootGraphic (BG_MSD_ERROR);
+
+  // Check for Any Button
+  gBS->WaitForEvent (1, gST->ConIn->WaitForKey, 0);
+
 exit:
-  return Status;
-}
-
-VOID
-PrintGUI (CHAR16 *Message)
-{
-  // Black & White Color
-  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Black;
-  EFI_GRAPHICS_OUTPUT_BLT_PIXEL White;
-
-  // Set Color of the Message
-  Black.Blue = Black.Green = Black.Red = Black.Reserved = 0x00;
-  White.Blue = White.Green = White.Red = White.Reserved = 0xFF;
-
-  // Set Position of Message
-  UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(Message) * EFI_GLYPH_WIDTH) / 2;
-  UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
-
-  // Print New Message
-  PrintXY (XPos, YPos, &White, &Black, Message);
+  return EFI_SUCCESS;
 }
