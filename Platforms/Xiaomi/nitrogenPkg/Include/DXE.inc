@@ -66,7 +66,7 @@
   INF Binaries/nitrogen/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  #INF Binaries/nitrogen/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+  INF Binaries/nitrogen/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
