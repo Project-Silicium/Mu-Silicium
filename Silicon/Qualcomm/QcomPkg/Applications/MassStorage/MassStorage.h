@@ -75,4 +75,22 @@ EFI_EMMC_USER_PARTITION_DEVICE_PATH eMMCUserPartitionDevicePath = {
   }
 };
 
+VOID
+PrintGUI (
+  IN CHAR16 			*Message
+);
+
+EFI_STATUS
+PrepareMassStorage ();
+
+EFI_STATUS
+StartMassStorage ();
+
+EFI_STATUS
+EFIAPI
+InitMassStorage (
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE *SystemTable
+);
+
 #endif /* _MASS_STORAGE_H_ */

@@ -14,7 +14,7 @@
 typedef struct _EFI_USB_MSD_PROTOCOL EFI_USB_MSD_PROTOCOL;
 
 /**
-  This Function Assings a New BLK IO Protocol.
+  This Function Assigns a New BLK IO Protocol.
 
   @param[in] This          - The USB Mass Storage Device Protocol.
   @param[in] BlkIo         - The BLK IO Protocol.
@@ -24,7 +24,7 @@ typedef struct _EFI_USB_MSD_PROTOCOL EFI_USB_MSD_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_ASSING_BLK_IO_HANDLE) (
+(EFIAPI *EFI_ASSIGN_BLK_IO_HANDLE) (
   IN EFI_USB_MSD_PROTOCOL  *This,
   IN EFI_BLOCK_IO_PROTOCOL *BlkIo,
   IN UINT32                 Lun
@@ -85,7 +85,7 @@ EFI_STATUS
 //
 struct _EFI_USB_MSD_PROTOCOL {
   UINT32                    Revision;
-  EFI_ASSING_BLK_IO_HANDLE  AssingBlkIoHandle;
+  EFI_ASSIGN_BLK_IO_HANDLE  AssignBlkIoHandle;
   EFI_QUERY_MAX_LUN         QueryMaxLun;
   EFI_EVENT_HANDLER         EventHandler;
   EFI_START_DEVICE          StartDevice;
