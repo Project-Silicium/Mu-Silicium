@@ -17,7 +17,7 @@ STATIC EFI_CHARGER_EX_PROTOCOL      *mChargerExProtocol;
 STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mConsoleOutHandle;
 
 EFI_STATUS
-StartMassStorage (IN EFI_SYSTEM_TABLE *SystemTable)
+StartMassStorage ()
 {
   EFI_STATUS    Status          = EFI_SUCCESS;
   BOOLEAN       DisplayedNotice = FALSE;
@@ -54,6 +54,16 @@ StartMassStorage (IN EFI_SYSTEM_TABLE *SystemTable)
 
       // Set Current Splash Value
       CurrentSplash = BG_MSD_CONNECTED;
+
+      // New Message
+      CHAR16 *HintMessage = L"Disconnect your Device to Enable Exit Function.";
+
+      // Set Position of Message
+      UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(HintMessage) * EFI_GLYPH_WIDTH) / 2;
+      UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
+
+      // Print New Message
+      PrintXY (XPos, YPos, &White, &Black, HintMessage);
 
       // Reset Notice Message
       DisplayedNotice = FALSE;
@@ -132,14 +142,14 @@ PrepareMassStorage ()
   // Locate Charger Protocol
   Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID *)&mChargerExProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Charger Ex Protocol! Status = %r\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Charger Ex Protocol! Status = %r\n", Status));
     goto exit;
   }
 
   // Locate Console Out Protocol
   Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&mConsoleOutHandle);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Console Out Protocol! Status = %r\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Console Out Protocol! Status = %r\n", Status));
     goto exit;
   }
 
@@ -236,7 +246,7 @@ InitMassStorage (
   }
 
   // Start Mass Storage
-  Status = StartMassStorage (SystemTable);
+  Status = StartMassStorage ();
   if (!EFI_ERROR (Status)) {
     goto exit;
   }
