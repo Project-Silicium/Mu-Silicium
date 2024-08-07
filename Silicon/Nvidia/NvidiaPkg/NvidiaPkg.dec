@@ -15,9 +15,9 @@
 
 [PcdsFixedAtBuild]
   # Timer
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1|0|UINT32|0x0000D000
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt2|0|UINT32|0x0000D001
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt3|0|UINT32|0x0000D002
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4|0|UINT32|0x0000D003
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5|0|UINT32|0x0000D004
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6|0|UINT32|0x0000D005
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1|0|UINT32|0x0000A000
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt2|0|UINT32|0x0000A001
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt3|0|UINT32|0x0000A002
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4|0|UINT32|0x0000A003
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5|0|UINT32|0x0000A004
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6|0|UINT32|0x0000A005

@@ -15,13 +15,13 @@ _StackSize:
   .long 0               /* Reserved */
 
 _Start:
-  mov x11, DEVICE_PRESERVES_FDT
+  mov   x11, CREATE_FDT_POINTER
   cmp   x11, 1
-  b.ne  continue_boot
-  mov   x10, (UEFI_BASE + UEFI_SIZE)
+  b.ne  skip_dtb
+  mov   x10, FDT_POINTER_ADDRESS
   str   x0, [x10]
 
-continue_boot:
+skip_dtb:
   mov   x4, x1
   ldr   x5, _StackBase
   cmp   x4, x5

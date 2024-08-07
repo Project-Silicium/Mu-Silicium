@@ -12,23 +12,14 @@
 
 [Components]
   # PrePI
-!if $(DEVICE_PRESERVES_FDT) == 1
-  SamsungPkg/PrePi/PrePiUniversalDecon.inf {
+  SamsungPkg/PrePi/PrePi.inf {
     <LibraryClasses>
       NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
   }
-!else
-SamsungPkg/PrePi/PrePi.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
-  }
-!endif
 
   # Custom Exynos Drivers
   SamsungPkg/Drivers/ExynosGpioDxe/ExynosGpioDxe.inf
   SamsungPkg/Drivers/ExynosSpeedyDxe/ExynosSpeedyDxe.inf
-!if $(DEVICE_PRESERVES_FDT) == 1 && $(DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION) == 1
   SamsungPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-!endif
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc

@@ -135,9 +135,7 @@
   UefiLib|MdePkg/Library/UefiLib/UefiLib.inf
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
   UefiRuntimeServicesTableLib|MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
-!if $(DEVICE_PRESERVES_FDT) == 1
-  EarlyFdtLib|SiliciumPkg/Library/EarlyFdtLib/EarlyFdtLib.inf
-!endif
+  FdtLib|EmbeddedPkg/Library/FdtLib/FdtLib.inf
   DevicePathLib|MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
   UefiBootServicesTableLib|MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib.inf
   DxeServicesTableLib|MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.inf

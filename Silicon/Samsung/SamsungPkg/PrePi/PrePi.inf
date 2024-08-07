@@ -31,6 +31,7 @@
   ArmPkg/ArmPkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
 
 [LibraryClasses]
   CacheMaintenanceLib
@@ -49,6 +50,7 @@
   PlatformPrePiLib
   MemoryInitPeiLib
   PlatformPeiLib
+  FdtLib
 
 [Ppis]
   gArmMpCoreInfoPpiGuid
@@ -70,6 +72,9 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize
 
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
+
+  gSamsungPkgTokenSpaceGuid.PcdDeconAddress
+  gSamsungPkgTokenSpaceGuid.PcdForceEnableFBWrites
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString

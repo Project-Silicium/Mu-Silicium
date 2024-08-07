@@ -11,6 +11,8 @@ STATIC UINT64 mSystemMemoryEnd = FixedPcdGet64 (PcdSystemMemoryBase) + FixedPcdG
 
 #define IS_XIP() (((UINT64)FixedPcdGet64 (PcdFdBaseAddress) > mSystemMemoryEnd) || ((FixedPcdGet64 (PcdFdBaseAddress) + FixedPcdGet32 (PcdFdSize)) <= FixedPcdGet64 (PcdSystemMemoryBase)))
 
+#define HW_SW_TRIG_CONTROL 0x70
+
 RETURN_STATUS
 EFIAPI
 TimerConstructor ();

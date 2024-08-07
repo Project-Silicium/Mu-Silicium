@@ -14,7 +14,8 @@ gDeviceMemoryDescriptorEx[] = {
   {"RAM Partition",      0x80045000, 0x113BB000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"UEFI FD",            0x91400000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"DXE Heap",           0x91600000, 0x03C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"RAM Partition",      0x95200000, 0x22E00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"FDT Pointer",        0x95200000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+  {"RAM Partition",      0x95201000, 0x22DFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"Tima",               0xB8000000, 0x00200000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED},
   {"RAM Partition",      0xB8200000, 0x03A00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   
@@ -24,8 +25,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"RAM Partition",      0xC0080000, 0x29380000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"ABOX",               0xE9400000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
   {"Display Reserved",   0xEC000000, 0x0085A000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH},
-  
-  // NOTE: I have no Idea when Memory Ends here.
 
   // Register Regions
   {"Gic Distributor",    0x12301000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},

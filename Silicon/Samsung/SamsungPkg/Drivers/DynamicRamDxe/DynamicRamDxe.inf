@@ -12,6 +12,7 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
   MdePkg/MdePkg.dec
   SamsungPkg/SamsungPkg.dec
   SiliciumPkg/SiliciumPkg.dec
@@ -27,7 +28,7 @@
   ArmMmuLib
   MemoryMapHelperLib
   SortLib
-  EarlyFdtLib
+  FdtLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase

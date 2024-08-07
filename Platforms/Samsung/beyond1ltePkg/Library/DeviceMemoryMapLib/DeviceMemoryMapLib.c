@@ -17,7 +17,8 @@ gDeviceMemoryDescriptorEx[] = {
   {"RAM Partition",      0x91201000, 0x01DFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"UEFI FD",            0x93000000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"DXE Heap",           0x93200000, 0x03C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"RAM Partition",      0x96E00000, 0x23D00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"FDT Pointer",        0x96E00000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+  {"RAM Partition",      0x96E01000, 0x23CFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   
   // Memory Hole: 0xBAB00000 -> 0xC0000000 (0x05500000)
 
@@ -32,8 +33,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"EL2 Earlymem",       0xFD800000, 0x02800000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
 
   // Memory Hole: 0x100000000 -> 0x880000000 (0x780000000)
-
-  {"RAM Partition",      0x880000000,0x180000000,AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
   // Register Regions
   {"Gic Distributor",    0x10101000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},

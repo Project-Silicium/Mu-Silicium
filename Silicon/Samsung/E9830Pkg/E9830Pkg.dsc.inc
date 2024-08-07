@@ -50,6 +50,10 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
+  # Frame Buffer Writes
+  gSamsungPkgTokenSpaceGuid.PcdDeconAddress|0x19050000
+  gSamsungPkgTokenSpaceGuid.PcdForceEnableFBWrites|TRUE
+
 [LibraryClasses]
   PlatformPeiLib|E9830Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|E9830Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
