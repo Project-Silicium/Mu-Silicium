@@ -104,18 +104,20 @@ if [ ${TARGET_ARCH} == "ARM" ]; then
 fi
 
 ## Mu_Basecore
-cp ./Resources/MuPatches/UsbBus.patch ./Resources/MuPatches/BdsWait.patch ./Resources/MuPatches/Tools-Conf.patch ./Resources/MuPatches/PdbPointer.patch ./Mu_Basecore/
+cp ./Resources/MuPatches/UsbBus.patch ./Resources/MuPatches/BdsWait.patch ./Resources/MuPatches/Tools-Conf.patch ./Resources/MuPatches/PdbPointer.patch ./Resources/MuPatches/PageDebug.patch ./Mu_Basecore/
 cd Mu_Basecore || exit 1
 git apply UsbBus.patch &> /dev/null
 git apply BdsWait.patch &> /dev/null
 git apply Tools-Conf.patch &> /dev/null
 git apply PdbPointer.patch &> /dev/null
+git apply PageDebug.patch &> /dev/null
 cd ..
 
 ## Mu_Tiano
-cp ./Resources/MuPatches/Timer.patch ./Silicon/Arm/Mu_Tiano/
+cp ./Resources/MuPatches/Timer.patch ./Resources/MuPatches/GcdAttribute.patch ./Silicon/Arm/Mu_Tiano/
 cd Silicon/Arm/Mu_Tiano || exit 1
 git apply Timer.patch &> /dev/null
+git apply GcdAttribute.patch &> /dev/null
 cd ../../..
 
 # Start the Real Build of the UEFI
