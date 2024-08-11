@@ -12,6 +12,7 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
@@ -23,6 +24,8 @@
   MemoryAllocationLib
   UefiLib
   IoLib
+  FdtLib
+  MemoryMapHelperLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase

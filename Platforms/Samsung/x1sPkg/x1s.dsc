@@ -25,11 +25,9 @@
   FLASH_DEFINITION				= x1sPkg/x1s.fdf
   USE_CUSTOM_DISPLAY_DRIVER			= 0
   HAS_BUILD_IN_KEYBOARD				= 0
-  DEVICE_PRESERVES_FDT				= 1
-  DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION = 1
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) -DDEVICE_PRESERVES_FDT=$(DEVICE_PRESERVES_FDT) -DDEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION=$(DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION)
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
   DeviceMemoryMapLib|x1sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
@@ -39,9 +37,6 @@
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
-!if $(DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION) == 0
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x300000000
-!endif
 
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"halal-beef"

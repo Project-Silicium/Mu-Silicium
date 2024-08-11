@@ -48,16 +48,14 @@
 #include <Library/PrintLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/IoLib.h>
-#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
-#include <Library/libfdt.h>
 #include <Library/MemoryMapHelperLib.h>
-#endif
 
 #include <Protocol/Smbios.h>
 
+#include <libfdt.h>
+
 #include "DataDefinitions.h"
 
-#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
 typedef struct {
   UINT64 StartAddress;
   UINT64 Size;
@@ -126,7 +124,6 @@ GetMemoryNodes(const void *fdt, UINTN *NodeCount) {
   *NodeCount = Count;
   return Nodes;
 }
-#endif
 
 EFI_STATUS
 EFIAPI
@@ -298,7 +295,6 @@ CacheInfoUpdateSmbiosType7 ()
   mProcessorInfoType4_a76.L3CacheHandle = (UINT16)SmbiosHandle;
 }
 
-#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
 VOID
 PhyMemArrayInfoUpdateSmbiosType16 (UINT64 SystemMemorySize)
 {
@@ -328,37 +324,6 @@ MemArrMapInfoUpdateSmbiosType19 (UINT64 SystemMemorySize)
 
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19, mMemArrMapInfoType19Strings, NULL);
 }
-#else
-VOID
-PhyMemArrayInfoUpdateSmbiosType16 ()
-{
-  EFI_SMBIOS_HANDLE MemArraySmbiosHande;
-
-  mPhyMemArrayInfoType16.ExtendedMaximumCapacity = FixedPcdGet64(PcdSystemMemorySize);
-
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mPhyMemArrayInfoType16, mPhyMemArrayInfoType16Strings, &MemArraySmbiosHande);
-
-  // Update the Memory Device Information
-  mMemDevInfoType17.MemoryArrayHandle = MemArraySmbiosHande;
-}
-
-VOID
-MemDevInfoUpdateSmbiosType17 ()
-{
-  mMemDevInfoType17.Size = FixedPcdGet64(PcdSystemMemorySize) / 0x100000;
-
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemDevInfoType17, mMemDevInfoType17Strings, NULL);
-}
-
-VOID
-MemArrMapInfoUpdateSmbiosType19 ()
-{
-  mMemArrMapInfoType19.StartingAddress = FixedPcdGet64(PcdSystemMemoryBase) / 1024;
-  mMemArrMapInfoType19.EndingAddress   = (FixedPcdGet64(PcdSystemMemorySize) + FixedPcdGet64(PcdSystemMemoryBase) - 1) / 1024;
-
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19, mMemArrMapInfoType19Strings, NULL);
-}
-#endif
 
 EFI_STATUS
 EFIAPI
@@ -366,14 +331,12 @@ InitializeSmBiosTable (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
-  EFI_STATUS 			  Status = EFI_SUCCESS;
+  EFI_STATUS 			  Status;
   UINT64             		  SystemMemorySize = 0;
   UINT64 	     		  DesignMemorySize = 0;
   UINTN 	     		  NodeCount;
   MEMORY_NODE 	     		  *Nodes;
   ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointer;
-#endif
 
   // Update SmBios Data Definitions
   BIOSInfoUpdateSmbiosType0         ();
@@ -383,7 +346,6 @@ InitializeSmBiosTable (
   ProcessorInfoUpdateSmbiosType4    ();
   CacheInfoUpdateSmbiosType7        ();
 
-#if DEVICE_PRESERVES_FDT == 1 && DEVICE_SUPPORTS_EXYNOS_DYNAMIC_RAM_ALLOCATION == 1
   Status = LocateMemoryMapAreaByName ("FDT", &FdtPointer);
   if (!EFI_ERROR (Status)) {
     CONST VOID *FDT = (CONST VOID*)(uintptr_t)MmioRead32(FdtPointer.Address);
@@ -403,11 +365,6 @@ InitializeSmBiosTable (
   PhyMemArrayInfoUpdateSmbiosType16 (SystemMemorySize);
   MemDevInfoUpdateSmbiosType17      (SystemMemorySize);
   MemArrMapInfoUpdateSmbiosType19   (SystemMemorySize);
-#else
-  PhyMemArrayInfoUpdateSmbiosType16 ();
-  MemDevInfoUpdateSmbiosType17      ();
-  MemArrMapInfoUpdateSmbiosType19   ();
-#endif
 
   return EFI_SUCCESS;
 }
