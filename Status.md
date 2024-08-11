@@ -1203,7 +1203,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Halted** <br>
 **Codename: lisa** <br>
 **Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br>
 **Contibuter: People from Group** <br>
