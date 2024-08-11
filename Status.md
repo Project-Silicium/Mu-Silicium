@@ -1203,7 +1203,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
-**State: Halted** <br>
+**State: Inactive** <br>
 **Codename: lisa** <br>
 **Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br>
 **Contibuter: People from Group** <br>
@@ -2247,7 +2247,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Side Buttons||✅|
 |USB Host Mode||❌|
 |USB Device Mode||✅|
-|USB Power Delivery||✅|
+|USB Power Delivery|Unstable if fastboot boot used|⚠️|
 |Mass Storage||✅|
 |SD Card||✅|
 |Windows Boot|Windows PE only|⚠️|
