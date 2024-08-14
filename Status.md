@@ -27,7 +27,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 **Codename: pong** <br>
 **Maintainers: [index986](https://github.com/index986)** <br>
 **Contibuters: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br>
-**Testers: [index986](https://github.com/index986) [nokii1337](https://github.com/nokii1337)**
+**Testers: [index986](https://github.com/index986) [nokii1337](https://github.com/nokii1337), People from tg/discord nothing group**
 
 ### UEFI Status
 
@@ -1289,6 +1289,33 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |SD Card||❌|
 |Windows Boot||❌|
 |Linux Boot||❌|
+
+## Nothing Phone (1)
+
+<img align="right" src="Resources/Pictures/Nothing-Phone-1-spacewar.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: Spacewar** <br>
+**Maintainer: [index986](https://github.com/index986)** <br>
+**Contibuter: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: Huananzhi, People from tg/discord nothing group**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||✅|
+|Side Buttons||✅|
+|USB Host Mode||❔|
+|USB Device Mode||❔||
+|USB Power Delivery||❌|
+|Mass Storage||❔|
+|SD Card||❌|
+|Windows Boot||❌||
+|Linux Boot||❌|
+
+
 
   </summary>
 </details>

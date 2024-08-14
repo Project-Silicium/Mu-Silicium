@@ -32,7 +32,7 @@
   # 1 = SM7325-AE
   # 2 = SM7325-AF
   #
-  SOC_TYPE                       = 2
+  SOC_TYPE                       = 1
 
 # If your SoC has multimple variants keep this Build Option
 # If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
