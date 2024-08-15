@@ -3,7 +3,7 @@
 STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
-// Configuration Map
+  // Configuration Map
   {"NumCpusFuseAddr", 0x5C04C},
   {"EnableShell", 0x1},
   {"InitialPagePoolCount", 0x700},
@@ -41,9 +41,6 @@ gDeviceConfigurationDescriptorEx[] = {
   {"DDRInfoNotifyFlag", 0x0},
   {"EnableVariablePolicyEngine", 0},
   {"EnableACPIFallback", 0x0},
-  {"EnableMultiCoreFvDecompression", 1},
-  {"EUDEnableAddr", 0x88E2000},
-  {"MinidumpTALoadingCfg", 0x0},
 
 
   // Terminator
