@@ -34,8 +34,6 @@
   #
   SOC_TYPE                       = 1
 
-# If your SoC has multimple variants keep this Build Option
-# If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
 
@@ -81,7 +79,6 @@ gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Nothing"
   
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
-
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
