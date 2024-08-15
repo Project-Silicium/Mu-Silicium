@@ -411,7 +411,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Halted** <br>
 **Codename: alioth** <br>
 **Maintainers: [AdrianoA3](https://github.com/AdrianoA3), [N1kroks](https://github.com/N1kroks)** <br>
 **Contibuters: [Robotix](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite), [hyusang](https://github.com/cloudsweets/)** <br>
