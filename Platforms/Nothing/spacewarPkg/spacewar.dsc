@@ -1,5 +1,4 @@
 ##
-#
 #  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
@@ -7,7 +6,6 @@
 #  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
 
 ################################################################################
@@ -25,17 +23,18 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = spacewarPkg/spacewar.fdf
-  USE_CUSTOM_DISPLAY_DRIVER      =  0
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
+  HAS_BUILD_IN_KEYBOARD          = 0
 
- 
+  #
   # 0 = SM7325
   # 1 = SM7325-AE
   # 2 = SM7325-AF
-  
+  #
   SOC_TYPE                       = 1
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
   DeviceMemoryMapLib|spacewarPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
@@ -47,7 +46,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"index986"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"index986"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
@@ -68,7 +67,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2300
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
   
-  # XBL Protocols
+  # XBL Protocol
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37990
 
   # Dynamic RAM Start Address
@@ -82,12 +81,12 @@
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2300
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2300
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|121
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|121
   
 !include SM7325Pkg/SM7325Pkg.dsc.inc

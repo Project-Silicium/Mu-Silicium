@@ -42,7 +42,6 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableVariablePolicyEngine", 0},
   {"EnableACPIFallback", 0x0},
 
-
   // Terminator
   {"Terminator", 0xFFFFFFFF}
 };

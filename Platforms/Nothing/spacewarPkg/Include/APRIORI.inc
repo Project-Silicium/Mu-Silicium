@@ -14,8 +14,7 @@ APRIORI DXE {
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
 
   # Core Drivers
-  INF Binaries/spacewar/EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
-
+  INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/spacewar/QcomPkg/Drivers/SmemDxe/SmemDxe.inf

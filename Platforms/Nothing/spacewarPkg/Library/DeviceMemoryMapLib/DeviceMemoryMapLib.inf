@@ -1,7 +1,7 @@
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = DeviceMemoryMapLib
-  FILE_GUID                      = 6dd8023b-ba14-418d-97d6-8986a08f0d50
+  FILE_GUID                      = 6DD8023B-BA14-418D-97D6-8986A08F0D50
   MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = DeviceMemoryMapLib

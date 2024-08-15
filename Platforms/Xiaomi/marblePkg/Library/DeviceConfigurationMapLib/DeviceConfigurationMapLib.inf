@@ -1,7 +1,7 @@
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = DeviceConfigurationMapLib
-  FILE_GUID                      = b7650575-3f2f-4ca0-835f-96ea8a01bc8e
+  FILE_GUID                      = B7650575-3F2F-4CA0-835F-96EA8A01BC8E
   MODULE_TYPE                    = BASE
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = DeviceConfigurationMapLib
