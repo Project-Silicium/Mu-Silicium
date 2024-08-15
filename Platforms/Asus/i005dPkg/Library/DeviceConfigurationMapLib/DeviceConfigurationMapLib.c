@@ -3,6 +3,7 @@
 STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
+  // Configuration Map
   {"EnableShell", 0x1},
   {"InitialPagePoolCount", 0x700},
   {"SharedIMEMBaseAddr", 0x146BF000},

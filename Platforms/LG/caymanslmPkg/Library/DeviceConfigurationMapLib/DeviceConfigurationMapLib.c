@@ -3,6 +3,7 @@
 STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
+  // Configuration Map
   {"AbnormalResetOccurredOffset", 0x24},
   {"DetectRetailUserAttentionHotkey", 0x00},
   {"DetectRetailUserAttentionHotkeyCode", 0x17},

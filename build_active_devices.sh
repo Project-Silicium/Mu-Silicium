@@ -43,7 +43,7 @@ for Device in $DEVICES; do
 	# Include Device Config if it exists
 	if [ -f "Resources/Configs/${Device}.conf" ]
 	then source "Resources/Configs/${Device}.conf"
-	else _error "\nDevice configuration not found!\nCheck if your .conf File is in the 'configs' Folder\n"
+	else _error "\nDevice configuration not found from ${Device}!\nCheck if your .conf File is in the 'configs' Folder\n"
 	fi
 
 	# Check if the Device has Multiple Models

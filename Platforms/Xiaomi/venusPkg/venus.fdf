@@ -122,7 +122,7 @@ READ_LOCK_STATUS   = TRUE
 
   INF QcomPkg/PrePi/PrePi.inf
 
-  FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
+  FILE FREEFORM = DDE58710-41CD-4306-DBFB-3FA90BB1D2DD {
     SECTION UI = "uefiplat.cfg"
     SECTION RAW = Binaries/venus/RawFiles/uefiplat_k2.cfg
   }

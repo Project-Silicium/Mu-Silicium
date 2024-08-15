@@ -14,17 +14,17 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME					= x1s
-  PLATFORM_GUID					= FFFA8AF8-0C7A-4240-A68F-4F3611DB3547
-  PLATFORM_VERSION				= 0.1
-  DSC_SPECIFICATION				= 0x00010005
-  OUTPUT_DIRECTORY				= Build/x1sPkg
-  SUPPORTED_ARCHITECTURES			= AARCH64
-  BUILD_TARGETS					= RELEASE|DEBUG
-  SKUID_IDENTIFIER				= DEFAULT
-  FLASH_DEFINITION				= x1sPkg/x1s.fdf
-  USE_CUSTOM_DISPLAY_DRIVER			= 0
-  HAS_BUILD_IN_KEYBOARD				= 0
+  PLATFORM_NAME                  = x1s
+  PLATFORM_GUID                  = FFFA8AF8-0C7A-4240-A68F-4F3611DB3547
+  PLATFORM_VERSION               = 0.1
+  DSC_SPECIFICATION              = 0x00010005
+  OUTPUT_DIRECTORY               = Build/x1sPkg
+  SUPPORTED_ARCHITECTURES        = AARCH64
+  BUILD_TARGETS                  = RELEASE|DEBUG
+  SKUID_IDENTIFIER               = DEFAULT
+  FLASH_DEFINITION               = x1sPkg/x1s.fdf
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
+  HAS_BUILD_IN_KEYBOARD          = 0
 
 [BuildOptions]
   *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)

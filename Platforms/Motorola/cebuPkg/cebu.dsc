@@ -15,7 +15,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = cebu
-  PLATFORM_GUID                  = e121c9cc-0f2f-4eac-afea-5df772c806ef
+  PLATFORM_GUID                  = E121C9CC-0F2F-4EAC-AFEA-5DF772C806EF
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/cebuPkg

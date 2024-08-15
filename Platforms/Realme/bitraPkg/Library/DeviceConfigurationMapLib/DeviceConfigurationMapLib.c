@@ -3,6 +3,7 @@
 STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
+  // Configuration Map
   {"NumCpusFuseAddr", 0x5C04C},
   {"EnableShell", 0x1},
   {"EUDEnableAddr", 0x88E2000},

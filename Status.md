@@ -1295,7 +1295,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <img align="right" src="Resources/Pictures/Nothing-Phone-1-spacewar.png" width="500" alt="Preview">
 
 **State: Active** <br>
-**Codename: Spacewar** <br>
+**Codename: spacewar** <br>
 **Maintainer: [index986](https://github.com/index986)** <br>
 **Contibuter: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: Huananzhi, People from tg/discord nothing group**
