@@ -31,7 +31,7 @@
   # 0 = SM7325
   # 1 = SM7325-AE
   # 2 = SM7325-AF
-  #
+  
   SOC_TYPE                       = 1
 
 [BuildOptions]
