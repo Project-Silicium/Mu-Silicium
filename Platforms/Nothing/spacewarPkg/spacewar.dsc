@@ -27,7 +27,7 @@
   FLASH_DEFINITION               = spacewarPkg/spacewar.fdf
   USE_CUSTOM_DISPLAY_DRIVER      =  0
 
-#
+ 
   # 0 = SM7325
   # 1 = SM7325-AE
   # 2 = SM7325-AF
