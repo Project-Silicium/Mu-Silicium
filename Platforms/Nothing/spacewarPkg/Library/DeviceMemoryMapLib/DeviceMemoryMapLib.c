@@ -5,7 +5,7 @@ ARM_MEMORY_REGION_DESCRIPTOR_EX
 gDeviceMemoryDescriptorEx[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
 
-//--------------------- DDR  -----
+  //--------------------- DDR  -----
   {"HYP",               0x80000000, 0x00600000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"Axon DMA",          0x80600000, 0x00100000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"BOOT",              0x80700000, 0x00100000, AddMem, MEM_RES, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
@@ -43,11 +43,11 @@ gDeviceMemoryDescriptorEx[] = {
   {"Display Reserved",  0xE1000000, 0x02400000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
   {"DXE Heap",          0xE3400000, 0x03100000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 
-//--------------------- Other -----
+  //--------------------- Other -----
   {"IMEM Base",          0x14680000, 0x0002B000, NoHob, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
   {"IMEM Cookie Base",   0x146AA000, 0x00001000, AddDev, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
 
-//--------------------- Register --
+  //--------------------- Register --
   {"IPC_ROUTER_TOP",     0x00400000, 0x00100000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
   {"SECURITY CONTROL",   0x00780000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
   {"QUP",                0x00900000, 0x00200000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
