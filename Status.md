@@ -999,8 +999,8 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 **State: Active** <br>
 **Codename: polaris** <br>
-**Maintainers: [Daniel224455](https://github.com/Daniel224455) [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
-**Contibuters: [Daniel224455](https://github.com/Daniel224455) [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
+**Maintainers: [Daniel224455](https://github.com/Daniel224455), [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
+**Contributers: [Daniel224455](https://github.com/Daniel224455), [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
 **Testers: [TrustedFloppa](https://github.com/TrustedFloppa)**
 
 ### UEFI Status
