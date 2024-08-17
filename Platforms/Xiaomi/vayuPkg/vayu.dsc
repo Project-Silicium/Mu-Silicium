@@ -57,10 +57,10 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco X3 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"POCO X3 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vayu"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"X3_Pro_vayu"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco X3 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"POCO X3 Pro"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
