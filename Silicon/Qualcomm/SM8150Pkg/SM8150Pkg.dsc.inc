@@ -14,7 +14,7 @@
 
   # Timer
   USE_CUSTOM_TIMER                           = 0
-  USE_PHYSICAL_TIMER                         = 0
+  USE_PHYSICAL_TIMER                         = 1
 
   # KEP
   ENABLE_KEP                                 = 1
