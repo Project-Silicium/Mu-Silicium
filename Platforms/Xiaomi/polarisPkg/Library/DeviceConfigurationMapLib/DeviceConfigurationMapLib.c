@@ -6,7 +6,7 @@ gDeviceConfigurationDescriptorEx[] = {
   // Configuration Map
   {"NumCpusFuseAddr", 0x5C04C},
   {"EnableShell", 0x1},
-  {"SharedIMEMBaseAddr   ", 0x146BF000},
+  {"SharedIMEMBaseAddr", 0x146BF000},
   {"DloadCookieAddr", 0x01FD3000},
   {"DloadCookieValue", 0x10},
   {"NumCpus", 8},
@@ -27,7 +27,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"ImageFVFlashed   ", 0x0},
   {"EnableLogFsSyncInRetail", 0x1},
   {"EnableSecurityHoleForSplashPartition", 0x1},
- 
+
   // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
