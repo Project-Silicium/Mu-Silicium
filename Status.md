@@ -993,6 +993,68 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 </td></tr> </table> 
 
+## Xiaomi Mi MIX 2S
+
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-Mix-2S.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: polaris** <br>
+**Maintainers: [Daniel224455](https://github.com/Daniel224455), [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
+**Contributers: [Daniel224455](https://github.com/Daniel224455), [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
+**Testers: [TrustedFloppa](https://github.com/TrustedFloppa)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||✅|
+|Side Buttons||✅|
+|USB Host Mode||✅|
+|USB Device Mode||❌|
+|USB Power Delivery||❌|
+|Mass Storage|Needs Device Mode|❌|
+|Windows Boot|Windows PE Only|⚠️|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|Side Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Temperature Sensor||❌|
+|Battery||❌|
+|USB Host Mode||❌|
+|USB Device Mode||❌|
+|USB Power Delivery||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
 ## Xiaomi Mi 8 Pro
 
 <img align="right" src="Resources/Pictures/Mi-8-Pro-equuleus.png" width="500" alt="Preview">
