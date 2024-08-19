@@ -2296,7 +2296,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |USB Host Mode||❌|
 |USB Device Mode||✅|
 |USB Power Delivery||✅|
-|Mass Storage||❔|
+|Mass Storage||✅|
 |SD Card||✅|
 |Windows Boot||✅|
 |Linux Boot||✅|
