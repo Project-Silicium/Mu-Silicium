@@ -49,7 +49,7 @@ esac
 # Include Device Config if it exists
 if [ -f "Resources/Configs/${TARGET_DEVICE}.conf" ]
 then source "Resources/Configs/${TARGET_DEVICE}.conf"
-else _error "\nDevice configuration not found!\nCheck if your .conf File is in the 'configs' Folder\n"
+else _error "\nDevice configuration not found from ${TARGET_DEVICE}!\nCheck if your .conf File is in the 'configs' Folder\n"
 fi
 
 # Check if the Device has Multiple Models
