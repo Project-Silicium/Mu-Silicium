@@ -1147,7 +1147,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="Resources/Pictures/Sony-Xperia-XZ1.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: poplar** <br>
 **Maintainer: None** <br>
 **Contibuter: None** <br>
