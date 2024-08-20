@@ -51,10 +51,19 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"OnePlus"
+!if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Ace 3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Ace 3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Ace 3"
+!elseif $(DEVICE_MODEL) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"12R"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"12R"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"12R"
+!else
+!error "Invalid Model Type! 0 or 1 are Valid Model Types."
+!endif
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1264
