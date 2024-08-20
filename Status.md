@@ -2411,9 +2411,9 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 **State: Active** <br>
 **Codename: lavender** <br>
-**Maintainer: [index986 (a.k.a govro150)](https://github.com/index986)** <br>
+**Maintainer: [index986](https://github.com/index986)** <br>
 **Contibuters: None** <br>
-**Tester: [index986 (a.k.a govro150)](https://github.com/index986)**
+**Tester: [index986](https://github.com/index986)**
 
 ### UEFI Status
 
