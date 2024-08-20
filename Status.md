@@ -856,6 +856,65 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 <details>
 <summary><b><strong>Snapdragon 855/855+/860 Devices</strong></b></summary>
 
+## Xiaomi Poco X3 Pro
+
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-X3-Pro.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: vayu** <br>
+**Maintainers: [Daniel224455](https://github.com/Daniel224455), [remtrik](https://github.com/remtrik)** <br>
+**Contributers: [Daniel224455](https://github.com/Daniel224455), [remtrik](https://github.com/remtrik), [Nikroks](https://github.com/N1kroks)** <br>
+**Testers: [Daniel224455](https://github.com/Daniel224455)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||✅|
+|Side Buttons||✅|
+|USB Host Mode||❌|
+|USB Device Mode||✅|
+|USB Power Delivery||❌|
+|Mass Storage|Broken|❌|
+|Windows Boot||✅|
+|Linux Boot|Untested|❔|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||✅|
+|Side Buttons||✅|
+|Proximity Sensor||✅|
+|Accelerometer Sensor||✅|
+|Compass Sensor||✅|
+|Gyroscope Sensor||✅|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Temperature Sensor||❔|
+|Battery||✅|
+|USB||✅|
+|Charging|Very slow|⚠️|
+|WLAN||✅|
+|CPU||✅|
+|Touchscreen||✅|
+|Bluetooth||✅|
+|GPS||✅|
+|Audio|3.5mm only|⚠️|
+|Microphone|Bottom only|✅|
+|GPU||✅|
+|Camera||❌|
+|Mobile Data|Needs Provisioning|⚠️|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
 ## OnePlus 7T Pro
 
 <img align="right" src="Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
@@ -993,6 +1052,68 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 </td></tr> </table> 
 
+## Xiaomi Mi MIX 2S
+
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-Mix-2S.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: polaris** <br>
+**Maintainers: [Daniel224455](https://github.com/Daniel224455), [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
+**Contributers: [Daniel224455](https://github.com/Daniel224455), [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
+**Testers: [TrustedFloppa](https://github.com/TrustedFloppa)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Internal Storage||✅|
+|Side Buttons||✅|
+|USB Host Mode||✅|
+|USB Device Mode||❌|
+|USB Power Delivery||❌|
+|Mass Storage|Needs Device Mode|❌|
+|Windows Boot|Windows PE Only|⚠️|
+|Linux Boot||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Internal Storage||❌|
+|Side Buttons||❌|
+|Proximity Sensor||❌|
+|Light Sensor||❌|
+|Accelerometer Sensor||❌|
+|Compass Sensor||❌|
+|Gyroscope Sensor||❌|
+|Fingerprint Sensor||❌|
+|NFC Sensor||❌|
+|Temperature Sensor||❌|
+|Battery||❌|
+|USB Host Mode||❌|
+|USB Device Mode||❌|
+|USB Power Delivery||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||✅|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Speakers||❌|
+|Microphone||❌|
+|GPU||❌|
+|Camera||❌|
+|Mobile Data||❌|
+|Display||✅|
+|Vibration||❌|
+
+</td></tr> </table>
+
 ## Xiaomi Mi 8 Pro
 
 <img align="right" src="Resources/Pictures/Mi-8-Pro-equuleus.png" width="500" alt="Preview">
@@ -1026,7 +1147,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 <img align="right" src="Resources/Pictures/Sony-Xperia-XZ1.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: poplar** <br>
 **Maintainer: None** <br>
 **Contibuter: None** <br>
@@ -2175,7 +2296,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |USB Host Mode||❌|
 |USB Device Mode||✅|
 |USB Power Delivery||✅|
-|Mass Storage||❔|
+|Mass Storage||✅|
 |SD Card||✅|
 |Windows Boot||✅|
 |Linux Boot||✅|
