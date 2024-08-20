@@ -21,7 +21,7 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 
 ## OnePlus 12R / Ace 3
 
-<img align="right" src="Resources/Pictures/OnePlus-12R.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/OnePlus-12R.png" width="350" alt="Preview">
 
 **State: Active** <br>
 **Codename: aston** <br>
@@ -43,43 +43,6 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |Windows Boot||❔|
 |Linux Boot||❔|
 
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-|Feature|Description|State|
-|:------|:----------|:---:|
-|Internal Storage||❔|
-|Side Buttons||❔|
-|Proximity Sensor||❔|
-|Light Sensor||❔|
-|Accelerometer Sensor||❔|
-|Compass Sensor||❔|
-|Gyroscope Sensor||❔|
-|Fingerprint Sensor||❔|
-|NFC Sensor||❔|
-|Temperature Sensor||❔|
-|Battery||❔|
-|USB Host Mode||❔|
-|USB Device Mode||❔|
-|USB Power Delivery||❔|
-|Charging||❔|
-|WLAN||❔|
-|CPU||❔|
-|Touchscreen||❔|
-|Bluetooth||❔|
-|GPS||❔|
-|Speakers||❔|
-|Microphone||❔|
-|GPU||❔|
-|Camera||❔|
-|Mobile Data||❔|
-|Display||❔|
-|Vibration||❔|
-
-</td></tr> </table>
 </details>
 
 <details>
