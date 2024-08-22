@@ -1727,17 +1727,17 @@ NOTE: This Page might not Contain All Devices! Notify us if you Find one.
 |NFC Sensor||❌|
 |Battery||✅|
 |USB Host Mode||✅|
-|USB Device Mode||❌|
+|USB Device Mode||✅|
 |USB Power Delivery||✅|
 |Charging||❌|
 |WLAN||✅|
 |CPU||✅|
-|Touchscreen||❌|
-|Bluetooth||❌|
+|Touchscreen||✅|
+|Bluetooth||✅|
 |GPS||❌|
 |Speakers||✅|
-|3.5mm Audio Jack||❌|
-|Microphone||❌|
+|3.5mm Audio Jack||✅|
+|Microphone||✅|
 |GPU||✅|
 |Camera||❌|
 |Mobile Data||✅|
