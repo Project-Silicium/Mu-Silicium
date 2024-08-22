@@ -74,20 +74,30 @@ cd ../..
 # Remove Mu Patches
 ## Mu
 cd Common/Mu || exit 1
-git reset --hard
-git clean --force
+git apply -R Math.patch &> /dev/null
+rm Math.patch &> /dev/null
 cd ../..
 
 ## Mu_Basecore
 cd Mu_Basecore || exit 1
-git reset --hard
-git clean --force
+git apply -R UsbBus.patch &> /dev/null
+git apply -R BdsWait.patch &> /dev/null
+git apply -R Tools-Conf.patch &> /dev/null
+git apply -R PdbPointer.patch &> /dev/null
+git apply -R PageDebug.patch &> /dev/null
+rm UsbBus.patch &> /dev/null
+rm BdsWait.patch &> /dev/null
+rm Tools-Conf.patch &> /dev/null
+rm PdbPointer.patch &> /dev/null
+rm PageDebug.patch &> /dev/null
 cd ..
 
 ## Mu_Tiano
 cd Silicon/Arm/Mu_Tiano || exit 1
-git reset --hard
-git clean --force
+git apply -R Timer.patch &> /dev/null
+git apply -R GcdAttribute.patch &> /dev/null
+rm Timer.patch &> /dev/null
+rm GcdAttribute.patch &> /dev/null
 cd ../../..
 
 # Setup & Update UEFI Enviroment
