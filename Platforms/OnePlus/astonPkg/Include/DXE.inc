@@ -57,7 +57,7 @@
   INF Binaries/aston/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  #INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
   
   INF Binaries/aston/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/ICBDxe/ICBDxe.inf

@@ -14,9 +14,12 @@ gDeviceMemoryDescriptorEx[] = {
   {"XBL DT",             0x81A00000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"XBL Ramdump",        0x81A40000, 0x001C0000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"AOP",                0x81C00000, 0x000A0000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  //{"RAM Partition",      0x81CA0000, 0x00060000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
   {"SMEM",               0x81D00000, 0x00200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  //{"RAM Partition",      0x81F00000, 0x08900000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
   {"PIL Reserved",       0x8A800000, 0x18280000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"Display Demura",     0xA2A80000, 0x02B00000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
+  //{"RAM Partition",      0xA5580000, 0x00B80000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
   {"DBI Dump",           0xA6100000, 0x00F00000, NoHob,  MMAP_IO, INITIALIZED, Conv,   UNCACHED_UNBUFFERED_XN},
   {"FD Reserved",        0xA7000000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"CPU Vectors",        0xA7600000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
@@ -32,6 +35,8 @@ gDeviceMemoryDescriptorEx[] = {
   {"Display Reserved",   0xB8000000, 0x02B00000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
   {"UEFI FD",            0xBAB00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"DXE Heap",           0xBAE00000, 0x0D1C0000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"NOMAP",              0xFF800000, 0x00800000, NoHob,  MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN },
+  
 
   // Memory Hole: 0xD8160000 -> 0xD8800000 (0x006A0000)
 
