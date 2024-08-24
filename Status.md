@@ -38,8 +38,48 @@
 | USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
-| Windows Boot       |             | ❔    |
+| Windows Boot       |             | ✅    |
 | Linux Boot         |             | ❔    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> NOTE: Only Windows Canary Builds that are Build Nr. 26090 or above work!
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ✅    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ❌    |
+| Temperature Sensor   |  Only battery | ⚠️    |
+| Battery              |               | ✅    |
+| USB Host Mode        |               | ❌    |
+| USB Device Mode      |               | ❔    |
+| USB Power Delivery   |               | ❌    |
+| Charging             | No indication | ⚠️    |
+| WLAN                 |               | ❌    |
+| CPU                  |               | ✅    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td></tr> </table>
 
 </details>
 
