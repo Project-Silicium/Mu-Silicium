@@ -212,7 +212,7 @@
 | Light Sensor         |                     | ❌    |
 | Accelerometer Sensor |                     | ❌    |
 | Compass Sensor       |                     | ❌    |
-| Gyroscope Sensor	   |                     | ❌    |
+| Gyroscope Sensor     |                     | ❌    |
 | Fingerprint Sensor   |                     | ❌    |
 | Hall Sensor          |                     | ❌    |
 | Temperature Sensor   |                     | ❌    |
@@ -340,7 +340,7 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
-| Feature 				| Description | State |
+| Feature               | Description | State |
 |:----------------------|:------------|:-----:|
 | Internal Storage      |             | ❌    |
 | Side Buttons          |             | ❌    |
@@ -368,11 +368,11 @@
 | GPS                   |             | ❌    |
 | Speakers              |             | ❌    |
 | Microphone            |             | ❌    |
-| GPU					|             | ❌    |
-| Camera				|             | ❌    |
-| Mobile Data			|             | ❌    |
-| Display				|             | ✅    |
-| Vibration				|             | ❌    |
+| GPU                   |             | ❌    |
+| Camera                |             | ❌    |
+| Mobile Data           |             | ❌    |
+| Display               |             | ✅    |
+| Vibration             |             | ❌    |
 
 </td></tr> </table>
 
@@ -390,15 +390,15 @@
 
 | Feature            | Description       | State |
 |:-------------------|:------------------|:-----:|
-| Display            |  			     | ✅    |
-| Internal Storage   |  			     | ✅    |
-| Side Buttons 	     |  			     | ✅    |
-| USB Host Mode      |  			     | ✅    |
-| USB Device Mode    |  			     | ❌    |
-| USB Power Delivery |  			     | ❌    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| Windows Boot       |  			     | ❌    |
-| Linux Boot         |  			     | ❌    |
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ✅    |
+| USB Device Mode    |                   | ❌    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |Needs Device Mode  | ❌    |
+| Windows Boot       |                   | ❌    |
+| Linux Boot         |                   | ❌    |
 
 ## Xiaomi 11T Pro
 
@@ -431,11 +431,12 @@
 <tr><td>
 
 > NOTE: Only Windows Canary Builds that are Build Nr. 26090 or above work!
+> NOTE: Needs Drivers!
 
 | Feature              | Description | State |
 |:---------------------|:------------|:-----:|
 | Internal Storage     |             | ✅    |
-| Side Buttons         |             | ❌    |
+| Side Buttons         |             | ✅    |
 | Proximity Sensor     |             | ❌    |
 | Light Sensor         |             | ❌    |
 | Accelerometer Sensor |             | ❌    |
@@ -450,7 +451,7 @@
 | Temperature Sensor   |             | ❌    |
 | Battery              |             | ❌    |
 | USB Host Mode        |             | ❌    |
-| USB Device Mode      |             | ❌    |
+| USB Device Mode      |             | ✅    |
 | USB Power Delivery   |             | ❌    |
 | Charging             |             | ❌    |
 | WLAN                 |             | ❌    |
