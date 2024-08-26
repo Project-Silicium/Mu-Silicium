@@ -473,7 +473,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S21-Fe.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: r9q** <br>
 **Maintainer: [Icesito68](https://github.com/Icesito68/)** <br>
 **Contributors: [Nikroks](https://github.com/N1kroks)** <br>
