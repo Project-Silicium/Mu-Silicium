@@ -24,15 +24,13 @@ gDeviceMemoryDescriptorEx[] = {
   // Memory Hole: 0xE0000000 -> 0xE1900000 (0x01900000)
 
   {"RAM Partition",      0xE1900000, 0x0F700000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"Display Reserved",   0xF1000000, 0x013C6800, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH},
-  {"RAM Partition",      0xF23C6800, 0x05BE9800, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"Display Reserved",   0xF1000000, 0x013C7000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH},
+  {"RAM Partition",      0xF23C7000, 0x05BE9000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"ABOX",               0xF7FB0000, 0x02A50000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
   {"RAM Partition",      0xFAA00000, 0x05600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   
   // Memory Hole: 0x100000000 -> 0x880000000 (0x780000000)
   
-  {"RAM Partition",      0x880000000,0x260000000,AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-
   // Register Regions
   {"GIC Distributor",    0x10101000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"GIC Redistributors", 0x10102000, 0x00006000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},

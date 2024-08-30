@@ -2635,6 +2635,30 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
+## Galaxy S20 FE 4G 
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE-4G.png" width="432" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: r8s** <br>
+**Maintainer: [Sota4Ever](https://github.com/Sota4Ever/)** <br>
+**Contributors: None** <br>
+**Tester: [Sota4Ever](https://github.com/Sota4Ever)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ❌    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ❌    |
+| USB Power Delivery |             | ❌    |
+| SD Card            |             | ❌    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
+
   </summary>
 </details>
 
