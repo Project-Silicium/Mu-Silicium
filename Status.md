@@ -2635,14 +2635,14 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-## Galaxy S20 FE 4G 
+## Galaxy S20 FE
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE-4G.png" width="432" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE.png" width="432" alt="Preview">
 
 **State: Inactive** <br>
 **Codename: r8s** <br>
 **Maintainer: [Sota4Ever](https://github.com/Sota4Ever/)** <br>
-**Contributors: None** <br>
+**Contributors: [halal-beef](https://github.com/halal-beef/)** <br>
 **Tester: [Sota4Ever](https://github.com/Sota4Ever)**
 
 ### UEFI Status
