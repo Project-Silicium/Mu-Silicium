@@ -72,9 +72,9 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|180
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|168
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|180
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|168
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
 
 !include E9830Pkg/E9830Pkg.dsc.inc
