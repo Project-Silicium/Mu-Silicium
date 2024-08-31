@@ -469,6 +469,30 @@
 
 </td></tr> </table>
 
+## Samsung Galaxy S21 Fe
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S21-Fe.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: r9q** <br>
+**Maintainer: [Icesito68](https://github.com/Icesito68/)** <br>
+**Contributors: [Nikroks](https://github.com/N1kroks)** <br>
+**Tester: [Icesito68](https://github.com/Icesito68/)**
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       | Pwr Button does not work | ⚠️    |
+| USB Host Mode      |                          | ❌    |
+| USB Device Mode    |                          | ❌    |
+| USB Power Delivery |                          | ❌    |
+| Mass Storage       |                          | ❔    |
+| Windows Boot       |                          | ❌    |
+| Linux Boot         |                          | ❌    |
+
   </summary>
 </details>
 
