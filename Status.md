@@ -469,6 +469,70 @@
 
 </td></tr> </table>
 
+## Samsung Galaxy S21 FE
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S21-Fe.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: r9q** <br>
+**Maintainer: [Icesito68](https://github.com/Icesito68/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/),[Nikroks](https://github.com/N1kroks)** <br>
+**Tester: [Icesito68](https://github.com/Icesito68/)**
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       |                          | ✅    |
+| USB Host Mode      |                          | ❌    |
+| USB Device Mode    |                          | ❌    |
+| USB Power Delivery |                          | ❌    |
+| Mass Storage       | Needs Device Mode        | ❌    |
+| Windows Boot       |                          | ✅    |
+| Linux Boot         |                          | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> NOTE: Only Windows Canary Builds that are Build Nr. 26090 or above work!
+
+| Feature              | Description         | State |
+|:---------------------|:--------------------|:-----:|
+| Internal Storage     | Needs Special Setup | ✅    |
+| Side Buttons         |                     | ❌    |
+| Proximity Sensor     |                     | ❌    |
+| Light Sensor         |                     | ❌    |
+| Accelerometer Sensor |                     | ❌    |
+| Compass Sensor       |                     | ❌    |
+| Gyroscope Sensor     |                     | ❌    |
+| Fingerprint Sensor   |                     | ❌    |
+| Hall Sensor          |                     | ❌    |
+| Temperature Sensor   |                     | ❌    |
+| Battery              |                     | ❌    |
+| USB Host Mode        |                     | ❌    |
+| USB Device Mode      | Needs Special Setup | ✅    |
+| USB Power Delivery   |                     | ❌    |
+| Charging             |                     | ❌    |
+| WLAN                 |                     | ❌    |
+| CPU                  |                     | ✅    |
+| Touchscreen          |                     | ❌    |
+| Bluetooth            |                     | ❌    |
+| GPS                  |                     | ❌    |
+| Speakers             |                     | ❌    |
+| Microphone           |                     | ❌    |
+| GPU                  |                     | ❌    |
+| Camera               |                     | ❌    |
+| Mobile Data          |                     | ❌    |
+| Display              |                     | ✅    |
+| Vibration            |                     | ❌    |
+
+</td></tr> </table>
+
   </summary>
 </details>
 
