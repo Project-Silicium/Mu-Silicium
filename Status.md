@@ -469,7 +469,7 @@
 
 </td></tr> </table>
 
-## Samsung Galaxy S21 Fe
+## Samsung Galaxy S21 FE
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S21-Fe.png" width="500" alt="Preview">
 
