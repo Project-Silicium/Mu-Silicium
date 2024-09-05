@@ -504,7 +504,6 @@
 | Feature              | Description         | State |
 |:---------------------|:--------------------|:-----:|
 | Internal Storage     | Needs Special Setup | ✅    |
-| SD Card              |                     | ❌    |
 | Side Buttons         |                     | ❌    |
 | Proximity Sensor     |                     | ❌    |
 | Light Sensor         |                     | ❌    |
