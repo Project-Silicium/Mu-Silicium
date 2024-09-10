@@ -4,12 +4,6 @@ FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
 }
 
 
-FILE FREEFORM = A91D838E-A5FA-4138-825D-455E23030794 {
-    SECTION UI = "logo1.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/logo1.bmp
-}
-
-
 FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
     SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
     SECTION RAW = Binaries/betalm/RawFiles/Panel_truly_wqxga_dsc_cmd.xml
@@ -217,60 +211,6 @@ FILE FREEFORM = 07777D7D-677F-47F4-A1FB-3BB1E08E607A {
 FILE FREEFORM = 151F4DFB-643B-418D-ACB3-A66BC8D7A4EF {
     SECTION UI = "Panel_sdx55_sharp_4k_dsc_vid.xml"
     SECTION RAW = Binaries/betalm/RawFiles/Panel_sdx55_sharp_4k_dsc_vid.xml
-}
-
-
-FILE FREEFORM = 3E5584ED-05D4-4267-9048-0D47F76F4248 {
-    SECTION UI = "battery_symbol_Soc10.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/battery_symbol_Soc10.bmp
-}
-
-
-FILE FREEFORM = 4753E815-DDD8-402D-BF69-9B8C4EB7573E {
-    SECTION UI = "battery_symbol_NoBattery.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/battery_symbol_NoBattery.bmp
-}
-
-
-FILE FREEFORM = 03DED53E-BECD-428F-9F79-5ABA64C58445 {
-    SECTION UI = "battery_symbol_Nocharger.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/battery_symbol_Nocharger.bmp
-}
-
-
-FILE FREEFORM = 8B86CD38-C772-4FCF-85AA-345B2B3C1AB4 {
-    SECTION UI = "battery_symbol_LowBatteryCharging.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/battery_symbol_LowBatteryCharging.bmp
-}
-
-
-FILE FREEFORM = 3FD97907-93F1-4349-AF3C-3B68B0A5E626 {
-    SECTION UI = "battery_symbol_LowBattery.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/battery_symbol_LowBattery.bmp
-}
-
-
-FILE FREEFORM = E2EA5A4F-98BD-4203-AB49-399505DDFB7D {
-    SECTION UI = "tsens_thermal_symbol.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/tsens_thermal_symbol.bmp
-}
-
-
-FILE FREEFORM = C72FB1A9-5527-4E13-BAC4-F671D0330145 {
-    SECTION UI = "tsens_thermal_err_symbol.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/tsens_thermal_err_symbol.bmp
-}
-
-
-FILE FREEFORM = B0F8D1BE-5353-4812-B1F6-07E7768204CC {
-    SECTION UI = "battery_symbol_DebugBoot.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/battery_symbol_DebugBoot.bmp
-}
-
-
-FILE FREEFORM = F9E8F683-E065-4E09-B4F9-0230D7CECD08 {
-    SECTION UI = "battery_symbol_DebugStay.bmp"
-    SECTION RAW = Binaries/betalm/RawFiles/battery_symbol_DebugStay.bmp
 }
 
 
