@@ -989,6 +989,70 @@
 
 </td></tr> </table>
 
+## LG G8s
+
+<img align="right" src="Resources/Pictures/LG-G8s.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: betalm** <br>
+**Maintainers: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69)** <br>
+**Contributors: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69), [Icesito68](https://github.com/Icesito68)** <br>
+**Testers: [n00b69](https://github.com/n00b69)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ✅    |
+| Linux Boot         | Untested    | ❔    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> NOTE: Needs [Windows Drivers](https://github.com/n00b69/woa-betalm/releases/tag/Drivers)!
+
+| Feature              | Description                                                  | State |
+|:---------------------|:-------------------------------------------------------------|:-----:|
+| Internal Storage     |                                                              | ✅    |
+| SD Card              | Hot Plug doesn't work                                        | ⚠     |
+| Side Buttons         |                                                              | ✅    |
+| Proximity Sensor     |                                                              | ❌    |
+| Accelerometer Sensor |                                                              | ✅    |
+| Compass Sensor       |                                                              | ✅    |
+| Gyroscope Sensor     |                                                              | ✅    |
+| Fingerprint Sensor   |                                                              | ❌    |
+| NFC Sensor           |                                                              | ❌    |
+| Temperature Sensor   |                                                              | ❔    |
+| Battery              |                                                              | ✅    |
+| USB                  |                                                              | ✅    |
+| Charging             | Very slow                                                    | ⚠️    |
+| WLAN                 |                                                              | ✅    |
+| CPU                  |                                                              | ✅    |
+| Touchscreen          |                                                              | ✅    |
+| Bluetooth            |                                                              | ✅    |
+| GPS                  |                                                              | ✅    |
+| Speakers             |                                                              | ✅    |
+| 3.5mm Audio Jack     |                                                              | ✅    |
+| Microphone           |                                                              | ✅    |
+| GPU                  |                                                              | ✅    |
+| Flashlight           | Accessible only from Windows Camera, acts like a stroboscope | ⚠     |
+| Camera               |                                                              | ❌    |
+| Mobile Data          |                                                              | ✅️    |
+| Display              |                                                              | ✅    |
+| Vibration            |                                                              | ❌    |
+
+</td></tr> </table>
+
 ## OnePlus 7T Pro
 
 <img align="right" src="Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
