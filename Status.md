@@ -1024,30 +1024,30 @@
 | Feature              | Description                                                  | State |
 |:---------------------|:-------------------------------------------------------------|:-----:|
 | Internal Storage     |                                                              | ✅    |
-| SD Card              | Hot Plug doesn't work                                        | ⚠     |
+| SD Card              |                                                              | ❌    |
 | Side Buttons         |                                                              | ✅    |
-| Proximity Sensor     |                                                              | ❌    |
-| Accelerometer Sensor |                                                              | ✅    |
-| Compass Sensor       |                                                              | ✅    |
-| Gyroscope Sensor     |                                                              | ✅    |
+| Proximity Sensor     | Works partially but reversed, disabled for now               | ⚠️    |
+| Accelerometer Sensor | Works partially but reversed, disabled for now               | ⚠️    |
+| Compass Sensor       | Works partially but reversed, disabled for now               | ⚠️    |
+| Gyroscope Sensor     | Works partially but reversed, disabled for now               | ⚠️    |
 | Fingerprint Sensor   |                                                              | ❌    |
 | NFC Sensor           |                                                              | ❌    |
-| Temperature Sensor   |                                                              | ❔    |
+| Temperature Sensor   |                                                              | ❔     |
 | Battery              |                                                              | ✅    |
 | USB                  |                                                              | ✅    |
-| Charging             | Very slow                                                    | ⚠️    |
+| Charging             | USB charging is slow, wireless charging is somewhat fast     | ✅️    |
 | WLAN                 |                                                              | ✅    |
 | CPU                  |                                                              | ✅    |
 | Touchscreen          |                                                              | ✅    |
 | Bluetooth            |                                                              | ✅    |
 | GPS                  |                                                              | ✅    |
-| Speakers             |                                                              | ✅    |
+| Speakers             |                                                              | ❌    |
 | 3.5mm Audio Jack     |                                                              | ✅    |
-| Microphone           |                                                              | ✅    |
+| Microphone           |                                                              | ❌    |
 | GPU                  |                                                              | ✅    |
-| Flashlight           | Accessible only from Windows Camera, acts like a stroboscope | ⚠     |
+| Flashlight           |                                                              | ❌    |
 | Camera               |                                                              | ❌    |
-| Mobile Data          |                                                              | ✅️    |
+| Mobile Data          |                                                              | ❌    |
 | Display              |                                                              | ✅    |
 | Vibration            |                                                              | ❌    |
 
