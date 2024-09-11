@@ -1041,9 +1041,9 @@
 | Touchscreen          |                                                              | ✅    |
 | Bluetooth            |                                                              | ✅    |
 | GPS                  |                                                              | ✅    |
-| Speakers             |                                                              | ❌    |
+| Speakers             |                                                              | ✅    |
 | 3.5mm Audio Jack     |                                                              | ✅    |
-| Microphone           | Bottom only                                                  | ✅    |
+| Microphone           |                                                              | ✅    |
 | GPU                  |                                                              | ✅    |
 | Flashlight           | Accessible only from Windows Camera, acts like a stroboscope | ⚠    |
 | Camera               |                                                              | ❌    |
