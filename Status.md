@@ -945,6 +945,7 @@
 | USB Host Mode      |             | ❌    |
 | USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
+| SD Card            |             | ❌    |
 | Mass Storage       | Broken      | ❌    |
 | Windows Boot       |             | ✅    |
 | Linux Boot         | Untested    | ❔    |
@@ -988,6 +989,69 @@
 | Vibration            |                                                              | ❌    |
 
 </td></tr> </table>
+
+## LG G8s
+
+<img align="right" src="Resources/Pictures/LG-G8s.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: betalm** <br>
+**Maintainers: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69)** <br>
+**Contributors: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69), [Icesito68](https://github.com/Icesito68)** <br>
+**Testers: [n00b69](https://github.com/n00b69)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| SD Card            | Broken      | ❌    |
+| Windows Boot       |             | ✅    |
+| Linux Boot         | Untested    | ❔    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> NOTE: Needs [Windows Drivers](https://github.com/n00b69/woa-betalm/releases/tag/Drivers)!
+
+| Feature              | Description                                                  | State |
+|:---------------------|:-------------------------------------------------------------|:-----:|
+| Internal Storage     |                                                              | ✅    |
+| SD Card              |                                                              | ❌    |
+| Side Buttons         |                                                              | ✅    |
+| Proximity Sensor     | Works partially but reversed, disabled for now               | ⚠️    |
+| Accelerometer Sensor | Works partially but reversed, disabled for now               | ⚠️    |
+| Compass Sensor       | Works partially but reversed, disabled for now               | ⚠️    |
+| Gyroscope Sensor     | Works partially but reversed, disabled for now               | ⚠️    |
+| Fingerprint Sensor   |                                                              | ❌    |
+| NFC Sensor           |                                                              | ❌    |
+| Temperature Sensor   |                                                              | ❔     |
+| Battery              |                                                              | ✅    |
+| USB                  |                                                              | ✅    |
+| Charging             | USB charging is slow, wireless charging is somewhat fast     | ✅️    |
+| WLAN                 |                                                              | ✅    |
+| CPU                  |                                                              | ✅    |
+| Touchscreen          |                                                              | ✅    |
+| Bluetooth            |                                                              | ✅    |
+| GPS                  |                                                              | ✅    |
+| Speakers             |                                                              | ❌    |
+| 3.5mm Audio Jack     |                                                              | ✅    |
+| Microphone           |                                                              | ❌    |
+| GPU                  |                                                              | ✅    |
+| Flashlight           |                                                              | ❌    |
+| Camera               |                                                              | ❌    |
+| Mobile Data          |                                                              | ❌    |
+| Display              |                                                              | ✅    |
+| Vibration            |                                                              | ❌    |
 
 ## OnePlus 7T Pro
 
