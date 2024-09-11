@@ -1053,6 +1053,8 @@
 | Display              |                                                              | ✅    |
 | Vibration            |                                                              | ❌    |
 
+</td></tr> </table>
+
 ## OnePlus 7T Pro
 
 <img align="right" src="Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
