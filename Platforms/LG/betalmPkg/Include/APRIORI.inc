@@ -39,8 +39,8 @@ APRIORI DXE {
   INF Binaries/betalm/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/betalm/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
-  INF Binaries/betalm/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF Binaries/betalm/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/betalm/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
