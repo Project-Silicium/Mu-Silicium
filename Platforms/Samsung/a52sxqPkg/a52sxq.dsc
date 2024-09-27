@@ -42,7 +42,7 @@
   DevicePrePiLib|a52sxqPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000 
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"arminask"
@@ -70,7 +70,7 @@
   #gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37980
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xF0900000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE4B00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE

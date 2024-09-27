@@ -2,7 +2,7 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  
+
   INF Binaries/a52sxq/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
@@ -38,7 +38,7 @@ APRIORI DXE {
 
   INF Binaries/a52sxq/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
@@ -52,11 +52,11 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
-  #INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
@@ -77,7 +77,7 @@ APRIORI DXE {
 
   INF Binaries/a52sxq/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
