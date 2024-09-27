@@ -51,8 +51,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  #INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
-
   INF Binaries/a52sxq/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
@@ -71,11 +69,11 @@ APRIORI DXE {
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
 
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-  !else
+!else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-  !endif
+!endif
 
   INF Binaries/a52sxq/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
@@ -108,6 +106,8 @@ APRIORI DXE {
   INF Binaries/a52sxq/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/a52sxq/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
@@ -120,7 +120,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
 }
