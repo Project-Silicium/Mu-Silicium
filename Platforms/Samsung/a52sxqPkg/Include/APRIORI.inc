@@ -2,7 +2,7 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  
+
   INF Binaries/a52sxq/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
@@ -38,7 +38,7 @@ APRIORI DXE {
 
   INF Binaries/a52sxq/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
@@ -51,12 +51,14 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
+  #INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
+
   INF Binaries/a52sxq/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
-  #INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
@@ -69,15 +71,15 @@ APRIORI DXE {
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
 
-!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-!else
+  !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-!endif
+  !endif
 
   INF Binaries/a52sxq/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
@@ -103,10 +105,9 @@ APRIORI DXE {
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  INF Binaries/a52sxq/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
@@ -119,4 +120,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+  #INF Binaries/a52sxq/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
+  #INF Binaries/a52sxq/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
+  #INF Binaries/a52sxq/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
 }
