@@ -1,7 +1,7 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  # Doesn't boot UEFI when enabled
+  # Needs XBL Sched Protocol so it can Work.
   #INF Binaries/a52sxq/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
@@ -10,7 +10,6 @@
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
-  #INF Binaries/a52sxq/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   #INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
   #INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
@@ -41,9 +40,9 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  #INF MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
   INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
@@ -69,20 +68,20 @@
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-  !endif
+!endif
   INF Binaries/a52sxq/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   #INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-  !else
+!else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-  !endif
+!endif
 
   #INF Binaries/a52sxq/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
@@ -107,16 +106,14 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+
   # Doesn't boot UEFI with PILDxe enabled, something about abl and uefipil.cfg
   #INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
+
   INF Binaries/a52sxq/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  #INF Binaries/a52sxq/QcomPkg/Application/SamsungQuestApp/SamsungQuestApp.inf
-  #INF Binaries/a52sxq/QcomPkg/Application/SamsungDdrApp/SamsungDdrApp.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
