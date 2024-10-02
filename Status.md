@@ -448,7 +448,7 @@
 | Hall Sensor          |             | ❌    |
 | Gravity Sensor       |             | ❌    |
 | NFC Sensor           |             | ❌    |
-| Temperature Sensor   |             | ❌    |
+| Temperature Sensor   |             | ✅    |
 | Battery              |             | ❌    |
 | USB Host Mode        |             | ❌    |
 | USB Device Mode      |             | ✅    |
