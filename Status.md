@@ -1640,7 +1640,30 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
+## Realme 9 5G Speed Edition
 
+<img align="right" src="Resources/Pictures/Realme_9_5G_Speed_Edition.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: ice** <br>
+**Maintainer: [Hyusang](https://github.com/cloudsweets)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Testers: [Hyusang](https://github.com/cloudsweets)**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ❌    |
+| Internal Storage   |                   | ❌    |
+| Side Buttons       |                   | ❌    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ❌    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |                   | ❌    |
+| SD Card            |                   | ❌    |
+| Windows Boot       |                   | ❌    |
+| Linux Boot         |                   | ❌    |
 
   </summary>
 </details>
