@@ -1642,7 +1642,7 @@
 
 ## Realme 9 5G Speed Edition
 
-<img align="right" src="Resources/Pictures/Realme_9_5G_Speed_Edition.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Realme_9_5G_Speed_Edition.png" width="430" alt="Preview">
 
 **State: Active** <br>
 **Codename: ice** <br>
