@@ -39,14 +39,14 @@
     INF Binaries/ice/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
     INF Binaries/ice/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
 
-    INF Binaries/ice/QcomPkg/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-    INF Binaries/ice/QcomPkg/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-    INF Binaries/ice/QcomPkg/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+    INF Binaries/ice/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+    INF Binaries/ice/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+    INF Binaries/ice/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
     INF FatPkg/EnhancedFatDxe/Fat.inf
 
-    INF Binaries/ice/QcomPkg/MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-    INF Binaries/ice/QcomPkg/MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
+    INF Binaries/ice/MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+    INF Binaries/ice/MdeModulePkg/Universal/FvSimpleFileSystemDxe/FvSimpleFileSystemDxe.inf
 
     INF Binaries/ice/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
     INF Binaries/ice/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
