@@ -78,7 +78,9 @@ APRIORI DXE {
     INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
 
     INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
-    INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+
+    INF Binaries/ice/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+
     INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
     INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
