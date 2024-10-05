@@ -1654,13 +1654,13 @@
 
 | Feature            | Description       | State |
 |:-------------------|:------------------|:-----:|
-| Display            |                   | ❌    |
-| Internal Storage   |                   | ❌    |
-| Side Buttons       |                   | ❌    |
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
 | USB Host Mode      |                   | ❌    |
-| USB Device Mode    |                   | ❌    |
+| USB Device Mode    |                   | ✅    |
 | USB Power Delivery |                   | ❌    |
-| Mass Storage       |                   | ❌    |
+| Mass Storage       |                   | ❔    |
 | SD Card            |                   | ❌    |
 | Windows Boot       |                   | ❌    |
 | Linux Boot         |                   | ❌    |
