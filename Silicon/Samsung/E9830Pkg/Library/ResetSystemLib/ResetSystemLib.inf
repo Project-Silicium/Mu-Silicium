@@ -1,0 +1,20 @@
+[Defines]
+  INF_VERSION                    = 0x00010019
+  BASE_NAME                      = ResetSystemLib
+  FILE_GUID                      = 18B12C83-7718-4D83-ADA4-87F2FE698DD5
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = HwResetSystemLib
+
+[Sources]
+  ResetSystemLib.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  IoLib
