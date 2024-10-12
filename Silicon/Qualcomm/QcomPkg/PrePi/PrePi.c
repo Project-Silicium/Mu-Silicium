@@ -127,7 +127,7 @@ PrePiMain (IN UINT64 StartTimeStamp)
   BuildStackHob (StacksBase, StacksSize);
 
   // Build CPU HOB
-  BuildCpuHob (ArmGetPhysicalAddressBits (), PcdGet8 (PcdPrePiCpuIoSize));
+  BuildCpuHob ((UINT8)ArmGetPhysicalAddressBits (), PcdGet8 (PcdPrePiCpuIoSize));
 
   if (ArmIsMpCore ()) {
     ARM_MP_CORE_INFO_PPI *ArmMpCoreInfoPpi = NULL;
