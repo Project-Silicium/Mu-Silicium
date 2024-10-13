@@ -1,5 +1,5 @@
-#ifndef _FRAME_BUFFER_H_
-#define _FRAME_BUFFER_H_
+#ifndef _FRAME_BUFFER_SERIAL_PORT_LIB_H_
+#define _FRAME_BUFFER_SERIAL_PORT_LIB_H_
 
 typedef struct _FBCON_POSITION {
   INTN x;
@@ -11,10 +11,4 @@ typedef struct _FBCON_COLOR {
   UINTN Background;
 } FBCON_COLOR, *PFBCON_COLOR;
 
-VOID
-WriteFrameBuffer (CHAR8 Buffer);
-
-BOOLEAN
-FrameBufferLogInit ();
-
-#endif /* _FRAME_BUFFER_H_ */
+#endif /* _FRAME_BUFFER_SERIAL_PORT_LIB_H_ */

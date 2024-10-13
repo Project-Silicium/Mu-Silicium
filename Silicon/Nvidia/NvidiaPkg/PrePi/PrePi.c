@@ -186,20 +186,6 @@ CEntryPoint ()
   // Init Serial Port
   SerialPortInitialize ();
 
-#ifdef EFI_DEBUG
-  ARM_MEMORY_REGION_DESCRIPTOR_EX PStore;
-
-  // Clear PStore Region
-  Status = LocateMemoryMapAreaByName ("PStore", &PStore);
-  if (!EFI_ERROR (Status)) {
-    UINT8 *Base = (UINT8 *)PStore.Address;
-
-    for (UINTN i = 0; i < PStore.Length; i++) {
-      Base[i] = 0;
-    }
-  }
-#endif
-
   // Run Specific SoC Code
   PlatformInitialize ();
 

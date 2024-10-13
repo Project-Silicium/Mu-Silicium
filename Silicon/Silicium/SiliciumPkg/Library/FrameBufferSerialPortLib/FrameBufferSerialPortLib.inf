@@ -7,9 +7,7 @@
   LIBRARY_CLASS                  = SerialPortLib
 
 [Sources]
-  SerialPortLib.c
-  FrameBuffer.c
-  PStore.c
+  FrameBufferSerialPortLib.c
 
 [Packages]
   ArmPkg/ArmPkg.dec

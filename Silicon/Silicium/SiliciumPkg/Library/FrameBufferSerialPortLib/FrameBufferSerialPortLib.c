@@ -1,22 +1,24 @@
+#include <Library/ArmLib.h>
+#include <Library/BaseMemoryLib.h>
 #include <Library/CacheMaintenanceLib.h>
 #include <Library/MemoryMapHelperLib.h>
+#include <Library/SerialPortLib.h>
 #include <Library/TimerLib.h>
-#include <Library/BaseMemoryLib.h>
 
 #include <Resources/font5x12.h>
 
-#include "FrameBuffer.h"
+#include "FrameBufferSerialPortLib.h"
 
-STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
+ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
 
-STATIC FBCON_POSITION *CurrentPosition;
-STATIC FBCON_POSITION  MaxPosition;
-STATIC FBCON_COLOR     FrameBufferColor;
+FBCON_POSITION *CurrentPosition;
+FBCON_POSITION  MaxPosition;
+FBCON_COLOR     FrameBufferColor;
 
-STATIC UINTN ScreenWidth      = FixedPcdGet32(PcdMipiFrameBufferWidth);
-STATIC UINTN ScreenHeight     = FixedPcdGet32(PcdMipiFrameBufferHeight);
-STATIC UINTN ScreenColorDepth = FixedPcdGet32(PcdMipiFrameBufferColorDepth);
-STATIC UINTN PrintDelay       = FixedPcdGet32(PcdMipiFrameBufferDelay);
+UINTN ScreenWidth      = FixedPcdGet32 (PcdMipiFrameBufferWidth);
+UINTN ScreenHeight     = FixedPcdGet32 (PcdMipiFrameBufferHeight);
+UINTN ScreenColorDepth = FixedPcdGet32 (PcdMipiFrameBufferColorDepth);
+UINTN PrintDelay       = FixedPcdGet32 (PcdMipiFrameBufferDelay);
 
 VOID
 DrawDebugMessage (
@@ -193,7 +195,7 @@ newline:
     WriteBackInvalidateDataCacheRange ((VOID *)DisplayMemoryRegion.Address, (ScreenWidth * ScreenHeight * (ScreenColorDepth / 8)));
 
     // Set CurrentPosition Height to First Line
-    CurrentPosition->y = 0;
+    CurrentPosition->y = -1;
 
     // Enable Interrupts
     if (InterruptsEnabled) { ArmEnableInterrupts (); }
@@ -208,8 +210,70 @@ newline:
   }
 }
 
+UINTN
+EFIAPI
+SerialPortWrite (
+  IN UINT8 *Buffer,
+  IN UINTN  NumberOfBytes)
+{
+  UINT8 *CONST Final          = &Buffer[NumberOfBytes];
+  UINTN        InterruptState = ArmGetInterruptState ();
+
+  // Disable Interrupts
+  if (InterruptState) { ArmDisableInterrupts (); }
+
+  // Write Debug Message to Frame Buffer
+  while (Buffer < Final) { WriteFrameBuffer (*Buffer++); }
+
+  // Enable Interrupts
+  if (InterruptState) { ArmEnableInterrupts (); }
+
+  return NumberOfBytes;
+}
+
+UINTN
+EFIAPI
+SerialPortRead (
+  OUT UINT8 *Buffer,
+  IN  UINTN  NumberOfBytes)
+{
+  return 0;
+}
+
 BOOLEAN
-FrameBufferLogInit ()
+EFIAPI
+SerialPortPoll () { return FALSE; }
+
+RETURN_STATUS
+EFIAPI
+SerialPortSetControl (IN UINT32 Control) { return RETURN_UNSUPPORTED; }
+
+RETURN_STATUS
+EFIAPI
+SerialPortGetControl (OUT UINT32 *Control) { return RETURN_UNSUPPORTED; }
+
+RETURN_STATUS
+EFIAPI
+SerialPortSetAttributes (
+  IN OUT UINT64             *BaudRate,
+  IN OUT UINT32             *ReceiveFifoDepth,
+  IN OUT UINT32             *Timeout,
+  IN OUT EFI_PARITY_TYPE    *Parity,
+  IN OUT UINT8              *DataBits,
+  IN OUT EFI_STOP_BITS_TYPE *StopBits)
+{
+  return RETURN_UNSUPPORTED;
+}
+
+UINTN
+SerialPortFlush () { return 0; }
+
+VOID
+EnableSynchronousSerialPortIO () {}
+
+RETURN_STATUS
+EFIAPI
+SerialPortInitialize ()
 {
   EFI_STATUS Status;
 
@@ -218,7 +282,7 @@ FrameBufferLogInit ()
   if (EFI_ERROR (Status)) { 
     // Get Secondary Frame Buffer Base Address
     Status = LocateMemoryMapAreaByName ("Display Reserved-2", &DisplayMemoryRegion);
-    if (EFI_ERROR (Status)) { return FALSE; }
+    if (EFI_ERROR (Status)) { return RETURN_UNSUPPORTED; }
   }
 
   // Set Total Position
@@ -232,5 +296,5 @@ FrameBufferLogInit ()
   FrameBufferColor.Foreground = 0xFFFFFFFF; // White
   FrameBufferColor.Background = 0xFF000000; // Black
 
-  return TRUE;
+  return RETURN_SUCCESS;
 }

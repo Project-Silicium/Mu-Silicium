@@ -192,7 +192,7 @@
 !if $(TARGET) == RELEASE
   SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
 !else
-  SerialPortLib|SiliciumPkg/Library/SerialPortLib/SerialPortLib.inf
+  SerialPortLib|SiliciumPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
 !endif
 
   PlatformThemeLib|SiliciumPkg/Library/PlatformThemeLib/PlatformThemeLib.inf
