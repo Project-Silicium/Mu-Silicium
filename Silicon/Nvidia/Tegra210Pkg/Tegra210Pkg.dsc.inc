@@ -82,6 +82,7 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|Tegra210Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  DynamicRamLib|Tegra210Pkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
 
 [Components]
   Tegra210Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

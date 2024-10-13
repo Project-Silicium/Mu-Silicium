@@ -49,9 +49,8 @@
   DevicePrePiLib|VenusTZPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
-  # DDR Start Address & DDR RAM Size (2 GB)
+  # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x80000000
 
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
@@ -74,6 +73,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1366
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|768
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+
+  # Dynamic RAM
+  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0xFD15A000
 
 [Components]
   # Keypad

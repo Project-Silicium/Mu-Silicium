@@ -1,0 +1,21 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DynamicRamLib
+  FILE_GUID                      = 00D39D40-12E9-4886-8860-A1F6F80086C1
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = DynamicRamLib|DXE_DRIVER
+
+[Sources]
+  DynamicRamLib.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  NvidiaPkg/NvidiaPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  IoLib
+  MemoryMapHelperLib
+  DebugLib

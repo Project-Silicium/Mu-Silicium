@@ -21,3 +21,6 @@
   gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4|0|UINT32|0x0000A003
   gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5|0|UINT32|0x0000A004
   gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6|0|UINT32|0x0000A005
+
+  # Dynamic RAM
+  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000A100

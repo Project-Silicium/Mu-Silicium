@@ -13,6 +13,7 @@
   ArmPkg/ArmPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
+  NvidiaPkg/NvidiaPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
@@ -22,6 +23,7 @@
   BaseMemoryLib
   MemoryAllocationLib
   UefiLib
+  DynamicRamLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase

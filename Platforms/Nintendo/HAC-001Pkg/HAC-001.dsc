@@ -52,9 +52,8 @@
   DevicePrePiLib|HAC-001Pkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
-  # DDR Start Address & DDR RAM Size (4 GB)
+  # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x100000000
 
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Robotix"
@@ -82,6 +81,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1280
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+
+  # Dynamic RAM
+  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000
 
 [Components]
   # Keypad

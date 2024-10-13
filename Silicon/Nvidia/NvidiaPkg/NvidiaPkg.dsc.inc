@@ -9,6 +9,10 @@
 #
 ##
 
+[PcdsFixedAtBuild]
+  # RAM Size (512 MB)
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
+
 [LibraryClasses]
   # Custom Libraries
 !if $(USE_CUSTOM_TIMER) == 1
@@ -23,6 +27,7 @@
   }
 
   # Custom Tegra Drivers
+  NvidiaPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 !if $(USE_CUSTOM_TIMER) == 1
   NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf

@@ -47,6 +47,7 @@
 #include <Library/UefiLib.h>
 #include <Library/PrintLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/DynamicRamLib.h>
 
 #include <Protocol/Smbios.h>
 
@@ -194,11 +195,11 @@ CacheInfoUpdateSmbiosType7 ()
 }
 
 VOID
-PhyMemArrayInfoUpdateSmbiosType16 ()
+PhyMemArrayInfoUpdateSmbiosType16 (UINT64 SystemMemorySize)
 {
   EFI_SMBIOS_HANDLE MemArraySmbiosHande;
 
-  mPhyMemArrayInfoType16.ExtendedMaximumCapacity = FixedPcdGet64(PcdSystemMemorySize);
+  mPhyMemArrayInfoType16.ExtendedMaximumCapacity = SystemMemorySize;
 
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mPhyMemArrayInfoType16, mPhyMemArrayInfoType16Strings, &MemArraySmbiosHande);
 
@@ -207,18 +208,18 @@ PhyMemArrayInfoUpdateSmbiosType16 ()
 }
 
 VOID
-MemDevInfoUpdateSmbiosType17 ()
+MemDevInfoUpdateSmbiosType17 (UINT64 SystemMemorySize)
 {
-  mMemDevInfoType17.Size = FixedPcdGet64(PcdSystemMemorySize) / 0x100000;
+  mMemDevInfoType17.Size = SystemMemorySize / 0x100000;
 
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemDevInfoType17, mMemDevInfoType17Strings, NULL);
 }
 
 VOID
-MemArrMapInfoUpdateSmbiosType19 ()
+MemArrMapInfoUpdateSmbiosType19 (UINT64 SystemMemorySize)
 {
   mMemArrMapInfoType19.StartingAddress = FixedPcdGet64(PcdSystemMemoryBase) / 1024;
-  mMemArrMapInfoType19.EndingAddress   = (FixedPcdGet64(PcdSystemMemorySize) + FixedPcdGet64(PcdSystemMemoryBase) - 1) / 1024;
+  mMemArrMapInfoType19.EndingAddress   = (SystemMemorySize + FixedPcdGet64(PcdSystemMemoryBase) - 1) / 1024;
 
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19, mMemArrMapInfoType19Strings, NULL);
 }
@@ -229,16 +230,26 @@ InitializeSmBiosTable (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
+  EFI_STATUS Status;
+  UINT64     MemorySize;
+
   // Update SmBios Data Definitions
-  BIOSInfoUpdateSmbiosType0         ();
-  SysInfoUpdateSmbiosType1          ();
-  BoardInfoUpdateSmbiosType2        ();
-  EnclosureInfoUpdateSmbiosType3    ();
-  ProcessorInfoUpdateSmbiosType4    ();
-  CacheInfoUpdateSmbiosType7        ();
-  PhyMemArrayInfoUpdateSmbiosType16 ();
-  MemDevInfoUpdateSmbiosType17      ();
-  MemArrMapInfoUpdateSmbiosType19   ();
+  BIOSInfoUpdateSmbiosType0      ();
+  SysInfoUpdateSmbiosType1       ();
+  BoardInfoUpdateSmbiosType2     ();
+  EnclosureInfoUpdateSmbiosType3 ();
+  ProcessorInfoUpdateSmbiosType4 ();
+  CacheInfoUpdateSmbiosType7     ();
+
+  // Get Max RAM Size
+  Status = GetMemorySize (&MemorySize);
+  if (EFI_ERROR (Status)) {
+    MemorySize = FixedPcdGet64 (PcdSystemMemorySize);
+  }
+
+  PhyMemArrayInfoUpdateSmbiosType16 (MemorySize);
+  MemDevInfoUpdateSmbiosType17      (MemorySize);
+  MemArrMapInfoUpdateSmbiosType19   (MemorySize);
 
   return EFI_SUCCESS;
 }

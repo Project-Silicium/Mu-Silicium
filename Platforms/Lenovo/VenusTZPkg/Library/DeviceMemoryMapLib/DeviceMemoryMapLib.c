@@ -12,12 +12,13 @@ gDeviceMemoryDescriptorEx[] = {
   {"DXE Heap",             0x80241000, 0x03C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"RAM Partition",        0x83E81000, 0x782D8000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"Display Reserved",     0xFC159000, 0x01000000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH},
-  {"RAM Partition",        0xFD159000, 0x02EA7000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"RAM Partition",        0xFD159000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},    // Needed to Bypass MMU Loop
 
   // Register Regions
   {"Gic",                  0x50040000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Tegra Timer",          0x60005000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Keyboard Controller",  0x7000E200, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"Memory Controller",    0x7000F000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
 
   // Terminator for MMU
   {"Terminator", 0, 0, 0, 0, 0, 0, 0}
