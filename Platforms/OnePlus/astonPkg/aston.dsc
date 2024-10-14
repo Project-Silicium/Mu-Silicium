@@ -34,7 +34,6 @@
   DeviceConfigurationMapLib|astonPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
   DevicePrePiLib|astonPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000  
@@ -70,7 +69,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2780
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  # XBL Protocol
+  # Platform Pei
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703A0C8
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703A930
 

@@ -7,16 +7,18 @@
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
-[PcdsFixedAtBuild.common]
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000             # 512 MB Size
+[PcdsFixedAtBuild]
+  # RAM Size (512 MB)
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
+
+[LibraryClasses]
+  # Pei Library
+  PlatformPeiLib|SamsungPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
+
+  # Memory Pritection Library
+  MemoryProtectionLib|SamsungPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
 
 [Components]
-  # PrePI
-  SamsungPkg/PrePi/PrePi.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
-  }
-
   # Custom Exynos Drivers
   SamsungPkg/Drivers/ExynosGpioDxe/ExynosGpioDxe.inf
   SamsungPkg/Drivers/ExynosSpeedyDxe/ExynosSpeedyDxe.inf

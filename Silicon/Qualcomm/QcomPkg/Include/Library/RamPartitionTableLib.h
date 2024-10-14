@@ -12,8 +12,8 @@
 #define RAM_PART_SYS_MEMORY             1
 #define RAM_PART_SDRAM                  14
 
-#define GENERIC_RAM_BASE                FixedPcdGet64(PcdSystemMemoryBase)
-#define RAM_PARTITION_BASE              FixedPcdGet64(PcdRamPartitionBase)
+#define GENERIC_RAM_BASE                FixedPcdGet64 (PcdSystemMemoryBase)
+#define RAM_PARTITION_BASE              FixedPcdGet64 (PcdRamPartitionBase)
 
 //
 // RAM Partition Entry Structure
@@ -55,7 +55,9 @@ typedef struct ram_partition_table {
   @param[out] RamPartitionTable     - The Structure of the RAM Partition.
   @param[out] Version               - The Version of the RAM Partitions.
 
-  @retval Status                    - The EFI_STATUS returned by this Function.
+  @retval EFI_SUCCESS               - Successfully got RAM Partition Infos.
+  @retval EFI_NOT_FOUND             - Failed to get RAM Partition Version.
+  ...
 **/
 EFI_STATUS
 GetRamPartitions (

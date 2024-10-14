@@ -4,8 +4,8 @@
 EFI_STATUS
 EFIAPI
 LocateConfigurationMapUINT32ByName (
-  CHAR8  *Key,
-  UINT32 *Value)
+  IN  CHAR8  *Key,
+  OUT UINT32 *Value)
 {
   PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
 
@@ -25,8 +25,8 @@ LocateConfigurationMapUINT32ByName (
 EFI_STATUS
 EFIAPI
 LocateConfigurationMapUINT64ByName (
-  CHAR8  *Key,
-  UINT64 *Value)
+  IN  CHAR8  *Key,
+  OUT UINT64 *Value)
 {
   PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
 

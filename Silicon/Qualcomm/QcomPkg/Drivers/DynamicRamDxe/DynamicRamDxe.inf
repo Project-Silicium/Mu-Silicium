@@ -24,7 +24,6 @@
   PcdLib
   ArmMmuLib
   RamPartitionTableLib
-  MemoryMapHelperLib
   SortLib
 
 [FixedPcd]

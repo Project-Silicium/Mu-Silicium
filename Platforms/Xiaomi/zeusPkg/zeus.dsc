@@ -67,7 +67,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  # XBL Protocols
+  # Platform Pei
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703B0C8
 

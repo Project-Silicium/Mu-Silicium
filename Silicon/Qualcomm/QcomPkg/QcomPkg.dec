@@ -94,19 +94,26 @@
   gEfiKernelProtocolGuid              = { 0xB5062BE7, 0x170B, 0x4A32, { 0xBE, 0x21, 0x68, 0x92, 0x62, 0xFF, 0x43, 0x99 } }
 
 [PcdsFixedAtBuild]
-  # XBL Protocol Addresses
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000B000
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0|UINT64|0x0000B001
+  # HOB PCDs
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|""|VOID*|0x0000B000
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|FALSE|BOOLEAN|0x0000B001
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|FALSE|BOOLEAN|0x0000B002
+  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|FALSE|BOOLEAN|0x0000B003
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE|BOOLEAN|0x0000B004
+
+  # XBL Protocol Addresses PCDs
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000B100
+  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0|UINT64|0x0000B101
 
   # Dynamic RAM Start Address PCD
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B100
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B200
 
   # Clock Speed Up Driver PCDs
-  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE|BOOLEAN|0x0000B200
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B201
+  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE|BOOLEAN|0x0000B300
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B301
 
   # Start USB Controller PCD
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B300
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B400
 
   # SD Card Init PCD
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B400
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B500
