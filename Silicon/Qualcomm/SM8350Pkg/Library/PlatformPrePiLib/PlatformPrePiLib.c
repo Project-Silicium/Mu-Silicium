@@ -1,6 +1,5 @@
 #include <Library/IoLib.h>
 #include <Library/PlatformPrePiLib.h>
-#include <Library/DevicePrePiLib.h>
 #include <Library/PcdLib.h>
 #include <Library/ConfigurationMapHelperLib.h>
 
@@ -20,7 +19,4 @@ PlatformInitialize ()
       MmioWrite32 (GICR_WAKER_CPU(i), (MmioRead32 (GICR_WAKER_CPU(i)) & ~GIC_WAKER_PROCESSORSLEEP));
     }
   }
-
-  // Run Device Specific Code
-  DeviceInitialize ();
 }

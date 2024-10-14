@@ -66,6 +66,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
+  # Platform Pei
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
+
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x80000000
 

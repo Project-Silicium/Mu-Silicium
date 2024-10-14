@@ -62,8 +62,13 @@
   # CPU Max Freq
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE
 
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
+
 [LibraryClasses]
-  PlatformPeiLib|SM7325Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SM7325Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|SM7325Pkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|SM7325Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf

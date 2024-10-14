@@ -123,7 +123,7 @@ READ_STATUS        = TRUE
 READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
 
-  INF QcomPkg/PrePi/PrePi.inf
+  INF SiliciumPkg/PrePi/PrePi.inf
 
   FILE FREEFORM = DDE58710-41CD-4306-DBFB-3FA90BB1D2DD {
     SECTION UI = "uefiplat.cfg"

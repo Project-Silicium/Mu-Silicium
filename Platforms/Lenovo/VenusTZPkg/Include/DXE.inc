@@ -22,6 +22,7 @@
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
 
   INF NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf
+  INF NvidiaPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   INF NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0

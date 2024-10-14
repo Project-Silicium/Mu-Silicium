@@ -89,6 +89,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
+  # Platform Pei
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"       # Actually its "LA".
+
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 

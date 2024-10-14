@@ -67,7 +67,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-  # XBL Protocol
+  # Platform Pei
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37980
 
   # Dynamic RAM Start Address

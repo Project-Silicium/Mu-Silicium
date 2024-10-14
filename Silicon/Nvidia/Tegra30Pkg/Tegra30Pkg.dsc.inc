@@ -16,13 +16,6 @@
   USE_CUSTOM_TIMER                           = 1
   USE_PHYSICAL_TIMER                         = 1
 
-  # KEP
-  ENABLE_KEP                                 = 0
-  HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
-  HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
-  HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
-  HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
-
 [PcdsFixedAtBuild]
   # Timer
   gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1|32
@@ -60,12 +53,12 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|1
 
 [LibraryClasses]
-  PlatformPeiLib|Tegra30Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|Tegra30Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|Tegra30Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  DynamicRamLib|Tegra30Pkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
 
 [Components]
   Tegra30Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

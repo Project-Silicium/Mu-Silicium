@@ -38,20 +38,18 @@ PrintGUI (CHAR16 *Message)
 EFI_STATUS
 StartMassStorage ()
 {
-  EFI_STATUS    Status          = EFI_SUCCESS;
-  BOOLEAN       DisplayedNotice = FALSE;
-  BOOLEAN       Connected       = FALSE;
-  UINTN         CurrentSplash   = 0;
+  EFI_STATUS Status          = EFI_SUCCESS;
+  BOOLEAN    Connected       = FALSE;
+  UINTN      CurrentSplash   = 0;
 
   // Start Mass Storage
   Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
-    goto exit;
+    DEBUG ((EFI_D_ERROR, "Failed to set USB Values! Status = %r\n", Status));
+    return Status;
   }
 
   do {
-    EFI_INPUT_KEY Key;
-
     // Execute Event Handler
     mUsbMsdProtocol->EventHandler (mUsbMsdProtocol);
 
@@ -59,7 +57,7 @@ StartMassStorage ()
     mChargerExProtocol->GetChargerPresence (&Connected);
 
     // Display Splash depending on Connect State
-    if (Connected && CurrentSplash != BG_MSD_CONNECTED) {
+    if (Connected) {
       // Display Connected Splash
       DisplayBootGraphic (BG_MSD_CONNECTED);
 
@@ -68,10 +66,7 @@ StartMassStorage ()
 
       // New Message
       PrintGUI (L"Disconnect your Device to Enable Exit Function.");
-
-      // Reset Notice Message
-      DisplayedNotice = FALSE;
-    } else if (!Connected && CurrentSplash != BG_MSD_DISCONNECTED) {
+    } else if (!Connected) {
       // Display Disconnected Splash
       DisplayBootGraphic (BG_MSD_DISCONNECTED);
 
@@ -82,19 +77,15 @@ StartMassStorage ()
       PrintGUI (L"Press Volume Up Button to Exit Mass Storage.");
     }
 
-    // Get current Key
-    gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
-
     // Display Confirm Message
     if (!Connected) {
-      if (Key.ScanCode == SCAN_UP && DisplayedNotice == FALSE) {
-        PrintGUI (L"Press Power Button to Confirm Exiting Mass Storage.");
+      EFI_INPUT_KEY Key;
 
-        DisplayedNotice = TRUE;
-      }
+      // Get current Key
+      gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
 
       // Leave Loop
-      if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN && DisplayedNotice == TRUE) {
+      if (Key.UnicodeChar == SCAN_UP) {
         // Stop Mass Storage
         mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
 
@@ -107,8 +98,7 @@ StartMassStorage ()
     }
   } while (TRUE);
 
-exit:
-  return Status;
+  return EFI_SUCCESS;
 }
 
 EFI_STATUS
@@ -126,29 +116,29 @@ PrepareMassStorage ()
   Status = gBS->LocateProtocol (&gEfiUsbMsdProtocolGuid, NULL, (VOID *)&mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate USB Mass Storage Protocol! Status = %r\n", Status));
-    goto exit;
+    return Status;
   }
 
   // Locate Charger Protocol
   Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID *)&mChargerExProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate Charger Ex Protocol! Status = %r\n", Status));
-    goto exit;
+    return Status;
   }
 
   // Locate Console Out Protocol
   Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&mConsoleOutHandle);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate Console Out Protocol! Status = %r\n", Status));
-    goto exit;
+    return Status;
   }
 
   // Locate UFS & eMMC Device Path
   Status  = gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &UFSDevicePath,  &UFSHandle);
   Status |= gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &eMMCDevicePath, &eMMCHandle);
   if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
-    DEBUG ((EFI_D_ERROR, "Failed to Get Device Path of UFS and eMMC! Status = %r\n", Status));
-    goto exit;
+    DEBUG ((EFI_D_ERROR, "Failed to Get Device Path of UFS/eMMC! Status = %r\n", Status));
+    return EFI_NOT_FOUND;
   }
 
   // Open & Assign UFS BLK IO Protocol
@@ -157,14 +147,14 @@ PrepareMassStorage ()
     Status = gBS->OpenProtocol (UFSHandle, &gEfiBlockIoProtocolGuid, (VOID *)&UFSBlkIoProtocol, NULL, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Open BLK IO Protocol of UFS! Status = %r\n", Status));
-      goto exit;
+      return Status;
     }
 
     // Assign Protocol
     Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, UFSBlkIoProtocol, 0);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Assign UFS BLK IO Protocol! Status = %r\n", Status));
-      goto exit;
+      return Status;
     }
   }
   
@@ -174,19 +164,18 @@ PrepareMassStorage ()
     Status = gBS->OpenProtocol (eMMCHandle, &gEfiBlockIoProtocolGuid, (VOID *)&eMMCBlkIoProtocol, NULL, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Open BLK IO Protocol of eMMC! Status = %r\n", Status));
-      goto exit;
+      return Status;
     }
 
     // Assign Protocol
     Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, eMMCBlkIoProtocol, 0);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Assign eMMC BLK IO Protocol! Status = %r\n", Status));
-      goto exit;
+      return Status;
     }
   }
 
-exit:
-  return Status;
+  return EFI_SUCCESS;
 }
 
 EFI_STATUS
@@ -229,25 +218,18 @@ InitMassStorage (
   // Disable WatchDog Timer
   gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
 
-  // Prepare Mass Storage
-  Status = PrepareMassStorage ();
+  // Prepare & Start Mass Storage
+  Status  = PrepareMassStorage ();
+  Status |= StartMassStorage   ();
   if (EFI_ERROR (Status)) {
-    goto error;
+    // Display Failed Splash
+    DisplayBootGraphic (BG_MSD_ERROR);
+
+    // Check for Any Button
+    gBS->WaitForEvent (1, gST->ConIn->WaitForKey, 0);
+
+    return Status;
   }
 
-  // Start Mass Storage
-  Status = StartMassStorage ();
-  if (!EFI_ERROR (Status)) {
-    goto exit;
-  }
-
-error:
-  // Display Failed Splash
-  DisplayBootGraphic (BG_MSD_ERROR);
-
-  // Check for Any Button
-  gBS->WaitForEvent (1, gST->ConIn->WaitForKey, 0);
-
-exit:
   return EFI_SUCCESS;
 }

@@ -9,20 +9,25 @@
 #
 ##
 
+[PcdsFixedAtBuild]
+  # RAM Size (512 MB)
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
+
 [LibraryClasses]
-  # Custom Libraries
+  # Custom Tegra Libraries
 !if $(USE_CUSTOM_TIMER) == 1
   TimerLib|NvidiaPkg/GPLLibrary/TegraTimerLib/TegraTimerLib.inf
 !endif
 
-[Components]
-  # PrePI
-  NvidiaPkg/PrePi/PrePi.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
-  }
+  # Pei Library
+  PlatformPeiLib|NvidiaPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
 
+  # Memory Protection Library
+  MemoryProtectionLib|NvidiaPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
+
+[Components]
   # Custom Tegra Drivers
+  NvidiaPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 !if $(USE_CUSTOM_TIMER) == 1
   NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf

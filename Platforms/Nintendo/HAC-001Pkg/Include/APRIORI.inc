@@ -15,6 +15,7 @@ APRIORI DXE {
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
+  INF NvidiaPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   INF NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf

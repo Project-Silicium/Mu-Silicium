@@ -59,8 +59,13 @@
   # CPU Max Freq
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|TRUE
 
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|FALSE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
+
 [LibraryClasses]
-  PlatformPeiLib|SM6225Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SM6225Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SM6225Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf

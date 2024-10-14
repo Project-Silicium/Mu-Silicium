@@ -62,8 +62,13 @@
   # CPU Max Freq
   gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE
 
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|FALSE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
+
 [LibraryClasses]
-  PlatformPeiLib|SDM660Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|SDM660Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SDM660Pkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
