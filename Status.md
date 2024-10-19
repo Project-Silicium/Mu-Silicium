@@ -1119,6 +1119,69 @@
 
 </td></tr> </table>
 
+## Xiaomi Mi 9
+
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-9.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: cepheus** <br>
+**Maintainers: [Daniel224455](https://github.com/Daniel224455),** <br>
+**Contributors: [Daniel224455](https://github.com/Daniel224455),** <br>
+**Testers: [motylek](https://github.com/jotkauser)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ✅    |
+| USB Device Mode    |             | ❌    |
+| USB Power Delivery |             | ❌    |
+| SD Card            |             | ❌    |
+| Mass Storage       |             | ❌    |
+| Windows Boot       |             | ✅    |
+| Linux Boot         | Untested    | ❔    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> NOTE: Needs [Windows Drivers](https://github.com/qaz6750/XiaoMi9-Drivers/releases/latest)!
+
+| Feature              | Description                                                  | State |
+|:---------------------|:-------------------------------------------------------------|:-----:|
+| Internal Storage     |                                                              | ✅    |
+| Side Buttons         |                                                              | ✅    |
+| Proximity Sensor     |                                                              | ❌    |
+| Accelerometer Sensor |                                                              | ✅    |
+| Compass Sensor       |                                                              | ✅    |
+| Gyroscope Sensor     |                                                              | ✅    |
+| Fingerprint Sensor   |                                                              | ❌    |
+| NFC Sensor           |                                                              | ❌    |
+| Temperature Sensor   |                                                              | ❔    |
+| Battery              |                                                              | ✅    |
+| USB                  |                                                              | ✅    |
+| Charging             | Very slow                                                    | ⚠️    |
+| WLAN                 |                                                              | ✅    |
+| CPU                  |                                                              | ✅    |
+| Touchscreen          |                                                              | ✅    |
+| Bluetooth            |                                                              | ✅    |
+| GPS                  |                                                              | ✅    |
+| Speakers             |                                                              | ✅    |
+| Microphone           |                                                              | ✅    |
+| GPU                  |                                                              | ✅    |
+| Flashlight           |                                                              | ❌    |
+| Camera               |                                                              | ❌    |
+| Mobile Data          |                                                              | ✅️    |
+| Display              |                                                              | ✅    |
+| Vibration            |                                                              | ❌    |
+
+</td></tr> </table>
+
 ## OnePlus 7T Pro
 
 <img align="right" src="Resources/Pictures/Oneplus-7T-Pro.png" width="500" alt="Preview">
