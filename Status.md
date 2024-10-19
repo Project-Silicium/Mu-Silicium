@@ -90,7 +90,7 @@
 
 <img align="right" src="Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: pong** <br>
 **Maintainers: [index986](https://github.com/index986)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br>
@@ -1695,11 +1695,10 @@
 | Display            |             | ✅    |
 | Internal Storage   |             | ✅    |
 | Side Buttons       |             | ✅    |
-| USB Host Mode      |             | ❔    |
-| USB Device Mode    |             | ❔    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
-| Mass Storage       |             | ❔    |
-| SD Card            |             | ❌    |
+| Mass Storage       |             | ✅    |
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
