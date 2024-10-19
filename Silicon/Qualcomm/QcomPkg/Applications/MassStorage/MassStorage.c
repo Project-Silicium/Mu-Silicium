@@ -38,10 +38,9 @@ PrintGUI (CHAR16 *Message)
 EFI_STATUS
 StartMassStorage ()
 {
-  EFI_STATUS Status          = EFI_SUCCESS;
-  BOOLEAN    Connected       = FALSE;
-  UINTN      CurrentSplash   = 0;
-
+  EFI_STATUS Status        = EFI_SUCCESS;
+  BOOLEAN    Connected     = FALSE;
+  UINTN      CurrentSplash = 0;
   // Start Mass Storage
   Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
@@ -57,7 +56,7 @@ StartMassStorage ()
     mChargerExProtocol->GetChargerPresence (&Connected);
 
     // Display Splash depending on Connect State
-    if (Connected) {
+    if (Connected && CurrentSplash != BG_MSD_CONNECTED) {
       // Display Connected Splash
       DisplayBootGraphic (BG_MSD_CONNECTED);
 
@@ -66,7 +65,7 @@ StartMassStorage ()
 
       // New Message
       PrintGUI (L"Disconnect your Device to Enable Exit Function.");
-    } else if (!Connected) {
+    } else if (!Connected && CurrentSplash != BG_MSD_DISCONNECTED) {
       // Display Disconnected Splash
       DisplayBootGraphic (BG_MSD_DISCONNECTED);
 
@@ -85,7 +84,7 @@ StartMassStorage ()
       gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
 
       // Leave Loop
-      if (Key.UnicodeChar == SCAN_UP) {
+      if (Key.ScanCode == SCAN_UP) {
         // Stop Mass Storage
         mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
 
