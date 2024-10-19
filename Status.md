@@ -1125,8 +1125,8 @@
 
 **State: Active** <br>
 **Codename: cepheus** <br>
-**Maintainers: [Daniel224455](https://github.com/Daniel224455),** <br>
-**Contributors: [Daniel224455](https://github.com/Daniel224455),** <br>
+**Maintainers: [Daniel224455](https://github.com/Daniel224455)** <br>
+**Contributors: [Daniel224455](https://github.com/Daniel224455)** <br>
 **Testers: [motylek](https://github.com/jotkauser)**
 
 ### UEFI Status
