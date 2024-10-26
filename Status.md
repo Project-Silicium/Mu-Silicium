@@ -152,7 +152,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-12-Pro.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: zeus** <br>
 **Maintainers: [2petro](https://github.com/2Petro)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [2petro](https://github.com/2Petro)** <br>
@@ -473,7 +473,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S21-Fe.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: r9q** <br>
 **Maintainer: [Icesito68](https://github.com/Icesito68/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/),[Nikroks](https://github.com/N1kroks)** <br>
@@ -606,7 +606,7 @@
 
 <img align="right" src="Resources/Pictures/Realme-GT-NEO-2.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: bitra** <br>
 **Maintainer: [kubawis128](https://github.com/kubawis128)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [kubawis128](https://github.com/kubawis128)** <br>
@@ -1256,7 +1256,7 @@
 
 <img align="right" src="Resources/Pictures/LG-Velvet-caymanslm.png" width="300" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: caymanslm** <br>
 **Maintainer: [CodeLindro](https://github.com/leandrofriedrich/)** <br>
 **Contributors: None** <br>
@@ -1323,7 +1323,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Mi-Mix-2S.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: polaris** <br>
 **Maintainers: [Daniel224455](https://github.com/Daniel224455), [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
 **Contributors: [Daniel224455](https://github.com/Daniel224455), [TrustedFloppa](https://github.com/TrustedFloppa)** <br>
@@ -1443,8 +1443,8 @@
 
 > NOTE: Needs Windows Drivers!
 
-| Feature              | Description | State |
-|:---------------------|:------------|:-----:|
+| Feature              | Description               | State |
+|:---------------------|:--------------------------|:-----:|
 | Internal Storage     | Probably Works if Enabled | ❔    |
 | SD Card              |                           | ✅    |
 | Side Buttons         |                           | ❌    |
@@ -1657,7 +1657,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: a52sxq** <br>
 **Maintainer: [arminask](https://github.com/arminask)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), People from Group** <br>
@@ -1699,10 +1699,8 @@
 | USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
-| Windows Boot       |Needs memorymap fix| ❌    |
+| Windows Boot       |Broken       | ❌    |
 | Linux Boot         |             | ❌    |
-
-
 
   </summary>
 </details>
@@ -1803,7 +1801,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-X3-NFC.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: surya** <br>
 **Maintainer: remtrik** <br>
 **Contributors: None** <br>
@@ -1829,7 +1827,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-10-Pro.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: sweet** <br>
 **Maintainers: [remtrik](https://github.com/remtrik), [hiprivsid](https://github.com/hiprivsid)** <br>
 **Contributors: None** <br>
@@ -1855,7 +1853,7 @@
 
 <img align="right" src="Resources/Pictures/Mi-9T.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: davinci** <br>
 **Maintainer: [tagicmi](https://github.com/tagicmi)** <br>
 **Contributors: None** <br>
@@ -1885,6 +1883,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-9S.png" width="500" alt="Preview">
 
+<!-- State might be Incorrect? -->
 **State: Active** <br>
 **Codename: miatoll** <br>
 **Maintainer: [N1kroks](https://github.com/N1kroks/)** <br>
@@ -2807,7 +2806,8 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+<!-- Kinda Active -->
+**State: Active** <br>
 **Codename: x1s** <br>
 **Maintainer: [halal-beef](https://github.com/halal-beef/)** <br>
 **Contributors: None** <br>
