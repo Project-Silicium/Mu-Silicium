@@ -1682,7 +1682,7 @@
 
 <img align="right" src="Resources/Pictures/Nothing-Phone-1-spacewar.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: spacewar** <br>
 **Maintainer: [index986](https://github.com/index986)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
@@ -1699,7 +1699,7 @@
 | USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
-| Windows Boot       |             | ❌    |
+| Windows Boot       |Needs memorymap fix| ❌    |
 | Linux Boot         |             | ❌    |
 
 
@@ -2645,7 +2645,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-7.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: lavender** <br>
 **Maintainer: [index986](https://github.com/index986)** <br>
 **Contributors: None** <br>
