@@ -68,7 +68,7 @@
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  #gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37980
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37980
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE4B00000
