@@ -63,7 +63,7 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
-  INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe..inf
+  INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/GpioExpanderDxe/GpioExpanderDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
