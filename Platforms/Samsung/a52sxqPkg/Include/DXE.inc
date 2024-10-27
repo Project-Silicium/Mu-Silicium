@@ -1,8 +1,7 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  # Needs XBL Sched Protocol so it can Work.
-  #INF Binaries/a52sxq/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
@@ -11,8 +10,8 @@
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
-  #INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -107,8 +106,7 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
-  # Doesn't boot UEFI with PILDxe enabled, something about abl and uefipil.cfg
-  #INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
