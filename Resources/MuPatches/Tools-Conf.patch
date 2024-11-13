@@ -1,8 +1,8 @@
 diff --git a/BaseTools/Conf/tools_def.template b/BaseTools/Conf/tools_def.template
-index 06ab11608d..f2019a87a2 100755
+index 8cc52abe16..7c48cf703d 100755
 --- a/BaseTools/Conf/tools_def.template
 +++ b/BaseTools/Conf/tools_def.template
-@@ -182,13 +182,13 @@ DEFINE DTC_BIN                 = ENV(DTC_PREFIX)dtc
+@@ -177,13 +177,13 @@ DEFINE DTC_BIN                 = ENV(DTC_PREFIX)dtc
  #                             Required to build EBC drivers:
  #                               Intel(r) Compiler for Efi Byte Code (Intel(r) EBC Compiler)
  #   GCCNOLTO    -Linux,Windows-  Requires:
@@ -18,7 +18,7 @@ index 06ab11608d..f2019a87a2 100755
  #                        Optional:
  #                             Required to build platforms or ACPI tables:
  #                               Intel(r) ACPI Compiler from
-@@ -216,19 +216,19 @@ DEFINE DTC_BIN                 = ENV(DTC_PREFIX)dtc
+@@ -211,19 +211,19 @@ DEFINE DTC_BIN                 = ENV(DTC_PREFIX)dtc
  # Deprecated Tool Chains
  # ======================
  #   GCC48       -Linux,Windows-  Requires:
@@ -41,7 +41,7 @@ index 06ab11608d..f2019a87a2 100755
  #                        Optional:
  #                             Required to build platforms or ACPI tables:
  #                               Intel(r) ACPI Compiler from
-@@ -2111,7 +2111,7 @@ NOOPT_CLANGDWARF_X64_DLINK2_FLAGS     = DEF(CLANGDWARF_X64_DLINK2_FLAGS) -O0 -fu
+@@ -2147,7 +2147,7 @@ NOOPT_CLANGDWARF_X64_DLINK2_FLAGS     = DEF(CLANGDWARF_X64_DLINK2_FLAGS) -O0 -fu
  ##################
  # CLANGDWARF ARM definitions
  ##################
