@@ -23,14 +23,11 @@ GetMemoryNodes (
   IN  CONST VOID *fdt,
   OUT UINTN      *NodeCount)
 {
-  MEMORY_NODE  *Nodes       = NULL;
-  INT32         Node        = 0;
-  INT32         AddrCells   = 0;
-  INT32         SizeCells   = 0;
-  CONST UINT32 *Reg         = 0;
-  INT32         Len         = 0;
-  UINTN         Count       = 0;
-  UINTN         CurrentSize = 0;
+  MEMORY_NODE *Nodes     = NULL;
+  UINTN        Count     = 0;
+  INT32        Node      = 0;
+  INT32        AddrCells = 0;
+  INT32        SizeCells = 0;
 
   // Find Root FDT Node
   Node = fdt_path_offset (fdt, "/");
@@ -47,15 +44,19 @@ GetMemoryNodes (
     return NULL;
   }
 
-  // 
+  // Get all Subnodes
   fdt_for_each_subnode (Node, fdt, Node) {
     // Get Device Type
     CONST CHAR8 *DeviceType = fdt_getprop (fdt, Node, "device_type", NULL);
 
     // Check for Memory Type
     if (DeviceType && !AsciiStrCmp (DeviceType, "memory")) {
+      UINTN CurrentSize = 0;
+      INT32 Len         = 0;
+
       // Get Reg Properties
-      Reg = fdt_getprop (fdt, Node, "reg", &Len);
+      CONST UINT32 *Reg = fdt_getprop (fdt, Node, "reg", &Len);
+
       if (!Reg) {
         DEBUG ((EFI_D_ERROR, "Failed to Read 'reg' Property! Status = %a\n", fdt_strerror(Len)));
         return NULL;
@@ -117,6 +118,7 @@ GetReversedMemoryMap (
 
   while (Start < End) {
     Temp = ReversedMemoryMap[Start];
+
     ReversedMemoryMap[Start] = ReversedMemoryMap[End];
     ReversedMemoryMap[End] = Temp;
 
@@ -187,12 +189,15 @@ AddRamPartitions (
   // Get FDT Pointer
   Status = LocateMemoryMapAreaByName ("FDT Pointer", &FdtPointer);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_WARN, "No FDT Pointer Available, Assuming Manual RAM Partitions were Added."));
-    return EFI_SUCCESS;
+    DEBUG ((EFI_D_WARN, "No FDT Pointer Available, Assuming Manual RAM Partitions were Added.\n"));
+    return EFI_NOT_FOUND;
   }
 
   // Get FDT Base Address
   CONST VOID *FDT = (CONST VOID*)(UINTN)MmioRead32 (FdtPointer.Address);
+
+  // Print FDT Location Address
+  DEBUG ((EFI_D_WARN, "FDT Location Address = 0x%llx\n", MmioRead32 (FdtPointer.Address)));
 
   // Get all Memory Nodes
   Nodes = GetMemoryNodes (FDT, &NodeCount);

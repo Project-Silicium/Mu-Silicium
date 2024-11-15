@@ -2893,9 +2893,9 @@
 
 **State: Inactive** <br>
 **Codename: starlte** <br>
-**Maintainer: None** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: None** <br>
-**Tester: None**
+**Tester: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 

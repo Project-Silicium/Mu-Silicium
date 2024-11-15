@@ -226,25 +226,25 @@ KeypadDeviceConstructor ()
     /// Volume Up Button
     StaticContext              = KeypadKeyCodeToKeyContext (115);
     StaticContext->PinctrlBase = 0x14050000;
-    StaticContext->BankOffset  = 0x0;
+    StaticContext->BankOffset  = 0x20;
     StaticContext->Pin         = 0x3;
 
     /// Volume Down Button
     StaticContext              = KeypadKeyCodeToKeyContext (116);
     StaticContext->PinctrlBase = 0x14050000;
-    StaticContext->BankOffset  = 0x0;
+    StaticContext->BankOffset  = 0x20;
     StaticContext->Pin         = 0x4;
 
     /// Power Button
     StaticContext              = KeypadKeyCodeToKeyContext (117);
     StaticContext->PinctrlBase = 0x14050000;
-    StaticContext->BankOffset  = 0x40;
+    StaticContext->BankOffset  = 0x60;
     StaticContext->Pin         = 0x4;
 
     /// Special Button
     StaticContext              = KeypadKeyCodeToKeyContext (118);
     StaticContext->PinctrlBase = 0x14050000;
-    StaticContext->BankOffset  = 0x0;
+    StaticContext->BankOffset  = 0x20;
     StaticContext->Pin         = 0x6;
   } else {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Exynos GPIO Protocol! Status = %r\n", __FUNCTION__, Status));

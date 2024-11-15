@@ -10,8 +10,9 @@ gDeviceMemoryDescriptorEx[] = {
   {"CPU Vectors",        0x80001000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"UEFI Stack",         0x80002000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"RAM Partition",      0x80042000, 0x03C3E000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  
-  // Memory Hole: 0x83C80000 -> 0xC0000000 (0x3C380000)
+  {"Kernel",             0x83C80000, 0x38B80000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN}, // Actually: 0x80000000 -> 0xBC800000 (0x3C800000)
+
+  // Memory Hole: 0xBC800000 -> 0xC0000000 (0x03800000)
 
   {"SEC Log",            0xC0000000, 0x00080000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
   {"UEFI FD",            0xC0080000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
