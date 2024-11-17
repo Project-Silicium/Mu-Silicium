@@ -28,6 +28,8 @@ GetMemoryNodes (
   INT32        Node      = 0;
   INT32        AddrCells = 0;
   INT32        SizeCells = 0;
+  UINTN	       CurrentSize = 0;
+  INT32	       Len         = 0;
 
   // Find Root FDT Node
   Node = fdt_path_offset (fdt, "/");
@@ -51,9 +53,6 @@ GetMemoryNodes (
 
     // Check for Memory Type
     if (DeviceType && !AsciiStrCmp (DeviceType, "memory")) {
-      UINTN CurrentSize = 0;
-      INT32 Len         = 0;
-
       // Get Reg Properties
       CONST UINT32 *Reg = fdt_getprop (fdt, Node, "reg", &Len);
 
