@@ -75,7 +75,7 @@ APRIORI DXE {
   INF Binaries/surya/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
-  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
+#  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
   INF Binaries/surya/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
@@ -103,6 +103,7 @@ APRIORI DXE {
   INF Binaries/surya/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

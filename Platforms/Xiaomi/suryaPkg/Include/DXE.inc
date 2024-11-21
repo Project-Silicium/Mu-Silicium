@@ -63,7 +63,7 @@
   INF Binaries/surya/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
+#  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
   INF Binaries/surya/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
