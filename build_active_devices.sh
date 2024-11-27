@@ -17,6 +17,7 @@ function _help(){
 # Functions to display the Message Type (Error or Warning)
 function _error(){ echo -e "\033[1;31m${@}\033[0m" >&2;exit 1; }
 function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2; }
+
 # Check if any args were given
 OPTS="$(getopt -o hr: -l help,release: -n 'build_uefi.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
@@ -28,12 +29,6 @@ do	case "${1}" in
 		*) _help 1;;
 	esac
 done
-
-# Set Release Type of UEFI
-case "${TARGET_BUILD_MODE}" in
-	DEBUG) _TARGET_BUILD_MODE=DEBUG;;
-	*) _TARGET_BUILD_MODE=RELEASE;;
-esac
 
 # Parse active devices from Status.md
 DEVICES=$(awk '/**State: Active**/,/**Codename:/ {if ($0 ~ /**Codename:/) print substr($2, 1, length($2)-2)}' Status.md)
@@ -47,13 +42,13 @@ for Device in $DEVICES; do
 	fi
 
 	# Check if the Device has Multiple Models
-	if [ ${TARGET_MULTIPLE_MODELS} == "TRUE" ]; then
+	if [ ${TARGET_MULTIPLE_MODELS} == 1 ]; then
 		# If device has it build device with models
 		for ((Model = 0; Model < $TARGET_NUMBER_OF_MODELS; Model++)); do
-			bash ./build_uefi.sh -d $Device -r $_TARGET_BUILD_MODE -m $Model || exit $?
+			bash ./build_uefi.sh -d $Device -r $_TARGET_BUILD_MODE -c -m $Model || exit $?
 		done
 	else
 		# If device don't have it just run build script
-		bash ./build_uefi.sh -d $Device -r $_TARGET_BUILD_MODE || exit $?
+		bash ./build_uefi.sh -d $Device -r $_TARGET_BUILD_MODE -c || exit $?
 	fi
 done
