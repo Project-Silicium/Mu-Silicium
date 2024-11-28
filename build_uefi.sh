@@ -109,8 +109,8 @@ python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py"
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/PlatformBuild.py" --update -t ${_TARGET_BUILD_MODE} || _error "\nFailed to Update UEFI Env!\n"
 
 # Copy Mu Patches to the Right Location
-cp ./Resources/MuPatches/UsbBus.patch ./Resources/MuPatches/BdsWait.patch ./Resources/MuPatches/Tools-Conf.patch ./Resources/MuPatches/PdbPointer.patch ./Resources/MuPatches/PageDebug.patch ./Mu_Basecore/ || exit 1
-cp ./Resources/MuPatches/Timer.patch ./Resources/MuPatches/GcdAttribute.patch ./Silicon/Arm/Mu_Tiano/ || exit 1
+cp ./Resources/MuPatches/UsbBus.patch ./Resources/MuPatches/BdsWait.patch ./Resources/MuPatches/Tools-Conf.patch ./Resources/MuPatches/PdbPointer.patch ./Mu_Basecore/ || exit 1
+cp ./Resources/MuPatches/Timer.patch ./Silicon/Arm/Mu_Tiano/ || exit 1
 cp ./Resources/MuPatches/Math.patch ./Common/Mu/ || exit 1
 
 # Apply Mu Patches
@@ -119,10 +119,8 @@ git apply UsbBus.patch &> /dev/null
 git apply BdsWait.patch &> /dev/null
 git apply Tools-Conf.patch &> /dev/null
 git apply PdbPointer.patch &> /dev/null
-git apply PageDebug.patch &> /dev/null
 cd ../Silicon/Arm/Mu_Tiano || exit 1
 git apply Timer.patch &> /dev/null
-git apply GcdAttribute.patch &> /dev/null
 cd ../../..
 
 if [ ${TARGET_ARCH} == "ARM" ]; then
