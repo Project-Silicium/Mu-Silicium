@@ -2062,36 +2062,36 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
-| Feature              | Description | State |
-|:---------------------|:------------|:-----:|
-| Internal Storage     |             | ✅    |
-| SD Card              |             | ❌    |
-| Side Buttons         |             | ❌    |
-| Proximity Sensor     |             | ❌    |
-| Light Sensor         |             | ❌    |
-| Accelerometer Sensor |             | ❌    |
-| Compass Sensor       |             | ❌    |
-| Fingerprint Sensor   |             | ❌    |
-| NFC Sensor           |             | ❌    |
-| Temperature Sensor   |             | ❌    |
-| Battery              |             | ❌    |
-| USB Host Mode        |             | ✅    |
-| USB Device Mode      |             | ❌    |
-| USB Power Delivery   |             | ❌    |
-| Charging             |             | ❌    |
-| WLAN                 |             | ❌    |
-| CPU                  |             | ✅    |
-| Touchscreen          |             | ❌    |
-| Bluetooth            |             | ❌    |
-| GPS                  |             | ❌    |
-| Speakers             |             | ❌    |
-| 3.5mm Audio Jack     |             | ❌    |
-| Microphone           |             | ❌    |
-| GPU                  |             | ❌    |
-| Camera               |             | ❌    |
-| Mobile Data          |             | ❌    |
-| Display              |             | ✅    |
-| Vibration            |             | ❌    |
+| Feature              | Description         | State |
+|:---------------------|:--------------------|:-----:|
+| Internal Storage     |                     | ✅    |
+| SD Card              |Hot Plug doesn't work| ⚠️    |
+| Side Buttons         |                     | ❌    |
+| Proximity Sensor     |                     | ❌    |
+| Light Sensor         |                     | ❌    |
+| Accelerometer Sensor |                     | ❌    |
+| Compass Sensor       |                     | ❌    |
+| Fingerprint Sensor   |                     | ❌    |
+| NFC Sensor           |                     | ❌    |
+| Temperature Sensor   |                     | ❌    |
+| Battery              |                     | ❌    |
+| USB Host Mode        |                     | ✅    |
+| USB Device Mode      |                     | ❌    |
+| USB Power Delivery   |                     | ❌    |
+| Charging             |                     | ❌    |
+| WLAN                 |                     | ❌    |
+| CPU                  |                     | ✅    |
+| Touchscreen          |                     | ❌    |
+| Bluetooth            |                     | ❌    |
+| GPS                  |                     | ❌    |
+| Speakers             |                     | ❌    |
+| 3.5mm Audio Jack     |                     | ❌    |
+| Microphone           |                     | ❌    |
+| GPU                  |                     | ❌    |
+| Camera               |                     | ❌    |
+| Mobile Data          |                     | ❌    |
+| Display              |                     | ✅    |
+| Vibration            |                     | ❌    |
 
 </td><td>
 
