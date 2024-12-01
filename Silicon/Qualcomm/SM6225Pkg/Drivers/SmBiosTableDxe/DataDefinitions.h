@@ -389,6 +389,7 @@ CHAR8 *mProcessorInfoType4Strings[] = {
   "Qualcomm Technologies Inc",
   "Not Specified",
   "Not Specified",
+  "Not Specified",
   NULL
 };
 

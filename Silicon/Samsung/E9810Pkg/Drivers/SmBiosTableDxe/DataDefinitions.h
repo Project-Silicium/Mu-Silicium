@@ -384,6 +384,7 @@ CHAR8 *mProcessorInfoType4Strings[] = {
   "Samsung Electronics Co., Ltd.",
   "Not Specified",
   "Not Specified",
+  "Not Specified",
   NULL
 };
 
