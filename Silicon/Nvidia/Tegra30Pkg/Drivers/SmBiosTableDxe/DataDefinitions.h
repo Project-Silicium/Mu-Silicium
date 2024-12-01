@@ -314,6 +314,7 @@ CHAR8 *mProcessorInfoType4Strings[] = {
   "Nvidia Corporation",
   "Not Specified",
   "Not Specified",
+  "Not Specified",
   NULL
 };
 
