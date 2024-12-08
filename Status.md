@@ -583,9 +583,9 @@
 | Fingerprint Sensor   |                                   | ❌    |
 | NFC Sensor           |                                   | ❌    |
 | Battery              |                                   | ✅    |
-| USB Host Mode        | Depends What Mode it was in UEFI. | ✅    |
-| USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
-| USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
+| USB Host Mode        |                                   | ✅    |
+| USB Device Mode      |                                   | ❌    |
+| USB Power Delivery   |                                   | ✅    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
@@ -1997,10 +1997,10 @@
 | Internal Storage     |             | ✅    |
 | SD Card              |             | ✅    |
 | Side Buttons         |             | ✅    |
-| Proximity Sensor     |             | ❌    |
-| Light Sensor         |             | ❌    |
-| Accelerometer Sensor |             | ❌    |
-| Compass Sensor       |             | ❌    |
+| Proximity Sensor     |             | ✅    |
+| Light Sensor         |             | ✅    |
+| Accelerometer Sensor |             | ✅    |
+| Compass Sensor       |             | ✅    |
 | Gyroscope Sensor     |             | ❌    |
 | Fingerprint Sensor   |             | ❌    |
 | NFC Sensor           |             | ❌    |
