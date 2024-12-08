@@ -6,7 +6,7 @@
   VERSION_STRING                 = 1.0
   ENTRY_POINT                    = InitGpioDriver
 
-[Sources.common]
+[Sources]
   TegraGpioDxe.c
 
 [Packages]

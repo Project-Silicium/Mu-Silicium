@@ -16,7 +16,7 @@
   VERSION_STRING                 = 1.0
   ENTRY_POINT                    = TimerInitialize
 
-[Sources.common]
+[Sources]
   TegraTimerDxe.c
 
 [Packages]

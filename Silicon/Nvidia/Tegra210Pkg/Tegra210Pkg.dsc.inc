@@ -75,6 +75,23 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|1
 !endif
 
+  # Clock IDs
+  gNvidiaPkgTokenSpaceGuid.PcdCGeneralID|0
+  gNvidiaPkgTokenSpaceGuid.PcdMemoryID|1
+  gNvidiaPkgTokenSpaceGuid.PcdPeriphID|2
+  gNvidiaPkgTokenSpaceGuid.PcdAudioID|3
+  gNvidiaPkgTokenSpaceGuid.PcdUsbID|4
+  gNvidiaPkgTokenSpaceGuid.PcdDisplayID|5
+  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID|9
+  gNvidiaPkgTokenSpaceGuid.PcdXCpuID|6
+  gNvidiaPkgTokenSpaceGuid.PcdEpciID|7
+  gNvidiaPkgTokenSpaceGuid.PcdSfrom32KhzID|8
+  gNvidiaPkgTokenSpaceGuid.PcdDpID|0xFF
+  gNvidiaPkgTokenSpaceGuid.Pcd32KhzID|10
+  gNvidiaPkgTokenSpaceGuid.PcdOscID|11
+  gNvidiaPkgTokenSpaceGuid.PcdClkmID|12
+  gNvidiaPkgTokenSpaceGuid.PcdIDCount|13
+
 [LibraryClasses]
   PlatformPrePiLib|Tegra210Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
@@ -82,6 +99,7 @@
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|Tegra210Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
   DynamicRamLib|Tegra210Pkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
+  TegraClockLib|Tegra210Pkg/GPLLibrary/TegraClockLib/TegraClockLib.inf
 
 [Components]
   Tegra210Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

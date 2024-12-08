@@ -17,6 +17,8 @@ gDeviceMemoryDescriptorEx[] = {
   // Register Regions
   {"Gic",                  0x50040000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Tegra Timer",          0x60005000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+//{"Clock Controller",     0x60006000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE}, // Not Tested :(
+  {"GPIO Controller",      0x6000D000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Keyboard Controller",  0x7000E200, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Memory Controller",    0x7000F000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
 

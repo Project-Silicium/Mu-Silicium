@@ -12,15 +12,33 @@
 
 [Protocols]
   gEfiTegraGpioProtocolGuid           = { 0xF5A3B253, 0x587D, 0x4EE5, { 0xA3, 0x4A, 0xF4, 0x86, 0x63, 0x1D, 0x9F, 0x2E } }
+  gEfiTegraClockProtocolGuid          = { 0x870380F6, 0x3013, 0x4F09, { 0x8F, 0x99, 0x82, 0xC5, 0x70, 0x18, 0x52, 0xE0 } }
 
 [PcdsFixedAtBuild]
-  # Timer
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1|0|UINT32|0x0000A000
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt2|0|UINT32|0x0000A001
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt3|0|UINT32|0x0000A002
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4|0|UINT32|0x0000A003
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5|0|UINT32|0x0000A004
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6|0|UINT32|0x0000A005
+  # Clock PCDs
+  gNvidiaPkgTokenSpaceGuid.PcdCGeneralID|0xFF|UINT8|0x0000A000
+  gNvidiaPkgTokenSpaceGuid.PcdMemoryID|0xFF|UINT8|0x0000A001
+  gNvidiaPkgTokenSpaceGuid.PcdPeriphID|0xFF|UINT8|0x0000A002
+  gNvidiaPkgTokenSpaceGuid.PcdAudioID|0xFF|UINT8|0x0000A003
+  gNvidiaPkgTokenSpaceGuid.PcdUsbID|0xFF|UINT8|0x0000A004
+  gNvidiaPkgTokenSpaceGuid.PcdDisplayID|0xFF|UINT8|0x0000A005
+  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID|0xFF|UINT8|0x0000A006
+  gNvidiaPkgTokenSpaceGuid.PcdXCpuID|0xFF|UINT8|0x0000A007
+  gNvidiaPkgTokenSpaceGuid.PcdEpciID|0xFF|UINT8|0x0000A008
+  gNvidiaPkgTokenSpaceGuid.PcdSfrom32KhzID|0xFF|UINT8|0x0000A009
+  gNvidiaPkgTokenSpaceGuid.PcdDpID|0xFF|UINT8|0x0000A00A
+  gNvidiaPkgTokenSpaceGuid.Pcd32KhzID|0xFF|UINT8|0x0000A00B
+  gNvidiaPkgTokenSpaceGuid.PcdOscID|0xFF|UINT8|0x0000A00C
+  gNvidiaPkgTokenSpaceGuid.PcdClkmID|0xFF|UINT8|0x0000A00D
+  gNvidiaPkgTokenSpaceGuid.PcdIDCount|0xFF|UINT8|0x0000A00E
 
-  # Dynamic RAM
-  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000A100
+  # Timer PCDs
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1|0|UINT32|0x0000A100
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt2|0|UINT32|0x0000A101
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt3|0|UINT32|0x0000A102
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4|0|UINT32|0x0000A103
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5|0|UINT32|0x0000A104
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6|0|UINT32|0x0000A105
+
+  # Dynamic RAM PCD
+  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000A200

@@ -32,5 +32,6 @@
 !if $(USE_CUSTOM_TIMER) == 1
   NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf
 !endif
+  NvidiaPkg/GPLDrivers/TegraClockDxe/TegraClockDxe.inf
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc

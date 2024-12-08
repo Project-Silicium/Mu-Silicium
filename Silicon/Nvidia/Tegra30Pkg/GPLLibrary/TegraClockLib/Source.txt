@@ -1,0 +1,5 @@
+REPO:   https://github.com/u-boot/u-boot/
+COMMIT: 03de305ec48b0bb28554372abb40ccd46dbe0bf9
+BRANCH: master
+FILE:   arch/arm/mach-tegra/tegra30/clock.c
+        arch/arm/include/asm/arch-tegra30/clock.h

@@ -1,0 +1,47 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TegraClockDxe
+  FILE_GUID                      = 5698FFBE-F6F8-4E06-86A0-5B031797C12D
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitClocks
+
+[Sources]
+  TegraClockDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  NvidiaPkg/NvidiaPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+  IoLib
+  MemoryMapHelperLib
+  TegraClockLib
+
+[FixedPcd]
+  gNvidiaPkgTokenSpaceGuid.PcdCGeneralID
+  gNvidiaPkgTokenSpaceGuid.PcdMemoryID
+  gNvidiaPkgTokenSpaceGuid.PcdPeriphID
+  gNvidiaPkgTokenSpaceGuid.PcdAudioID
+  gNvidiaPkgTokenSpaceGuid.PcdUsbID
+  gNvidiaPkgTokenSpaceGuid.PcdDisplayID
+  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID
+  gNvidiaPkgTokenSpaceGuid.PcdXCpuID
+  gNvidiaPkgTokenSpaceGuid.PcdEpciID
+  gNvidiaPkgTokenSpaceGuid.PcdSfrom32KhzID
+  gNvidiaPkgTokenSpaceGuid.PcdDpID
+  gNvidiaPkgTokenSpaceGuid.Pcd32KhzID
+  gNvidiaPkgTokenSpaceGuid.PcdOscID
+  gNvidiaPkgTokenSpaceGuid.PcdClkmID
+  gNvidiaPkgTokenSpaceGuid.PcdIDCount
+
+[Protocols]
+  gEfiTegraClockProtocolGuid
+
+[Depex]
+  TRUE

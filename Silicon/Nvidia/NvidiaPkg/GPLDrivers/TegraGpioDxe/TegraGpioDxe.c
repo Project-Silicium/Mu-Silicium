@@ -185,7 +185,7 @@ InitGpioDriver (
   Status = LocateMemoryMapAreaByName ("GPIO Controller", &GpioMemoryRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to get GPIO Controller Memory Region!\n"));
-    goto exit;
+    return Status;
   }
 
   // Register Tegra GPIO Protocol
@@ -195,6 +195,5 @@ InitGpioDriver (
     ASSERT_EFI_ERROR (Status);
   }
 
-exit:
-  return Status;
+  return EFI_SUCCESS;
 }
