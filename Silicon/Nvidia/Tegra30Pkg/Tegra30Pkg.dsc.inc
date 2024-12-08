@@ -59,11 +59,11 @@
   gNvidiaPkgTokenSpaceGuid.PcdAudioID|3
   gNvidiaPkgTokenSpaceGuid.PcdUsbID|4
   gNvidiaPkgTokenSpaceGuid.PcdDisplayID|5
-  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID|0xFF
+  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID|9
   gNvidiaPkgTokenSpaceGuid.PcdXCpuID|6
   gNvidiaPkgTokenSpaceGuid.PcdEpciID|7
   gNvidiaPkgTokenSpaceGuid.PcdSfrom32KhzID|8
-  gNvidiaPkgTokenSpaceGuid.PcdDpID|9
+  gNvidiaPkgTokenSpaceGuid.PcdDpID|0xFF
   gNvidiaPkgTokenSpaceGuid.Pcd32KhzID|10
   gNvidiaPkgTokenSpaceGuid.PcdOscID|11
   gNvidiaPkgTokenSpaceGuid.PcdClkmID|12

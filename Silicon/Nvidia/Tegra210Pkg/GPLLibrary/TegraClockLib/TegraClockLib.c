@@ -41,8 +41,8 @@ GetSimplePll (
 
   switch (ClockID) {
     case CLOCK_ID_XCPU:
-	  case CLOCK_ID_EPCI:
-	  case CLOCK_ID_SFROM32KHZ:
+    case CLOCK_ID_EPCI:
+    case CLOCK_ID_SFROM32KHZ:
       return &ClockController->crc_pll_simple[ClockID - CLOCK_ID_FIRST_SIMPLE];
 
     default:
