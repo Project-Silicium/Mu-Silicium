@@ -89,4 +89,4 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|113
 
-!include SDM660Pkg/SDM660Pkg.dsc.inc
+!include SM6150Pkg/SM6150Pkg.dsc.inc
