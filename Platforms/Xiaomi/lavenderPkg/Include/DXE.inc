@@ -47,8 +47,6 @@
   INF Binaries/lavender/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF Binaries/lavender/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
