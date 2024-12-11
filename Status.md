@@ -1591,26 +1591,26 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: lisa** <br>
-**Maintainer: [ETCHDEV](https://github.com/ETCHDEV/)** <br>
-**Contributors: People from Group** <br>
-**Tester: [ETCHDEV](https://github.com/ETCHDEV/)**
+**Maintainer: [Aistop](https://github.com/AistopGit/)** <br>
+**Contributors: [ETCHDEV](https://github.com/ETCHDEV), [Nikroks](https://github.com/N1kroks)** <br>
+**Tester: [Aistop](https://github.com/AistopGit/)**
 
 ### UEFI Status
 
-| Feature            | Description | State |
-|:-------------------|:------------|:-----:|
-| Display            |             | ✅    |
-| Internal Storage   |             | ✅    |
-| Side Buttons       |             | ✅    |
-| USB Host Mode      |             | ❌    |
-| USB Device Mode    |             | ✅    |
-| USB Power Delivery |             | ❌    |
-| Mass Storage       |             | ❔    |
-| SD Card            |             | ❌    |
-| Windows Boot       |             | ✅    |
-| Linux Boot         |             | ❌    |
+| Feature            | Description                | State |
+|:-------------------|:---------------------------|:-----:|
+| Display            |                            | ✅    |
+| Internal Storage   |                            | ✅    |
+| Side Buttons       |                            | ✅    |
+| USB Host Mode      |                            | ❌    |
+| USB Device Mode    |                            | ✅    |
+| USB Power Delivery |                            | ❌    |
+| Mass Storage       | Crashes on large transfers | ⚠️    |
+| SD Card            |                            | ❌    |
+| Windows Boot       |                            | ✅    |
+| Linux Boot         |                            | ❌    |
 
 ### OS Status
 
@@ -1618,38 +1618,38 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
-> NOTE: Needs Windows Drivers!
+> NOTE: Needs [Windows Drivers](https://github.com/AistopGit/windows_oem_xiaomi_lisa)!
 
-| Feature              | Description | State |
-|:---------------------|:------------|:-----:|
-| Internal Storage     |             | ✅    |
-| SD Card              |             | ❌    |
-| Side Buttons         |             | ✅    |
-| Proximity Sensor     |             | ❌    |
-| Light Sensor         |             | ❌    |
-| Accelerometer Sensor |             | ❌    |
-| Compass Sensor       |             | ❌    |
-| Fingerprint Sensor   |             | ❌    |
-| Hall Sensor          |             | ❌    |
-| NFC Sensor           |             | ❌    |
-| Temperature Sensor   |             | ✅    |
-| Battery              |             | ❌    |
-| USB Host Mode        |             | ✅    |
-| USB Device Mode      |             | ❌    |
-| USB Power Delivery   |             | ❌    |
-| Charging             |             | ❌    |
-| WLAN                 |             | ❌    |
-| CPU                  |             | ✅    |
-| Touchscreen          |             | ❌    |
-| Bluetooth            |             | ✅    |
-| GPS                  |             | ✅    |
-| Speakers             |             | ❌    |
-| Microphone           |             | ❌    |
-| GPU                  |             | ❌    |
-| Camera               |             | ❌    |
-| Mobile Data          |             | ❌    |
-| Display              |             | ✅    |
-| Vibration            |             | ❌    |
+| Feature              | Description           | State |
+|:---------------------|:----------------------|:-----:|
+| Internal Storage     |                       | ✅    |
+| SD Card              | Hot Plug doesn't work | ⚠️    |
+| Side Buttons         |                       | ✅    |
+| Proximity Sensor     |                       | ❌    |
+| Light Sensor         |                       | ❌    |
+| Accelerometer Sensor |                       | ❌    |
+| Compass Sensor       |                       | ❌    |
+| Fingerprint Sensor   |                       | ❌    |
+| Hall Sensor          |                       | ❌    |
+| NFC Sensor           |                       | ❌    |
+| Temperature Sensor   |                       | ✅    |
+| Battery              |                       | ✅    |
+| USB Host Mode        |                       | ✅    |
+| USB Device Mode      |                       | ✅    |
+| USB Power Delivery   |                       | ✅    |
+| Charging             |                       | ✅    |
+| WLAN                 |                       | ✅    |
+| CPU                  |                       | ✅    |
+| Touchscreen          |                       | ✅    |
+| Bluetooth            |                       | ✅    |
+| GPS                  |                       | ✅    |
+| Speakers             |                       | ❌    |
+| Microphone           |                       | ❌    |
+| GPU                  |                       | ❌    |
+| Camera               |                       | ❌    |
+| Mobile Data          |                       | ✅    |
+| Display              |                       | ✅    |
+| Vibration            |                       | ❌    |
 
 </td></tr> </table>
 
