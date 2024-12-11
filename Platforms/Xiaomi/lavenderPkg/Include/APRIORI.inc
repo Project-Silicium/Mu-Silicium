@@ -34,8 +34,6 @@ APRIORI DXE {
   INF Binaries/lavender/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
-
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
@@ -79,11 +77,6 @@ APRIORI DXE {
 
   INF Binaries/lavender/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   
-  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
-  INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
-  INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
-  INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-  
   INF Binaries/lavender/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   
@@ -97,11 +90,14 @@ APRIORI DXE {
   INF Binaries/lavender/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/MdtpDxe/MdtpDxe.inf
   
-  INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  
+ 
   INF Binaries/lavender/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
+
+  INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
+  INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
+  INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
+  INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+ 
 }
