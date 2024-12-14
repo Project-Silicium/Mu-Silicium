@@ -45,7 +45,7 @@ SetMaxFreq (
       ASSERT_EFI_ERROR (Status);
     }
 
-    DEBUG ((EFI_D_WARN, "CPU Cluster %d Now runs at %u Hz.\n", i, HzFreq));
+    DEBUG ((EFI_D_WARN, "CPU Cluster %d Now runs at %u KHz.\n", i, HzFreq));
   }
 
   return EFI_SUCCESS;
