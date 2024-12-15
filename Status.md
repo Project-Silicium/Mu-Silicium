@@ -94,7 +94,7 @@
 **Codename: pong** <br>
 **Maintainers: [index986](https://github.com/index986)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks)** <br>
-**Testers: [index986](https://github.com/index986) [nokii1337](https://github.com/nokii1337), People from tg/discord nothing group**
+**Testers: [index986](https://github.com/index986), People from tg/discord nothing group**
 
 ### UEFI Status
 
