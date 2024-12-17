@@ -4,6 +4,7 @@
 #include <Library/DxeServicesTableLib.h>
 #include <Library/ArmMmuLib.h>
 #include <Library/RamPartitionTableLib.h>
+#include <Library/MemoryMapHelperLib.h>
 #include <Library/SortLib.h>
 
 #include <Protocol/EFISmem.h>
@@ -95,13 +96,15 @@ AddRamPartitions (
   UINT32                           NumPartitions       = 0;
   UINT32                           PartitionVersion    = 0;
 
+  ARM_MEMORY_REGION_DESCRIPTOR_EX  HypReservedRegion;
+
   // Get RAM Partition Infos
   Status = GetRamPartitions (&RamPartitionTable, &PartitionVersion);
   ASSERT_EFI_ERROR (Status);
 
   // Print RAM Partition Version
-  if (PartitionVersion == 1) { 
-    DEBUG ((EFI_D_ERROR, "RAM Partition Version 1 is not Supported!\n"));
+  if (PartitionVersion < 1) { 
+    DEBUG ((EFI_D_ERROR, "RAM Partition Version %u is not Supported!\n", PartitionVersion));
     ASSERT_EFI_ERROR (EFI_UNSUPPORTED);
   } else {
     DEBUG ((EFI_D_WARN, "RAM Partition Version: %d\n", PartitionVersion));
@@ -113,10 +116,30 @@ AddRamPartitions (
   // Sort all RAM Partitions
   PerformQuickSort (RamPartitionTable->RamPartitionEntry, NumPartitions, sizeof(RamPartitionEntry), CompareBaseAddress);
 
+  // Get "HYP Reserved" Memory Region
+    Status = LocateMemoryMapAreaByName ("HYP Reserved", &HypReservedRegion);
+  if (!EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_WARN, "Hyp Reserved Address = 0x%llx\n", HypReservedRegion.Address));
+    DEBUG ((EFI_D_WARN, "Hyp Reserved Size    = 0x%llx\n", HypReservedRegion.Length));
+  }
+
   for (INT32 i = 0; i < NumPartitions; i++) {
     // Check if the RAM Partition is Invalid
     if (RamPartitionTable->RamPartitionEntry[i].Type != RAM_PART_SYS_MEMORY || RamPartitionTable->RamPartitionEntry[i].Category != RAM_PART_SDRAM) { continue; }
     if (RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength <= RAM_PARTITION_BASE) { continue; }
+
+    // Checks for "HYP Reserved"
+    if (!EFI_ERROR (Status)) {
+      if (RamPartitionTable->RamPartitionEntry[i].Base >= HypReservedRegion.Address && RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength < HypReservedRegion.Address + HypReservedRegion.Length) { continue; }
+      if (RamPartitionTable->RamPartitionEntry[i].Base < HypReservedRegion.Address + HypReservedRegion.Length && HypReservedRegion.Address < RamPartitionTable->RamPartitionEntry[i].Base && RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength > HypReservedRegion.Address + HypReservedRegion.Length) {
+        RamPartitionTable->RamPartitionEntry[i].AvailableLength = RamPartitionTable->RamPartitionEntry[i].AvailableLength - RamPartitionTable->RamPartitionEntry[i].Base + HypReservedRegion.Address + HypReservedRegion.Length;
+        RamPartitionTable->RamPartitionEntry[i].Base            = HypReservedRegion.Address + HypReservedRegion.Length;
+      }
+  
+      if (RamPartitionTable->RamPartitionEntry[i].Base < HypReservedRegion.Address && RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength > HypReservedRegion.Address && RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength < HypReservedRegion.Address + HypReservedRegion.Length) {
+        RamPartitionTable->RamPartitionEntry[i].AvailableLength = HypReservedRegion.Address - RamPartitionTable->RamPartitionEntry[i].Base;
+      }
+    }
 
     // Add First RAM Partition
     if (!AnyRamPartitionAdded) {
