@@ -103,7 +103,7 @@ AddRamPartitions (
   ASSERT_EFI_ERROR (Status);
 
   // Print RAM Partition Version
-  if (PartitionVersion < 1) { 
+  if (PartitionVersion <= 1) { 
     DEBUG ((EFI_D_ERROR, "RAM Partition Version %u is not Supported!\n", PartitionVersion));
     ASSERT_EFI_ERROR (EFI_UNSUPPORTED);
   } else {
