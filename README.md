@@ -1,45 +1,42 @@
-# [Project Mu](https://microsoft.github.io/mu/) UEFI Implementation for various AARCH64/ARM Devices
+# Project Silicium UEFI for ARM-Based Devices
 
-<!-- ![Banner](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Pictures/Banner.png) -->
+<!-- ![Banner](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Resources/Pictures/Banner.png) -->
 
 ## Description
 
-This repo brings UEFI Firmware on your Device (If supported) to boot OSs like Windows or Linux.
+This Project focuses on Making ARM-Based Devices Boot Operating Systems like Windows or Linux using Custom UEFI Firmware.
 
 ## Resources
 
+- [Status](Status.md)
+- [Building](Building.md)
+- [Guides](https://github.com/Project-Silicium/Guides/blob/main/README.md)
 - [Discord Server](https://discord.gg/Dx2QgMx7Sv)
 
-- [Status](Status.md)
+## Frequently asked Questions
 
-- [Building](Building.md)
-
-- [Guides](https://github.com/Project-Silicium/WoA-Guides/blob/main/README.md)
-
-## FAQ
-
-#### Can my Phone / Tablet run this UEFI?
-
+> **Is my Device Supported in this Project?**
 ```
-Check the Status Page to see if your Device can run this UEFI.
+To Check if your Device is Supported, Take a Look at the Status Page Referenced in the Section Above.
 ```
 
-#### What if, My Device isn't Supported?
+<br>
 
+> **What do I do if my Device isn't Supported in this Project?**
 ```
-We have Porting Guides that will Guide you through the Porting Process.
-(And Please don't try Images from another Devices on yours. Please.)
+We made some Guides that Explain How to Port your Device that are Referenced in the Section Above.
 ```
 
 ## Credits
 
-Many Thanks to these People:
+[Microsoft](https://github.com/microsoft/) for their [Project Mu](https://microsoft.github.io/mu/) which Powers this Project. <br>
+[WOA-Project](https://github.com/WOA-Project/) for their [mu_andromeda_platforms](https://github.com/WOA-Project/mu_andromeda_platforms/) which is used as Base for this Project. <br>
+[Project Aloha](https://github.com/Project-Aloha/) for their [mu_aloha_platforms](https://github.com/Project-Aloha/mu_aloha_platforms/) which is used as Reference for some SoCs. <br>
+[Open Surface RT](https://openrt.gitbook.io/open-surfacert/) for their Help on Tegra Related Stuff.
 
-[Gustave Monce](https://github.com/gus33000) for his [mu_andromeda_platforms](https://github.com/WOA-Project/mu_andromeda_platforms), without it this Repo would probally not Exist. <br />
-[sonic011gamer](https://github.com/sonic011gamer) for Providing some Exynos Code and Explaining some Exynos Stuff. <br />
-The [OpenRT Comunity](https://openrt.gitbook.io/open-surfacert/) for some Tegra Specific Code and for Explaining many Things.
+[sonic011gamer](https://github.com/sonic011gamer/) and [halal-beef](https://github.com/halal-beef/) for their Amazing Work on Exynos Related Stuff.
 
 ## License
 
-All code except drivers in `GPLDrivers`, `GPLApplications` & `GPLLibrary` directorys are licensed under BSD-2-Clause. <br />
+All code except drivers in `GPLDrivers` & `GPLApplications` & `GPLLibrary` directorys are licensed under BSD-2-Clause. <br />
 GPL Drivers are licensed under `GPLv2` or later license.
