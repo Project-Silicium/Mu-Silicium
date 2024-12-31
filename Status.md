@@ -1060,9 +1060,9 @@
 
 **State: Active** <br>
 **Codename: nabu** <br>
-**Maintainers: [iNUCi](https://github.com/iNUCi) <br>
-**Contributors: [iNUCi](https://github.com/iNUCi) <br>
-**Testers: [iNUCi](https://github.com/iNUCi)
+**Maintainers: [iNUCi](https://github.com/iNUCi)** <br>
+**Contributors: [iNUCi](https://github.com/iNUCi)** <br>
+**Testers: [iNUCi](https://github.com/iNUCi)**
 
 ### UEFI Status
 
