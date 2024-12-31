@@ -386,8 +386,7 @@ EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
 DeviceBootManagerAfterConsole ()
 {
-  EFI_STATUS                    Status;
-  EFI_GRAPHICS_OUTPUT_PROTOCOL *mConsoleOutHandle;
+  EFI_STATUS Status;
 
   // Check if System is Good to Go
   MsPreBootChecks ();
@@ -399,56 +398,6 @@ DeviceBootManagerAfterConsole ()
   Status = DisplayBootGraphic (BG_SYSTEM_LOGO);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Display Boot Logo! Status = %r\n", __FUNCTION__, Status));
-  }
-
-  // Locate Console Out Handle
-  Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&mConsoleOutHandle);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Console Out Protocol! Status %r\n", __FUNCTION__, Status));
-  } else {
-    EFI_GRAPHICS_OUTPUT_BLT_PIXEL  Black;
-    EFI_GRAPHICS_OUTPUT_BLT_PIXEL  White;
-    CHAR16                        *ComboMessage;
-
-    // Combo Message
-    if (FixedPcdGetPtr(PcdSpecialApp) == "NULL") {
-#if HAS_BUILD_IN_KEYBOARD == 1
-      ComboMessage = L"[Escape] UEFI Menu";
-#else
-      ComboMessage = L"[Volume Up] UEFI Menu";
-#endif
-    } else {
-      // More Memory for Combo Message
-      ComboMessage = AllocateZeroPool (150);
-      if (ComboMessage == NULL) {
-        DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for Combo Message! Status = %r\n", Status));
-        goto exit;
-      }
-
-#if HAS_BUILD_IN_KEYBOARD == 1
-      UnicodeSPrint (ComboMessage, 150, L"[Escape] UEFI Menu - [Delete] %a", FixedPcdGetPtr(PcdSpecialAppName));
-#else
-      UnicodeSPrint (ComboMessage, 150, L"[Volume Up] UEFI Menu - [Volume Down] %a", FixedPcdGetPtr(PcdSpecialAppName));
-#endif
-    }
-
-    // Set Pos for Combo Message
-    UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(ComboMessage) * EFI_GLYPH_WIDTH) / 2;
-    UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
-
-    // Set Color for the Message
-    Black.Blue = Black.Green = Black.Red = Black.Reserved = 0x00;
-    White.Blue = White.Green = White.Red = White.Reserved = 0xFF;
-
-    // Display Combo Message
-    PrintXY (XPos, YPos, &White, &Black, ComboMessage);
-
-exit:
-    if (FixedPcdGetPtr(PcdSpecialApp) != "NULL") {
-      if (ComboMessage != NULL) {
-        FreePool (ComboMessage);
-      }
-    }
   }
 
   return GetPlatformConnectList ();

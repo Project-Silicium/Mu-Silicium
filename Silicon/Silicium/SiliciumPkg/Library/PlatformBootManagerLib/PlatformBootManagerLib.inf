@@ -23,6 +23,7 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MsCorePkg/MsCorePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   DebugLib
@@ -38,9 +39,14 @@
   HobLib
   PerformanceLib
   PcdLib
+  PrintLib
 
 [Pcd]
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut
+
+[FixedPcd]
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName
 
 [Protocols]
   gEfiPciRootBridgeIoProtocolGuid
