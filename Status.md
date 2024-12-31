@@ -1513,6 +1513,107 @@
 
 </td></tr> </table>
 
+## Xiaomi Mi 6
+
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-6.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: sagit** <br>
+**Maintainer: ivnvrvnn** <br>
+**Contributors: ivnvrvnn** <br>
+**Tester: ivnvrvnn**
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   | Need to be tested        | ❔    |
+| Side Buttons       | Need to be tested        | ❔    |
+| USB Host Mode      | Need to be tested        | ❔    |
+| USB Device Mode    | Need to be tested        | ❔    |
+| USB Power Delivery | Need to be tested        | ❔    |
+| Mass Storage       | Need to be tested        | ❔    |
+| SD Card            | Mi 6 doesn't have sd slot| ❔    |
+| Windows Boot       | Need to be tested        | ❔    |
+| Linux Boot         | Need to be tested        | ❔    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+> NOTE: Needs Windows Drivers!
+
+| Feature              | Description               | State |
+|:---------------------|:--------------------------|:-----:|
+| Internal Storage     |                           | ❌    |
+| SD Card              |                           | ❌    |
+| Side Buttons         |                           | ❌    |
+| Proximity Sensor     |                           | ❌    |
+| Light Sensor         |                           | ❌    |
+| Accelerometer Sensor |                           | ❌    |
+| Compass Sensor       |                           | ❌    |
+| Fingerprint Sensor   |                           | ❌    |
+| Hall Sensor          |                           | ❌    |
+| NFC Sensor           |                           | ❌    |
+| Temperature Sensor   |                           | ❌    |
+| Battery              |                           | ❌    |
+| USB Host Mode        |                           | ❌    |
+| USB Device Mode      |                           | ❌    |
+| USB Power Delivery   |                           | ❌    |
+| Charging             |                           | ❌    |
+| WLAN                 |                           | ❌    |
+| CPU                  |                           | ❌    |
+| Touchscreen          |                           | ❌    |
+| Bluetooth            |                           | ❌    |
+| GPS                  |                           | ❌    |
+| Speakers             |                           | ❌    |
+| 3.5mm Audio Jack     |                           | ❌    |
+| Microphone           |                           | ❌    |
+| GPU                  |                           | ❌    |
+| Camera               |                           | ❌    |
+| Mobile Data          |                           | ❌    |
+| Display              |                           | ❌    |
+| Vibration            |                           | ❌    |
+
+</td><td>
+
+| Feature              | Description               | State |
+|:---------------------|:--------------------------|:-----:|
+| Internal Storage     |                           | ❌    |
+| SD Card              |                           | ❌    |
+| Side Buttons         |                           | ❌    |
+| Proximity Sensor     |                           | ❌    |
+| Light Sensor         |                           | ❌    |
+| Accelerometer Sensor |                           | ❌    |
+| Compass Sensor       |                           | ❌    |
+| Fingerprint Sensor   |                           | ❌    |
+| Hall Sensor          |                           | ❌    |
+| NFC Sensor           |                           | ❌    |
+| Temperature Sensor   |                           | ❌    |
+| Battery              |                           | ❌    |
+| USB Host Mode        |                           | ❌    |
+| USB Device Mode      |                           | ❌    |
+| USB Power Delivery   |                           | ❌    |
+| Charging             |                           | ❌    |
+| WLAN                 |                           | ❌    |
+| CPU                  |                           | ❌    |
+| Touchscreen          |                           | ❌    |
+| Bluetooth            |                           | ❌    |
+| GPS                  |                           | ❌    |
+| Speakers             |                           | ❌    |
+| 3.5mm Audio Jack     |                           | ❌    |
+| Microphone           |                           | ❌    |
+| GPU                  |                           | ❌    |
+| Camera               |                           | ❌    |
+| Mobile Data          |                           | ❌    |
+| Display              |                           | ❌    |
+| Vibration            |                           | ❌    |
+
+</td></tr> </table>
+
   </summary>
 </details>
 
