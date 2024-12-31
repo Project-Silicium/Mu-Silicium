@@ -1089,7 +1089,6 @@
 | Feature              | Description                                                  | State |
 |:---------------------|:-------------------------------------------------------------|:-----:|
 | Internal Storage     |                                                              | ✅    |
-| SD Card              |                                                              | ❌    |
 | Side Buttons         |                                                              | ✅    |
 | Proximity Sensor     |                                                              | ❌    |
 | Accelerometer Sensor |                                                              | ✅    |
