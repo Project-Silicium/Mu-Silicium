@@ -1515,7 +1515,7 @@
 
 ## Xiaomi Mi 6
 
-<img align="right" src="Resources/Pictures/Xiaomi-Mi-6.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-6.png" width="290" alt="Preview">
 
 **State: Active** <br>
 **Codename: sagit** <br>
@@ -1528,15 +1528,15 @@
 | Feature            | Description              | State |
 |:-------------------|:-------------------------|:-----:|
 | Display            |                          | ✅    |
-| Internal Storage   | Need to be tested        | ❔    |
-| Side Buttons       | Need to be tested        | ❔    |
-| USB Host Mode      | Need to be tested        | ❔    |
-| USB Device Mode    | Need to be tested        | ❔    |
-| USB Power Delivery | Need to be tested        | ❔    |
-| Mass Storage       | Need to be tested        | ❔    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       |                          | ❔    |
+| USB Host Mode      |                          | ✅    |
+| USB Device Mode    |                          | ❔    |
+| USB Power Delivery |                          | ❔    |
+| Mass Storage       |                          | ❌    |
 | SD Card            | Mi 6 doesn't have sd slot| ❔    |
-| Windows Boot       | Need to be tested        | ❔    |
-| Linux Boot         | Need to be tested        | ❔    |
+| Windows Boot       |                          | ❌    |
+| Linux Boot         |                          | ❌    |
 
 ### OS Status
 
