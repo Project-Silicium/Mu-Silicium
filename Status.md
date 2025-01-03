@@ -2423,23 +2423,23 @@
 **State: Inactive** <br>
 **Codename: ginkgo** <br>
 **Maintainer: None** <br>
-**Contributors: [SwedMlite](https://github.com/SwedMlite)** <br>
-**Testers: None**
+**Contributors: [SwedMlite](https://github.com/SwedMlite), [Robotix](https://github.com/Robotix22/)** <br>
+**Testers: [Dima](https://github.com/dimabimaev/)**
 
 ### UEFI Status
 
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
-| USB Power Delivery |                   | ✅    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| SD Card            |                   | ❌    |
-| Windows Boot       |                   | ✅    |
-| Linux Boot         |                   | ❌    |
+| Feature            | Description               | State |
+|:-------------------|:--------------------------|:-----:|
+| Display            |                           | ✅    |
+| Internal Storage   |                           | ✅    |
+| Side Buttons       |                           | ✅    |
+| USB Host Mode      |                           | ✅    |
+| USB Device Mode    |                           | ❌    |
+| USB Power Delivery |                           | ✅    |
+| Mass Storage       | Unstable with Device Mode | ⚠️    |
+| SD Card            |                           | ❌    |
+| Windows Boot       |                           | ✅    |
+| Linux Boot         |                           | ❔    |
 
 ### OS Status
 
