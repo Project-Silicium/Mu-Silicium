@@ -14,15 +14,15 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = equuleus
-  PLATFORM_GUID                  = 7B28B566-C3FF-4457-A0D2-B3F43849CB07
+  PLATFORM_NAME                  = dipper
+  PLATFORM_GUID                  = 82FB77F2-AC2E-434D-811A-3CAB9E64001B
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/equuleusPkg
+  OUTPUT_DIRECTORY               = Build/dipperPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = equuleusPkg/equuleus.fdf
+  FLASH_DEFINITION               = dipperPkg/dipper.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 1
   HAS_BUILD_IN_KEYBOARD          = 0
 
@@ -50,10 +50,10 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 8 Pro"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"equuleus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi 8_pro_equuleus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 8 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 8"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"dipper"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi 8_dipper"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 8"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
