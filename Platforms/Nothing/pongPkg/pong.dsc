@@ -23,7 +23,7 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = pongPkg/pong.fdf
-  USE_CUSTOM_DISPLAY_DRIVER      = 1
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
   #
