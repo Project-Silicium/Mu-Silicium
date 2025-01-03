@@ -17,6 +17,9 @@
 #include <Library/HobLib.h>
 #include <Library/PerformanceLib.h>
 #include <Library/PcdLib.h>
+#include <Library/PrintLib.h>
+
+#include <Protocol/GraphicsOutput.h>
 
 #include <Guid/MemoryTypeInformation.h>
 #include <Guid/MemoryOverwriteControl.h>
@@ -302,8 +305,15 @@ PlatformBootManagerAfterConsole ()
   ProcessCapsules ();
 }
 
-STATIC UINTN                         XPos         = 0;
-STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGOPProtocol = NULL;
+//
+// Static Global Variables
+//
+STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGopProtocol   = NULL;
+STATIC CHAR16                       *ComboMessage   = NULL;
+STATIC UINTN                         FormXPos       = 0;
+STATIC UINTN                         FormYPos       = 0;
+STATIC UINTN                         TextXPos       = 0;
+STATIC UINTN                         TextYPos       = 0;
 
 VOID
 EFIAPI
@@ -312,46 +322,127 @@ PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
   EFI_STATUS                    Status;
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
 
-  // Locate GOP Protocol
-  if (mGOPProtocol == NULL) {
-    Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&mGOPProtocol);
+  // Get Timeout Time
+  UINT16 Timeout = PcdGet16 (PcdPlatformBootTimeOut);
 
+  // Locate GOP Protocol
+  if (!mGopProtocol) {
+    Status = gBS->LocateProtocol (&gEfiGraphicsOutputProtocolGuid, NULL, (VOID *)&mGopProtocol);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Protocol! Status = %r\n", __FUNCTION__, Status));
       return;
     }
   }
 
-  // Get Screen Size
-  UINT32 ScreenWidth  = mGOPProtocol->Mode->Info->HorizontalResolution;
-  UINT32 ScreenHeight = mGOPProtocol->Mode->Info->VerticalResolution;
+  // Get Screen Resolution
+  UINT32 ScreenWidth  = mGopProtocol->Mode->Info->HorizontalResolution;
+  UINT32 ScreenHeight = mGopProtocol->Mode->Info->VerticalResolution;
 
-  // Default Y Position
-  UINTN YPos = ScreenHeight * 48 / 50;
+  // Set Timeout Bar Size
+  UINTN Width  = ScreenWidth * 40 / 100 - 200;
+  UINTN Height = Width * 10 / 100;
 
-  // Get Timeout Time
-  UINT16 Timeout = PcdGet16(PcdPlatformBootTimeOut);
+  // Set Timeout Bar Position
+  if ((!FormXPos && !FormYPos) || !TimeoutRemain) {
+    FormXPos = (ScreenWidth - Width) / 2;
+    FormYPos = (ScreenHeight + Width + 200) / 2;
+  }
 
+  // Set Combo Message
+  if (ComboMessage == NULL) {
+    if (FixedPcdGetPtr (PcdSpecialApp) == "NULL") {
+#if HAS_BUILD_IN_KEYBOARD == 1
+      ComboMessage = L"[Escape] UEFI Menu";
+#else
+      ComboMessage = L"[Volume Up] UEFI Menu";
+#endif
+    } else {
+      // Allocate Memory
+      ComboMessage = AllocateZeroPool (150);
+      if (ComboMessage == NULL) {
+        DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for Combo Message!\n"));
+        goto Form;
+      }
+
+#if HAS_BUILD_IN_KEYBOARD == 1
+      UnicodeSPrint (ComboMessage, 150, L"[Escape] UEFI Menu - [Delete] %a", FixedPcdGetPtr (PcdSpecialAppName));
+#else
+      UnicodeSPrint (ComboMessage, 150, L"[Volume Up] UEFI Menu - [Volume Down] %a", FixedPcdGetPtr (PcdSpecialAppName));
+#endif
+    }
+
+    // Set Combo Message Position
+    TextXPos = (ScreenWidth - StrLen (ComboMessage) * EFI_GLYPH_WIDTH) / 2;
+    TextYPos = (mGopProtocol->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
+
+    // Animate Combo Message
+    for (UINT8 i = 0; i < 255; i++) {
+      // Set New Foreground Color
+      Color.Blue = Color.Green = Color.Red = i;
+      Color.Reserved = 0xFF;
+
+      // Print Combo Message
+      PrintXY (TextXPos, TextYPos, &Color, NULL, ComboMessage);
+
+      // Wait a Bit
+      gBS->Stall (3000);
+    }
+  }
+
+Form:
+  // Draw Background
+  if (TimeoutRemain == Timeout) {
+    for (UINT8 i = 0; i < 34; i++) {
+      // Set New Background Color
+      Color.Blue = Color.Green = Color.Red = i;
+      Color.Reserved = 0xFF;
+
+      // Draw New Color
+      mGopProtocol->Blt (mGopProtocol, &Color, EfiBltVideoFill, 0, 0, FormXPos, FormYPos, Width, Height, 0);
+
+      // Wait a Bit
+      gBS->Stall (30000);
+    }
+  }
+
+  // Clear Timeout Bar
   if (!TimeoutRemain) {
-    SetMem (&Color, sizeof(EFI_GRAPHICS_OUTPUT_BLT_PIXEL), 0x0);
+    for (UINT8 i = 255; i > 0; i--) {
+      // Set New Foreground Color
+      Color.Blue = Color.Green = Color.Red = i;
+      Color.Reserved = 0xFF;
 
-    // Clear Combo Message & Timeout Bar
-    Status = mGOPProtocol->Blt (mGOPProtocol, &Color, EfiBltVideoFill, 0, 0, 0, YPos - EFI_GLYPH_HEIGHT, ScreenWidth, ScreenHeight - (YPos - EFI_GLYPH_HEIGHT), ScreenHeight * sizeof(EFI_GRAPHICS_OUTPUT_BLT_PIXEL));
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Clear Combo Message! Status = %r\n", __FUNCTION__, Status));
+      // Print Combo Message
+      if (ComboMessage != NULL) {
+        PrintXY (TextXPos, TextYPos, &Color, NULL, ComboMessage);
+      }
+
+      // Draw New Color
+      mGopProtocol->Blt (mGopProtocol, &Color, EfiBltVideoFill, 0, 0, FormXPos, FormYPos, Width, Height, 0);
+
+      // Wait a Bit
+      gBS->Stall (3000);
     }
-  } else {
-    // Set Timeout Bar Color
-    Color.Blue = Color.Green = Color.Red = Color.Reserved = 0xFF;
 
-    for (UINTN i = 0; i < ScreenWidth / Timeout; i++) {
-      // Draw Timeout Bar
-      mGOPProtocol->Blt (mGOPProtocol, &Color, EfiBltVideoFill, 0, 0, XPos, YPos, 1, ScreenHeight / 50, (ScreenHeight / 50) * sizeof(EFI_GRAPHICS_OUTPUT_BLT_PIXEL));
-
-      XPos++;
-
-      // Wait
-      gBS->Stall (Timeout * 1000000 / ScreenWidth);
+    if (FixedPcdGetPtr (PcdSpecialApp) != "NULL") {
+      if (ComboMessage != NULL) {
+        FreePool (ComboMessage);
+      }
     }
+
+    return;
+  }
+
+  // Set Foreground Color
+  Color.Blue = Color.Green = Color.Red = Color.Reserved = 0xFF;
+
+  // Draw Foreground
+  for (UINTN i = 0; i < Width / Timeout; i++) {
+    mGopProtocol->Blt (mGopProtocol, &Color, EfiBltVideoFill, 0, 0, FormXPos, FormYPos, 1, Height, 0);
+
+    FormXPos++;
+
+    // Wait
+    gBS->Stall (Timeout * 1000000 / Width);
   }
 }

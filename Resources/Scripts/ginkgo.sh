@@ -9,11 +9,14 @@ cat "./Build/ginkgoPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/GINKGO_UEFI.fd-bootshim
 python3 ./Resources/Scripts/mkbootimg.py \
   --kernel ./Resources/bootpayload.bin \
   --ramdisk ./Resources/ramdisk \
-  --kernel_offset 0x00000000 \
-  --ramdisk_offset 0x00000000 \
-  --tags_offset 0x00000000 \
+  --base 0x00000000 \
+  --kernel_offset 0x00008000 \
+  --ramdisk_offset 0x01000000 \
+  --second_offset 0x00F00000 \
+  --tags_offset 0x00000100 \
+  --pagesize 4096 \
   --os_version 13.0.0 \
   --os_patch_level "$(date '+%Y-%m')" \
-  --header_version 1 \
+  --header_version 0 \
   -o Mu-ginkgo.img \
   ||_error "\nFailed to create Android Boot Image!\n"

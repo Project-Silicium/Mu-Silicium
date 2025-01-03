@@ -1,40 +1,17 @@
-diff --git a/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.c b/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.c
-index ff5c4cf412..c63f2cb0d8 100644
---- a/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.c
-+++ b/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.c
-@@ -76,7 +76,10 @@ UsbIoControlTransfer (
-     return EFI_INVALID_PARAMETER;
-   }
+diff --git a/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.h b/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.h
+index 59d908d90d..bbc5b3280e 100644
+--- a/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.h
++++ b/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.h
+@@ -135,10 +135,10 @@ typedef struct _USB_HUB_API    USB_HUB_API;
+ #define USB_CLEAR_FEATURE_REQUEST_TIMEOUT  10
  
--  OldTpl = gBS->RaiseTPL (USB_BUS_TPL);
-+  //
-+  // BugBug: Raise TPL to callback level instead of USB_BUS_TPL to avoid TPL conflict
-+  //
-+  OldTpl = gBS->RaiseTPL (TPL_CALLBACK);
+ //
+-// Bus raises TPL to TPL_NOTIFY to serialize all its operations
++// Bus raises TPL to TPL_CALLBACK to serialize all its operations
+ // to protect shared data structures.
+ //
+-#define  USB_BUS_TPL  TPL_NOTIFY
++#define  USB_BUS_TPL  TPL_CALLBACK
  
-   UsbIf = USB_INTERFACE_FROM_USBIO (This);
-   Dev   = UsbIf->Device;
-@@ -268,7 +271,10 @@ UsbIoBulkTransfer (
-     return EFI_INVALID_PARAMETER;
-   }
- 
--  OldTpl = gBS->RaiseTPL (USB_BUS_TPL);
-+  //
-+  // BugBug: Raise TPL to callback level instead of USB_BUS_TPL to avoid TPL conflict
-+  //
-+  OldTpl = gBS->RaiseTPL (TPL_CALLBACK);
- 
-   UsbIf = USB_INTERFACE_FROM_USBIO (This);
-   Dev   = UsbIf->Device;
-@@ -368,7 +374,10 @@ UsbIoSyncInterruptTransfer (
-     return EFI_INVALID_PARAMETER;
-   }
- 
--  OldTpl = gBS->RaiseTPL (USB_BUS_TPL);
-+  //
-+  // BugBug: Raise TPL to callback level instead of USB_BUS_TPL to avoid TPL conflict
-+  //
-+  OldTpl = gBS->RaiseTPL (TPL_CALLBACK);
- 
-   UsbIf = USB_INTERFACE_FROM_USBIO (This);
-   Dev   = UsbIf->Device;
+ #define  USB_INTERFACE_SIGNATURE  SIGNATURE_32 ('U', 'S', 'B', 'I')
+ #define  USB_BUS_SIGNATURE        SIGNATURE_32 ('U', 'S', 'B', 'B')
