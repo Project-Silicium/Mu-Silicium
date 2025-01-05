@@ -40,9 +40,9 @@ if [ ${PAK} = apt ]; then
     if [ $CI_BUILD == "true" ]; then
         # Update CI Ubuntu
         sudo apt update
-        sudo apt -y upgrade
+        sudo apt full-upgrade -y
     fi
-    sudo apt install -y pip git mono-devel build-essential lld nuget uuid-dev nasm gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf python3 python3-distutils python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
+    sudo apt install -y pip git mono-devel build-essential lld uuid-dev nasm gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf python3 python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
 elif [ ${PAK} = dnf ]; then
     sudo dnf install -y git mono-devel nuget nasm make lld gcc automake gcc-aarch64-linux-gnu arm-linux-gnueabihf-gcc python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
 elif [ ${PAK} = pacman ] || [ ${PAK} = yay ]; then
