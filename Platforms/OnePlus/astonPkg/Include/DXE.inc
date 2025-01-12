@@ -12,7 +12,7 @@
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   INF Binaries/aston/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
-  INF Binaries/aston/QcomPkg/Drivers/TzDxe/ScmDxeLA_Kailua.inf
+  INF Binaries/aston/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/aston/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF Binaries/aston/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
@@ -33,7 +33,7 @@
 
   INF Binaries/aston/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
-  INF Binaries/aston/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  #INF Binaries/aston/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
@@ -94,7 +94,7 @@
   INF Binaries/aston/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  #INF Binaries/aston/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
+  #INF Binaries/aston/QcomPkg/Drivers/Phoenix2_0Dxe/Phoenix2_0Dxe.inf
   INF Binaries/aston/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/aston/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf

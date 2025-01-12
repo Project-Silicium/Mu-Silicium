@@ -39,15 +39,15 @@
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
 | Windows Boot       |             | ✅    |
-| Linux Boot         |             | ❔    |
+| Linux Boot         |             | ✅    |
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th></tr>
+<tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
-> NOTE: Only Windows Canary Builds that are Build Nr. 26090 or above work!
+> NOTE: Only Windows Builds that are Build Nr. 26090 or above work!
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -74,6 +74,41 @@
 | Speakers             |               | ❌    |
 | Microphone           |               | ❌    |
 | GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td>
+<td>
+
+> NOTE: Linux Requires: [Mainline kernel](https://github.com/jiganomegsdfdf/aston-mainline)
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ✅    |
+| Side Buttons         |               | ✅    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |Userspace issue| ⚠️    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |    Untested   | ⚠️    |
+| Temperature Sensor   |               | ✅    |
+| Battery              |               | ✅    |
+| USB Host Mode        |               | ❔    |
+| USB Device Mode      |               | ✅    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |  100W = 1.1W  | ⚠️    |
+| WLAN                 |               | ✅    |
+| CPU                  |               | ✅    |
+| Touchscreen          |               | ✅    |
+| Bluetooth            |               | ✅    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ✅    |
 | Camera               |               | ❌    |
 | Mobile Data          |               | ❌    |
 | Display              |               | ✅    | 
