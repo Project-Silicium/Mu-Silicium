@@ -6,7 +6,7 @@ gDeviceMemoryDescriptorEx[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
 
   // DDR Regions
-  {"Hypervisor",        0x80000000, 0x0A000000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"Hypervisor",        0x80000000, 0x00A00000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
 
   // Memory Hole: 0x80E00000 -> 0x811D0000 (0x003D0000)
 
