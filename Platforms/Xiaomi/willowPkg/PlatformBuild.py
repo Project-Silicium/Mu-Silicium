@@ -24,10 +24,10 @@ from edk2toollib.utility_functions import RunCmd
 #                                Common Configuration                                     #
 # ####################################################################################### #
 class CommonPlatform ():
-    PackagesSupported = ("davinciPkg")
+    PackagesSupported = ("willowPkg")
     ArchSupported = ("AARCH64")
     TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('davinci', 'gcc_aarch64_linux', 'edk2-build')
+    Scopes = ('willow', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Xiaomi",
@@ -102,10 +102,10 @@ class SettingsManager (UpdateSettingsManager, SetupSettingsManager, PrEvalSettin
         return build_these_packages
 
     def GetPlatformDscAndConfig (self) -> tuple:
-        return ("davinciPkg/davinci.dsc", {})
+        return ("willowPkg/willow.dsc", {})
 
     def GetName (self):
-        return "davinci"
+        return "willow"
 
     def GetPackagesPath (self):
         return CommonPlatform.PackagesPath
@@ -139,7 +139,7 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
         return CommonPlatform.Scopes
 
     def GetName (self):
-        return "davinciPkg"
+        return "willowPkg"
 
     def GetLoggingLevel (self, loggerType):
         return logging.INFO
@@ -148,8 +148,8 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
     def SetPlatformEnv (self):
         logging.debug ("PlatformBuilder SetPlatformEnv")
 
-        self.env.SetValue ("PRODUCT_NAME", "davinci", "Platform Hardcoded")
-        self.env.SetValue ("ACTIVE_PLATFORM", "davinciPkg/davinci.dsc", "Platform Hardcoded")
+        self.env.SetValue ("PRODUCT_NAME", "willow", "Platform Hardcoded")
+        self.env.SetValue ("ACTIVE_PLATFORM", "willowPkg/willow.dsc", "Platform Hardcoded")
         self.env.SetValue ("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
         self.env.SetValue ("TOOL_CHAIN_TAG", "CLANGPDB", "set default to clangpdb")
         self.env.SetValue ("EMPTY_DRIVE", "FALSE", "Default to false")

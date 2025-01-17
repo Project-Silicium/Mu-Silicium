@@ -4,7 +4,7 @@ STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
   {"EnableShell", 0x1},
-  {"SecPagePoolCount", 0x1800},
+  {"SecPagePoolCount", 0x800},
   {"SharedIMEMBaseAddr", 0x146AA000},
   {"DloadCookieAddr", 0x01FD9000},
   {"DloadCookieValue", 0x10},
@@ -36,7 +36,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EarlyInitCoreCnt", 1},
   {"EnableUefiSecAppDebugLogDump", 0x0},
   {"AllowNonPersistentVarsInRetail", 0x1},
-  {"EnableDisplayThread", 0x1},
+  {"EnableDisplayThread", 0x0},
   {"EnableDisplayImageFv", 0x0},
   {"DDRInfoNotifyFlag", 0x0},
   {"EnableMultiCoreFvDecompression", 0},

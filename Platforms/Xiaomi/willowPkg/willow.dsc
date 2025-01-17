@@ -14,15 +14,15 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = marble
-  PLATFORM_GUID                  = 11525221-3953-4778-B18F-45AD6419D181
+  PLATFORM_NAME                  = willow
+  PLATFORM_GUID                  = 630D1379-7D3F-4511-A6F9-578ABBC07518
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/marblePkg
+  OUTPUT_DIRECTORY               = Build/willowPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = marblePkg/marble.fdf
+  FLASH_DEFINITION               = willowPkg/willow.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
@@ -30,58 +30,57 @@
   *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
-  DeviceMemoryMapLib|marblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|marblePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|marblePkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  DeviceMemoryMapLib|willowPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|willowPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DevicePrePiLib|willowPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"tagicmi"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
+  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x5FF8C000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F5"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"marble"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F5_marble"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F5"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8T"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"willow"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_8T_willow"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 8T"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2340
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
-  
+
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703C0C8
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x5FC35620
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
 
   # SD Card Slot
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
   
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2340
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2340
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|123
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|123
 
-!include SM7475Pkg/SM7475Pkg.dsc.inc
+!include SM6125Pkg/SM6125Pkg.dsc.inc

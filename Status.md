@@ -39,15 +39,15 @@
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
 | Windows Boot       |             | ✅    |
-| Linux Boot         |             | ❔    |
+| Linux Boot         |             | ✅    |
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th></tr>
+<tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
-> NOTE: Only Windows Canary Builds that are Build Nr. 26090 or above work!
+> NOTE: Only Windows Builds that are Build Nr. 26090 or above work!
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -74,6 +74,41 @@
 | Speakers             |               | ❌    |
 | Microphone           |               | ❌    |
 | GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td>
+<td>
+
+> NOTE: Linux Requires: [Mainline kernel](https://github.com/jiganomegsdfdf/aston-mainline)
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ✅    |
+| Side Buttons         |               | ✅    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |Userspace issue| ⚠️    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |    Untested   | ⚠️    |
+| Temperature Sensor   |               | ✅    |
+| Battery              |               | ✅    |
+| USB Host Mode        |               | ❔    |
+| USB Device Mode      |               | ✅    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |  100W = 1.1W  | ⚠️    |
+| WLAN                 |               | ✅    |
+| CPU                  |               | ✅    |
+| Touchscreen          |               | ✅    |
+| Bluetooth            |               | ✅    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ✅    |
 | Camera               |               | ❌    |
 | Mobile Data          |               | ❌    |
 | Display              |               | ✅    | 
@@ -918,71 +953,6 @@
 
 </td></tr> </table>
 
-## Xiaomi Poco F2 Pro
-
-<img align="right" src="Resources/Pictures/Xiaomi-Poco-F2-Pro.png" width="500" alt="Preview">
-
-**State: Inactive** <br>
-**Codename: lmi** <br>
-**Maintainer: None** <br>
-**Contributors: None** <br>
-**Tester: None**
-
-### UEFI Status
-
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
-| USB Power Delivery |                   | ✅    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| Windows Boot       |                   | ✅    |
-| Linux Boot         |                   | ❌    |
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-> NOTE: Needs [Windows Drivers](https://github.com/N1kroks/SM8250-Drivers)!
-
-| Feature              | Description | State |
-|:---------------------|:------------|:-----:|
-| Internal Storage     |             | ✅    |
-| SD Card              |             | ❌    |
-| Side Buttons         |             | ✅    |
-| Proximity Sensor     |             | ❌    |
-| Light Sensor         |             | ❌    |
-| Accelerometer Sensor |             | ❌    |
-| Compass Sensor       |             | ❌    |
-| Gyroscope Sensor     |             | ❌    |
-| Fingerprint Sensor   |             | ❌    |
-| Hall Sensor          |             | ❌    |
-| Battery              |             | ✅    |
-| USB Host Mode        |             | ✅    |
-| USB Device Mode      |             | ❌    |
-| USB Power Delivery   |             | ✅    |
-| Charging             |             | ✅    |
-| WLAN                 |             | ❌    |
-| CPU                  |             | ✅    |
-| Touchscreen          |             | ❌    |
-| Bluetooth            |             | ❌    |
-| GPS                  |             | ❌    |
-| Speakers             |             | ❌    |
-| 3.5mm Audio Jack     |             | ❌    |
-| Microphone           |             | ❌    |
-| GPU                  |             | ❌    |
-| Camera               |             | ❌    |
-| Mobile Data          |             | ❌    |
-| Display              |             | ✅    |
-| Vibration            |             | ❌    |
-
-</td></tr> </table>
-
   </summary>
 </details>
 
@@ -1595,74 +1565,6 @@
 | Mobile Data          |                           | ❌    |
 | Display              |                           | ✅    |
 | Vibration            |                           | ❌    |
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 7+ Gen 2 Devices</strong></b></summary>
-
-## Xiaomi Poco F5/Redmi Note 12 Turbo
-
-<img align="right" src="Resources/Pictures/Poco-F5.png" width="500" alt="Preview">
-
-**State: Inactive** <br>
-**Codename: marble** <br>
-**Maintainer: [tagicmi](https://github.com/tagicmi)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [tagicmi](https://github.com/tagicmi), [bubyldian](https://github.com/bubyldian), [Xhdsos](https://github.com/Xhdsos)**
-
-### UEFI Status
-
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
-| USB Power Delivery |                   | ❌    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| Windows Boot       |                   | ✅    |
-| Linux Boot         |                   | ❌    |
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-| Feature              | Description   | State |
-|:---------------------|:--------------|:-----:|
-| Internal Storage     |               | ✅    |
-| Side Buttons         |               | ❌    |
-| Proximity Sensor     |               | ❌    |
-| Light Sensor         |               | ❌    |
-| Accelerometer Sensor |               | ❌    |
-| Compass Sensor       |               | ❌    |
-| Gyroscope Sensor     |               | ❌    |
-| Fingerprint Sensor   |               | ❌    |
-| NFC Sensor           |               | ❌    |
-| Temperature Sensor   |               | ❌    |
-| Battery              |               | ❌    |
-| USB Host Mode        |               | ✅    |
-| USB Device Mode      |               | ❌    |
-| USB Power Delivery   |               | ❌    |
-| Charging             |               | ❌    |
-| WLAN                 |               | ❌    |
-| CPU                  | One Core Only | ⚠️    |
-| Touchscreen          |               | ❌    |
-| Bluetooth            |               | ❌    |
-| GPS                  |               | ❌    |
-| Speakers             |               | ❌    |
-| Microphone           |               | ❌    |
-| GPU                  |               | ❌    |
-| Camera               |               | ❌    |
-| Mobile Data          |               | ❌    |
-| Display              |               | ✅    |
-| Vibration            |               | ❌    |
 
 </td></tr> </table>
 
@@ -2440,12 +2342,12 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-## Xiaomi Redmi Note 8/8T
+## Xiaomi Redmi Note 8T
 
-<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8T.png" width="500" alt="Preview">
 
 **State: Inactive** <br>
-**Codename: ginkgo** <br>
+**Codename: willow** <br>
 **Maintainer: None** <br>
 **Contributors: [SwedMlite](https://github.com/SwedMlite), [Robotix](https://github.com/Robotix22/)** <br>
 **Testers: [Dima](https://github.com/dimabimaev/)**

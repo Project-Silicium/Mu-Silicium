@@ -18,7 +18,7 @@
 #
 ################################################################################
 
-[FD.lmi_UEFI]
+[FD.willow_UEFI]
 BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
 Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1
@@ -93,7 +93,10 @@ READ_LOCK_STATUS   = TRUE
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  INF SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  INF SM6125Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+	
+  # USB Power	
+  INF SM6125Pkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
 
   # ACPI Tables
   !include Include/ACPI.inc
@@ -124,7 +127,7 @@ READ_LOCK_STATUS   = TRUE
 
   FILE FREEFORM = DDE58710-41CD-4306-DBFB-3FA90BB1D2DD {
     SECTION UI = "uefiplat.cfg"
-    SECTION RAW = Binaries/lmi/RawFiles/uefiplat.cfg
+    SECTION RAW = Binaries/willow/RawFiles/uefiplat.cfg
   }
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {

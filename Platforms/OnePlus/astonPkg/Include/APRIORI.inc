@@ -40,7 +40,7 @@ APRIORI DXE {
   
   INF Binaries/aston/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
-  INF Binaries/aston/QcomPkg/Drivers/TzDxe/ScmDxeLA_Kailua.inf
+  INF Binaries/aston/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/aston/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
@@ -65,7 +65,7 @@ APRIORI DXE {
   INF Binaries/aston/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  INF Binaries/aston/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
+  INF Binaries/aston/QcomPkg/Drivers/Phoenix2_0Dxe/Phoenix2_0Dxe.inf
   INF Binaries/aston/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
