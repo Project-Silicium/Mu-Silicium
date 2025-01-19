@@ -2571,6 +2571,106 @@
 <details>
 <summary><b><strong>Snapdragon 660/636/630 Devices</strong></b></summary>
 
+## BlackBerry Key2 LE
+
+<img align="right" src="Resources/Pictures/BlackBerry-Key2-LE.png" width="300" alt="Preview">
+
+**State: Active** <br>
+**Codename: bbf100** <br>
+**Maintainer: [BotchedRPR](https://github.com/BotchedRPR)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: [BotchedRPR](https://github.com/BotchedRPR)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ✅    |
+| USB Device Mode    |             | ❔    |
+| USB Power Delivery |             | ❔    |
+| Mass Storage       |             | ✅    |
+| SD Card            |             | ❔    |
+| Windows Boot       |             | ❔    |
+| Linux Boot         |             | ✅    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+| Feature              | Description                       | State |
+|:---------------------|:----------------------------------|:-----:|
+| Internal Storage     |                                   | ❌    |
+| SD Card              |                                   | ❌    |
+| Side Buttons         |                                   | ❌    |
+| Proximity Sensor     |                                   | ❌    |
+| Light Sensor         |                                   | ❌    |
+| Accelerometer Sensor |                                   | ❌    |
+| Compass Sensor       |                                   | ❌    |
+| Gyroscope Sensor     |                                   | ❌    |
+| Fingerprint Sensor   |                                   | ❌    |
+| Hall Sensor          |                                   | ❌    |
+| Temperature Sensor   |                                   | ❌    |
+| Battery              |                                   | ❌    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ❌    |
+| USB Power Delivery   |                                   | ❌    |
+| Charging             |                                   | ❌    |
+| WLAN                 |                                   | ❌    |
+| CPU                  |                                   | ❌    |
+| Touchscreen          |                                   | ❌    |
+| Bluetooth            |                                   | ❌    |
+| GPS                  |                                   | ❌    |
+| Speakers             |                                   | ❌    |
+| 3.5mm Audio Jack     |                                   | ❌    |
+| Microphone           |                                   | ❌    |
+| GPU                  |                                   | ❌    |
+| Camera               |                                   | ❌    |
+| Mobile Data          |                                   | ❌    |
+| Display              |                                   | ❌    |
+| Vibration            |                                   | ❌    |
+
+</td><td>
+
+| Feature              | Description                       | State |
+|:---------------------|:----------------------------------|:-----:|
+| Internal Storage     |                                   | ❌    |
+| SD Card              |                                   | ❌    |
+| Side Buttons         |                                   | ❌    |
+| Proximity Sensor     |                                   | ❌    |
+| Light Sensor         |                                   | ❌    |
+| Accelerometer Sensor |                                   | ❌    |
+| Compass Sensor       |                                   | ❌    |
+| Gyroscope Sensor     |                                   | ❌    |
+| Fingerprint Sensor   |                                   | ❌    |
+| Hall Sensor          |                                   | ❌    |
+| Temperature Sensor   |                                   | ❌    |
+| Battery              |                                   | ❌    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ❌    |
+| USB Power Delivery   |                                   | ❌    |
+| Charging             |                                   | ❌    |
+| WLAN                 |                                   | ❌    |
+| CPU                  |                                   | ❌    |
+| Touchscreen          |                                   | ❌    |
+| Bluetooth            |                                   | ❌    |
+| GPS                  |                                   | ❌    |
+| Speakers             |                                   | ❌    |
+| 3.5mm Audio Jack     |                                   | ❌    |
+| Microphone           |                                   | ❌    |
+| GPU                  |                                   | ❌    |
+| Camera               |                                   | ❌    |
+| Mobile Data          |                                   | ❌    |
+| Display              |                                   | ❌    |
+| Vibration            |                                   | ❌    |
+
+</td></tr> </table>
+
+
 ## Xiaomi Mi Max 3
 
 <img align="right" src="Resources/Pictures/Xiaomi-Mi-Max-3.png" width="500" alt="Preview">
