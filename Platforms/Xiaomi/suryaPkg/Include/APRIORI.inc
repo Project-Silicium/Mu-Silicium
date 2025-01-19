@@ -50,6 +50,7 @@ APRIORI DXE {
   INF Binaries/surya/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
+#  INF Binaries/surya/QcomPkg/Drivers/VariableDxe/VariableDxe.inf
 
   INF Binaries/surya/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
@@ -61,6 +62,9 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
@@ -72,15 +76,16 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-  INF Binaries/surya/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
-  INF Binaries/surya/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
-#  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
   INF Binaries/surya/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/surya/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
+
+  INF Binaries/surya/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
@@ -89,10 +94,6 @@ APRIORI DXE {
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
-  INF Binaries/surya/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
-  INF Binaries/surya/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
-  INF Binaries/surya/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
-
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/surya/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
@@ -100,6 +101,7 @@ APRIORI DXE {
 !endif
 
   INF Binaries/surya/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/RNGDxe/RngDxe.inf

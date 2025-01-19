@@ -3,6 +3,8 @@
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
 
   INF Binaries/surya/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
   INF Binaries/surya/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
@@ -12,6 +14,7 @@
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
+#  INF Binaries/surya/QcomPkg/Drivers/VariableDxe/VariableDxe.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
@@ -63,8 +66,7 @@
   INF Binaries/surya/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-#  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
-  INF Binaries/surya/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
+  INF Binaries/surya/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/surya/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
