@@ -1031,7 +1031,7 @@
 **State: Active** <br>
 **Codename: nabu** <br>
 **Maintainers: [iNUCi](https://github.com/iNUCi)** <br>
-**Contributors: [iNUCi](https://github.com/iNUCi)** <br>
+**Contributors: [iNUCi](https://github.com/iNUCi), [Robotix](https://github.com/Robotix22/)** <br>
 **Testers: [iNUCi](https://github.com/iNUCi)**
 
 ### UEFI Status
