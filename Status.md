@@ -2565,6 +2565,71 @@
 
 </td></tr> </table>
 
+## Xiaomi Poco M3
+
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-M3.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: citrus** <br>
+**Maintainer: [deuspato](https://github.com/deuspato)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22), [9.8.7.6](https://github.com/Daniel224455), [NUC](https://github.com/iNUCi), [Aistop](https://github.com/AistopGit), [All_One1](https://github.com/Ost268)** <br>
+**Tester: [deuspato](https://github.com/deuspato)**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ✅    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |                   | ✅    |
+| SD Card            |                   | ✅    |
+| Windows Boot       |                   | ❌    |
+| Linux Boot         |                   | ✅    |
+
+### OS Status
+
+<table>
+<tr><th>Linux</th></tr>
+<tr><td>
+
+| Feature              | Description  | State |
+|:---------------------|:-------------|:-----:|
+| Internal Storage     |              | ✅    |
+| SD Card              |              | ✅    |
+| Side Buttons         |              | ❌    |
+| Proximity Sensor     |              | ❌    |
+| Light Sensor         |              | ❌    |
+| Accelerometer Sensor |              | ❌    |
+| Compass Sensor       |              | ❌    |
+| Gyroscope Sensor     |              | ❌    |
+| Fingerprint Sensor   |              | ❌    |
+| NFC Sensor           |              | ❌    |
+| Temperature Sensor   |              | ❌    |
+| Battery              |              | ❌    |
+| USB Host Mode        |              | ❌    |
+| USB Device Mode      |              | ✅    |
+| USB Power Delivery   |              | ❌    |
+| Charging             |              | ❌    |
+| WLAN                 |              | ❌    |
+| CPU                  | 8? i think   | ⚠️    |
+| Touchscreen          |              | ❌    |
+| Bluetooth            |              | ❌    |
+| GPS                  |              | ❌    |
+| Speakers             |              | ❌    |
+| 3.5mm Audio Jack     |              | ❌    |
+| Microphone           |              | ❌    |
+| GPU                  |              | ❌    |
+| Camera               |              | ❌    |
+| Mobile Data          |              | ❌    |
+| Display              |              | ✅    |
+| Vibration            |              | ❌    |
+
+</td></tr> </table>
+
   </summary>
 </details>
 
