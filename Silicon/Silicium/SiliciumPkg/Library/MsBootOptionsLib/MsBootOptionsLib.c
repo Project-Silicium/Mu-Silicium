@@ -1,8 +1,5 @@
 /**
-  MsBootOptionsLib - Ms Extension to BdsDxe.
-
   Copyright (C) Microsoft Corporation. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
@@ -20,15 +17,6 @@
 #include <Protocol/FirmwareVolume2.h>
 #include <Protocol/LoadedImage.h>
 
-/**
-  This Function Builds a Firmware Load Option using the File and the Parameter.
-
-  @param BootOption              - The Boot Option that gets Build.
-  @param FwFile                  - The EFI Application that gets Loaded by the Boot Option.
-  @param Parameter               - Parameter for the Boot Option Build.
-
-  @return Status                 - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 BuildFwLoadOption (
   EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
@@ -88,14 +76,6 @@ exit:
   return Status;
 }
 
-/**
-  This Function Sets the Default Boot App.
-
-  @param[in] BootOption          - Return a Created Boot Manager Menu with the Parameter Passed.
-  @param[in] Parameter           - The Parameter to add to the Boot Option.
-
-  @return Status                 - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 EFIAPI
 MsBootOptionsLibGetDefaultBootApp (
@@ -105,14 +85,6 @@ MsBootOptionsLibGetDefaultBootApp (
   return BuildFwLoadOption (BootOption, FixedPcdGetPtr (PcdSpecialApp), Parameter);
 }
 
-/**
-  This Function Return the Boot Option Corresponding to the Boot Manager Menu.
-
-  @param[in] BootOption          - Return a Created Boot Manager Menu with the Parameter Passed.
-  @param[in] Parameter           - The Parameter to add to the Boot Option.
-
-  @return Status                 - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 EFIAPI
 MsBootOptionsLibGetBootManagerMenu (
@@ -122,18 +94,6 @@ MsBootOptionsLibGetBootManagerMenu (
   return BuildFwLoadOption (BootOption, PcdGetPtr (PcdBootManagerMenuFile), Parameter);
 }
 
-/**
-  This Function Creates a Boot Option.
-
-  @param FileGuid                - The GUID of the EFI Application.
-  @param Description             - The Description of the EFI Application.
-  @param BootOption              - The Boot Load Option of the EFI Application.
-  @param Attributes              - The Attributes for the Boot Option Creation.
-  @param OptionalData            - The Optinal Data for the Boot Option Creation.
-  @param OptionalDataSize        - The Optinal Data Size for the Boot Option Creation.
-
-  @return Status                 - The EFI_STATUS returned by this Function.
-**/
 STATIC
 EFI_STATUS
 CreateFvBootOption (
@@ -211,18 +171,6 @@ exit:
   return Status;
 }
 
-/**
-  This Function Registers a Boot Option.
-
-  @param FileGuid                - The GUID Associated with the Boot Option.
-  @param Description             - Description of the Boot Option.
-  @param Position                - The Position of the Load Option to put in the Order Variable.
-  @param Attributes              - The Attributes of the Boot Option.
-  @param OptionalData            - Optional Data of the Boot Option.
-  @param OptionalDataSize        - Size of the Optional Data of the Boot Option.
-
-  @return UINTN                  - If Boot Option Number of the Registered Boot Option.
-**/
 STATIC
 UINTN
 RegisterFvBootOption (
@@ -284,13 +232,6 @@ MsBootOptionsLibRegisterDefaultBootOptions ()
   RegisterFvBootOption (&gMsBootPolicyFileGuid, L"USB Storage",      (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));
 }
 
-/**
-  This Function Gets the Default Boot Options.
-
-  @param[out] OptionCount        - The Count of Boot Options.
-
-  @return BootOption             - The Default Boot Option.
-**/
 EFI_BOOT_MANAGER_LOAD_OPTION*
 EFIAPI
 MsBootOptionsLibGetDefaultOptions (OUT UINTN *OptionCount)

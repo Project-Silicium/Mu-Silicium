@@ -17,22 +17,19 @@ STATIC EFI_CHARGER_EX_PROTOCOL      *mChargerExProtocol;
 STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mConsoleOutHandle;
 
 VOID
-PrintGUI (CHAR16 *Message)
+PrintGUI (IN CHAR16 *Message)
 {
-  // Black & White Color
-  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Black;
-  EFI_GRAPHICS_OUTPUT_BLT_PIXEL White;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
 
-  // Set Color of the Message
-  Black.Blue = Black.Green = Black.Red = Black.Reserved = 0x00;
-  White.Blue = White.Green = White.Red = White.Reserved = 0xFF;
+  // Set Message Color
+  Color.Blue = Color.Green = Color.Red = Color.Reserved = 0xFF;
 
   // Set Position of Message
-  UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen(Message) * EFI_GLYPH_WIDTH) / 2;
+  UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen (Message) * EFI_GLYPH_WIDTH) / 2;
   UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
 
   // Print New Message
-  PrintXY (XPos, YPos, &White, &Black, Message);
+  PrintXY (XPos, YPos, &Color, NULL, Message);
 }
 
 EFI_STATUS
@@ -41,6 +38,7 @@ StartMassStorage ()
   EFI_STATUS Status        = EFI_SUCCESS;
   BOOLEAN    Connected     = FALSE;
   UINTN      CurrentSplash = 0;
+
   // Start Mass Storage
   Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
@@ -217,18 +215,26 @@ InitMassStorage (
   // Disable WatchDog Timer
   gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
 
-  // Prepare & Start Mass Storage
-  Status  = PrepareMassStorage ();
-  Status |= StartMassStorage   ();
+  // Prepare Mass Storage
+  Status = PrepareMassStorage ();
   if (EFI_ERROR (Status)) {
-    // Display Failed Splash
-    DisplayBootGraphic (BG_MSD_ERROR);
+    goto error;
+  }
 
-    // Check for Any Button
-    gBS->WaitForEvent (1, gST->ConIn->WaitForKey, 0);
-
-    return Status;
+  // Start Mass Storage
+  Status = StartMassStorage ();
+  if (EFI_ERROR (Status)) {
+    goto error;
   }
 
   return EFI_SUCCESS;
+
+error:
+  // Display Failed Splash
+  DisplayBootGraphic (BG_MSD_ERROR);
+
+  // Check for Any Button
+  gBS->WaitForEvent (1, gST->ConIn->WaitForKey, 0);
+
+  return Status;
 }

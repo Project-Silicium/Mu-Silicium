@@ -1,14 +1,5 @@
 /**
-  Boot Service DXE ASL Update Library Implementation.
-  Note that the Current Version of the Library Updates AML.
-
-  These Functions in this File can be Called during DXE and cannot be Called during Runtime
-  or in SMM which should use a RT or SMM Library.
-
-  This Library uses the ACPI Support Protocol.
-
   Copyright (c) 2020, Intel Corporation. All rights reserved.<BR>
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
@@ -24,12 +15,6 @@
 STATIC EFI_ACPI_SDT_PROTOCOL   *mAcpiSdt   = NULL;
 STATIC EFI_ACPI_TABLE_PROTOCOL *mAcpiTable = NULL;
 
-/**
-  Initialize the ASL Update Library State.
-  This must be Called at the Beginning of the Function Calls in this Library.
-
-  @retval Status                      - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 InitializeAslUpdateLib ()
 {
@@ -53,13 +38,6 @@ exit:
   return Status;
 }
 
-/**
-  This Function Calculates and Updates an UINT8 Checksum.
-
-  @param[in] Buffer                   - Pointer to Buffer to Checksum.
-  @param[in] Size                     - Number of Bytes to Checksum.
-  @param[in] ChecksumOffset           - Offset to Place the Checksum Result in.
-**/
 VOID
 AcpiPlatformChecksum (
   IN VOID *Buffer,
@@ -82,16 +60,6 @@ AcpiPlatformChecksum (
   Ptr[ChecksumOffset] = (UINT8)(0xff - Sum + 1);
 }
 
-/**
-  This Function uses the ACPI SDT Protocol to Locate an ACPI SSDT Table.
-
-  @param[in] TableId                  - Pointer to an ASCII String Containing the OEM Table ID from the ACPI Table Header.
-  @param[in] TableIdSize              - Length of the Table ID to Match.
-  @param[in, out] Table               - Updated with a Pointer to the Table.
-  @param[in, out] Handle              - ACPI Support Protocol Table Handle for the Table found.
-
-  @retval Status                      - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 LocateAcpiTableByOemTableId (
   IN     UINT8                        *TableId,
@@ -135,15 +103,6 @@ exit:
   return Status;
 }
 
-/**
-  This Procedure will Update Immediate Value assigned to a Name.
-
-  @param[in] AslSignature             - The Signature of Operation Region that we want to Update.
-  @param[in] Buffer                   - Source of Data to be Written over Original AML.
-  @param[in] Length                   - Length of Data to be Overwritten.
-
-  @retval Status                      - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 EFIAPI
 UpdateNameAslCode (
@@ -226,17 +185,6 @@ exit:
   return Status;
 }
 
-/**
-  This Procedure will Update Immediate Value assigned to a Name in SSDT Table.
-
-  @param[in] TableId                  - Pointer to an ASCII String containing the OEM Table ID from the ACPI Table Header.
-  @param[in] TableIdSize              - Length of the Table ID to match.
-  @param[in] AslSignature             - The Signature of Operation Region that we want to Update.
-  @param[in] Buffer                   - Source of Data to be Written over Original AML.
-  @param[in] Length                   - Length of Data to be Overwritten.
-
-  @retval Status                      - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 EFIAPI
 UpdateSsdtNameAslCode (
@@ -300,15 +248,6 @@ exit:
   return Status;
 }
 
-/**
-  This Procedure will Update the Name of ASL Method.
-
-  @param[in] AslSignature             - The Signature of Operation Region that we want to Update.
-  @param[in] Buffer                   - Source of Data to be Written over Original AML.
-  @param[in] Length                   - Length of Data to be Overwritten.
-
-  @retval Status                      - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 EFIAPI
 UpdateMethodAslCode (
@@ -387,20 +326,6 @@ exit:
   return Status;
 }
 
-/**
-  This Function uses the ACPI Support Protocol to Locate an ACPI Table.
-  It is really only useful for Finding Tables that only have a Single Instance,
-  e.g. FADT, FACS, MADT, etc.  It is not Good for Locating SSDT, etc.
-  Matches are Determined by Finding the Table with ACPI Table that has
-  a Matching Signature.
-
-  @param[in] Signature                - Pointer to an ASCII String Containing the Signature to Match.
-  @param[in, out] Table               - Updated with a Pointer to the Table.
-  @param[in, out] Handle              - AcpiSupport Protocol Table Handle for the Table Found.
-                                      - @see AcpiSupport Protocol for Details.
-
-  @retval Status                      - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 EFIAPI
 LocateAcpiTableBySignature (

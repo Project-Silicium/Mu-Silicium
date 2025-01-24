@@ -59,9 +59,6 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
 
-  # CPU Max Freq
-  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE
-
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
   gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE

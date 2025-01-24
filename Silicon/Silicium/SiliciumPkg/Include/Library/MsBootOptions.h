@@ -1,6 +1,4 @@
 /**
-  Header file Ms Boot Options library
-
   Copyright (C) Microsoft Corporation. All rights reserved.
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
@@ -10,15 +8,6 @@
 
 #include <Library/UefiBootManagerLib.h>
 
-/**
-  This Function Builds a Firmware Load Option using the File and the Parameter.
-
-  @param BootOption              - The Boot Option that gets Build.
-  @param FwFile                  - The EFI Application that gets Loaded by the Boot Option.
-  @param Parameter               - Parameter for the Boot Option Build.
-
-  @return Status                 - The EFI_STATUS returned by this Function.
-**/
 EFI_STATUS
 BuildFwLoadOption (
   EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,

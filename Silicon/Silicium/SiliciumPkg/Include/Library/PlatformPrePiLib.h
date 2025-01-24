@@ -2,6 +2,6 @@
 #define _PLATFORM_PREPI_LIB_H_
 
 VOID
-PlatformInitialize (VOID);
+PlatformInitialize ();
 
 #endif /* _PLATFORM_PREPI_LIB_H_ */

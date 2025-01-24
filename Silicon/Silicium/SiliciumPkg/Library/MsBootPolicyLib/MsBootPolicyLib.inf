@@ -1,8 +1,5 @@
 ##
-#  Library that Platform Implemented to Determine Boot Type.
-#
 #  Copyright (C) Microsoft Corporation. All rights reserved.
-#
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
@@ -22,7 +19,6 @@
   MdePkg/MdePkg.dec
   PcBdsPkg/PcBdsPkg.dec
   OemPkg/OemPkg.dec
-  DfciPkg/DfciPkg.dec
   MsCorePkg/MsCorePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   SiliciumPkg/SiliciumPkg.dec
@@ -34,7 +30,6 @@
   MsPlatformDevicesLib
 
 [Protocols]
-  gDfciSettingAccessProtocolGuid
   gMsButtonServicesProtocolGuid
 
 [Pcd]

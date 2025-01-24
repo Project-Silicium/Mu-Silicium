@@ -82,22 +82,21 @@ READ_LOCK_STATUS   = TRUE
   !include Include/APRIORI.inc
   !include Include/DXE.inc
 
-  INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
-
-  # BDS
+  # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
-  INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
-
-  # ACPI and SMBIOS
-  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF E9830Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # ACPI Tables
-  !include Include/ACPI.inc
+  # ACPI
+  #INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  #INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  #!include Include/ACPI.inc
 
-  INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
+  # Device Tree
+  #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
+  #  SECTION RAW = r8sPkg/FdtBlob/exynos9830-samsung-r8s.dtb
+  #  SECTION UI = "DeviceTreeBlob"
+  #}
 
   !include SamsungPkg/Extra.fdf.inc
 

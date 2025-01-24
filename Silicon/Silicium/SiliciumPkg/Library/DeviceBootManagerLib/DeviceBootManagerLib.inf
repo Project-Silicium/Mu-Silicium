@@ -1,8 +1,5 @@
 ##
-#  DeviceBootManagerLib - Generic Extension to BdsDxe.
-#
 #  Copyright (C) Microsoft Corporation. All rights reserved.
-#
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
@@ -26,39 +23,24 @@
   MsCorePkg/MsCorePkg.dec
   MsGraphicsPkg/MsGraphicsPkg.dec
   PcBdsPkg/PcBdsPkg.dec
-  DfciPkg/DfciPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   DebugLib
-  UefiBootServicesTableLib
-  UefiRuntimeServicesTableLib
-  MsPlatformDevicesLib
   MsBootOptionsLib
   MsBootPolicyLib
-  MsBootManagerSettingsLib
-  MsPlatformPowerCheckLib
-  ThermalServicesLib
-  PowerServicesLib
-  MsNVBootReasonLib
   BootGraphicsLib
-  GraphicsConsoleHelperLib
+  MsPlatformDevicesLib
+  AcpiPlatformUpdateLib
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  UefiLib
 
 [Guids]
   gMsStartOfBdsNotifyGuid
-  gDfciStartOfBdsNotifyGuid
   gMsBootMenuFormsetGuid
   gEfiEventPreReadyToBootGuid
   gEfiEventPostReadyToBootGuid
-
-[Protocols]
-  gMsOSKProtocolGuid
-  gMsSWMProtocolGuid
-
-[Pcd]
-  gPcBdsPkgTokenSpaceGuid.PcdPowerAndThermalRetries
-  gPcBdsPkgTokenSpaceGuid.PcdShutdownGraphicDisplayTime
-  gPcBdsPkgTokenSpaceGuid.PcdThermalControlRetryWait
 
 [Depex]
   TRUE
