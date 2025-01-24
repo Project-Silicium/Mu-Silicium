@@ -153,7 +153,7 @@ BuildMemHobForFv (IN UINT16 Type)
       Hob = HobPtr.FirmwareVolume2;
 
       // Build Memory Allocation HOB to mark it as BootServicesData
-      BuildMemoryAllocationHob (Hob->BaseAddress, EFI_SIZE_TO_PAGES(Hob->Length) * EFI_PAGE_SIZE, EfiBootServicesData);
+      BuildMemoryAllocationHob (Hob->BaseAddress, EFI_SIZE_TO_PAGES (Hob->Length) * EFI_PAGE_SIZE, EfiBootServicesData);
     }
 
     HobPtr.Raw = GET_NEXT_HOB (HobPtr);
@@ -198,17 +198,17 @@ InstallPlatformHob ()
   }
 
   // Build Schedule Interface HOB
-  if (PcdGet64 (PcdScheduleInterfaceAddr)) {
-    EFI_KERNEL_PROTOCOL *SchedIntf = (VOID *)PcdGet64(PcdScheduleInterfaceAddr);
+  if (FixedPcdGet64 (PcdScheduleInterfaceAddr)) {
+    EFI_KERNEL_PROTOCOL *SchedIntf = (VOID *)FixedPcdGet64 (PcdScheduleInterfaceAddr);
 
-    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntf, sizeof(SchedIntf));
+    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntf, sizeof (SchedIntf));
   }
 
   // Build DTB Extension HOB
-  if (PcdGet64 (PcdDTBExtensionAddr)) {
-    EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)PcdGet64(PcdDTBExtensionAddr);
+  if (FixedPcdGet64 (PcdDTBExtensionAddr)) {
+    EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)FixedPcdGet64 (PcdDTBExtensionAddr);
 
-    BuildGuidDataHob (&gEfiDTBExtnHobGuid, &DTBExtnProtocol, sizeof(DTBExtnProtocol));
+    BuildGuidDataHob (&gEfiDTBExtnHobGuid, &DTBExtnProtocol, sizeof (DTBExtnProtocol));
   }
 }
 

@@ -43,8 +43,8 @@ EFI_KEYPAD_DEVICE_PATH KeypadDevicePath = {
       HARDWARE_DEVICE_PATH,
       HW_VENDOR_DP,
       {
-        (UINT8)(sizeof(VENDOR_DEVICE_PATH)),
-        (UINT8)((sizeof(VENDOR_DEVICE_PATH)) >> 8)
+        (UINT8)(sizeof (VENDOR_DEVICE_PATH)),
+        (UINT8)((sizeof (VENDOR_DEVICE_PATH)) >> 8)
       }
     },
     EFI_KEYPAD_DEVICE_GUID
@@ -65,8 +65,8 @@ EFI_DISPLAY_DEVICE_PATH DisplayDevicePath = {
       HARDWARE_DEVICE_PATH,
       HW_VENDOR_DP,
       {
-        (UINT8)(sizeof(VENDOR_DEVICE_PATH)),
-        (UINT8)((sizeof(VENDOR_DEVICE_PATH)) >> 8)
+        (UINT8)(sizeof (VENDOR_DEVICE_PATH)),
+        (UINT8)((sizeof (VENDOR_DEVICE_PATH)) >> 8)
       }
     },
     EFI_GRAPHICS_OUTPUT_PROTOCOL_GUID
@@ -87,8 +87,8 @@ EFI_SDCARD_DEVICE_PATH SdcardDevicePath = {
       HARDWARE_DEVICE_PATH,
       HW_VENDOR_DP,
       {
-        (UINT8)(sizeof(VENDOR_DEVICE_PATH)),
-        (UINT8)((sizeof(VENDOR_DEVICE_PATH)) >> 8)
+        (UINT8)(sizeof (VENDOR_DEVICE_PATH)),
+        (UINT8)((sizeof (VENDOR_DEVICE_PATH)) >> 8)
       }
     },
     EFI_SDCARD_DEVICE_PATH_GUID

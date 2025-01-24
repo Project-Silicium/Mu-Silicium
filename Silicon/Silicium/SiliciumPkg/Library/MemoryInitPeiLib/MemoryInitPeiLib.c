@@ -1,6 +1,5 @@
 /**
   Copyright (c) 2011-2015, ARM Limited. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
@@ -19,15 +18,11 @@ STATIC
 EFI_STATUS
 InitMmu (IN ARM_MEMORY_REGION_DESCRIPTOR *MemoryTable)
 {
-  VOID          *TranslationTableBase;
-  UINTN          TranslationTableSize;
-  RETURN_STATUS  Status;
+  VOID  *TranslationTableBase;
+  UINTN  TranslationTableSize;
 
-  // Note: Because we Called PeiServicesInstallPeiMemory() before to call InitMmu() the MMU Page Table resides in
-  //       DRAM (even at the top of DRAM as it is the first Permanent Memory Allocation)
-  Status = ArmConfigureMmu (MemoryTable, &TranslationTableBase, &TranslationTableSize);
-
-  return Status;
+  // Configure MMU
+  return ArmConfigureMmu (MemoryTable, &TranslationTableBase, &TranslationTableSize);
 }
 
 STATIC
@@ -51,20 +46,25 @@ MemoryPeim (
 {
   EFI_STATUS                       Status;
   ARM_MEMORY_REGION_DESCRIPTOR     MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT];
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetDeviceMemoryMap();
-  UINTN                            Index              = 0;
+  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx;
+  UINTN                            Index;
+
+  // Get Device Memory Map
+  MemoryDescriptorEx = GetDeviceMemoryMap ();
 
   // Ensure PcdSystemMemorySize has been Set
   ASSERT (PcdGet64 (PcdSystemMemorySize) != 0);
 
-  // Run through each Memory Descriptor
+  // Set Index Value
+  Index = 0;
+
   while (MemoryDescriptorEx->Length != 0) {
     switch (MemoryDescriptorEx->HobOption) {
       case AddMem:
       case AddDev:
       case HobOnlyNoCacheSetting:
       case AllocOnly:
-        AddHob(MemoryDescriptorEx);
+        AddHob (MemoryDescriptorEx);
         break;
 
       case NoHob:
@@ -88,13 +88,6 @@ MemoryPeim (
     Index++;
     MemoryDescriptorEx++;
   }
-
-  // Last one (terminator)
-  ASSERT (Index < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
-  MemoryTable[Index].PhysicalBase = 0;
-  MemoryTable[Index].VirtualBase  = 0;
-  MemoryTable[Index].Length       = 0;
-  MemoryTable[Index].Attributes   = 0;
 
   // Build Memory Allocation Hob
   Status = InitMmu (MemoryTable);

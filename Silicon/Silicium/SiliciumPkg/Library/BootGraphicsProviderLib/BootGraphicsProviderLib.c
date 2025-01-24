@@ -1,11 +1,5 @@
 /**
-  This BootGraphicsProviderLib is Intended to Abstract the Source of the
-  BMP Files from the Caller.
-
-  This Instance uses Defined PCDs and RAW FFS Files.
-
   Copyright (C) Microsoft Corporation. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 

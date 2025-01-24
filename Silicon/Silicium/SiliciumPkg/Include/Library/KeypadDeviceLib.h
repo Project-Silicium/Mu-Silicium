@@ -21,11 +21,11 @@ typedef enum {
 } KEY_STATE;
 
 typedef struct {
-  EFI_KEY_DATA KeyData;     // Keydata that gets Send to the Driver
-  UINT64       Time;        // The Time the Current Action has been Running
-  KEY_STATE    State;       // The Current State of the Key
-  BOOLEAN      Repeat;      // The Current Key has to Repeat Sending Events
-  BOOLEAN      Longpress;   // The User did a Longpress
+  EFI_KEY_DATA KeyData;
+  UINT64       Time;
+  KEY_STATE    State;
+  BOOLEAN      Repeat;
+  BOOLEAN      Longpress;
 } KEY_CONTEXT;
 
 #endif /* _KEYPAD_DEVICE_LIB_H_ */

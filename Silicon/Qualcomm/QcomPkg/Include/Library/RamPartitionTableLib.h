@@ -49,16 +49,6 @@ typedef struct ram_partition_table {
   RamPartitionEntry RamPartitionEntry[RAM_NUM_PART_ENTRIES];
 } RamPartitionTable;
 
-/**
-  This Function Returns the Amount of RAM Partitions and its Sizes.
-
-  @param[out] RamPartitionTable     - The Structure of the RAM Partition.
-  @param[out] Version               - The Version of the RAM Partitions.
-
-  @retval EFI_SUCCESS               - Successfully got RAM Partition Infos.
-  @retval EFI_NOT_FOUND             - Failed to get RAM Partition Version.
-  ...
-**/
 EFI_STATUS
 GetRamPartitions (
   OUT RamPartitionTable **RamPartTable,

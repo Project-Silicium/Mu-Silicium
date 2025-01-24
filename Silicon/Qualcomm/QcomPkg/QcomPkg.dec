@@ -109,8 +109,7 @@
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B200
 
   # Clock Speed Up Driver PCDs
-  gQcomPkgTokenSpaceGuid.PcdMaxFreqSupported|FALSE|BOOLEAN|0x0000B300
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B301
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B300
 
   # Start USB Controller PCD
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B400

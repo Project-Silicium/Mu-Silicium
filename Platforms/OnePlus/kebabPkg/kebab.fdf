@@ -83,22 +83,21 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
-  INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
-
-  # BDS
+  # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
-  INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
-
-  # ACPI and SMBIOS
-  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # ACPI Tables
+  # ACPI
+  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   !include Include/ACPI.inc
 
-  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
+  # Device Tree
+  #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
+  #  SECTION RAW = kebabPkg/FdtBlob/sm8250-oneplus-kebab.dtb
+  #  SECTION UI = "DeviceTreeBlob"
+  #}
 
   !include QcomPkg/Extra.fdf.inc
 

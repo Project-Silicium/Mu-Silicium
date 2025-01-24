@@ -62,15 +62,15 @@ UINTN
 
 typedef
 BOOLEAN
-(*SIO_POLL) (VOID);
+(*SIO_POLL) ();
 
 typedef
 UINTN
-(*SIO_DRAIN) (VOID);
+(*SIO_DRAIN) ();
 
 typedef
 UINTN
-(*SIO_FLUSH) (VOID);
+(*SIO_FLUSH) ();
 
 typedef
 UINTN
@@ -126,37 +126,37 @@ typedef struct {
 typedef struct {
   UINT64 Reversion;
   VOID *SecFdtInitRootHandle;
-  VOID *unknow_func0;
-  VOID *unknow_func1;
+  VOID *UnknownFunction0;
+  VOID *UnknownFunction1;
   VOID *dtb_get_reg_info;
-  VOID *unknow_func2;
+  VOID *UnknownFunction2;
   VOID *SecFdtGetNodeHandle;
-  VOID *unknow_func3;
-  VOID *unknow_func4;
-  VOID *unknow_func5;
-  VOID *unknow_func6;
-  VOID *unknow_func7;
-  VOID *unknow_func8;
-  VOID *unknow_func9;
-  VOID *unknow_func10;
-  VOID *unknow_func11;
-  VOID *unknow_func12;
-  VOID *unknow_func13;
-  VOID *unknow_func14;
-  VOID *unknow_func15;
-  VOID *unknow_func16;
+  VOID *UnknownFunction3;
+  VOID *UnknownFunction4;
+  VOID *UnknownFunction5;
+  VOID *UnknownFunction6;
+  VOID *UnknownFunction7;
+  VOID *UnknownFunction8;
+  VOID *UnknownFunction9;
+  VOID *UnknownFunction10;
+  VOID *UnknownFunction11;
+  VOID *UnknownFunction12;
+  VOID *UnknownFunction13;
+  VOID *UnknownFunction14;
+  VOID *UnknownFunction15;
+  VOID *UnknownFunction16;
   VOID *fdt_get_uint32_prop_list;
-  VOID *unknow_func17;
-  VOID *unknow_func18;
-  VOID *unknow_func19;
-  VOID *unknow_func20;
-  VOID *unknow_func21;
-  VOID *unknow_func22;
-  VOID *unknow_func23;
-  VOID *unknow_func24;
-  VOID *unknow_func25;
-  VOID *unknow_func26;
-  VOID *unknow_func27;
+  VOID *UnknownFunction17;
+  VOID *UnknownFunction18;
+  VOID *UnknownFunction19;
+  VOID *UnknownFunction20;
+  VOID *UnknownFunction21;
+  VOID *UnknownFunction22;
+  VOID *UnknownFunction23;
+  VOID *UnknownFunction24;
+  VOID *UnknownFunction25;
+  VOID *UnknownFunction26;
+  VOID *UnknownFunction27;
 } EFI_DTB_EXTN_PROTOCOL;
 
 #endif /* _PLATFORM_PEI_LIB_H_ */

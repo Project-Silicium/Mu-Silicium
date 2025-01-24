@@ -7,9 +7,10 @@ LocateConfigurationMapUINT32ByName (
   IN  CHAR8  *Key,
   OUT UINT32 *Value)
 {
+  // Get Device Config Map
   PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
 
-  // Run through each configuration descriptor
+  // Run through each Configuration Descriptor
   while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
     if (AsciiStriCmp (Key, ConfigurationDescriptorEx->Name) == 0) {
       *Value = (UINT32)(ConfigurationDescriptorEx->Value & 0xFFFFFFFF);
@@ -28,9 +29,10 @@ LocateConfigurationMapUINT64ByName (
   IN  CHAR8  *Key,
   OUT UINT64 *Value)
 {
+  // Get Device Config Map
   PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
 
-  // Run through each configuration descriptor
+  // Run through each Configuration Descriptor
   while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
     if (AsciiStriCmp (Key, ConfigurationDescriptorEx->Name) == 0) {
       *Value = ConfigurationDescriptorEx->Value;

@@ -1,20 +1,13 @@
 /**
-  MsPlatformDevicesLib - Qcom Generic Library.
-
   Copyright (C) Microsoft Corporation. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
 #include <Library/DebugLib.h>
 #include <Library/DeviceBootManagerLib.h>
-#include <Library/DevicePathLib.h>
 #include <Library/MsPlatformDevicesLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/BdsExtensionLib.h>
-#include <Library/AcpiPlatformUpdateLib.h>
-
-#include <Protocol/DevicePath.h>
 
 #include <Configuration/BootDevices.h>
 
@@ -51,8 +44,8 @@ PlatformIsDevicePathUsb (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
   EFI_DEVICE_PATH_PROTOCOL *Node;
 
-  for (Node = DevicePath; !IsDevicePathEnd(Node); Node = NextDevicePathNode(Node)) {
-    if ((DevicePathType(Node) == MESSAGING_DEVICE_PATH) && ((DevicePathSubType(Node) == MSG_USB_CLASS_DP) || (DevicePathSubType(Node) == MSG_USB_WWID_DP) || (DevicePathSubType(Node) == MSG_USB_DP))) {
+  for (Node = DevicePath; !IsDevicePathEnd (Node); Node = NextDevicePathNode (Node)) {
+    if ((DevicePathType (Node) == MESSAGING_DEVICE_PATH) && ((DevicePathSubType (Node) == MSG_USB_CLASS_DP) || (DevicePathSubType (Node) == MSG_USB_WWID_DP) || (DevicePathSubType( Node) == MSG_USB_DP))) {
       return TRUE;
     }
   }
@@ -64,9 +57,6 @@ EFI_DEVICE_PATH_PROTOCOL**
 EFIAPI
 GetPlatformConnectList ()
 {
-  // Update the ACPI Tables
-  PlatformUpdateAcpiTables ();
-
   return NULL;
 }
 
@@ -88,24 +78,22 @@ EFI_HANDLE
 EFIAPI
 GetPlatformPreferredConsole (OUT EFI_DEVICE_PATH_PROTOCOL **DevicePath)
 {
-  EFI_STATUS                Status;
-  EFI_HANDLE                Handle = NULL;
-  EFI_DEVICE_PATH_PROTOCOL *TempDevicePath = NULL;
-
-  TempDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&DisplayDevicePath;
+  EFI_STATUS                Status         = EFI_SUCCESS;
+  EFI_HANDLE                Handle         = NULL;
+  EFI_DEVICE_PATH_PROTOCOL *TempDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&DisplayDevicePath;
 
   // Locate the GOP Protocol
   Status = gBS->LocateDevicePath (&gEfiGraphicsOutputProtocolGuid, &TempDevicePath, &Handle);
-  if (EFI_ERROR(Status) && !IsDevicePathEnd(TempDevicePath)) {
+  if (EFI_ERROR(Status) && !IsDevicePathEnd (TempDevicePath)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Device Path! Status = %r\n", __FUNCTION__, Status));
   }
 
   if (Handle != NULL) {
     // Connect the GOP Driver
-    gBS->ConnectController(Handle, NULL, NULL, TRUE);
+    gBS->ConnectController (Handle, NULL, NULL, TRUE);
 
     // Get the GOP Device Path
-    TempDevicePath = EfiBootManagerGetGopDevicePath(Handle);
+    TempDevicePath = EfiBootManagerGetGopDevicePath (Handle);
     *DevicePath    = TempDevicePath;
   }
 

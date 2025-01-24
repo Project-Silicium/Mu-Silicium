@@ -1,12 +1,7 @@
 /**
-  This Module will Provide Access to Platform Information needed to Implement the MsBootPolicy.
-
   Copyright (C) Microsoft Corporation. All rights reserved.
-
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
-
-#include <DfciSystemSettingTypes.h>
 
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/DebugLib.h>
@@ -17,10 +12,6 @@
 
 #include <Protocol/ButtonServices.h>
 #include <Protocol/LoadFile.h>
-#include <Protocol/DfciSettingAccess.h>
-
-#include <Settings/BootMenuSettings.h>
-#include <Settings/DfciSettings.h>
 
 #ifdef EFI_DEBUG
 #define MAX_DEVICE_PATH_SIZE 0x100000
@@ -34,8 +25,8 @@ STATIC BOOT_SEQUENCE DefaultBootSequence[] = {
   MsBootDone
 };
 
-STATIC MS_BUTTON_SERVICES_PROTOCOL *gButtonService   = NULL;
-STATIC EFI_IMAGE_LOAD               gSystemLoadImage = NULL;
+STATIC MS_BUTTON_SERVICES_PROTOCOL *mMsButtonProtocol = NULL;
+STATIC EFI_IMAGE_LOAD               gSystemLoadImage  = NULL;
 
 EFI_STATUS
 EFIAPI
@@ -47,7 +38,7 @@ LocalLoadImage (
   IN  UINTN                     SourceSize,
   OUT EFI_HANDLE               *ImageHandle)
 {
-  if (NULL != DevicePath) {
+  if (DevicePath != NULL) {
     if (!MsBootPolicyLibIsDevicePathBootable (DevicePath)) {
       return EFI_ACCESS_DENIED;
     }
@@ -57,70 +48,58 @@ LocalLoadImage (
   return gSystemLoadImage (BootPolicy, ParentImageHandle, DevicePath, SourceBuffer, SourceSize, ImageHandle);
 }
 
-/**
-  Ask if the Platform is Requesting Volume Up Application.
-
-  @retval TRUE            - The System is Requesting Volume Up Application.
-  @retval FALSE           - The System is not Requesting Volume Up Application.
-**/
 BOOLEAN
 EFIAPI
 MsBootPolicyLibIsSettingsBoot ()
 {
-  EFI_STATUS Status              = EFI_SUCCESS;
-  BOOLEAN    VolumeUpApplication = FALSE;
+  EFI_STATUS Status;
+  BOOLEAN    VolumeUp;
 
-  if (gButtonService == NULL) {
+  // Check if the Protocol Exists
+  if (!mMsButtonProtocol) {
     // Locate Ms Button Services Protocol
-    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&gButtonService);
+    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&mMsButtonProtocol);
 
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Services Protocol! Status = %r\n", __FUNCTION__, Status));
-      goto exit;
+      return FALSE;
     }
   }
 
   // Check if Volume Up was Pressed
-  Status = gButtonService->PreBootVolumeUpButtonThenPowerButtonCheck (gButtonService, &VolumeUpApplication);
+  Status = mMsButtonProtocol->PreBootVolumeUpButtonThenPowerButtonCheck (mMsButtonProtocol, &VolumeUp);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_WARN, "%a: Failed to Get Volume Up State! Status = %r\n", __FUNCTION__, Status));
   }
 
-exit:
-  return VolumeUpApplication;
+  return VolumeUp;
 }
 
-/**
-  Ask if the Platform is Requesting Volume Down Application.
-
-  @retval TRUE            - The System is Requesting Volume Down Application.
-  @retval FALSE           - The System is not Requesting Volume Down Application.
-**/
 BOOLEAN
 EFIAPI
 MsBootPolicyLibIsAltBoot ()
 {
-  EFI_STATUS Status                = EFI_SUCCESS;
-  BOOLEAN    VolumeDownApplication = FALSE;
+  EFI_STATUS Status;
+  BOOLEAN    VolumeDown;
 
-  if (gButtonService == NULL) {
+  // Check if the Protocol Exists
+  if (!mMsButtonProtocol) {
     // Locate Ms Button Services Protocol
-    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&gButtonService);
+    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&mMsButtonProtocol);
 
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Services Protocol! Status = %r\n", __FUNCTION__, Status));
-      goto exit;
+      return FALSE;
     }
   }
 
   // Check if Volume Down was Pressed
-  Status = gButtonService->PreBootVolumeDownButtonThenPowerButtonCheck (gButtonService, &VolumeDownApplication);
+  Status = mMsButtonProtocol->PreBootVolumeDownButtonThenPowerButtonCheck (mMsButtonProtocol, &VolumeDown);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_WARN, "%a: Failed to Get Volume Down State! Status = %r\n", __FUNCTION__, Status));
   }
 
-exit:
-  return VolumeDownApplication;
+  return VolumeDown;
 }
 
 EFI_STATUS
@@ -129,92 +108,37 @@ MsBootPolicyLibClearBootRequests ()
 {
   EFI_STATUS Status;
 
-  if (gButtonService == NULL) {
+  // Check if the Protocol Exists
+  if (!mMsButtonProtocol) {
     // Locate Ms Button Services Protocol
-    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID **)&gButtonService);
+    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&mMsButtonProtocol);
 
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Services Protocol! Status = %r\n", __FUNCTION__, Status));
-      goto exit;
+      return Status;
     }
   }
 
   // Clear Volume Button States
-  Status = gButtonService->PreBootClearVolumeButtonState (gButtonService);
+  Status = mMsButtonProtocol->PreBootClearVolumeButtonState (mMsButtonProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Clear Volume Button States! Status = %r\n", __FUNCTION__, Status));
   }
 
-exit:
   return Status;
 }
 
-/**
-  Ask if the Platform Allows Booting this Controller.
-
-  @retval TRUE            - Device is not Excluded from Bootingb
-  @retval FALSE           - Device is Excluded from Booting.
-**/
 BOOLEAN
 EFIAPI
 MsBootPolicyLibIsDevicePathBootable (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
-  EFI_STATUS                    Status         = EFI_SUCCESS;
-  EFI_DEVICE_PATH_PROTOCOL     *Node           = NULL;
-  DFCI_SETTING_ACCESS_PROTOCOL *SettingsAccess = NULL;
-  UINTN                         ValueSize      = 0;
-  BOOLEAN                       EnableUsbBoot  = TRUE;
-  BOOLEAN                       Boot           = TRUE;
-
-  if (DevicePath == NULL) {
-    return TRUE;
-  }
-
-  if (!IsDevicePathValid (DevicePath, MAX_DEVICE_PATH_SIZE)) {
+  if (!IsDevicePathValid (DevicePath, MAX_DEVICE_PATH_SIZE) || !DevicePath) {
     return FALSE;
   }
 
-  if (Boot) {
-    EnableUsbBoot = TRUE;
-
-    // Locate DFCI Setting Access Protocol
-    Status = gBS->LocateProtocol (&gDfciSettingAccessProtocolGuid, NULL, (VOID **)&SettingsAccess);
-    if (!EFI_ERROR (Status)) {
-      ValueSize = sizeof (EnableUsbBoot);
-
-      // Get ENABLE_USB_BOOT Setting
-      Status = SettingsAccess->Get (SettingsAccess, DFCI_SETTING_ID__ENABLE_USB_BOOT, NULL, DFCI_SETTING_TYPE_ENABLE, &ValueSize, &EnableUsbBoot, NULL);
-      if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "%a: Failed to Get ENABLE_USB_BOOT Setting! Status = %r\n", __FUNCTION__, Status));
-      }
-    } else {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate DFCI Setting Access Protocol! Status = %r", __FUNCTION__, Status));
-    }
-
-    if (!EnableUsbBoot) {
-      Node = DevicePath;
-      while (!IsDevicePathEnd (Node)) {
-        if (MESSAGING_DEVICE_PATH == Node->Type) {
-          if ((MSG_USB_DP == Node->SubType) || (MSG_USB_WWID_DP == Node->SubType) || (MSG_USB_CLASS_DP == Node->SubType)) {
-            Boot = FALSE;
-            break;
-          }
-        }
-
-        Node = NextDevicePathNode (Node);
-      }
-    }
-  }
-
-  return Boot;
+  return TRUE;
 }
 
-/**
-  Ask if the Platform Allows Booting this Controller.
-
-  @retval TRUE            - Device is not Excluded from Bootingb
-  @retval FALSE           - Device is Excluded from Booting.
-**/
 BOOLEAN
 EFIAPI
 MsBootPolicyLibIsDeviceBootable (EFI_HANDLE ControllerHandle)
@@ -222,14 +146,6 @@ MsBootPolicyLibIsDeviceBootable (EFI_HANDLE ControllerHandle)
   return MsBootPolicyLibIsDevicePathBootable (DevicePathFromHandle (ControllerHandle));
 }
 
-/**
-  Asks the Platform if the Device Path Provided is a Valid Bootable USB Device.
-
-  @param DevicePath       - Pointer to DevicePath to check.
-
-  @retval TRUE            - Device is a Valid USB Boot Option.
-  @retval FALSE           - Device is not a Valid USB Boot Option.
-**/
 BOOLEAN
 EFIAPI
 MsBootPolicyLibIsDevicePathUsb (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
@@ -258,21 +174,25 @@ MsBootPolicyLibConstructor (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_TPL OldTpl;
-  UINT32  Crc;
-
-  //
-  // If Linked with BDS, Take over gBS->LoadImage.
-  // The Current Design doesn't Allow for BDS to be Terminated.
-  //
+  // Take over gBS->LoadImage.
   if (PcdGetBool (PcdBdsBootPolicy)) {
-    OldTpl           = gBS->RaiseTPL (TPL_HIGH_LEVEL);
+    UINT32 Crc = 0;
+
+    // Raise TPL Level
+    EFI_TPL OldTpl = gBS->RaiseTPL (TPL_HIGH_LEVEL);
+
+    // Set New Function
     gSystemLoadImage = gBS->LoadImage;
     gBS->LoadImage   = LocalLoadImage;
     gBS->Hdr.CRC32   = 0;
-    Crc              = 0;
+
+    // Calculate CRC
     gBS->CalculateCrc32 ((UINT8 *)&gBS->Hdr, gBS->Hdr.HeaderSize, &Crc);
+
+    // Set new CRC Value
     gBS->Hdr.CRC32 = Crc;
+
+    // Restore TPL Level
     gBS->RestoreTPL (OldTpl);
   }
 

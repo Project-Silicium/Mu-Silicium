@@ -83,25 +83,24 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
-  INF EmbeddedPkg/Drivers/VirtualKeyboardDxe/VirtualKeyboardDxe.inf
-
-  # BDS
+  # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
-  INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
+  INF SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # ACPI and SMBIOS
+  # ACPI
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  INF SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  !include Include/ACPI.inc
+
+  # Device Tree
+  #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
+  #  SECTION RAW = pipaPkg/FdtBlob/sm8250-xiaomi-pipa.dtb
+  #  SECTION UI = "DeviceTreeBlob"
+  #}
 
   # Usb Helper
   INF SM8250Pkg/Drivers/UsbHelperDxe/UsbHelperDxe.inf
-
-  # ACPI Tables
-  !include Include/ACPI.inc
-
-  INF DfciPkg/IdentityAndAuthManager/IdentityAndAuthManagerDxe.inf
 
   !include QcomPkg/Extra.fdf.inc
 

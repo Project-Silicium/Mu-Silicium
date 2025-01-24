@@ -1,42 +1,34 @@
-/**************************
- * Description:
-   Add RAM Partitions.
-   Read Ram Partitions Info by EFI_RAMPARTITION_PROTOCOL and add them.
+/**
+  Copyright (c) 2015-2018, 2020, The Linux Foundation. All rights reserved.
+  Copyright (c) 2022. Sunflower2333. All rights reserved.
 
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
 
- * Reference Codes
- * abl/edk2/QcomModulePkg/Library/BootLib/Board.c
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
 
- - License:
- * Copyright (c) 2015-2018, 2020, The Linux Foundation. All rights reserved.
- * Copyright (c) 2022. Sunflower2333. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are
- * met:
- * * Redistributions of source code must retain the above copyright
- *  notice, this list of conditions and the following disclaimer.
- *  * Redistributions in binary form must reproduce the above
- * copyright notice, this list of conditions and the following
- * disclaimer in the documentation and/or other materials provided
- *  with the distribution.
- *   * Neither the name of The Linux Foundation nor the names of its
- * contributors may be used to endorse or promote products derived
- * from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
- * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
- * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
- * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  - Redistributions in binary form must reproduce the above
+    copyright notice, this list of conditions and the following
+    disclaimer in the documentation and/or other materials provided
+    with the distribution.
 
-**************************/
+  - Neither the name of The Linux Foundation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+  ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+  BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+  OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+  IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+**/
 
 #include <Library/DebugLib.h>
 #include <Library/PcdLib.h>
@@ -66,17 +58,13 @@ AddRamPartition (
   if (Length <= 0) { return; }
 
   switch (EfiMemoryType) {
-    case EfiReservedMemoryType:
-        EfiGcdMemoryType = EfiGcdMemoryTypeReserved;
-        break;
-
     case EfiConventionalMemory:
-        EfiGcdMemoryType = EfiGcdMemoryTypeSystemMemory;
-        break;
+      EfiGcdMemoryType = EfiGcdMemoryTypeSystemMemory;
+      break;
 
     default:
-        EfiGcdMemoryType = EfiGcdMemoryTypeReserved;
-        break;
+      EfiGcdMemoryType = EfiGcdMemoryTypeReserved;
+      break;
   }
 
   // Add New Memory Space
@@ -146,8 +134,6 @@ AddRamPartitions (
   if (PartitionVersion <= 1) { 
     DEBUG ((EFI_D_ERROR, "RAM Partition Version %u is not Supported!\n", PartitionVersion));
     ASSERT_EFI_ERROR (EFI_UNSUPPORTED);
-  } else {
-    DEBUG ((EFI_D_WARN, "RAM Partition Version: %d\n", PartitionVersion));
   }
 
   // Get Number of RAM Partitions
@@ -157,11 +143,7 @@ AddRamPartitions (
   PerformQuickSort (RamPartitionTable->RamPartitionEntry, NumPartitions, sizeof(RamPartitionEntry), CompareBaseAddress);
 
   // Get "HYP Reserved" Memory Region
-    Status = LocateMemoryMapAreaByName ("HYP Reserved", &HypReservedRegion);
-  if (!EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_WARN, "Hyp Reserved Address = 0x%llx\n", HypReservedRegion.Address));
-    DEBUG ((EFI_D_WARN, "Hyp Reserved Size    = 0x%llx\n", HypReservedRegion.Length));
-  }
+  LocateMemoryMapAreaByName ("HYP Reserved", &HypReservedRegion);
 
   for (INT32 i = 0; i < NumPartitions; i++) {
     // Check if the RAM Partition is Invalid
@@ -169,13 +151,17 @@ AddRamPartitions (
     if (RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength <= RAM_PARTITION_BASE) { continue; }
 
     // Checks for "HYP Reserved"
-    if (!EFI_ERROR (Status)) {
+    if (HypReservedRegion.Address && HypReservedRegion.Length) {
+      // Check if the RAM Partition is Invalid
       if (RamPartitionTable->RamPartitionEntry[i].Base >= HypReservedRegion.Address && RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength < HypReservedRegion.Address + HypReservedRegion.Length) { continue; }
+
+      // Adjust RAM partition Base & Length
       if (RamPartitionTable->RamPartitionEntry[i].Base < HypReservedRegion.Address + HypReservedRegion.Length && HypReservedRegion.Address < RamPartitionTable->RamPartitionEntry[i].Base && RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength > HypReservedRegion.Address + HypReservedRegion.Length) {
         RamPartitionTable->RamPartitionEntry[i].AvailableLength = RamPartitionTable->RamPartitionEntry[i].AvailableLength - RamPartitionTable->RamPartitionEntry[i].Base + HypReservedRegion.Address + HypReservedRegion.Length;
         RamPartitionTable->RamPartitionEntry[i].Base            = HypReservedRegion.Address + HypReservedRegion.Length;
       }
-  
+
+      // Adjust RAM Partition Length
       if (RamPartitionTable->RamPartitionEntry[i].Base < HypReservedRegion.Address && RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength > HypReservedRegion.Address && RamPartitionTable->RamPartitionEntry[i].Base + RamPartitionTable->RamPartitionEntry[i].AvailableLength < HypReservedRegion.Address + HypReservedRegion.Length) {
         RamPartitionTable->RamPartitionEntry[i].AvailableLength = HypReservedRegion.Address - RamPartitionTable->RamPartitionEntry[i].Base;
       }
@@ -209,6 +195,7 @@ AddRamPartitions (
     Index++;
   }
 
+  // Check for RAM Partitions
   if (!AnyRamPartitionAdded) {
     DEBUG ((EFI_D_ERROR, "No RAM Partitions were Added! Stoping UEFI now.\n"));
     ASSERT_EFI_ERROR (EFI_NOT_READY);

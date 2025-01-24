@@ -1,0 +1,17 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = XenonGUI
+  FILE_GUID                      = EF6ED950-236C-4F2B-AAAA-1FEE5D8EA3BA
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = XenonEntry
+
+[Sources]
+  XenonGUI.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  DebugLib

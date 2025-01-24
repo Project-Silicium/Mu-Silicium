@@ -37,8 +37,8 @@ EFI_UFS_LUN_0_DEVICE_PATH UFSLun0DevicePath = {
       HARDWARE_DEVICE_PATH,
       HW_VENDOR_DP,
       {
-        (UINT8)(sizeof(VENDOR_DEVICE_PATH)),
-        (UINT8)((sizeof(VENDOR_DEVICE_PATH)) >> 8)
+        (UINT8)(sizeof (VENDOR_DEVICE_PATH)),
+        (UINT8)((sizeof (VENDOR_DEVICE_PATH)) >> 8)
       }
     },
     EFI_UFS_LUN_0_DEVICE_GUID
@@ -59,8 +59,8 @@ EFI_EMMC_USER_PARTITION_DEVICE_PATH eMMCUserPartitionDevicePath = {
       HARDWARE_DEVICE_PATH,
       HW_VENDOR_DP,
       {
-        (UINT8)(sizeof(VENDOR_DEVICE_PATH)),
-        (UINT8)((sizeof(VENDOR_DEVICE_PATH)) >> 8)
+        (UINT8)(sizeof (VENDOR_DEVICE_PATH)),
+        (UINT8)((sizeof (VENDOR_DEVICE_PATH)) >> 8)
       }
     },
     EFI_EMMC_USER_PARTITION_DEVICE_GUID

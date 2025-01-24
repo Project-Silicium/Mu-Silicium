@@ -11,7 +11,7 @@
 //  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 //
 
-#include <AsmMacroIoLib.h>
+//#include <AsmMacroIoLib.h>
 
 ASM_FUNC (_ModuleEntryPoint)
   // Run Platform Specific Code

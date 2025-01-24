@@ -231,18 +231,6 @@ CEntryPoint ()
     StartTimeStamp = 0;
   }
 
-  // We Disabled it in Assembly, Do we need this?
-  /*
-  // Disable Data Cache
-  ArmDisableDataCache ();
-
-  // Invalidate Instruction Cache
-  ArmInvalidateInstructionCache ();
-
-  // Enable Instruction Caches
-  ArmEnableInstructionCache ();
-  */
-
   // Define Global Variable Region
   if (!IS_XIP ()) {
     if (ArmIsMpCore ()) {

@@ -385,7 +385,7 @@ PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
       PrintXY (TextXPos, TextYPos, &Color, NULL, ComboMessage);
 
       // Wait a Bit
-      gBS->Stall (3000);
+      gBS->Stall (2500);
     }
   }
 
@@ -401,7 +401,7 @@ Form:
       mGopProtocol->Blt (mGopProtocol, &Color, EfiBltVideoFill, 0, 0, FormXPos, FormYPos, Width, Height, 0);
 
       // Wait a Bit
-      gBS->Stall (30000);
+      gBS->Stall (23000);
     }
   }
 

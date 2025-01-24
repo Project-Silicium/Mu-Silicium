@@ -20,7 +20,7 @@ InitPeripherals (
   EFI_STATUS Status = EFI_SUCCESS;
 
   // Start the USB Port Controller
-  if (FixedPcdGetBool(PcdStartUsbController)) {
+  if (FixedPcdGetBool (PcdStartUsbController)) {
     EFI_EVENT InitEvent;
 
     Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &InitEvent);
@@ -33,7 +33,7 @@ InitPeripherals (
   }
 
   // Init SD Card Slot
-  if (FixedPcdGetBool(PcdInitCardSlot)) {
+  if (FixedPcdGetBool (PcdInitCardSlot)) {
     EFI_EVENT InitEvent;
 
     Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSDCardInitGuid, &InitEvent);

@@ -3,7 +3,7 @@
 STATIC
 ARM_MEMORY_REGION_DESCRIPTOR_EX
 gDeviceMemoryDescriptorEx[] =   {
-  // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
+  // Name, Address, Length, HobOption, ResourceType, ResourceAttribute, MemoryType, ArmAttribute
 
   // DDR Regions
   {"Kernel",            0x80000000, 0x05600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},

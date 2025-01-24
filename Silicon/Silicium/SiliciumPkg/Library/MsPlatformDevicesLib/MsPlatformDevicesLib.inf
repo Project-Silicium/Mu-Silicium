@@ -1,8 +1,5 @@
 ##
-#  Silicium Ms Platform Devices Library.
-#
 #  Copyright (C) Microsoft Corporation. All rights reserved.
-#
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
@@ -29,4 +26,6 @@
   DevicePathLib
   PcdLib
   UefiBootServicesTableLib
-  AcpiPlatformUpdateLib
+
+[Protocols]
+  gEfiGraphicsOutputProtocolGuid

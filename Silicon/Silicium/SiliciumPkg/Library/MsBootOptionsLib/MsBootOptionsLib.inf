@@ -1,8 +1,5 @@
 ##
-#  Library that is Attached to BdsDxe to Implement Microsoft Extensions to UefiBootManagerLib.
-#
 #  Copyright (C) Microsoft Corporation. All rights reserved.
-#
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
@@ -24,15 +21,12 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  BaseMemoryLib
-  DebugLib
-  DevicePathLib
-  DxeServicesLib
-  MemoryAllocationLib
-  PcdLib
-  UefiBootManagerLib
   UefiBootServicesTableLib
-  UefiLib
+  DebugLib
+  MsBootPolicyLib
+  DevicePathLib
+  DeviceBootManagerLib
+  MsPlatformDevicesLib
 
 [Guids]
   gMsBootPolicyFileGuid
