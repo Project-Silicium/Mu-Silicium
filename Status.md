@@ -2954,7 +2954,7 @@
 **State: Active** <br>
 **Codename: citrus** <br>
 **Maintainer: [deuspato](https://github.com/deuspato)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22), [9.8.7.6](https://github.com/Daniel224455), [NUC](https://github.com/iNUCi), [Aistop](https://github.com/AistopGit), [All_One1](https://github.com/Ost268)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22), [9.8.7.6](https://github.com/Daniel224455), [NUC](https://github.com/iNUCi), [Aistop](https://github.com/AistopGit), [All_One1](https://github.com/Ost268), [Heyylucazzz](https://github.com/heyylucazzz)** <br>
 **Tester: [deuspato](https://github.com/deuspato)**
 
 ### UEFI Status
