@@ -3133,9 +3133,9 @@
 
 **State: Inactive** <br>
 **Codename: lavender** <br>
-**Maintainer: [index986](https://github.com/index986/), [meeo11](https://github.com/meeo11)** <br>
-**Contributors: [index986](https://github.com/index986), [meeo11](https://github.com/meeo11)** <br>
-**Tester: [index986](https://github.com/index986/), [meeo11](https://github.com/meeo11)**
+**Maintainer: [index986](https://github.com/index986/)** <br>
+**Contributors: [index986](https://github.com/index986)** <br>
+**Tester: [index986](https://github.com/index986/)**
 
 ### UEFI Status
 
