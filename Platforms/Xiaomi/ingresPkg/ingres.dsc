@@ -56,10 +56,10 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"POCO F4 GT"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F4 GT"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"ingres"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"POCO_F4_GT_ingres"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"POCO F4 GT"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F4_GT_ingres"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F4 GT"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
@@ -72,7 +72,7 @@
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703C0C8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x840000000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
