@@ -90,3 +90,6 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|123
   
 !include SM8150Pkg/SM8150Pkg.dsc.inc
+
+[LibraryClasses]
+  AcpiPlatformUpdateLib|cepheusPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf

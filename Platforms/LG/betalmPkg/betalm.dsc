@@ -90,3 +90,6 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|118
   
 !include SM8150Pkg/SM8150Pkg.dsc.inc
+
+[LibraryClasses]
+  AcpiPlatformUpdateLib|betalmPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
