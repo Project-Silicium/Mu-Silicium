@@ -116,3 +116,6 @@
 
   # SD Card Init PCD
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B500
+
+  # Storage PCD
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUFS3|TRUE|BOOLEAN|0x0000B600
