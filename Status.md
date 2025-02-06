@@ -3135,7 +3135,7 @@
 **Codename: lavender** <br>
 **Maintainer: [index986](https://github.com/index986/)** <br>
 **Contributors: [index986](https://github.com/index986)** <br>
-**Tester: [index986](https://github.com/index986/)**
+**Tester: [index986](https://github.com/index986/), [meeo11](https://github.com/meeo11/)**
 
 ### UEFI Status
 
@@ -3150,7 +3150,7 @@
 | Mass Storage       |                                | ✅    |
 | SD Card            |                                | ✅    |
 | Windows Boot       | Windows PE only                | ⚠️    |
-| Linux Boot         |                                | ❔    |
+| Linux Boot         | Dropping to Emergency Shell    | ⚠️    |
 
   </summary>
 </details>
