@@ -79,6 +79,9 @@
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
+  # Storage
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUFS3|FALSE
+
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2248
@@ -90,6 +93,3 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|118
   
 !include SM8150Pkg/SM8150Pkg.dsc.inc
-
-[LibraryClasses]
-  AcpiPlatformUpdateLib|betalmPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
