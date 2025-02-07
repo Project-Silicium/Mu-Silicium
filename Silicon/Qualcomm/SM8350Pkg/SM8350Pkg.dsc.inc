@@ -52,6 +52,9 @@
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 4G @ 2.84 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AC"
+!elseif $(SOC_TYPE) == 3
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) G3x Gen 1 @ 3.00 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SG8175P"
 !endif
 
   # CPU
