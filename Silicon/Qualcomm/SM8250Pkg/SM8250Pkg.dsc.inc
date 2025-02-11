@@ -44,20 +44,37 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 865 @ 2.84 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8250"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 865"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8250"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 865 plus @ 3.09 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8250-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 865+"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8250-AB"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 870 @ 3.19 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8250-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 870"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8250-AC"
 !endif
 
   # CPU
+!if $(SOC_TYPE) == 1
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|3090
+!elseif $(SOC_TYPE) == 2
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|3190
+!else
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2840
+!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x100
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0x400
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|2750
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -72,8 +89,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM8250Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM8250Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

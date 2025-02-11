@@ -44,20 +44,35 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 855 @ 2.84 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8150"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 855"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8150"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 855+ @ 2.96 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8150-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 855+"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8150-AB"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 860 @ 2.96 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8150-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 860"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8150-AC"
 !endif
 
   # CPU
+!if ($(SOC_TYPE) == 1 || $(SOC_TYPE) == 2)
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2960
+!else
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2840
+!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x100
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x100
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x400
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0x800
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|2133
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -72,8 +87,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM8150Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM8150Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

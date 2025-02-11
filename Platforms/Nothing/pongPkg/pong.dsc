@@ -55,7 +55,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Nothing"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nothing"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Phone 2"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pong"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Phone_2_pong"

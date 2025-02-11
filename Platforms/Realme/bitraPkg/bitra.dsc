@@ -56,7 +56,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Realme"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Realme"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT NEO 2"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bitra"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT NEO 2"

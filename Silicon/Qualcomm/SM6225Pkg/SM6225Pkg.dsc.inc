@@ -44,17 +44,30 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680 @ 2.40 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6225"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM6225"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685 @ 2.80 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM6225-AD"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM6225-AD"
 !endif
 
   # CPU
+!if $(SOC_TYPE) == 1
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2800
+!else
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2400
+!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x20
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x200
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|2133
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -68,8 +81,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM6225Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM6225Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

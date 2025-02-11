@@ -85,7 +85,7 @@ READ_LOCK_STATUS   = TRUE
 
   # BDS
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF SM8350Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf

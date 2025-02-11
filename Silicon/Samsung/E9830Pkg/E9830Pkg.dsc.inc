@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 9830 @ 2.73 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"E9830"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"E9830"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

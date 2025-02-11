@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 9810 @ 2.90 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"E9810"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"E9810"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

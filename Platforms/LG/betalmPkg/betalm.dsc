@@ -56,7 +56,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00020000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"LG Electronics Inc."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"LG Electronics Inc."
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"G8s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"betalm"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"G8s_betalm"

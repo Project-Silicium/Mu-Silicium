@@ -184,7 +184,7 @@ InitMassStorage (
   EFI_STATUS Status;
 
   // Check for Sony & Google
-  if (FixedPcdGetPtr (PcdSmbiosSystemVendor) == "Sony Group Corporation" || FixedPcdGetPtr (PcdSmbiosSystemVendor) == "Google LLC") {
+  if (FixedPcdGetPtr (PcdSmbiosSystemManufacturer) == "Sony Group Corporation" || FixedPcdGetPtr (PcdSmbiosSystemManufacturer) == "Google LLC") {
     return EFI_UNSUPPORTED;
   }
 

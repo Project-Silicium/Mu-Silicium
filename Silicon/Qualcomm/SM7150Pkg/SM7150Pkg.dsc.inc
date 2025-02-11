@@ -44,20 +44,35 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730 @ 2.21 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AA"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AA"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G @ 2.21 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AB"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G @ 2.30 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7150-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AC"
 !endif
 
   # CPU
+!if $(SOC_TYPE) == 2
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2300
+!else
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2210
+!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x100
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0x400
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|1866
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -72,8 +87,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM7150Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM7150Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

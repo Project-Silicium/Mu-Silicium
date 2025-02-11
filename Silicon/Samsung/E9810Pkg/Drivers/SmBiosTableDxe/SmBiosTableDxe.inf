@@ -4,36 +4,47 @@
   FILE_GUID                      = 50A15B6F-E3A9-4192-9640-369CB367C4DE
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = InitializeSmBiosTable
+  ENTRY_POINT                    = RegisterSmBiosTables
 
 [Sources]
   SmBiosTableDxe.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  DebugLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
-  BaseMemoryLib
   MemoryAllocationLib
+  MemoryMapHelperLib
+  BaseMemoryLib
+  DebugLib
   UefiLib
+  PrintLib
+  FdtLib
+  IoLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
+  gArmPlatformTokenSpaceGuid.PcdCoreCount
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename
 
 [Protocols]
   gEfiSmbiosProtocolGuid

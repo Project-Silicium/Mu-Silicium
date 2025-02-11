@@ -21,16 +21,18 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|0|UINT32|0x0000A003
 
   # SmBios PCDs
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|""|VOID*|0x0000A100
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|""|VOID*|0x0000A101
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|""|VOID*|0x0000A102
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|""|VOID*|0x0000A103
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|""|VOID*|0x0000A104
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|""|VOID*|0x0000A105
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|""|VOID*|0x0000A106
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Not Specified"|VOID*|0x0000A100
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Not Specified"|VOID*|0x0000A101
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Not Specified"|VOID*|0x0000A102
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Not Specified"|VOID*|0x0000A103
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"Not Specified"|VOID*|0x0000A104
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Not Specified"|VOID*|0x0000A105
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Not Specified"|VOID*|0x0000A106
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Not Specified"|VOID*|0x0000A107
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Not Specified"|VOID*|0x0000A108
 
   # Device Maintainer PCD
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Unknown Maintainer"|VOID*|0x0000A200
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Not Specified"|VOID*|0x0000A200
 
   # BMP File GUIDs
   gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile|        { 0xBE, 0xFB, 0x54, 0x15, 0xE6, 0xA3, 0x40, 0x7C, 0x97, 0xB3, 0x9D, 0xAF, 0x60, 0x3A, 0x02, 0x50 }|VOID*|0x0000A300

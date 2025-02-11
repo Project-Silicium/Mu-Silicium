@@ -43,13 +43,24 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00008550
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 2 @ 3.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8550"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8550"
 
   # CPU
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|3200
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE        # Is actually has it.
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x20
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x20
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x400
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0           # Unknown.
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|4200
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -64,8 +75,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM8550Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM8550Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

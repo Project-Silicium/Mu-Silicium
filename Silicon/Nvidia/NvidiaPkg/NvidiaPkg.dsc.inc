@@ -13,6 +13,10 @@
   # RAM Size (512 MB)
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
 
+  # SmBios
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"NVIDIA"
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"NVIDIA Corporation"
+
 [LibraryClasses]
   # Custom Tegra Libraries
 !if $(USE_CUSTOM_TIMER) == 1

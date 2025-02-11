@@ -44,23 +44,38 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 5G @ 2.84 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8350"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888+ 5G @ 3.00 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888+ 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8350-AB"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 4G @ 2.84 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8350-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 4G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8350-AC"
 !elseif $(SOC_TYPE) == 3
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) G3x Gen 1 @ 3.00 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SG8175P"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) G3x Gen 1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SG8175P"
 !endif
 
   # CPU
+!if ($(SOC_TYPE) == 1 || $(SOC_TYPE) == 3)
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|3000
+!else
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2840
+!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x100
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x100
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x400
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0x1000
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|3200
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -75,8 +90,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM8350Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM8350Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

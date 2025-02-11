@@ -62,7 +62,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Microsoft Corporation"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Microsoft Corporation"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Surface RT"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"oemk"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Surface_RT_oemk"

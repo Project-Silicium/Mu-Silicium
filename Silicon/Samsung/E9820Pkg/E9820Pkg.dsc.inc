@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 9820 @ 2.73 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"E9820"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"E9820"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

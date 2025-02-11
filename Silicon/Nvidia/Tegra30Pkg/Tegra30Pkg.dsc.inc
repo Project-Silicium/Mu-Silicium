@@ -36,16 +36,16 @@
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) 3 @ 1.30 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"T30L"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"T30L"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) 3 @ 1.50 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"T30"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"T30"
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) 3 @ 1.50 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"AP33"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"AP33"
 !elseif $(SOC_TYPE) == 3
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) 3 @ 1.70 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"T33"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"T33"
 !endif
 
   # CPU (5 Cores Actually)
