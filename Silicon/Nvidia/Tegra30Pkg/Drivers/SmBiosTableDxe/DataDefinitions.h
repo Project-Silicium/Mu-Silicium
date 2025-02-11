@@ -1,35 +1,10 @@
 /**
-  Derived from EmulatorPkg package
-
-  Note SMBIOS 2.7.1 Required structures:
-  BIOS Information (Type 0)
-  System Information (Type 1)
-  Board Information (Type 2)
-  System Enclosure (Type 3)
-  Processor Information (Type 4) - CPU Driver
-  Cache Information (Type 7) - For cache that is external to processor
-  System Slots (Type 9) - If system has slots
-  Physical Memory Array (Type 16)
-  Memory Device (Type 17) - For each socketed system-memory Device
-  Memory Array Mapped Address (Type 19) - One per contiguous block per
-  Physical Memroy Array System Boot Information (Type 32)
-
-
   Copyright (c), 2017, Andrey Warkentin <andrey.warkentin@gmail.com>
   Copyright (c), 2018, Bingxing Wang <uefi-oss-projects@imbushuo.net>
   Copyright (c), Microsoft Corporation. All rights reserved.
-
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD
-  License which accompanies this distribution.  The full text of the license may
-  be found at http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
-
-
   Copyright (c) 2012, Apple Inc. All rights reserved.<BR>
   Copyright (c) 2013 Linaro.org
+
   This program and the accompanying materials
   are licensed and made available under the terms and conditions of the BSD
   License which accompanies this distribution.  The full text of the license may
@@ -107,12 +82,16 @@ SMBIOS_TABLE_TYPE0 mBIOSInfoType0 = {
   0x05, // SystemBiosMinorRelease
   0xFF, // EmbeddedControllerFirmwareMajorRelease
   0xFF, // EmbeddedControllerFirmwareMinorRelease
+  {
+    0, // Size
+    0  // Unit
+  }
 };
 
 CHAR8 *mBIOSInfoType0Strings[] = {
-  "Not Specified", // Vendor String
-  "3.0.3",         // BiosVersion String
-  __DATE__,        // BiosReleaseDate String
+  "Not Specified",
+  "Not Specified",
+  "Not Specified",
   NULL
 };
 
@@ -126,23 +105,23 @@ SMBIOS_TABLE_TYPE1 mSysInfoType1 = {
   3, // Version String
   4, // SerialNumber String
   {
-    0xc08ac5fb,
-    0x2a54,
-    0x4369,
+    0x00000000,
+    0x0000,
+    0x0000,
     {
-      0x8c,
-      0x51,
-      0xaf,
-      0x7d,
-      0x06,
-      0x0a,
-      0x93,
-      0xcc,
-    },
+      0x00,                 // TODO: Somehow Update this UUID to the Device GUID.
+      0x00,
+      0x00,
+      0x00,
+      0x00,
+      0x00,
+      0x00,
+      0x00,
+    }
   },
-  SystemWakeupTypeUnknown,
-  5, // SKUNumber String
-  6, // Family String
+  SystemWakeupTypePowerSwitch, // WakeUpType
+  5,                           // SKUNumber String
+  6,                           // Family String
 };
 
 CHAR8 *mSysInfoType1Strings[] = {
@@ -177,7 +156,7 @@ SMBIOS_TABLE_TYPE2 mBoardInfoType2 = {
   0,                        // ChassisHandle
   BaseBoardTypeMotherBoard, // BoardType
   0,                        // NumberOfContainedObjectHandles
-  {0}                       // ContainedObjectHandles[1]
+  {0}                       // ContainedObjectHandles
 };
 
 CHAR8 *mBoardInfoType2Strings[] = {
@@ -195,21 +174,21 @@ CHAR8 *mBoardInfoType2Strings[] = {
 ************************************************************************/
 SMBIOS_TABLE_TYPE3 mEnclosureInfoType3 = {
   {EFI_SMBIOS_TYPE_SYSTEM_ENCLOSURE, sizeof(SMBIOS_TABLE_TYPE3), 0},
-  1,                      // Manufacturer String
-  MiscChassisTypeUnknown, // Type
-  2,                      // Version String
-  3,                      // SerialNumber String
-  4,                      // AssetTag String
-  ChassisStateUnknown,    // BootupState
-  ChassisStateUnknown,    // PowerSupplyState
-  ChassisStateUnknown,    // ThermalState
-  ChassisStateUnknown,    // SecurityStatus
-  {0, 0, 0, 0},           // OemDefined[4]
-  0,                      // Height
-  0,                      // NumberofPowerCords
-  0,                      // ContainedElementCount
-  0,                      // ContainedElementRecordLength
-  {{0}},                  // ContainedElements[1]
+  1,                         // Manufacturer String
+  MiscChassisTypeUnknown,    // Type
+  2,                         // Version String
+  3,                         // SerialNumber String
+  4,                         // AssetTag String
+  ChassisStateSafe,          // BootupState
+  ChassisStateSafe,          // PowerSupplyState
+  ChassisStateSafe,          // ThermalState
+  ChassisSecurityStatusNone, // SecurityStatus
+  {0, 0, 0, 0},              // OemDefined
+  0,                         // Height
+  0,                         // NumberofPowerCords
+  0,                         // ContainedElementCount
+  0,                         // ContainedElementRecordLength
+  {{0}},                     // ContainedElements
 };
 
 CHAR8 *mEnclosureInfoType3Strings[] = {
@@ -223,12 +202,12 @@ CHAR8 *mEnclosureInfoType3Strings[] = {
 /***********************************************************************
     SMBIOS data definition  TYPE4  Processor Information
 ************************************************************************/
-SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a9 = {
+SMBIOS_TABLE_TYPE4 mProcessorInfoType4 = {
   {EFI_SMBIOS_TYPE_PROCESSOR_INFORMATION, sizeof(SMBIOS_TABLE_TYPE4), 0},
-  1,                               // Socket String
-  CentralProcessor,                // ProcessorType
-  ProcessorFamilyIndicatorFamily2, // ProcessorFamily
-  2,                               // ProcessorManufacture String
+  1,                    // Socket String
+  CentralProcessor,     // ProcessorType
+  ProcessorFamilyOther, // ProcessorFamily
+  2,                    // ProcessorManufacturer String
   {
    {
      0, // ProcessorSteppingId
@@ -284,34 +263,33 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4_a9 = {
     0  // ProcessorVoltageIndicateLegacy
   },
   0,                     // ExternalClock
-#if SOC_TYPE == 0
-  1300,                  // MaxSpeed
-  1300,                  // CurrentSpeed
-#elif SOC_TYPE == 1 || SOC_TYPE == 2
-  1500,                  // MaxSpeed
-  1500,                  // CurrentSpeed
-#else 
-  1700,                  // MaxSpeed
-  1700,                  // CurrentSpeed
-#endif
+  0,                     // MaxSpeed
+  0,                     // CurrentSpeed
   0x41,                  // Status
   ProcessorUpgradeOther, // ProcessorUpgrade
   0,                     // L1CacheHandle
   0,                     // L2CacheHandle
   0,                     // L3CacheHandle
-  0,                     // SerialNumber
-  0,                     // AssetTag
-  4,                     // PartNumber
-  4,                     // CoreCount
-  4,                     // EnabledCoreCount
-  4,                     // ThreadCount
+  4,                     // SerialNumber String
+  5,                     // AssetTag String
+  6,                     // PartNumber String
+  0,                     // CoreCount
+  0,                     // EnabledCoreCount
+  0,                     // ThreadCount
   0xAC,                  // ProcessorCharacteristics
-  ProcessorFamilyARM,    // ARM Processor Family
+  ProcessorFamilyARM,    // ProcessorFamily2
+  0,                     // CoreCount2
+  0,                     // EnabledCoreCount2
+  0,                     // ThreadCount2
+  0,                     // ThreadEnabled
+  7                      // SocketType String
 };
 
 CHAR8 *mProcessorInfoType4Strings[] = {
-  "Nvidia",
-  "Nvidia Corporation",
+  "Not Specified",
+  "Not Specified",
+  "Not Specified",
+  "Not Specified",
   "Not Specified",
   "Not Specified",
   "Not Specified",
@@ -324,12 +302,12 @@ CHAR8 *mProcessorInfoType4Strings[] = {
 SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1IC = {
   {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
   1,      // SocketDesignation String
-  0x0280, // Cache Configuration
-  0x0020, // Maximum Size
-  0x0020, // Install Size
+  0x0280, // CacheConfiguration
+  0,      // MaximumCacheSize
+  0,      // InstalledSize
   {
     0, // Other
-    0, // Unknown
+    1, // Unknown
     0, // NonBurst
     0, // Burst
     0, // PiplelineBurst
@@ -339,7 +317,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1IC = {
   },
   {
     0, // Other
-    0, // Unknown
+    1, // Unknown
     0, // NonBurst
     0, // Burst
     0, // PiplelineBurst
@@ -347,21 +325,23 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1IC = {
     0, // Asynchronous
     0  // Reserved
   },
-  0,                      // Cache Speed unknown
-  CacheErrorParity,       // Error Correction Multi
-  CacheTypeInstruction,   // System Cache Type
-  CacheAssociativity16Way // Associativity
+  0,                       // CacheSpeed
+  CacheErrorParity,        // ErrorCorrectionType
+  CacheTypeInstruction,    // SystemCacheType
+  CacheAssociativity16Way, // Associativity
+  0,                       // MaximumCacheSize2
+  0                        // InstalledSize2
 };
 
 SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1DC = {
   {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
   1,      // SocketDesignation String
-  0x0280, // Cache Configuration
-  0x0020, // Maximum Size
-  0x0020, // Install Size
+  0x0280, // CacheConfiguration
+  0,      // MaximumCacheSize
+  0,      // InstalledSize
   {
     0, // Other
-    0, // Unknown
+    1, // Unknown
     0, // NonBurst
     0, // Burst
     0, // PiplelineBurst
@@ -371,7 +351,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1DC = {
   },
   {
     0, // Other
-    0, // Unknown
+    1, // Unknown
     0, // NonBurst
     0, // Burst
     0, // PiplelineBurst
@@ -379,21 +359,23 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1DC = {
     0, // Asynchronous
     0  // Reserved
   },
-  0,                      // Cache Speed unknown
-  CacheErrorParity,       // Error Correction Multi
-  CacheTypeInstruction,   // System Cache Type
-  CacheAssociativity16Way // Associativity
+  0,                       // CacheSpeed
+  CacheErrorParity,        // ErrorCorrectionType
+  CacheTypeData,           // SystemCacheType
+  CacheAssociativity16Way, // Associativity
+  0,                       // MaximumCacheSize2
+  0                        // InstalledSize2
 };
 
 SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
   {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
   1,      // SocketDesignation String
-  0x0281, // Cache Configuration
-  0x0400, // Maximum Size
-  0x0400, // Install Size
+  0x0281, // CacheConfiguration
+  0,      // MaximumCacheSize
+  0,      // InstalledSize
   {
     0, // Other
-    0, // Unknown
+    1, // Unknown
     0, // NonBurst
     0, // Burst
     0, // PiplelineBurst
@@ -403,7 +385,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
   },
   {
     0, // Other
-    0, // Unknown
+    1, // Unknown
     0, // NonBurst
     0, // Burst
     0, // PiplelineBurst
@@ -411,58 +393,89 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
     0, // Asynchronous
     0  // Reserved
   },
-  0,                     // Cache Speed unknown
-  CacheErrorParity,      // Error Correction Multi
-  CacheTypeUnified,      // System Cache Type
-  CacheAssociativity8Way // Associativity
+  0,                      // CacheSpeed
+  CacheErrorParity,       // ErrorCorrectionType
+  CacheTypeUnified,       // SystemCacheType
+  CacheAssociativity8Way, // Associativity
+  0,                      // MaximumCacheSize2
+  0                       // InstalledSize2
 };
 
 CHAR8 *mCacheInfoType7_L1ICStrings[] = {
-  "L1 Instruction Cache",
+  "Not Specified",
   NULL
 };
 
 CHAR8 *mCacheInfoType7_L1DCStrings[] = {
-  "L1 Data Cache",
+  "Not Specified",
   NULL
 };
 
 CHAR8 *mCacheInfoType7_L2CStrings[] = {
-  "L2 Cache",
+  "Not Specified",
   NULL
 };
 
 /***********************************************************************
-    SMBIOS data definition  TYPE16  Physical Memory ArrayInformation
+    SMBIOS data definition  TYPE11  OEM Strings Information
+************************************************************************/
+SMBIOS_TABLE_TYPE11 mOemStringsInfoType11 = {
+  {EFI_SMBIOS_TYPE_OEM_STRINGS, sizeof(SMBIOS_TABLE_TYPE11), 0},
+  1 // StringCount
+};
+
+CHAR8 *mOemStringsInfoType11Strings[] = {
+  "Not Specified",
+  NULL
+};
+
+/***********************************************************************
+    SMBIOS data definition  TYPE13  BIOS Language Information
+************************************************************************/
+SMBIOS_TABLE_TYPE13 mBiosLanguageInfoType13 = {
+  {EFI_SMBIOS_TYPE_BIOS_LANGUAGE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE13), 0},
+  1,   // InstallableLanguages
+  0,   // Flags
+  {0}, // Reserved
+  1    // CurrentLanguages String
+};
+
+CHAR8 *mBiosLanguageInfoType13Strings[] = {
+  "Not Specified",
+  NULL
+};
+
+/***********************************************************************
+    SMBIOS data definition  TYPE16  Physical Memory Array Information
 ************************************************************************/
 SMBIOS_TABLE_TYPE16 mPhyMemArrayInfoType16 = {
   {EFI_SMBIOS_TYPE_PHYSICAL_MEMORY_ARRAY, sizeof(SMBIOS_TABLE_TYPE16), 0},
-  MemoryArrayLocationSystemBoard,    // Location
-  MemoryArrayUseSystemMemory,        // Use
-  MemoryErrorCorrectionNone,         // MemoryErrorCorrection
-  0xFFFFFFFF,                        // MaximumCapacity
-  0xFFFE,                            // MemoryErrorInformationHandle
-  1,                                 // NumberOfMemoryDevices
-  0xFFFFFFFF                         // ExtendedMaximumCapacity
+  MemoryArrayLocationSystemBoard, // Location
+  MemoryArrayUseSystemMemory,     // Use
+  MemoryErrorCorrectionUnknown,   // MemoryErrorCorrection
+  0xFFFFFFFF,                     // MaximumCapacity
+  0xFFFE,                         // MemoryErrorInformationHandle
+  1,                              // NumberOfMemoryDevices
+  0xFFFFFFFF                      // ExtendedMaximumCapacity
 };
 
-CHAR8 *mPhyMemArrayInfoType16Strings[] = {NULL};
+CHAR8 *mPhyMemArrayInfoType16Strings[] = { NULL };
 
 /***********************************************************************
     SMBIOS data definition  TYPE17  Memory Device Information
 ************************************************************************/
 SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
   {EFI_SMBIOS_TYPE_MEMORY_DEVICE, sizeof(SMBIOS_TABLE_TYPE17), 0},
-  0,                          // MemoryArrayHandle
-  0xFFFE,                     // MemoryErrorInformationHandle
-  0xFFFF,                     // TotalWidth
-  0xFFFF,                     // DataWidth
-  0xFFFF,                     // Size
-  MemoryFormFactorRowOfChips, // FormFactor
-  0xff,                       // DeviceSet
-  0,                          // DeviceLocator String
-  1,                          // BankLocator String
-  MemoryTypeLpddr4,           // MemoryType
+  0,                       // MemoryArrayHandle
+  0xFFFE,                  // MemoryErrorInformationHandle
+  0xFFFF,                  // TotalWidth
+  0xFFFF,                  // DataWidth
+  0xFFFF,                  // Size
+  MemoryFormFactorUnknown, // FormFactor
+  0xFF,                    // DeviceSet
+  1,                       // DeviceLocator String
+  2,                       // BankLocator String
+  MemoryTypeUnknown,       // MemoryType
   {
     0, // Reserved
     0, // Other
@@ -481,29 +494,50 @@ SMBIOS_TABLE_TYPE17 mMemDevInfoType17 = {
     0, // Unbuffered
     0, // Reserved1
   },
-#if SOC_TYPE == 0
-  1333, // Speed
-#elif SOC_TYPE == 1 || SOC_TYPE == 2
-#if RAM_MODEL == 0
-  1500, // Speed
-#else
-  1066, // Speed
-#endif
-#else
-  1600, // Speed
-#endif
-  2,    // Manufacturer String
-  3,    // SerialNumber String
-  4,    // AssetTag String
-  5,    // PartNumber String
-  0,    // Attributes
-  0,    // ExtendedSize
-  0,    // ConfiguredMemoryClockSpeed
+  0,                    // Speed
+  3,                    // Manufacturer String
+  4,                    // SerialNumber String
+  5,                    // AssetTag String
+  6,                    // PartNumber String
+  0,                    // Attributes
+  0,                    // ExtendedSize
+  0,                    // ConfiguredMemoryClockSpeed
+  0,                    // MinimumVoltage
+  0,                    // MaximumVoltage
+  0,                    // ConfiguredVoltage
+  MemoryTechnologyDram, // MemoryTechnology
+  {
+    {
+      0, // Reserved
+      0, // Other
+      1, // Unknown
+      0, // VolatileMemory
+      0, // ByteAccessiblePersistentMemory
+      0, // BlockAccessiblePersistentMemory
+      0  // Reserved2
+    }
+  },
+  7, // FirmwareVersion String
+  0, // ModuleManufacturerID
+  0, // ModuleProductID
+  0, // MemorySubsystemControllerManufacturerID
+  0, // MemorySubsystemControllerProductID
+  0, // NonVolatileSize
+  0, // VolatileSize
+  0, // CacheSize
+  0, // LogicalSize
+  0, // ExtendedSpeed
+  0  // ExtendedConfiguredMemorySpeed
 };
 
 CHAR8 *mMemDevInfoType17Strings[] = {
-  "Builtin",
-  "BANK 0",
+  "Not Specified",
+  "Not Specified",
+  "Not Specified",
+  "Not Specified",
+  "Not Specified",
+  "Not Specified",
+  "Not Specified",
   NULL
 };
 
@@ -511,19 +545,15 @@ CHAR8 *mMemDevInfoType17Strings[] = {
     SMBIOS data definition  TYPE19  Memory Array Mapped Address Information
 ************************************************************************/
 SMBIOS_TABLE_TYPE19 mMemArrMapInfoType19 = {
-  {
-    EFI_SMBIOS_TYPE_MEMORY_ARRAY_MAPPED_ADDRESS,
-    sizeof(SMBIOS_TABLE_TYPE19),
-    0,
-  },
+  {EFI_SMBIOS_TYPE_MEMORY_ARRAY_MAPPED_ADDRESS, sizeof(SMBIOS_TABLE_TYPE19), 0},
   0xFFFFFFFF,    // StartingAddress
   0xFFFFFFFF,    // EndingAddress
   0,             // MemoryArrayHandle
   0,             // PartitionWidth
   0x3FFFFFFFC00, // ExtendedStartingAddress
-  0x3FFFFFFFFFF, // ExtendedEndingAddress
+  0x3FFFFFFFFFF  // ExtendedEndingAddress
 };
 
-CHAR8 *mMemArrMapInfoType19Strings[] = {NULL};
+CHAR8 *mMemArrMapInfoType19Strings[] = { NULL };
 
 #endif /* _DATA_DEFINITIONS_H_ */

@@ -44,20 +44,37 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G @ 2.40 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7325"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7325"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G Plus @ 2.52 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7325-AE"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G+"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7325-AE"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 782G @ 2.71 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7325-AF"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 782G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7325-AF"
 !endif
 
   # CPU
+!if $(SOC_TYPE) == 1
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2520
+!elseif $(SOC_TYPE) == 2
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2710
+!else
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2400
+!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x20
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x20
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x80
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0x400
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|3200
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -72,8 +89,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM7325Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM7325Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

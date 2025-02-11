@@ -44,20 +44,33 @@
 
   # SmBios
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 660 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SDM660"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 660"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SDM660"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 636 @ 1.80 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SDM636"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 636"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SDM636"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 630 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SDM630"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 630"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SDM630"
 !endif
 
   # CPU
+!if $(SOC_TYPE) == 1
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|1800
+!else
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2200
+!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x400
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|1866
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -71,8 +84,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SDM660Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SDM660Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

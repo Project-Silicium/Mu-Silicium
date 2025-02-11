@@ -56,7 +56,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"alioth"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco F3"

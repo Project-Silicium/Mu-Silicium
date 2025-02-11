@@ -43,13 +43,24 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00007125
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 720G @ 2.40 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM7125"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 720G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7125"
 
   # CPU
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2400
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+
+  # CPU Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x100
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0x400
+
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|2100
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
@@ -64,8 +75,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|SM7125Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SM7125Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

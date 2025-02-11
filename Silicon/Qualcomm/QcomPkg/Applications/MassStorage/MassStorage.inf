@@ -24,7 +24,7 @@
   UefiLib
 
 [FixedPcd]
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
 
 [Protocols]
   gEfiBlockIoProtocolGuid

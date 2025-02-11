@@ -117,7 +117,7 @@ APRIORI DXE {
   # MpParkDxe
   INF Binaries/poplar/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
 
-  INF MSM8998Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # MemoryMapDxe
   # AdapterInformationDxe

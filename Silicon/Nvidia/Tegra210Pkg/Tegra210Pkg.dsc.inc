@@ -45,25 +45,25 @@
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"ODNX02-A2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"ODNX02-A2"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"TM670D-A1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"TM670D-A1"
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"TM670M-A2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"TM670M-A2"
 !elseif $(SOC_TYPE) == 3
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"TM671D-A2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"TM671D-A2"
 !elseif $(SOC_TYPE) == 4
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 1.42 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"TM660M-A2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"TM660M-A2"
 !elseif $(SOC_TYPE) == 5
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.10 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"ODNX10-A1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"ODNX10-A1"
 !elseif $(SOC_TYPE) == 6
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.10 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"TM675M-A1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"TM675M-A1"
 !endif
 
   # CPU

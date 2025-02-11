@@ -63,7 +63,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo Group Limited"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Lenovo Group Limited"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"IdeaPad Yoga 11"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"VenusTZ"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"IdeaPad_Yoga_11_VenusTZ"

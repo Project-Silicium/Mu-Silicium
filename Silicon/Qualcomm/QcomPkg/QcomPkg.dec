@@ -108,11 +108,25 @@
   # Dynamic RAM Start Address PCD
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B200
 
-  # Clock Speed Up Driver PCDs
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B300
+  # CPU Freq PCD
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|0|UINT32|0x0000B300
+
+  # CPU Cache PCDs
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|FALSE|BOOLEAN|0x0000B400
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B401
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0|UINT32|0x0000B402
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0|UINT32|0x0000B403
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0|UINT32|0x0000B404
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0|UINT32|0x0000B405
+
+  # Memory Speed PCD
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|0|UINT32|0x0000B500
 
   # Start USB Controller PCD
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B400
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B600
 
   # SD Card Init PCD
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B500
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B700
+
+  # Storage PCD
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUFS3|TRUE|BOOLEAN|0x0000B800

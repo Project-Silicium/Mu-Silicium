@@ -25,7 +25,7 @@ PlatformUpdateAcpiTables ()
   UINT16 SDFE                            = 0;
   UINT16 SIDM                            = 0;
   UINT32 SUFS                            = 0xFFFFFFFF;
-  UINT32 PUS3                            = 0x1;
+  UINT32 PUS3                            = FixedPcdGetBool(PcdStorageIsUFS3);
   UINT32 SUS3                            = 0xFFFFFFFF;
   UINT32*pSIDT                           = (UINT32 *)0x784178;
   UINT32 SIDT                            = (*pSIDT & 0xFF00000) >> 20;

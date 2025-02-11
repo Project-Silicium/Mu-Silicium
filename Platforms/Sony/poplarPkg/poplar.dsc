@@ -49,7 +49,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Sony Group Corporation"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Sony Group Corporation"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Xperia XZ1"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"poplar"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Xperia_XZ1_poplar"

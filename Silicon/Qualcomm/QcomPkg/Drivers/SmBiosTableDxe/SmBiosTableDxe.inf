@@ -14,27 +14,34 @@
   ArmPlatformPkg/ArmPlatformPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
+  QcomPkg/QcomPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
-  MemoryMapHelperLib
   BaseMemoryLib
   DebugLib
   UefiLib
   PrintLib
-  FdtLib
-  IoLib
+  RamPartitionTableLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
   gArmPlatformTokenSpaceGuid.PcdCoreCount
+  gArmPlatformTokenSpaceGuid.PcdClusterCount
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
@@ -48,6 +55,9 @@
 
 [Protocols]
   gEfiSmbiosProtocolGuid
+  gEfiChipInfoProtocolGuid
+  gEfiClockProtocolGuid
+  gEfiDDRGetInfoProtocolGuid
   
 [Depex]
   gEfiSmbiosProtocolGuid

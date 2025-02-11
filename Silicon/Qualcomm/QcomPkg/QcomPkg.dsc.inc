@@ -11,6 +11,10 @@
   # RAM Size (512 MB)
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
 
+  # SmBios
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Qualcomm"
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Qualcomm Technologies, Inc."
+
   # Mass Storage App
   gSiliciumPkgTokenSpaceGuid.PcdSpecialApp|{ 0xD8, 0xEC, 0x14, 0xFB, 0x32, 0x94, 0xB8, 0x48, 0xA6, 0x92, 0xAE, 0x4B, 0xC1, 0x9D, 0x56, 0x8B }
   gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName|"Mass Storage"
@@ -27,6 +31,9 @@
   MemoryProtectionLib|QcomPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
 
 [Components]
+  # SmBios
+  QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+
   # Custom Snapdragon Drivers
   QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
   QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf

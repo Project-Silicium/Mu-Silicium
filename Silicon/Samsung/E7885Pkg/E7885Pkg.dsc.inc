@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7885 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"E7885"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"E7885"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

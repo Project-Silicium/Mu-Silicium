@@ -1,35 +1,10 @@
 /**
-  Derived from EmulatorPkg package
-
-  Note SMBIOS 2.7.1 Required structures:
-    BIOS Information (Type 0)
-    System Information (Type 1)
-    Board Information (Type 2)
-    System Enclosure (Type 3)
-    Processor Information (Type 4) - CPU Driver
-    Cache Information (Type 7) - For cache that is external to processor
-    System Slots (Type 9) - If system has slots
-    Physical Memory Array (Type 16)
-    Memory Device (Type 17) - For each socketed system-memory Device
-    Memory Array Mapped Address (Type 19) - One per contiguous block per
-    Physical Memroy Array System Boot Information (Type 32)
-
-
   Copyright (c), 2017, Andrey Warkentin <andrey.warkentin@gmail.com>
   Copyright (c), 2018, Bingxing Wang <uefi-oss-projects@imbushuo.net>
   Copyright (c), Microsoft Corporation. All rights reserved.
-
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD
-  License which accompanies this distribution.  The full text of the license may
-  be found at http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
-
-
   Copyright (c) 2012, Apple Inc. All rights reserved.<BR>
   Copyright (c) 2013 Linaro.org
+
   This program and the accompanying materials
   are licensed and made available under the terms and conditions of the BSD
   License which accompanies this distribution.  The full text of the license may
@@ -39,101 +14,102 @@
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 
-#include <IndustryStandard/SmBios.h>
+#include <libfdt.h>
 
+#include <Library/UefiBootServicesTableLib.h>
+#include <Library/MemoryAllocationLib.h>
+#include <Library/MemoryMapHelperLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
-#include <Library/MemoryAllocationLib.h>
 #include <Library/UefiLib.h>
 #include <Library/PrintLib.h>
-#include <Library/UefiBootServicesTableLib.h>
 #include <Library/IoLib.h>
-#include <Library/MemoryMapHelperLib.h>
+
+#include <IndustryStandard/SmBios.h>
 
 #include <Protocol/Smbios.h>
 
-#include <libfdt.h>
-
 #include "DataDefinitions.h"
 
-typedef struct {
-  UINT64 StartAddress;
-  UINT64 Size;
-} MEMORY_NODE;
+EFI_STATUS
+GetMemorySize (
+  IN  CONST VOID *Fdt,
+  OUT UINT64     *MemorySize)
+{
+  CONST UINT32 *Reg         = NULL;
+  UINTN         CurrentSize = 0;
+  INT32         Node        = 0;
+  INT32         AddrCells   = 0;
+  INT32         SizeCells   = 0;
+  INT32         Len         = 0;
 
-MEMORY_NODE*
-GetMemoryNodes(const void *fdt, UINTN *NodeCount) {
-  INT32 Node;
-  INT32 AddrCells, SizeCells;
-  CONST UINT32 *Reg;
-  INT32 Len;
-  UINTN Count = 0;
-  MEMORY_NODE *Nodes = NULL;
-  UINTN CurrentSize = 0;
+  // Set Default Size
+  *MemorySize = 0;
 
-  Node = fdt_path_offset(fdt, "/");
-
+  // Get Root Node
+  Node = fdt_path_offset (Fdt, "/");
   if (Node < 0) {
-    DEBUG((EFI_D_ERROR, "Error finding root node: %a\n", fdt_strerror(Node)));
-    ASSERT(FALSE);
+    DEBUG ((EFI_D_ERROR, "Failed to Find Root Node! FdtStatus: %a\n", fdt_strerror (Node)));
+    return EFI_NOT_READY;
   }
 
-  AddrCells = fdt_address_cells(fdt, Node);
-  SizeCells = fdt_size_cells(fdt, Node);
+  // Get Address & Size Cells
+  AddrCells = fdt_address_cells (Fdt, Node);
+  SizeCells = fdt_size_cells    (Fdt, Node);
   if (AddrCells < 0 || SizeCells < 0) {
-      DEBUG((EFI_D_ERROR, "Error finding address or size cells\n"));
-      ASSERT(FALSE);
+    DEBUG ((EFI_D_ERROR, "Failed to Get Address & Size Cells!\n"));
+    return EFI_INVALID_PARAMETER;
   }
 
-  fdt_for_each_subnode(Node, fdt, Node) {
-    CONST CHAR8 *DeviceType = fdt_getprop(fdt, Node, "device_type", NULL);
+  // Cycle thru Subnodes
+  fdt_for_each_subnode (Node, Fdt, Node) {
+    // Get Current Node
+    CONST CHAR8 *DeviceType = fdt_getprop (Fdt, Node, "device_type", NULL);
 
-    if (DeviceType && AsciiStrCmp(DeviceType, "memory") == 0) {
-      Reg = fdt_getprop(fdt, Node, "reg", &Len);
-
+    // Check for "memory" Node
+    if (DeviceType && AsciiStrCmp (DeviceType, "memory") == 0) {
+      // Get "reg" Value
+      Reg = fdt_getprop (Fdt, Node, "reg", &Len);
       if (!Reg) {
-        DEBUG((EFI_D_ERROR, "Error reading 'reg' property: %a\n", fdt_strerror(Len)));
-        ASSERT(FALSE);
+        DEBUG ((EFI_D_ERROR, "Failed to Read 'reg' Value! FdtStatus: %a\n", fdt_strerror (Len)));
+        return EFI_ABORTED;
       }
 
+      // Calculate New Values
       INT32 RegSize = (AddrCells + SizeCells) * sizeof(UINT32);
       INT32 NumRegs = Len / RegSize;
-      UINTN NewSize = (Count + NumRegs) * sizeof(MEMORY_NODE);
+      UINTN NewSize = NumRegs * 16;
 
-      Nodes = ReallocatePool(CurrentSize, NewSize, Nodes);
+      // Update Size
       CurrentSize = NewSize;
 
+      // Get Memory Size
       for (INT32 i = 0; i < NumRegs; i++) {
-        UINT64 Start = 0, Size = 0;
+        UINT64 Size  = 0;
 
-        for (INT32 j = 0; j < AddrCells; j++) {
-          Start = (Start << 32) | fdt32_to_cpu(Reg[i * (AddrCells + SizeCells) + j]);
-        }
-
+        // Calculate Memory Size
         for (INT32 j = 0; j < SizeCells; j++) {
-          Size = (Size << 32) | fdt32_to_cpu(Reg[i * (AddrCells + SizeCells) + AddrCells + j]);
+          Size = (Size << 32) | fdt32_to_cpu (Reg[i * (AddrCells + SizeCells) + AddrCells + j]);
         }
 
-        Nodes[Count].StartAddress = Start;
-        Nodes[Count].Size = Size;
-        Count++;
+        // Save Memory Size
+        *MemorySize += Size;
       }
     }
   }
 
-  *NodeCount = Count;
-  return Nodes;
+  return EFI_SUCCESS;
 }
 
 EFI_STATUS
 EFIAPI
 LogSmbiosData (
-  IN  EFI_SMBIOS_TABLE_HEADER *Template,
-  IN  CHAR8                  **StringPack,
-  OUT EFI_SMBIOS_HANDLE       *DataSmbiosHande)
+  IN  EFI_SMBIOS_TABLE_HEADER  *Template,
+  IN  CHAR8                   **StringPack,
+  OUT EFI_SMBIOS_HANDLE        *DataSmbiosHande)
 {
   EFI_STATUS               Status;
-  EFI_SMBIOS_PROTOCOL     *Smbios;
+  EFI_SMBIOS_PROTOCOL     *mSmbiosProtocol;
   EFI_SMBIOS_HANDLE        SmbiosHandle;
   EFI_SMBIOS_TABLE_HEADER *Record;
   UINTN                    StringSize;
@@ -141,19 +117,21 @@ LogSmbiosData (
   CHAR8                   *Str;
 
   // Locate SmBios Protocol
-  Status = gBS->LocateProtocol (&gEfiSmbiosProtocolGuid, NULL, (VOID **)&Smbios);
+  Status = gBS->LocateProtocol (&gEfiSmbiosProtocolGuid, NULL, (VOID *)&mSmbiosProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate SmBios Protocol! Status = %r\n", Status));
     return Status;
   }
 
+  // Set Dummy Size
   Size = Template->Length;
 
+  // Get String Size
   if (StringPack == NULL) {
     Size += 2;
   } else {
     for (UINTN Index = 0; StringPack[Index] != NULL; Index++) {
-      StringSize = AsciiStrSize(StringPack[Index]);
+      StringSize = AsciiStrSize (StringPack[Index]);
       Size      += StringSize;
     }
 
@@ -164,31 +142,43 @@ LogSmbiosData (
     Size += 1;
   }
 
+  // Allocate Memory
   Record = (EFI_SMBIOS_TABLE_HEADER *)AllocateZeroPool (Size);
   if (Record == NULL) {
+    DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for SmBios Record!\n"));
     return EFI_OUT_OF_RESOURCES;
   }
 
-  CopyMem(Record, Template, Template->Length);
+  // Copy Record Memory
+  CopyMem (Record, Template, Template->Length);
 
+  // Set Str
   Str = ((CHAR8 *)Record) + Record->Length;
 
+  // Update Size
   for (UINTN Index = 0; StringPack[Index] != NULL; Index++) {
-    StringSize = AsciiStrSize(StringPack[Index]);
-    CopyMem(Str, StringPack[Index], StringSize);
+    StringSize = AsciiStrSize (StringPack[Index]);
+
+    CopyMem (Str, StringPack[Index], StringSize);
+
     Str += StringSize;
   }
 
+  // Reset Variables
   *Str         = 0;
   SmbiosHandle = SMBIOS_HANDLE_PI_RESERVED;
-  Status       = Smbios->Add(Smbios, gImageHandle, &SmbiosHandle, Record);
-  ASSERT_EFI_ERROR(Status);
 
+  // Register SmBios Structure
+  Status = mSmbiosProtocol->Add (mSmbiosProtocol, gImageHandle, &SmbiosHandle, Record);
+  ASSERT_EFI_ERROR (Status);
+
+  // Save SmBios Handle
   if (DataSmbiosHande != NULL) {
     *DataSmbiosHande = SmbiosHandle;
   }
-  
-  FreePool(Record);
+
+  // Free Memory
+  FreePool (Record);
 
   return EFI_SUCCESS;
 }
@@ -197,16 +187,27 @@ VOID
 BIOSInfoUpdateSmbiosType0 ()
 {
   CHAR8 FirmwareVendor[100] = "";
+  CHAR8 FirmwareVersion[6]  = "";
 
-  // Give Space to FirmwareVendor Variable
+  // Allocate Memory
   ZeroMem (FirmwareVendor, 100);
+  ZeroMem (FirmwareVersion, 6);
+
+  // Convert Firmware Vendor & Version String
+  AsciiSPrintUnicodeFormat (FirmwareVendor,  sizeof(FirmwareVendor),  FixedPcdGetPtr (PcdFirmwareVendor));
+  AsciiSPrintUnicodeFormat (FirmwareVersion, sizeof(FirmwareVersion), FixedPcdGetPtr (PcdFirmwareVersionString));
 
   // Append Device Maintainer
-  AsciiSPrint (FirmwareVendor, sizeof(FirmwareVendor), "Project Silicium & %a", FixedPcdGetPtr(PcdDeviceMaintainer));
+  if (FixedPcdGetPtr (PcdDeviceMaintainer) != "Not Specified") {
+    AsciiSPrint (FirmwareVendor, sizeof(FirmwareVendor), "%a & %a", FirmwareVendor, FixedPcdGetPtr (PcdDeviceMaintainer));
+  }
 
   // Update String Table
   mBIOSInfoType0Strings[0] = FirmwareVendor;
+  mBIOSInfoType0Strings[1] = FirmwareVersion;
+  mBIOSInfoType0Strings[2] = __DATE__;
 
+  // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mBIOSInfoType0, mBIOSInfoType0Strings, NULL);
 }
 
@@ -214,11 +215,12 @@ VOID
 SysInfoUpdateSmbiosType1 ()
 {
   // Update String Table
-  mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
-  mSysInfoType1Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemModel);
-  mSysInfoType1Strings[2] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemRetailModel);
-  mSysInfoType1Strings[4] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemRetailSku);
+  mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
+  mSysInfoType1Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemModel);
+  mSysInfoType1Strings[2] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemRetailModel);
+  mSysInfoType1Strings[4] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemRetailSku);
 
+  // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mSysInfoType1, mSysInfoType1Strings, NULL);
 }
 
@@ -226,9 +228,10 @@ VOID
 BoardInfoUpdateSmbiosType2 ()
 {
   // Update String Table
-  mBoardInfoType2Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
-  mBoardInfoType2Strings[1] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosBoardModel);
+  mBoardInfoType2Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
+  mBoardInfoType2Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosBoardModel);
 
+  // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mBoardInfoType2, mBoardInfoType2Strings, NULL);
 }
 
@@ -236,21 +239,32 @@ VOID
 EnclosureInfoUpdateSmbiosType3 ()
 {
   // Update String Table
-  mEnclosureInfoType3Strings[0] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosSystemVendor);
+  mEnclosureInfoType3Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
 
+  // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mEnclosureInfoType3, mEnclosureInfoType3Strings, NULL);
 }
 
 VOID
 ProcessorInfoUpdateSmbiosType4 ()
 {
-  // Update String Table
-  mProcessorInfoType4Strings[2] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosProcessorModel);
-  mProcessorInfoType4Strings[3] = (CHAR8 *)FixedPcdGetPtr(PcdSmbiosProcessorRetailModel);
+  // Update Max & Current Speed
+  mProcessorInfoType4.MaxSpeed     = 2730;
+  mProcessorInfoType4.CurrentSpeed = 2730;
 
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4_m5,  mProcessorInfoType4Strings, NULL);
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4_a76, mProcessorInfoType4Strings, NULL);
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4_a55, mProcessorInfoType4Strings, NULL);
+  // Update Core Count
+  mProcessorInfoType4.CoreCount        = FixedPcdGet32 (PcdCoreCount);
+  mProcessorInfoType4.EnabledCoreCount = FixedPcdGet32 (PcdCoreCount);
+  mProcessorInfoType4.ThreadCount      = FixedPcdGet32 (PcdCoreCount);
+
+  // Update String Table
+  mProcessorInfoType4Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmBiosProcessorSocket);
+  mProcessorInfoType4Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmBiosProcessorManufacturer);
+  mProcessorInfoType4Strings[2] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorModel);
+  mProcessorInfoType4Strings[5] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorCodename);
+
+  // Register SmBios Structure
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mProcessorInfoType4, mProcessorInfoType4Strings, NULL);
 }
 
 VOID
@@ -258,113 +272,155 @@ CacheInfoUpdateSmbiosType7 ()
 {
   EFI_SMBIOS_HANDLE SmbiosHandle;
 
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1IC_m5,  mCacheInfoType7_L1ICStrings, NULL);
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1IC_a76, mCacheInfoType7_L1ICStrings, NULL);
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1IC_a55, mCacheInfoType7_L1ICStrings, NULL);
+  // Update Cache Size
+  mCacheInfoType7_L1IC.MaximumCacheSize = 0x40;
+  mCacheInfoType7_L1IC.InstalledSize    = 0x40;
+  mCacheInfoType7_L1DC.MaximumCacheSize = 0x40;
+  mCacheInfoType7_L1DC.InstalledSize    = 0x40;
+  mCacheInfoType7_L2C.MaximumCacheSize  = 0x800;
+  mCacheInfoType7_L2C.InstalledSize     = 0x800;
+  mCacheInfoType7_L3C.MaximumCacheSize  = 0xC00;
+  mCacheInfoType7_L3C.InstalledSize     = 0xC00;
 
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1DC_m5, mCacheInfoType7_L1DCStrings, &SmbiosHandle);
-  
-  mProcessorInfoType4_m5.L1CacheHandle = (UINT16)SmbiosHandle;
+  // Update String Table
+  mCacheInfoType7_L1ICStrings[0] = "L1 Instruction Cache";
+  mCacheInfoType7_L1DCStrings[0] = "L1 Data Cache";
+  mCacheInfoType7_L2CStrings[0]  = "L2 Unified Cache";
+  mCacheInfoType7_L3CStrings[0]  = "L3 Unified Cache";
 
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1DC_a76, mCacheInfoType7_L1DCStrings, &SmbiosHandle);
+  // Register SmBios Structures
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1IC, mCacheInfoType7_L1ICStrings, NULL);
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1DC, mCacheInfoType7_L1DCStrings, &SmbiosHandle);
 
-  mProcessorInfoType4_a76.L1CacheHandle = (UINT16)SmbiosHandle;
+  // Append SmBios Handle
+  mProcessorInfoType4.L1CacheHandle = (UINT16)SmbiosHandle;
 
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1DC_a55, mCacheInfoType7_L1DCStrings, &SmbiosHandle);
+  // Register SmBios Structure
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L2C, mCacheInfoType7_L2CStrings, &SmbiosHandle);
 
-  mProcessorInfoType4_a55.L1CacheHandle = (UINT16)SmbiosHandle;
+  // Append SmBios Handle
+  mProcessorInfoType4.L2CacheHandle = (UINT16)SmbiosHandle;
 
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L2C_m5, mCacheInfoType7_L2CStrings, &SmbiosHandle);
+  // Register SmBios Structure
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L3C, mCacheInfoType7_L3CStrings, &SmbiosHandle);
 
-  mProcessorInfoType4_m5.L2CacheHandle = (UINT16)SmbiosHandle;
-
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L2C_a76, mCacheInfoType7_L2CStrings, &SmbiosHandle);
-
-  mProcessorInfoType4_a76.L2CacheHandle = (UINT16)SmbiosHandle;
-
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L2C_a55, mCacheInfoType7_L2CStrings, &SmbiosHandle);
-
-  mProcessorInfoType4_a55.L2CacheHandle = (UINT16)SmbiosHandle;
-
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L3C_m5, mCacheInfoType7_L3CStrings, &SmbiosHandle);
-
-  mProcessorInfoType4_m5.L3CacheHandle  = (UINT16)SmbiosHandle;
-
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L3C_a76, mCacheInfoType7_L3CStrings, &SmbiosHandle);
-
-  mProcessorInfoType4_a76.L3CacheHandle = (UINT16)SmbiosHandle;
+  // Append SmBios Handle
+  mProcessorInfoType4.L3CacheHandle = (UINT16)SmbiosHandle;
 }
 
 VOID
-PhyMemArrayInfoUpdateSmbiosType16 (UINT64 SystemMemorySize)
+OemStringsInfoUpdateSmBiosType11 ()
+{
+  // Update String Table
+  mOemStringsInfoType11Strings[0] = "https://github.com/Project-Silicium/Mu-Silicium";
+
+  // Register SmBios Structure
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mOemStringsInfoType11, mOemStringsInfoType11Strings, NULL);
+}
+
+VOID
+BiosLanguageInfoUpdateSmBiosType13 ()
+{
+  // Update String Table
+  mBiosLanguageInfoType13Strings[0] = "English";
+
+  // Register SmBios Structure
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mBiosLanguageInfoType13, mBiosLanguageInfoType13Strings, NULL);
+}
+
+VOID
+PhyMemArrayInfoUpdateSmbiosType16 (IN UINT64 SystemMemorySize)
 {
   EFI_SMBIOS_HANDLE MemArraySmbiosHande;
 
+  // Update Memory Size
   mPhyMemArrayInfoType16.ExtendedMaximumCapacity = SystemMemorySize;
 
+  // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mPhyMemArrayInfoType16, mPhyMemArrayInfoType16Strings, &MemArraySmbiosHande);
 
-  // Update the Memory Device Information
+  // Append SmBios Handle
   mMemDevInfoType17.MemoryArrayHandle = MemArraySmbiosHande;
 }
 
 VOID
-MemDevInfoUpdateSmbiosType17 (UINT64 SystemMemorySize)
+MemDevInfoUpdateSmbiosType17 (IN UINT64 SystemMemorySize)
 {
+  // Update DDR Freq
+  mMemDevInfoType17.Speed                      = 2750 * 2;
+  mMemDevInfoType17.ConfiguredMemoryClockSpeed = 2750;
+
+  // Update Memory Size
   mMemDevInfoType17.Size = SystemMemorySize / 0x100000;
 
+  // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemDevInfoType17, mMemDevInfoType17Strings, NULL);
 }
 
 VOID
-MemArrMapInfoUpdateSmbiosType19 (UINT64 SystemMemorySize)
+MemArrMapInfoUpdateSmbiosType19 (IN UINT64 SystemMemorySize)
 {
-  mMemArrMapInfoType19.StartingAddress = FixedPcdGet64(PcdSystemMemoryBase) / 1024;
-  mMemArrMapInfoType19.EndingAddress   = (SystemMemorySize + FixedPcdGet64(PcdSystemMemoryBase) - 1) / 1024;
+  // Update Memory Start & End Address
+  mMemArrMapInfoType19.StartingAddress = FixedPcdGet64 (PcdSystemMemoryBase) / 1024;
+  mMemArrMapInfoType19.EndingAddress   = (SystemMemorySize + FixedPcdGet64 (PcdSystemMemoryBase) - 1) / 1024;
 
+  // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19, mMemArrMapInfoType19Strings, NULL);
 }
 
 EFI_STATUS
 EFIAPI
-InitializeSmBiosTable (
+RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS 			  Status;
-  UINT64             		  SystemMemorySize = 0;
-  UINT64 	     		  DesignMemorySize = 0;
-  UINTN 	     		  NodeCount;
-  MEMORY_NODE 	     		  *Nodes;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointer;
+  EFI_STATUS                      Status;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointerRegion;
+  UINT64                          MemorySize;
 
-  // Update SmBios Data Definitions
-  BIOSInfoUpdateSmbiosType0         ();
-  SysInfoUpdateSmbiosType1          ();
-  BoardInfoUpdateSmbiosType2        ();
-  EnclosureInfoUpdateSmbiosType3    ();
-  ProcessorInfoUpdateSmbiosType4    ();
-  CacheInfoUpdateSmbiosType7        ();
+  // Set Default Size
+  MemorySize = 0;
 
-  Status = LocateMemoryMapAreaByName ("FDT", &FdtPointer);
-  if (!EFI_ERROR (Status)) {
-    CONST VOID *FDT = (CONST VOID*)(uintptr_t)MmioRead32(FdtPointer.Address);
-    Nodes = GetMemoryNodes(FDT, &NodeCount);
+  // Locate FDT Pointer Memory Region
+  Status = LocateMemoryMapAreaByName ("FDT Pointer", &FdtPointerRegion);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate FDT Pointer Memory Region! Status = %r\n", Status));
+  } else {
+    UINT64 NewMemorySize = 0;
 
-    for (UINTN i = 0; i < NodeCount; i++) {
-      SystemMemorySize += Nodes[i].Size;
+    // Get FDT Location Address
+    CONST VOID *Fdt = (CONST VOID *)(UINTN)MmioRead32 (FdtPointerRegion.Address);
+
+    // Get Memory Nodes
+    Status = GetMemorySize (Fdt, &MemorySize);
+    if (!EFI_ERROR (Status)) {
+      // Fix Up Memory Size
+      while (MemorySize >= NewMemorySize) {
+        NewMemorySize += 0x40000000;
+      }
+
+      // Set New Memory Size
+      MemorySize = NewMemorySize;
     }
-
-    while (SystemMemorySize >= DesignMemorySize) {
-      DesignMemorySize += 0x40000000; // 1GiB
-    }
-
-    SystemMemorySize = DesignMemorySize;
   }
 
-  PhyMemArrayInfoUpdateSmbiosType16 (SystemMemorySize);
-  MemDevInfoUpdateSmbiosType17      (SystemMemorySize);
-  MemArrMapInfoUpdateSmbiosType19   (SystemMemorySize);
+  if (!MemorySize) {
+    // Use PCD Overwrite
+    MemorySize = FixedPcdGet64 (PcdSystemMemorySize);
+  }
+
+  // Update SmBios Structures
+  BIOSInfoUpdateSmbiosType0          ();
+  SysInfoUpdateSmbiosType1           ();
+  BoardInfoUpdateSmbiosType2         ();
+  EnclosureInfoUpdateSmbiosType3     ();
+  ProcessorInfoUpdateSmbiosType4     ();
+  CacheInfoUpdateSmbiosType7         ();
+  OemStringsInfoUpdateSmBiosType11   ();
+  BiosLanguageInfoUpdateSmBiosType13 ();
+  PhyMemArrayInfoUpdateSmbiosType16  (MemorySize);
+  MemDevInfoUpdateSmbiosType17       (MemorySize);
+  MemArrMapInfoUpdateSmbiosType19    (MemorySize);
 
   return EFI_SUCCESS;
 }
