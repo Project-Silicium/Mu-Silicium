@@ -499,6 +499,31 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
+## Xiaomi 12 Pro
+
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-F4-GT.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: ingres** <br>
+**Maintainers: [Nikka](https://github.com/NikkaGames/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [Nikka](https://github.com/NikkaGames/)** <br>
+**Testers: [Nikka](https://github.com/NikkaGames/)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ✅    |
+| Linux Boot         |             | ❌    |
+
+
   </summary>
 </details>
 
