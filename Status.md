@@ -499,7 +499,7 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-## Xiaomi 12 Pro
+## Xiaomi Poco F4 GT
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F4-GT.png" width="500" alt="Preview">
 
