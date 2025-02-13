@@ -1954,15 +1954,56 @@
 | Feature            | Description       | State |
 |:-------------------|:------------------|:-----:|
 | Display            |                   | ✅    |
-| Internal Storage   |                   | ❌    |
+| Internal Storage   |                   | ✅    |
 | Side Buttons       |                   | ✅    |
 | USB Host Mode      |                   | ✅    |
 | USB Device Mode    |                   | ❌    |
 | USB Power Delivery |                   | ❌    |
 | Mass Storage       | Needs Device Mode | ❌    |
-| SD Card            |                   | ❌    |
-| Windows Boot       |                   | ❌    |
+| SD Card            |                   | ✅    |
+| Windows Boot       |                   | ✅    |
 | Linux Boot         |                   | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> NOTE: Needs [Windows Drivers](https://github.com/woa-a52s/windows_oem_samsung_a52sxq)!
+
+| Feature              | Description           | State |
+|:---------------------|:----------------------|:-----:|
+| Internal Storage     |                       | ✅    |
+| SD Card              |                       | ✅️    |
+| Side Buttons         |                       | ✅    |
+| Proximity Sensor     |                       | ❌    |
+| Light Sensor         |                       | ❌    |
+| Accelerometer Sensor |                       | ❌    |
+| Compass Sensor       |                       | ❌    |
+| Fingerprint Sensor   |                       | ❌    |
+| Hall Sensor          |                       | ❌    |
+| NFC Sensor           |                       | ❌    |
+| Temperature Sensor   |                       | ✅    |
+| Battery              |                       | ✅    |
+| USB Host Mode        |                       | ✅    |
+| USB Device Mode      |                       | ✅    |
+| USB Power Delivery   |                       | ❌    |
+| Charging             |                       | ❌    |
+| WLAN                 |                       | ✅    |
+| CPU                  |                       | ✅    |
+| Touchscreen          |                       | ✅    |
+| Bluetooth            |                       | ✅    |
+| GPS                  |                       | ✅    |
+| Speakers             |                       | ❌    |
+| Microphone           |                       | ❌    |
+| GPU                  |                       | ❌    |
+| Camera               |                       | ❌    |
+| Mobile Data          |                       | ❌    |
+| Display              |                       | ✅    |
+| Vibration            |                       | ❌    |
+
+</td></tr> </table>
 
   </summary>
 </details>
