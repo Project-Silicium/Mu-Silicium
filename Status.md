@@ -1189,7 +1189,7 @@
 | USB Power Delivery |                | ✅    |
 | Mass Storage       | Unknown Issues | ❌    |
 | Windows Boot       |                | ✅    |
-| Linux Boot         |                | ❌    |
+| Linux Boot         | Booted successfully,but TypeC and USB doesn't work.| ⚠️    |
 
 ### OS Status
 
