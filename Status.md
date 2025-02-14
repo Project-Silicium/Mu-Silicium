@@ -523,7 +523,6 @@
 | Windows Boot       |             | ✅    |
 | Linux Boot         |             | ❌    |
 
-
   </summary>
 </details>
 
