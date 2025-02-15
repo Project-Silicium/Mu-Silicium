@@ -521,7 +521,7 @@
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
 | Windows Boot       |             | ✅    |
-| Linux Boot    
+| Linux Boot         |             | ❌    |
 
 <table>
 <tr><th>Windows</th></tr>
