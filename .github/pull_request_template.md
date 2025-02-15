@@ -8,7 +8,7 @@
 
 ### Checklist
 
-<!-- Place a 'x' inside the '[}' to Check the Box. -->
+<!-- Replace the Space a 'x' inside the '[ ]' to Check the Box. -->
 
 * [ ] Is what you changed Tested?
 * [ ] Is the Source Code Cleaned?
