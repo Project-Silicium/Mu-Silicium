@@ -545,7 +545,7 @@
 | USB Power Delivery   |               | ❌    |
 | Charging             |               | ❌    |
 | WLAN                 |               | ❌    |
-| CPU                  | One Core only | ⚠️    |
+| CPU                  |               | ✅    |
 | Touchscreen          |               | ❌    |
 | Bluetooth            |               | ❌    |
 | GPS                  |               | ❌    |
