@@ -96,11 +96,11 @@ READ_LOCK_STATUS   = TRUE
   !include Include/ACPI.inc
 
   # Device Tree
-  INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
-  FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
-    SECTION RAW = gta4lPkg/FdtBlob/sm6115-samsung-gta4l.dtb
-    SECTION UI = "DeviceTreeBlob"
-  }
+  #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
+  #  SECTION RAW = gta4lPkg/FdtBlob/sm6115-samsung-gta4l.dtb
+  #  SECTION UI = "DeviceTreeBlob"
+  #}
 
   !include QcomPkg/Extra.fdf.inc
 
