@@ -3116,6 +3116,38 @@
   </summary>
 </details>
 
+<details>
+<summary><b><strong>Samsung Devices</strong></b></summary>
+
+## Samsung Galaxy Tab A7 LTE (T507)
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A7-LTE.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: gta4l** <br>
+**Maintainer: [V6lhost](https://github.com/V6lhost/)** <br>
+**Contributors: [V6lhost](https://github.com/V6lhost/)** <br>
+**Tester: [V6lhost](https://github.com/V6lhost/)**
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   | Repartitioning not works | ⚠️    |
+| Side Buttons       | Only Volume Buttons      | ⚠️    |
+| USB Host Mode      |                          | ✅    |
+| USB Device Mode    |                          | ❔    |
+| USB Power Delivery |                          | ✅    |
+| Mass Storage       | Reboots                  | ❌    |
+| SD Card            |                          | ❌    |
+| Windows Boot       | There is no ACPI tables  | ❌    |
+| Linux Boot         |                          | ❌    |
+
+  </summary>
+</details>
+
+
 ---
 
   </summary>
