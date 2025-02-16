@@ -1,0 +1,1 @@
+DTB was compiled from https://github.com/sm8450-mainline/linux
