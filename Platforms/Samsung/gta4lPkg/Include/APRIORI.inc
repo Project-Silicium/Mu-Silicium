@@ -102,7 +102,7 @@ APRIORI DXE {
   INF Binaries/gta4l/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/MacDxe/MacDxe.inf
-  INF Binaries/gta4l/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  INF Binaries/gta4l/QcomPkg/SocPkg/KamortaPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
