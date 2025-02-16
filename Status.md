@@ -340,7 +340,7 @@
 
 <img align="right" src="Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
 
-**State: Inative** <br>
+**State: Active** <br>
 **Codename: pong** <br>
 **Maintainers: [index986](https://github.com/index986/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)** <br>
@@ -358,7 +358,7 @@
 | USB Power Delivery |                   | ❌    |
 | Mass Storage       |                   | ✅    |
 | Windows Boot       |                   | ✅    |
-| Linux Boot         |                   | ❌    |
+| Linux Boot         |                   | ✅    |
 
 ### OS Status
 
@@ -391,6 +391,40 @@
 | Speakers             |               | ❌    |
 | Microphone           |               | ❌    |
 | GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+<td>
+
+> NOTE: Linux Requires: [Mainline kernel](https://github.com/sm8450-mainline/linux), Only [PostmarketOS](https://github.com/sm8450-mainline/pmaports) has been tested!
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ✅    |
+| Side Buttons         |               | ✅    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ✅    |
+| Temperature Sensor   |               | ❔    |
+| Battery              |Doesn't work in some DE| ⚠️    |
+| USB Host Mode        |               | ❔    |
+| USB Device Mode      |               | ✅    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |    Untested   | ❔    |
+| WLAN                 |               | ❌    |
+| CPU                  |               | ✅    |
+| Touchscreen          |               | ✅    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ✅    |
 | Camera               |               | ❌    |
 | Mobile Data          |               | ❌    |
 | Display              |               | ✅    | 
