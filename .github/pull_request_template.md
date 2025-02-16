@@ -1,14 +1,14 @@
-### What Changed
+### Changes
 
-<!-- Describe what you changed. (Write below this Commend) -->
+<!-- Describe what you Changed. (Write below this Comment) -->
 
 ### Reason
 
-<!-- The Reason why you did these Changes. (Write below this Commend) -->
+<!-- Explain why you made these Changes. (Write below this Comment) -->
 
 ### Checklist
 
-<!-- Place a 'x' inside the '[}' to Check the Box. -->
+<!-- Replace the Space with an 'x' inside the '[ ]' to Check the Box. -->
 
-* [ ] Is what you changed Tested?
-* [ ] Is the Source Code Cleaned?
+* [ ] Have the Changes been Tested?
+* [ ] Has the Source Code been Cleaned Up?
