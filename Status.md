@@ -398,7 +398,7 @@
 
 <td>
 
-> NOTE: Linux Requires: [Mainline kernel](https://github.com/sm8450-mainline/linux), Only [PostmarketOS](https://github.com/sm8450-mainline/pmaports) has been tested!
+> NOTE: Linux Requires: [Mainline kernel](https://github.com/sm8450-mainline/linux), Only [PostmarketOS](https://github.com/index986/pmaports/tree/wip) has been tested!
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
