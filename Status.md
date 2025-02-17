@@ -412,11 +412,11 @@
 | Fingerprint Sensor   |               | ❌    |
 | NFC Sensor           |               | ✅    |
 | Temperature Sensor   |               | ❔    |
-| Battery              |Doesn't work in some DE| ⚠️    |
-| USB Host Mode        |               | ❔    |
+| Battery              |               | ✅    |
+| USB Host Mode        |Probably depends on UEFI USB mode| ❌    |
 | USB Device Mode      |               | ✅    |
 | USB Power Delivery   |               | ❌    |
-| Charging             |    Untested   | ❔    |
+| Charging             |               | ✅    |
 | WLAN                 |               | ❌    |
 | CPU                  |               | ✅    |
 | Touchscreen          |               | ✅    |
