@@ -415,7 +415,7 @@
 | Battery              |               | ✅    |
 | USB Host Mode        |Probably depends on UEFI USB mode| ❌    |
 | USB Device Mode      |               | ✅    |
-| USB Power Delivery   |               | ❌    |
+| USB Power Delivery   |               | ✅    |
 | Charging             |               | ✅    |
 | WLAN                 |               | ❌    |
 | CPU                  |               | ✅    |
