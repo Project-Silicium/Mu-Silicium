@@ -411,7 +411,7 @@
 | Gyroscope Sensor     |               | ❌    |
 | Fingerprint Sensor   |               | ❌    |
 | NFC Sensor           |               | ✅    |
-| Temperature Sensor   |               | ❔    |
+| Temperature Sensor   |               | ✅    |
 | Battery              |               | ✅    |
 | USB Host Mode        |Probably depends on UEFI USB mode| ❌    |
 | USB Device Mode      |               | ✅    |
