@@ -413,13 +413,14 @@
 | NFC Sensor           |               | ✅    |
 | Temperature Sensor   |               | ✅    |
 | Battery              |               | ✅    |
-| USB Host Mode        |Probably depends on UEFI USB mode| ❌    |
+| USB Host Mode        |               | ❔    |
 | USB Device Mode      |               | ✅    |
 | USB Power Delivery   |               | ✅    |
 | Charging             |               | ✅    |
 | WLAN                 |               | ❌    |
 | CPU                  |               | ✅    |
 | Touchscreen          |               | ✅    |
+| Flashlight           |               | ✅    |
 | Bluetooth            |               | ❌    |
 | GPS                  |               | ❌    |
 | Speakers             |               | ❌    |
