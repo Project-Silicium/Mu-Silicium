@@ -398,7 +398,7 @@
 
 <td>
 
-> NOTE: Linux Requires: [Mainline kernel](https://github.com/sm8450-mainline/linux), Only [PostmarketOS](https://github.com/sm8450-mainline/pmaports) has been tested!
+> NOTE: Linux Requires: [Mainline kernel](https://github.com/sm8450-mainline/linux), Only [PostmarketOS](https://github.com/index986/pmaports/tree/wip) has been tested!
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -411,15 +411,16 @@
 | Gyroscope Sensor     |               | ❌    |
 | Fingerprint Sensor   |               | ❌    |
 | NFC Sensor           |               | ✅    |
-| Temperature Sensor   |               | ❔    |
-| Battery              |Doesn't work in some DE| ⚠️    |
+| Temperature Sensor   |               | ✅    |
+| Battery              |               | ✅    |
 | USB Host Mode        |               | ❔    |
 | USB Device Mode      |               | ✅    |
-| USB Power Delivery   |               | ❌    |
-| Charging             |    Untested   | ❔    |
+| USB Power Delivery   |               | ✅    |
+| Charging             |               | ✅    |
 | WLAN                 |               | ❌    |
 | CPU                  |               | ✅    |
 | Touchscreen          |               | ✅    |
+| Flashlight           |               | ✅    |
 | Bluetooth            |               | ❌    |
 | GPS                  |               | ❌    |
 | Speakers             |               | ❌    |
