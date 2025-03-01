@@ -121,6 +121,7 @@
 
   # Memory Speed PCD
   gQcomPkgTokenSpaceGuid.PcdMemorySpeed|0|UINT32|0x0000B500
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000B501
 
   # Start USB Controller PCD
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B600

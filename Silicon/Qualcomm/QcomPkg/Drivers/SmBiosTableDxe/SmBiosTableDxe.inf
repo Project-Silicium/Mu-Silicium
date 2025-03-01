@@ -36,6 +36,7 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq
   gQcomPkgTokenSpaceGuid.PcdMemorySpeed
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed
   gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache
   gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache
   gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize
