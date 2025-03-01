@@ -1254,7 +1254,7 @@
 
 </td></tr> </table>
 
-## Xiaomi Poco F3
+## Xiaomi Poco F3 / Redmi K40 / Mi 11X
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
 
