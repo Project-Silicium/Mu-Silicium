@@ -1204,7 +1204,6 @@
 |:---------------------|:----------------------------------|:-----:|
 | Internal Storage     |                                   | ✅    |
 | Side Buttons         |                                   | ✅    |
-| Proximity Sensor     |                                   | ❌    |
 | Light Sensor         |                                   | ❌    |
 | Accelerometer Sensor |                                   | ❌    |
 | Compass Sensor       |                                   | ❌    |
@@ -1212,22 +1211,19 @@
 | Hall Sensor          |                                   | ❌    |
 | Temperature Sensor   |                                   | ❌    |
 | Battery              |                                   | ✅    |
-| USB Host Mode        | Depends What Mode it was in UEFI. | ✅    |
-| USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
-| USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ❌    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
 | Touchscreen          |                                   | ❌    |
 | Bluetooth            |                                   | ❌    |
-| GPS                  |                                   | ❌    |
 | Speakers             |                                   | ❌    |
 | Microphone           |                                   | ❌    |
 | GPU                  |                                   | ❌    |
 | Camera               |                                   | ❌    |
-| Mobile Data          |                                   | ❌    |
 | Display              |                                   | ✅    |
-| Vibration            |                                   | ❌    |
 
 </td><td>
 
@@ -1235,7 +1231,6 @@
 |:---------------------|:----------------------------------|:-----:|
 | Internal Storage     |                                   | ✅    |
 | Side Buttons         |                                   | ❌    |
-| Proximity Sensor     |                                   | ❌    |
 | Light Sensor         |                                   | ❌    |
 | Accelerometer Sensor |                                   | ❌    |
 | Compass Sensor       |                                   | ❌    |
@@ -1243,22 +1238,19 @@
 | Hall Sensor          |                                   | ❌    |
 | Temperature Sensor   |                                   | ❌    |
 | Battery              |                                   | ❌    |
-| USB Host Mode        | Depends What Mode it was in UEFI. | ✅    |
-| USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
-| USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ❌    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
 | Touchscreen          |                                   | ❌    |
 | Bluetooth            |                                   | ❌    |
-| GPS                  |                                   | ❌    |
 | Speakers             |                                   | ❌    |
 | Microphone           |                                   | ❌    |
 | GPU                  |                                   | ❌    |
 | Camera               |                                   | ❌    |
-| Mobile Data          |                                   | ❌    |
 | Display              |                                   | ✅    |
-| Vibration            |                                   | ❌    |
 
 </td></tr> </table>
 
@@ -1266,7 +1258,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
 
-**State: Halted** <br>
+**State: Active** <br>
 **Codename: alioth** <br>
 **Maintainers: [N1kroks](https://github.com/N1kroks/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite/), [hyusang](https://github.com/cloudsweets/), [AdrianoA3](https://github.com/AdrianoA3/), [N1kroks](https://github.com/N1kroks/)** <br>
@@ -1284,12 +1276,12 @@
 | USB Power Delivery |                | ✅    |
 | Mass Storage       | Unknown Issues | ❌    |
 | Windows Boot       |                | ✅    |
-| Linux Boot         |                | ❌    |
+| Linux Boot         |                | ✅    |
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th></tr>
+<tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
 > NOTE: Needs [Windows Drivers](https://github.com/N1kroks/SM8250-Drivers)!
@@ -1306,9 +1298,9 @@
 | Fingerprint Sensor   |                                   | ❌    |
 | NFC Sensor           |                                   | ❌    |
 | Battery              |                                   | ✅    |
-| USB Host Mode        |                                   | ✅    |
-| USB Device Mode      |                                   | ❌    |
-| USB Power Delivery   |                                   | ✅    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ❌    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
@@ -1319,6 +1311,39 @@
 | Microphone           |                                   | ❌    |
 | GPU                  |                                   | ❌    |
 | Camera               |                                   | ❌    |
+| Mobile Data          |                                   | ❌    |
+| Display              |                                   | ✅    |
+| Vibration            |                                   | ❌    |
+
+</td><td>
+
+> NOTE: Linux Requires: [Mainline kernel](https://github.com/mainlining/linux/tree/nikroks/alioth)
+
+| Feature              | Description                       | State |
+|:---------------------|:----------------------------------|:-----:|
+| Internal Storage     |                                   | ✅    |
+| Side Buttons         |                                   | ✅    |
+| Proximity Sensor     |                                   | ❌    |
+| Light Sensor         |                                   | ✅    |
+| Accelerometer Sensor |                                   | ✅    |
+| Compass Sensor       |                                   | ✅    |
+| Gyroscope Sensor     |                                   | ❌    |
+| Fingerprint Sensor   |                                   | ❌    |
+| NFC Sensor           |                                   | ❌    |
+| Battery              |                                   | ✅    |
+| USB Host Mode        |                                   | ✅    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ✅    |
+| Charging             |                                   | ⚠️    |
+| WLAN                 |                                   | ✅    |
+| CPU                  |                                   | ✅    |
+| Touchscreen          |                                   | ✅    |
+| Bluetooth            |                                   | ✅    |
+| GPS                  |                                   | ❌    |
+| Speakers             |                                   | ✅    |
+| Microphone           |                                   | ❌    |
+| GPU                  |                                   | ✅    |
+| Camera               |                                   | ⚠️    |
 | Mobile Data          |                                   | ❌    |
 | Display              |                                   | ✅    |
 | Vibration            |                                   | ❌    |
@@ -2424,7 +2449,7 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
-> NOTE: Needs [Windows Drivers](https://github.com/N1kroks/7xx-Drivers/releases/latest)!
+> NOTE: Needs [Windows Drivers](https://github.com/woa-miatoll/Miatoll-Releases)!
 
 | Feature              | Description           | State |
 |:---------------------|:----------------------|:-----:|
@@ -2459,7 +2484,7 @@
 
 </td><td>
 
-> NOTE: Needs [Linux Fork](https://github.com/N1kroks/linux-7125)!
+>  NOTE: Linux Requires: [Mainline kernel](https://github.com/sm7125-mainline/linux)
 
 | Feature              | Description | State |
 |:---------------------|:------------|:-----:|
@@ -2487,10 +2512,10 @@
 | 3.5mm Audio Jack     |             | ✅    |
 | Microphone           |             | ✅    |
 | GPU                  |             | ✅    |
-| Camera               |             | ❌    |
+| Camera               |             | ⚠️    |
 | Mobile Data          |             | ✅    |
 | Display              |             | ✅    |
-| Vibration            |             | ❌    |
+| Vibration            |             | ✅    |
 
 </td></tr> </table>
 
