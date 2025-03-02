@@ -69,7 +69,7 @@
   INF Binaries/alioth/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
   # Only used for DisplayDxe for Qualcomm Demura
-  #INF Binaries/alioth/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+  INF Binaries/alioth/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
