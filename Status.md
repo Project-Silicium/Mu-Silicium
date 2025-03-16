@@ -2932,9 +2932,9 @@
 
 </td></tr> </table>
 
-## Xiaomi Redmi Note 8T
+## Xiaomi Redmi Note 8
 
-<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="600" alt="Preview">
 
 **State: Active** <br>
 **Codename: ginkgo** <br>
@@ -2952,7 +2952,7 @@
 | USB Host Mode      |                           | ✅    |
 | USB Device Mode    |                           | ❌    |
 | USB Power Delivery |                           | ✅    |
-| Mass Storage       | Unstable with Device Mode | ⚠️    |
+| Mass Storage       |                           | ❌    |
 | SD Card            |                           | ❌    |
 | Windows Boot       |                           | ❔    |
 | Linux Boot         |                           | ❔    |
