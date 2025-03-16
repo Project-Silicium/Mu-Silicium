@@ -2934,7 +2934,7 @@
 
 ## Xiaomi Redmi Note 8
 
-<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="700" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="600" alt="Preview">
 
 **State: Active** <br>
 **Codename: ginkgo** <br>
