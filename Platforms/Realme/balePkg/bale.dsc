@@ -51,11 +51,11 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus Technology Co., Ltd."
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Realme GT Neo6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Realme"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Realme_GT_Neo6_bale"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Realme GT Neo6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT_Neo6_bale"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT Neo6"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1264
