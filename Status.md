@@ -238,12 +238,12 @@
 | Display            |             | ✅    |
 | Internal Storage   |             | ✅    |
 | Side Buttons       |  Power button doesn't work           | ⚠️    |
-| USB Host Mode      |             | ❔    |
-| USB Device Mode    |             | ❔    |
-| USB Power Delivery |             | ❔    |
-| Mass Storage       |             | ❔    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ❌    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ❌    |
 | Windows Boot       | WinPE Booted            | ✅    |
-| Linux Boot         |             | ❔    |
+| Linux Boot         |             | ❌    |
 
 ### OS Status
 
@@ -258,31 +258,31 @@
 |:---------------------|:--------------|:-----:|
 | Internal Storage     |               | ✅    |
 | Side Buttons         |               | ❌    |
-| Proximity Sensor     |               | ❔    |
-| Light Sensor         |               | ❔    |
-| Accelerometer Sensor |               | ❔    |
-| Compass Sensor       |               | ❔    | 
-| Gyroscope Sensor     |               | ❔    |
-| Fingerprint Sensor   |               | ❔    |
-| NFC Sensor           |               | ❔    |
-| Temperature Sensor   |               | ❔    |
-| Battery              |               | ❔    |
-| USB Host Mode        |               | ❔    |
-| USB Device Mode      |               | ❔    |
-| USB Power Delivery   |               | ❔    |
-| Charging             |               | ❔    |
-| WLAN                 |               | ❔    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB Host Mode        |               | ❌    |
+| USB Device Mode      |               | ❌    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
 | CPU                  |               | ✅    |
 | Touchscreen          |               | ❌    |
-| Bluetooth            |               | ❔    |
-| GPS                  |               | ❔    |
-| Speakers             |               | ❔    |
-| Microphone           |               | ❔    |
-| GPU                  |               | ❔    |
-| Camera               |               | ❔    |
-| Mobile Data          |               | ❔    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
 | Display              |               | ⚠️    | 
-| Vibration            |               | ❔    |
+| Vibration            |               | ❌    |
 
 </td>
 <!--
