@@ -223,7 +223,7 @@
 
 ## Realme GT Neo6 / GT6
 
-<img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="475" alt="Preview">
+<img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="415" alt="Preview">
 
 **State: Active** <br>
 **Codename: bale** <br>
