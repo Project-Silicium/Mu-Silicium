@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/r9qPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9Q_UEFI.fd" > "./Build/r9qPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9Q_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/r9qPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9Q_UEFI.fd-bootshim" > "./Build/r9qPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9Q_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/r9qPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9Q_UEFI.fd-bootshim.gz" ./Resources/DTBs/r9q.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/r9qb2Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9QB2_UEFI.fd" > "./Build/r9qb2Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9QB2_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/r9qb2Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9QB2_UEFI.fd-bootshim" > "./Build/r9qb2Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9QB2_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/r9qb2Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/R9QB2_UEFI.fd-bootshim.gz" ./Resources/DTBs/r9qb2.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \
@@ -19,5 +19,5 @@ python3 ./Resources/Scripts/mkbootimg.py \
   ||_error "\nFailed to create Android Boot Image!\n"
 
 # Compress Boot Image in a tar File for Odin/heimdall Flash
-tar -c boot.img -f Mu-r9q.tar||exit 1
-mv boot.img Mu-r9q.img||exit 1
+tar -c boot.img -f Mu-r9qb2.tar||exit 1
+mv boot.img Mu-r9qb2.img||exit 1
