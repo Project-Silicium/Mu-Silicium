@@ -1,7 +1,7 @@
 /dts-v1/;
 
 / {
-	model = "Samsung R9Q PROJECT (board-id,14)";
+	model = "Samsung r9qb2 PROJECT (board-id,14)";
 	compatible = "QCOM,LAHAINA-MTP", "QCOM,LAHAINA", "QCOM,MTP";
 	qcom,msm-id = <0x19f 0x20001 0x1c8 0x20001 0x1f5 0x20001>;
 	interrupt-parent = <0x01>;
@@ -18967,7 +18967,7 @@
 				tsp_io_ldo-supply = <0x2e4>;
 				tsp_avdd_ldo-supply = <0x2e6>;
 				sec,irq_gpio = <0x92 0x17 0x00>;
-				sec,project_name = "r9q", "";
+				sec,project_name = "r9qb2", "";
 				sec,firmware_name = "y792_o1.bin";
 				sec,bringup = <0x00>;
 				sec,regulator_boot_on;
@@ -18998,7 +18998,7 @@
 				tsp_io_ldo-supply = <0x5ff>;
 				tsp_avdd_ldo-supply = <0x2e6>;
 				sec,irq_gpio = <0x92 0x17 0x00>;
-				sec,project_name = "r9q", "";
+				sec,project_name = "r9qb2", "";
 				sec,bringup = <0x00>;
 				sec,ss_touch_num = <0x01>;
 				sec,tclm_level = <0x02>;
