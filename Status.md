@@ -223,7 +223,7 @@
 
 ## Realme GT Neo6 / GT6
 
-<img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="415" alt="Preview">
+<img align="right" src="Realme-GT-Neo6.png" width="400" alt="Preview">
 
 **State: Active** <br>
 **Codename: bale** <br>
@@ -237,13 +237,13 @@
 |:-------------------|:------------|:-----:|
 | Display            |             | ✅    |
 | Internal Storage   |             | ✅    |
-| Side Buttons       |  Power button doesn't work           | ⚠️    |
+| Side Buttons       |             | ✅    |
 | USB Host Mode      |             | ❌    |
-| USB Device Mode    |             | ❌    |
+| USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
-| Mass Storage       |             | ❌    |
+| Mass Storage       | Spam both Vol- & Pwr to enter            | ✅    |
 | Windows Boot       | WinPE Booted            | ✅    |
-| Linux Boot         |             | ❌    |
+| Linux Boot         | Mainline WIP            | ⚠️    |
 
 ### OS Status
 
@@ -281,7 +281,7 @@
 | GPU                  |               | ❌    |
 | Camera               |               | ❌    |
 | Mobile Data          |               | ❌    |
-| Display              |               | ⚠️    | 
+| Display              |               | ✅    | 
 | Vibration            |               | ❌    |
 
 </td>
