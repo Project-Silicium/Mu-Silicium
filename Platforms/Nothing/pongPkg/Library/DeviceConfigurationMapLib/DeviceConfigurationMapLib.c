@@ -36,7 +36,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EarlyInitCoreCnt", 2},
   {"EnableUefiSecAppDebugLogDump", 0x0},
   {"AllowNonPersistentVarsInRetail", 0x1},
-  {"EnableDisplayThread", 0x1},
+  {"EnableDisplayThread", 0x0},
   {"EnableDisplayImageFv", 0x1},
   {"PrimaryLogoIndex", 3},
   {"DDRInfoNotifyFlag", 0x0},
