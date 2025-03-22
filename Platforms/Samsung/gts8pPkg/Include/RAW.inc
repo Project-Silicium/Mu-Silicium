@@ -177,8 +177,3 @@
     SECTION UI = "QcomChargerCfg.cfg"
     SECTION RAW = Binaries/gts8p/RawFiles/QcomChargerCfg.cfg
   }
-
-  FILE FREEFORM = 7A53216A-D205-42BA-A912-FBD40584578C {
-    SECTION UI = "logfs_ufs_8mb.bin"
-    SECTION RAW = Binaries/gts8p/RawFiles/logfs_ufs_8mb.bin
-  }
