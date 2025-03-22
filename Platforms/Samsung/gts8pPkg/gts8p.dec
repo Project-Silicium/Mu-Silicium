@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = gts8pPkg
+  PACKAGE_GUID                        = 544F9C45-6010-4AA3-8355-51FFC240D2DB
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  ggts8pTokenSpaceGuid                = { 0x459C4F54, 0x1060, 0xA34A, { 0x83, 0x55, 0x51, 0xFF, 0xC2, 0x40, 0xD2, 0xDB } }

@@ -94,40 +94,43 @@
   gEfiKernelProtocolGuid              = { 0xB5062BE7, 0x170B, 0x4A32, { 0xBE, 0x21, 0x68, 0x92, 0x62, 0xFF, 0x43, 0x99 } }
 
 [PcdsFixedAtBuild]
-  # HOB PCDs
+  # HOBs
   gQcomPkgTokenSpaceGuid.PcdPlatformType|""|VOID*|0x0000B000
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|FALSE|BOOLEAN|0x0000B001
   gQcomPkgTokenSpaceGuid.PcdEnableShimHob|FALSE|BOOLEAN|0x0000B002
   gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|FALSE|BOOLEAN|0x0000B003
   gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE|BOOLEAN|0x0000B004
 
-  # XBL Protocol Addresses PCDs
+  # XBL Protocol Addresses
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000B100
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0|UINT64|0x0000B101
 
-  # Dynamic RAM Start Address PCD
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B200
+  # XBL Device Tree
+  gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile|{ 0x0D, 0x57, 0xFD, 0x9D, 0xE2, 0xA9, 0x49, 0xEA, 0xB7, 0x9B, 0x21, 0xEB, 0xC7, 0xB4, 0xD8, 0xA5 }|VOID*|0x0000B200
 
-  # CPU Freq PCD
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|0|UINT32|0x0000B300
+  # Dynamic RAM Start Address
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B300
 
-  # CPU Cache PCDs
-  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|FALSE|BOOLEAN|0x0000B400
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B401
-  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0|UINT32|0x0000B402
-  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0|UINT32|0x0000B403
-  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0|UINT32|0x0000B404
-  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0|UINT32|0x0000B405
+  # CPU Freq
+  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|0|UINT32|0x0000B400
 
-  # Memory Speed PCD
-  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|0|UINT32|0x0000B500
-  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000B501
+  # CPU Caches
+  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|FALSE|BOOLEAN|0x0000B500
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B501
+  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0|UINT32|0x0000B502
+  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0|UINT32|0x0000B503
+  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0|UINT32|0x0000B504
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0|UINT32|0x0000B505
 
-  # Start USB Controller PCD
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B600
+  # Memory Speed
+  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|0|UINT32|0x0000B600
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000B601
 
-  # SD Card Init PCD
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B700
+  # Start USB Controllee
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B700
 
-  # Storage PCD
-  gQcomPkgTokenSpaceGuid.PcdStorageIsUFS3|TRUE|BOOLEAN|0x0000B800
+  # SD Card Init
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B800
+
+  # Storage
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUFS3|TRUE|BOOLEAN|0x0000B900
