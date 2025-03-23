@@ -214,6 +214,125 @@
 <br>
 
 <details>
+<summary><b><strong>Snapdragon 8s Gen 3 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Realme Devices</strong></b></summary>
+
+## Realme GT Neo6 / GT6
+
+<img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="400" alt="Preview">
+
+**State: Active** <br>
+**Codename: bale** <br>
+**Maintainers: [InternalHellhound](https://github.com/InternalHellhound)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/), [InternalHellhound](https://github.com/InternalHellhound), [index986](https://github.com/index986/), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)** <br>
+**Testers: [InternalHellhound](https://github.com/InternalHellhound), @slyqfs (Telegram)**
+
+### UEFI Status
+
+| Feature            | Description                   | State |
+|:-------------------|:------------------------------|:-----:|
+| Display            |                               | ✅    |
+| Internal Storage   |                               | ✅    |
+| Side Buttons       |                               | ✅    |
+| USB Host Mode      |                               | ❌    |
+| USB Device Mode    |                               | ✅    |
+| USB Power Delivery |                               | ❌    |
+| Mass Storage       | Spam both Vol- & Pwr to enter | ✅    |
+| Windows Boot       | WinPE Booted                  | ✅    |
+| Linux Boot         | Mainline WIP                  | ⚠️    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><!-- <th>Linux</th> -->
+</tr>
+<tr><td>
+
+> NOTE: Booted WinPE only. test run
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ❌    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB Host Mode        |               | ❌    |
+| USB Device Mode      |               | ❌    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
+| CPU                  |               | ✅    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td>
+<!--
+<td>
+
+> NOTE: Haven't booted yet
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ❔    |
+| Side Buttons         |               | ❔    |
+| Proximity Sensor     |               | ❔    |
+| Light Sensor         |               | ❔    |
+| Accelerometer Sensor |               | ❔    |
+| Compass Sensor       |               | ❔    | 
+| Gyroscope Sensor     |               | ❔    |
+| Fingerprint Sensor   |               | ❔    |
+| NFC Sensor           |               | ❔    |
+| Temperature Sensor   |               | ❔    |
+| Battery              |               | ❔    |
+| USB Host Mode        |               | ❔    |
+| USB Device Mode      |               | ❔    |
+| USB Power Delivery   |               | ❔    |
+| Charging             |               | ❔    |
+| WLAN                 |               | ❔    |
+| CPU                  |               | ❔    |
+| Touchscreen          |               | ❔    |
+| Bluetooth            |               | ❔    |
+| GPS                  |               | ❔    |
+| Speakers             |               | ❔    |
+| Microphone           |               | ❔    |
+| GPU                  |               | ❔    |
+| Camera               |               | ❔    |
+| Mobile Data          |               | ❔    |
+| Display              |               | ❔    | 
+| Vibration            |               | ❔    |
+
+</td>
+-->
+</tr> </table>
+
+  </summary>
+</details>
+
+---
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 8 Gen 2 Devices</strong></b></summary>
 
 <br>
@@ -439,30 +558,30 @@
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
-## Samsung Galaxy Tab S8 5G
+## Samsung Galaxy Tab S8+
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8+.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
-**Codename: gts8** <br>
-**Maintainer: None** <br>
+**State: Active** <br>
+**Codename: gts8p** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Tester: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
-| Feature            | Description              | State |
-|:-------------------|:-------------------------|:-----:|
-| Display            |                          | ✅    |
-| Internal Storage   |                          | ✅    |
-| Side Buttons       | Pwr Button does not work | ⚠️    |
-| USB Host Mode      |                          | ❌    |
-| USB Device Mode    |                          | ✅    |
-| USB Power Delivery |                          | ❌    |
-| Mass Storage       |                          | ❔    |
-| SD Card            |                          | ❌    |
-| Windows Boot       |                          | ✅    |
-| Linux Boot         |                          | ❌    |
+| Feature            | Description                     | State |
+|:-------------------|:--------------------------------|:-----:|
+| Display            |                                 | ✅    |
+| Internal Storage   |                                 | ✅    |
+| Side Buttons       |                                 | ✅    |
+| USB Host Mode      |                                 | ❌    |
+| USB Device Mode    | Unstable                        | ⚠️    |
+| USB Power Delivery |                                 | ❌    |
+| Mass Storage       | Only works on first USB Connect | ⚠️    |
+| SD Card            |                                 | ❌    |
+| Windows Boot       |                                 | ✅    |
+| Linux Boot         |                                 | ❌    |
 
 ### OS Status
 
@@ -489,7 +608,7 @@
 | USB Power Delivery   |                     | ❌    |
 | Charging             |                     | ❌    |
 | WLAN                 |                     | ❌    |
-| CPU                  | One Core only       | ⚠️    |
+| CPU                  |                     | ✅    |
 | Touchscreen          |                     | ❌    |
 | Bluetooth            |                     | ❌    |
 | GPS                  |                     | ❌    |
@@ -502,7 +621,74 @@
 | Vibration            |                     | ❌    |
 | S Pen                |                     | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
+
+## Samsung Galaxy Tab S8 5G
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: gts8** <br>
+**Maintainer: None** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: None**
+
+### UEFI Status
+
+| Feature            | Description               | State |
+|:-------------------|:--------------------------|:-----:|
+| Display            | Wrong Display Oriantation | ⚠️    |
+| Internal Storage   |                           | ✅    |
+| Side Buttons       | Pwr Button does not work  | ⚠️    |
+| USB Host Mode      |                           | ❌    |
+| USB Device Mode    |                           | ✅    |
+| USB Power Delivery |                           | ❌    |
+| Mass Storage       |                           | ❔    |
+| SD Card            |                           | ❌    |
+| Windows Boot       |                           | ✅    |
+| Linux Boot         |                           | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+| Feature              | Description               | State |
+|:---------------------|:--------------------------|:-----:|
+| Internal Storage     | Needs Special Setup       | ✅    |
+| SD Card              |                           | ❌    |
+| Side Buttons         |                           | ❌    |
+| Proximity Sensor     |                           | ❌    |
+| Light Sensor         |                           | ❌    |
+| Accelerometer Sensor |                           | ❌    |
+| Compass Sensor       |                           | ❌    |
+| Gyroscope Sensor     |                           | ❌    |
+| Fingerprint Sensor   |                           | ❌    |
+| Hall Sensor          |                           | ❌    |
+| Temperature Sensor   |                           | ❌    |
+| Battery              |                           | ❌    |
+| USB Host Mode        |                           | ❌    |
+| USB Device Mode      |                           | ❌    |
+| USB Power Delivery   |                           | ❌    |
+| Charging             |                           | ❌    |
+| WLAN                 |                           | ❌    |
+| CPU                  | One Core only             | ⚠️    |
+| Touchscreen          |                           | ❌    |
+| Bluetooth            |                           | ❌    |
+| GPS                  |                           | ❌    |
+| Speakers             |                           | ❌    |
+| Microphone           |                           | ❌    |
+| GPU                  |                           | ❌    |
+| Camera               |                           | ❌    |
+| Mobile Data          |                           | ❌    |
+| Display              | Wrong Display Oriantation | ⚠️    |
+| Vibration            |                           | ❌    |
+| S Pen                |                           | ❌    |
+
+</td></tr>
+</table>
 
   </summary>
 </details>
@@ -1204,7 +1390,6 @@
 |:---------------------|:----------------------------------|:-----:|
 | Internal Storage     |                                   | ✅    |
 | Side Buttons         |                                   | ✅    |
-| Proximity Sensor     |                                   | ❌    |
 | Light Sensor         |                                   | ❌    |
 | Accelerometer Sensor |                                   | ❌    |
 | Compass Sensor       |                                   | ❌    |
@@ -1212,22 +1397,19 @@
 | Hall Sensor          |                                   | ❌    |
 | Temperature Sensor   |                                   | ❌    |
 | Battery              |                                   | ✅    |
-| USB Host Mode        | Depends What Mode it was in UEFI. | ✅    |
-| USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
-| USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ❌    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
 | Touchscreen          |                                   | ❌    |
 | Bluetooth            |                                   | ❌    |
-| GPS                  |                                   | ❌    |
 | Speakers             |                                   | ❌    |
 | Microphone           |                                   | ❌    |
 | GPU                  |                                   | ❌    |
 | Camera               |                                   | ❌    |
-| Mobile Data          |                                   | ❌    |
 | Display              |                                   | ✅    |
-| Vibration            |                                   | ❌    |
 
 </td><td>
 
@@ -1235,7 +1417,6 @@
 |:---------------------|:----------------------------------|:-----:|
 | Internal Storage     |                                   | ✅    |
 | Side Buttons         |                                   | ❌    |
-| Proximity Sensor     |                                   | ❌    |
 | Light Sensor         |                                   | ❌    |
 | Accelerometer Sensor |                                   | ❌    |
 | Compass Sensor       |                                   | ❌    |
@@ -1243,30 +1424,27 @@
 | Hall Sensor          |                                   | ❌    |
 | Temperature Sensor   |                                   | ❌    |
 | Battery              |                                   | ❌    |
-| USB Host Mode        | Depends What Mode it was in UEFI. | ✅    |
-| USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
-| USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ❌    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
 | Touchscreen          |                                   | ❌    |
 | Bluetooth            |                                   | ❌    |
-| GPS                  |                                   | ❌    |
 | Speakers             |                                   | ❌    |
 | Microphone           |                                   | ❌    |
 | GPU                  |                                   | ❌    |
 | Camera               |                                   | ❌    |
-| Mobile Data          |                                   | ❌    |
 | Display              |                                   | ✅    |
-| Vibration            |                                   | ❌    |
 
 </td></tr> </table>
 
-## Xiaomi Poco F3
+## Xiaomi Poco F3 / Redmi K40 / Mi 11X
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F3.png" width="500" alt="Preview">
 
-**State: Halted** <br>
+**State: Active** <br>
 **Codename: alioth** <br>
 **Maintainers: [N1kroks](https://github.com/N1kroks/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite/), [hyusang](https://github.com/cloudsweets/), [AdrianoA3](https://github.com/AdrianoA3/), [N1kroks](https://github.com/N1kroks/)** <br>
@@ -1284,12 +1462,12 @@
 | USB Power Delivery |                | ✅    |
 | Mass Storage       | Unknown Issues | ❌    |
 | Windows Boot       |                | ✅    |
-| Linux Boot         |                | ❌    |
+| Linux Boot         |                | ✅    |
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th></tr>
+<tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
 > NOTE: Needs [Windows Drivers](https://github.com/N1kroks/SM8250-Drivers)!
@@ -1306,9 +1484,9 @@
 | Fingerprint Sensor   |                                   | ❌    |
 | NFC Sensor           |                                   | ❌    |
 | Battery              |                                   | ✅    |
-| USB Host Mode        |                                   | ✅    |
-| USB Device Mode      |                                   | ❌    |
-| USB Power Delivery   |                                   | ✅    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ❌    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
@@ -1319,6 +1497,39 @@
 | Microphone           |                                   | ❌    |
 | GPU                  |                                   | ❌    |
 | Camera               |                                   | ❌    |
+| Mobile Data          |                                   | ❌    |
+| Display              |                                   | ✅    |
+| Vibration            |                                   | ❌    |
+
+</td><td>
+
+> NOTE: Linux Requires: [Mainline kernel](https://github.com/mainlining/linux/tree/nikroks/alioth)
+
+| Feature              | Description                       | State |
+|:---------------------|:----------------------------------|:-----:|
+| Internal Storage     |                                   | ✅    |
+| Side Buttons         |                                   | ✅    |
+| Proximity Sensor     |                                   | ❌    |
+| Light Sensor         |                                   | ✅    |
+| Accelerometer Sensor |                                   | ✅    |
+| Compass Sensor       |                                   | ✅    |
+| Gyroscope Sensor     |                                   | ❌    |
+| Fingerprint Sensor   |                                   | ❌    |
+| NFC Sensor           |                                   | ❌    |
+| Battery              |                                   | ✅    |
+| USB Host Mode        |                                   | ✅    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ✅    |
+| Charging             |                                   | ⚠️    |
+| WLAN                 |                                   | ✅    |
+| CPU                  |                                   | ✅    |
+| Touchscreen          |                                   | ✅    |
+| Bluetooth            |                                   | ✅    |
+| GPS                  |                                   | ❌    |
+| Speakers             |                                   | ✅    |
+| Microphone           |                                   | ❌    |
+| GPU                  |                                   | ✅    |
+| Camera               |                                   | ⚠️    |
 | Mobile Data          |                                   | ❌    |
 | Display              |                                   | ✅    |
 | Vibration            |                                   | ❌    |
@@ -2424,7 +2635,7 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
-> NOTE: Needs [Windows Drivers](https://github.com/N1kroks/7xx-Drivers/releases/latest)!
+> NOTE: Needs [Windows Drivers](https://github.com/woa-miatoll/Miatoll-Releases)!
 
 | Feature              | Description           | State |
 |:---------------------|:----------------------|:-----:|
@@ -2459,7 +2670,7 @@
 
 </td><td>
 
-> NOTE: Needs [Linux Fork](https://github.com/N1kroks/linux-7125)!
+>  NOTE: Linux Requires: [Mainline kernel](https://github.com/sm7125-mainline/linux)
 
 | Feature              | Description | State |
 |:---------------------|:------------|:-----:|
@@ -2487,10 +2698,10 @@
 | 3.5mm Audio Jack     |             | ✅    |
 | Microphone           |             | ✅    |
 | GPU                  |             | ✅    |
-| Camera               |             | ❌    |
+| Camera               |             | ⚠️    |
 | Mobile Data          |             | ✅    |
 | Display              |             | ✅    |
-| Vibration            |             | ❌    |
+| Vibration            |             | ✅    |
 
 </td></tr> </table>
 

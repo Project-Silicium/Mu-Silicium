@@ -75,6 +75,7 @@
 
   # Memory Speed
   gQcomPkgTokenSpaceGuid.PcdMemorySpeed|2750
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|TRUE # Might be wrong and this only needed on xiaomi devices
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE

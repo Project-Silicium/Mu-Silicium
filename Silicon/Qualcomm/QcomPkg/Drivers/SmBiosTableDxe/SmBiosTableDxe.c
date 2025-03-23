@@ -452,15 +452,18 @@ MemDevInfoUpdateSmbiosType17 (IN UINT64 SystemMemorySize)
       mMemDevInfoType17.MemorySubsystemControllerManufacturerID = DdrInfos.manufacturer_id;
     }
 
-    // Get Current DDR Freq
-    Status = mDdrInfoProtocol->GetDDRFreq (mDdrInfoProtocol, &DdrFreq);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Get Current DDR Freq! Status = %r\n", Status));
-
+    if (FixedPcdGetBool (PcdForceMemorySpeed)) {
+Fallback:
       // Use PCD Overwrite
       mMemDevInfoType17.Speed                      = FixedPcdGet32 (PcdMemorySpeed) * 2;
       mMemDevInfoType17.ConfiguredMemoryClockSpeed = FixedPcdGet32 (PcdMemorySpeed);
     } else {
+      Status = mDdrInfoProtocol->GetDDRFreq (mDdrInfoProtocol, &DdrFreq);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "Failed to Get Current DDR Freq! Status = %r\n", Status));
+        goto Fallback;
+      }
+
       // Update DDR Freq
       mMemDevInfoType17.Speed                      = DdrFreq * 2;
       mMemDevInfoType17.ConfiguredMemoryClockSpeed = DdrFreq;
