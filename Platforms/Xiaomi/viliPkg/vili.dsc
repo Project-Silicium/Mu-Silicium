@@ -23,13 +23,14 @@
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = viliPkg/vili.fdf
-  USE_CUSTOM_DISPLAY_DRIVER      = 0
+  USE_CUSTOM_DISPLAY_DRIVER      = 1
   HAS_BUILD_IN_KEYBOARD          = 0
 
   #
   # 0 = SM8350
   # 1 = SM8350-AB
   # 2 = SM8350-AC
+  # 3 = SG8175P
   #
   SOC_TYPE                       = 0
 
