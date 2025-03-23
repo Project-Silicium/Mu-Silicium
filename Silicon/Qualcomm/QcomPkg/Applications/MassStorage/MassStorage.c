@@ -46,36 +46,63 @@ StartMassStorage ()
     return Status;
   }
 
+  if (mChargerExProtocol == NULL) {
+    // Display Disconnected Splash
+    DisplayBootGraphic (BG_MSD_DISCONNECTED);
+
+    // Print Exit Message
+    PrintGUI (L"Press Volume Up Button to Exit Mass Storage.");
+  }
+
   do {
     // Execute Event Handler
     mUsbMsdProtocol->EventHandler (mUsbMsdProtocol);
 
-    // Get Charger Presence
-    mChargerExProtocol->GetChargerPresence (&Connected);
+    if (mChargerExProtocol != NULL) {
+      // Get Charger Presence
+      mChargerExProtocol->GetChargerPresence (&Connected);
 
-    // Display Splash depending on Connect State
-    if (Connected && CurrentSplash != BG_MSD_CONNECTED) {
-      // Display Connected Splash
-      DisplayBootGraphic (BG_MSD_CONNECTED);
+      // Display Splash depending on Connect State
+      if (Connected && CurrentSplash != BG_MSD_CONNECTED) {
+        // Display Connected Splash
+        DisplayBootGraphic (BG_MSD_CONNECTED);
 
-      // Set Current Splash Value
-      CurrentSplash = BG_MSD_CONNECTED;
+        // Set Current Splash Value
+        CurrentSplash = BG_MSD_CONNECTED;
 
-      // New Message
-      PrintGUI (L"Disconnect your Device to Enable Exit Function.");
-    } else if (!Connected && CurrentSplash != BG_MSD_DISCONNECTED) {
-      // Display Disconnected Splash
-      DisplayBootGraphic (BG_MSD_DISCONNECTED);
+        // New Message
+        PrintGUI (L"Disconnect your Device to Enable Exit Function.");
+      } else if (!Connected && CurrentSplash != BG_MSD_DISCONNECTED) {
+        // Display Disconnected Splash
+        DisplayBootGraphic (BG_MSD_DISCONNECTED);
 
-      // Set Current Splash Value
-      CurrentSplash = BG_MSD_DISCONNECTED;
+        // Set Current Splash Value
+        CurrentSplash = BG_MSD_DISCONNECTED;
 
-      // New Message
-      PrintGUI (L"Press Volume Up Button to Exit Mass Storage.");
-    }
+        // New Message
+        PrintGUI (L"Press Volume Up Button to Exit Mass Storage.");
+      }
 
-    // Display Confirm Message
-    if (!Connected) {
+      // Display Confirm Message
+      if (!Connected) {
+        EFI_INPUT_KEY Key;
+
+        // Get current Key
+        gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
+
+        // Leave Loop
+        if (Key.ScanCode == SCAN_UP) {
+          // Stop Mass Storage
+          mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
+
+          // Remove Assigned BLK IO Protocol
+          mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, 0);
+
+          // Exit Application
+          break;
+        }
+      }
+    } else {
       EFI_INPUT_KEY Key;
 
       // Get current Key
@@ -120,7 +147,6 @@ PrepareMassStorage ()
   Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID *)&mChargerExProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate Charger Ex Protocol! Status = %r\n", Status));
-    return Status;
   }
 
   // Locate Console Out Protocol

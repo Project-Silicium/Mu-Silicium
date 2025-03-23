@@ -233,17 +233,17 @@
 
 ### UEFI Status
 
-| Feature            | Description | State |
-|:-------------------|:------------|:-----:|
-| Display            |             | ✅    |
-| Internal Storage   |             | ✅    |
-| Side Buttons       |             | ✅    |
-| USB Host Mode      |             | ❌    |
-| USB Device Mode    |             | ✅    |
-| USB Power Delivery |             | ❌    |
-| Mass Storage       | Spam both Vol- & Pwr to enter            | ✅    |
-| Windows Boot       | WinPE Booted            | ✅    |
-| Linux Boot         | Mainline WIP            | ⚠️    |
+| Feature            | Description                   | State |
+|:-------------------|:------------------------------|:-----:|
+| Display            |                               | ✅    |
+| Internal Storage   |                               | ✅    |
+| Side Buttons       |                               | ✅    |
+| USB Host Mode      |                               | ❌    |
+| USB Device Mode    |                               | ✅    |
+| USB Power Delivery |                               | ❌    |
+| Mass Storage       | Spam both Vol- & Pwr to enter | ✅    |
+| Windows Boot       | WinPE Booted                  | ✅    |
+| Linux Boot         | Mainline WIP                  | ⚠️    |
 
 ### OS Status
 
@@ -558,30 +558,30 @@
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
-## Samsung Galaxy Tab S8 5G
+## Samsung Galaxy Tab S8+
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8+.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
-**Codename: gts8** <br>
-**Maintainer: None** <br>
+**State: Active** <br>
+**Codename: gts8p** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Tester: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
-| Feature            | Description              | State |
-|:-------------------|:-------------------------|:-----:|
-| Display            |                          | ✅    |
-| Internal Storage   |                          | ✅    |
-| Side Buttons       | Pwr Button does not work | ⚠️    |
-| USB Host Mode      |                          | ❌    |
-| USB Device Mode    |                          | ✅    |
-| USB Power Delivery |                          | ❌    |
-| Mass Storage       |                          | ❔    |
-| SD Card            |                          | ❌    |
-| Windows Boot       |                          | ✅    |
-| Linux Boot         |                          | ❌    |
+| Feature            | Description                     | State |
+|:-------------------|:--------------------------------|:-----:|
+| Display            |                                 | ✅    |
+| Internal Storage   |                                 | ✅    |
+| Side Buttons       |                                 | ✅    |
+| USB Host Mode      |                                 | ❌    |
+| USB Device Mode    | Unstable                        | ⚠️    |
+| USB Power Delivery |                                 | ❌    |
+| Mass Storage       | Only works on first USB Connect | ⚠️    |
+| SD Card            |                                 | ❌    |
+| Windows Boot       |                                 | ✅    |
+| Linux Boot         |                                 | ❌    |
 
 ### OS Status
 
@@ -608,7 +608,7 @@
 | USB Power Delivery   |                     | ❌    |
 | Charging             |                     | ❌    |
 | WLAN                 |                     | ❌    |
-| CPU                  | One Core only       | ⚠️    |
+| CPU                  |                     | ✅    |
 | Touchscreen          |                     | ❌    |
 | Bluetooth            |                     | ❌    |
 | GPS                  |                     | ❌    |
@@ -621,7 +621,74 @@
 | Vibration            |                     | ❌    |
 | S Pen                |                     | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
+
+## Samsung Galaxy Tab S8 5G
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: gts8** <br>
+**Maintainer: None** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: None**
+
+### UEFI Status
+
+| Feature            | Description               | State |
+|:-------------------|:--------------------------|:-----:|
+| Display            | Wrong Display Oriantation | ⚠️    |
+| Internal Storage   |                           | ✅    |
+| Side Buttons       | Pwr Button does not work  | ⚠️    |
+| USB Host Mode      |                           | ❌    |
+| USB Device Mode    |                           | ✅    |
+| USB Power Delivery |                           | ❌    |
+| Mass Storage       |                           | ❔    |
+| SD Card            |                           | ❌    |
+| Windows Boot       |                           | ✅    |
+| Linux Boot         |                           | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+| Feature              | Description               | State |
+|:---------------------|:--------------------------|:-----:|
+| Internal Storage     | Needs Special Setup       | ✅    |
+| SD Card              |                           | ❌    |
+| Side Buttons         |                           | ❌    |
+| Proximity Sensor     |                           | ❌    |
+| Light Sensor         |                           | ❌    |
+| Accelerometer Sensor |                           | ❌    |
+| Compass Sensor       |                           | ❌    |
+| Gyroscope Sensor     |                           | ❌    |
+| Fingerprint Sensor   |                           | ❌    |
+| Hall Sensor          |                           | ❌    |
+| Temperature Sensor   |                           | ❌    |
+| Battery              |                           | ❌    |
+| USB Host Mode        |                           | ❌    |
+| USB Device Mode      |                           | ❌    |
+| USB Power Delivery   |                           | ❌    |
+| Charging             |                           | ❌    |
+| WLAN                 |                           | ❌    |
+| CPU                  | One Core only             | ⚠️    |
+| Touchscreen          |                           | ❌    |
+| Bluetooth            |                           | ❌    |
+| GPS                  |                           | ❌    |
+| Speakers             |                           | ❌    |
+| Microphone           |                           | ❌    |
+| GPU                  |                           | ❌    |
+| Camera               |                           | ❌    |
+| Mobile Data          |                           | ❌    |
+| Display              | Wrong Display Oriantation | ⚠️    |
+| Vibration            |                           | ❌    |
+| S Pen                |                           | ❌    |
+
+</td></tr>
+</table>
 
   </summary>
 </details>
