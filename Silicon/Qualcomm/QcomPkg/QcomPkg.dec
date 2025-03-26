@@ -133,4 +133,5 @@
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B800
 
   # Storage
-  gQcomPkgTokenSpaceGuid.PcdStorageIsUFS3|TRUE|BOOLEAN|0x0000B900
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE|BOOLEAN|0x0000B900
+  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|FALSE|BOOLEAN|0x0000B901

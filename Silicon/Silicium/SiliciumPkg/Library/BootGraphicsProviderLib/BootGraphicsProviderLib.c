@@ -35,8 +35,8 @@ GetBootGraphic (
       g = PcdGetPtr (PcdNoBootOSFile);
       break;
     
-    case BG_MSD_WARNING:
-      g = PcdGetPtr (PcdMsdWarningFile);
+    case BG_MSD_SELECT_LUN:
+      g = PcdGetPtr (PcdMsdSelectLunFile);
       break;
     
     case BG_MSD_CONNECTED:
@@ -47,8 +47,8 @@ GetBootGraphic (
       g = PcdGetPtr (PcdMsdDisconnectedFile);
       break;
 
-    case BG_MSD_ERROR:
-      g = PcdGetPtr (PcdMsdErrorFile);
+    case BG_MSD_UNKNOWN_STATE:
+      g = PcdGetPtr (PcdMsdUnknownStateFile);
       break;
 
     default:

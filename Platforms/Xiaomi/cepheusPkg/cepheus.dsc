@@ -80,7 +80,7 @@
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
   # Storage
-  gQcomPkgTokenSpaceGuid.PcdStorageIsUFS3|FALSE
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|FALSE
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
