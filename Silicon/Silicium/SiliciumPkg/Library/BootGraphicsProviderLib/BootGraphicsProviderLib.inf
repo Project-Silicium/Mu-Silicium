@@ -33,7 +33,7 @@
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor
 
   gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdWarningFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdSelectLunFile
   gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile
   gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdErrorFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdUnknownStateFile

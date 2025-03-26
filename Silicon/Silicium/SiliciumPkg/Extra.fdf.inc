@@ -16,9 +16,9 @@
     SECTION UI = "No Operating System"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdWarningFile) {
-    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Warning.bmp
-    SECTION UI = "Mass Storage Warning"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdSelectLunFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Select_Lun.bmp
+    SECTION UI = "Mass Storage Select LUN"
   }
 
   FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile) {
@@ -31,7 +31,7 @@
     SECTION UI = "Mass Storage Disconnected"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdErrorFile) {
-    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Error.bmp
-    SECTION UI = "Mass Storage Error"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdUnknownStateFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Unknown_State.bmp
+    SECTION UI = "Mass Storage Unknown State"
   }

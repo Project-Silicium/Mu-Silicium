@@ -12,19 +12,21 @@
 [Packages]
   MdePkg/MdePkg.dec
   MsGraphicsPkg/MsGraphicsPkg.dec
-  QcomPkg/QcomPkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  UefiApplicationEntryPoint
+  PcdLib
   DebugLib
   UefiBootServicesTableLib
-  BootGraphicsLib
+  UefiApplicationEntryPoint
   UefiRuntimeServicesTableLib
+  BootGraphicsLib
   UefiLib
 
 [FixedPcd]
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
+  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc
 
 [Protocols]
   gEfiBlockIoProtocolGuid

@@ -66,8 +66,9 @@
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x68900000
 
-  # SD Card Slot
+  # Storage
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
+  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|TRUE
 
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
