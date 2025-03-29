@@ -158,6 +158,9 @@ InitMassStorage (
     return Status;
   }
 
+  // Disable WatchDog Timer
+  gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
+
   // Locate Charger Protocol
   Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID *)&mChargerExProtocol);
   if (EFI_ERROR (Status)) {
