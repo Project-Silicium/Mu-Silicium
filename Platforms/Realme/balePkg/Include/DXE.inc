@@ -94,9 +94,9 @@
   INF Binaries/bale/QcomPkg/Drivers/Smp2pDxe/Smp2pDxe.inf
   #INF Binaries/bale/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  # INF Binaries/bale/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
+  #INF Binaries/bale/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
-  # INF Binaries/bale/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
+  #INF Binaries/bale/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf

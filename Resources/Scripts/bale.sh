@@ -6,9 +6,9 @@ gzip -c < "./Build/balePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/BALE_UEFI.fd-bootsh
 cat "./Build/balePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/BALE_UEFI.fd-bootshim.gz" ./Resources/DTBs/bale.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Check which model and type are building
-if [ $TARGET_DEVICE_MODEL == 1 ]
+if [ $TARGET_DEVICE_MODEL == 0 ]
 then MODEL_NAME="GT-Neo6"
-elif [ $TARGET_DEVICE_MODEL == 2 ]
+elif [ $TARGET_DEVICE_MODEL == 1 ]
 then MODEL_NAME="GT6"
 fi
 

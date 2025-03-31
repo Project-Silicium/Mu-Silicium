@@ -52,18 +52,18 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Realme"
-  !if $(DEVICE_MODEL) == 1
+  !if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT_Neo6_bale"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT Neo6"
-!elseif $(DEVICE_MODEL) == 2
+!elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT6_bale"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT6"
 !else
-!error "Invalid Model! specify "1" for GT Neo6 or "2" for GT6."
+!error "Invalid Model! specify "0" for GT Neo6 or "1" for GT6."
 !endif
 
   # Simple FrameBuffer
