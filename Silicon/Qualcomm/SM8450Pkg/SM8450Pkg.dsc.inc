@@ -23,9 +23,8 @@
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 1
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
-# TODO: Replace this with working one
-#[BuildOptions]
-#  *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
+[BuildOptions]
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Timer
@@ -63,11 +62,11 @@
 
   # CPU Cache
   gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE        # Is actually has it.
+  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
   gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x20
   gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x20
   gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x400
-  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0           # Unknown.
+  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0x1800
 
   # Memory Speed
   gQcomPkgTokenSpaceGuid.PcdMemorySpeed|3200

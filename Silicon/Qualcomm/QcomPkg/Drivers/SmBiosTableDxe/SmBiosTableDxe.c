@@ -452,7 +452,7 @@ MemDevInfoUpdateSmbiosType17 (IN UINT64 SystemMemorySize)
       mMemDevInfoType17.MemorySubsystemControllerManufacturerID = DdrInfos.manufacturer_id;
     }
 
-    if (FixedPcdGetBool (PcdForceMemorySpeed)) {
+    if (FixedPcdGetBool (PcdForceMemorySpeed) || mDdrInfoProtocol->Revision >= 0x30000) {
 Fallback:
       // Use PCD Overwrite
       mMemDevInfoType17.Speed                      = FixedPcdGet32 (PcdMemorySpeed) * 2;
