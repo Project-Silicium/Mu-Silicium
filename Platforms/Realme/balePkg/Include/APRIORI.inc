@@ -105,7 +105,7 @@ APRIORI DXE {
   INF Binaries/bale/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
 
-!if $(USE_CUSTOM_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/bale/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
