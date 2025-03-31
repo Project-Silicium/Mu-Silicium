@@ -1970,30 +1970,6 @@
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
-## Xiaomi Mi 8
-
-<img align="right" src="Resources/Pictures/Xiaomi-Mi-8.png" width="500" alt="Preview">
-
-**State: Active** <br>
-**Codename: dipper** <br>
-**Maintainers: [index986](https://github.com/index986/)** <br>
-**Contributors: [index986](https://github.com/index986/)** <br>
-**Testers: Stas**
-
-### UEFI Status
-
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
-| USB Power Delivery |                   | ❌    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| Windows Boot       |                   | ❌    |
-| Linux Boot         |                   | ❌    |
-
 ## Xiaomi Mi 8 Pro
 
 <img align="right" src="Resources/Pictures/Xiaomi-Mi-8-Pro.png" width="500" alt="Preview">
