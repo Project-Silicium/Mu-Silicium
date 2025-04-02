@@ -11,24 +11,24 @@
 
 [Packages]
   ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  MdePkg/MdePkg.dec
-  SamsungPkg/SamsungPkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
 
 [LibraryClasses]
-  UefiBootServicesTableLib
-  DxeServicesTableLib
-  UefiDriverEntryPoint
-  DebugLib
-  IoLib
-  MemoryAllocationLib
   PcdLib
-  ArmMmuLib
+  DebugLib
+  DeviceMemoryMapLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DxeServicesTableLib
   MemoryMapHelperLib
-  SortLib
+  ArmMmuLib
   FdtLib
+  IoLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase

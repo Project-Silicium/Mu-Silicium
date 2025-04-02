@@ -24,7 +24,7 @@
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Timer
@@ -56,7 +56,6 @@
   HwResetSystemLib|E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
   ResetSystemLib|E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
   SoCPlatformLib|E9830Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-  ExynosSpeedyLib|E9830Pkg/Library/ExynosSpeedyLib/ExynosSpeedyLib.inf
 
 [Components]
   E9830Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

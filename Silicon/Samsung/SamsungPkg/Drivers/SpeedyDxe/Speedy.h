@@ -6,15 +6,10 @@
   transcribed, stored in a retrieval system or translated into any human or computer language in any form by any means,
   electronic, mechanical, manual or otherwise, or disclosed
   to third parties without the express written permission of Samsung Electronics.
-
-  Alternatively, this program is free software in case of open source project
-  you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 2 as
-  published by the Free Software Foundation.
 **/
 
-#ifndef _EXYNOS_SPEEDY_LIB_H_
-#define _EXYNOS_SPEEDY_LIB_H_
+#ifndef _SPEEDY_H_
+#define _SPEEDY_H_
 
 // SPEEDY Register Map
 #define SPEEDY_CTRL                                   0x000
@@ -108,8 +103,4 @@
 #define SPEEDY_FSM_IO_TX_IDLE                        (1 << 9)
 #define SPEEDY_FSM_IO_TX_GET_PACKET                  (1 << 10)
 
-// SoC Specific Speedy Init Function
-VOID
-InitSpeedy ();
-
-#endif /* _EXYNOS_SPEEDY_LIB_H_ */
+#endif /* _SPEEDY_H_ */

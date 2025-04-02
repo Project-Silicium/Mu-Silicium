@@ -35,6 +35,8 @@ gDeviceMemoryDescriptorEx[] = {
   {"Gic Redistributors", 0x10102000, 0x00006000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Pinctrl",            0x14050000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Speedy",             0x141C0000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"Decon-F",            0x16030000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"DRAM-Info",          0x0204C000, 0x00014000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
 
   // Terminator for MMU
   {"Terminator", 0, 0, 0, 0, 0, 0, 0}

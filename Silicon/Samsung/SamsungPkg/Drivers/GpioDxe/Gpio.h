@@ -13,8 +13,8 @@
   published by the Free Software Foundation.
 **/
 
-#ifndef _EXYNOS_GPIO_DXE_H_
-#define _EXYNOS_GPIO_DXE_H_
+#ifndef _GPIO_H_
+#define _GPIO_H_
 
 #define CON_MASK(x)      (0xF << ((x) << 2))
 #define CON_SFR(x, v)    ((v) << ((x) << 2))
@@ -31,4 +31,4 @@
 #define RATE_MASK(x)     (0x1 << (x + 16))
 #define RATE_SET(x)      (0x1 << (x + 16))
 
-#endif /* _EXYNOS_GPIO_DXE_H_ */
+#endif /* _GPIO_H_ */

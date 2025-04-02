@@ -1,28 +1,31 @@
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = ExynosSpeedyDxe
+  BASE_NAME                      = SpeedyDxe
   FILE_GUID                      = 05192773-147D-4577-B50B-6410B59E6C4F
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = InitSpeedyDriver
+  ENTRY_POINT                    = InitSpeedy
 
-[Sources.common]
-  ExynosSpeedyDxe.c
+[Sources]
+  SpeedyDxe.c
 
 [Packages]
+  ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
   SamsungPkg/SamsungPkg.dec
 
 [LibraryClasses]
+  DebugLib
+  PrintLib
+  BaseMemoryLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
-  ExynosSpeedyLib
   TimerLib
-  DebugLib
   IoLib
 
 [Protocols]
-  gEfiExynosSpeedyProtocolGuid
+  gEfiSpeedyProtocolGuid
 
 [Depex]
   TRUE

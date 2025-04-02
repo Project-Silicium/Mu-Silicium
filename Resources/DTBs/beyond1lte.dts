@@ -4069,11 +4069,6 @@
 			ion,alignment = <0x10000>;
 		};
 
-		mm_debug {
-			compatible = "exynos,mm_debug";
-			reg = <0x00 0x91200000 0x1000>;
-		};
-
 		sec_debug_magic {
 			compatible = "exynos,sec_debug_magic";
 			reg = <0x00 0x80000000 0x1000>;
@@ -6792,7 +6787,6 @@
 		static_info_enc = <0x01 0x180314>;
 		hdr10_plus = <0x01 0x180709>;
 		P010_decoding = <0x01>;
-		enc_ts_delta = <0x01 0x211208>;
 		support_10bit = <0x01>;
 		support_422 = <0x01>;
 		support_rgb = <0x00>;
@@ -6800,6 +6794,7 @@
 		enc_param_num = <0x19>;
 		enc_param_addr = <0xf7b4 0xf7b8 0xf7b0 0xf798 0xfa2c 0xf790 0xfa34 0xfa38 0xfa3c 0xf7c0 0xf7c8 0xf7cc 0xfa60 0xfdd4 0xfddc 0xfb54 0xfb58 0xfba8 0xfd90 0xfd94 0xfd40 0xfd48 0xfd4c 0xfd50 0xfd80>;
 		enc_param_val = <0x100 0x100 0x00 0x4000 0x3fd00 0x00 0x00 0x2710 0x3e8 0x00 0x00 0x00 0x00 0x8050f215 0x00 0x3011 0x00 0x00 0x2d 0xa00 0x1d 0xf4240 0x33003300 0x02 0x01>;
+		enc_ts_delta = <0x01 0x211208>;
 		bw_enc_h264 = <0xf44f 0x125de 0x3318>;
 		bw_enc_hevc = <0xd64f 0xff89 0x2c9e>;
 		bw_enc_hevc_10bit = <0x109ab 0x13607 0x3960>;
@@ -7048,9 +7043,9 @@
 	};
 
 	chosen {
-		bootargs = " console=ram loglevel=4 androidboot.bore_cnt=245 sec_debug.pcb_offset=7346944 sec_debug.smd_offset=7348992 sec_debug.lpddr4_size=8 sec_debug.dram_info=01,06,03,8G sec_debug.pwrsrc_rs=0x0000000820000000 sec_debug.reset_reason=7 sec_reset.reset_reason=7 sec_debug.reset_rwc=0 bootmode=2 sec_debug.level=0 sec_watchdog.sec_pet=5 androidboot.debug_level=0x4f4c androidboot.force_upload=0x0 softdog.soft_margin=100 softdog.soft_panic=1 sec_debug.dump_sink=0x0 sec_debug.upload_count=0 androidboot.dram_info=01,06,03,8G androidboot.fmm_lock=0 sec_debug.fmm_lock_offset=7340600 sec_debug.sjl=1 androidboot.sn.param.offset=7343024 androidboot.prototype.param.offset=7351040 androidboot.recovery_offset=7355136 printk.devkmsg=on ess_setup=0xfd900000 sec_avc_log=0x40000@0x91202000 sec_tsp_log=0x40000@0x91244000 sec_disp_log=0x100000@0x91286000 sec_debug_next=0x800000@0x91388000 charging_mode=0x0 s3cfb.bootloaderfb=0xca000000 lcdtype=10551315 androidboot.carrierid.param.offset=7340608 androidboot.carrierid=DBT consoleblank=0 ehci_hcd.park=3 oops=panic pmic_info=43 ccic_info=1 fg_reset=1 androidboot.emmc_checksum=3 androidboot.sales.param.offset=7340572 sales_code=DBT androidboot.odin_download=1 androidboot.bootloader=G973FXXSGHWC1 androidboot.selinux=enforcing androidboot.ucs_mode=0 androidboot.revision=26 androidboot.hardware=exynos9820 androidboot.warranty_bit=1 androidboot.wb.hs=0e03 androidboot.rp=16 androidboot.wb.snapQB=34489444R sec_debug.bin=A androidboot.hmac_mismatch=0 androidboot.sec_atd.tty=/dev/ttySAC0 androidboot.serialno=RF8M22HENNV androidboot.ap_serial=0x0B0C4EAA7E80 snd_soc_core.pmdown_time=1000 androidboot.cp_reserved_mem=off androidboot.dtbo_idx=8 androidboot.fmp_config=0 androidboot.em.did=200b0c4eaa7e8011 androidboot.em.model=SM-G973F androidboot.em.status=0x0 androidboot.fastbootd=false androidboot.sb.debug0=0x0 androidboot.verifiedbootstate=orange androidboot.svb.ver=SVB1.0 bcm_setup= reserve-fimc= firmware_class.path=/vendor/firmware ecd_setup=disable region1=EUR region2=OPEN factory_mode=0 androidboot.ulcnt=1 android.nonce=206f73e8d23c66b2253db39445cff0d5 root=PARTUUID=52444E41-494F-2044-7379-7374656D0000 ";
+		bootargs = " console=ram loglevel=4 androidboot.bore_cnt=49 sec_debug.pcb_offset=7346944 sec_debug.smd_offset=7348992 sec_debug.lpddr4_size=8 sec_debug.dram_info=01,06,03,8G sec_debug.pwrsrc_rs=0x0000000420000000 sec_debug.reset_reason=7 sec_reset.reset_reason=7 sec_debug.reset_rwc=0 sec_debug.level=0 sec_watchdog.sec_pet=5 androidboot.debug_level=0x4f4c androidboot.force_upload=0x0 softdog.soft_margin=100 softdog.soft_panic=1 sec_debug.dump_sink=0x0 sec_debug.upload_count=0 androidboot.dram_info=01,06,03,8G androidboot.fmm_lock=0 sec_debug.fmm_lock_offset=7340600 sec_debug.sjl=1 androidboot.sn.param.offset=7343024 androidboot.prototype.param.offset=7351040 androidboot.recovery_offset=7355136 printk.devkmsg=on ess_setup=0xfd900000 sec_avc_log=0x40000@0x91202000 sec_tsp_log=0x40000@0x91244000 sec_disp_log=0x100000@0x91286000 sec_debug_next=0x800000@0x91388000 charging_mode=0x0 s3cfb.bootloaderfb=0xca000000 lcdtype=10551315 androidboot.carrierid.param.offset=7340608 androidboot.carrierid=DBT consoleblank=0 ehci_hcd.park=3 oops=panic pmic_info=43 ccic_info=1 fg_reset=0 androidboot.emmc_checksum=3 androidboot.sales.param.offset=7340572 sales_code=DBT androidboot.odin_download=1 androidboot.bootloader=G973FXXSGHWC2 androidboot.selinux=enforcing androidboot.ucs_mode=0 androidboot.revision=26 androidboot.hardware=exynos9820 androidboot.warranty_bit=1 androidboot.wb.hs=0e03 androidboot.rp=16 androidboot.wb.snapQB=34489444R sec_debug.bin=A androidboot.hmac_mismatch=0 androidboot.sec_atd.tty=/dev/ttySAC0 androidboot.serialno=RF8M22HENNV androidboot.ap_serial=0x0B0C4EAA7E80 snd_soc_core.pmdown_time=1000 androidboot.cp_reserved_mem=off skip_initramfs rootwait ro init=/init root=/dev/sda25 androidboot.dtbo_idx=8 androidboot.fmp_config=0 androidboot.em.did=200b0c4eaa7e8011 androidboot.em.model=SM-G973F androidboot.em.status=0x0 androidboot.sb.debug0=0x0 androidboot.verifiedbootstate=orange androidboot.svb.ver=SVB1.0 bcm_setup= reserve-fimc= firmware_class.path=/vendor/firmware ecd_setup=disable region1=EUR region2=OPEN factory_mode=0 androidboot.ulcnt=1 android.nonce=a11dd89c9733e175f71dbcadf48c6827 root=PARTUUID=52444E41-494F-2044-7379-7374656D0000 ";
 		linux,initrd-start = <0x89000000>;
-		linux,initrd-end = <0x89bf9000>;
+		linux,initrd-end = <0x8919c000>;
 		linux,phandle = <0x1e2>;
 		phandle = <0x1e2>;
 	};
@@ -9552,7 +9547,6 @@
 			sec,regulator_avdd = "tsp_avdd";
 			sec,regulator_boot_on;
 			sec,tclm_level = <0x02>;
-			support_dex_mode;
 			enable_settings_aot;
 			support_ear_detect_mode;
 			sync-reportrate-120 = "Y";
@@ -15260,7 +15254,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xea0 0x14ef 0x110f>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xb90 0x8ac 0x5c8>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15296,7 +15290,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xb3d 0x149e 0x1b52>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xb90 0x8ac 0x5c8>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15456,7 +15450,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xb3d 0x149e 0x1b52>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xb90 0x8ac 0x5c8>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15532,7 +15526,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xb3d 0x149e 0x1b52>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xbe0 0x8e8 0x5f0>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15570,7 +15564,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xb3d 0x149e 0x1b52>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xbe0 0x8e8 0x5f0>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15608,7 +15602,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xb3d 0x149e 0x1b52>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xbe0 0x8e8 0x5f0>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15646,7 +15640,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xb3d 0x149e 0x1b52>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xbe0 0x8e8 0x5f0>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15684,7 +15678,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xbad 0x150e 0x1bc2>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xbe0 0x8e8 0x5f0>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15723,7 +15717,7 @@
 		data_lane = <0x04>;
 		cmd_underrun_lp_ref = <0xbad 0x150e 0x1bc2>;
 		mres_en = <0x01>;
-		mres_number = <0x03>;
+		mres_number = <0x02>;
 		mres_width = <0x5a0 0x438 0x2d0>;
 		mres_height = <0xbe0 0x8e8 0x5f0>;
 		mres_dsc_width = <0x2d0 0x21c 0x168>;
@@ -15899,7 +15893,7 @@
 		battery,rp_current_abnormal_rp3 = <0x708>;
 		battery,pd_charging_charge_power = <0x3a98>;
 		battery,max_charging_current = <0x92e>;
-		battery,battery_full_capacity = <0xce4>;
+		battery,battery_full_capacity = <0xd48>;
 		battery,age_data = <0x00 0x10fe 0x10b8 0x109a 0x5d 0x2d 0x12c 0x10ea 0x10a4 0x1086 0x5c 0x2d 0x190 0x10d6 0x1090 0x1072 0x5b 0x2d 0x2bc 0x10c2 0x107c 0x105e 0x5a 0x2d 0x3e8 0x1090 0x104a 0x102c 0x59 0x2d>;
 		battery,health_condition = <0x384 0x4b 0x4b0 0x41 0x5dc 0x37>;
 		battery,step_charging_type = <0x3e>;
@@ -17358,429 +17352,6 @@
 
 		ois {
 			product_name = <0x64>;
-		};
-	};
-
-	input_booster {
-		status = "okay";
-		compatible = "input_booster";
-		max_resource_count = "7";
-		#address-cells = <0x01>;
-		#size-cells = <0x00>;
-		ib_release_values = "0,0,0,0,0,0,0";
-
-		booster_key@1 {
-			input_booster,label = "key";
-			input_booster,type = <0x00>;
-			input_booster,head_time = <0x1f4>;
-			input_booster,tail_time = <0x1f4>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x156c60 0x00>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@5 {
-					resource,label = "int";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x00>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x00>;
-				};
-			};
-		};
-
-		booster_key@2 {
-			input_booster,label = "touchkey";
-			input_booster,type = <0x01>;
-			input_booster,head_time = <0x00>;
-			input_booster,tail_time = <0xc8>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x156c60 0x00>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@5 {
-					resource,label = "int";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x00>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x00>;
-				};
-			};
-		};
-
-		booster_key@3 {
-			input_booster,label = "touch";
-			input_booster,type = <0x02>;
-			input_booster,head_time = <0x82>;
-			input_booster,tail_time = <0x1f4>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0xc7f38 0x98580>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x12a570 0xeadd0>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0xc4c70 0xc4c70>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0xf78f0 0xf78f0>;
-				};
-
-				resource@5 {
-					resource,label = "int";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x01>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x01>;
-				};
-			};
-		};
-
-		booster_key@4 {
-			input_booster,label = "multitouch";
-			input_booster,type = <0x03>;
-			input_booster,head_time = <0x3e8>;
-			input_booster,tail_time = <0x1f4>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0xc7f38 0x98580>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x12a570 0xeadd0>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0xc4c70 0xc4c70>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0xf78f0 0xf78f0>;
-				};
-
-				resource@5 {
-					resource,label = "int";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x01>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x01>;
-				};
-			};
-		};
-
-		booster_key@5 {
-			input_booster,label = "keyboard";
-			input_booster,type = <0x04>;
-			input_booster,head_time = <0x82>;
-			input_booster,tail_time = <0x00>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x156c60 0x156c60>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0xc4c70 0xc4c70>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@5 {
-					resource,label = "int";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x01>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x01>;
-				};
-			};
-		};
-
-		booster_key@6 {
-			input_booster,label = "mouse";
-			input_booster,type = <0x05>;
-			input_booster,head_time = <0x82>;
-			input_booster,tail_time = <0x1f4>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x156c60 0x12a570>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0xc4c70 0xc4c70>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@5 {
-					resource,label = "int";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x01>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x01>;
-				};
-			};
-		};
-
-		booster_key@7 {
-			input_booster,label = "mouse_wheel";
-			input_booster,type = <0x06>;
-			input_booster,head_time = <0x82>;
-			input_booster,tail_time = <0x00>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x156c60 0x00>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0xc4c70 0x00>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@5 {
-					resource,label = "int";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x00>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x01>;
-				};
-			};
-		};
-
-		booster_key@8 {
-			input_booster,label = "pen_hover";
-			input_booster,type = <0x07>;
-			input_booster,head_time = <0x82>;
-			input_booster,tail_time = <0x1f4>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x156c60 0x12a570>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0xc4c70 0xc4c70>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@5 {
-					resource,label = "int";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x01>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x01>;
-				};
-			};
-		};
-
-		booster_key@9 {
-			input_booster,label = "pen";
-			input_booster,type = <0x08>;
-			input_booster,head_time = <0xc8>;
-			input_booster,tail_time = <0x258>;
-
-			inputbooster,resource {
-				compatible = "resource";
-
-				resource@1 {
-					resource,label = "cluster2";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@2 {
-					resource,label = "cluster1";
-					resource,value = <0x1702a0 0x12a570>;
-				};
-
-				resource@3 {
-					resource,label = "cluster0";
-					resource,value = <0xc4c70 0xc4c70>;
-				};
-
-				resource@4 {
-					resource,label = "mif";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@5 {
-					resource,label = "bimc";
-					resource,value = <0x00 0x00>;
-				};
-
-				resource@6 {
-					resource,label = "hmp";
-					resource,value = <0x01 0x01>;
-				};
-
-				resource@7 {
-					resource,label = "ucc";
-					resource,value = <0x01 0x01>;
-				};
-			};
 		};
 	};
 
