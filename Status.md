@@ -3098,7 +3098,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
 
-**State: Inative** <br>
+**State: Inactive** <br>
 **Codename: ginkgo** <br>
 **Maintainer: None** <br>
 **Contributors: [index986](https://github.com/index986/)** <br>
