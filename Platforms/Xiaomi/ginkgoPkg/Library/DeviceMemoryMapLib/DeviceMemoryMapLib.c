@@ -76,8 +76,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"PMIC ARB SPMI",      0x01C00000, 0x02800000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
   {"MCCC_MCCC_MSTR",     0x0447D000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
 
-
-
   // Terminator for MMU
   {"Terminator", 0, 0, 0, 0, 0, 0, 0}
 };

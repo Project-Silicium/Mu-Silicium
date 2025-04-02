@@ -36,7 +36,6 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableUefiSecAppDebugLogDump", 0x0},
   {"AllowNonPersistentVarsInRetail", 0x1},
 
-
   // Terminator
   {"Terminator", 0xFFFFFFFF}
 };
