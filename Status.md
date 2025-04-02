@@ -3101,7 +3101,7 @@
 **State: Inative** <br>
 **Codename: ginkgo** <br>
 **Maintainer: None** <br>
-**Contributors: None** <br>
+**Contributors: [index986](https://github.com/index986/)** <br>
 **Testers: None**
 
 ### UEFI Status
