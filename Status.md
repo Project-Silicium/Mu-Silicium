@@ -3098,9 +3098,9 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inative** <br>
 **Codename: ginkgo** <br>
-**Maintainer: [index986](https://github.com/index986/)** <br>
+**Maintainer: None** <br>
 **Contributors: None** <br>
 **Testers: None**
 
@@ -3116,8 +3116,8 @@
 | USB Power Delivery |                           | ✅    |
 | Mass Storage       | Needs Device mode         | ❌    |
 | SD Card            |                           | ❌    |
-| Windows Boot       |                           | ❔    |
-| Linux Boot         |                           | ❔    |
+| Windows Boot       |                           | ❌    |
+| Linux Boot         |                           | ❌    |
 
 
   </summary>
