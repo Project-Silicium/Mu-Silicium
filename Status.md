@@ -3094,10 +3094,36 @@
 
 </td></tr> </table>
 
+## Xiaomi Redmi Note 8
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: ginkgo** <br>
+**Maintainer: None** <br>
+**Contributors: [index986](https://github.com/index986/)** <br>
+**Testers: None**
+
+### UEFI Status
+
+| Feature            | Description               | State |
+|:-------------------|:--------------------------|:-----:|
+| Display            |                           | ✅    |
+| Internal Storage   |                           | ✅    |
+| Side Buttons       |                           | ✅    |
+| USB Host Mode      |                           | ✅    |
+| USB Device Mode    |                           | ❌    |
+| USB Power Delivery |                           | ✅    |
+| Mass Storage       | Needs Device mode         | ❌    |
+| SD Card            |                           | ❌    |
+| Windows Boot       |                           | ❌    |
+| Linux Boot         |                           | ❌    |
+
+
   </summary>
 </details>
+</td></tr> </table>
 
----
 
   </summary>
 </details>
