@@ -112,27 +112,15 @@
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B300
 
-  # CPU Freq
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|0|UINT32|0x0000B400
-
-  # CPU Caches
-  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|FALSE|BOOLEAN|0x0000B500
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE|BOOLEAN|0x0000B501
-  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0|UINT32|0x0000B502
-  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0|UINT32|0x0000B503
-  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0|UINT32|0x0000B504
-  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0|UINT32|0x0000B505
-
   # Memory Speed
-  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|0|UINT32|0x0000B600
-  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000B601
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000B400
 
   # Start USB Controllee
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B700
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B500
 
   # SD Card Init
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B800
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B600
 
   # Storage
-  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE|BOOLEAN|0x0000B900
-  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|FALSE|BOOLEAN|0x0000B901
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE|BOOLEAN|0x0000B700
+  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|FALSE|BOOLEAN|0x0000B701

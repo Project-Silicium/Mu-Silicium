@@ -11,11 +11,12 @@
 
 [Packages]
   ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
   ArmPlatformPkg/ArmPlatformPkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
 
 [LibraryClasses]
   UefiBootServicesTableLib
@@ -23,9 +24,9 @@
   MemoryAllocationLib
   MemoryMapHelperLib
   BaseMemoryLib
+  PrintLib
   DebugLib
   UefiLib
-  PrintLib
   FdtLib
   IoLib
 
@@ -33,6 +34,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
   gArmPlatformTokenSpaceGuid.PcdCoreCount
+  gArmPlatformTokenSpaceGuid.PcdClusterCount
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
@@ -45,9 +47,17 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize
 
 [Protocols]
   gEfiSmbiosProtocolGuid
+  gEfiDdrInfoProtocolGuid
   
 [Depex]
   gEfiSmbiosProtocolGuid

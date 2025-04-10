@@ -84,7 +84,7 @@ READ_LOCK_STATUS   = TRUE
 
   # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF E9830Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  INF SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI
   #INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf

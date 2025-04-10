@@ -49,6 +49,21 @@
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
+
+  # CPU Caches (Unoffical Values)
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x0
+
+  # Memory Speed & Type
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866    # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
+
+  # DDR Info (Unknown)
+  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x0
+  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x0
 
 [LibraryClasses]
   PlatformPrePiLib|E7885Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
@@ -56,8 +71,5 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|E7885Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  E7885Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc

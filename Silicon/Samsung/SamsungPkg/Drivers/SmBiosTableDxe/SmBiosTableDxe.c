@@ -21,13 +21,14 @@
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
-#include <Library/UefiLib.h>
 #include <Library/PrintLib.h>
+#include <Library/UefiLib.h>
 #include <Library/IoLib.h>
 
 #include <IndustryStandard/SmBios.h>
 
 #include <Protocol/Smbios.h>
+#include <Protocol/EfiDdrInfo.h>
 
 #include "DataDefinitions.h"
 
@@ -112,7 +113,6 @@ LogSmbiosData (
   EFI_SMBIOS_PROTOCOL     *mSmbiosProtocol;
   EFI_SMBIOS_HANDLE        SmbiosHandle;
   EFI_SMBIOS_TABLE_HEADER *Record;
-  UINTN                    StringSize;
   UINTN                    Size;
   CHAR8                   *Str;
 
@@ -130,7 +130,7 @@ LogSmbiosData (
   if (StringPack == NULL) {
     Size += 2;
   } else {
-    for (UINTN Index = 0; StringPack[Index] != NULL; Index++) {
+    for (UINTN Index = 0, StringSize = 0; StringPack[Index] != NULL; Index++) {
       StringSize = AsciiStrSize (StringPack[Index]);
       Size      += StringSize;
     }
@@ -156,7 +156,7 @@ LogSmbiosData (
   Str = ((CHAR8 *)Record) + Record->Length;
 
   // Update Size
-  for (UINTN Index = 0; StringPack[Index] != NULL; Index++) {
+  for (UINTN Index = 0, StringSize = 0; StringPack[Index] != NULL; Index++) {
     StringSize = AsciiStrSize (StringPack[Index]);
 
     CopyMem (Str, StringPack[Index], StringSize);
@@ -194,12 +194,12 @@ BIOSInfoUpdateSmbiosType0 ()
   ZeroMem (FirmwareVersion, 6);
 
   // Convert Firmware Vendor & Version String
-  AsciiSPrintUnicodeFormat (FirmwareVendor,  sizeof(FirmwareVendor),  FixedPcdGetPtr (PcdFirmwareVendor));
-  AsciiSPrintUnicodeFormat (FirmwareVersion, sizeof(FirmwareVersion), FixedPcdGetPtr (PcdFirmwareVersionString));
+  AsciiSPrintUnicodeFormat (FirmwareVendor,  sizeof (FirmwareVendor),  FixedPcdGetPtr (PcdFirmwareVendor));
+  AsciiSPrintUnicodeFormat (FirmwareVersion, sizeof (FirmwareVersion), FixedPcdGetPtr (PcdFirmwareVersionString));
 
   // Append Device Maintainer
   if (FixedPcdGetPtr (PcdDeviceMaintainer) != "Not Specified") {
-    AsciiSPrint (FirmwareVendor, sizeof(FirmwareVendor), "%a & %a", FirmwareVendor, FixedPcdGetPtr (PcdDeviceMaintainer));
+    AsciiSPrint (FirmwareVendor, sizeof (FirmwareVendor), "%a & %a", FirmwareVendor, FixedPcdGetPtr (PcdDeviceMaintainer));
   }
 
   // Update String Table
@@ -249,8 +249,8 @@ VOID
 ProcessorInfoUpdateSmbiosType4 ()
 {
   // Update Max & Current Speed
-  mProcessorInfoType4.MaxSpeed     = 2200;
-  mProcessorInfoType4.CurrentSpeed = 2200;
+  mProcessorInfoType4.MaxSpeed     = FixedPcdGet32 (PcdSmbiosMaxCpuFreq);
+  mProcessorInfoType4.CurrentSpeed = FixedPcdGet32 (PcdSmbiosMaxCpuFreq);
 
   // Update Core Count
   mProcessorInfoType4.CoreCount        = FixedPcdGet32 (PcdCoreCount);
@@ -273,17 +273,14 @@ CacheInfoUpdateSmbiosType7 ()
   EFI_SMBIOS_HANDLE SmbiosHandle;
 
   // Update Cache Size
-  mCacheInfoType7_L1IC.MaximumCacheSize = 0x40;
-  mCacheInfoType7_L1IC.InstalledSize    = 0x40;
-  mCacheInfoType7_L1DC.MaximumCacheSize = 0x40;
-  mCacheInfoType7_L1DC.InstalledSize    = 0x40;
-  mCacheInfoType7_L2C.MaximumCacheSize  = 0x800;
-  mCacheInfoType7_L2C.InstalledSize     = 0x800;
+  mCacheInfoType7_L1IC.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel1InstCacheSize);
+  mCacheInfoType7_L1IC.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel1InstCacheSize);
+  mCacheInfoType7_L1DC.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel1DataCacheSize);
+  mCacheInfoType7_L1DC.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel1DataCacheSize);
 
   // Update String Table
   mCacheInfoType7_L1ICStrings[0] = "L1 Instruction Cache";
   mCacheInfoType7_L1DCStrings[0] = "L1 Data Cache";
-  mCacheInfoType7_L2CStrings[0]  = "L2 Unified Cache";
 
   // Register SmBios Structures
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L1IC, mCacheInfoType7_L1ICStrings, NULL);
@@ -292,11 +289,35 @@ CacheInfoUpdateSmbiosType7 ()
   // Append SmBios Handle
   mProcessorInfoType4.L1CacheHandle = (UINT16)SmbiosHandle;
 
-  // Register SmBios Structure
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L2C, mCacheInfoType7_L2CStrings, &SmbiosHandle);
+  if (FixedPcdGet32 (PcdSmbiosLevel2CacheSize) != 0) {
+    // Update Cache Size
+    mCacheInfoType7_L2C.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel2CacheSize);
+    mCacheInfoType7_L2C.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel2CacheSize);
 
-  // Append SmBios Handle
-  mProcessorInfoType4.L2CacheHandle = (UINT16)SmbiosHandle;
+    // Update String Table
+    mCacheInfoType7_L2CStrings[0] = "L2 Unified Cache";
+
+    // Register SmBios Structure
+    LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L2C, mCacheInfoType7_L2CStrings, &SmbiosHandle);
+
+    // Append SmBios Handle
+    mProcessorInfoType4.L2CacheHandle = (UINT16)SmbiosHandle;
+  }
+
+  if (FixedPcdGet32 (PcdSmbiosLevel3CacheSize) != 0) {
+    // Update Cache Size
+    mCacheInfoType7_L3C.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel3CacheSize);
+    mCacheInfoType7_L3C.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel3CacheSize);
+
+    // Update String Table
+    mCacheInfoType7_L3CStrings[0] = "L3 Unified Cache";
+
+    // Register SmBios Structure
+    LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mCacheInfoType7_L3C, mCacheInfoType7_L3CStrings, &SmbiosHandle);
+
+    // Append SmBios Handle
+    mProcessorInfoType4.L3CacheHandle = (UINT16)SmbiosHandle;
+  }
 }
 
 VOID
@@ -335,11 +356,64 @@ PhyMemArrayInfoUpdateSmbiosType16 (IN UINT64 SystemMemorySize)
 }
 
 VOID
-MemDevInfoUpdateSmbiosType17 (IN UINT64 SystemMemorySize)
+MemDevInfoUpdateSmbiosType17 (
+  IN EFI_DDR_INFO_PROTOCOL *mDdrInfoProtocol,
+  IN UINT64                 SystemMemorySize)
 {
-  // Update DDR Freq
-  mMemDevInfoType17.Speed                      = 1866 * 2;
-  mMemDevInfoType17.ConfiguredMemoryClockSpeed = 1866;
+  // Locate DDR Info Protocol
+  if (mDdrInfoProtocol != NULL) {
+    DDR_DETAILS_TABLE Details;
+
+    // Get DDR Details
+    Details = mDdrInfoProtocol->GetDetails ();
+
+    // Set Memory Manufacturer
+    switch (Details.ManufacturerId) {
+      case MANUFACTURER_ID_SAMSUNG:
+        mMemDevInfoType17Strings[2] = "Samsung";
+        break;
+
+      case MANUFACTURER_ID_SK_HYNIX:
+        mMemDevInfoType17Strings[2] = "Hynix";
+        break;
+
+      case MANUFACTURER_ID_MICRON:
+        mMemDevInfoType17Strings[2] = "Micron";
+        break;
+
+      default:
+        DEBUG ((EFI_D_WARN, "Unknown Memory Manufacturer Found, Got %u\n", Details.ManufacturerId));
+        break;
+    }
+
+    // Set Memory Type
+    switch (Details.MemoryType) {
+      case MEMORY_TYPE_LPDDR4:
+      case MEMORY_TYPE_LPDDR4X:
+        mMemDevInfoType17.MemoryType = MemoryTypeLpddr4;
+        break;
+
+      case MEMORY_TYPE_LPDDR5:
+        mMemDevInfoType17.MemoryType = MemoryTypeLpddr5;
+        break;
+
+      default:
+        DEBUG ((EFI_D_WARN, "Unknown Memory Type Found, Got %u\n", Details.MemoryType));
+        break;
+    }
+
+    // Update Manufacturer ID
+    mMemDevInfoType17.ModuleManufacturerID                    = Details.ManufacturerId;
+    mMemDevInfoType17.MemorySubsystemControllerManufacturerID = Details.ManufacturerId;
+  }
+
+  // Use PCD Overwrite
+  if (mMemDevInfoType17.ConfiguredMemoryClockSpeed == 0) {
+    mMemDevInfoType17.Speed                      = FixedPcdGet32 (PcdSmbiosMemorySpeed) * 2;
+    mMemDevInfoType17.ConfiguredMemoryClockSpeed = FixedPcdGet32 (PcdSmbiosMemorySpeed);
+  } else if (mMemDevInfoType17.MemoryType == MemoryTypeUnknown) {
+    mMemDevInfoType17.MemoryType = FixedPcdGet32 (PcdSmbiosMemoryType);
+  }
 
   // Update Memory Size
   mMemDevInfoType17.Size = SystemMemorySize / 0x100000;
@@ -365,38 +439,47 @@ RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointerRegion;
-  UINT64                          MemorySize;
+  EFI_STATUS             Status           = EFI_SUCCESS;
+  EFI_DDR_INFO_PROTOCOL *mDdrInfoProtocol = NULL;
+  UINT64                 MemorySize       = 0;
 
-  // Set Default Size
-  MemorySize = 0;
-
-  // Locate FDT Pointer Memory Region
-  Status = LocateMemoryMapAreaByName ("FDT Pointer", &FdtPointerRegion);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate FDT Pointer Memory Region! Status = %r\n", Status));
+  // Locate DDR Info Protocol
+  Status = gBS->LocateProtocol (&gEfiDdrInfoProtocolGuid, NULL, (VOID *)&mDdrInfoProtocol);
+  if (!EFI_ERROR (Status)) {
+    // Get RAM Size
+    MemorySize = mDdrInfoProtocol->GetRamSize ();
   } else {
-    UINT64 NewMemorySize = 0;
+    ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointerRegion;
 
-    // Get FDT Location Address
-    CONST VOID *Fdt = (CONST VOID *)(UINTN)MmioRead32 (FdtPointerRegion.Address);
+    // Print Error
+    DEBUG ((EFI_D_ERROR, "Failed to Locate DDR Info Protocol! Status = %r\n", Status));
 
-    // Get Memory Nodes
-    Status = GetMemorySize (Fdt, &MemorySize);
-    if (!EFI_ERROR (Status)) {
-      // Fix Up Memory Size
-      while (MemorySize >= NewMemorySize) {
-        NewMemorySize += 0x40000000;
+    // Locate FDT Pointer Memory Region
+    Status = LocateMemoryMapAreaByName ("FDT Pointer", &FdtPointerRegion);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate FDT Pointer Memory Region! Status = %r\n", Status));
+    } else {
+      UINT64 NewMemorySize = 0;
+
+      // Get FDT Location Address
+      CONST VOID *Fdt = (CONST VOID *)(UINTN)MmioRead32 (FdtPointerRegion.Address);
+
+      // Get Memory Nodes
+      Status = GetMemorySize (Fdt, &MemorySize);
+      if (!EFI_ERROR (Status)) {
+        // Fix Up Memory Size
+        while (MemorySize >= NewMemorySize) {
+          NewMemorySize += 0x40000000;
+        }
+
+        // Set New Memory Size
+        MemorySize = NewMemorySize;
       }
-
-      // Set New Memory Size
-      MemorySize = NewMemorySize;
     }
   }
 
+  // Use PCD Overwrite
   if (!MemorySize) {
-    // Use PCD Overwrite
     MemorySize = FixedPcdGet64 (PcdSystemMemorySize);
   }
 
@@ -410,7 +493,7 @@ RegisterSmBiosTables (
   OemStringsInfoUpdateSmBiosType11   ();
   BiosLanguageInfoUpdateSmBiosType13 ();
   PhyMemArrayInfoUpdateSmbiosType16  (MemorySize);
-  MemDevInfoUpdateSmbiosType17       (MemorySize);
+  MemDevInfoUpdateSmbiosType17       (mDdrInfoProtocol, MemorySize);
   MemArrMapInfoUpdateSmbiosType19    (MemorySize);
 
   return EFI_SUCCESS;

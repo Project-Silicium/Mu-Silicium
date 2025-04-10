@@ -52,22 +52,22 @@
 !endif
 
   # CPU
-!if $(SOC_TYPE) == 1
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2800
-!else
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2400
-!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+!if $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2800
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2400
+!endif
 
   # CPU Cache
-  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
-  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x20
-  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
-  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x200
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200
 
-  # Memory Speed
-  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|2133
+  # Memory Speed & Type
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2133
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE

@@ -1,6 +1,6 @@
 #include <Library/PcdLib.h>
-#include <Library/DebugLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/DebugLib.h>
 
 #include <Protocol/EFIClock.h>
 
@@ -12,6 +12,7 @@ SetMaxFreq (
 {
   EFI_STATUS          Status;
   EFI_CLOCK_PROTOCOL *mClockProtocol;
+  BOOLEAN             EnableL3Overclock;
 
   // Locate Clock Protocol
   Status = gBS->LocateProtocol (&gEfiClockProtocolGuid, NULL, (VOID *)&mClockProtocol);
@@ -26,8 +27,15 @@ SetMaxFreq (
     return EFI_UNSUPPORTED;
   }
 
+  // Enable L3 Cache Overclock
+  if (FixedPcdGet32 (PcdSmbiosLevel3CacheSize) != 0) {
+    EnableL3Overclock = TRUE;
+  } else {
+    EnableL3Overclock = FALSE;
+  }
+
   // Set Max Freq for all CPU Clusters
-  for (UINT32 i = 0; i < FixedPcdGet32 (PcdClusterCount) + FixedPcdGetBool (PcdHasLevel3Cache); i++) {
+  for (UINT32 i = 0; i < FixedPcdGet32 (PcdClusterCount) + EnableL3Overclock; i++) {
     UINT32 PerfLevel;
     UINT32 HzFreq;
 
@@ -45,7 +53,7 @@ SetMaxFreq (
       ASSERT_EFI_ERROR (Status);
     }
 
-    DEBUG ((EFI_D_WARN, "CPU Cluster %u Now runs at %u Hz.\n", i, HzFreq));
+    DEBUG ((EFI_D_WARN, "CPU Cluster %u Now runs at %llu Hz.\n", i, HzFreq));
   }
 
   return EFI_SUCCESS;
