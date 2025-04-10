@@ -413,8 +413,5 @@ RegisterSmBiosTables (
   MemDevInfoUpdateSmbiosType17       (MemorySize);
   MemArrMapInfoUpdateSmbiosType19    (MemorySize);
 
-  // Loop >:D
-  while (TRUE);
-
   return EFI_SUCCESS;
 }

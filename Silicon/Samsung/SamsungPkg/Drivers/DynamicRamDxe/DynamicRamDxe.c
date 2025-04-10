@@ -1,181 +1,166 @@
-/**************************
- * Description:
-   Add RAM Partitions.
-   Read Ram Partitions Info by EFI_RAMPARTITION_PROTOCOL and add them.
+/**
+  Copyright (c) 2015-2018, 2020, The Linux Foundation. All rights reserved.
+  Copyright (c) 2022. Sunflower2333. All rights reserved.
 
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
 
- * Reference Codes
- * abl/edk2/QcomModulePkg/Library/BootLib/Board.c
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
 
- - License:
- * Copyright (c) 2015-2018, 2020, The Linux Foundation. All rights reserved.
- * Copyright (c) 2022. Sunflower2333. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are
- * met:
- * * Redistributions of source code must retain the above copyright
- *  notice, this list of conditions and the following disclaimer.
- *  * Redistributions in binary form must reproduce the above
- * copyright notice, this list of conditions and the following
- * disclaimer in the documentation and/or other materials provided
- *  with the distribution.
- *   * Neither the name of The Linux Foundation nor the names of its
- * contributors may be used to endorse or promote products derived
- * from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
- * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
- * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
- * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  - Redistributions in binary form must reproduce the above
+    copyright notice, this list of conditions and the following
+    disclaimer in the documentation and/or other materials provided
+    with the distribution.
 
-**************************/
+  - Neither the name of The Linux Foundation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
 
-#include <Library/DebugLib.h>
-#include <Library/PcdLib.h>
-#include <Library/UefiBootServicesTableLib.h>
-#include <Library/DxeServicesTableLib.h>
-#include <Library/ArmMmuLib.h>
-#include <Library/MemoryMapHelperLib.h>
-#include <Library/SortLib.h>
-#include <Library/IoLib.h>
-#include <Library/MemoryAllocationLib.h>
-#include <Library/DeviceMemoryMapLib.h>
+  THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+  ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+  BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+  OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+  IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+**/
 
 #include <libfdt.h>
 
-BOOLEAN AnyRamPartitionAdded = FALSE;
+#include <Library/PcdLib.h>
+#include <Library/DebugLib.h>
+#include <Library/DeviceMemoryMapLib.h>
+#include <Library/MemoryAllocationLib.h>
+#include <Library/UefiBootServicesTableLib.h>
+#include <Library/DxeServicesTableLib.h>
+#include <Library/MemoryMapHelperLib.h>
+#include <Library/ArmMmuLib.h>
+#include <Library/IoLib.h>
 
-typedef struct {
-  UINT64 Start;
-  UINT64 Size;
+//
+// DTB Memory Node
+//
+typedef struct memory_node {
+  UINT64 Address;
+  UINT64 Length;
 } MEMORY_NODE;
 
-MEMORY_NODE*
+EFI_STATUS
 GetMemoryNodes (
-  IN  CONST VOID *fdt,
-  OUT UINTN      *NodeCount)
+  IN  CONST VOID   *Fdt,
+  OUT MEMORY_NODE **MemoryNodes,
+  OUT UINTN        *NodeCount)
 {
-  MEMORY_NODE *Nodes     = NULL;
-  UINTN        Count     = 0;
-  INT32        Node      = 0;
-  INT32        AddrCells = 0;
-  INT32        SizeCells = 0;
+  MEMORY_NODE *Nodes       = NULL;
+  UINTN        Count       = 0;
+  INT32        Node        = 0;
+  INT32        AddrCells   = 0;
+  INT32        SizeCells   = 0;
   UINTN	       CurrentSize = 0;
-  INT32	       Len         = 0;
+  INT32	       Length      = 0;
 
   // Find Root FDT Node
-  Node = fdt_path_offset (fdt, "/");
+  Node = fdt_path_offset (Fdt, "/");
   if (Node < 0) {
-    DEBUG ((EFI_D_ERROR, "Failed to Find FDT Root Node! Status = %a\n", fdt_strerror (Node)));
-    return NULL;
+    DEBUG ((EFI_D_ERROR, "Failed to Find FDT Root Node! FdtStatus = %a\n", fdt_strerror (Node)));
+    return EFI_NOT_FOUND;
   }
 
   // Get Address & Size Cells
-  AddrCells = fdt_address_cells (fdt, Node);
-  SizeCells = fdt_size_cells    (fdt, Node);
+  AddrCells = fdt_address_cells (Fdt, Node);
+  SizeCells = fdt_size_cells    (Fdt, Node);
   if (AddrCells < 0 || SizeCells < 0) {
     DEBUG((EFI_D_ERROR, "Invalid Address & Size Cells!\n"));
-    return NULL;
+    return EFI_INVALID_PARAMETER;
   }
 
-  // Get all Subnodes
-  fdt_for_each_subnode (Node, fdt, Node) {
-    // Get Device Type
-    CONST CHAR8 *DeviceType = fdt_getprop (fdt, Node, "device_type", NULL);
+  // Go thru each Subnode
+  fdt_for_each_subnode (Node, Fdt, Node) {
+    // Get Current Node
+    CONST CHAR8 *CurrentNode = fdt_getprop (Fdt, Node, "device_type", NULL);
 
-    // Check for Memory Type
-    if (DeviceType && !AsciiStrCmp (DeviceType, "memory")) {
-      // Get Reg Properties
-      CONST UINT32 *Reg = fdt_getprop (fdt, Node, "reg", &Len);
-
-      if (!Reg) {
-        DEBUG ((EFI_D_ERROR, "Failed to Read 'reg' Property! Status = %a\n", fdt_strerror(Len)));
-        return NULL;
+    // Check for memory Node
+    if (CurrentNode && !AsciiStrCmp (CurrentNode, "memory")) {
+      // Get Address & Size Address
+      CONST UINT32 *Register = fdt_getprop (Fdt, Node, "reg", &Length);
+      if (!Register) {
+        DEBUG ((EFI_D_ERROR, "Failed to Read 'reg' Property! Status = %a\n", fdt_strerror (Length)));
+        return EFI_NOT_FOUND;
       }
 
       // Calculate Sizes
       INT32 RegSize = (AddrCells + SizeCells) * sizeof (UINT32);
-      INT32 NumRegs = Len / RegSize;
+      INT32 NumRegs = Length / RegSize;
       UINTN NewSize = (Count + NumRegs) * sizeof (MEMORY_NODE);
 
       // Reallocate Memory
       Nodes = ReallocatePool (CurrentSize, NewSize, Nodes);
 
+      // Update Current Size
       CurrentSize = NewSize;
 
-      // Get Start & Size Addresses
+      // Calculate Start & Size Addresses
       for (INT32 i = 0; i < NumRegs; i++) {
-        UINT64 Start = 0;
-        UINT64 Size  = 0;
+        UINT64 Address = 0;
+        UINT64 Length  = 0;
 
+        // Calculate Start Address
         for (INT32 j = 0; j < AddrCells; j++) {
-          Start = (Start << 32) | fdt32_to_cpu (Reg[i * (AddrCells + SizeCells) + j]);
+          Address = (Address << 32) | fdt32_to_cpu (Register[i * (AddrCells + SizeCells) + j]);
         }
 
+        // Calculate Size Address
         for (INT32 j = 0; j < SizeCells; j++) {
-          Size = (Size << 32) | fdt32_to_cpu (Reg[i * (AddrCells + SizeCells) + AddrCells + j]);
+          Length = (Length << 32) | fdt32_to_cpu (Register[i * (AddrCells + SizeCells) + AddrCells + j]);
         }
 
-        Nodes[Count].Start = Start;
-        Nodes[Count].Size  = Size;
+        // Add new Start & Size Address
+        Nodes[Count].Address = Address;
+        Nodes[Count].Length  = Length;
 
+        // Increase Count
         Count++;
       }
     }
   }
 
-  *NodeCount = Count;
+  // Pass Output
+  *NodeCount   = Count;
+  *MemoryNodes = Nodes;
 
-  return Nodes;
+  return EFI_SUCCESS;
 }
 
 VOID
 GetReversedMemoryMap (
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *ReversedMemoryMap,
-  UINTN                            ItemCount)
+  OUT ARM_MEMORY_REGION_DESCRIPTOR_EX *ReversedMemoryMap,
+  IN  UINTN                            ItemCount)
 {
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryMap;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX  Temp;
-  UINTN                            Start;
-  UINTN                            End;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryMap = GetDeviceMemoryMap ();
+  ARM_MEMORY_REGION_DESCRIPTOR_EX  Temp      = {0};
+  UINTN                            Start     = 0;
+  UINTN                            End       = ItemCount - 1;
 
-  MemoryMap = GetDeviceMemoryMap ();
-  Start     = 0;
-  End       = ItemCount - 1;
-
+  // Pass Memory Map
   for (UINTN i = 0; i < ItemCount; i++) {
     ReversedMemoryMap[i] = MemoryMap[i];
   }
 
+  // Rearange Memory Map
   while (Start < End) {
     Temp = ReversedMemoryMap[Start];
 
+    // Set new Start & End Address
     ReversedMemoryMap[Start] = ReversedMemoryMap[End];
     ReversedMemoryMap[End] = Temp;
 
     Start++;
     End--;
-  }
-}
-
-VOID
-ReverseMemoryNodes (
-  MEMORY_NODE *Nodes,
-  UINTN        NodeCount)
-{
-  for (UINTN i = 0; i < NodeCount / 2; i++) {
-    MEMORY_NODE Temp = Nodes[i];
-
-    Nodes[i] = Nodes[NodeCount - 1 - i];
-    Nodes[NodeCount - 1 - i] = Temp;
   }
 }
 
@@ -210,8 +195,6 @@ AddRamPartition (
   }
 
   DEBUG ((EFI_D_WARN, "Successfully Added RAM Parition: 0x%08llx 0x%08llx\n", Base, Length));
-
-  AnyRamPartitionAdded = TRUE;
 }
 
 EFI_STATUS
@@ -220,29 +203,34 @@ AddRamPartitions (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointer;
-  MEMORY_NODE                    *Nodes;
-  UINTN                           NodeCount;
+  EFI_STATUS                       Status;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX  FdtPointerRegion;
+  MEMORY_NODE                     *Nodes;
+  UINTN                            NodeCount;
 
   // Get FDT Pointer
-  Status = LocateMemoryMapAreaByName ("FDT Pointer", &FdtPointer);
+  Status = LocateMemoryMapAreaByName ("FDT Pointer", &FdtPointerRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_WARN, "No FDT Pointer Available, Assuming Manual RAM Partitions were Added.\n"));
     return EFI_NOT_FOUND;
   }
 
   // Get FDT Base Address
-  CONST VOID *FDT = (CONST VOID*)(UINTN)MmioRead32 (FdtPointer.Address);
-
-  // Print FDT Location Address
-  DEBUG ((EFI_D_WARN, "FDT Location Address = 0x%llx\n", MmioRead32 (FdtPointer.Address)));
+  CONST VOID *Fdt = (CONST VOID*)(UINTN)MmioRead32 (FdtPointerRegion.Address);
 
   // Get all Memory Nodes
-  Nodes = GetMemoryNodes (FDT, &NodeCount);
+  Status = GetMemoryNodes (Fdt, &Nodes, &NodeCount);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
 
   // Reserve all Memory Nodes
-  ReverseMemoryNodes (Nodes, NodeCount);
+  for (UINTN i = 0; i < NodeCount / 2; i++) {
+    MEMORY_NODE Temp = Nodes[i];
+
+    Nodes[i] = Nodes[NodeCount - 1 - i];
+    Nodes[NodeCount - 1 - i] = Temp;
+  }
 
   // Add all RAM Partitions
   for (UINTN i = 0; i < NodeCount; i++) {
@@ -250,8 +238,9 @@ AddRamPartitions (
     CHAR8                            *FirstMappedItemName = MemoryDescriptorEx[0].Name;
     BOOLEAN                           IsMapped            = FALSE;
 
+    // Check if RAM is already Mapped
     while (MemoryDescriptorEx->Length != 0) {
-      if (MemoryDescriptorEx->Address + MemoryDescriptorEx->Length >= Nodes[i].Start + Nodes[i].Size) {
+      if (MemoryDescriptorEx->Address + MemoryDescriptorEx->Length >= Nodes[i].Address + Nodes[i].Length) {
         IsMapped = TRUE;
         break;
       }
@@ -259,11 +248,12 @@ AddRamPartitions (
       MemoryDescriptorEx++;
     }
 
+    // Map RAM Partition
     if (!IsMapped) {
-      // Get Memory Map Length
-      ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryMap    = GetDeviceMemoryMap();
+      ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryMap    = GetDeviceMemoryMap ();
       UINTN                            MemMapLength = 1;
 
+      // Skip Mapped Memory
       while (MemoryMap->Length != 0) {
         MemMapLength++;
         MemoryMap++;
@@ -288,23 +278,18 @@ AddRamPartitions (
         }
       }
 
-      // Add RAM Partitions
-      if (LastRAMPartition.Address + LastRAMPartition.Length > Nodes[i].Start) {
+      if (LastRAMPartition.Address + LastRAMPartition.Length > Nodes[i].Address) {
         // Calculate Start & Size Address
         UINT64 NewStartAddr = LastRAMPartition.Address + LastRAMPartition.Length;
-        UINT64 NewSize = (Nodes[i].Start + Nodes[i].Size) - NewStartAddr;
+        UINT64 NewSize = (Nodes[i].Address + Nodes[i].Length) - NewStartAddr;
 
         // Add RAM Partition
         AddRamPartition (NewStartAddr, NewSize);
       } else {
-        AddRamPartition (Nodes[i].Start, Nodes[i].Size);
+        // Add RAM Partitions
+        AddRamPartition (Nodes[i].Address, Nodes[i].Length);
       }
     }
-  }
-
-  if (!AnyRamPartitionAdded) {
-    DEBUG ((EFI_D_ERROR, "No RAM Partitions were Added! Stoping UEFI now.\n"));
-    ASSERT_EFI_ERROR (EFI_NOT_READY);
   }
 
   return EFI_SUCCESS;

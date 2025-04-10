@@ -38,6 +38,7 @@ class CommonPlatform ():
         "Mu_Basecore",
         "Silicon/Arm/Mu_Tiano",
         "Silicon/Qualcomm",
+        "Silicon/Samsung",
         "Silicon/Silicium",
         "Silicium-ACPI/Platforms/Samsung",
         "Silicium-ACPI/SoCs/Qualcomm"

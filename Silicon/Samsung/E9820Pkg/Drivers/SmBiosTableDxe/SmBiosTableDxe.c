@@ -277,8 +277,8 @@ CacheInfoUpdateSmbiosType7 ()
   mCacheInfoType7_L1IC.InstalledSize    = 0x20;
   mCacheInfoType7_L1DC.MaximumCacheSize = 0x20;
   mCacheInfoType7_L1DC.InstalledSize    = 0x20;
-  mCacheInfoType7_L2C.MaximumCacheSize  = 0x200;
-  mCacheInfoType7_L2C.InstalledSize     = 0x200;
+  mCacheInfoType7_L2C.MaximumCacheSize  = 0x80;
+  mCacheInfoType7_L2C.InstalledSize     = 0x80;
   mCacheInfoType7_L3C.MaximumCacheSize  = 0x400;
   mCacheInfoType7_L3C.InstalledSize     = 0x400;
 
@@ -421,9 +421,6 @@ RegisterSmBiosTables (
   PhyMemArrayInfoUpdateSmbiosType16  (MemorySize);
   MemDevInfoUpdateSmbiosType17       (MemorySize);
   MemArrMapInfoUpdateSmbiosType19    (MemorySize);
-
-  // Loop >:D
-  while (TRUE);
 
   return EFI_SUCCESS;
 }

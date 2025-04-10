@@ -589,37 +589,37 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
-| Feature              | Description         | State |
-|:---------------------|:--------------------|:-----:|
-| Internal Storage     | Needs Special Setup | ✅    |
-| SD Card              |                     | ❌    |
-| Side Buttons         |                     | ❌    |
-| Proximity Sensor     |                     | ❌    |
-| Light Sensor         |                     | ❌    |
-| Accelerometer Sensor |                     | ❌    |
-| Compass Sensor       |                     | ❌    |
-| Gyroscope Sensor     |                     | ❌    |
-| Fingerprint Sensor   |                     | ❌    |
-| Hall Sensor          |                     | ❌    |
-| Temperature Sensor   |                     | ❌    |
-| Battery              |                     | ❌    |
-| USB Host Mode        |                     | ❌    |
-| USB Device Mode      |                     | ❌    |
-| USB Power Delivery   |                     | ❌    |
-| Charging             |                     | ❌    |
-| WLAN                 |                     | ❌    |
-| CPU                  |                     | ✅    |
-| Touchscreen          |                     | ❌    |
-| Bluetooth            |                     | ❌    |
-| GPS                  |                     | ❌    |
-| Speakers             |                     | ❌    |
-| Microphone           |                     | ❌    |
-| GPU                  |                     | ❌    |
-| Camera               |                     | ❌    |
-| Mobile Data          |                     | ❌    |
-| Display              |                     | ✅    |
-| Vibration            |                     | ❌    |
-| S Pen                |                     | ❌    |
+| Feature              | Description                                                                                                       | State |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
+| Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
+| SD Card              |                                                                                                                   | ❌    |
+| Side Buttons         |                                                                                                                   | ❌    |
+| Proximity Sensor     |                                                                                                                   | ❌    |
+| Light Sensor         |                                                                                                                   | ❌    |
+| Accelerometer Sensor |                                                                                                                   | ❌    |
+| Compass Sensor       |                                                                                                                   | ❌    |
+| Gyroscope Sensor     |                                                                                                                   | ❌    |
+| Fingerprint Sensor   |                                                                                                                   | ❌    |
+| Hall Sensor          |                                                                                                                   | ❌    |
+| Temperature Sensor   |                                                                                                                   | ❌    |
+| Battery              |                                                                                                                   | ❌    |
+| USB Host Mode        |                                                                                                                   | ❌    |
+| USB Device Mode      |                                                                                                                   | ❌    |
+| USB Power Delivery   |                                                                                                                   | ❌    |
+| Charging             |                                                                                                                   | ❌    |
+| WLAN                 |                                                                                                                   | ❌    |
+| CPU                  |                                                                                                                   | ✅    |
+| Touchscreen          |                                                                                                                   | ❌    |
+| Bluetooth            |                                                                                                                   | ❌    |
+| GPS                  |                                                                                                                   | ❌    |
+| Speakers             |                                                                                                                   | ❌    |
+| Microphone           |                                                                                                                   | ❌    |
+| GPU                  |                                                                                                                   | ❌    |
+| Camera               |                                                                                                                   | ❌    |
+| Mobile Data          |                                                                                                                   | ❌    |
+| Display              |                                                                                                                   | ✅    |
+| Vibration            |                                                                                                                   | ❌    |
+| S Pen                |                                                                                                                   | ❌    |
 
 </td></tr>
 </table>
@@ -655,37 +655,37 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
-| Feature              | Description               | State |
-|:---------------------|:--------------------------|:-----:|
-| Internal Storage     | Needs Special Setup       | ✅    |
-| SD Card              |                           | ❌    |
-| Side Buttons         |                           | ❌    |
-| Proximity Sensor     |                           | ❌    |
-| Light Sensor         |                           | ❌    |
-| Accelerometer Sensor |                           | ❌    |
-| Compass Sensor       |                           | ❌    |
-| Gyroscope Sensor     |                           | ❌    |
-| Fingerprint Sensor   |                           | ❌    |
-| Hall Sensor          |                           | ❌    |
-| Temperature Sensor   |                           | ❌    |
-| Battery              |                           | ❌    |
-| USB Host Mode        |                           | ❌    |
-| USB Device Mode      |                           | ❌    |
-| USB Power Delivery   |                           | ❌    |
-| Charging             |                           | ❌    |
-| WLAN                 |                           | ❌    |
-| CPU                  | One Core only             | ⚠️    |
-| Touchscreen          |                           | ❌    |
-| Bluetooth            |                           | ❌    |
-| GPS                  |                           | ❌    |
-| Speakers             |                           | ❌    |
-| Microphone           |                           | ❌    |
-| GPU                  |                           | ❌    |
-| Camera               |                           | ❌    |
-| Mobile Data          |                           | ❌    |
-| Display              | Wrong Display Oriantation | ⚠️    |
-| Vibration            |                           | ❌    |
-| S Pen                |                           | ❌    |
+| Feature              | Description                                                                                                       | State |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
+| Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
+| SD Card              |                                                                                                                   | ❌    |
+| Side Buttons         |                                                                                                                   | ❌    |
+| Proximity Sensor     |                                                                                                                   | ❌    |
+| Light Sensor         |                                                                                                                   | ❌    |
+| Accelerometer Sensor |                                                                                                                   | ❌    |
+| Compass Sensor       |                                                                                                                   | ❌    |
+| Gyroscope Sensor     |                                                                                                                   | ❌    |
+| Fingerprint Sensor   |                                                                                                                   | ❌    |
+| Hall Sensor          |                                                                                                                   | ❌    |
+| Temperature Sensor   |                                                                                                                   | ❌    |
+| Battery              |                                                                                                                   | ❌    |
+| USB Host Mode        |                                                                                                                   | ❌    |
+| USB Device Mode      |                                                                                                                   | ❌    |
+| USB Power Delivery   |                                                                                                                   | ❌    |
+| Charging             |                                                                                                                   | ❌    |
+| WLAN                 |                                                                                                                   | ❌    |
+| CPU                  | One Core Only                                                                                                     | ⚠️    |
+| Touchscreen          |                                                                                                                   | ❌    |
+| Bluetooth            |                                                                                                                   | ❌    |
+| GPS                  |                                                                                                                   | ❌    |
+| Speakers             |                                                                                                                   | ❌    |
+| Microphone           |                                                                                                                   | ❌    |
+| GPU                  |                                                                                                                   | ❌    |
+| Camera               |                                                                                                                   | ❌    |
+| Mobile Data          |                                                                                                                   | ❌    |
+| Display              | Wrong Orientation                                                                                                 | ⚠️    |
+| Vibration            |                                                                                                                   | ❌    |
+| S Pen                |                                                                                                                   | ❌    |
 
 </td></tr>
 </table>
@@ -1970,30 +1970,6 @@
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
-## Xiaomi Mi 8
-
-<img align="right" src="Resources/Pictures/Xiaomi-Mi-8.png" width="500" alt="Preview">
-
-**State: Active** <br>
-**Codename: dipper** <br>
-**Maintainers: [index986](https://github.com/index986/)** <br>
-**Contributors: [index986](https://github.com/index986/)** <br>
-**Testers: Stas**
-
-### UEFI Status
-
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
-| USB Power Delivery |                   | ❌    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| Windows Boot       |                   | ❌    |
-| Linux Boot         |                   | ❌    |
-
 ## Xiaomi Mi 8 Pro
 
 <img align="right" src="Resources/Pictures/Xiaomi-Mi-8-Pro.png" width="500" alt="Preview">
@@ -3118,10 +3094,36 @@
 
 </td></tr> </table>
 
+## Xiaomi Redmi Note 8
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-8.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: ginkgo** <br>
+**Maintainer: None** <br>
+**Contributors: [index986](https://github.com/index986/)** <br>
+**Testers: None**
+
+### UEFI Status
+
+| Feature            | Description               | State |
+|:-------------------|:--------------------------|:-----:|
+| Display            |                           | ✅    |
+| Internal Storage   |                           | ✅    |
+| Side Buttons       |                           | ✅    |
+| USB Host Mode      |                           | ✅    |
+| USB Device Mode    |                           | ❌    |
+| USB Power Delivery |                           | ✅    |
+| Mass Storage       | Needs Device mode         | ❌    |
+| SD Card            |                           | ❌    |
+| Windows Boot       |                           | ❌    |
+| Linux Boot         |                           | ❌    |
+
+
   </summary>
 </details>
+</td></tr> </table>
 
----
 
   </summary>
 </details>

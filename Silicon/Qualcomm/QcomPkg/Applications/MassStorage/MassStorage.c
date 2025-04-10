@@ -1,60 +1,89 @@
-#include <Library/DebugLib.h>
 #include <Library/PcdLib.h>
+#include <Library/DebugLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
-#include <Library/UefiLib.h>
 #include <Library/BootGraphicsLib.h>
 #include <Library/BootGraphics.h>
+#include <Library/UefiLib.h>
 
 #include <Protocol/EFIUsbMsd.h>
 #include <Protocol/EFIChargerEx.h>
 
 #include "MassStorage.h"
 
+//
 // Global Protocols
-STATIC EFI_USB_MSD_PROTOCOL         *mUsbMsdProtocol;
-STATIC EFI_CHARGER_EX_PROTOCOL      *mChargerExProtocol;
-STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mConsoleOutHandle;
+//
+STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGopProtocol;
 
 VOID
-PrintGUI (IN CHAR16 *Message)
+PrintGUI (
+  IN CHAR16  *Message,
+  IN UINT8    MessageArg,
+  IN BOOLEAN  UseMessageArg)
 {
-  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
+  EFI_STATUS                    Status = EFI_SUCCESS;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color  = {0xFF, 0xFF, 0xFF, 0xFF};
 
-  // Set Message Color
-  Color.Blue = Color.Green = Color.Red = Color.Reserved = 0xFF;
+  // Locate GOP Protocol
+  if (mGopProtocol == NULL) {
+    Status = gBS->LocateProtocol (&gEfiGraphicsOutputProtocolGuid, NULL, (VOID *)&mGopProtocol);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate Console Out Protocol! Status = %r\n", Status));
+      return;
+    }
+  }
 
-  // Set Position of Message
-  UINTN XPos = (mConsoleOutHandle->Mode->Info->HorizontalResolution - StrLen (Message) * EFI_GLYPH_WIDTH) / 2;
-  UINTN YPos = (mConsoleOutHandle->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
+  // Set Position X & Y Position
+  UINTN XPos = (mGopProtocol->Mode->Info->HorizontalResolution - StrLen (Message) * EFI_GLYPH_WIDTH) / 2;
+  UINTN YPos = (mGopProtocol->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
 
   // Print New Message
-  PrintXY (XPos, YPos, &Color, NULL, Message);
+  if (UseMessageArg) {
+    PrintXY (XPos, YPos, &Color, NULL, Message, MessageArg);
+  } else {
+    PrintXY (XPos, YPos, &Color, NULL, Message);
+  }
 }
 
 EFI_STATUS
-StartMassStorage ()
+StartMassStorage (
+  IN EFI_USB_MSD_PROTOCOL    *mUsbMsdProtocol,
+  IN EFI_CHARGER_EX_PROTOCOL *mChargerExProtocol,
+  IN EFI_BLOCK_IO_PROTOCOL   *mDiskIoProtocol)
 {
   EFI_STATUS Status        = EFI_SUCCESS;
   BOOLEAN    Connected     = FALSE;
-  UINTN      CurrentSplash = 0;
+  UINT8      CurrentSplash = 0;
+
+  // Reset Input Protocol
+  gST->ConIn->Reset (gST->ConIn, TRUE);
+
+  // Assing DiskIO Protocol
+  Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, mDiskIoProtocol, 0);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Assing DiskIO Protocol! Status = %r\n", Status));
+    return Status;
+  }
 
   // Start Mass Storage
   Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to set USB Values! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to set USB Attributes! Status = %r\n", Status));
     return Status;
   }
 
   if (mChargerExProtocol == NULL) {
-    // Display Disconnected Splash
-    DisplayBootGraphic (BG_MSD_DISCONNECTED);
-
-    // Print Exit Message
-    PrintGUI (L"Press Volume Up Button to Exit Mass Storage.");
+    // Display Unknown USB State Splash
+    DisplayBootGraphic (BG_MSD_UNKNOWN_STATE);
   }
 
+  // Print Exit Message
+  PrintGUI (L"Press Volume Up Button to Exit Mass Storage.", 0, FALSE);
+
   do {
+    EFI_INPUT_KEY Key;
+
     // Execute Event Handler
     mUsbMsdProtocol->EventHandler (mUsbMsdProtocol);
 
@@ -70,8 +99,8 @@ StartMassStorage ()
         // Set Current Splash Value
         CurrentSplash = BG_MSD_CONNECTED;
 
-        // New Message
-        PrintGUI (L"Disconnect your Device to Enable Exit Function.");
+        // Print Exit Message
+        PrintGUI (L"Press Volume Up Button to Exit Mass Storage.", 0, FALSE);
       } else if (!Connected && CurrentSplash != BG_MSD_DISCONNECTED) {
         // Display Disconnected Splash
         DisplayBootGraphic (BG_MSD_DISCONNECTED);
@@ -79,124 +108,29 @@ StartMassStorage ()
         // Set Current Splash Value
         CurrentSplash = BG_MSD_DISCONNECTED;
 
-        // New Message
-        PrintGUI (L"Press Volume Up Button to Exit Mass Storage.");
+        // Print Exit Message
+        PrintGUI (L"Press Volume Up Button to Exit Mass Storage.", 0, FALSE);
       }
+    }
 
-      // Display Confirm Message
-      if (!Connected) {
-        EFI_INPUT_KEY Key;
+    // Get current Key
+    gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
 
-        // Get current Key
-        gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
+    // Leave Loop
+    if (Key.ScanCode == SCAN_UP) {
+      // Stop Mass Storage
+      mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
 
-        // Leave Loop
-        if (Key.ScanCode == SCAN_UP) {
-          // Stop Mass Storage
-          mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
+      // Remove Assigned BLK IO Protocol
+      mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, 0);
 
-          // Remove Assigned BLK IO Protocol
-          mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, 0);
-
-          // Exit Application
-          break;
-        }
-      }
-    } else {
-      EFI_INPUT_KEY Key;
-
-      // Get current Key
-      gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
-
-      // Leave Loop
-      if (Key.ScanCode == SCAN_UP) {
-        // Stop Mass Storage
-        mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
-
-        // Remove Assigned BLK IO Protocol
-        mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, 0);
-
-        // Exit Application
-        break;
-      }
+      // Exit Application
+      break;
     }
   } while (TRUE);
 
-  return EFI_SUCCESS;
-}
-
-EFI_STATUS
-PrepareMassStorage ()
-{
-  EFI_STATUS                Status            = EFI_SUCCESS;
-  EFI_DEVICE_PATH_PROTOCOL *UFSDevicePath     = (EFI_DEVICE_PATH_PROTOCOL *)&UFSLun0DevicePath;
-  EFI_DEVICE_PATH_PROTOCOL *eMMCDevicePath    = (EFI_DEVICE_PATH_PROTOCOL *)&eMMCUserPartitionDevicePath;
-  EFI_BLOCK_IO_PROTOCOL    *eMMCBlkIoProtocol = NULL;
-  EFI_BLOCK_IO_PROTOCOL    *UFSBlkIoProtocol  = NULL;
-  EFI_HANDLE                UFSHandle         = NULL;
-  EFI_HANDLE                eMMCHandle        = NULL;
-
-  // Locate USB Mass Storage Protocol
-  Status = gBS->LocateProtocol (&gEfiUsbMsdProtocolGuid, NULL, (VOID *)&mUsbMsdProtocol);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate USB Mass Storage Protocol! Status = %r\n", Status));
-    return Status;
-  }
-
-  // Locate Charger Protocol
-  Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID *)&mChargerExProtocol);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Charger Ex Protocol! Status = %r\n", Status));
-  }
-
-  // Locate Console Out Protocol
-  Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&mConsoleOutHandle);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Console Out Protocol! Status = %r\n", Status));
-    return Status;
-  }
-
-  // Locate UFS & eMMC Device Path
-  Status  = gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &UFSDevicePath,  &UFSHandle);
-  Status |= gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &eMMCDevicePath, &eMMCHandle);
-  if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
-    DEBUG ((EFI_D_ERROR, "Failed to Get Device Path of UFS/eMMC! Status = %r\n", Status));
-    return EFI_NOT_FOUND;
-  }
-
-  // Open & Assign UFS BLK IO Protocol
-  if (UFSHandle != NULL) {
-    // Get Protocol
-    Status = gBS->OpenProtocol (UFSHandle, &gEfiBlockIoProtocolGuid, (VOID *)&UFSBlkIoProtocol, NULL, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Open BLK IO Protocol of UFS! Status = %r\n", Status));
-      return Status;
-    }
-
-    // Assign Protocol
-    Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, UFSBlkIoProtocol, 0);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Assign UFS BLK IO Protocol! Status = %r\n", Status));
-      return Status;
-    }
-  }
-  
-  // Open & Assign eMMC BLK IO Protocol
-  if (eMMCHandle != NULL) {
-    // Get Protocol
-    Status = gBS->OpenProtocol (eMMCHandle, &gEfiBlockIoProtocolGuid, (VOID *)&eMMCBlkIoProtocol, NULL, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Open BLK IO Protocol of eMMC! Status = %r\n", Status));
-      return Status;
-    }
-
-    // Assign Protocol
-    Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, eMMCBlkIoProtocol, 0);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Assign eMMC BLK IO Protocol! Status = %r\n", Status));
-      return Status;
-    }
-  }
+  // CLear Message
+  PrintGUI (L"                                            ", 0, FALSE);
 
   return EFI_SUCCESS;
 }
@@ -207,60 +141,157 @@ InitMassStorage (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS Status;
+  EFI_STATUS               Status;
+  EFI_USB_MSD_PROTOCOL    *mUsbMsdProtocol;
+  EFI_CHARGER_EX_PROTOCOL *mChargerExProtocol;
+  EFI_HANDLE               PartitionTableHandle;
 
   // Check for Sony & Google
   if (FixedPcdGetPtr (PcdSmbiosSystemManufacturer) == "Sony Group Corporation" || FixedPcdGetPtr (PcdSmbiosSystemManufacturer) == "Google LLC") {
     return EFI_UNSUPPORTED;
   }
 
-  // Reset Input Protocol
-  gST->ConIn->Reset (gST->ConIn, TRUE);
-
-  // Display Warning Message
-  DisplayBootGraphic (BG_MSD_WARNING);
-
-  // Check For Key Press
-  do {
-    EFI_INPUT_KEY Key;
-
-    // Get Current Key Press
-    gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
-
-    // Leave Loop
-    if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
-      break;
-    }
-
-    // Exit Mass Storage
-    if (Key.ScanCode == SCAN_UP) {
-      return EFI_ABORTED;
-    }
-  } while (TRUE);
+  // Locate USB Mass Storage Protocol
+  Status = gBS->LocateProtocol (&gEfiUsbMsdProtocolGuid, NULL, (VOID *)&mUsbMsdProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate USB Mass Storage Protocol! Status = %r\n", Status));
+    return Status;
+  }
 
   // Disable WatchDog Timer
   gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
 
-  // Prepare Mass Storage
-  Status = PrepareMassStorage ();
+  // Locate Charger Protocol
+  Status = gBS->LocateProtocol (&gChargerExProtocolGuid, NULL, (VOID *)&mChargerExProtocol);
   if (EFI_ERROR (Status)) {
-    goto error;
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Charger Ex Protocol! Status = %r\n", Status));
   }
 
-  // Start Mass Storage
-  Status = StartMassStorage ();
-  if (EFI_ERROR (Status)) {
-    goto error;
+  if (FixedPcdGetBool (PcdDeviceHasEmmc)) {
+    EFI_DEVICE_PATH_PROTOCOL *EmmcUserDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&EmmcUserDevicePath;
+    EFI_BLOCK_IO_PROTOCOL    *EmmcDiskIoProtocol = NULL;
+
+    // Locate eMMC User Device Path
+    Status = gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &EmmcUserDevicePath, &PartitionTableHandle);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate eMMC User Device Path! Status = %r\n", Status));
+      return Status;
+    }
+
+    // Locate eMMC User DiskIO Protocol
+    Status = gBS->OpenProtocol (PartitionTableHandle, &gEfiBlockIoProtocolGuid, (VOID *)&EmmcDiskIoProtocol, NULL, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate eMMC User DiskIO Protocol! Status = %r\n", Status));
+      return Status;
+    }
+
+    // Start Mass Storage
+    Status = StartMassStorage (mUsbMsdProtocol, mChargerExProtocol, EmmcDiskIoProtocol);
+    if (EFI_ERROR (Status)) {
+      return Status;
+    }
+  } else {
+    UFS_LUN_DATA UfsLunData[8] = {0};
+    UINT8        CurrentLun    = 0;
+
+    // Set UFS LUN Device Paths
+    UfsLunData[0].LunDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun0DevicePath;
+    UfsLunData[1].LunDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun1DevicePath;
+    UfsLunData[2].LunDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun2DevicePath;
+    UfsLunData[3].LunDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun3DevicePath;
+    UfsLunData[4].LunDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun4DevicePath;
+    UfsLunData[5].LunDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun5DevicePath;
+    UfsLunData[6].LunDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun6DevicePath;
+    UfsLunData[7].LunDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun7DevicePath;
+
+    // Locate UFS LUN Device Paths
+    for (UINT8 i = 0; i < 8; i++) {
+      gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &UfsLunData[i].LunDevicePath, &PartitionTableHandle);
+
+      // Get UFS LUN iskIO Protocol
+      if (PartitionTableHandle == NULL) {
+        DEBUG ((EFI_D_ERROR, "Failed to Locate UFS LUN %u Device Path! Status = %r\n", i, Status));
+      } else {
+        Status = gBS->OpenProtocol (PartitionTableHandle, &gEfiBlockIoProtocolGuid, (VOID *)&UfsLunData[i].LunDiskIoProtocol, NULL, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
+        if (EFI_ERROR (Status)) {
+          DEBUG ((EFI_D_ERROR, "Failed to Locate DiskIO Protocol of UFS LUN %u! Status = %r\n", i, Status));
+        }
+      }
+    }
+
+    // Check for LUN0 & LUN1
+    if (UfsLunData[0].LunDiskIoProtocol == NULL) {
+      return Status;
+    } else if (UfsLunData[1].LunDiskIoProtocol != NULL) {
+  LunMenu:
+      // Display Select LUN Splash
+      DisplayBootGraphic (BG_MSD_SELECT_LUN);
+
+      // Reset Input Protocol
+      gST->ConIn->Reset (gST->ConIn, TRUE);
+
+      do {
+        EFI_INPUT_KEY Key;
+
+        // Get Current Key Press
+        gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
+
+        // Exit to Mass Storage
+        if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
+          break;
+        }
+
+        // Increase Number
+        if (Key.ScanCode == SCAN_UP) {
+          if (CurrentLun < 7 && UfsLunData[CurrentLun + 1].LunDiskIoProtocol != NULL) {
+            CurrentLun++;
+          }
+        }
+
+        // Decrese Number
+        if (Key.ScanCode == SCAN_DOWN) {
+          if (CurrentLun > 0 && UfsLunData[CurrentLun - 1].LunDiskIoProtocol != NULL) {
+            CurrentLun--;
+          } else if (CurrentLun == 0) {
+            PrintGUI (L"Continue Boot", 0, FALSE);
+
+            do {
+              EFI_INPUT_KEY Key;
+
+              // Get Current Key Press
+              gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
+
+              // Exit Mass Storage
+              if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
+                goto exit;
+              }
+
+              // Go Back to LUN Select
+              if (Key.ScanCode == SCAN_UP) {
+                PrintGUI (L"             ", 0, FALSE);
+                break;
+              }
+            } while (TRUE);
+          }
+        }
+
+        // Print Current Lun
+        PrintGUI (L"Current LUN: %u\r", CurrentLun, TRUE);
+      } while (TRUE);
+    }
+
+    // Start Mass Storage
+    Status = StartMassStorage (mUsbMsdProtocol, mChargerExProtocol, UfsLunData[CurrentLun].LunDiskIoProtocol);
+    if (EFI_ERROR (Status)) {
+      return Status;
+    }
+
+    // Reenter the LUN Menu
+    if (UfsLunData[0].LunDevicePath != NULL && UfsLunData[1].LunDevicePath != NULL) {
+      goto LunMenu;
+    }
   }
 
+exit:
   return EFI_SUCCESS;
-
-error:
-  // Display Failed Splash
-  DisplayBootGraphic (BG_MSD_ERROR);
-
-  // Check for Any Button
-  gBS->WaitForEvent (1, gST->ConIn->WaitForKey, 0);
-
-  return Status;
 }

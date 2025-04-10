@@ -7,9 +7,9 @@
 #include <Library/DebugLib.h>
 #include <Library/IoLib.h>
 
-#include <Protocol/EfiExynosGpio.h>
+#include <Protocol/EfiGpio.h>
 
-EFI_EXYNOS_GPIO_PROTOCOL *mGpioProtocol;
+EFI_GPIO_PROTOCOL *mGpioProtocol;
 
 typedef struct {
   KEY_CONTEXT EfiKeyContext;
@@ -220,7 +220,7 @@ KeypadDeviceConstructor ()
   }
 
   // Locate Gpio Protocol
-  Status = gBS->LocateProtocol (&gEfiExynosGpioProtocolGuid, NULL, (VOID *)&mGpioProtocol);
+  Status = gBS->LocateProtocol (&gEfiGpioProtocolGuid, NULL, (VOID *)&mGpioProtocol);
   if (!EFI_ERROR (Status)) {
     // Configure keys
     /// Volume Up Button
@@ -258,16 +258,16 @@ EFIAPI
 KeypadDeviceReset (KEYPAD_DEVICE_PROTOCOL *This)
 {
   LibKeyInitializeKeyContext(&KeyContextVolumeUp.EfiKeyContext);
-  KeyContextVolumeUp.EfiKeyContext.KeyData.Key.ScanCode   = SCAN_UP;
+  KeyContextVolumeUp.EfiKeyContext.KeyData.Key.ScanCode = SCAN_UP;
 
   LibKeyInitializeKeyContext(&KeyContextVolumeDown.EfiKeyContext);
   KeyContextVolumeDown.EfiKeyContext.KeyData.Key.ScanCode = SCAN_DOWN;
 
   LibKeyInitializeKeyContext(&KeyContextPower.EfiKeyContext);
-  KeyContextPower.EfiKeyContext.KeyData.Key.UnicodeChar   = CHAR_CARRIAGE_RETURN;
+  KeyContextPower.EfiKeyContext.KeyData.Key.UnicodeChar = CHAR_CARRIAGE_RETURN;
 
   LibKeyInitializeKeyContext(&KeyContextSpecial.EfiKeyContext);
-  KeyContextSpecial.EfiKeyContext.KeyData.Key.UnicodeChar = CHAR_TAB;
+  KeyContextSpecial.EfiKeyContext.KeyData.Key.ScanCode = SCAN_ESC;
 
   return EFI_SUCCESS;
 }
@@ -278,7 +278,8 @@ KeypadDeviceGetKeys (
   KEYPAD_RETURN_API      *KeypadReturnApi,
   UINT64                  Delta)
 {
-  BOOLEAN IsPressed = FALSE;
+  EFI_STATUS Status    = EFI_SUCCESS;
+  UINT32     IsPressed = FALSE;
 
   if (mGpioProtocol == NULL) {
     return EFI_SUCCESS;
@@ -287,9 +288,12 @@ KeypadDeviceGetKeys (
   for (UINTN Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
     KEY_CONTEXT_PRIVATE *Context = KeyList[Index];
 
-    IsPressed = !mGpioProtocol->GetPin ((ExynosGpioBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin);
+    Status = mGpioProtocol->GetPin ((GpioBank *)Context->PinctrlBase, Context->BankOffset, Context->Pin, &IsPressed);
+    if (EFI_ERROR (Status)) {
+      return Status;
+    }
 
-    LibKeyUpdateKeyStatus (&Context->EfiKeyContext, KeypadReturnApi, IsPressed, Delta);
+    LibKeyUpdateKeyStatus (&Context->EfiKeyContext, KeypadReturnApi, !IsPressed, Delta);
   }
 
   return EFI_SUCCESS;

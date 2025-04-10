@@ -18,4 +18,5 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
+  MemoryMapHelperLib
   IoLib

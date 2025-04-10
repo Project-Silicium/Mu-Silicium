@@ -1,0 +1,29 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = GpioDxe
+  FILE_GUID                      = EE3A2698-EFBB-4E07-8A2F-82C92C371456
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitGpioDriver
+
+[Sources]
+  GpioDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+  DebugLib
+  IoLib
+
+[Protocols]
+  gEfiGpioProtocolGuid
+
+[Depex]
+  TRUE
