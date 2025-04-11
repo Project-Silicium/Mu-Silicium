@@ -233,17 +233,17 @@
 
 ### UEFI Status
 
-| Feature            | Description                   | State |
-|:-------------------|:------------------------------|:-----:|
-| Display            |                               | ✅    |
-| Internal Storage   |                               | ✅    |
-| Side Buttons       |                               | ✅    |
-| USB Host Mode      |                               | ❌    |
-| USB Device Mode    |                               | ✅    |
-| USB Power Delivery |                               | ❌    |
-| Mass Storage       | Spam both Vol- & Pwr to enter | ✅    |
-| Windows Boot       | WinPE Booted                  | ✅    |
-| Linux Boot         | Mainline WIP                  | ⚠️    |
+| Feature            | Description | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       | WinPE Booted | ✅    |
+| Linux Boot         | Mainline WIP | ⚠️    |
 
 ### OS Status
 
