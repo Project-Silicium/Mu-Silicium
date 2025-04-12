@@ -12,6 +12,36 @@
 <br>
 
 <details>
+<summary><b><strong>Exynos 2400 Devices</strong></b></summary>
+
+## Samsung Galaxy S24
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S24.png" width="250" alt="Preview">
+
+**State: Active** <br>
+**Codename: e1s** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [halal-beef](https://github.com/halal-beef/)** <br>
+**Tester: [Robotix](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+| Feature            | Description    | State |
+|:-------------------|:---------------|:-----:|
+| Display            |                | ✅    |
+| Internal Storage   |                | ❌    |
+| Side Buttons       | Only Volume Up | ⚠️    |
+| USB Host Mode      |                | ❌    |
+| USB Device Mode    |                | ❌    |
+| USB Power Delivery |                | ❌    |
+| SD Card            |                | ❌    |
+| Windows Boot       |                | ❌    |
+| Linux Boot         |                | ❌    |
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Exynos 9830 Devices</strong></b></summary>
 
 ## Samsung Galaxy Note 20 5G
