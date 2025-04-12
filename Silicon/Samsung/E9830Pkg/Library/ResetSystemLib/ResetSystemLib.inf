@@ -13,8 +13,17 @@
   ArmPkg/ArmPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
+  E9830Pkg/E9830Pkg.dec
 
 [LibraryClasses]
+  UefiBootServicesTableLib
   BaseLib
   DebugLib
   IoLib
+  TimerLib
+
+[Protocols]
+  gEfiGpioProtocolGuid
+  gEfiPMICProtocolGuid
+
