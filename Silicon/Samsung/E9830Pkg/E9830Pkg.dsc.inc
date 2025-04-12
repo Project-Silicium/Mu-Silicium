@@ -72,4 +72,7 @@
   ResetSystemLib|E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
   SoCPlatformLib|E9830Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
+[Components]
+  E9830Pkg/Drivers/S2MPS_19_22Dxe/S2MPS_19_22Dxe.inf
+
 !include SamsungPkg/SamsungPkg.dsc.inc
