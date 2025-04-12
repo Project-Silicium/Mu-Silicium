@@ -16,7 +16,7 @@
 
 ## Samsung Galaxy S24
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-S24.png" width="250" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S24.png" width="400" alt="Preview">
 
 **State: Active** <br>
 **Codename: e1s** <br>
