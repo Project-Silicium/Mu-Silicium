@@ -15,7 +15,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = lemonade
-  PLATFORM_GUID                  = 1EAD32CE-3165-49EB-A92D-E88A42572002
+  PLATFORM_GUID                  = DA91FC30-FD21-4605-8628-64733934E591
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/lemonadePkg
