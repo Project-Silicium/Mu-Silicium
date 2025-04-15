@@ -2362,19 +2362,19 @@
 | Internal Storage     |                       | ✅    |
 | SD Card              |                       | ✅️    |
 | Side Buttons         |                       | ✅    |
-| Proximity Sensor     |                       | ❌    |
-| Light Sensor         |                       | ❌    |
-| Accelerometer Sensor |                       | ❌    |
-| Compass Sensor       |                       | ❌    |
+| Proximity Sensor     |                       | ✅    |
+| Light Sensor         |                       | ✅    |
+| Accelerometer Sensor |                       | ✅    |
+| Compass Sensor       |                       | ✅    |
 | Fingerprint Sensor   |                       | ❌    |
-| Hall Sensor          |                       | ❌    |
+| Hall Sensor          |                       | ✅    |
 | NFC Sensor           |                       | ❌    |
 | Temperature Sensor   |                       | ✅    |
 | Battery              |                       | ✅    |
 | USB Host Mode        |                       | ✅    |
 | USB Device Mode      |                       | ✅    |
 | USB Power Delivery   |                       | ❌    |
-| Charging             |                       | ❌    |
+| Charging             |                       | ✅    |
 | WLAN                 |                       | ✅    |
 | CPU                  |                       | ✅    |
 | Touchscreen          |                       | ✅    |
@@ -2386,7 +2386,7 @@
 | Camera               |                       | ❌    |
 | Mobile Data          |                       | ❌    |
 | Display              |                       | ✅    |
-| Vibration            |                       | ❌    |
+| Vibration            |                       | ✅    |
 
 </td></tr> </table>
 
