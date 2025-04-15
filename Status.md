@@ -854,6 +854,78 @@
 </details>
 
 <details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## Oneplus 9
+
+<img align="right" src="Resources/Pictures/Oneplus-9.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: lemonade** <br>
+**Maintainer: arminask** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: None**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ✅    |
+| USB Device Mode    |                   | ✅    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |                   | ✅    |
+| Windows Boot       |                   | ✅    |
+| Linux Boot         |                   | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+| Feature              | Description | State |
+|:---------------------|:------------|:-----:|
+| Internal Storage     |             | ✅    |
+| Side Buttons         |             | ✅    |
+| Proximity Sensor     |             | ❌    |
+| Light Sensor         |             | ❌    |
+| Accelerometer Sensor |             | ❌    |
+| Compass Sensor       |             | ❌    |
+| Gyroscope Sensor     |             | ❌    |
+| Barometer Sensor     |             | ❌    |
+| Geomagnetic Sensor   |             | ❌    |
+| Fingerprint Sensor   |             | ❌    |
+| Hall Sensor          |             | ❌    |
+| Gravity Sensor       |             | ❌    |
+| NFC Sensor           |             | ❌    |
+| Temperature Sensor   |             | ✅    |
+| Battery              |             | ✅    |
+| USB Host Mode        |             | ✅    |
+| USB Device Mode      |             | ✅    |
+| USB Power Delivery   |             | ❌    |
+| Charging             |             | ✅    |
+| WLAN                 |             | ❌    |
+| CPU                  |             | ✅    |
+| Touchscreen          |             | ❌    |
+| Bluetooth            |             | ❌    |
+| GPS                  |             | ✅    |
+| Speakers             |             | ❌    |
+| Microphone           |             | ❌    |
+| GPU                  |             | ❌    |
+| Camera               |             | ❌    |
+| Mobile Data          |             | ❌    |
+| Display              |             | ✅    |
+| Vibration            |             | ❌    |
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
 ## Samsung Galaxy S21 FE
@@ -1118,79 +1190,6 @@
 | Touchscreen          |             | ❌    |
 | Bluetooth            |             | ❌    |
 | GPS                  |             | ❌    |
-| Speakers             |             | ❌    |
-| Microphone           |             | ❌    |
-| GPU                  |             | ❌    |
-| Camera               |             | ❌    |
-| Mobile Data          |             | ❌    |
-| Display              |             | ✅    |
-| Vibration            |             | ❌    |
-
-</td></tr> </table>
-
-  </summary>
-</details>
-
-
-<details>
-<summary><b><strong>OnePlus Devices</strong></b></summary>
-
-## Oneplus 9
-
-<img align="right" src="Resources/Pictures/Oneplus-9.png" width="500" alt="Preview">
-
-**State: Active** <br>
-**Codename: lemonade** <br>
-**Maintainer: arminask** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
-
-### UEFI Status
-
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ✅    |
-| USB Power Delivery |                   | ❌    |
-| Mass Storage       |                   | ✅    |
-| Windows Boot       |                   | ✅    |
-| Linux Boot         |                   | ❌    |
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-| Feature              | Description | State |
-|:---------------------|:------------|:-----:|
-| Internal Storage     |             | ✅    |
-| Side Buttons         |             | ✅    |
-| Proximity Sensor     |             | ❌    |
-| Light Sensor         |             | ❌    |
-| Accelerometer Sensor |             | ❌    |
-| Compass Sensor       |             | ❌    |
-| Gyroscope Sensor     |             | ❌    |
-| Barometer Sensor     |             | ❌    |
-| Geomagnetic Sensor   |             | ❌    |
-| Fingerprint Sensor   |             | ❌    |
-| Hall Sensor          |             | ❌    |
-| Gravity Sensor       |             | ❌    |
-| NFC Sensor           |             | ❌    |
-| Temperature Sensor   |             | ✅    |
-| Battery              |             | ✅    |
-| USB Host Mode        |             | ✅    |
-| USB Device Mode      |             | ✅    |
-| USB Power Delivery   |             | ❌    |
-| Charging             |             | ✅    |
-| WLAN                 |             | ❌    |
-| CPU                  |             | ✅    |
-| Touchscreen          |             | ❌    |
-| Bluetooth            |             | ❌    |
-| GPS                  |             | ✅    |
 | Speakers             |             | ❌    |
 | Microphone           |             | ❌    |
 | GPU                  |             | ❌    |
