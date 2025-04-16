@@ -458,7 +458,7 @@ MemDevInfoUpdateSmbiosType17 (IN UINT64 SystemMemorySize)
         DEBUG ((EFI_D_ERROR, "Failed to Get Current DDR Freq! Status = %r\n", Status));
       } else {
         // Update DDR Freq
-        mMemDevInfoType17.Speed                      = DdrFreq * 2;
+        mMemDevInfoType17.Speed                      = DdrFreq;
         mMemDevInfoType17.ConfiguredMemoryClockSpeed = DdrFreq;
       }
     }
