@@ -56,7 +56,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000 
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Oneplus"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Oneplus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"9"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lemonade"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"9_lemonade"
