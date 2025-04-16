@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = S2MPS_19_22Dxe
+  FILE_GUID                      = 07431110-22AC-42A9-B8FD-CFE2A81B2AA9
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitS2MPS_19_22Driver
+
+[Sources]
+  S2MPS_19_22Dxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+  E9830Pkg/E9830Pkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+  DebugLib
+
+[Protocols]
+  gEfiSpeedyProtocolGuid
+  gEfiPMICProtocolGuid
+
+[Depex]
+  TRUE

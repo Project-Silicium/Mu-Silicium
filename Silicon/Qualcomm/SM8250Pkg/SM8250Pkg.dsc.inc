@@ -55,27 +55,26 @@
 !endif
 
   # CPU
-!if $(SOC_TYPE) == 1
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|3090
-!elseif $(SOC_TYPE) == 2
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|3190
-!else
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2840
-!endif
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+!if $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3090
+!elseif $(SOC_TYPE) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3190
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2840
+!endif
 
   # CPU Cache
-  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|TRUE
-  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x40
-  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
-  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x100
-  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0x400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
 
-  # Memory Speed
-  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|2750
-  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|TRUE # Might be wrong and this only needed on xiaomi devices
+  # Memory Speed & Type
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2750
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|TRUE               # Xiaomi Only?
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE

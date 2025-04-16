@@ -1,9 +1,21 @@
+#include <Uefi.h>
+#include <Library/UefiBootServicesTableLib.h>
 #include <Library/BaseLib.h>
 #include <Library/DebugLib.h>
 #include <Library/IoLib.h>
 #include <Library/ResetSystemLib.h>
+#include <Library/TimerLib.h>
+
+#include <Protocol/EfiGpio.h>
+#include <Protocol/EfiPMIC.h>
 
 #include "SamsungPMURegisters.h"
+
+// Cached copy of the GPIO protocol instance
+EFI_GPIO_PROTOCOL *mGpioProtocol;
+
+// Cached copy of the PMIC protocol instance
+EFI_PMIC_PROTOCOL *gPMIC = NULL;
 
 /**
   Samsung PMU Functions
@@ -100,6 +112,44 @@ ResetShutdown (
   VOID
   )
 {
+  UINT32 PMU_PS_HOLD = 0;
+  EFI_STATUS Status = EFI_SUCCESS;
+  UINT32 IsPressed = 0;
+
+  // Find the Gpio protocol. ASSERT if not found.
+  Status = gBS->LocateProtocol (&gEfiGpioProtocolGuid, NULL, (VOID *)&mGpioProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate GPIO Protocol!\n"));
+    ASSERT_EFI_ERROR (Status);
+  }
+
+  // Find the PMIC protocol. ASSERT if not found.
+  Status = gBS->LocateProtocol (&gEfiPMICProtocolGuid, NULL, (VOID **)&gPMIC);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate PMIC Protocol!\n"));
+    ASSERT_EFI_ERROR (Status);
+  }
+
+  while (TRUE)
+  {
+    mGpioProtocol->GetPin ((GpioBank *)0x15850000, 0x40, 0x4, &IsPressed);
+
+    if(!IsPressed)
+    {
+      MicroSecondDelay(1000000);
+      continue;
+    }
+
+    // Disable PMIC
+    gPMIC->DisableWTSR();
+    gPMIC->DisableSMPL();
+    gPMIC->ShutdownPMIC();
+
+    // Set PS_HOLD low to power off
+    ExynosPMURead(PS_HOLD, &PMU_PS_HOLD);
+    PMU_PS_HOLD &= 0xFFFFFEFF;
+    ExynosPMUWrite(PS_HOLD, PMU_PS_HOLD);
+  }
 }
 
 /**

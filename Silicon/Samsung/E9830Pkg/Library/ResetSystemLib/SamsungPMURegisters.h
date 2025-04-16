@@ -2,6 +2,7 @@
 #define __SAMSUNGPMUREGISTERS_H_
 
 #define EXYNOS_PMU_BASE             0x15860000
+#define PS_HOLD			    0x030C
 #define SWRESET		            0x3A00
 #define RST_STAT	            0x0404
 #define SWRESET_TRIGGER	            (1 << 1)

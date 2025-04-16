@@ -42,7 +42,6 @@ LogSmbiosData (
   EFI_SMBIOS_PROTOCOL     *mSmbiosProtocol;
   EFI_SMBIOS_HANDLE        SmbiosHandle;
   EFI_SMBIOS_TABLE_HEADER *Record;
-  UINTN                    StringSize;
   UINTN                    Size;
   CHAR8                   *Str;
 
@@ -60,7 +59,7 @@ LogSmbiosData (
   if (StringPack == NULL) {
     Size += 2;
   } else {
-    for (UINTN Index = 0; StringPack[Index] != NULL; Index++) {
+    for (UINTN Index = 0, StringSize = 0; StringPack[Index] != NULL; Index++) {
       StringSize = AsciiStrSize (StringPack[Index]);
       Size      += StringSize;
     }
@@ -86,7 +85,7 @@ LogSmbiosData (
   Str = ((CHAR8 *)Record) + Record->Length;
 
   // Update Size
-  for (UINTN Index = 0; StringPack[Index] != NULL; Index++) {
+  for (UINTN Index = 0, StringSize = 0; StringPack[Index] != NULL; Index++) {
     StringSize = AsciiStrSize (StringPack[Index]);
 
     CopyMem (Str, StringPack[Index], StringSize);
@@ -124,12 +123,12 @@ BIOSInfoUpdateSmbiosType0 ()
   ZeroMem (FirmwareVersion, 6);
 
   // Convert Firmware Vendor & Version String
-  AsciiSPrintUnicodeFormat (FirmwareVendor,  sizeof(FirmwareVendor),  FixedPcdGetPtr (PcdFirmwareVendor));
-  AsciiSPrintUnicodeFormat (FirmwareVersion, sizeof(FirmwareVersion), FixedPcdGetPtr (PcdFirmwareVersionString));
+  AsciiSPrintUnicodeFormat (FirmwareVendor,  sizeof (FirmwareVendor),  FixedPcdGetPtr (PcdFirmwareVendor));
+  AsciiSPrintUnicodeFormat (FirmwareVersion, sizeof (FirmwareVersion), FixedPcdGetPtr (PcdFirmwareVersionString));
 
   // Append Device Maintainer
   if (FixedPcdGetPtr (PcdDeviceMaintainer) != "Not Specified") {
-    AsciiSPrint (FirmwareVendor, sizeof(FirmwareVendor), "%a & %a", FirmwareVendor, FixedPcdGetPtr (PcdDeviceMaintainer));
+    AsciiSPrint (FirmwareVendor, sizeof (FirmwareVendor), "%a & %a", FirmwareVendor, FixedPcdGetPtr (PcdDeviceMaintainer));
   }
 
   // Update String Table
@@ -202,7 +201,7 @@ ProcessorInfoUpdateSmbiosType4 ()
       ZeroMem (SerialNumber, 9);
 
       // Convert Serial Number
-      AsciiSPrint (SerialNumber, sizeof(SerialNumber), "%x", ChipSerialNumber);
+      AsciiSPrint (SerialNumber, sizeof (SerialNumber), "%x", ChipSerialNumber);
 
       // Update Serial Number String
       mProcessorInfoType4Strings[3] = SerialNumber;
@@ -248,8 +247,8 @@ ProcessorInfoUpdateSmbiosType4 ()
 
   if (!CpuFreq[0] || !CpuFreq[1]) {
     // Use PCD Overwrite
-    CpuFreq[0] = FixedPcdGet32 (PcdMaxCpuFreq);
-    CpuFreq[1] = FixedPcdGet32 (PcdMaxCpuFreq);
+    CpuFreq[0] = FixedPcdGet32 (PcdSmbiosMaxCpuFreq);
+    CpuFreq[1] = FixedPcdGet32 (PcdSmbiosMaxCpuFreq);
   }
 
   // Allocate Memory
@@ -294,10 +293,10 @@ CacheInfoUpdateSmbiosType7 ()
   EFI_SMBIOS_HANDLE SmbiosHandle;
 
   // Update Cache Size
-  mCacheInfoType7_L1IC.MaximumCacheSize = FixedPcdGet32 (PcdLevel1InstCacheSize);
-  mCacheInfoType7_L1IC.InstalledSize    = FixedPcdGet32 (PcdLevel1InstCacheSize);
-  mCacheInfoType7_L1DC.MaximumCacheSize = FixedPcdGet32 (PcdLevel1DataCacheSize);
-  mCacheInfoType7_L1DC.InstalledSize    = FixedPcdGet32 (PcdLevel1DataCacheSize);
+  mCacheInfoType7_L1IC.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel1InstCacheSize);
+  mCacheInfoType7_L1IC.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel1InstCacheSize);
+  mCacheInfoType7_L1DC.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel1DataCacheSize);
+  mCacheInfoType7_L1DC.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel1DataCacheSize);
 
   // Update String Table
   mCacheInfoType7_L1ICStrings[0] = "L1 Instruction Cache";
@@ -310,10 +309,10 @@ CacheInfoUpdateSmbiosType7 ()
   // Append SmBios Handle
   mProcessorInfoType4.L1CacheHandle = (UINT16)SmbiosHandle;
 
-  if (FixedPcdGetBool (PcdHasLevel2Cache)) {
+  if (FixedPcdGet32 (PcdSmbiosLevel2CacheSize) != 0) {
     // Update Cache Size
-    mCacheInfoType7_L2C.MaximumCacheSize = FixedPcdGet32 (PcdLevel2CacheSize);
-    mCacheInfoType7_L2C.InstalledSize    = FixedPcdGet32 (PcdLevel2CacheSize);
+    mCacheInfoType7_L2C.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel2CacheSize);
+    mCacheInfoType7_L2C.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel2CacheSize);
 
     // Update String Table
     mCacheInfoType7_L2CStrings[0] = "L2 Unified Cache";
@@ -325,10 +324,10 @@ CacheInfoUpdateSmbiosType7 ()
     mProcessorInfoType4.L2CacheHandle = (UINT16)SmbiosHandle;
   }
 
-  if (FixedPcdGetBool (PcdHasLevel3Cache)) {
+  if (FixedPcdGet32 (PcdSmbiosLevel3CacheSize) != 0) {
     // Update Cache Size
-    mCacheInfoType7_L3C.MaximumCacheSize = FixedPcdGet32 (PcdLevel3CacheSize);
-    mCacheInfoType7_L3C.InstalledSize    = FixedPcdGet32 (PcdLevel3CacheSize);
+    mCacheInfoType7_L3C.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel3CacheSize);
+    mCacheInfoType7_L3C.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel3CacheSize);
 
     // Update String Table
     mCacheInfoType7_L3CStrings[0] = "L3 Unified Cache";
@@ -452,22 +451,25 @@ MemDevInfoUpdateSmbiosType17 (IN UINT64 SystemMemorySize)
       mMemDevInfoType17.MemorySubsystemControllerManufacturerID = DdrInfos.manufacturer_id;
     }
 
-    if (FixedPcdGetBool (PcdForceMemorySpeed) || mDdrInfoProtocol->Revision < 0x30000) {
-Fallback:
-      // Use PCD Overwrite
-      mMemDevInfoType17.Speed                      = FixedPcdGet32 (PcdMemorySpeed) * 2;
-      mMemDevInfoType17.ConfiguredMemoryClockSpeed = FixedPcdGet32 (PcdMemorySpeed);
-    } else {
+    if (mDdrInfoProtocol->Revision >= 0x30000 && !FixedPcdGetBool (PcdForceMemorySpeed)) {
+      // Get DDR Freq
       Status = mDdrInfoProtocol->GetDDRFreq (mDdrInfoProtocol, &DdrFreq);
       if (EFI_ERROR (Status)) {
         DEBUG ((EFI_D_ERROR, "Failed to Get Current DDR Freq! Status = %r\n", Status));
-        goto Fallback;
+      } else {
+        // Update DDR Freq
+        mMemDevInfoType17.Speed                      = DdrFreq;
+        mMemDevInfoType17.ConfiguredMemoryClockSpeed = DdrFreq;
       }
-
-      // Update DDR Freq
-      mMemDevInfoType17.Speed                      = DdrFreq * 2;
-      mMemDevInfoType17.ConfiguredMemoryClockSpeed = DdrFreq;
     }
+  }
+
+  // Use PCD Overwrite
+  if (mMemDevInfoType17.ConfiguredMemoryClockSpeed == 0 || FixedPcdGetBool (PcdForceMemorySpeed)) {
+    mMemDevInfoType17.Speed                      = FixedPcdGet32 (PcdSmbiosMemorySpeed) * 2;
+    mMemDevInfoType17.ConfiguredMemoryClockSpeed = FixedPcdGet32 (PcdSmbiosMemorySpeed);
+  } else if (mMemDevInfoType17.MemoryType == MemoryTypeUnknown) {
+    mMemDevInfoType17.MemoryType = FixedPcdGet32 (PcdSmbiosMemoryType);
   }
 
   // Update Memory Size

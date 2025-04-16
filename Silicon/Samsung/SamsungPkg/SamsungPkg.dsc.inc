@@ -19,9 +19,13 @@
   MemoryProtectionLib|SamsungPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
 
 [Components]
+  # SmBios
+  SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+
   # Custom Exynos Drivers
   SamsungPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
+  SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
 

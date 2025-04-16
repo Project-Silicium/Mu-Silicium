@@ -47,20 +47,19 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8550"
 
   # CPU
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|3200
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
 
   # CPU Cache
-  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache|FALSE        # Is actually has it.
-  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x20
-  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x20
-  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x400
-  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize|0           # Unknown.
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000         # Unoffical Value
 
-  # Memory Speed
-  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|4200
+  # Memory Speed & Type
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4200
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE

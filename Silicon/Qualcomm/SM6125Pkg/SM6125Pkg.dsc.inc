@@ -47,18 +47,18 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM6125"
 
   # CPU
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2000
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2000
 
   # CPU Cache
-  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
-  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x40
-  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
-  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
 
-  # Memory Speed
-  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|1866       # Might be Wrong.
+  # Memory Speed & Type
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE

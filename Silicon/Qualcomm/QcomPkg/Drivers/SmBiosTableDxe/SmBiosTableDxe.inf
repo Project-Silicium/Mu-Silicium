@@ -18,6 +18,7 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
+  RamPartitionTableLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
@@ -25,7 +26,6 @@
   DebugLib
   UefiLib
   PrintLib
-  RamPartitionTableLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
@@ -34,15 +34,7 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq
-  gQcomPkgTokenSpaceGuid.PcdMemorySpeed
   gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed
-  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache
-  gQcomPkgTokenSpaceGuid.PcdHasLevel3Cache
-  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize
-  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize
-  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize
-  gQcomPkgTokenSpaceGuid.PcdLevel3CacheSize
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
@@ -53,6 +45,13 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize
 
 [Protocols]
   gEfiSmbiosProtocolGuid

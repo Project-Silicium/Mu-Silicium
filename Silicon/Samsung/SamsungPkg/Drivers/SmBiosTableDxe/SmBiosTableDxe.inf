@@ -1,0 +1,63 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmBiosTableDxe
+  FILE_GUID                      = 50A15B6F-E3A9-4192-9640-369CB367C4DE
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = RegisterSmBiosTables
+
+[Sources]
+  SmBiosTableDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryAllocationLib
+  MemoryMapHelperLib
+  BaseMemoryLib
+  PrintLib
+  DebugLib
+  UefiLib
+  FdtLib
+  IoLib
+
+[FixedPcd]
+  gArmTokenSpaceGuid.PcdSystemMemoryBase
+  gArmTokenSpaceGuid.PcdSystemMemorySize
+  gArmPlatformTokenSpaceGuid.PcdCoreCount
+  gArmPlatformTokenSpaceGuid.PcdClusterCount
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize
+
+[Protocols]
+  gEfiSmbiosProtocolGuid
+  gEfiDdrInfoProtocolGuid
+  
+[Depex]
+  gEfiSmbiosProtocolGuid

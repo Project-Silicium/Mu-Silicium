@@ -1,0 +1,14 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = E9830Pkg
+  PACKAGE_GUID                        = D86C0D82-8FFB-449D-8F68-0A9811445755
+  PACKAGE_VERSION                     = 0.1
+
+[Includes]
+  Include                             # Root include for the package
+
+[Guids]
+  gE9830PkgTokenSpaceGuid             = { 0x6CBF6D5E, 0xA40D, 0x4F98, { 0x91, 0x15, 0xAC, 0xC7, 0xEC, 0xE3, 0xCD, 0xF6 } }
+
+[Protocols]
+  gEfiPMICProtocolGuid                   = { 0x09723148, 0xBA1F, 0x4751, { 0x8F, 0x0D, 0x5B, 0xC6, 0xA0, 0xCC, 0xA2, 0x7A } }

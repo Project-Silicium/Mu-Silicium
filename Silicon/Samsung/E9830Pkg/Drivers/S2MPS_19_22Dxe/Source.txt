@@ -1,0 +1,3 @@
+REPO:   https://github.com/exynos990-mainline/lk3rd/
+BRANCH: dev
+FILE:   dev/power/pmic/s2mps_19_22/pmic_s2mps_19_22.c

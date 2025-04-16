@@ -45,18 +45,18 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SDM845"
 
   # CPU
-  gQcomPkgTokenSpaceGuid.PcdMaxCpuFreq|2800
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2800
 
   # CPU Cache
-  gQcomPkgTokenSpaceGuid.PcdHasLevel2Cache|TRUE
-  gQcomPkgTokenSpaceGuid.PcdLevel1InstCacheSize|0x40
-  gQcomPkgTokenSpaceGuid.PcdLevel1DataCacheSize|0x40
-  gQcomPkgTokenSpaceGuid.PcdLevel2CacheSize|0x800
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
 
-  # Memory Speed
-  gQcomPkgTokenSpaceGuid.PcdMemorySpeed|1866
+  # Memory Speed & Type
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE

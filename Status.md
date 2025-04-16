@@ -12,6 +12,36 @@
 <br>
 
 <details>
+<summary><b><strong>Exynos 2400 Devices</strong></b></summary>
+
+## Samsung Galaxy S24
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S24.png" width="400" alt="Preview">
+
+**State: Active** <br>
+**Codename: e1s** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [halal-beef](https://github.com/halal-beef/)** <br>
+**Tester: [Robotix](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+| Feature            | Description    | State |
+|:-------------------|:---------------|:-----:|
+| Display            |                | ✅    |
+| Internal Storage   |                | ❌    |
+| Side Buttons       | Only Volume Up | ⚠️    |
+| USB Host Mode      |                | ❌    |
+| USB Device Mode    |                | ❌    |
+| USB Power Delivery |                | ❌    |
+| SD Card            |                | ❌    |
+| Windows Boot       |                | ❌    |
+| Linux Boot         |                | ❌    |
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Exynos 9830 Devices</strong></b></summary>
 
 ## Samsung Galaxy Note 20 5G
@@ -233,17 +263,17 @@
 
 ### UEFI Status
 
-| Feature            | Description                   | State |
-|:-------------------|:------------------------------|:-----:|
-| Display            |                               | ✅    |
-| Internal Storage   |                               | ✅    |
-| Side Buttons       |                               | ✅    |
-| USB Host Mode      |                               | ❌    |
-| USB Device Mode    |                               | ✅    |
-| USB Power Delivery |                               | ❌    |
-| Mass Storage       | Spam both Vol- & Pwr to enter | ✅    |
-| Windows Boot       | WinPE Booted                  | ✅    |
-| Linux Boot         | Mainline WIP                  | ⚠️    |
+| Feature            | Description | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       | WinPE Booted | ✅    |
+| Linux Boot         | Mainline WIP | ⚠️    |
 
 ### OS Status
 
@@ -819,6 +849,78 @@
 | Mass Storage       |Needs Device Mode  | ❌    |
 | Windows Boot       |                   | ❌    |
 | Linux Boot         |                   | ❌    |
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## Oneplus 9
+
+<img align="right" src="Resources/Pictures/Oneplus-9.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: lemonade** <br>
+**Maintainer: arminask** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: None**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ✅    |
+| USB Device Mode    |                   | ✅    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |                   | ✅    |
+| Windows Boot       |                   | ✅    |
+| Linux Boot         |                   | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+| Feature              | Description | State |
+|:---------------------|:------------|:-----:|
+| Internal Storage     |             | ✅    |
+| Side Buttons         |             | ✅    |
+| Proximity Sensor     |             | ❌    |
+| Light Sensor         |             | ❌    |
+| Accelerometer Sensor |             | ❌    |
+| Compass Sensor       |             | ❌    |
+| Gyroscope Sensor     |             | ❌    |
+| Barometer Sensor     |             | ❌    |
+| Geomagnetic Sensor   |             | ❌    |
+| Fingerprint Sensor   |             | ❌    |
+| Hall Sensor          |             | ❌    |
+| Gravity Sensor       |             | ❌    |
+| NFC Sensor           |             | ❌    |
+| Temperature Sensor   |             | ✅    |
+| Battery              |             | ✅    |
+| USB Host Mode        |             | ✅    |
+| USB Device Mode      |             | ✅    |
+| USB Power Delivery   |             | ❌    |
+| Charging             |             | ✅    |
+| WLAN                 |             | ❌    |
+| CPU                  |             | ✅    |
+| Touchscreen          |             | ❌    |
+| Bluetooth            |             | ❌    |
+| GPS                  |             | ✅    |
+| Speakers             |             | ❌    |
+| Microphone           |             | ❌    |
+| GPU                  |             | ❌    |
+| Camera               |             | ❌    |
+| Mobile Data          |             | ❌    |
+| Display              |             | ✅    |
+| Vibration            |             | ❌    |
+
+</td></tr> </table>
 
   </summary>
 </details>
@@ -2259,19 +2361,19 @@
 | Internal Storage     |                       | ✅    |
 | SD Card              |                       | ✅️    |
 | Side Buttons         |                       | ✅    |
-| Proximity Sensor     |                       | ❌    |
-| Light Sensor         |                       | ❌    |
-| Accelerometer Sensor |                       | ❌    |
-| Compass Sensor       |                       | ❌    |
+| Proximity Sensor     |                       | ✅    |
+| Light Sensor         |                       | ✅    |
+| Accelerometer Sensor |                       | ✅    |
+| Compass Sensor       |                       | ✅    |
 | Fingerprint Sensor   |                       | ❌    |
-| Hall Sensor          |                       | ❌    |
+| Hall Sensor          |                       | ✅    |
 | NFC Sensor           |                       | ❌    |
 | Temperature Sensor   |                       | ✅    |
 | Battery              |                       | ✅    |
 | USB Host Mode        |                       | ✅    |
 | USB Device Mode      |                       | ✅    |
 | USB Power Delivery   |                       | ❌    |
-| Charging             |                       | ❌    |
+| Charging             |                       | ✅    |
 | WLAN                 |                       | ✅    |
 | CPU                  |                       | ✅    |
 | Touchscreen          |                       | ✅    |
@@ -2283,7 +2385,7 @@
 | Camera               |                       | ❌    |
 | Mobile Data          |                       | ❌    |
 | Display              |                       | ✅    |
-| Vibration            |                       | ❌    |
+| Vibration            |                       | ✅    |
 
 </td></tr> </table>
 
