@@ -23,7 +23,7 @@ gDeviceMemoryDescriptorEx[] = {
   {"LPASS_NPU",         0x82700000, 0x02300000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"ADSP RPC",          0x84A00000, 0x00800000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"PIL Reserved",      0x85200000, 0x16C00000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-  {"DXE Heap",          0x9BE00000, 0x03600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"RAM Partition",     0x9BE00000, 0x03600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"Sched Heap",        0x9F400000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"FV Region",         0x9F800000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"FD Reserved",       0x9FC00000, 0x00100000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
@@ -35,15 +35,12 @@ gDeviceMemoryDescriptorEx[] = {
   {"RAM Partition",     0x9FFD0000, 0x00027000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"Log Buffer",        0x9FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",          0x9FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
-  {"HLOS4",             0xA0000000, 0x0EB00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  {"RAM Partition",     0xAEB00000, 0x08600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  /* DDR Bank 0 End */
-  /* Carveout Region (0xB7100000 -> 0xB7700000, size 0x00600000) */
-  /* DDR Bank 1 Start */
-  {"RAM Partition",     0xB7700000, 0x01E00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  /* DDR Bank 1 End */
-  /* Carveout Region (0xB9500000 -> 0xC0000000, size 0x06B00000) */
-  /* DDR Bank 2 Start */
+  {"HLOS4",             0xA0000000, 0x10000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"DXE Heap",          0xB0000000, 0x04500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+  {"RAM Partition",     0xB4500000, 0x05200000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+
+  // Memory Hole: 0xB9700000 -> 0xC0000000 (0x06900000)
+
   {"RAM Partition",     0xC0000000, 0x05100000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"DBI Dump",          0xC5100000, 0x01100000, NoHob,  MMAP_IO, INITIALIZED, Conv,   UNCACHED_UNBUFFERED_XN},
   {"RAM Partition",     0xC6200000, 0x12600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
