@@ -24,7 +24,7 @@
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Timer

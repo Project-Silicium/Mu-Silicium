@@ -233,6 +233,33 @@
   </summary>
 </details>
 
+<details>
+<summary><b><strong>Exynos 7870 Devices</strong></b></summary>
+
+## Samsung Galaxy Tab A 10.1
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A-10.1.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: gtaxllte** <br>
+**Maintainer: [Glitchythedev](https://github.com/Glitchythedev/)** <br>
+**Contributors: [Glitchythedev](https://github.com/Glitchythedev/)** <br>
+**Tester: [Glitchythedev](https://github.com/Glitchythedev/)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ❌    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ❌    |
+| USB Power Delivery |             | ❌    |
+| SD Card            |             | ❌    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
+
   </summary>
 </details>
 
