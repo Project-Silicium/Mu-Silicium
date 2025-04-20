@@ -1851,7 +1851,7 @@
 ### OS Status
 
 <table>
-<tr><th>Windows</th></tr><th>Linux</th></tr>
+<tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
 > NOTE: Needs [Windows Drivers](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/tag/Drivers)!
