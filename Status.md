@@ -430,7 +430,8 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
-> NOTE: Only Windows Builds that are Build Nr. 26090 or above work!
+> [!NOTE]
+> Only Windows Builds that are Build Nr. 26090 or above work!
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -439,8 +440,8 @@
 | Proximity Sensor     |               | ❌    |
 | Light Sensor         |               | ❌    |
 | Accelerometer Sensor |               | ❌    |
-| Compass Sensor       |               | ❌    | 
 | Gyroscope Sensor     |               | ❌    |
+| Magnetometer Sensor  |               | ❌    |
 | Fingerprint Sensor   |               | ❌    |
 | NFC Sensor           |               | ❌    |
 | Temperature Sensor   |  Only battery | ⚠️    |
@@ -465,22 +466,24 @@
 </td>
 <td>
 
-> NOTE: Linux Requires: [Mainline kernel](https://github.com/jiganomegsdfdf/aston-mainline)
+> [!NOTE]
+> Linux Requires: [Mainline kernel](https://github.com/jiganomegsdfdf/aston-mainline)<br>
+> Recommended Guide: [Ubuntu](https://github.com/jiganomegsdfdf/ubuntu-oneplus-aston)
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
 | Internal Storage     |               | ✅    |
 | Side Buttons         |               | ✅    |
 | Proximity Sensor     |               | ❌    |
-| Light Sensor         |               | ❌    |
+| Light Sensor         |               | ✅    |
 | Accelerometer Sensor |               | ❌    |
-| Compass Sensor       |               | ❌    | 
-| Gyroscope Sensor     |Userspace issue| ⚠️    |
+| Gyroscope Sensor     |               | ❌    |
+| Magnetometer Sensor  |Userspace issue| ⚠️    |
 | Fingerprint Sensor   |               | ❌    |
 | NFC Sensor           |    Untested   | ⚠️    |
 | Temperature Sensor   |               | ✅    |
 | Battery              |               | ✅    |
-| USB Host Mode        |               | ❔    |
+| USB Host Mode        |               | ❌    |
 | USB Device Mode      |               | ✅    |
 | USB Power Delivery   |               | ❌    |
 | Charging             |  100W = 1.1W  | ⚠️    |
@@ -489,10 +492,10 @@
 | Touchscreen          |               | ✅    |
 | Bluetooth            |               | ✅    |
 | GPS                  |               | ❌    |
-| Speakers             |               | ❌    |
-| Microphone           |               | ❌    |
+| Speakers             |               | ✅    |
+| Microphone           |               | ✅    |
 | GPU                  |               | ✅    |
-| Camera               |               | ❌    |
+| Camera               |Only Front,Macro,UW| ✅    |
 | Mobile Data          |               | ❌    |
 | Display              |               | ✅    | 
 | Vibration            |               | ❌    |
