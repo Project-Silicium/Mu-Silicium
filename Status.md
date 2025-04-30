@@ -1592,10 +1592,10 @@
 | Display            |                | ✅    |
 | Internal Storage   |                | ✅    |
 | Side Buttons       |                | ✅    |
-| USB Host Mode      |                | ✅    |
+| USB Host Mode      |                | ❌    |
 | USB Device Mode    |                | ✅    |
-| USB Power Delivery |                | ✅    |
-| Mass Storage       | Unknown Issues | ❌    |
+| USB Power Delivery |                | ❌    |
+| Mass Storage       |                | ✅    |
 | Windows Boot       |                | ✅    |
 | Linux Boot         |                | ✅    |
 
@@ -1604,8 +1604,6 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-
-> NOTE: Needs [Windows Drivers](https://github.com/N1kroks/SM8250-Drivers)!
 
 | Feature              | Description                       | State |
 |:---------------------|:----------------------------------|:-----:|
@@ -1618,7 +1616,7 @@
 | Gyroscope Sensor     |                                   | ❌    |
 | Fingerprint Sensor   |                                   | ❌    |
 | NFC Sensor           |                                   | ❌    |
-| Battery              |                                   | ✅    |
+| Battery              |                                   | ❌    |
 | USB Host Mode        |                                   | ❌    |
 | USB Device Mode      |                                   | ✅    |
 | USB Power Delivery   |                                   | ❌    |
@@ -1650,7 +1648,7 @@
 | Compass Sensor       |                                   | ✅    |
 | Gyroscope Sensor     |                                   | ❌    |
 | Fingerprint Sensor   |                                   | ❌    |
-| NFC Sensor           |                                   | ❌    |
+| NFC Sensor           |                                   | ✅    |
 | Battery              |                                   | ✅    |
 | USB Host Mode        |                                   | ✅    |
 | USB Device Mode      |                                   | ✅    |
