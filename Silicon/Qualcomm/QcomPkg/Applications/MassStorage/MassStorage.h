@@ -3,7 +3,7 @@
 
 #include <Library/DevicePathLib.h>
 
-#define EFI_EMMC_USER_DEVICE_GUID                                              \
+#define EFI_EMMC_USER_PARTITION_DEVICE_GUID                                    \
   {                                                                            \
     0xB615F1F5, 0x5088, 0x43CD,                                                \
     {                                                                          \
@@ -14,12 +14,12 @@
 typedef struct {
   VENDOR_DEVICE_PATH       VendorDevicePath;
   EFI_DEVICE_PATH_PROTOCOL EndDevicePath;
-} EFI_EMMC_USER_DEVICE_PATH;
+} EFI_EMMC_USER_PARTITION_DEVICE_PATH;
 
 //
 // eMMC User Partition Device Path
 //
-EFI_EMMC_USER_DEVICE_PATH EmmcUserDevicePath = {
+EFI_EMMC_USER_PARTITION_DEVICE_PATH EmmcUserPartitionDevicePath = {
   {
     {
       HARDWARE_DEVICE_PATH,
@@ -29,7 +29,7 @@ EFI_EMMC_USER_DEVICE_PATH EmmcUserDevicePath = {
         (UINT8)((sizeof (VENDOR_DEVICE_PATH)) >> 8)
       }
     },
-    EFI_EMMC_USER_DEVICE_GUID
+    EFI_EMMC_USER_PARTITION_DEVICE_GUID
   },
   {
     END_DEVICE_PATH_TYPE,

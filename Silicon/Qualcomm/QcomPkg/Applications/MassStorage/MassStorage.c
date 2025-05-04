@@ -168,7 +168,7 @@ InitMassStorage (
   }
 
   if (FixedPcdGetBool (PcdDeviceHasEmmc)) {
-    EFI_DEVICE_PATH_PROTOCOL *EmmcUserDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&EmmcUserDevicePath;
+    EFI_DEVICE_PATH_PROTOCOL *EmmcUserDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&EmmcUserPartitionDevicePath;
     EFI_BLOCK_IO_PROTOCOL    *EmmcDiskIoProtocol = NULL;
 
     // Locate eMMC User Device Path
