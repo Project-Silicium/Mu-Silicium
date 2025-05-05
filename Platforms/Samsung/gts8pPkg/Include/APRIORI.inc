@@ -51,9 +51,9 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/gts8p/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  INF Binaries/gts8p/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF Binaries/gts8p/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
-  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/gts8p/QcomPkg/Drivers/SdccDxe/SdccDxe.inf

@@ -621,9 +621,9 @@
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
-## Samsung Galaxy Tab S8+
+## Samsung Galaxy Tab S8+ 5G
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8+.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8+-5G.png" width="500" alt="Preview">
 
 **State: Active** <br>
 **Codename: gts8p** <br>
@@ -633,18 +633,18 @@
 
 ### UEFI Status
 
-| Feature            | Description                     | State |
-|:-------------------|:--------------------------------|:-----:|
-| Display            |                                 | ✅    |
-| Internal Storage   |                                 | ✅    |
-| Side Buttons       |                                 | ✅    |
-| USB Host Mode      |                                 | ❌    |
-| USB Device Mode    | Unstable                        | ⚠️    |
-| USB Power Delivery |                                 | ❌    |
-| Mass Storage       | Only works on first USB Connect | ⚠️    |
-| SD Card            |                                 | ❌    |
-| Windows Boot       |                                 | ✅    |
-| Linux Boot         |                                 | ❌    |
+| Feature            | Description                                          | State |
+|:-------------------|:-----------------------------------------------------|:-----:|
+| Display            |                                                      | ✅    |
+| Internal Storage   |                                                      | ✅    |
+| Side Buttons       |                                                      | ✅    |
+| USB Host Mode      |                                                      | ❌    |
+| USB Device Mode    | Requires a Reconnect if it was Connected during Boot | ✅    |
+| USB Power Delivery |                                                      | ❌    |
+| Mass Storage       |                                                      | ✅    |
+| SD Card            | Power On Code is Missing                             | ❌    |
+| Windows Boot       |                                                      | ✅    |
+| Linux Boot         |                                                      | ❌    |
 
 ### OS Status
 
