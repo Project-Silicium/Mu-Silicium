@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/limePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd" > "./Build/limePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/limePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd-bootshim" > "./Build/limePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/limePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd-bootshim.gz" ./Resources/DTBs/lime.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/limePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd" > "./Build/limePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/limePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd-bootshim" > "./Build/limePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/limePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LIME_UEFI.fd-bootshim.gz" ./Resources/DTBs/lime.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/viliPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd" > "./Build/viliPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/viliPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd-bootshim" > "./Build/viliPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/viliPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd-bootshim.gz" ./Resources/DTBs/vili.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/viliPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd" > "./Build/viliPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/viliPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd-bootshim" > "./Build/viliPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/viliPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VILI_UEFI.fd-bootshim.gz" ./Resources/DTBs/vili.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

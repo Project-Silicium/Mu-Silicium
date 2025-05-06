@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/lavenderPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LAVENDER_UEFI.fd" > "./Build/lavenderPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/lavender_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/lavenderPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/lavender_UEFI.fd-bootshim" > "./Build/lavenderPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/lavender_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/lavenderPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/lavender_UEFI.fd-bootshim.gz" ./Resources/DTBs/lavender.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/lavenderPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LAVENDER_UEFI.fd" > "./Build/lavenderPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/lavender_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/lavenderPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/lavender_UEFI.fd-bootshim" > "./Build/lavenderPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/lavender_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/lavenderPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/lavender_UEFI.fd-bootshim.gz" ./Resources/DTBs/lavender.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/nabuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd" > "./Build/nabuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/nabuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd-bootshim" > "./Build/nabuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/nabuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd-bootshim.gz" ./Resources/DTBs/nabu.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/nabuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd" > "./Build/nabuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/nabuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd-bootshim" > "./Build/nabuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/nabuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/NABU_UEFI.fd-bootshim.gz" ./Resources/DTBs/nabu.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

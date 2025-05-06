@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/sweetPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd" > "./Build/sweetPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/sweetPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd-bootshim" > "./Build/sweetPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/sweetPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd-bootshim.gz" ./Resources/DTBs/sweet.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/sweetPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd" > "./Build/sweetPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/sweetPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd-bootshim" > "./Build/sweetPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/sweetPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SWEET_UEFI.fd-bootshim.gz" ./Resources/DTBs/sweet.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

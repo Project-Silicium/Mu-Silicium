@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/gts8Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd" > "./Build/gts8Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/gts8Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd-bootshim" > "./Build/gts8Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/gts8Pkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd-bootshim.gz" ./Resources/DTBs/gts8.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/gts8Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd" > "./Build/gts8Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/gts8Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd-bootshim" > "./Build/gts8Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/gts8Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTS8_UEFI.fd-bootshim.gz" ./Resources/DTBs/gts8.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

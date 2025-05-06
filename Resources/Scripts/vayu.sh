@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/vayuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd" > "./Build/vayuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/vayuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd-bootshim" > "./Build/vayuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/vayuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd-bootshim.gz" ./Resources/DTBs/vayu.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/vayuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd" > "./Build/vayuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/vayuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd-bootshim" > "./Build/vayuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/vayuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VAYU_UEFI.fd-bootshim.gz" ./Resources/DTBs/vayu.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

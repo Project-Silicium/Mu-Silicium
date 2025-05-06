@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/laurel_sproutPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd" > "./Build/laurel_sproutPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/laurel_sproutPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd-bootshim" > "./Build/laurel_sproutPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/laurel_sproutPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd-bootshim.gz" ./Resources/DTBs/laurel_sprout.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/laurel_sproutPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd" > "./Build/laurel_sproutPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/laurel_sproutPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd-bootshim" > "./Build/laurel_sproutPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/laurel_sproutPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LAUREL_SPROUT_UEFI.fd-bootshim.gz" ./Resources/DTBs/laurel_sprout.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

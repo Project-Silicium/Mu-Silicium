@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/equuleusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd" > "./Build/equuleusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/equuleusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd-bootshim" > "./Build/equuleusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/equuleusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd-bootshim.gz" ./Resources/DTBs/equuleus.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/equuleusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd" > "./Build/equuleusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/equuleusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd-bootshim" > "./Build/equuleusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/equuleusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/EQUULEUS_UEFI.fd-bootshim.gz" ./Resources/DTBs/equuleus.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

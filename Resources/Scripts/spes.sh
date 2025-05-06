@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd" > "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd-bootshim" > "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/spesPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd-bootshim.gz" ./Resources/DTBs/spes.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/spesPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd" > "./Build/spesPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/spesPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd-bootshim" > "./Build/spesPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/spesPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPES_UEFI.fd-bootshim.gz" ./Resources/DTBs/spes.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

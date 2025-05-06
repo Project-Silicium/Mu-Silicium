@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/bitraPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd" > "./Build/bitraPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/bitraPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd-bootshim" > "./Build/bitraPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/bitraPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd-bootshim.gz" ./Resources/DTBs/bitra.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/bitraPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd" > "./Build/bitraPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/bitraPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd-bootshim" > "./Build/bitraPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/bitraPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BITRA_UEFI.fd-bootshim.gz" ./Resources/DTBs/bitra.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

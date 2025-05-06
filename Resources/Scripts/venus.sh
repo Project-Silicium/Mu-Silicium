@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/venusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd" > "./Build/venusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/venusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd-bootshim" > "./Build/venusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/venusPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd-bootshim.gz" ./Resources/DTBs/venus.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/venusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd" > "./Build/venusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/venusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd-bootshim" > "./Build/venusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/venusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/VENUS_UEFI.fd-bootshim.gz" ./Resources/DTBs/venus.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

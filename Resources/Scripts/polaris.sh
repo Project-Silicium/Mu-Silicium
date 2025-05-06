@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/polarisPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd" > "./Build/polarisPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/polarisPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd-bootshim" > "./Build/polarisPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/polarisPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd-bootshim.gz" ./Resources/DTBs/polaris.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/polarisPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd" > "./Build/polarisPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/polarisPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd-bootshim" > "./Build/polarisPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/polarisPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/POLARIS_UEFI.fd-bootshim.gz" ./Resources/DTBs/polaris.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

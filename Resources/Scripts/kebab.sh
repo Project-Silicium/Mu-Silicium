@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd" > "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd-bootshim" > "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/kebabPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd-bootshim.gz" ./Resources/DTBs/kebab.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/kebabPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd" > "./Build/kebabPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/kebabPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd-bootshim" > "./Build/kebabPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/kebabPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/KEBAB_UEFI.fd-bootshim.gz" ./Resources/DTBs/kebab.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

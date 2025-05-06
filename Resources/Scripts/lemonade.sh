@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/lemonadePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd" > "./Build/lemonadePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/lemonadePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd-bootshim" > "./Build/lemonadePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/lemonadePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd-bootshim.gz" ./Resources/DTBs/lemonade.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/lemonadePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd" > "./Build/lemonadePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/lemonadePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd-bootshim" > "./Build/lemonadePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/lemonadePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LEMONADE_UEFI.fd-bootshim.gz" ./Resources/DTBs/lemonade.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

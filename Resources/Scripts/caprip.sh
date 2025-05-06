@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/capripPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd" > "./Build/capripPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/capripPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd-bootshim" > "./Build/capripPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/capripPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd-bootshim.gz" ./Resources/DTBs/caprip.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/capripPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd" > "./Build/capripPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/capripPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd-bootshim" > "./Build/capripPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/capripPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAPRIP_UEFI.fd-bootshim.gz" ./Resources/DTBs/caprip.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

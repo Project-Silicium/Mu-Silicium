@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/caymanslmPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd" > "./Build/caymanslmPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/caymanslmPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd-bootshim" > "./Build/caymanslmPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/caymanslmPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd-bootshim.gz" ./Resources/DTBs/caymanslm.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/caymanslmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd" > "./Build/caymanslmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/caymanslmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd-bootshim" > "./Build/caymanslmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/caymanslmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CAYMANSLM_UEFI.fd-bootshim.gz" ./Resources/DTBs/caymanslm.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

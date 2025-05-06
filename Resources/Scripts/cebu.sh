@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/cebuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd" > "./Build/cebuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/cebuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd-bootshim" > "./Build/cebuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/cebuPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd-bootshim.gz" ./Resources/DTBs/cebu.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/cebuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd" > "./Build/cebuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/cebuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd-bootshim" > "./Build/cebuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/cebuPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/CEBU_UEFI.fd-bootshim.gz" ./Resources/DTBs/cebu.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

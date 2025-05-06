@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/willowPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd" > "./Build/willowPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/willowPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd-bootshim" > "./Build/willowPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/willowPkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd-bootshim.gz" ./Resources/DTBs/willow.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/willowPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd" > "./Build/willowPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/willowPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd-bootshim" > "./Build/willowPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/willowPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/WILLOW_UEFI.fd-bootshim.gz" ./Resources/DTBs/willow.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

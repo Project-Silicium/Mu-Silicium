@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat ./BootShim/AARCH64/BootShim.bin "./Build/starltePkg/${_TARGET_BUILD_MODE}_CLANGPDB/FV/STARLTE_UEFI.fd" > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/AARCH64/BootShim.bin "./Build/starltePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/STARLTE_UEFI.fd" > ./Resources/bootpayload.bin||exit 1
 
 python3 ./Resources/Scripts/mkbootimg.py \
 	--kernel ./Resources/bootpayload.bin \
