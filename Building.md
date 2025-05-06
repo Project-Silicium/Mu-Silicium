@@ -5,7 +5,7 @@
 
 ## Preparing
 
-Before you can even Beginn to Compile a UEFI, You must clone the GitHub Repo:
+Before you can even Begin to Compile a UEFI, You must clone the GitHub Repo:
 ```bash
 # Install the "git" Package if the Command fails with "Not Found".
 git clone https://github.com/Project-Silicium/Mu-Silicium.git --recursive
