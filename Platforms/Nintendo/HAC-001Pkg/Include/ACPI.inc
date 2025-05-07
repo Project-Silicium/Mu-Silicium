@@ -4,7 +4,9 @@
 #  SECTION RAW = Tegra210/BERT.aml
 #  SECTION RAW = Tegra210/BGRT.aml
 #  SECTION RAW = Tegra210/CSRT.aml
+!if $(TARGET) == DEBUG
 #  SECTION RAW = Tegra210/DBG2.aml
+!endif
 #  SECTION RAW = HAC-001/DSDT.aml
 #  SECTION RAW = Tegra210/FACP.aml
 #  SECTION RAW = Tegra210/FPDT.aml

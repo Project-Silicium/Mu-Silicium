@@ -4,7 +4,9 @@
 #  SECTION RAW = Tegra30/BERT.aml
 #  SECTION RAW = Tegra30/BGRT.aml
 #  SECTION RAW = Tegra30/CSRT.aml
+!if $(TARGET) == DEBUG
 #  SECTION RAW = Tegra30/DBG2.aml
+!endif
 #  SECTION RAW = oemk/DSDT.aml
 #  SECTION RAW = Tegra30/FACP.aml
 #  SECTION RAW = Tegra30/FPDT.aml
