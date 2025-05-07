@@ -40,7 +40,7 @@
 !elseif $(DEVICE_MODEL) == 1
   SOC_TYPE                       = 5
 !else
-!error "Invalid Model Type! 0 For Unpatched, 1 for Patched."
+!error "Invalid Model Type! 0 For Icosa (Unpatched), 1 for Iowa (Patched)."
 !endif
 
 [BuildOptions]
@@ -67,15 +67,17 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo K.K."
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
 !if $(DEVICE_MODEL) == 0
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"HAC-001"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Switch_HAC-001"
-!elseif $(DEVICE_MODEL) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"HAC-001(-01)"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Switch_HAC-001(-01)"
-!endif
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Icosa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch"
+!elseif $(DEVICE_MODEL) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch (Mariko)"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"HAC-001(-01)"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Iowa"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch (Mariko)"
+!endif
 
   # Simple FrameBuffer (TODO: Rotate Screen Somehow)
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
