@@ -23,8 +23,8 @@
   TimerLib|NvidiaPkg/GPLLibrary/TegraTimerLib/TegraTimerLib.inf
 !endif
 
-  # Pei Library
-  PlatformPeiLib|NvidiaPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
+  # HOB Library
+  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
 
   # Memory Protection Library
   MemoryProtectionLib|NvidiaPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf

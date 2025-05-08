@@ -7,43 +7,47 @@
 
 #include <PiPei.h>
 
-#include <Library/HobLib.h>
 #include <Library/PcdLib.h>
+#include <Library/PlatformHobLib.h>
 #include <Library/DeviceConfigurationMapLib.h>
-#include <Library/SerialPortLib.h>
-#include <Library/MemoryMapHelperLib.h>
 #include <Library/ConfigurationMapHelperLib.h>
+#include <Library/MemoryMapHelperLib.h>
+#include <Library/SerialPortLib.h>
 
 #include <Protocol/EFIKernelInterface.h>
 
-#include "PlatformPeiLib.h"
+#include "PlatformHobs.h"
 
 STATIC
 EFI_STATUS
 CfgGetMemInfoByName (
-  CHAR8                           *RegionName,
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
+  IN  CHAR8                           *RegionName,
+  OUT ARM_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
 {
+  // Get Memory Region by Name
   return LocateMemoryMapAreaByName (RegionName, MemRegions);
 }
 
 STATIC
 EFI_STATUS
 CfgGetMemInfoByAddress (
-  UINT64                           RegionBaseAddress,
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
+  IN  UINT64                           RegionBaseAddress,
+  OUT ARM_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
 {
+  // Get Memory Region by Base Address
   return LocateMemoryMapAreaByAddress (RegionBaseAddress, MemRegions);
 }
 
 STATIC
 EFI_STATUS
 CfgGetCfgInfoString (
-  CHAR8 *Key,
-  CHAR8 *Value,
-  UINTN *ValBuffSize)
+  IN  CHAR8 *Key,
+  OUT CHAR8 *Value,
+  IN  UINTN *ValBuffSize)
 {
+  // Compare Names
   if (AsciiStriCmp (Key, "OsTypeString") == 0) {
+    // Convert Name to String
     AsciiStrCpyS (Value, *ValBuffSize, FixedPcdGetPtr (PcdPlatformType));
     return EFI_SUCCESS;
   }
@@ -54,24 +58,29 @@ CfgGetCfgInfoString (
 STATIC
 EFI_STATUS
 CfgGetCfgInfoVal (
-  CHAR8  *Key,
-  UINT32 *Value)
+  IN  CHAR8  *Key,
+  OUT UINT32 *Value)
 {
+  // Get Configuration Value by Name (32)
   return LocateConfigurationMapUINT32ByName (Key, Value);
 }
 
 STATIC
 EFI_STATUS
 CfgGetCfgInfoVal64 (
-  CHAR8  *Key,
-  UINT64 *Value)
+  IN  CHAR8  *Key,
+  OUT UINT64 *Value)
 {
+  // Get Configuration Value by Name (64)
   return LocateConfigurationMapUINT64ByName (Key, Value);
 }
 
 STATIC
 UINTN
-SFlush () { return EFI_SUCCESS; }
+SFlush ()
+{
+  return EFI_SUCCESS;
+}
 
 STATIC
 UINTN
@@ -84,51 +93,73 @@ SControl (
 
 STATIC
 BOOLEAN
-SPoll () { return TRUE; }
+SPoll ()
+{
+  return TRUE;
+}
 
 STATIC
 UINTN
-SDrain () { return EFI_SUCCESS; }
-
-STATIC
-EFI_STATUS
-ShInstallLib (
-  IN CHAR8 *LibName,
-  IN UINT32 LibVersion,
-  IN VOID  *LibIntf)
+SDrain ()
 {
   return EFI_SUCCESS;
 }
 
+//
+// Config Lib Structure
+//
 UefiCfgLibType ConfigLib = {
-  0x00010002,          CfgGetMemInfoByName,
-  CfgGetCfgInfoString, CfgGetCfgInfoVal,
-  CfgGetCfgInfoVal64,  CfgGetMemInfoByAddress
+  0x10002,
+  CfgGetMemInfoByName,
+  CfgGetCfgInfoString,
+  CfgGetCfgInfoVal,
+  CfgGetCfgInfoVal64, 
+  CfgGetMemInfoByAddress
 };
 
+//
+// SerialPort Lib Structure
+//
 SioPortLibType SioLib = {
-  0x00010001,          SerialPortRead,
-  SerialPortWrite,     SPoll,
-  SDrain,              SFlush,
-  SControl,            SerialPortSetAttributes
+  0x10001,
+  SerialPortRead,
+  SerialPortWrite,
+  SPoll,
+  SDrain,
+  SFlush,
+  SControl,
+  SerialPortSetAttributes
 };
 
 STATIC
 EFI_STATUS
-ShLoadLib (
-  IN  CHAR8 *LibName,
-  IN  UINT32 LibVersion,
-  OUT VOID **LibIntf)
+ShInstallLib (
+  IN CHAR8  *LibName,
+  IN UINT32 LibVersion,
+  IN VOID   *LibIntf)
 {
+  return EFI_SUCCESS;
+}
+
+STATIC
+EFI_STATUS
+ShLoadLib (
+  IN  CHAR8   *LibName,
+  IN  UINT32   LibVersion,
+  OUT VOID   **LibIntf)
+{
+  // Check Parameter
   if (LibIntf == NULL) {
     return EFI_NOT_FOUND;
   }
 
+  // Compare Library Name
   if (AsciiStriCmp (LibName, "UEFI Config Lib") == 0) {
     *LibIntf = &ConfigLib;
     return EFI_SUCCESS;
   }
 
+  // Compare Library Name
   if (AsciiStriCmp (LibName, "SerialPort Lib") == 0) {
     *LibIntf = &SioLib;
     return EFI_SUCCESS;
@@ -137,40 +168,32 @@ ShLoadLib (
   return EFI_NOT_FOUND;
 }
 
-ShLibLoaderType ShLib = { 0x00010001, ShInstallLib, ShLoadLib };
-
-STATIC
-VOID
-BuildMemHobForFv (IN UINT16 Type)
-{
-  EFI_PEI_HOB_POINTERS      HobPtr;
-  EFI_HOB_FIRMWARE_VOLUME2 *Hob;
-
-  HobPtr.Raw = GetHobList ();
-
-  while ((HobPtr.Raw = GetNextHob (Type, HobPtr.Raw)) != NULL) {
-    if (Type == EFI_HOB_TYPE_FV2) {
-      Hob = HobPtr.FirmwareVolume2;
-
-      // Build Memory Allocation HOB to mark it as BootServicesData
-      BuildMemoryAllocationHob (Hob->BaseAddress, EFI_SIZE_TO_PAGES (Hob->Length) * EFI_PAGE_SIZE, EfiBootServicesData);
-    }
-
-    HobPtr.Raw = GET_NEXT_HOB (HobPtr);
-  }
-}
+//
+// Sh Library Type Structure
+//
+ShLibLoaderType ShLib = {
+  0x00010001,
+  ShInstallLib,
+  ShLoadLib
+};
 
 VOID
-InstallPlatformHob ()
+BuildPlatformHobs ()
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlkRegion;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFdRegion;
+  UINT64                          SchedAddress;
+  UINT64                          DtbExtAddress;
+
+  // Get XBL HOB Addresses
+  SchedAddress  = FixedPcdGet64 (PcdScheduleInterfaceAddr);
+  DtbExtAddress = FixedPcdGet64 (PcdDTBExtensionAddr);
 
   // Build Info Blk HOB
-  Status = LocateMemoryMapAreaByName ("Info Blk", &InfoBlk);
+  Status = LocateMemoryMapAreaByName ("Info Blk", &InfoBlkRegion);
   if (!EFI_ERROR (Status) && FixedPcdGetBool (PcdEnableInfoBlkHob)) {
-    UINTN InfoBlkAddress = InfoBlk.Address;
+    UINTN InfoBlkAddress = InfoBlkRegion.Address;
 
     BuildGuidDataHob (&gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof (InfoBlkAddress));
   }
@@ -183,9 +206,9 @@ InstallPlatformHob ()
   }
 
   // Build FV Decompress HOB
-  Status = LocateMemoryMapAreaByName ("UEFI FD", &UefiFd);
+  Status = LocateMemoryMapAreaByName ("UEFI FD", &UefiFdRegion);
   if (!EFI_ERROR (Status) && FixedPcdGetBool (PcdEnableFvDecompressHob)) {
-    UINTN FvDecompressAddress = UefiFd.Address + 0x403D0;
+    UINTN FvDecompressAddress = UefiFdRegion.Address + 0x403D0;
 
     BuildGuidDataHob (&gFvDecompressHobGuid, &FvDecompressAddress, sizeof (FvDecompressAddress));
   }
@@ -198,29 +221,16 @@ InstallPlatformHob ()
   }
 
   // Build Schedule Interface HOB
-  if (FixedPcdGet64 (PcdScheduleInterfaceAddr)) {
-    EFI_KERNEL_PROTOCOL *SchedIntf = (VOID *)FixedPcdGet64 (PcdScheduleInterfaceAddr);
+  if (SchedAddress) {
+    EFI_KERNEL_PROTOCOL *SchedIntfProtocol = (VOID *)SchedAddress;
 
-    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntf, sizeof (SchedIntf));
+    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntfProtocol, sizeof (SchedIntfProtocol));
   }
 
   // Build DTB Extension HOB
-  if (FixedPcdGet64 (PcdDTBExtensionAddr)) {
-    EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)FixedPcdGet64 (PcdDTBExtensionAddr);
+  if (DtbExtAddress) {
+    EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)DtbExtAddress;
 
     BuildGuidDataHob (&gEfiDTBExtnHobGuid, &DTBExtnProtocol, sizeof (DTBExtnProtocol));
   }
-}
-
-EFI_STATUS
-EFIAPI
-PlatformPeim ()
-{
-  BuildFvHob (PcdGet64 (PcdFvBaseAddress), PcdGet32 (PcdFvSize));
-
-  BuildMemHobForFv (EFI_HOB_TYPE_FV2);
-
-  InstallPlatformHob ();
-
-  return EFI_SUCCESS;
 }

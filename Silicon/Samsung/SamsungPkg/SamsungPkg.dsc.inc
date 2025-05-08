@@ -12,8 +12,8 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
 
 [LibraryClasses]
-  # Pei Library
-  PlatformPeiLib|SamsungPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
+  # HOB Library
+  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
 
   # Memory Pritection Library
   MemoryProtectionLib|SamsungPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf

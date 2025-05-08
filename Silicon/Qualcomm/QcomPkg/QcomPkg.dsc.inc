@@ -24,8 +24,8 @@
   RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
   ConfigurationMapHelperLib|QcomPkg/Library/ConfigurationMapHelperLib/ConfigurationMapHelperLib.inf
 
-  # Pei Library
-  PlatformPeiLib|QcomPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
+  # HOB Library
+  PlatformHobLib|QcomPkg/Library/PlatformHobLib/PlatformHobLib.inf
 
   # Memory Protection Library
   MemoryProtectionLib|QcomPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf

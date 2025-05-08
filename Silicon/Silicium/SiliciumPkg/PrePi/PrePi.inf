@@ -48,7 +48,7 @@
   PlatformPrePiLib
   DevicePrePiLib
   MemoryInitPeiLib
-  PlatformPeiLib
+  PeiHobLib
   MemoryProtectionLib
 
 [Ppis]

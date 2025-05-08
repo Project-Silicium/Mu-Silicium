@@ -7,14 +7,14 @@
 
 [Defines]
   INF_VERSION                    = 0x00010005
-  BASE_NAME                      = PlatformPeiLib
-  FILE_GUID                      = 59C11815-F8DA-4F49-B4FB-EC1E41ED1F06
+  BASE_NAME                      = PlatformHobLib
+  FILE_GUID                      = 24E65D93-B945-4D95-A453-77EF91F75CF0
   MODULE_TYPE                    = SEC
   VERSION_STRING                 = 1.0
-  LIBRARY_CLASS                  = PlatformPeiLib
+  LIBRARY_CLASS                  = PlatformHobLib
 
 [Sources]
-  PlatformPeiLib.c
+  PlatformHobLib.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -23,13 +23,15 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  HobLib
-  SerialPortLib
-  MemoryMapHelperLib
+  PcdLib
+  PlatformHobLib
+  DeviceConfigurationMapLib
   ConfigurationMapHelperLib
+  MemoryMapHelperLib
+  SerialPortLib
+  HobLib
 
 [FixedPcd]
-  gArmTokenSpaceGuid.PcdFvSize
   gQcomPkgTokenSpaceGuid.PcdPlatformType
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob
   gQcomPkgTokenSpaceGuid.PcdEnableShimHob
@@ -38,9 +40,6 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr
 
-[Pcd]
-  gArmTokenSpaceGuid.PcdFvBaseAddress
-
 [Guids]
   gEfiInfoBlkHobGuid
   gEfiShimLibraryHobGuid
@@ -48,6 +47,3 @@
   gEfiProdmodeHobGuid
   gEfiScheduleInterfaceHobGuid
   gEfiDTBExtnHobGuid
-
-[Depex]
-  gEfiPeiMemoryDiscoveredPpiGuid

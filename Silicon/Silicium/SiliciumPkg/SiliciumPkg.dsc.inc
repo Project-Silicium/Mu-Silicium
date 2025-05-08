@@ -174,6 +174,7 @@
   PeCoffLib|MdePkg/Library/BasePeCoffLib/BasePeCoffLib.inf
   PeCoffExtraActionLib|MdePkg/Library/BasePeCoffExtraActionLibNull/BasePeCoffExtraActionLibNull.inf
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
+  PeiHobLib|SiliciumPkg/Library/PeiHobLib/PeiHobLib.inf
 
   #
   # UEFI Libraries

@@ -1,5 +1,5 @@
-#ifndef _PLATFORM_PEI_LIB_H_
-#define _PLATFORM_PEI_LIB_H_
+#ifndef _PLATFORM_HOBS_H_
+#define _PLATFORM_HOBS_H_
 
 typedef
 EFI_STATUS
@@ -159,4 +159,4 @@ typedef struct {
   VOID *UnknownFunction27;
 } EFI_DTB_EXTN_PROTOCOL;
 
-#endif /* _PLATFORM_PEI_LIB_H_ */
+#endif /* _PLATFORM_HOBS_H_ */
