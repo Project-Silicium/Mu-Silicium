@@ -46,6 +46,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|oemkPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DevicePrePiLib|oemkPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address

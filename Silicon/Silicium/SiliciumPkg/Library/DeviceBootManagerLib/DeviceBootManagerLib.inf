@@ -32,6 +32,7 @@
   BootGraphicsLib
   MsPlatformDevicesLib
   AcpiPlatformUpdateLib
+  AcpiDeviceUpdateLib
   UefiBootServicesTableLib
   UefiRuntimeServicesTableLib
   UefiLib

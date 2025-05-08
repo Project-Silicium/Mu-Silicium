@@ -40,6 +40,7 @@
   DeviceMemoryMapLib|aliothPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|aliothPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
   DevicePrePiLib|aliothPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  AcpiDeviceUpdateLib|aliothPkg/Library/AcpiDeviceUpdateLib/AcpiDeviceUpdateLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -102,6 +103,3 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
 
 !include SM8250Pkg/SM8250Pkg.dsc.inc
-
-[LibraryClasses]
-  AcpiPlatformUpdateLib|aliothPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf

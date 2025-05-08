@@ -11,6 +11,7 @@
 #include <Library/BootGraphics.h>
 #include <Library/MsPlatformDevicesLib.h>
 #include <Library/AcpiPlatformUpdateLib.h>
+#include <Library/AcpiDeviceUpdateLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/UefiLib.h>
@@ -95,8 +96,11 @@ DeviceBootManagerAfterConsole ()
 {
   EFI_STATUS Status;
 
-  // Update the ACPI Tables
+  // Platform ACPI Tables Update
   PlatformUpdateAcpiTables ();
+
+  // Device ACPI Tables Update
+  DeviceUpdateAcpiTables ();
 
   // Display Boot Logo on Screen
   Status = DisplayBootGraphic (BG_SYSTEM_LOGO);
