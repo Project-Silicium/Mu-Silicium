@@ -6,7 +6,6 @@
 **/
 
 #include <Library/PlatformHobLib.h>
-#include <Library/HobLib.h>
 #include <Library/PcdLib.h>
 
 STATIC
