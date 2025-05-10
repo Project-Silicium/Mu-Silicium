@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/j706fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/J706F_UEFI.fd" > "./Build/j706fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/J706F_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/j706fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/J706F_UEFI.fd" > "./Build/j706fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/J706F_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/j706fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/J706F_UEFI.fd-bootshim" > "./Build/j706fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/J706F_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/j706fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/J706F_UEFI.fd-bootshim.gz" ./Resources/DTBs/j706f.dtb > ./Resources/bootpayload.bin||exit 1
 

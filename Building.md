@@ -37,14 +37,3 @@ If it was Successfull, a Output Image will apear with this Name: `Mu-[Device-Cod
 
 If you encounter a Problem while Installing the Python Packages saying something with "Couldn't satisfy", Update your Python Package. <br>
 Python 3.10+ is Required to Compile a UEFI Image.
-
-## Fedora No ARM Toolchain
-
-You might encounter a Issue on newer Fedora Releases that the ARM Toolchain can't be Installed. <br>
-Run this Command to Enable a External Repo with the missing Package:
-```bash
-sudo dnf copr enable lantw44/arm-linux-gnueabihf-toolchain
-```
-
-If you are above Fedora 39, You will need `libgnat-13.3.1-1` from [here](https://koji.fedoraproject.org/koji/buildinfo?buildID=2454974) <br>
-Once you did that, Restart your Terminal and run the Setup Script again.

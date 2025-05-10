@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat ./BootShim/AARCH64/BootShim.bin "./Build/x1sPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/X1S_UEFI.fd" > "./Resources/bootpayload.bin"||exit 1
+cat ./BootShim/BootShim.bin "./Build/x1sPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/X1S_UEFI.fd" > "./Resources/bootpayload.bin"||exit 1
 
 python3 ./Resources/Scripts/mkbootimg.py \
   --kernel ./Resources/bootpayload.bin \

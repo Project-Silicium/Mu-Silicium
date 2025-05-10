@@ -1,7 +1,7 @@
  #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/i005dPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/I005D_UEFI.fd" > "./Build/i005dPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/I005D_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/i005dPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/I005D_UEFI.fd" > "./Build/i005dPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/I005D_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/i005dPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/I005D_UEFI.fd-bootshim" > "./Build/i005dPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/I005D_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/i005dPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/I005D_UEFI.fd-bootshim.gz" ./Resources/DTBs/i005d.dtb > ./Resources/bootpayload.bin||exit 1
 

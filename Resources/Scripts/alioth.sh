@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/aliothPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ALIOTH_UEFI.fd" > "./Build/aliothPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ALIOTH_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/aliothPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ALIOTH_UEFI.fd" > "./Build/aliothPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ALIOTH_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/aliothPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ALIOTH_UEFI.fd-bootshim" > "./Build/aliothPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ALIOTH_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/aliothPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ALIOTH_UEFI.fd-bootshim.gz" ./Resources/DTBs/alioth.dtb > ./Resources/bootpayload.bin||exit 1
 

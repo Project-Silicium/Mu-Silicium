@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/betalmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BETALM_UEFI.fd" > "./Build/betalmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BETALM_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/betalmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BETALM_UEFI.fd" > "./Build/betalmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BETALM_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/betalmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BETALM_UEFI.fd-bootshim" > "./Build/betalmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BETALM_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/betalmPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BETALM_UEFI.fd-bootshim.gz" ./Resources/DTBs/betalm.dtb > ./Resources/bootpayload.bin||exit 1
 

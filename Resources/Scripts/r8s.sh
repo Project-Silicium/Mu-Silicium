@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat ./BootShim/AARCH64/BootShim.bin "./Build/r8sPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/R8S_UEFI.fd" > "./Resources/bootpayload.bin"||exit 1
+cat ./BootShim/BootShim.bin "./Build/r8sPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/R8S_UEFI.fd" > "./Resources/bootpayload.bin"||exit 1
 
 python3 ./Resources/Scripts/mkbootimg.py \
   --kernel ./Resources/bootpayload.bin \

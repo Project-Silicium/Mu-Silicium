@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/gta4lPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTA4L_UEFI.fd" > "./Build/gta4lPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTA4L_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/gta4lPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTA4L_UEFI.fd" > "./Build/gta4lPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTA4L_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/gta4lPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTA4L_UEFI.fd-bootshim" > "./Build/gta4lPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTA4L_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/gta4lPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTA4L_UEFI.fd-bootshim.gz" ./Resources/DTBs/gta4l.dtb > ./Resources/bootpayload.bin||exit 1
 

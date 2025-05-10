@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/9707fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LENOVO_9707F_UEFI.fd" > "./Build/9707fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LENOVO_9707F_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/9707fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LENOVO_9707F_UEFI.fd" > "./Build/9707fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LENOVO_9707F_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/9707fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LENOVO_9707F_UEFI.fd-bootshim" > "./Build/9707fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LENOVO_9707F_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/9707fPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/LENOVO_9707F_UEFI.fd-bootshim.gz" ./Resources/DTBs/9707f.dtb > ./Resources/bootpayload.bin||exit 1
 

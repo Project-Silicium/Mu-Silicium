@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/gtaxlltePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTAXLLTE_UEFI.fd" > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/gtaxlltePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GTAXLLTE_UEFI.fd" > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

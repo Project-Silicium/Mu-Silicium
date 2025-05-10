@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/ginkgoPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GINKGO_UEFI.fd" > "./Build/ginkgoPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GINKGO_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/ginkgoPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GINKGO_UEFI.fd" > "./Build/ginkgoPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GINKGO_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/ginkgoPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GINKGO_UEFI.fd-bootshim" > "./Build/ginkgoPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GINKGO_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/ginkgoPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/GINKGO_UEFI.fd-bootshim.gz" ./Resources/DTBs/ginkgo.dtb > ./Resources/bootpayload.bin||exit 1
 

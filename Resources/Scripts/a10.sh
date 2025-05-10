@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/a10Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/A10_UEFI.fd" > "./Resources/bootpayload.bin"||exit 1
+cat ./BootShim/BootShim.bin "./Build/a10Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/A10_UEFI.fd" > "./Resources/bootpayload.bin"||exit 1
 
 # Create a Bootable Android Boot Image
 python3 ./Resources/Scripts/mkbootimg.py \

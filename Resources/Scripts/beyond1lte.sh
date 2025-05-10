@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/beyond1ltePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BEYOND1LTE_UEFI.fd" > "./Build/beyond1ltePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BEYOND1LTE_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/beyond1ltePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BEYOND1LTE_UEFI.fd" > "./Build/beyond1ltePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BEYOND1LTE_UEFI.fd-bootshim"||exit 1
 cat "./Build/beyond1ltePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BEYOND1LTE_UEFI.fd-bootshim" ./Resources/DTBs/beyond1lte.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img

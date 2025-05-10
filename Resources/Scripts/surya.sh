@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/suryaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SURYA_UEFI.fd" > "./Build/suryaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SURYA_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/suryaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SURYA_UEFI.fd" > "./Build/suryaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SURYA_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/suryaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SURYA_UEFI.fd-bootshim" > "./Build/suryaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SURYA_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/suryaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SURYA_UEFI.fd-bootshim.gz" ./Resources/DTBs/surya.dtb > ./Resources/bootpayload.bin||exit 1
 

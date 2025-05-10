@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/spacewarPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPACEWAR_UEFI.fd" > "./Build/spacewarPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPACEWAR_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/spacewarPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPACEWAR_UEFI.fd" > "./Build/spacewarPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPACEWAR_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/spacewarPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPACEWAR_UEFI.fd-bootshim" > "./Build/spacewarPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPACEWAR_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/spacewarPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SPACEWAR_UEFI.fd-bootshim.gz" ./Resources/DTBs/spacewar.dtb > ./Resources/bootpayload.bin||exit 1
 

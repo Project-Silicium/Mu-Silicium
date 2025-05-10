@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/pipaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PIPA_UEFI.fd" > "./Build/pipaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PIPA_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/pipaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PIPA_UEFI.fd" > "./Build/pipaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PIPA_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/pipaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PIPA_UEFI.fd-bootshim" > "./Build/pipaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PIPA_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/pipaPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PIPA_UEFI.fd-bootshim.gz" ./Resources/DTBs/pipa.dtb > ./Resources/bootpayload.bin||exit 1
 

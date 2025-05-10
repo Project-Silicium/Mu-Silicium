@@ -8,4 +8,4 @@ then TARGET_MODEL_CODENAME="iowa"
 fi
 
 # Copy BootShim + UEFI to a Payload File
-cat ./BootShim/AARCH64/BootShim.bin "./Build/HAC-001Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/HAC-001_UEFI.fd" > ./Mu-${TARGET_MODEL_CODENAME}.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/HAC-001Pkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/HAC-001_UEFI.fd" > ./Mu-${TARGET_MODEL_CODENAME}.bin||exit 1

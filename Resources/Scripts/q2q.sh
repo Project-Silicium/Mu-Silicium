@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/q2qPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/Q2Q_UEFI.fd" > "./Build/q2qPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/Q2Q_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/q2qPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/Q2Q_UEFI.fd" > "./Build/q2qPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/Q2Q_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/q2qPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/Q2Q_UEFI.fd-bootshim" > "./Build/q2qPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/Q2Q_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/q2qPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/Q2Q_UEFI.fd-bootshim.gz" ./Resources/DTBs/q2q.dtb > ./Resources/bootpayload.bin||exit 1
 

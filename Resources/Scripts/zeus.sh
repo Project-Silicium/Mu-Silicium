@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/AARCH64/BootShim.bin "./Build/zeusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ZEUS_UEFI.fd" > "./Build/zeusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ZEUS_UEFI.fd-bootshim"||exit 1
+cat ./BootShim/BootShim.bin "./Build/zeusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ZEUS_UEFI.fd" > "./Build/zeusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ZEUS_UEFI.fd-bootshim"||exit 1
 gzip -c < "./Build/zeusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ZEUS_UEFI.fd-bootshim" > "./Build/zeusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ZEUS_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/zeusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/ZEUS_UEFI.fd-bootshim.gz" ./Resources/DTBs/zeus.dtb > ./Resources/bootpayload.bin||exit 1
 
