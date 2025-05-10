@@ -40,7 +40,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|viliPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|viliPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|viliPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  DevicePrePiLib|SiliciumPkg/Library/DevicePrePiLibNull/DevicePrePiLibNull.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

@@ -32,7 +32,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|equuleusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|equuleusPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|equuleusPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  DevicePrePiLib|SiliciumPkg/Library/DevicePrePiLibNull/DevicePrePiLibNull.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

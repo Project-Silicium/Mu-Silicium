@@ -39,7 +39,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|bitraPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|bitraPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|bitraPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  DevicePrePiLib|SiliciumPkg/Library/DevicePrePiLibNull/DevicePrePiLibNull.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

@@ -39,7 +39,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|i005dPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|i005dPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|i005dPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  DevicePrePiLib|SiliciumPkg/Library/DevicePrePiLibNull/DevicePrePiLibNull.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

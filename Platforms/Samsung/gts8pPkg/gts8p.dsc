@@ -38,7 +38,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|gts8pPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|gts8pPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|gts8pPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  DevicePrePiLib|SiliciumPkg/Library/DevicePrePiLibNull/DevicePrePiLibNull.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

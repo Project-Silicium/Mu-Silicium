@@ -32,7 +32,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|gtaxlltePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|gtaxlltePkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  DevicePrePiLib|gtaxlltePkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  DevicePrePiLib|SiliciumPkg/Library/DevicePrePiLibNull/DevicePrePiLibNull.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

@@ -39,7 +39,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|aliothPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|aliothPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|aliothPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
+  DevicePrePiLib|SiliciumPkg/Library/DevicePrePiLibNull/DevicePrePiLibNull.inf
   AcpiDeviceUpdateLib|aliothPkg/Library/AcpiDeviceUpdateLib/AcpiDeviceUpdateLib.inf
 
 [PcdsFixedAtBuild]
