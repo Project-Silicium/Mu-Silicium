@@ -32,7 +32,6 @@
 [LibraryClasses]
   DeviceMemoryMapLib|x1sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|x1sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  DevicePrePiLib|x1sPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

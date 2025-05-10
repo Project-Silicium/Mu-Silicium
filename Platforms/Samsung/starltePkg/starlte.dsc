@@ -32,7 +32,6 @@
 [LibraryClasses]
   DeviceMemoryMapLib|starltePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|starltePkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  DevicePrePiLib|starltePkg/Library/DevicePrePiLib/DevicePrePiLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

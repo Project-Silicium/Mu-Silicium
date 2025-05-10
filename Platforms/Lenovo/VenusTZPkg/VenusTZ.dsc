@@ -46,7 +46,6 @@
 [LibraryClasses]
   DeviceMemoryMapLib|VenusTZPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   KeypadDeviceLib|VenusTZPkg/GPLLibrary/KeypadDeviceLib/KeypadDeviceLib.inf
-  DevicePrePiLib|VenusTZPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]

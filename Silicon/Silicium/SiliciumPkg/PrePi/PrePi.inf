@@ -46,7 +46,6 @@
   DebugLib
   SerialPortLib
   PlatformPrePiLib
-  DevicePrePiLib
   MemoryInitPeiLib
   PeiHobLib
   MemoryProtectionLib

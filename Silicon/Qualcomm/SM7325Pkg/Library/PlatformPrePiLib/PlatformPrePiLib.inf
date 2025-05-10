@@ -22,7 +22,6 @@
   PcdLib
   IoLib
   ConfigurationMapHelperLib
-  DevicePrePiLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdGicRedistributorsBase

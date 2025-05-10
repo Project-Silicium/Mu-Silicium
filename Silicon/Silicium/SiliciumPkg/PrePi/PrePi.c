@@ -16,7 +16,6 @@
 #include <Library/DebugLib.h>
 #include <Library/SerialPortLib.h>
 #include <Library/PlatformPrePiLib.h>
-#include <Library/DevicePrePiLib.h>
 #include <Library/MemoryProtectionLib.h>
 
 #include <Ppi/SecPerformance.h>
@@ -190,9 +189,6 @@ CEntryPoint ()
 
   // Run SoC Specific Code
   PlatformInitialize ();
-
-  // Run Device Specific Code
-  DeviceInitialize ();
 
   // Clear Screen
   Status = LocateMemoryMapAreaByName ("Display Reserved", &Display);

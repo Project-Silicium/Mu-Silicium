@@ -20,7 +20,6 @@
 [LibraryClasses]
   PcdLib
   IoLib
-  DevicePrePiLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdGicRedistributorsBase
