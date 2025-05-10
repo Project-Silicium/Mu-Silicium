@@ -43,11 +43,6 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DRAM_MODEL=$(RAM_MODEL) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses]
-  DeviceMemoryMapLib|VenusTZPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  KeypadDeviceLib|VenusTZPkg/GPLLibrary/KeypadDeviceLib/KeypadDeviceLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
@@ -77,11 +72,6 @@
   # Dynamic RAM
   gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0xFD15A000
 
-[Components]
-  # Keypad
-  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
-  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1366
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|768
@@ -91,5 +81,15 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|40
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|170
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|40
+
+[LibraryClasses]
+  DeviceMemoryMapLib|VenusTZPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  KeypadDeviceLib|VenusTZPkg/GPLLibrary/KeypadDeviceLib/KeypadDeviceLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+[Components]
+  # Keypad
+  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
 !include Tegra30Pkg/Tegra30Pkg.dsc.inc

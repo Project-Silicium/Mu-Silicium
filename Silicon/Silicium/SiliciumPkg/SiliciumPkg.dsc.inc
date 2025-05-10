@@ -268,7 +268,6 @@
   GraphicsConsoleHelperLib|PcBdsPkg/Library/GraphicsConsoleHelperLib/GraphicsConsoleHelper.inf
   #SiliciumGraphicsLib|SiliciumPkg/Library/SiliciumGraphicsLib/SiliciumGraphicsLib.inf
 
-
   #
   # ACPI Libraries
   #

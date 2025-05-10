@@ -43,10 +43,6 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DRAM_MODEL=$(RAM_MODEL) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses]
-  DeviceMemoryMapLib|oemkPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
@@ -85,5 +81,9 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|40
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|170
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|40
+
+[LibraryClasses]
+  DeviceMemoryMapLib|oemkPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include Tegra30Pkg/Tegra30Pkg.dsc.inc
