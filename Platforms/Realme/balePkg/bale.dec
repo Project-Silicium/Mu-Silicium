@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = bale
+  PACKAGE_GUID                        = 6F021B78-8DAE-474D-9B43-5E2412A76E32
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gbaleTokenSpaceGuid                 = { 0x781B026F, 0xAE8D, 0x4D47, { 0x9B, 0x43, 0x5E, 0x24, 0x12, 0xA7, 0x6E, 0x32 } }

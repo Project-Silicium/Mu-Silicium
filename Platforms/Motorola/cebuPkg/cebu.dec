@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = cebu
+  PACKAGE_GUID                        = E121C9CC-0F2F-4EAC-AFEA-5DF772C806EF
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gcebuTokenSpaceGuid                 = { 0xCCC921E1, 0x2F0F, 0xAC4E, { 0xAF, 0xEA, 0x5D, 0xF7, 0x72, 0xC8, 0x06, 0xEF } }

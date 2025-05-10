@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = fog
+  PACKAGE_GUID                        = C62242F8-E275-4150-B6F3-1CC4FAC6425C
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gfogTokenSpaceGuid                  = { 0xF84222C6, 0x75E2, 0x5041, { 0xB6, 0xF3, 0x1C, 0xC4, 0xFA, 0xC6, 0x42, 0x5C } }

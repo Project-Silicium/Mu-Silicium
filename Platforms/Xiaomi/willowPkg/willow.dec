@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = willow
+  PACKAGE_GUID                        = 630D1379-7D3F-4511-A6F9-578ABBC07518
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gwillowTokenSpaceGuid               = { 0x79130D63, 0x3F7D, 0x1134, { 0xA6, 0xF9, 0x57, 0x8A, 0xBB, 0xC0, 0x75, 0x18 } }

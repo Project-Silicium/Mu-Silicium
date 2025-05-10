@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = sweet
+  PACKAGE_GUID                        = FB8B7932-7626-4D3B-AD8E-370652E0D2C0
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gsweetTokenSpaceGuid                = { 0x32798BFB, 0x2676, 0x3B4D, { 0xAD, 0x8E, 0x37, 0x06, 0x52, 0xE0, 0xD2, 0xC0 } }

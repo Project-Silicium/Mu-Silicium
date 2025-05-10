@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = aston
+  PACKAGE_GUID                        = 5CA58D2B-99C8-40DE-A7A5-44C5DAAE24BD
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gastonTokenSpaceGuid                = { 0x2B8DA55C, 0xC899, 0xDE40, { 0xA7, 0xA5, 0x44, 0xC5, 0xDA, 0xAE, 0x24, 0xBD } }

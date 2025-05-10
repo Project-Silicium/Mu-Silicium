@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = spes
+  PACKAGE_GUID                        = A43A1082-0066-4CC0-BC78-E3A59A3E5832
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gspesTokenSpaceGuid                 = { 0x82103AA4, 0x6600, 0xC04C, { 0xBC, 0x78, 0xE3, 0xA5, 0x9A, 0x3E, 0x58, 0x32 } }

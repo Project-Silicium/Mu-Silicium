@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = 9707f
+  PACKAGE_GUID                        = CC6036DC-CA51-493F-B5DD-1A475103CBCE
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  g9707fTokenSpaceGuid                = { 0xDC5660CC, 0x51CA, 0x3F49, { 0xB5, 0xDD, 0x1A, 0x47, 0x51, 0x03, 0xCB, 0xCE } }

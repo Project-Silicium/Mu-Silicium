@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = beyond1lte
+  PACKAGE_GUID                        = 4E670446-C67E-4FEB-8D15-A0A05C824B80
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gbeyond1lteTokenSpaceGuid           = { 0x4604674E, 0x7EC6, 0xEB4F, { 0x8D, 0x15, 0xA0, 0xA0, 0x5C, 0x82, 0x4B, 0x80 } }

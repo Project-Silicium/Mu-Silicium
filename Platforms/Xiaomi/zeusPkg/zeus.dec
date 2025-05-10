@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = zeus
+  PACKAGE_GUID                        = CB1138AC-4C8B-45E7-A40A-64D456F6EC6B
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gzeusTokenSpaceGuid                 = { 0xAC3811CB, 0x8B4C, 0xE745, { 0xA4, 0x0A, 0x64, 0xD4, 0x56, 0xF6, 0xEC, 0x6B } }

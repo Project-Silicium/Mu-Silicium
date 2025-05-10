@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = surya
+  PACKAGE_GUID                        = D5A334DF-5B96-485A-BBE0-308EFA44E1C6
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gsuryaTokenSpaceGuid                = { 0xDF34A3D5, 0x965B, 0x5A48, { 0xBB, 0xE0, 0x30, 0x8E, 0xFA, 0x44, 0xE1, 0xC6 } }

@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = lavender
+  PACKAGE_GUID                        = DAA08544-071F-4A77-BD10-2D2EC946EA2A
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  glavenderTokenSpaceGuid             = { 0x4485A0DA, 0x1F07, 0x774A, { 0xBD, 0x10, 0x2D, 0x2E, 0xC9, 0x46, 0xEA, 0x2A } }

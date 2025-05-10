@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = c1s
+  PACKAGE_GUID                        = 79AC2254-7352-41CD-BEC7-DFD327EE6F79
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gc1sTokenSpaceGuid                  = { 0x5422AC79, 0x5273, 0xCD41, { 0xBE, 0xC7, 0xDF, 0xD3, 0x27, 0xEE, 0x6F, 0x79 } }

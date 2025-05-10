@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = laurel_sprout
+  PACKAGE_GUID                        = 30FA3A0B-87B1-4B91-A716-CD283A813C72
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  glaurel_sproutTokenSpaceGuid        = { 0x0B3AFA30, 0xB187, 0x914B, { 0xA7, 0x16, 0xCD, 0x28, 0x3A, 0x81, 0x3C, 0x72 } }

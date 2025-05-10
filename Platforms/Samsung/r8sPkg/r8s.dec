@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = r8s
+  PACKAGE_GUID                        = 40E34536-4282-4C87-BF5E-B0E1A40C987D
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gr8sTokenSpaceGuid                  = { 0x3645E340, 0x8242, 0x874C, { 0xBF, 0x5E, 0xB0, 0xE1, 0xA4, 0x0C, 0x98, 0x7D } }
