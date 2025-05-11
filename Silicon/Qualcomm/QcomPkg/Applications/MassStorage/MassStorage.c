@@ -206,10 +206,10 @@ InitMassStorage (
 
     // Locate UFS LUN Device Paths
     for (UINT8 i = 0; i < 8; i++) {
-      gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &UfsLunData[i].LunDevicePath, &PartitionTableHandle);
+      Status = gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &UfsLunData[i].LunDevicePath, &PartitionTableHandle);
 
-      // Get UFS LUN iskIO Protocol
-      if (PartitionTableHandle == NULL) {
+      // Get UFS LUN DiskIO Protocol
+      if (EFI_ERROR(Status)) {
         DEBUG ((EFI_D_ERROR, "Failed to Locate UFS LUN %u Device Path! Status = %r\n", i, Status));
       } else {
         Status = gBS->OpenProtocol (PartitionTableHandle, &gEfiBlockIoProtocolGuid, (VOID *)&UfsLunData[i].LunDiskIoProtocol, NULL, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
