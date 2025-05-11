@@ -1,8 +1,9 @@
-| ✅    | **Working**     |
-|-------|-----------------|
-| ⚠️    | **Problematic** |
-| ❌    | **Not Working** |
-| ❔    | **Unknown**     |
+| Symbol | Meaning      |
+|:------:|:------------:|
+| ✅     | Working     |
+| ⚠️     | Problematic |
+| ❌     | Not Working |
+| ❔     | Unknown     |
 
 ## Supported Devices
 
