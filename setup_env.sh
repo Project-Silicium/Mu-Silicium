@@ -49,7 +49,7 @@ elif [ ${PAK} = pacman ] || [ ${PAK} = yay ]; then
     if [ ${PAK} = pacman ]; then
         sudo pacman -Syu --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     fi
-    yay -Sy git mono base-devel nuget uuid lld nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-git python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv core-git clang llvm curl lld||_error "\nFailed to install Packages!\n"
+    yay -Sy git mono base-devel nuget uuid lld nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv clang llvm curl lld||_error "\nFailed to install Packages!\n"
 else
     _error "\nInvaild Package Manager!\nAvailbe Package Managers: apt, dnf, pacman and yay\n"
 fi
