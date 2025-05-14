@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = i005d
+  PACKAGE_GUID                        = DD9B11D5-D3A2-45A7-ADA2-6EF6EBB9CCC8
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gi005dTokenSpaceGuid                = { 0xD5119BDD, 0xA2D3, 0xA745, { 0xAD, 0xA2, 0x6E, 0xF6, 0xEB, 0xB9, 0xCC, 0xC8 } }

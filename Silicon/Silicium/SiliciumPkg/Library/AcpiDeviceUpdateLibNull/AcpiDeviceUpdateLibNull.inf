@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AcpiDeviceUpdateLibNull
+  FILE_GUID                      = 725A39A4-D83C-4C8A-A877-183F96428F5A
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = AcpiDeviceUpdateLib|DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION
+
+[Sources]
+  AcpiDeviceUpdateLibNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec

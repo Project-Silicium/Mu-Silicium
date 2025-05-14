@@ -16,29 +16,29 @@
 
 [PcdsFixedAtBuild]
   # Clock PCDs
-  gNvidiaPkgTokenSpaceGuid.PcdCGeneralID|0xFF|UINT8|0x0000A000
-  gNvidiaPkgTokenSpaceGuid.PcdMemoryID|0xFF|UINT8|0x0000A001
-  gNvidiaPkgTokenSpaceGuid.PcdPeriphID|0xFF|UINT8|0x0000A002
-  gNvidiaPkgTokenSpaceGuid.PcdAudioID|0xFF|UINT8|0x0000A003
-  gNvidiaPkgTokenSpaceGuid.PcdUsbID|0xFF|UINT8|0x0000A004
-  gNvidiaPkgTokenSpaceGuid.PcdDisplayID|0xFF|UINT8|0x0000A005
-  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID|0xFF|UINT8|0x0000A006
-  gNvidiaPkgTokenSpaceGuid.PcdXCpuID|0xFF|UINT8|0x0000A007
-  gNvidiaPkgTokenSpaceGuid.PcdEpciID|0xFF|UINT8|0x0000A008
-  gNvidiaPkgTokenSpaceGuid.PcdSfrom32KhzID|0xFF|UINT8|0x0000A009
-  gNvidiaPkgTokenSpaceGuid.PcdDpID|0xFF|UINT8|0x0000A00A
-  gNvidiaPkgTokenSpaceGuid.Pcd32KhzID|0xFF|UINT8|0x0000A00B
-  gNvidiaPkgTokenSpaceGuid.PcdOscID|0xFF|UINT8|0x0000A00C
-  gNvidiaPkgTokenSpaceGuid.PcdClkmID|0xFF|UINT8|0x0000A00D
-  gNvidiaPkgTokenSpaceGuid.PcdIDCount|0xFF|UINT8|0x0000A00E
+  gNvidiaPkgTokenSpaceGuid.PcdCGeneralID|0xFF|UINT8|0x0000B000
+  gNvidiaPkgTokenSpaceGuid.PcdMemoryID|0xFF|UINT8|0x0000B001
+  gNvidiaPkgTokenSpaceGuid.PcdPeriphID|0xFF|UINT8|0x0000B002
+  gNvidiaPkgTokenSpaceGuid.PcdAudioID|0xFF|UINT8|0x0000B003
+  gNvidiaPkgTokenSpaceGuid.PcdUsbID|0xFF|UINT8|0x0000B004
+  gNvidiaPkgTokenSpaceGuid.PcdDisplayID|0xFF|UINT8|0x0000B005
+  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID|0xFF|UINT8|0x0000B006
+  gNvidiaPkgTokenSpaceGuid.PcdXCpuID|0xFF|UINT8|0x0000B007
+  gNvidiaPkgTokenSpaceGuid.PcdEpciID|0xFF|UINT8|0x0000B008
+  gNvidiaPkgTokenSpaceGuid.PcdSfrom32KhzID|0xFF|UINT8|0x0000B009
+  gNvidiaPkgTokenSpaceGuid.PcdDpID|0xFF|UINT8|0x0000B00A
+  gNvidiaPkgTokenSpaceGuid.Pcd32KhzID|0xFF|UINT8|0x0000B00B
+  gNvidiaPkgTokenSpaceGuid.PcdOscID|0xFF|UINT8|0x0000B00C
+  gNvidiaPkgTokenSpaceGuid.PcdClkmID|0xFF|UINT8|0x0000B00D
+  gNvidiaPkgTokenSpaceGuid.PcdIDCount|0xFF|UINT8|0x0000B00E
 
   # Timer PCDs
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1|0|UINT32|0x0000A100
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt2|0|UINT32|0x0000A101
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt3|0|UINT32|0x0000A102
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4|0|UINT32|0x0000A103
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5|0|UINT32|0x0000A104
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6|0|UINT32|0x0000A105
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt1|0|UINT32|0x0000B100
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt2|0|UINT32|0x0000B101
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt3|0|UINT32|0x0000B102
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt4|0|UINT32|0x0000B103
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt5|0|UINT32|0x0000B104
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerInterrupt6|0|UINT32|0x0000B105
 
   # Dynamic RAM PCD
-  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000A200
+  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B200

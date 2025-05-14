@@ -36,11 +36,6 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses]
-  DeviceMemoryMapLib|betalmPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|betalmPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|betalmPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
@@ -91,5 +86,10 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|118
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|118
-  
+
+[LibraryClasses]
+  DeviceMemoryMapLib|betalmPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|betalmPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
 !include SM8150Pkg/SM8150Pkg.dsc.inc

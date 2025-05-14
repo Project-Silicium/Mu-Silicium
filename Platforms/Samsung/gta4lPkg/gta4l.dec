@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = gta4l
+  PACKAGE_GUID                        = A22E8C3E-B0BE-4C0E-8192-57EE0D9980EC
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  ggta4lTokenSpaceGuid                = { 0x3E8C2EA2, 0xBEB0, 0x0E4C, { 0x81, 0x92, 0x57, 0xEE, 0x0D, 0x99, 0x80, 0xEC } }

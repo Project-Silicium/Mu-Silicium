@@ -15,15 +15,12 @@
   *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY -D HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA=$(HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA) -D HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA=$(HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA) -D HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA=$(HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA) -D HAS_PSCI_MEMPROTECT_FAILING_ERRATA=$(HAS_PSCI_MEMPROTECT_FAILING_ERRATA)
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
   *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000
 
 [BuildOptions.common.EDKII.DXE_CORE,BuildOptions.common.EDKII.DXE_DRIVER,BuildOptions.common.EDKII.UEFI_DRIVER,BuildOptions.common.EDKII.UEFI_APPLICATION,BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
   *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000
 
 [BuildOptions.common.EDKII.DXE_RUNTIME_DRIVER]
-  *_CLANGDWARF_*_DLINK_FLAGS = -z common-page-size=0x1000
   *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x10000
 
 [BuildOptions.common.EDKII.MM_CORE_STANDALONE,BuildOptions.common.EDKII.MM_STANDALONE]
@@ -31,9 +28,6 @@
 
 [PcdsFixedAtBuild.AArch64]
   gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|44
-
-[PcdsFixedAtBuild.Arm]
-  gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize|0
 
 [PcdsFixedAtBuild]
   #
@@ -127,12 +121,6 @@
 
 !include MdePkg/MdeLibs.dsc.inc
 
-[LibraryClasses.Arm]
-  #
-  # ARM Libraries
-  #
-  ArmSoftFloatLib|ArmPkg/Library/ArmSoftFloatLib/ArmSoftFloatLib.inf
-
 [LibraryClasses]
   #
   # Compiler Libraries
@@ -174,6 +162,7 @@
   PeCoffLib|MdePkg/Library/BasePeCoffLib/BasePeCoffLib.inf
   PeCoffExtraActionLib|MdePkg/Library/BasePeCoffExtraActionLibNull/BasePeCoffExtraActionLibNull.inf
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
+  PeiHobLib|SiliciumPkg/Library/PeiHobLib/PeiHobLib.inf
 
   #
   # UEFI Libraries
@@ -266,7 +255,6 @@
   FrameBufferMemDrawLib|MsGraphicsPkg/Library/FrameBufferMemDrawLib/FrameBufferMemDrawLibDxe.inf
   GraphicsConsoleHelperLib|PcBdsPkg/Library/GraphicsConsoleHelperLib/GraphicsConsoleHelper.inf
   #SiliciumGraphicsLib|SiliciumPkg/Library/SiliciumGraphicsLib/SiliciumGraphicsLib.inf
-
 
   #
   # ACPI Libraries
@@ -405,7 +393,7 @@
   # BDS
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf {
     <LibraryClasses>
-!if ($(ARCH) == AARCH64) && ($(ENABLE_KEP) == 1)
+!if $(ENABLE_KEP) == 1
       NULL|SiliciumPkg/Library/KernelErrataPatcherLib/KernelErrataPatcherLib.inf
 !endif
   }

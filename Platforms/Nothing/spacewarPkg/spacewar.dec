@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = spacewar
+  PACKAGE_GUID                        = 852F8D31-E146-4C21-855F-BA93D1C4CD20
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gspacewarTokenSpaceGuid             = { 0x318D2F85, 0x46E1, 0x214C, { 0x85, 0x5F, 0xBA, 0x93, 0xD1, 0xC4, 0xCD, 0x20 } }

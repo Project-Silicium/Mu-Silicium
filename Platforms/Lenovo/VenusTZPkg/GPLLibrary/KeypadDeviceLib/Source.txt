@@ -1,4 +1,0 @@
-REPO:   https://github.com/torvalds/linux/
-COMMIT: 6cd256694afe2a0a94f62418fea95279de2b7ada
-BRANCH: master
-FILE:   drivers/input/tegra-kbc.c

@@ -1,5 +1,0 @@
-REPO:   https://github.com/u-boot/u-boot/
-COMMIT: 03de305ec48b0bb28554372abb40ccd46dbe0bf9 & 83d290c56fab2d38cd1ab4c4cc7099559c1d5046
-BRANCH: master
-FILE:   arch/arm/mach-tegra/board.c
-        arch/arm/include/asm/arch-tegra30/mc.h

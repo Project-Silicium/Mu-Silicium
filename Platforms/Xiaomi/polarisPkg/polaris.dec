@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = polaris
+  PACKAGE_GUID                        = 659EDC0F-E61F-47CA-910B-869BDA57A64D
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gpolarisTokenSpaceGuid              = { 0x0FDC9E65, 0x1FE6, 0xCA47, { 0x91, 0x0B, 0x86, 0x9B, 0xDA, 0x57, 0xA6, 0x4D } }

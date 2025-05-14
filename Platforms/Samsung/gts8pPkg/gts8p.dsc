@@ -35,11 +35,6 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses]
-  DeviceMemoryMapLib|gts8pPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|gts8pPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|gts8pPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000  
@@ -56,10 +51,10 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung Electronics"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8+"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab S8+ 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gts8p"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8+_gts8p"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8+"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_S8+_5G_gts8p"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab S8+ 5G"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2800
@@ -80,9 +75,6 @@
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[Components]
-  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
-
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|2800
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1752
@@ -92,5 +84,13 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|92
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|350
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|92
+
+[LibraryClasses]
+  DeviceMemoryMapLib|gts8pPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|gts8pPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+[Components]
+  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
 !include SM8450Pkg/SM8450Pkg.dsc.inc

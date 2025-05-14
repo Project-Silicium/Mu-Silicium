@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = citrus
+  PACKAGE_GUID                        = CE0B22FE-91FD-4A7F-BB8A-97D0A2307498
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gcitrusTokenSpaceGuid               = { 0xFE220BCE, 0xFD91, 0x7F4A, { 0xBB, 0x8A, 0x97, 0xD0, 0xA2, 0x30, 0x74, 0x98 } }

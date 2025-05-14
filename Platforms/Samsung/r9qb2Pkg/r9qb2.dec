@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = r9qb2
+  PACKAGE_GUID                        = 1A8AFB4A-E0F1-46E5-B87A-CDDE162198FC
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gr9qb2TokenSpaceGuid                = { 0x4AFB8A1A, 0xF1E0, 0xE546, { 0xB8, 0x7A, 0xCD, 0xDE, 0x16, 0x21, 0x98, 0xFC } }

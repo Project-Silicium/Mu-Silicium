@@ -29,11 +29,6 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses]
-  DeviceMemoryMapLib|miatollPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|miatollPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|miatollPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000 
@@ -110,5 +105,10 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
+
+[LibraryClasses]
+  DeviceMemoryMapLib|miatollPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|miatollPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include SM7125Pkg/SM7125Pkg.dsc.inc

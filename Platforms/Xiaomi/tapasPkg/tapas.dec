@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = tapas
+  PACKAGE_GUID                        = B365F6C4-95F6-4B2A-8014-2407FCEC1EBF
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gtapasTokenSpaceGuid                = { 0xC4F665B3, 0xF695, 0x2A4B, { 0x80, 0x14, 0x24, 0x07, 0xFC, 0xEC, 0x1E, 0xBF } }

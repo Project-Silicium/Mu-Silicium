@@ -29,11 +29,6 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses]
-  DeviceMemoryMapLib|x1sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  KeypadDeviceLib|x1sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  DevicePrePiLib|x1sPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
@@ -60,11 +55,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
 
-[Components]
-  # Keypad
-  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
-  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|3200
@@ -74,5 +64,15 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|168
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|180
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|168
+
+[LibraryClasses]
+  DeviceMemoryMapLib|x1sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  KeypadDeviceLib|x1sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+[Components]
+  # Keypad
+  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
 !include E9830Pkg/E9830Pkg.dsc.inc

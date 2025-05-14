@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = gtaxllte
+  PACKAGE_GUID                        = 6D17E51F-8280-4E6C-89BD-61F228140EB7
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  ggtaxllteTokenSpaceGuid             = { 0x1FE5176D, 0x8082, 0x6C4E, { 0x89, 0xBD, 0x61, 0xF2, 0x28, 0x14, 0x0E, 0xB7 } }

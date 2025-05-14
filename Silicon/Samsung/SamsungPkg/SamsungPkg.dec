@@ -28,5 +28,5 @@
 
 [PcdsFixedAtBuild]
   # DDR Info
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0|UINT32|0x0000B100
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0|UINT32|0x0000B101
+  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0|UINT32|0x0000D100
+  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0|UINT32|0x0000D101

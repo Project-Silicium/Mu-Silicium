@@ -1,0 +1,49 @@
+##
+#  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
+#  Copyright (c) 2014, Linaro Limited. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformHobLib
+  FILE_GUID                      = 24E65D93-B945-4D95-A453-77EF91F75CF0
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformHobLib
+
+[Sources]
+  PlatformHobLib.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  QcomPkg/QcomPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  PcdLib
+  PlatformHobLib
+  DeviceConfigurationMapLib
+  ConfigurationMapHelperLib
+  MemoryMapHelperLib
+  SerialPortLib
+  HobLib
+
+[FixedPcd]
+  gQcomPkgTokenSpaceGuid.PcdPlatformType
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob
+  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr
+  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr
+
+[Guids]
+  gEfiInfoBlkHobGuid
+  gEfiShimLibraryHobGuid
+  gFvDecompressHobGuid
+  gEfiProdmodeHobGuid
+  gEfiScheduleInterfaceHobGuid
+  gEfiDTBExtnHobGuid

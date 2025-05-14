@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = lime
+  PACKAGE_GUID                        = 7004A90E-23E3-409F-887E-26CFFF6E4AE5
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  glimeTokenSpaceGuid                 = { 0x0EA90470, 0xE323, 0x9F40, { 0x88, 0x7E, 0x26, 0xCF, 0xFF, 0x6E, 0x4A, 0xE5 } }

@@ -36,11 +36,6 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses]
-  DeviceMemoryMapLib|zeusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|zeusPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|zeusPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000  
@@ -90,5 +85,10 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|168
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|180
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|168
+
+[LibraryClasses]
+  DeviceMemoryMapLib|zeusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|zeusPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include SM8450Pkg/SM8450Pkg.dsc.inc

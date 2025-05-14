@@ -96,31 +96,31 @@
 
 [PcdsFixedAtBuild]
   # HOBs
-  gQcomPkgTokenSpaceGuid.PcdPlatformType|""|VOID*|0x0000B000
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|FALSE|BOOLEAN|0x0000B001
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|FALSE|BOOLEAN|0x0000B002
-  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|FALSE|BOOLEAN|0x0000B003
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE|BOOLEAN|0x0000B004
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|""|VOID*|0x0000C000
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|FALSE|BOOLEAN|0x0000C001
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|FALSE|BOOLEAN|0x0000C002
+  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|FALSE|BOOLEAN|0x0000C003
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE|BOOLEAN|0x0000C004
 
   # XBL Protocol Addresses
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000B100
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0|UINT64|0x0000B101
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000C100
+  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0|UINT64|0x0000C101
 
   # XBL Device Tree
-  gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile|{ 0x0D, 0x57, 0xFD, 0x9D, 0xE2, 0xA9, 0x49, 0xEA, 0xB7, 0x9B, 0x21, 0xEB, 0xC7, 0xB4, 0xD8, 0xA5 }|VOID*|0x0000B200
+  gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile|{ 0x0D, 0x57, 0xFD, 0x9D, 0xE2, 0xA9, 0x49, 0xEA, 0xB7, 0x9B, 0x21, 0xEB, 0xC7, 0xB4, 0xD8, 0xA5 }|VOID*|0x0000C200
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B300
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000C300
 
   # Memory Speed
-  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000B400
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000C400
 
   # Start USB Controllee
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000B500
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000C500
 
   # SD Card Init
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000B600
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000C600
 
   # Storage
-  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE|BOOLEAN|0x0000B700
-  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|FALSE|BOOLEAN|0x0000B701
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE|BOOLEAN|0x0000C700
+  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|FALSE|BOOLEAN|0x0000C701

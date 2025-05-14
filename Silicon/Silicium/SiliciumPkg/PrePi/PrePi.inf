@@ -20,10 +20,6 @@
   AArch64/ArchPrePi.c
   AArch64/ModuleEntryPoint.S|GCC
 
-[Sources.Arm]
-  Arm/ArchPrePi.c
-  Arm/ModuleEntryPoint.S|GCC
-
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
@@ -46,9 +42,8 @@
   DebugLib
   SerialPortLib
   PlatformPrePiLib
-  DevicePrePiLib
   MemoryInitPeiLib
-  PlatformPeiLib
+  PeiHobLib
   MemoryProtectionLib
 
 [Ppis]

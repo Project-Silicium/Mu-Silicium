@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = ginkgo
+  PACKAGE_GUID                        = E51BAA54-9110-4792-959D-96CE8AF22D63
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gginkgoTokenSpaceGuid               = { 0x54AA1BE5, 0x1091, 0x9247, { 0x95, 0x9D, 0x96, 0xCE, 0x8A, 0xF2, 0x2D, 0x63 } }

@@ -40,16 +40,11 @@
 !elseif $(DEVICE_MODEL) == 1
   SOC_TYPE                       = 5
 !else
-!error "Invalid Model Type! 0 For Unpatched, 1 for Patched."
+!error "Invalid Model Type! 0 For Icosa (Unpatched), 1 for Iowa (Patched)."
 !endif
 
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
-
-[LibraryClasses]
-  DeviceMemoryMapLib|HAC-001Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  KeypadDeviceLib|HAC-001Pkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  DevicePrePiLib|HAC-001Pkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -67,15 +62,17 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo K.K."
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
 !if $(DEVICE_MODEL) == 0
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"HAC-001"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Switch_HAC-001"
-!elseif $(DEVICE_MODEL) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"HAC-001(-01)"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Switch_HAC-001(-01)"
-!endif
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Icosa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch"
+!elseif $(DEVICE_MODEL) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch (Mariko)"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"HAC-001(-01)"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Iowa"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch (Mariko)"
+!endif
 
   # Simple FrameBuffer (TODO: Rotate Screen Somehow)
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
@@ -84,11 +81,6 @@
 
   # Dynamic RAM
   gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000
-
-[Components]
-  # Keypad
-  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
-  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720
@@ -99,5 +91,15 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|67
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|90
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|67
+
+[LibraryClasses]
+  DeviceMemoryMapLib|HAC-001Pkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  KeypadDeviceLib|HAC-001Pkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+[Components]
+  # Keypad
+  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
 !include Tegra210Pkg/Tegra210Pkg.dsc.inc

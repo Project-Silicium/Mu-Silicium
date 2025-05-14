@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = cepheus
+  PACKAGE_GUID                        = 20DA5DDD-A8A7-4C83-9853-7716FE7BCDD6
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gcepheusTokenSpaceGuid              = { 0xDD5DDA20, 0xA7A8, 0x834C, { 0x98, 0x53, 0x77, 0x16, 0xFE, 0x7B, 0xCD, 0xD6 } }

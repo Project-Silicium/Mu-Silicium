@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = lemonade
+  PACKAGE_GUID                        = DA91FC30-FD21-4605-8628-64733934E591
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  glemonadeTokenSpaceGuid             = { 0x30FC91DA, 0x21FD, 0x0546, { 0x86, 0x28, 0x64, 0x73, 0x39, 0x34, 0xE5, 0x91 } }

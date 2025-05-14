@@ -168,7 +168,7 @@ InitMassStorage (
   }
 
   if (FixedPcdGetBool (PcdDeviceHasEmmc)) {
-    EFI_DEVICE_PATH_PROTOCOL *EmmcUserDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&EmmcUserDevicePath;
+    EFI_DEVICE_PATH_PROTOCOL *EmmcUserDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&EmmcUserPartitionDevicePath;
     EFI_BLOCK_IO_PROTOCOL    *EmmcDiskIoProtocol = NULL;
 
     // Locate eMMC User Device Path
@@ -206,10 +206,10 @@ InitMassStorage (
 
     // Locate UFS LUN Device Paths
     for (UINT8 i = 0; i < 8; i++) {
-      gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &UfsLunData[i].LunDevicePath, &PartitionTableHandle);
+      Status = gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &UfsLunData[i].LunDevicePath, &PartitionTableHandle);
 
-      // Get UFS LUN iskIO Protocol
-      if (PartitionTableHandle == NULL) {
+      // Get UFS LUN DiskIO Protocol
+      if (EFI_ERROR(Status)) {
         DEBUG ((EFI_D_ERROR, "Failed to Locate UFS LUN %u Device Path! Status = %r\n", i, Status));
       } else {
         Status = gBS->OpenProtocol (PartitionTableHandle, &gEfiBlockIoProtocolGuid, (VOID *)&UfsLunData[i].LunDiskIoProtocol, NULL, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
@@ -253,7 +253,10 @@ InitMassStorage (
           if (CurrentLun > 0 && UfsLunData[CurrentLun - 1].LunDiskIoProtocol != NULL) {
             CurrentLun--;
           } else if (CurrentLun == 0) {
-            PrintGUI (L"Continue Boot", 0, FALSE);
+            UINT8 SpecialAction = 0;
+
+            PrintGUI (L"               ", 0, FALSE);
+            PrintGUI (L"Continue Boot",   0, FALSE);
 
             do {
               EFI_INPUT_KEY Key;
@@ -263,20 +266,52 @@ InitMassStorage (
 
               // Exit Mass Storage
               if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
-                goto exit;
+                if (SpecialAction == 0) {
+                  goto exit;
+                } else if (SpecialAction == 1) {
+                  // Power Off
+                  gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
+
+                  // Print Error Message
+                  DEBUG ((EFI_D_ERROR, "Failed to Power Off Device!\n"));
+
+                  // Enter Dead Loop
+                  CpuDeadLoop ();
+                }
               }
 
-              // Go Back to LUN Select
+              // Check for Volume Up Press
               if (Key.ScanCode == SCAN_UP) {
-                PrintGUI (L"             ", 0, FALSE);
-                break;
+                // Go Back to LUN Select
+                if (SpecialAction == 0) {
+                  PrintGUI (L"             ", 0, FALSE);
+                  break;
+                } else if (SpecialAction == 1) {
+                  // Print new Option
+                  PrintGUI (L"         ",      0, FALSE);
+                  PrintGUI (L"Continue Boot",  0, FALSE);
+
+                  SpecialAction--;
+                }
+              }
+
+              // Check for Volume Down Press
+              if (Key.ScanCode == SCAN_DOWN) {
+                // Switch to Power Off
+                if (SpecialAction == 0) {
+                  // Print new Option
+                  PrintGUI (L"             ", 0, FALSE);
+                  PrintGUI (L"Power Off",     0, FALSE);
+
+                  SpecialAction++;
+                }
               }
             } while (TRUE);
           }
         }
 
         // Print Current Lun
-        PrintGUI (L"Current LUN: %u\r", CurrentLun, TRUE);
+        PrintGUI (L"Current LUN: %u", CurrentLun, TRUE);
       } while (TRUE);
     }
 

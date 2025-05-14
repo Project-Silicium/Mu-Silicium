@@ -35,11 +35,6 @@
 
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
-  
-[LibraryClasses]
-  DeviceMemoryMapLib|lavenderPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|lavenderPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|lavenderPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -89,5 +84,10 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|123
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|123
+
+[LibraryClasses]
+  DeviceMemoryMapLib|lavenderPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|lavenderPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include SDM660Pkg/SDM660Pkg.dsc.inc

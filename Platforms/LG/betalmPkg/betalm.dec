@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = betalm
+  PACKAGE_GUID                        = 3195373E-5010-4584-8F53-311E7024E58A
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gbetalmTokenSpaceGuid               = { 0x31379531, 0x1050, 0x8445, { 0x8F, 0x53, 0x31, 0x1E, 0x70, 0x24, 0xE5, 0x8A } }

@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = nitrogen
+  PACKAGE_GUID                        = 15CA1E02-EFDF-4AA5-8A57-947641E3BE4F
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gnitrogenTokenSpaceGuid             = { 0x021ECA15, 0xDFEF, 0xA54A, { 0x8A, 0x57, 0x94, 0x76, 0x41, 0xE3, 0xBE, 0x4F } }

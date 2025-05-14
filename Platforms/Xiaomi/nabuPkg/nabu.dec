@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = nabu
+  PACKAGE_GUID                        = C613F7A8-7FF8-42A8-92F7-FF34EA2B9866
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gnabuTokenSpaceGuid                 = { 0xA8F713C6, 0xF87F, 0xA842, { 0x92, 0xF7, 0xFF, 0x34, 0xEA, 0x2B, 0x98, 0x66 } }

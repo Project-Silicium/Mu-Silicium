@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = e1s
+  PACKAGE_GUID                        = 9146BB63-EE16-4238-A6C6-36472B925699
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  ge1sTokenSpaceGuid                  = { 0x63BB4691, 0x16EE, 0x3842, { 0xA6, 0xC6, 0x36, 0x47, 0x2B, 0x92, 0x56, 0x99 } }

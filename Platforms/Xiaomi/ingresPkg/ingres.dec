@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = ingres
+  PACKAGE_GUID                        = E4EA93C9-E4BD-4DB2-8CAC-3941030EE1DF
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gingresTokenSpaceGuid               = { 0xC993EAE4, 0xBDE4, 0xB24D, { 0x8C, 0xAC, 0x39, 0x41, 0x03, 0x0E, 0xE1, 0xDF } }

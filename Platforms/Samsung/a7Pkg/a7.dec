@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = a7
+  PACKAGE_GUID                        = 4FF7924B-80E2-4F46-8794-D221D4F6D7DA
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  ga7TokenSpaceGuid                   = { 0x4B92F74F, 0xD280, 0x464F, { 0x87, 0x94, 0xD2, 0x21, 0xD4, 0xF6, 0xD7, 0xDA } }

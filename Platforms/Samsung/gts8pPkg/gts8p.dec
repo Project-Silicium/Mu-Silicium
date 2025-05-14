@@ -1,6 +1,6 @@
 [Defines]
   DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = gts8pPkg
+  PACKAGE_NAME                        = gts8p
   PACKAGE_GUID                        = 544F9C45-6010-4AA3-8355-51FFC240D2DB
   PACKAGE_VERSION                     = 0.1
 

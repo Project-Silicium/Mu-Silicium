@@ -29,12 +29,7 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses.common]
-  DeviceMemoryMapLib|caymanslmPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|caymanslmPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DevicePrePiLib|caymanslmPkg/Library/DevicePrePiLib/DevicePrePiLib.inf
-
-[PcdsFixedAtBuild.common]
+[PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
@@ -72,7 +67,7 @@
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault.common]
+[PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2460
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
@@ -81,5 +76,10 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|129
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|129
+
+[LibraryClasses]
+  DeviceMemoryMapLib|caymanslmPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|caymanslmPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include SDM845Pkg/SDM845Pkg.dsc.inc
