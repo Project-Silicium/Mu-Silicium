@@ -1,1 +1,2 @@
-DTB was compiled from https://github.com/sm8450-mainline/linux
+DTB was compiled from https://github.com/sm8450-mainline/linux/tree/tyalie
+With usb-role-switch; added on line 1003 to fix USB OTG Mode
