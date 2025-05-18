@@ -27,6 +27,7 @@
   INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   INF SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
+  INF SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf

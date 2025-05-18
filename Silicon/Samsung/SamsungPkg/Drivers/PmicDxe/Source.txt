@@ -1,3 +1,4 @@
 REPO:   https://github.com/exynos990-mainline/lk3rd/
+COMMIT: ffa92b1ef2022a32fb3e0f717042ff11ff3a597a
 BRANCH: dev
 FILE:   dev/power/pmic/s2mps_19_22/pmic_s2mps_19_22.c
