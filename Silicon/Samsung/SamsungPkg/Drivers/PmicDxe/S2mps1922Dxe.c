@@ -84,7 +84,7 @@ PowerDown ()
 
   // Check Init State
   if (!FixedPcdGetBool (PcdInitS2mps22)) {
-    DEBUG ((EFI_D_ERROR, "%a: This SoC does not Support this Function!\n"));
+    DEBUG ((EFI_D_ERROR, "%a: This SoC does not Support this Function!\n", __FUNCTION__));
     return EFI_UNSUPPORTED;
   }
 
