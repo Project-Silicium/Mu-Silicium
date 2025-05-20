@@ -65,6 +65,9 @@
   gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
 
+  # PMIC
+  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|TRUE
+
 [LibraryClasses]
   PlatformPrePiLib|E9830Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
@@ -73,6 +76,6 @@
   SoCPlatformLib|E9830Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components]
-  E9830Pkg/Drivers/S2MPS_19_22Dxe/S2MPS_19_22Dxe.inf
+  SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc

@@ -585,10 +585,7 @@
 <td>
 
 > [!IMPORTANT]
-> Linux Requires: [Mainline Kernel](https://github.com/sm8450-mainline/linux).
-
-> [!NOTE]
-> Only [Postmarket OS](https://github.com/index986/pmaports/tree/wip) has been Tested.
+> Linux Requires: [Mainline Kernel](https://github.com/sm8450-mainline/linux/tree/tyalie).
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -603,7 +600,7 @@
 | NFC Sensor           |               | ✅    |
 | Temperature Sensor   |               | ✅    |
 | Battery              |               | ✅    |
-| USB Host Mode        |               | ❔    |
+| USB Host Mode        |               | ✅    |
 | USB Device Mode      |               | ✅    |
 | USB Power Delivery   |               | ✅    |
 | Charging             |               | ✅    |

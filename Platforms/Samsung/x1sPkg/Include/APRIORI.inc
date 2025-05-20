@@ -20,8 +20,7 @@ APRIORI DXE {
   INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   INF SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
-
-  INF E9830Pkg/Drivers/S2MPS_19_22Dxe/S2MPS_19_22Dxe.inf
+  INF SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf

@@ -65,11 +65,17 @@
   gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
 
+  # PMIC
+  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|FALSE
+
 [LibraryClasses]
   PlatformPrePiLib|E9820Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|E9820Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+
+[Components]
+  SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc
