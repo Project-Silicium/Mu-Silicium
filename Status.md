@@ -526,7 +526,7 @@
 
 <img align="right" src="Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: pong** <br>
 **Maintainers: [index986](https://github.com/index986/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)** <br>
