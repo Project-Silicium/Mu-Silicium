@@ -7,7 +7,7 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = Platform/Google/tensor/tensor.fdf
+  FLASH_DEFINITION               = Platform/Google/tensor/tensor/tensor.fdf
   DEVICE_DXE_FV_COMPONENTS       = Platform/Google/tensor/panther.fdf.inc
 
 !include Platform/Google/tensor/tensor.dsc
