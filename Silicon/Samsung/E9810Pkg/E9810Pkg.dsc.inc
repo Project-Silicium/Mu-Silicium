@@ -62,7 +62,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
   # DDR Info
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
+  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x1EC00
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
 
 [LibraryClasses]
