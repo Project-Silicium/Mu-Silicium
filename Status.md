@@ -19,7 +19,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S24.png" width="400" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: e1s** <br>
 **Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [halal-beef](https://github.com/halal-beef/)** <br>
@@ -127,7 +127,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S10.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: beyond1lte** <br>
 **Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
@@ -241,7 +241,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A-10.1.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: gtaxllte** <br>
 **Maintainer: [Glitchythedev](https://github.com/Glitchythedev/)** <br>
 **Contributors: [Glitchythedev](https://github.com/Glitchythedev/)** <br>
@@ -900,7 +900,7 @@
 
 **State: Active** <br>
 **Codename: lemonade** <br>
-**Maintainer: arminask** <br>
+**Maintainer: [arminask](https://github.com/arminask/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: None**
 
@@ -1703,7 +1703,7 @@
 
 <img align="right" src="Resources/Pictures/LG-G8s.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: betalm** <br>
 **Maintainers: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69)** <br>
 **Contributors: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69), [Icesito68](https://github.com/Icesito68)** <br>
@@ -1939,7 +1939,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Mi-9.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: cepheus** <br>
 **Maintainers: [Daniel224455](https://github.com/Daniel224455)** <br>
 **Contributors: [Daniel224455](https://github.com/Daniel224455)** <br>
@@ -2003,7 +2003,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-X3-Pro.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: vayu** <br>
 **Maintainers: [Daniel224455](https://github.com/Daniel224455), [remtrik](https://github.com/remtrik)** <br>
 **Contributors: [Daniel224455](https://github.com/Daniel224455), [remtrik](https://github.com/remtrik), [Nikroks](https://github.com/N1kroks)** <br>
@@ -2639,7 +2639,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-X3-NFC.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: surya** <br>
 **Maintainer: [remtrik](https://github.com/remtrik/)** <br>
 **Contributors: [Nikroks](https://github.com/N1kroks/), [remtrik](https://github.com/remtrik)** <br>
@@ -2775,7 +2775,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-9S.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: miatoll** <br>
 **Maintainer: [N1kroks](https://github.com/N1kroks/)** <br>
 **Contributors: [N1kroks](https://github.com/N1kroks/)** <br>
@@ -3427,7 +3427,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A7-LTE.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: gta4l** <br>
 **Maintainer: [V6lhost](https://github.com/V6lhost/)** <br>
 **Contributors: [V6lhost](https://github.com/V6lhost/)** <br>
@@ -3646,7 +3646,7 @@
 | Hall Sensor          |                                   | ❌    |
 | Temperature Sensor   |                                   | ❌    |
 | Battery              |                                   | ❌    |
-| USB Host Mode        | Depends What Mode it was in UEFI. | ✅    |
+| USB Host Mode        |                                   | ❌    |
 | USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
 | USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
 | Charging             |                                   | ❌    |
@@ -3680,7 +3680,7 @@
 | Hall Sensor          |                                   | ❌    |
 | Temperature Sensor   |                                   | ❌    |
 | Battery              |                                   | ❌    |
-| USB Host Mode        | Depends What Mode it was in UEFI. | ✅    |
+| USB Host Mode        |                                   | ❌    |
 | USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
 | USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
 | Charging             |                                   | ❌    |

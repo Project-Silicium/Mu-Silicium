@@ -5,6 +5,13 @@ cat ./BootShim/BootShim.bin "./Build/balePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BA
 gzip -c < "./Build/balePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BALE_UEFI.fd-bootshim" > "./Build/balePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BALE_UEFI.fd-bootshim.gz"||exit 1
 cat "./Build/balePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/BALE_UEFI.fd-bootshim.gz" ./Resources/DTBs/bale.dtb > ./Resources/bootpayload.bin||exit 1
 
+# Check which model and type are building
+if [ $TARGET_DEVICE_MODEL == 0 ]
+then MODEL_NAME="-neo"
+elif [ $TARGET_DEVICE_MODEL == 1 ]
+then MODEL_NAME=""
+fi
+
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \
   --kernel ./Resources/bootpayload.bin \
@@ -15,5 +22,5 @@ python3 ./Resources/Scripts/mkbootimg.py \
   --os_version 15.0.0 \
   --os_patch_level "$(date '+%Y-%m')" \
   --header_version 4 \
-  -o Mu-bale-${TARGET_DEVICE_MODEL}.img \
+  -o Mu-bale${MODEL_NAME}.img \
   ||_error "\nFailed to create Android Boot Image!\n"
