@@ -41,7 +41,7 @@
 
   INF Binaries/lisa/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/lisa/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/I2CDxe/I2CDxe.inf

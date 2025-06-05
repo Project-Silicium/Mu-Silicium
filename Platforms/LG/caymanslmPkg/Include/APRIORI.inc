@@ -38,7 +38,7 @@ APRIORI DXE {
   INF Binaries/caymanslm/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/caymanslm/QcomPkg/Drivers/CPRDxe/CPRDxe.inf

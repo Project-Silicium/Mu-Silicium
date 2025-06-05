@@ -53,7 +53,7 @@
   INF Binaries/sweet_k6a/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

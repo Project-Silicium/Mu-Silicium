@@ -45,7 +45,7 @@
 
   INF Binaries/spacewar/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/spacewar/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/I2CDxe/I2CDxe.inf

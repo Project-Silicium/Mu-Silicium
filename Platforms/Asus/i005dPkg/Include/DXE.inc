@@ -49,7 +49,7 @@
   INF Binaries/i005d/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/i005d/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/SmemDxe/SmemDxe.inf

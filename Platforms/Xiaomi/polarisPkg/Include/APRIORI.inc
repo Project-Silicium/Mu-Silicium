@@ -37,7 +37,7 @@ APRIORI DXE {
   INF Binaries/polaris/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/polaris/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
