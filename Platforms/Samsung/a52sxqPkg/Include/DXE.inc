@@ -40,7 +40,7 @@
 
   INF Binaries/a52sxq/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/I2CDxe/I2CDxe.inf

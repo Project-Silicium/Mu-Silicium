@@ -53,7 +53,7 @@
   INF Binaries/surya/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/surya/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

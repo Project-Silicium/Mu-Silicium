@@ -32,7 +32,7 @@ APRIORI DXE {
   INF Binaries/citrus/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/citrus/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/citrus/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf

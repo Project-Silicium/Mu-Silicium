@@ -49,7 +49,7 @@
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

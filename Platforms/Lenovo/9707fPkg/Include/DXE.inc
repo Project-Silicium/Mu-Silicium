@@ -54,7 +54,7 @@
   INF Binaries/9707f/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/9707f/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf

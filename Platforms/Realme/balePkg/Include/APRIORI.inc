@@ -35,7 +35,7 @@ APRIORI DXE {
   INF Binaries/bale/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/bale/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf

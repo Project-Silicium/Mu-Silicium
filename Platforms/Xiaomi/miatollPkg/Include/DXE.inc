@@ -53,7 +53,7 @@
   INF Binaries/miatoll/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/miatoll/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/miatoll/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

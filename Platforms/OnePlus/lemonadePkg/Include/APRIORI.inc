@@ -34,7 +34,7 @@ APRIORI DXE {
   INF Binaries/lemonade/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
   INF Binaries/lemonade/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf

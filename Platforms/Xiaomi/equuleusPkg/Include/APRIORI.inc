@@ -38,7 +38,7 @@ APRIORI DXE {
   INF Binaries/equuleus/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/equuleus/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
