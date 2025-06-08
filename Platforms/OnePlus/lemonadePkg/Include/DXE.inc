@@ -49,7 +49,7 @@
   INF Binaries/lemonade/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/lemonade/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/SmemDxe/SmemDxe.inf

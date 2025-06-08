@@ -64,7 +64,7 @@
   INF Binaries/betalm/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/betalm/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

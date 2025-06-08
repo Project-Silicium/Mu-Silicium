@@ -51,7 +51,7 @@
   INF Binaries/citrus/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/citrus/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

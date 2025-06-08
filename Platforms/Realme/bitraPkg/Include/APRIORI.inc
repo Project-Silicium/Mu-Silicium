@@ -35,7 +35,7 @@ APRIORI DXE {
   INF Binaries/bitra/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/bitra/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf

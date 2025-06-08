@@ -49,7 +49,7 @@
   INF Binaries/willow/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/willow/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/HWIODxe/HWIODxe.inf

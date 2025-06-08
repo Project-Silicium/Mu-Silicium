@@ -1,13 +1,13 @@
 [Defines]
   INF_VERSION                    = 0x0010005
-  BASE_NAME                      = CpuOverclockDxe
+  BASE_NAME                      = CpuClockHandlerDxe
   FILE_GUID                      = 3EF4E4AD-26EE-4160-861F-AEFD68BEF6E7
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
   ENTRY_POINT                    = SetCpuFreq
 
 [Sources]
-  CpuOverclockDxe.c
+  CpuClockHandlerDxe.c
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -19,6 +19,7 @@
   PcdLib
   UefiDriverEntryPoint
   UefiBootServicesTableLib
+  BaseMemoryLib
   DebugLib
 
 [FixedPcd]
@@ -26,7 +27,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize
 
 [Protocols]
-  #gEfiSettingsHandlerProtocolGuid
   gEfiClockProtocolGuid
 
 [Depex]
