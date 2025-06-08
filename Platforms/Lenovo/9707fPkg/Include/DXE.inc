@@ -84,6 +84,9 @@
   INF Binaries/9707f/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/9707f/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

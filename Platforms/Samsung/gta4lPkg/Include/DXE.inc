@@ -77,6 +77,9 @@
   INF Binaries/gta4l/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/gta4l/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

@@ -56,6 +56,7 @@ APRIORI DXE {
   INF Binaries/hotdog/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/hotdog/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/hotdog/QcomPkg/Drivers/I2CDxe/I2CDxe.inf

@@ -64,6 +64,9 @@
   INF Binaries/i005d/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   INF Binaries/i005d/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/i005d/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1

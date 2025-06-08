@@ -61,6 +61,7 @@ APRIORI DXE {
   INF Binaries/venus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/venus/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf

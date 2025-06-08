@@ -75,6 +75,9 @@
   INF Binaries/ginkgo/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/ginkgo/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

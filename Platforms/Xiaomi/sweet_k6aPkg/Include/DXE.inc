@@ -82,6 +82,9 @@
   INF Binaries/sweet_k6a/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/sweet_k6a/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

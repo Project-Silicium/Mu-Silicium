@@ -57,6 +57,7 @@ APRIORI DXE {
   INF Binaries/vayu/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/vayu/QcomPkg/Drivers/I2CDxe/I2CDxe.inf

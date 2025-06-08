@@ -82,6 +82,9 @@
   INF Binaries/betalm/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/betalm/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

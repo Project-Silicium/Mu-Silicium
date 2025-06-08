@@ -60,6 +60,7 @@ APRIORI DXE {
   INF Binaries/lemonade/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/lemonade/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf

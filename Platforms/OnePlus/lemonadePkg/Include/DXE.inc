@@ -96,6 +96,9 @@
   INF Binaries/lemonade/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/lemonade/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

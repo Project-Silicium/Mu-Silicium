@@ -62,6 +62,9 @@ APRIORI DXE {
 
   INF Binaries/alioth/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/alioth/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
 

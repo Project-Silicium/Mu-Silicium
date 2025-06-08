@@ -37,6 +37,7 @@
   # Custom Snapdragon Drivers
   QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
+  QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
   QcomPkg/Drivers/PeripheralInitDxe/PeripheralInitDxe.inf
 

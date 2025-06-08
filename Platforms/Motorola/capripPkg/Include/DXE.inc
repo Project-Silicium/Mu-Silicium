@@ -86,6 +86,9 @@
   INF Binaries/caprip/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/caprip/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

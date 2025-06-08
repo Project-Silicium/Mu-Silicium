@@ -101,4 +101,6 @@ APRIORI DXE {
   INF Binaries/polaris/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 }

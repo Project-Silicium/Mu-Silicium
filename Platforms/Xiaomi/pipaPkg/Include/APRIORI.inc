@@ -64,6 +64,9 @@ APRIORI DXE {
 
   INF Binaries/pipa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/pipa/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
 

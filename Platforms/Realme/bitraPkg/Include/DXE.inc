@@ -85,6 +85,9 @@
   INF Binaries/bitra/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/bitra/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

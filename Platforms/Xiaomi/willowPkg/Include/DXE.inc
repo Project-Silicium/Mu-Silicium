@@ -75,6 +75,9 @@
   INF Binaries/willow/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/willow/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

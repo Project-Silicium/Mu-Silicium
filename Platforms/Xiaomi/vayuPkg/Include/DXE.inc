@@ -82,6 +82,9 @@
   INF Binaries/vayu/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/vayu/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

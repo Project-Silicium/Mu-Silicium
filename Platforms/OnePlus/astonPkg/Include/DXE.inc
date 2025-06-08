@@ -102,6 +102,9 @@
   INF Binaries/aston/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/aston/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/aston/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

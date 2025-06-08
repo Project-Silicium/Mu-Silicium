@@ -61,6 +61,9 @@ APRIORI DXE {
 
   INF Binaries/9707f/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/9707f/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1

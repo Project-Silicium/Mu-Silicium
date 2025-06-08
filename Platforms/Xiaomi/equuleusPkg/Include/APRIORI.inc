@@ -107,4 +107,6 @@ APRIORI DXE {
   INF Binaries/equuleus/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 }

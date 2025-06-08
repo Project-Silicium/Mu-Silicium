@@ -79,6 +79,9 @@
   INF Binaries/fog/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/fog/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

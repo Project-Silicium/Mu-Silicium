@@ -101,6 +101,9 @@
   INF Binaries/bale/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/bale/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

@@ -109,4 +109,6 @@ APRIORI DXE {
   INF Binaries/caymanslm/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 }

@@ -81,6 +81,9 @@
   INF Binaries/cepheus/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/cepheus/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

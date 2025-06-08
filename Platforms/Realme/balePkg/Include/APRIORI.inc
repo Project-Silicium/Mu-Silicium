@@ -63,6 +63,9 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
   INF Binaries/bale/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/bale/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/bale/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
   INF Binaries/bale/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
