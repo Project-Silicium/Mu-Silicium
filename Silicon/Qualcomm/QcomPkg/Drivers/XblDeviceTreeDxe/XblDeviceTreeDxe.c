@@ -61,14 +61,13 @@ PrepareMove (
   UINT8      *ModdedDtb     = NULL;
 
   // Locate "DT BLOB" Memory Region
-  Status = LocateMemoryMapAreaByName ("DT BLOB", &DtbBlobRegion);
-  if (EFI_ERROR (Status)) {
-    // Locate "XBL DT" Memory Region
-    Status = LocateMemoryMapAreaByName ("XBL DT", &DtbBlobRegion);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Locate 'DT BLOB' and 'XBL DT' Memory Region! Status = %r\n", Status));
-      return Status;
-    }
+  Status  = LocateMemoryMapAreaByName ("DT BLOB", &DtbBlobRegion);
+  Status |= LocateMemoryMapAreaByName ("DT_BLOB", &DtbBlobRegion);
+  Status |= LocateMemoryMapAreaByName ("XBL DT",  &DtbBlobRegion);
+  Status |= LocateMemoryMapAreaByName ("XBL_DT",  &DtbBlobRegion);
+  if (EFI_ERROR (Status) && !DtbBlobRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate DTB Memory Region! Status = %r\n", Status));
+    return Status;
   }
 
   // Get Modded DTB
