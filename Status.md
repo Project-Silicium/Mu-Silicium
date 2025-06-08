@@ -387,6 +387,121 @@
 </tr> </table>
 
   </summary>
+
+  
+</details>
+
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## POCO F6
+
+<img align="right" src="Resources/Pictures/Xiaomi-POCO-F6.jpg" width="400" alt="Preview">
+
+**State: Active** <br>
+**Codename: peridot** <br>
+**Maintainers: [PugzAreCute](https://github.com/PugzAreCute)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [PugzAreCute](https://github.com/PugzAreCute), [InternalHellhound](https://github.com/InternalHellhound), [iNUCi](https://github.com/iNUCi), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)** <br>
+**Testers: [PugzAreCute](https://github.com/PugzAreCute)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       | WinPE Booted | ✅    |
+| Linux Boot         | Mainline WIP | ⚠️    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><!-- <th>Linux</th> -->
+</tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE boots.
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ❌    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB Host Mode        |               | ❌    |
+| USB Device Mode      |               | ❌    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
+| CPU                  |               | ✅    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td>
+<!--
+<td>
+
+> NOTE: Haven't booted yet
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ❔    |
+| Side Buttons         |               | ❔    |
+| Proximity Sensor     |               | ❔    |
+| Light Sensor         |               | ❔    |
+| Accelerometer Sensor |               | ❔    |
+| Compass Sensor       |               | ❔    | 
+| Gyroscope Sensor     |               | ❔    |
+| Fingerprint Sensor   |               | ❔    |
+| NFC Sensor           |               | ❔    |
+| Temperature Sensor   |               | ❔    |
+| Battery              |               | ❔    |
+| USB Host Mode        |               | ❔    |
+| USB Device Mode      |               | ❔    |
+| USB Power Delivery   |               | ❔    |
+| Charging             |               | ❔    |
+| WLAN                 |               | ❔    |
+| CPU                  |               | ❔    |
+| Touchscreen          |               | ❔    |
+| Bluetooth            |               | ❔    |
+| GPS                  |               | ❔    |
+| Speakers             |               | ❔    |
+| Microphone           |               | ❔    |
+| GPU                  |               | ❔    |
+| Camera               |               | ❔    |
+| Mobile Data          |               | ❔    |
+| Display              |               | ❔    | 
+| Vibration            |               | ❔    |
+
+</td>
+-->
+</tr> </table>
+
+  </summary>
+
+  
 </details>
 
 ---
