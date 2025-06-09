@@ -50,7 +50,7 @@
   INF Binaries/vili/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/vili/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -92,6 +92,9 @@
   INF Binaries/vili/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/vili/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/vili/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

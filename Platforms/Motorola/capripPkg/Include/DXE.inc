@@ -55,7 +55,7 @@
   INF Binaries/caprip/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/caprip/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -86,6 +86,9 @@
   INF Binaries/caprip/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/caprip/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

@@ -35,7 +35,7 @@ APRIORI DXE {
   INF Binaries/vili/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/vili/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
@@ -61,6 +61,7 @@ APRIORI DXE {
   INF Binaries/vili/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/vili/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/vili/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf

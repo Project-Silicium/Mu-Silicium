@@ -32,7 +32,7 @@ APRIORI DXE {
   INF Binaries/gta4l/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/gta4l/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/gta4l/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -104,6 +104,8 @@ APRIORI DXE {
   INF Binaries/gta4l/QcomPkg/Drivers/MacDxe/MacDxe.inf
   INF Binaries/gta4l/QcomPkg/SocPkg/KamortaPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

@@ -39,7 +39,7 @@ APRIORI DXE {
   INF Binaries/gts8p/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/gts8p/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
@@ -64,6 +64,9 @@ APRIORI DXE {
   INF Binaries/gts8p/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf

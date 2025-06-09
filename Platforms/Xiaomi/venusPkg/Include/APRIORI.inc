@@ -35,7 +35,7 @@ APRIORI DXE {
   INF Binaries/venus/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/venus/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
@@ -61,6 +61,7 @@ APRIORI DXE {
   INF Binaries/venus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/venus/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf

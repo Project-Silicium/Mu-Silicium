@@ -64,7 +64,7 @@
   INF Binaries/nabu/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/nabu/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -82,6 +82,9 @@
   INF Binaries/nabu/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/nabu/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

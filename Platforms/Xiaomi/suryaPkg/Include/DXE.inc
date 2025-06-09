@@ -53,7 +53,7 @@
   INF Binaries/surya/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/surya/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -82,6 +82,9 @@
   INF Binaries/surya/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/surya/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

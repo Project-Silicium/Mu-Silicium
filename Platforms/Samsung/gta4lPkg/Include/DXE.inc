@@ -50,7 +50,7 @@
   INF Binaries/gta4l/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/gta4l/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -77,6 +77,9 @@
   INF Binaries/gta4l/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/gta4l/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/gta4l/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

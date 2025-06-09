@@ -1,0 +1,26 @@
+[Defines]
+  INF_VERSION                    = 0x0010005
+  BASE_NAME                      = DdrClockHandlerDxe
+  FILE_GUID                      = 4022E481-401F-47DB-A256-602E4A6CAE01
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = SetDdrFreq
+
+[Sources]
+  DdrClockHandlerDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  DebugLib
+
+[Protocols]
+  gEfiDDRGetInfoProtocolGuid
+
+[Depex]
+  TRUE

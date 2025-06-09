@@ -63,7 +63,7 @@
   INF Binaries/cepheus/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
-  INF QcomPkg/Drivers/CpuOverclockDxe/CpuOverclockDxe.inf
+  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/cepheus/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -81,6 +81,9 @@
   INF Binaries/cepheus/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
+
+  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
+
   INF Binaries/cepheus/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
