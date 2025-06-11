@@ -75,4 +75,4 @@
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
-!include E7870Pkg/E7870Pkg.dsc.inc
+!include S5E7870Pkg/S5E7870Pkg.dsc.inc

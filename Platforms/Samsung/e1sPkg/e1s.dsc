@@ -75,4 +75,4 @@
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
-!include E2400Pkg/E2400Pkg.dsc.inc
+!include S5E9945Pkg/S5E9945Pkg.dsc.inc

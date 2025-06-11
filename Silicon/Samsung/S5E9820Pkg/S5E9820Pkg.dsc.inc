@@ -28,48 +28,54 @@
 
 [PcdsFixedAtBuild]
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|25600000
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|27
   gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
 
   # GIC
-  gArmTokenSpaceGuid.PcdGicDistributorBase|0x10200000
-  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x10240000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10240000
+  gArmTokenSpaceGuid.PcdGicDistributorBase|0x10101000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x10102000
+  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10102000
 
   # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00002400
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00009820
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 2400 @ 3.21 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"E2400"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 9820 @ 2.73 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"S5E9820"
 
   # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|10
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|4
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3210
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2730
 
-  # CPU Caches
+  # CPU Caches (Unoffical Values)
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000 # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x80
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
 
   # Memory Speed & Type
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4200       # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2730    # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
   # DDR Info
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x4F000
+  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
 
+  # PMIC
+  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|FALSE
+
 [LibraryClasses]
-  PlatformPrePiLib|E2400Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  PlatformPrePiLib|S5E9820Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  SoCPlatformLib|E2400Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  SoCPlatformLib|S5E9820Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+
+[Components]
+  SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc
