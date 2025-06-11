@@ -24,7 +24,7 @@
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/dodge/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
+ # INF Binaries/dodge/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf 
 
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
