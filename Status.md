@@ -283,7 +283,7 @@
 
 ## OnePlus 13
 
-<img align="right" src="Resources/Pictures/OnePlus-13.png" width="600" alt="Preview">
+<img align="right" src="Resources/Pictures/OnePlus-13.png" width="550" alt="Preview">
 
 **State: Active** <br>
 **Codename: dodge** <br>
