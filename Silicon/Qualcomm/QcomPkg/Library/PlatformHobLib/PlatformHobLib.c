@@ -8,6 +8,7 @@
 #include <PiPei.h>
 
 #include <Library/PcdLib.h>
+#include <Library/DebugLib.h>
 #include <Library/PlatformHobLib.h>
 #include <Library/DeviceConfigurationMapLib.h>
 #include <Library/ConfigurationMapHelperLib.h>
@@ -191,8 +192,11 @@ BuildPlatformHobs ()
   DtbExtAddress = FixedPcdGet64 (PcdDTBExtensionAddr);
 
   // Build Info Blk HOB
-  Status = LocateMemoryMapAreaByName ("Info Blk", &InfoBlkRegion);
-  if (!EFI_ERROR (Status) && FixedPcdGetBool (PcdEnableInfoBlkHob)) {
+  Status  = LocateMemoryMapAreaByName ("Info Blk", &InfoBlkRegion);
+  Status |= LocateMemoryMapAreaByName ("Info_Blk", &InfoBlkRegion);
+  if (EFI_ERROR (Status) && !InfoBlkRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'Info Blk' Memory Region! Status = %r\n", __FUNCTION__, Status));
+  } else if (FixedPcdGetBool (PcdEnableInfoBlkHob)) {
     UINTN InfoBlkAddress = InfoBlkRegion.Address;
 
     BuildGuidDataHob (&gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof (InfoBlkAddress));
@@ -206,8 +210,11 @@ BuildPlatformHobs ()
   }
 
   // Build FV Decompress HOB
-  Status = LocateMemoryMapAreaByName ("UEFI FD", &UefiFdRegion);
-  if (!EFI_ERROR (Status) && FixedPcdGetBool (PcdEnableFvDecompressHob)) {
+  Status  = LocateMemoryMapAreaByName ("UEFI FD", &UefiFdRegion);
+  Status |= LocateMemoryMapAreaByName ("UEFI_FD", &UefiFdRegion);
+  if (EFI_ERROR (Status) && !UefiFdRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'UEFI FD' Memory Region! Status = %r\n", __FUNCTION__, Status));
+  } else if (FixedPcdGetBool (PcdEnableFvDecompressHob)) {
     UINTN FvDecompressAddress = UefiFdRegion.Address + 0x403D0;
 
     BuildGuidDataHob (&gFvDecompressHobGuid, &FvDecompressAddress, sizeof (FvDecompressAddress));

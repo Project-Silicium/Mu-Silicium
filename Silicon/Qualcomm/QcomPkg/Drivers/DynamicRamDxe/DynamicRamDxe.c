@@ -144,6 +144,7 @@ AddRamPartitions (
 
   // Get "HYP Reserved" Memory Region
   LocateMemoryMapAreaByName ("HYP Reserved", &HypReservedRegion);
+  LocateMemoryMapAreaByName ("HYP_Reserved", &HypReservedRegion);
 
   for (INT32 i = 0; i < NumPartitions; i++) {
     // Check if the RAM Partition is Invalid

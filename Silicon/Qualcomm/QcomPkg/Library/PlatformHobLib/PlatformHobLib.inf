@@ -24,6 +24,7 @@
 
 [LibraryClasses]
   PcdLib
+  DebugLib
   PlatformHobLib
   DeviceConfigurationMapLib
   ConfigurationMapHelperLib

@@ -76,15 +76,17 @@ PrePiMain (IN UINT64 StartTimeStamp)
   FIRMWARE_SEC_PERFORMANCE        Performance;
 
   // Get DXE Heap Memory Region Infos
-  Status = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeap);
-  if (EFI_ERROR (Status)) {
+  Status  = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeap);
+  Status |= LocateMemoryMapAreaByName ("DXE_Heap", &DxeHeap);
+  if (EFI_ERROR (Status) && !DxeHeap.Address) {
     DEBUG ((EFI_D_ERROR, "Failed to Get DXE Heap Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);
   }
 
   // Get UEFI Stack Memory Region Infos
-  Status = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStack);
-  if (EFI_ERROR (Status)) {
+  Status  = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStack);
+  Status |= LocateMemoryMapAreaByName ("UEFI_Stack", &UefiStack);
+  if (EFI_ERROR (Status) && !UefiStack.Address) {
     DEBUG ((EFI_D_ERROR, "Failed to Get UEFI Stack Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);
   }
@@ -196,14 +198,8 @@ CEntryPoint ()
     ZeroMem ((VOID *)Display.Address, Display.Length);
   }
 
-  // Clear Primary Screen
-  Status = LocateMemoryMapAreaByName ("Display Reserved-1", &Display);
-  if (!EFI_ERROR (Status)) {
-    ZeroMem ((VOID *)Display.Address, Display.Length);
-  }
-
-  // Clear Secondary Screen
-  Status = LocateMemoryMapAreaByName ("Display Reserved-2", &Display);
+  // Clear Screen
+  Status = LocateMemoryMapAreaByName ("Display_Reserved", &Display);
   if (!EFI_ERROR (Status)) {
     ZeroMem ((VOID *)Display.Address, Display.Length);
   }
@@ -236,8 +232,9 @@ CEntryPoint ()
   }
 
   // Get UEFI FD Memory Region Infos
-  Status = LocateMemoryMapAreaByName ("UEFI FD", &UefiFd);
-  if (EFI_ERROR (Status)) {
+  Status  = LocateMemoryMapAreaByName ("UEFI FD", &UefiFd);
+  Status |= LocateMemoryMapAreaByName ("UEFI_FD", &UefiFd);
+  if (EFI_ERROR (Status) && !UefiFd.Address) {
     DEBUG ((EFI_D_ERROR, "Failed to Get UEFI FD Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);
   }
