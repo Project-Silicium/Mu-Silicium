@@ -74,6 +74,7 @@
   HwResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
   ResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
   SoCPlatformLib|S5E9830Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  I2CHostTableLib|S5E9830Pkg/Library/I2CHostTableLib/I2CHostTableLib.inf
 
 [Components]
   SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
