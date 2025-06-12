@@ -34,11 +34,11 @@
   SOC_TYPE                       = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [PcdsFixedAtBuild]
   # DDR Start Address
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x81960000 
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"index986"
