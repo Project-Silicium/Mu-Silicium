@@ -16,18 +16,22 @@
 #ifndef _EFI_GPIO_H_
 #define _EFI_GPIO_H_
 
-// GPA Pull Modes
-#define GPA_PULL_NONE   0
-#define GPA_PULL_DOWN   1
-#define GPA_PULL_UP     3
+// GPIO Pull Modes
+#define GPIO_PULL_NONE   0
+#define GPIO_PULL_DOWN   1
+#define GPIO_PULL_UP     3
 
-// GPA DRV Speed Values
-#define GPA_DRV_FAST    0
-#define GPA_DRV_SLOW    1
+// GPIO DRV Speed Values
+#define GPIO_DRV_FAST    0
+#define GPIO_DRV_SLOW    1
 
-// GPA Directions
-#define GPA_INPUT       0
-#define GPA_OUTPUT      1
+// GPIO Directions
+#define GPIO_INPUT       0
+#define GPIO_OUTPUT      1
+
+// GPIO Levels
+#define GPIO_LEVEL_LOW	0
+#define GPIO_LEVEL_HIGH	1
 
 //
 // Global GUID for the GPIO Protocol
@@ -55,9 +59,9 @@ typedef struct gpio_bank {
 /**
   This Function Configure the Defined Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
+  @param[in] Bank                          - The Exynos GPIO Bank.
   @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
+  @param[in] Pin                           - The GPIO Pin.
   @param[in] Config                        - The Configuration.
 
   @return EFI_SUCCESS                      - Successfully Configured defined Pin.
@@ -75,9 +79,9 @@ EFI_STATUS
 /**
   This Function Sets the Direction to Output on the defined Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
+  @param[in] Bank                          - The Exynos GPIO Bank.
   @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
+  @param[in] Pin                           - The GPIO Pin.
   @param[in] Enable                        - Enable Output
 
   @return EFI_SUCCESS                      - Successfully set Pin Out Direction.
@@ -95,9 +99,9 @@ EFI_STATUS
 /**
   This Function Sets the Direction to Input on the defined Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
+  @param[in] Bank                          - The Exynos GPIO Bank.
   @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
+  @param[in] Pin                           - The GPIO Pin.
 
   @return EFI_SUCCESS                      - Successfully set Pin In Direction.
   @return EFI_NOT_FOUND                    - The GPIO Base Address is not Mapped.
@@ -113,9 +117,9 @@ EFI_STATUS
 /**
   This Function Gets the Current State of the defined Pin.
 
-  @param[in]  Bank                         - The Exynos Gpa Bank.
+  @param[in]  Bank                         - The Exynos GPIO Bank.
   @param[in]  Offset                       - The Bank Offset.
-  @param[in]  Pin                          - The Gpa Pin.
+  @param[in]  Pin                          - The GPIO Pin.
   @param[out] State                        - The State of the Pin.
 
   @return EFI_SUCCESS                      - Successfully got the Pin State.
@@ -131,11 +135,28 @@ EFI_STATUS
   );
 
 /**
+ This Function Sets the Value of the defined Pin.
+
+ @param[in] Bank                          - The Exynos GPIO Bank.
+ @param[in] Offset                        - The Bank Offset.
+ @param[in] Pin                           - The GPIO Pin.
+ @param[in] Enable                        - Should the GPIO Pin be enabled.
+ **/
+typedef
+VOID
+(EFIAPI *EFI_SET_PIN) (
+  IN GpioBank *Bank,
+  IN UINT32    Offset,
+  IN INT32     Pin,
+  IN INT32     Enable
+);
+
+/**
   This Function Sets the Pull Mode to the defined Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
+  @param[in] Bank                          - The Exynos GPIO Bank.
   @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
+  @param[in] Pin                           - The GPIO Pin.
   @param[in] Mode                          - The Mode.
 
   @return EFI_SUCCESS                      - Successfully Set defined Pull Mode.
@@ -154,9 +175,9 @@ EFI_STATUS
 /**
   This Function Sets the DRV Mode to the defined Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
+  @param[in] Bank                          - The Exynos GPIO Bank.
   @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
+  @param[in] Pin                           - The GPIO Pin.
   @param[in] Mode                          - The Mode.
 
   @return EFI_SUCCESS                      - Successfully set DRV Mode.
@@ -174,9 +195,9 @@ EFI_STATUS
 /**
   This Function Sets the Speed of the defined Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
+  @param[in] Bank                          - The Exynos GPIO Bank.
   @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
+  @param[in] Pin                           - The GPIO Pin.
   @param[in] Mode                          - The Mode.
 
   @return EFI_SUCCESS                      - Successfully Set defined Speed Mode.
@@ -200,6 +221,7 @@ struct _EFI_GPIO_PROTOCOL {
   EFI_SET_DIRECTION_OUTPUT SetDirectionOutput;
   EFI_SET_DIRECTION_INPUT  SetDirectionInput;
   EFI_GET_PIN              GetPin;
+  EFI_SET_PIN              SetPin;
   EFI_SET_PULL             SetPull;
   EFI_SET_DRV              SetDrv;
   EFI_SET_RATE             SetRate;

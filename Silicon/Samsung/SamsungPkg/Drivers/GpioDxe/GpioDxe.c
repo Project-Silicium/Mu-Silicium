@@ -73,7 +73,7 @@ SetDirectionOutput (
   }
 
   // Configure Pin
-  ConfigurePin (Bank, Offset, Pin, GPA_OUTPUT);
+  ConfigurePin (Bank, Offset, Pin, GPIO_OUTPUT);
 
   // Set Direction Value
   Value  = MmioRead32 ((UINTN)&Bank->Dat + Offset);
@@ -97,7 +97,7 @@ SetDirectionInput (
   IN INT32     Pin)
 {
   // Configure Pin
-  return ConfigurePin (Bank, Offset, Pin, GPA_INPUT);
+  return ConfigurePin (Bank, Offset, Pin, GPIO_INPUT);
 }
 
 EFI_STATUS
@@ -126,6 +126,36 @@ GetPin (
   return EFI_SUCCESS;
 }
 
+VOID
+SetPin (
+  IN  GpioBank *Bank,
+  IN  UINT32    Offset,
+  IN  INT32     Pin,
+  IN  INT32     Enable)
+{
+  EFI_STATUS Status;
+  UINT32     Value;
+
+  // Check GPIO Address
+  Status = LocateMemoryMapAreaByAddress ((EFI_PHYSICAL_ADDRESS)Bank, &GpioRegion);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: This GPIO Base Address is not Mapped!\n", __FUNCTION__));
+    ASSERT(FALSE);
+  }
+
+  // Get current Pin State
+  Value = MmioRead32 ((UINTN)&Bank->Dat + Offset);
+
+  // Erase old pin state
+  Value &= ~DAT_MASK(Pin);
+
+  // Write pin state
+  if (Enable)
+    Value |= DAT_SET(Pin);
+
+  MmioWrite32((UINTN)&Bank->Dat + Offset, Value);
+}
+
 EFI_STATUS
 SetPull (
   IN GpioBank *Bank,
@@ -149,9 +179,9 @@ SetPull (
 
   // Set Pull Mode
   switch (Mode) {
-    case GPA_PULL_NONE:
-    case GPA_PULL_DOWN:
-    case GPA_PULL_UP:
+    case GPIO_PULL_NONE:
+    case GPIO_PULL_DOWN:
+    case GPIO_PULL_UP:
       Value |= PULL_MODE(Pin, Mode);
       break;
     
@@ -217,8 +247,8 @@ SetRate (
 
   // Set Rate Speed
   switch (Mode) {
-    case GPA_DRV_FAST:
-    case GPA_DRV_SLOW:
+    case GPIO_DRV_FAST:
+    case GPIO_DRV_SLOW:
       Value |= RATE_SET(Pin);
       break;
     
@@ -238,6 +268,7 @@ STATIC EFI_GPIO_PROTOCOL mGpio = {
   SetDirectionOutput,
   SetDirectionInput,
   GetPin,
+  SetPin,
   SetPull,
   SetDrv,
   SetRate
