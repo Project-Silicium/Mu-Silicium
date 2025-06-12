@@ -27,6 +27,7 @@
   SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
   SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
+  SamsungPkg/Drivers/I2CDxe/I2CDxe.inf
   SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc
