@@ -80,7 +80,7 @@
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/dodge/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
-  INF Binaries/dodge/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
+ # INF Binaries/dodge/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/OplusFpgaDxe/OplusFpga.inf
   INF Binaries/dodge/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
