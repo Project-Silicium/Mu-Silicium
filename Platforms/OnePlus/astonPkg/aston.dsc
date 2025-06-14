@@ -26,8 +26,14 @@
   USE_CUSTOM_DISPLAY_DRIVER      = 1
   HAS_BUILD_IN_KEYBOARD          = 0
 
+  #
+  # 0 = SM8550-AB
+  # 1 = SM8550-AC
+  #
+  SOC_TYPE                       = 0
+
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [PcdsFixedAtBuild]
   # DDR Start Address
