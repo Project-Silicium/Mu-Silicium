@@ -278,11 +278,10 @@ SerialPortInitialize ()
   EFI_STATUS Status;
 
   // Get Frame Buffer Base Address
-  Status = LocateMemoryMapAreaByName ("Display Reserved", &DisplayMemoryRegion);
-  if (EFI_ERROR (Status)) { 
-    // Get Secondary Frame Buffer Base Address
-    Status = LocateMemoryMapAreaByName ("Display Reserved-2", &DisplayMemoryRegion);
-    if (EFI_ERROR (Status)) { return RETURN_UNSUPPORTED; }
+  Status  = LocateMemoryMapAreaByName ("Display Reserved", &DisplayMemoryRegion);
+  Status |= LocateMemoryMapAreaByName ("Display_Reserved", &DisplayMemoryRegion);
+  if (EFI_ERROR (Status) && !DisplayMemoryRegion.Address) { 
+    return RETURN_UNSUPPORTED;
   }
 
   // Set Total Position

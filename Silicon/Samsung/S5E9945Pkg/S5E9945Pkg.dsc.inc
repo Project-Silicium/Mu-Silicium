@@ -14,7 +14,7 @@
 
   # Timer
   USE_CUSTOM_TIMER                           = 0
-  USE_PHYSICAL_TIMER                         = 0
+  USE_PHYSICAL_TIMER                         = 1
 
   # KEP
   ENABLE_KEP                                 = 0
@@ -28,48 +28,48 @@
 
 [PcdsFixedAtBuild]
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|25600000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|27
   gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
 
   # GIC
-  gArmTokenSpaceGuid.PcdGicDistributorBase|0x12301000
-  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x12302000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x12302000
+  gArmTokenSpaceGuid.PcdGicDistributorBase|0x10200000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x10240000
+  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10240000
 
   # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00007885
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00009945
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7885 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"E7885"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 2400 @ 3.21 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"S5E9945"
 
   # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|10
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|4
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3210
 
-  # CPU Caches (Unoffical Values)
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x0
+  # CPU Caches
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000 # Unoffical Value
 
   # Memory Speed & Type
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866    # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4200       # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
-  # DDR Info (Unknown)
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x0
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x0
+  # DDR Info
+  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x4F000
+  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
 
 [LibraryClasses]
-  PlatformPrePiLib|E7885Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  PlatformPrePiLib|S5E9945Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  SoCPlatformLib|E7885Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  SoCPlatformLib|S5E9945Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc

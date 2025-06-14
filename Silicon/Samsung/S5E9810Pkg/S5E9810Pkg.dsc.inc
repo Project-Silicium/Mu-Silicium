@@ -14,7 +14,7 @@
 
   # Timer
   USE_CUSTOM_TIMER                           = 0
-  USE_PHYSICAL_TIMER                         = 0
+  USE_PHYSICAL_TIMER                         = 1
 
   # KEP
   ENABLE_KEP                                 = 0
@@ -40,42 +40,36 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10102000
 
   # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00009830
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00009810
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 9830 @ 2.73 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"E9830"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 9810 @ 2.90 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"S5E9810"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2730
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2900
 
-  # CPU Caches
+  # CPU Caches (Unoffical Values)
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x100
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x100
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x80
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x1000
 
   # Memory Speed & Type
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2750    # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1800    # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
   # DDR Info
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
+  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x1EC00
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
 
-  # PMIC
-  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|TRUE
-
 [LibraryClasses]
-  PlatformPrePiLib|E9830Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  PlatformPrePiLib|S5E9810Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  HwResetSystemLib|E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-  ResetSystemLib|E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-  SoCPlatformLib|E9830Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-[Components]
-  SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
+  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  SoCPlatformLib|S5E9810Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc

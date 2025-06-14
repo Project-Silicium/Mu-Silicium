@@ -94,20 +94,16 @@ InitializeDisplay (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS   Status;
-  STATIC UINTN mFrameBufferBltLibConfigureSize;
+  EFI_STATUS                      Status;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
+  STATIC UINTN                    mFrameBufferBltLibConfigureSize;
 
   // Get the Frame Buffer Address
-  ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayMemoryRegion;
-  Status = LocateMemoryMapAreaByName ("Display Reserved", &DisplayMemoryRegion);
-  if (EFI_ERROR (Status)) {
-    // Get Primary Frame Buffer Address
-    Status = LocateMemoryMapAreaByName ("Display Reserved-1", &DisplayMemoryRegion);
-
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Get Display Reserved Memory Region!\n"));
-      goto exit;
-    }
+  Status  = LocateMemoryMapAreaByName ("Display Reserved", &DisplayMemoryRegion);
+  Status |= LocateMemoryMapAreaByName ("Display_Reserved", &DisplayMemoryRegion);
+  if (EFI_ERROR (Status) && !DisplayMemoryRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "Failed to Get Display Reserved Memory Region!\n"));
+    goto exit;
   }
 
   // Get the Width and Height of the Frame Buffer

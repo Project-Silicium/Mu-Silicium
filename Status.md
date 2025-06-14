@@ -273,6 +273,47 @@
 <summary><b><strong>Snapdragon Devices</strong></b></summary>
 
 <br>
+<details>
+<summary><b><strong>Snapdragon 8 Elite Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## OnePlus 13
+
+<img align="right" src="Resources/Pictures/OnePlus-13.png" width="550" alt="Preview">
+
+**State: Active** <br>
+**Codename: dodge** <br>
+**Maintainers: [index986](https://github.com/index986)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)** <br>
+**Testers: [index986](https://github.com/index986)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       | Untested     | ❔    |
+| Linux Boot         | Mainline soon WIP | ⚠️    |
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+---
+
+  </summary>
+</details>
 
 <details>
 <summary><b><strong>Snapdragon 8s Gen 3 Devices</strong></b></summary>

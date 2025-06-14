@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7870 @ 1.60 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"E7870"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"S5E7870"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
@@ -65,11 +65,11 @@
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x0
 
 [LibraryClasses]
-  PlatformPrePiLib|E7870Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  PlatformPrePiLib|S5E7870Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  SoCPlatformLib|E7870Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  SoCPlatformLib|S5E7870Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components]
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
