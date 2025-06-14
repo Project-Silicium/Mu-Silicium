@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = nx729j
+  PACKAGE_GUID                        = DF09B1B0-68B7-4CC8-98D5-5AFFEFF0BF2B
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gnx729jTokenSpaceGuid               = { 0xC06A6807, 0xD1FE, 0xDCA6, { 0x18, 0x3A, 0x56, 0x69, 0xEF, 0x30, 0xD5, 0x0F } }

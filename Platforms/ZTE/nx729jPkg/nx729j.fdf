@@ -99,6 +99,13 @@ READ_LOCK_STATUS   = TRUE
   #  SECTION UI = "DeviceTreeBlob"
   #}
 
+  # Modded XBL Device Tree
+  # INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
+  #FILE FREEFORM = PCD (gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile) {
+  #  SECTION RAW = nx729jPkg/XBL-FdtBlob/xbl-sm8550-zte-nx729j.dtb
+  #  SECTION UI = "XBL Device Tree"
+  #}
+
   !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
