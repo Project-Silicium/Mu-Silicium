@@ -44,12 +44,20 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 2"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8550"
+!if $(SOC_TYPE) == 0
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8550-AB"
+!elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8550-AC"
+!endif
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
+!if $(SOC_TYPE) == 0
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3190
+!elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3360
+!endif
 
   # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
