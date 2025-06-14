@@ -15,7 +15,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = nx729j
-  PLATFORM_GUID                  = E4EA93C9-E4BD-4DB2-8CAC-3941030EE1DF
+  PLATFORM_GUID                  = DF09B1B0-68B7-4CC8-98D5-5AFFEFF0BF2B
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/nx729jPkg
@@ -27,7 +27,7 @@
   HAS_BUILD_IN_KEYBOARD          = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -61,7 +61,7 @@
   gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703A0C8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x880000000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x100000000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE

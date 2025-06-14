@@ -92,6 +92,13 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   !include Include/ACPI.inc
 
+  # Device Tree
+  #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
+  #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
+  #  SECTION RAW = nx729jPkg/FdtBlob/sm8550-zte-nx729j.dtb
+  #  SECTION UI = "DeviceTreeBlob"
+  #}
+
   !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]
@@ -117,7 +124,7 @@ READ_LOCK_STATUS   = TRUE
   FILE FREEFORM = DDE58710-41CD-4306-DBFB-3FA90BB1D2DD {
     SECTION UI = "uefiplat.cfg"
     SECTION RAW = Binaries/nx729j/RawFiles/uefiplat.cfg
-}
+  }
 
   FILE FV_IMAGE = 9E21FD93-9C72-4c15-8C4B-E77F1DB2D792 {
     SECTION GUIDED EE4E5898-3914-4259-9D6E-DC7BD79403CF PROCESSING_REQUIRED = TRUE {
