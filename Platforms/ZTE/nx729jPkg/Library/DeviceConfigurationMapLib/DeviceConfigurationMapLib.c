@@ -46,6 +46,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"UsbFnIoRevNum", 0x00010001},
   {"UefiMemUseThreshold", 0xE1},
   {"USBHS1_Config", 0x0},
+
   // Terminator 
   {"Terminator", 0xFFFFFFFF}
 };
