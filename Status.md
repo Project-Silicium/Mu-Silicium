@@ -665,6 +665,78 @@
   </summary>
 </details>
 
+<details>
+<summary><b><strong>ZTE Devices</strong></b></summary>
+
+## ZTE Nubia RedMagic 8 Pro
+
+<img align="right" src="Resources/Pictures/RedMagic-8-Pro.png" width="350" alt="Preview">
+
+**State: Active** <br>
+**Codename: nx729j** <br>
+**Maintainers: [Nikka](https://github.com/NikkaGames/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [Nikka](https://github.com/NikkaGames/)** <br>
+**Testers: [Nikka](https://github.com/NikkaGames/)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ✅    |
+| Linux Boot         |             | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ✅    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Gyroscope Sensor     |               | ❌    |
+| Magnetometer Sensor  |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB Host Mode        |               | ✅    |
+| USB Device Mode      |               | ❔    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
+| CPU                  |               | ✅    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td>
+</tr> </table>
+
+  </summary>
+</details>
+
 ---
 
   </summary>

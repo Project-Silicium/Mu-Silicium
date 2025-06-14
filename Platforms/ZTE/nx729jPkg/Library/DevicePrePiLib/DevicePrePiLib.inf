@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DevicePrePiLib
+  FILE_GUID                      = BDA7D73F-7294-4953-81DB-EBE8FEC2065B
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = DevicePrePiLib
+
+[Sources]
+  DevicePrePiLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
