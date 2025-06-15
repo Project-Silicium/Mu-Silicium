@@ -115,7 +115,7 @@ APRIORI DXE {
 !endif
 
   INF Binaries/bale/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-!if $(USE_CUSTOM_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/bale/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/bale/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
