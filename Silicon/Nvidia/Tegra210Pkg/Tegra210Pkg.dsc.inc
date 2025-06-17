@@ -24,7 +24,11 @@
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [BuildOptions]
+!if ($(SOC_TYPE) == 4) || ($(SOC_TYPE) == 5) || ($(SOC_TYPE) == 6)
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc -mtune=cortex-a57
+!else
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+!endif
 
 [PcdsFixedAtBuild]
   # Timer
@@ -67,12 +71,12 @@
 !endif
 
   # CPU
-!if ($(SOC_TYPE) == 0) || ($(SOC_TYPE) == 1) || ($(SOC_TYPE) == 2) || ($(SOC_TYPE) == 3)
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
-!else
+!if ($(SOC_TYPE) == 4) || ($(SOC_TYPE) == 5) || ($(SOC_TYPE) == 6)
   gArmPlatformTokenSpaceGuid.PcdCoreCount|4
   gArmPlatformTokenSpaceGuid.PcdClusterCount|1
+!else
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 !endif
 
   # Clock IDs
