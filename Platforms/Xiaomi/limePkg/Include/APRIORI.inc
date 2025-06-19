@@ -86,9 +86,6 @@ APRIORI DXE {
   INF Binaries/lime/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
-  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
@@ -102,7 +99,7 @@ APRIORI DXE {
   INF Binaries/lime/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/MacDxe/MacDxe.inf
-  INF Binaries/lime/QcomPkg/Drivers/RNGDxe/RngDxe.inf
+  INF Binaries/lime/QcomPkg/SocPkg/KamortaPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
   INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf

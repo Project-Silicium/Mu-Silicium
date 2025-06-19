@@ -3695,18 +3695,18 @@
 
 ### UEFI Status
 
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
-| USB Power Delivery |                   | ✅    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| SD Card            |                   | ❌    |
-| Windows Boot       | Windows PE only   | ⚠️    |
-| Linux Boot         |                   | ❌    |
+| Feature            | Description                              | State |
+|:-------------------|:-----------------------------------------|:-----:|
+| Display            |                                          | ✅    |
+| Internal Storage   |                                          | ✅    |
+| Side Buttons       |                                          | ✅    |
+| USB Host Mode      |                                          | ❌    |
+| USB Device Mode    |                                          | ✅    |
+| USB Power Delivery |                                          | ❌    |
+| Mass Storage       |                                          | ✅    |
+| SD Card            | Tries to Init non-existent eMMC instead? | ❌    |
+| Windows Boot       |                                          | ✅    |
+| Linux Boot         |                                          | ❔    |
 
 ### OS Status
 
@@ -3714,9 +3714,12 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
+> [!IMPORTANT]
+> Widndows 11 24H2 Builds and above do not Boot!
+
 | Feature              | Description  | State |
 |:---------------------|:-------------|:-----:|
-| Internal Storage     |              | ❌    |
+| Internal Storage     |              | ✅    |
 | SD Card              |              | ❌    |
 | Side Buttons         |              | ❌    |
 | Proximity Sensor     |              | ❌    |
@@ -3728,9 +3731,9 @@
 | NFC Sensor           |              | ❌    |
 | Temperature Sensor   |              | ❌    |
 | Battery              |              | ❌    |
-| USB Host Mode        |              | ✅    |
-| USB Device Mode      |              | ❌    |
-| USB Power Delivery   |              | ✅    |
+| USB Host Mode        |              | ❌    |
+| USB Device Mode      |              | ❔    |
+| USB Power Delivery   |              | ❌    |
 | Charging             |              | ❌    |
 | WLAN                 |              | ❌    |
 | CPU                  | 4 Cores only | ⚠️    |

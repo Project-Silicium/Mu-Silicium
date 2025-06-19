@@ -53,7 +53,7 @@
     SECTION RAW = Binaries/lime/RawFiles/SecParti.cfg
   }
 
-  FILE FREEFORM = 21e9bdd9-6c3f-4f10-84a5-bbec322741f1 {
+  FILE FREEFORM = 21E9BDD9-6C3F-4F10-84A5-BBEC322741F1 {
     SECTION UI = "uefipil.cfg"
     SECTION RAW = Binaries/lime/RawFiles/uefipil.cfg
   }
