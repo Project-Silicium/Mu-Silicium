@@ -2710,9 +2710,9 @@
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
-## Xiaomi Mi 11 Lite NE
+## Xiaomi 11 Lite 5G NE / Xiaomi 11 Lite NE 5G / Xiaomi Mi 11 LE / Xiaomi Mi 11 Lite NE
 
-<img align="right" src="Resources/Pictures/Xiaomi-Mi-11-Lite-NE.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-11-Lite-5G-NE.png" width="500" alt="Preview">
 
 **State: Active** <br>
 **Codename: lisa** <br>
