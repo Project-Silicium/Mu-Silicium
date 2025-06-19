@@ -2747,7 +2747,7 @@
 | Feature              | Description           | State |
 |:---------------------|:----------------------|:-----:|
 | Internal Storage     |                       | ✅    |
-| SD Card              | Hot Plug doesn't work | ⚠️    |
+| SD Card              | SDXC cards don't work | ⚠️    |
 | Side Buttons         |                       | ✅    |
 | Proximity Sensor     |                       | ❌    |
 | Light Sensor         |                       | ❌    |
@@ -2756,7 +2756,7 @@
 | Fingerprint Sensor   |                       | ❌    |
 | Hall Sensor          |                       | ❌    |
 | NFC Sensor           |                       | ❌    |
-| Temperature Sensor   |                       | ✅    |
+| Temperature Sensor   |                       | ❌    |
 | Battery              |                       | ✅    |
 | USB Host Mode        |                       | ✅    |
 | USB Device Mode      |                       | ✅    |
@@ -2773,7 +2773,7 @@
 | Camera               |                       | ❌    |
 | Mobile Data          |                       | ✅    |
 | Display              |                       | ✅    |
-| Vibration            |                       | ❌    |
+| Vibration            |                       | ✅    |
 
 </td></tr> </table>
 
