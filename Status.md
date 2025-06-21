@@ -3036,18 +3036,18 @@
 | Feature              | Description           | State |
 |:---------------------|:----------------------|:-----:|
 | Internal Storage     |                       | ✅    |
-| SD Card              | Hot Plug doesn't work | ⚠️    |
+| SD Card              |                       | ✅    |
 | Side Buttons         |                       | ✅    |
-| Proximity Sensor     |                       | ❌    |
-| Light Sensor         |                       | ❌    |
-| Accelerometer Sensor |                       | ❌    |
-| Compass Sensor       |                       | ❌    |
-| Gyroscope Sensor     |                       | ❌    |
+| Proximity Sensor     |                       | ✅    |
+| Light Sensor         |                       | ✅    |
+| Accelerometer Sensor |                       | ✅    |
+| Compass Sensor       |                       | ✅    |
+| Gyroscope Sensor     |                       | ✅    |
 | Fingerprint Sensor   |                       | ❌    |
 | NFC Sensor           |                       | ❌    |
 | Battery              |                       | ✅    |
-| USB Host Mode        |                       | ✅    |
-| USB Device Mode      |                       | ❌    |
+| USB Host Mode        |                       | ❌    |
+| USB Device Mode      |                       | ✅    |
 | USB Power Delivery   |                       | ✅    |
 | Charging             |                       | ❌    |
 | WLAN                 |                       | ✅    |
@@ -3055,7 +3055,7 @@
 | Touchscreen          |                       | ✅    |
 | Bluetooth            |                       | ✅    |
 | GPS                  |                       | ✅    |
-| Speakers             |                       | ❌    |
+| Speakers             |                       | ✅    |
 | 3.5mm Audio Jack     |                       | ❌    |
 | Microphone           |                       | ❌    |
 | GPU                  |                       | ✅    |
@@ -3078,7 +3078,7 @@
 | Light Sensor         |             | ✅    |
 | Accelerometer Sensor |             | ✅    |
 | Compass Sensor       |             | ✅    |
-| Gyroscope Sensor     |             | ❌    |
+| Gyroscope Sensor     |             | ✅    |
 | Fingerprint Sensor   |             | ❌    |
 | NFC Sensor           |             | ❌    |
 | Battery              |             | ✅    |
