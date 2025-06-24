@@ -15,6 +15,12 @@ SetDdrFreq (
   EFI_DDRGETINFO_PROTOCOL *mDdrConfigProtocol;
   ddr_freq_plan_entry      FreqTable;
 
+  // Check for PCD Setting
+  if (FixedPcdGetBool (PcdForceMemorySpeed)) {
+    DEBUG ((EFI_D_ERROR, "This SoC or Device does not Support this Feature!\n"));
+    return EFI_UNSUPPORTED;
+  }
+
   // Locate DDR Config Protocol
   Status = gBS->LocateProtocol (&gEfiDDRGetInfoProtocolGuid, NULL, (VOID *)&mDdrConfigProtocol);
   if (EFI_ERROR (Status)) {

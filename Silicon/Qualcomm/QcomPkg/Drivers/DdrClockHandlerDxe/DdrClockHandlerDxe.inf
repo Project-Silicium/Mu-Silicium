@@ -19,6 +19,9 @@
   UefiBootServicesTableLib
   DebugLib
 
+[FixedPcd]
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed
+
 [Protocols]
   gEfiDDRGetInfoProtocolGuid
 
