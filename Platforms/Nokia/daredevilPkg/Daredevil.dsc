@@ -16,7 +16,7 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = Daredevil
+  PLATFORM_NAME                  = daredevil
   PLATFORM_GUID                  = 9B026CA1-3CD5-434C-8CB9-79FA64ECF5CC
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
@@ -24,29 +24,27 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = DaredevilPkg/Daredevil.fdf
+  FLASH_DEFINITION               = daredevilPkg/daredevil.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
-  # If your SoC has multimple variants define the Number here
-  # If not don't add this Define
-  SOC_TYPE                       = 1
+  SOC_TYPE                       = 0
 
-# If your SoC has multiple variants keep these Build Options
+
 # If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
-  DeviceMemoryMapLib|DaredevilPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|DaredevilPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceMemoryMapLib|daredevilPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|daredevilPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Cripreee"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Creepreee"
 
   # CPU Vector Address
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x9FF8C000
@@ -57,14 +55,14 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"HMD Global"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Nokia_7.2"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Daredevil"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Nokia_7.2_Daredevil"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Nokia_7.2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Nokia 7.2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"daredevil"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Nokia 7.2_daredevil"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Nokia 7.2"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2280
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2340
   gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|24
 
   # Dynamic RAM Start Address
@@ -78,12 +76,12 @@
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2280
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2340
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2280
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2340
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|120
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|120
 
-!include sdm660Pkg/sdm660.dsc.inc
+!include SDM660Pkg/SDM660.dsc.inc
