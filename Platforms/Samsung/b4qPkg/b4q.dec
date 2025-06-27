@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = b4q
+  PACKAGE_GUID                        = 292FF268-8CC3-4DD9-BD66-B835819E8F0A
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gb4qTokenSpaceGuid                  = { 0x68F22F29, 0xC38C, 0xD94D, { 0xBD, 0x66, 0xB8, 0x35, 0x81, 0x9E, 0x8F, 0x0A } }
