@@ -38,6 +38,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|daredevilPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|daredevilPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|Platforms/Nokia/daredevilPkg/Library/AcpiDeviceUpdateLib/AcpiDeviceUpdateLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -84,4 +85,5 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|120
 
-!include SDM660Pkg/SDM660.dsc.inc
+!include Silicon/Qualcomm/SDM660Pkg/SDM660Pkg.dsc.inc
+

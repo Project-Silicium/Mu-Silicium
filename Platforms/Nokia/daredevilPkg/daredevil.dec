@@ -1,1 +1,9 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = daredevil
+  PACKAGE_GUID                        = 2cbb3184-34d3-484e-a613-1f6c07f8da37
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gdaredevilTokenSpaceGuid            = { 0x84, 0x31, 0xbb, 0x2c, 0xd3, 0x34, 0x4e, 0x48, 0xa6, 0x13, 0x1f, 0x6c, 0x07, 0xf8, 0xda, 0x37 }
 
