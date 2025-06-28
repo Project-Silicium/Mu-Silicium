@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
-cat ./BootShim/BootShim.bin "./Build/daredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/DAREDEVIL_UEFI.fd" > "./Build/daredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/daredevil_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/daredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/daredevil_UEFI.fd-bootshim" > "./Build/daredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/daredevil_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/daredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/daredevil_UEFI.fd-bootshim.gz" ./Resources/DTBs/daredevil.dtb > ./Resources/bootpayload.bin||exit 1
+cat ./BootShim/BootShim.bin "./Build/DaredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/DAREDEVIL_UEFI.fd" > "./Build/DaredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/DAREDEVIL_UEFI.fd-bootshim"||exit 1
+gzip -c < "./Build/DaredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/DAREDEVIL_UEFI.fd-bootshim" > "./Build/DaredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/DAREDEVIL_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/DaredevilPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/DAREDEVIL_UEFI.fd-bootshim.gz" ./Resources/DTBs/daredevil.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \
