@@ -32,7 +32,7 @@ INF Binaries/daredevil/QcomPkg/Drivers/VerifiedBootDxe/VerifiedBootDxe.inf
 INF Binaries/daredevil/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
 # Immediately after SmemDxe, add DynamicRAMDxe:
-INF Silicon/Qualcomm/QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf 
+INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf 
 
 INF Binaries/daredevil/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
 INF Binaries/daredevil/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -72,7 +72,7 @@ INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
 INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
 INF Binaries/daredevil/QcomPkg/Drivers/FontDxe/FontDxe.inf
-INF Binaries/daredevil/QcomPkg/Drivers/QcomBds/QcomBds.inf
+INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 INF Binaries/daredevil/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 INF Binaries/daredevil/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
 INF Binaries/daredevil/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
@@ -111,7 +111,7 @@ INF Binaries/daredevil/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-INF Binaries/daredevil/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
+#INF Binaries/daredevil/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 INF Binaries/daredevil/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
 INF Binaries/daredevil/QcomPkg/Drivers/MdtpDxe/MdtpDxe.inf
 INF Binaries/daredevil/QcomPkg/Drivers/HashDxe/HashDxe.inf
