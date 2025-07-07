@@ -92,3 +92,4 @@
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   
   INF Binaries/nitrogen/QcomPkg/Drivers/QdssDxe/QdssDxe.inf
+  INF nitrogenPkg/Drivers/TscResConfigDxe/TscResConfigDxe.inf

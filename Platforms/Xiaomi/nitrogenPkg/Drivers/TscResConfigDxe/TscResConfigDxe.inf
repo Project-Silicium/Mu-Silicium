@@ -1,0 +1,12 @@
+[Defines]
+  INF_VERSION                = 0x00010017
+  BASE_NAME                  = TscResConfigDxe
+  FILE_GUID                  = a83c9d29-dbf5-49fa-b818-fbb38076d148
+  MODULE_TYPE                = DXE_DRIVER
+  VERSION_STRING             = 1.0
+  ENTRY_POINT                = TscResConfig
+
+[Binaries.AARCH64]
+  PE32|TscResConfigDxe.efi
+  DXE_DEPEX|TscResConfigDxe.depex
+
