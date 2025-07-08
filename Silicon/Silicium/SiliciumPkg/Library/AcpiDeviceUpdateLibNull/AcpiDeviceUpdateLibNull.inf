@@ -11,4 +11,3 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  SiliciumPkg/SiliciumPkg.dec

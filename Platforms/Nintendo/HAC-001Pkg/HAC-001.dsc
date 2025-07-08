@@ -74,10 +74,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch (Mariko)"
 !endif
 
-  # Simple FrameBuffer (TODO: Rotate Screen Somehow)
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1280
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer (TODO: Rotate Screen Somehow)
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|720
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1280
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Dynamic RAM
   gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000

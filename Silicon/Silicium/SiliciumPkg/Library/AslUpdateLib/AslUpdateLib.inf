@@ -5,23 +5,23 @@
 
 [Defines]
   INF_VERSION                    = 0x00010017
-  BASE_NAME                      = DxeAslUpdateLib
-  FILE_GUID                      = 8621697D-4E3A-4bf2-ADB0-3E2FF06559CA
+  BASE_NAME                      = AslUpdateLib
+  FILE_GUID                      = 8621697D-4E3A-4BF2-ADB0-3E2FF06559CA
   VERSION_STRING                 = 1.0
   MODULE_TYPE                    = DXE_DRIVER
-  LIBRARY_CLASS                  = AslUpdateLib
+  LIBRARY_CLASS                  = AslUpdateLib|DXE_DRIVER
 
 [Sources]
-  DxeAslUpdateLib.c
+  AslUpdateLib.c
 
 [Packages]
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  UefiBootServicesTableLib
-  BaseMemoryLib
   DebugLib
+  BaseMemoryLib
+  UefiBootServicesTableLib
   MemoryAllocationLib
 
 [Protocols]

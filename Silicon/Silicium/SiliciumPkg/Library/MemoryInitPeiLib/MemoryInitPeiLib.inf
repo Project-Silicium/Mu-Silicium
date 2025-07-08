@@ -15,18 +15,18 @@
   MemoryInitPeiLib.c
 
 [Packages]
+  ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  ArmPkg/ArmPkg.dec
-  ArmPlatformPkg/ArmPlatformPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
+  PcdLib
+  ArmMmuLib
+  MemoryAllocationLib
+  DeviceMemoryMapLib
   DebugLib
   HobLib
-  ArmMmuLib
-  DeviceMemoryMapLib
-  PcdLib
 
 [FeaturePcd]
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob

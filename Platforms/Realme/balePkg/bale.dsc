@@ -61,10 +61,10 @@
 !error "Invalid Model! specify "0" for GT Neo6 or "1" for GT6."
 !endif
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1264
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2780
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1264
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2780
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

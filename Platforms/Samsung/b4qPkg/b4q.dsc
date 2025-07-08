@@ -56,10 +56,17 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Flip_4_b4q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Flip 4"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2640
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer (Main Screen)
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1320 # 2640
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+
+  # Simple Frame Buffer (Cover Screen)
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferOffset|0x00AE0600
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferWidth|260
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferHeight|512
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferDebug|FALSE
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

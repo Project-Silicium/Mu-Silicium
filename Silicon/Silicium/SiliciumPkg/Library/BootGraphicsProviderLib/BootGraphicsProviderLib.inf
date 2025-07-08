@@ -6,7 +6,7 @@
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = BootGraphicsProviderLib
-  FILE_GUID                      = 3f7bd07a-1436-4486-8a8b-e7957d171ad7
+  FILE_GUID                      = 3F7BD07A-1436-4486-8A8B-E7957D171AD7
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = BootGraphicsProviderLib|DXE_DRIVER UEFI_APPLICATION
@@ -21,19 +21,19 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  BmpSupportLib
+  PcdLib
   DebugLib
   DxeServicesLib
-  PcdLib
+
+[FixedPcd]
+  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdSelectLunFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile
+  gSiliciumPkgTokenSpaceGuid.PcdMsdUnknownStateFile
 
 [Pcd]
   gOemPkgTokenSpaceGuid.PcdLogoFile
   gOemPkgTokenSpaceGuid.PcdLowBatteryFile
   gOemPkgTokenSpaceGuid.PcdThermalFile
   gOemPkgTokenSpaceGuid.PcdPostBackgroundColor
-
-  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdSelectLunFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdUnknownStateFile

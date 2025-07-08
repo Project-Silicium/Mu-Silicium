@@ -15,23 +15,26 @@
   MsBootOptionsLib.c
 
 [Packages]
-  PcBdsPkg/PcBdsPkg.dec
   MdePkg/MdePkg.dec
+  PcBdsPkg/PcBdsPkg.dec
   MdeModulePkg/MdeModulePkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  UefiBootServicesTableLib
   DebugLib
-  MsBootPolicyLib
   DevicePathLib
-  DeviceBootManagerLib
-  MsPlatformDevicesLib
+  DxeServicesLib
+  UefiBootManagerLib
+  UefiBootServicesTableLib
+  MemoryAllocationLib
+  UefiLib
+  PcdLib
 
 [Guids]
   gMsBootPolicyFileGuid
 
 [Protocols]
+  gEfiLoadedImageProtocolGuid
   gEfiFirmwareVolume2ProtocolGuid
 
 [FixedPcd]

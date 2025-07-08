@@ -1,6 +1,4 @@
 ##
-#  PlatformBootManager - Ms Extensions to BdsDxe.
-#
 #  Copyright (C) Microsoft Corporation. All rights reserved.
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
@@ -16,30 +14,35 @@
   CONSTRUCTOR                    = PlatformBootManagerEntry
 
 [Sources]
-  BdsPlatform.c
-  MsPlatform.c
+  PlatformBootManagerLib.c
 
 [Packages]
   MdePkg/MdePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
+  PcBdsPkg/PcBdsPkg.dec
   MsCorePkg/MsCorePkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   DebugLib
   BaseMemoryLib
   UefiBootServicesTableLib
-  UefiRuntimeServicesTableLib
   MemoryAllocationLib
-  DevicePathLib
-  UefiLib
+  MsBootOptionsLib
+  MsBootPolicyLib
+  BootGraphicsLib
+  UefiRuntimeServicesTableLib
+  AcpiPlatformUpdateLib
   DxeServicesTableLib
-  CapsuleLib
-  DeviceBootManagerLib
-  HobLib
+  AcpiDeviceUpdateLib
   PerformanceLib
-  PcdLib
+  DevicePathLib
+  CapsuleLib
   PrintLib
+  UefiLib
+  HobLib
+  PcdLib
 
 [Pcd]
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut
@@ -48,16 +51,15 @@
   gSiliciumPkgTokenSpaceGuid.PcdSpecialApp
   gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName
 
-[Protocols]
-  gEfiPciRootBridgeIoProtocolGuid
-  gEfiDxeSmmReadyToLockProtocolGuid
-  gEfiAbsolutePointerProtocolGuid
-
 [Guids]
   gEfiEndOfDxeEventGroupGuid
   gEfiGlobalVariableGuid
-  gEfiMemoryOverwriteControlDataGuid
-  gMuReadyToProcessCapsulesNotifyGuid
+  gMsStartOfBdsNotifyGuid
+  gMsBootMenuFormsetGuid
+  gEfiEventPreReadyToBootGuid
+  gEfiEventPostReadyToBootGuid
 
-[Depex]
-  gEfiVariableArchProtocolGuid
+[Protocols]
+  gEfiDxeSmmReadyToLockProtocolGuid
+  gEfiAbsolutePointerProtocolGuid
+  gEfiGraphicsOutputProtocolGuid

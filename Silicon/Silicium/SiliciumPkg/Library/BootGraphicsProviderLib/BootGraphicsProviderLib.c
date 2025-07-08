@@ -12,52 +12,52 @@
 EFI_STATUS
 EFIAPI
 GetBootGraphic (
-  BOOT_GRAPHIC Graphic,
-  OUT UINTN   *ImageSize,
-  OUT UINT8  **ImageData)
+  BOOT_GRAPHIC   Graphic,
+  OUT UINTN     *ImageSize,
+  OUT UINT8    **ImageData)
 {
-  EFI_GUID *g = NULL;
+  EFI_GUID *GraphicGuid;
 
   switch (Graphic) {
     case BG_SYSTEM_LOGO:
-      g = PcdGetPtr (PcdLogoFile);
+      GraphicGuid = PcdGetPtr (PcdLogoFile);
       break;
 
     case BG_CRITICAL_OVER_TEMP:
-      g = PcdGetPtr (PcdThermalFile);
+      GraphicGuid = PcdGetPtr (PcdThermalFile);
       break;
 
     case BG_CRITICAL_LOW_BATTERY:
-      g = PcdGetPtr (PcdLowBatteryFile);
+      GraphicGuid = PcdGetPtr (PcdLowBatteryFile);
       break;
 
     case BG_NO_BOOT_OS:
-      g = PcdGetPtr (PcdNoBootOSFile);
+      GraphicGuid = FixedPcdGetPtr (PcdNoBootOSFile);
       break;
     
     case BG_MSD_SELECT_LUN:
-      g = PcdGetPtr (PcdMsdSelectLunFile);
+      GraphicGuid = FixedPcdGetPtr (PcdMsdSelectLunFile);
       break;
     
     case BG_MSD_CONNECTED:
-      g = PcdGetPtr (PcdMsdConnectedFile);
+      GraphicGuid = FixedPcdGetPtr (PcdMsdConnectedFile);
       break;
     
     case BG_MSD_DISCONNECTED:
-      g = PcdGetPtr (PcdMsdDisconnectedFile);
+      GraphicGuid = FixedPcdGetPtr (PcdMsdDisconnectedFile);
       break;
 
     case BG_MSD_UNKNOWN_STATE:
-      g = PcdGetPtr (PcdMsdUnknownStateFile);
+      GraphicGuid = FixedPcdGetPtr (PcdMsdUnknownStateFile);
       break;
 
     default:
-      DEBUG ((EFI_D_ERROR, "%a: Unsupported Boot Graphic Type! 0x%x\n", __FUNCTION__, Graphic));
+      DEBUG ((EFI_D_ERROR, "%a: Unsupported Boot Graphic Type! Got %u\n", __FUNCTION__, Graphic));
       return EFI_UNSUPPORTED;
   }
 
   // Get the Specified Image from FV
-  return GetSectionFromAnyFv (g, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
+  return GetSectionFromAnyFv (GraphicGuid, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
 }
 
 UINT32

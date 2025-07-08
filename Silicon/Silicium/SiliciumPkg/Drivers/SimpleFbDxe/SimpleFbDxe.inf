@@ -4,45 +4,35 @@
   FILE_GUID                      = DCFD1E6D-788D-4FFC-8E1B-CA2F75651A92
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = InitializeDisplay
+  ENTRY_POINT                    = RegisterDisplays
 
-[Sources.common]
+[Sources]
   SimpleFbDxe.c
 
 [Packages]
+  ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
-  ArmPkg/ArmPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  UefiBootServicesTableLib
-  UefiDriverEntryPoint
-  BaseMemoryLib
   DebugLib
   FrameBufferBltLib
-  PcdLib
-  MemoryMapHelperLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
   MemoryAllocationLib
-
-[Pcd]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution
+  MemoryMapHelperLib
+  BaseMemoryLib
+  PcdLib
 
 [FixedPcd]
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth
-
-[Guids]
-  gEfiMdeModulePkgTokenSpaceGuid
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth
 
 [Protocols]
   gEfiGraphicsOutputProtocolGuid
-  gEfiCpuArchProtocolGuid
   gEfiDevicePathProtocolGuid
 
 [Depex]
-  gEfiCpuArchProtocolGuid
-
+  TRUE

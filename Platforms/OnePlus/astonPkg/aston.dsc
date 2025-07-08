@@ -65,10 +65,10 @@
 !error "Invalid Model Type! 0 or 1 are Valid Model Types."
 !endif
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1264
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2780
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1264
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2780
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
