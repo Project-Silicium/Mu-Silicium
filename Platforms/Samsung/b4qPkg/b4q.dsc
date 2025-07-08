@@ -58,7 +58,7 @@
 
   # Simple Frame Buffer (Main Screen)
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1320 # 2640
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2640
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Simple Frame Buffer (Cover Screen)
