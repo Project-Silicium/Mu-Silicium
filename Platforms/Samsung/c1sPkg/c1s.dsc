@@ -50,10 +50,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Note_20_5G_c1s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Note 20 5G"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

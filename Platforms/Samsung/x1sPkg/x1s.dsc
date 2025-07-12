@@ -50,10 +50,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_S20_5G_x1s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy S20 5G"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1440
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|3200
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440

@@ -3,77 +3,70 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
-#include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/DevicePathLib.h>
 #include <Library/DxeServicesLib.h>
-#include <Library/MemoryAllocationLib.h>
-#include <Library/MsBootOptions.h>
-#include <Library/PcdLib.h>
 #include <Library/UefiBootManagerLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/MemoryAllocationLib.h>
 #include <Library/UefiLib.h>
+#include <Library/PcdLib.h>
 
 #include <Protocol/FirmwareVolume2.h>
 #include <Protocol/LoadedImage.h>
 
 EFI_STATUS
 BuildFwLoadOption (
-  EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
-  EFI_GUID                     *FwFile,
-  CHAR8                        *Parameter)
+  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
+  IN     EFI_GUID                     *FwFile,
+  IN     CHAR8                        *Parameter)
 {
-  EFI_STATUS                         Status            = EFI_SUCCESS;
-  CHAR16                            *Description       = NULL;
-  UINTN                              DescriptionLength = 0;
-  EFI_DEVICE_PATH_PROTOCOL          *DevicePath        = NULL;
-  EFI_LOADED_IMAGE_PROTOCOL         *LoadedImage       = NULL;
-  MEDIA_FW_VOL_FILEPATH_DEVICE_PATH  FileNode;
+  EFI_STATUS                         Status               = EFI_SUCCESS;
+  EFI_DEVICE_PATH_PROTOCOL          *DevicePath           = NULL;
+  EFI_LOADED_IMAGE_PROTOCOL         *mLoadedImageProtocol = NULL;
+  MEDIA_FW_VOL_FILEPATH_DEVICE_PATH  FileNode             = {0};
+  CHAR16                            *Description          = NULL;
+  UINTN                              DescriptionLength    = 0;
 
-  // Get Defined Application from FV
-  Status = GetSectionFromFv (FwFile, EFI_SECTION_USER_INTERFACE, 0, (VOID **)&Description, &DescriptionLength);
+  // Get Defined Application Name from FV
+  Status = GetSectionFromFv (FwFile, EFI_SECTION_USER_INTERFACE, 0, (VOID *)&Description, &DescriptionLength);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Get Description from %a! Status = %r\n", __FUNCTION__, FwFile, Status));
-    Description = NULL;
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Get Application Name of %a! Status = %r\n", __FUNCTION__, FwFile, Status));
+    return Status;
   }
 
   // Init FW Volume Device Path Node
   EfiInitializeFwVolDevicepathNode (&FileNode, FwFile);
 
-  // Locate Loaded Image Handle Protocol
-  Status = gBS->HandleProtocol (gImageHandle, &gEfiLoadedImageProtocolGuid, (VOID **)&LoadedImage);
+  // Locate Loaded Image Protocol Handle
+  Status = gBS->HandleProtocol (gImageHandle, &gEfiLoadedImageProtocolGuid, (VOID *)&mLoadedImageProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Loaded Image Handle Protocol!\n", __FUNCTION__));
-    goto exit;
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Loaded Image Protocol Handle! Status = %r\n", __FUNCTION__, Status));
+    return Status;
   }
 
-  DevicePath = AppendDevicePathNode (DevicePathFromHandle (LoadedImage->DeviceHandle), (EFI_DEVICE_PATH_PROTOCOL *)&FileNode);
-
-  // MU_CHANGE [BEGIN] - CodeQL change
+  // Get Device Path
+  DevicePath = AppendDevicePathNode (DevicePathFromHandle (mLoadedImageProtocol->DeviceHandle), (EFI_DEVICE_PATH_PROTOCOL *)&FileNode);
   if (DevicePath == NULL) {
-    ASSERT (DevicePath != NULL);
-    Status = EFI_NOT_FOUND;
-    goto exit;
+    return EFI_NOT_FOUND;
   }
-  // MU_CHANGE [END] - CodeQL change
 
   // Init Boot Load Option
-  Status = EfiBootManagerInitializeLoadOption (BootOption, LoadOptionNumberUnassigned, LoadOptionTypeBoot, LOAD_OPTION_CATEGORY_APP | LOAD_OPTION_ACTIVE | LOAD_OPTION_HIDDEN, (Description != NULL) ? Description : L"Boot Manager Menu", DevicePath, (UINT8 *)Parameter, (Parameter != NULL)  ? (UINT32)AsciiStrSize (Parameter) : 0);
+  Status = EfiBootManagerInitializeLoadOption (BootOption, LoadOptionNumberUnassigned, LoadOptionTypeBoot, LOAD_OPTION_CATEGORY_APP | LOAD_OPTION_ACTIVE | LOAD_OPTION_HIDDEN, Description, DevicePath, (UINT8 *)Parameter, (Parameter != NULL) ? (UINT32)AsciiStrSize (Parameter) : 0);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Initialize Boot Load Option!\n"));
-    goto exit;
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Initialize Boot Load Option! Status = %r\n", __FUNCTION__, Status));
+
+    // Free Buffer
+    FreePool (DevicePath);
+
+    return Status;
   }
 
+  // Free Buffers
   FreePool (DevicePath);
+  FreePool (Description);
 
-  if (Description != NULL) {
-    FreePool (Description);
-  }
-
-exit:
-  ASSERT_EFI_ERROR (Status);
-
-  return Status;
+  return EFI_SUCCESS;
 }
 
 EFI_STATUS
@@ -82,6 +75,7 @@ MsBootOptionsLibGetDefaultBootApp (
   IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
   IN     CHAR8                        *Parameter)
 {
+  // Return Special App Boot Ooption
   return BuildFwLoadOption (BootOption, FixedPcdGetPtr (PcdSpecialApp), Parameter);
 }
 
@@ -91,28 +85,29 @@ MsBootOptionsLibGetBootManagerMenu (
   IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
   IN     CHAR8                        *Parameter)
 {
+  // Return UEFI Menu Boot Option
   return BuildFwLoadOption (BootOption, PcdGetPtr (PcdBootManagerMenuFile), Parameter);
 }
 
-STATIC
 EFI_STATUS
 CreateFvBootOption (
-  EFI_GUID                     *FileGuid,
-  CHAR16                       *Description,
-  EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
-  UINT32                        Attributes,
-  UINT8                        *OptionalData,
-  UINT32                        OptionalDataSize OPTIONAL)
+  IN     EFI_GUID                     *FileGuid,
+  IN     CHAR16                       *Description,
+  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
+  IN     UINT32                        Attributes,
+  IN     UINT8                        *OptionalData,
+  IN     UINT32                        OptionalDataSize OPTIONAL)
 {
   EFI_STATUS                         Status               = EFI_SUCCESS;
   EFI_DEVICE_PATH_PROTOCOL          *DevicePath           = NULL;
-  EFI_LOADED_IMAGE_PROTOCOL         *LoadedImage          = NULL;
-  MEDIA_FW_VOL_FILEPATH_DEVICE_PATH  FileNode;
-  EFI_FIRMWARE_VOLUME2_PROTOCOL     *Fv                   = NULL;
-  UINT32                             AuthenticationStatus = 0;
+  EFI_LOADED_IMAGE_PROTOCOL         *mLoadedImageProtocol = NULL;
+  EFI_FIRMWARE_VOLUME2_PROTOCOL     *mFv2Protocol         = NULL;
   VOID                              *Buffer               = NULL;
+  MEDIA_FW_VOL_FILEPATH_DEVICE_PATH  FileNode             = {0};
   UINTN                              Size                 = 0;
+  UINT32                             AuthenticationStatus = 0;
 
+  // Check Parameters
   if ((BootOption == NULL) || (FileGuid == NULL) || (Description == NULL)) {
     return EFI_INVALID_PARAMETER;
   }
@@ -121,105 +116,121 @@ CreateFvBootOption (
   EfiInitializeFwVolDevicepathNode (&FileNode, FileGuid);
 
   // Locate Loaded Image Handle Protocol
-  Status = gBS->HandleProtocol (gImageHandle, &gEfiLoadedImageProtocolGuid, (VOID **)&LoadedImage);
-
-  if (!EFI_ERROR (Status)) {
-    // Locate FV2 Handle Protocol
-    Status = gBS->HandleProtocol (LoadedImage->DeviceHandle, &gEfiFirmwareVolume2ProtocolGuid, (VOID **)&Fv);
-
-    if (!EFI_ERROR (Status)) {
-      Buffer = NULL;
-      Size   = 0;
-
-      // Read EFI Application EFI File
-      Status = Fv->ReadSection (Fv, FileGuid, EFI_SECTION_PE32, 0, &Buffer, &Size, &AuthenticationStatus);
-      if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "%a: Failed to Read EFI Section from %a! Status = %r\n", __FUNCTION__, FileGuid, Status));
-        goto exit;
-      }
-    } else {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate FV2 Handle Protocol! Status = %r\n", __FUNCTION__, Status));
-      goto exit;
-    }
-  } else {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Loaded Image Handle Protocol! Status = %r\n", __FUNCTION__, Status));
-    goto exit;
+  Status = gBS->HandleProtocol (gImageHandle, &gEfiLoadedImageProtocolGuid, (VOID *)&mLoadedImageProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Loaded Image Protocol! Status = %r\n", __FUNCTION__, Status));
+    return Status;
   }
 
-  DevicePath = AppendDevicePathNode (DevicePathFromHandle (LoadedImage->DeviceHandle), (EFI_DEVICE_PATH_PROTOCOL *)&FileNode);
+  // Locate FV2 Handle Protocol
+  Status = gBS->HandleProtocol (mLoadedImageProtocol->DeviceHandle, &gEfiFirmwareVolume2ProtocolGuid, (VOID *)&mFv2Protocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate FV2 Protocol! Status = %r\n", __FUNCTION__, Status));
+    return Status;
+  }
+
+  // Read EFI Application Section
+  Status = mFv2Protocol->ReadSection (mFv2Protocol, FileGuid, EFI_SECTION_PE32, 0, &Buffer, &Size, &AuthenticationStatus);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Read EFI Application Section from %a! Status = %r\n", __FUNCTION__, FileGuid, Status));
+    return Status;
+  }
+
+  // Get Device Path
+  DevicePath = AppendDevicePathNode (DevicePathFromHandle (mLoadedImageProtocol->DeviceHandle), (EFI_DEVICE_PATH_PROTOCOL *)&FileNode);
   if (DevicePath == NULL) {
-    ASSERT (DevicePath != NULL);
-    Status = EFI_OUT_OF_RESOURCES;
-    goto exit;
+    DEBUG ((EFI_D_ERROR, "%a: Failed to get Device Path of EFI Application! Status = %r\n", __FUNCTION__, Status));
+
+    // Free Buffer
+    FreePool (Buffer);
+
+    return EFI_OUT_OF_RESOURCES;
   }
 
   // Init Boot Option
   Status = EfiBootManagerInitializeLoadOption (BootOption, LoadOptionNumberUnassigned, LoadOptionTypeBoot, Attributes, Description, DevicePath, OptionalData, OptionalDataSize);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Init Boot Option for %a! Status = %r\n", __FUNCTION__, FileGuid, Status));
-  }
 
-exit:
-  if (DevicePath != NULL) {
-    FreePool (DevicePath);
-  }
-
-  if (Buffer != NULL) {
+    // Free Buffers
     FreePool (Buffer);
+    FreePool (DevicePath);
+
+    return Status;
   }
 
-  return Status;
+  // Free Buffers
+  FreePool (Buffer);
+  FreePool (DevicePath);
+
+  return EFI_SUCCESS;
 }
 
 STATIC
 UINTN
 RegisterFvBootOption (
-  EFI_GUID *FileGuid,
-  CHAR16   *Description,
-  UINTN     Position,
-  UINT32    Attributes,
-  UINT8    *OptionalData, 
-  UINT32    OptionalDataSize OPTIONAL)
+  IN EFI_GUID *FileGuid,
+  IN CHAR16   *Description,
+  IN UINTN     Position,
+  IN UINT32    Attributes,
+  IN UINT8    *OptionalData, 
+  IN UINT32    OptionalDataSize OPTIONAL)
 {
   EFI_STATUS                    Status          = EFI_SUCCESS;
-  UINTN                         OptionIndex     = 0;
-  EFI_BOOT_MANAGER_LOAD_OPTION  NewOption;
   EFI_BOOT_MANAGER_LOAD_OPTION *BootOptions     = NULL;
+  EFI_BOOT_MANAGER_LOAD_OPTION  NewOption       = {0};
+  UINTN                         OptionIndex     = 0;
   UINTN                         BootOptionCount = 0;
 
+  // Set Dummy Option Number
   NewOption.OptionNumber = LoadOptionNumberUnassigned;
 
-  // Create a New Fv Boot Option
+  // Create a New FV Boot Option
   Status = CreateFvBootOption (FileGuid, Description, &NewOption, Attributes, OptionalData, OptionalDataSize);
-  if (!EFI_ERROR (Status)) {
-    BootOptions = EfiBootManagerGetLoadOptions (&BootOptionCount, LoadOptionTypeBoot);
-    OptionIndex = EfiBootManagerFindLoadOption (&NewOption, BootOptions, BootOptionCount);
-
-    if (OptionIndex == -1) {
-      NewOption.Attributes ^= LOAD_OPTION_ACTIVE;
-      OptionIndex           = EfiBootManagerFindLoadOption (&NewOption, BootOptions, BootOptionCount);
-      NewOption.Attributes ^= LOAD_OPTION_ACTIVE;
-    }
-
-    if (OptionIndex == -1) {
-      // Add Boot Load Option Variable
-      Status = EfiBootManagerAddLoadOptionVariable (&NewOption, Position);
-      if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "%a: Failed to Add a New Boot Load Option Variable!\n", __FUNCTION__));
-        goto exit;
-      }
-    } else {
-      NewOption.OptionNumber = BootOptions[OptionIndex].OptionNumber;
-    }
-
-    EfiBootManagerFreeLoadOption  (&NewOption);
-    EfiBootManagerFreeLoadOptions (BootOptions, BootOptionCount);
-  } else {
+  if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Create a New FV Boot Option! Status = %r\n", __FUNCTION__, Status));
+    return Status;
   }
 
-exit:
-  ASSERT_EFI_ERROR (Status);
+  // Get Boot Load Options
+  BootOptions = EfiBootManagerGetLoadOptions (&BootOptionCount, LoadOptionTypeBoot);
+
+  // Find Boot Load Option
+  OptionIndex = EfiBootManagerFindLoadOption (&NewOption, BootOptions, BootOptionCount);
+
+  // Check Boot Option Index
+  if (OptionIndex == -1) {
+    // Update Boot Attribute
+    NewOption.Attributes ^= LOAD_OPTION_ACTIVE;
+
+    // Get new Boot Option Index
+    OptionIndex = EfiBootManagerFindLoadOption (&NewOption, BootOptions, BootOptionCount);
+
+    // Update Boot Attribute
+    NewOption.Attributes ^= LOAD_OPTION_ACTIVE;
+  }
+
+  // Check Boot Option Index
+  if (OptionIndex == -1) {
+    // Add Boot Load Option Variable
+    Status = EfiBootManagerAddLoadOptionVariable (&NewOption, Position);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Add New Boot Load Option Variable! Status = %r\n", __FUNCTION__, Status));
+
+      // Free Buffers
+      EfiBootManagerFreeLoadOption  (&NewOption);
+      EfiBootManagerFreeLoadOptions (BootOptions, BootOptionCount);
+
+      return Status;
+    }
+  } else {
+    // Update Boot Option Number
+    NewOption.OptionNumber = BootOptions[OptionIndex].OptionNumber;
+  }
+
+  // Free Buffers
+  EfiBootManagerFreeLoadOption  (&NewOption);
+  EfiBootManagerFreeLoadOptions (BootOptions, BootOptionCount);
 
   return NewOption.OptionNumber;
 }
@@ -228,8 +239,11 @@ VOID
 EFIAPI
 MsBootOptionsLibRegisterDefaultBootOptions ()
 {
+  // Register Internal Storage Boot Option
   RegisterFvBootOption (&gMsBootPolicyFileGuid, L"Internal Storage", (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"SSD", sizeof ("SSD"));
-  RegisterFvBootOption (&gMsBootPolicyFileGuid, L"USB Storage",      (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));
+
+  // Register USB Storage Boot Ooption
+  RegisterFvBootOption (&gMsBootPolicyFileGuid, L"USB Storage", (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));
 }
 
 EFI_BOOT_MANAGER_LOAD_OPTION*
@@ -240,30 +254,30 @@ MsBootOptionsLibGetDefaultOptions (OUT UINTN *OptionCount)
   EFI_BOOT_MANAGER_LOAD_OPTION *Option           = NULL;
   UINTN                         LocalOptionCount = 2;
 
+  // Allocate Memory
   Option = (EFI_BOOT_MANAGER_LOAD_OPTION *)AllocateZeroPool (sizeof (EFI_BOOT_MANAGER_LOAD_OPTION) * LocalOptionCount);
-  ASSERT (Option != NULL);
-
-  // Create Fv Boot Options
-  Status  = CreateFvBootOption (&gMsBootPolicyFileGuid, L"Internal Storage", &Option[0], LOAD_OPTION_ACTIVE, (UINT8 *)"SSD", sizeof ("SSD"));
-  Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, L"USB Storage",      &Option[1], LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));
-
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Create Boot Options! Status = %r\n", __FUNCTION__, Status));
-    FreePool (Option);
-    Option           = NULL;
-    LocalOptionCount = 0;
+  if (Option == NULL) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Allocate Memory for Boot Options!\n", __FUNCTION__));
+    return NULL;
   }
 
+  // Create FV Boot Options
+  Status  = CreateFvBootOption (&gMsBootPolicyFileGuid, L"Internal Storage", &Option[0], LOAD_OPTION_ACTIVE, (UINT8 *)"SSD", sizeof ("SSD"));
+  Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, L"USB Storage",      &Option[1], LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Create FV Boot Options! Status = %r\n", __FUNCTION__, Status));
+
+    // Free Buffer
+    FreePool (Option);
+
+    // Reset Option Count
+    *OptionCount = 0;
+
+    return NULL;
+  }
+
+  // Pass Option Count
   *OptionCount = LocalOptionCount;
 
   return Option;
-}
-
-EFI_STATUS
-EFIAPI
-MsBootOptionsLibEntry (
-  IN EFI_HANDLE        ImageHandle,
-  IN EFI_SYSTEM_TABLE *SystemTable)
-{
-  return EFI_SUCCESS;
 }

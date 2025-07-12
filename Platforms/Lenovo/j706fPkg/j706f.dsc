@@ -57,10 +57,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"P11_Pro_j706f"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"P11 Pro"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|2560
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1600
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|2560
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1600
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

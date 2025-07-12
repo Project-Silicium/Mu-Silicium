@@ -104,7 +104,7 @@ LibGetWakeupTime (
 EFI_STATUS
 EFIAPI
 LibSetWakeupTime (
-  IN BOOLEAN    Enabled,
+  IN  BOOLEAN   Enabled,
   OUT EFI_TIME *Time)
 {
   return EFI_UNSUPPORTED;

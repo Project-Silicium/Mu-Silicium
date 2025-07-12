@@ -50,10 +50,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A7_A7"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy A7"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2220
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2220
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080

@@ -57,10 +57,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"13_dodge"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"13"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3168
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1440
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|3168
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

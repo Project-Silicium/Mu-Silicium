@@ -1,4 +1,3 @@
-#include <Library/AcpiPlatformUpdateLib.h>
 #include <Library/AslUpdateLib.h>
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/UefiBootServicesTableLib.h>

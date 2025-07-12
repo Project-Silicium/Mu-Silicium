@@ -50,10 +50,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Moto_G9_Power_cebu"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Moto G9"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1640
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|720
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1640
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

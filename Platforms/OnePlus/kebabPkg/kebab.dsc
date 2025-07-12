@@ -57,10 +57,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"8T_kebab"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"8T"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

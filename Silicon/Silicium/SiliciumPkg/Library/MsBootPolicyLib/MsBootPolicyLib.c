@@ -3,30 +3,17 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
-#include <Library/UefiBootServicesTableLib.h>
 #include <Library/DebugLib.h>
+#include <Library/UefiBootServicesTableLib.h>
+//#include <Library/DeviceBootManagerLib.h>
 #include <Library/MsBootPolicyLib.h>
 #include <Library/DevicePathLib.h>
-#include <Library/DeviceBootManagerLib.h>
-#include <Library/MsPlatformDevicesLib.h>
 
 #include <Protocol/ButtonServices.h>
 #include <Protocol/LoadFile.h>
 
-#ifdef EFI_DEBUG
-#define MAX_DEVICE_PATH_SIZE 0x100000
-#else
-#define MAX_DEVICE_PATH_SIZE 0
-#endif
-
-STATIC BOOT_SEQUENCE DefaultBootSequence[] = {
-  MsBootHDD,
-  MsBootUSB,
-  MsBootDone
-};
-
-STATIC MS_BUTTON_SERVICES_PROTOCOL *mMsButtonProtocol = NULL;
-STATIC EFI_IMAGE_LOAD               gSystemLoadImage  = NULL;
+STATIC MS_BUTTON_SERVICES_PROTOCOL *mMsButtonProtocol;
+STATIC EFI_IMAGE_LOAD               gSystemLoadImage;
 
 EFI_STATUS
 EFIAPI
@@ -38,7 +25,9 @@ LocalLoadImage (
   IN  UINTN                     SourceSize,
   OUT EFI_HANDLE               *ImageHandle)
 {
+  // Check Device Path
   if (DevicePath != NULL) {
+    // Check Device Path Boot State
     if (!MsBootPolicyLibIsDevicePathBootable (DevicePath)) {
       return EFI_ACCESS_DENIED;
     }
@@ -48,58 +37,75 @@ LocalLoadImage (
   return gSystemLoadImage (BootPolicy, ParentImageHandle, DevicePath, SourceBuffer, SourceSize, ImageHandle);
 }
 
+EFI_STATUS
+LocateMsButtonServiceProtocol ()
+{
+  EFI_STATUS Status;
+
+  // Locate Ms Button Service Protocol
+  if (mMsButtonProtocol == NULL) {
+    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&mMsButtonProtocol);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Service Protocol! Status = %r\n", __FUNCTION__, Status));
+      return Status;
+    }
+  }
+
+  return EFI_SUCCESS;
+}
+
 BOOLEAN
 EFIAPI
 MsBootPolicyLibIsSettingsBoot ()
 {
   EFI_STATUS Status;
-  BOOLEAN    VolumeUp;
+  BOOLEAN    Pressed;
 
-  // Check if the Protocol Exists
-  if (!mMsButtonProtocol) {
-    // Locate Ms Button Services Protocol
-    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&mMsButtonProtocol);
-
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Services Protocol! Status = %r\n", __FUNCTION__, Status));
-      return FALSE;
-    }
-  }
-
-  // Check if Volume Up was Pressed
-  Status = mMsButtonProtocol->PreBootVolumeUpButtonThenPowerButtonCheck (mMsButtonProtocol, &VolumeUp);
+  // Locate Ms Button Service Protocol
+  Status = LocateMsButtonServiceProtocol ();
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_WARN, "%a: Failed to Get Volume Up State! Status = %r\n", __FUNCTION__, Status));
+    return FALSE;
   }
 
-  return VolumeUp;
+  // Check if Volume Up / ESC was Pressed
+  Status = mMsButtonProtocol->PreBootVolumeUpButtonThenPowerButtonCheck (mMsButtonProtocol, &Pressed);
+  if (EFI_ERROR (Status)) {
+#if HAS_BUILD_IN_KEYBOARD == 1
+    DEBUG ((EFI_D_WARN, "%a: Failed to Get ESC Key State! Status = %r\n", __FUNCTION__, Status));
+#else
+    DEBUG ((EFI_D_WARN, "%a: Failed to Get Volume Up State! Status = %r\n", __FUNCTION__, Status));
+#endif
+    Pressed = FALSE;
+  }
+
+  return Pressed;
 }
 
 BOOLEAN
 EFIAPI
 MsBootPolicyLibIsAltBoot ()
 {
-  EFI_STATUS Status;
-  BOOLEAN    VolumeDown;
+    EFI_STATUS Status;
+  BOOLEAN    Pressed;
 
-  // Check if the Protocol Exists
-  if (!mMsButtonProtocol) {
-    // Locate Ms Button Services Protocol
-    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&mMsButtonProtocol);
-
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Services Protocol! Status = %r\n", __FUNCTION__, Status));
-      return FALSE;
-    }
-  }
-
-  // Check if Volume Down was Pressed
-  Status = mMsButtonProtocol->PreBootVolumeDownButtonThenPowerButtonCheck (mMsButtonProtocol, &VolumeDown);
+  // Locate Ms Button Service Protocol
+  Status = LocateMsButtonServiceProtocol ();
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_WARN, "%a: Failed to Get Volume Down State! Status = %r\n", __FUNCTION__, Status));
+    return FALSE;
   }
 
-  return VolumeDown;
+  // Check if Volume Down / ENTF was Pressed
+  Status = mMsButtonProtocol->PreBootVolumeDownButtonThenPowerButtonCheck (mMsButtonProtocol, &Pressed);
+  if (EFI_ERROR (Status)) {
+#if HAS_BUILD_IN_KEYBOARD == 1
+    DEBUG ((EFI_D_WARN, "%a: Failed to Get ENTF Key State! Status = %r\n", __FUNCTION__, Status));
+#else
+    DEBUG ((EFI_D_WARN, "%a: Failed to Get Volume Down State! Status = %r\n", __FUNCTION__, Status));
+#endif
+    Pressed = FALSE;
+  }
+
+  return Pressed;
 }
 
 EFI_STATUS
@@ -108,31 +114,28 @@ MsBootPolicyLibClearBootRequests ()
 {
   EFI_STATUS Status;
 
-  // Check if the Protocol Exists
-  if (!mMsButtonProtocol) {
-    // Locate Ms Button Services Protocol
-    Status = gBS->LocateProtocol (&gMsButtonServicesProtocolGuid, NULL, (VOID *)&mMsButtonProtocol);
-
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Ms Button Services Protocol! Status = %r\n", __FUNCTION__, Status));
-      return Status;
-    }
+  // Locate Ms Button Service Protocol
+  Status = LocateMsButtonServiceProtocol ();
+  if (EFI_ERROR (Status)) {
+    return Status;
   }
 
-  // Clear Volume Button States
+  // Clear Button States
   Status = mMsButtonProtocol->PreBootClearVolumeButtonState (mMsButtonProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Clear Volume Button States! Status = %r\n", __FUNCTION__, Status));
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Clear Button States! Status = %r\n", __FUNCTION__, Status));
+    return Status;
   }
 
-  return Status;
+  return EFI_SUCCESS;
 }
 
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsDevicePathBootable (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
+MsBootPolicyLibIsDevicePathBootable (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
-  if (!IsDevicePathValid (DevicePath, MAX_DEVICE_PATH_SIZE) || !DevicePath) {
+  // Check Device Path
+  if (!IsDevicePathValid (DevicePath, 0) || !DevicePath) {
     return FALSE;
   }
 
@@ -141,28 +144,41 @@ MsBootPolicyLibIsDevicePathBootable (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsDeviceBootable (EFI_HANDLE ControllerHandle)
+MsBootPolicyLibIsDeviceBootable (IN EFI_HANDLE ControllerHandle)
 {
+  // Check Device Path Boot State
   return MsBootPolicyLibIsDevicePathBootable (DevicePathFromHandle (ControllerHandle));
 }
 
 BOOLEAN
 EFIAPI
-MsBootPolicyLibIsDevicePathUsb (EFI_DEVICE_PATH_PROTOCOL *DevicePath)
+MsBootPolicyLibIsDevicePathUsb (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
-  return PlatformIsDevicePathUsb (DevicePath);
+  for (EFI_DEVICE_PATH_PROTOCOL *Node = DevicePath; !IsDevicePathEnd (Node); Node = NextDevicePathNode (Node)) {
+    // Compare Device Path Types
+    if ((DevicePathType (Node) == MESSAGING_DEVICE_PATH) && ((DevicePathSubType (Node) == MSG_USB_CLASS_DP) || (DevicePathSubType (Node) == MSG_USB_WWID_DP) || (DevicePathSubType( Node) == MSG_USB_DP))) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
 }
 
 EFI_STATUS
 EFIAPI
 MsBootPolicyLibGetBootSequence (
-  BOOT_SEQUENCE **BootSequence,
-  BOOLEAN         AltBootRequest)
+  OUT BOOT_SEQUENCE **BootSequence,
+  IN  BOOLEAN         AltBootRequest)
 {
+  // Set Defaul Boot Chain
+  BOOT_SEQUENCE DefaultBootSequence[] = { MsBootHDD, MsBootUSB, MsBootDone };
+
+  // Check Parameters
   if (BootSequence == NULL) {
     return EFI_INVALID_PARAMETER;
   }
 
+  // Pass Default Boot Chain
   *BootSequence = DefaultBootSequence;
 
   return EFI_SUCCESS;
@@ -174,12 +190,13 @@ MsBootPolicyLibConstructor (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  // Take over gBS->LoadImage.
+  // Check PCD Setting
   if (PcdGetBool (PcdBdsBootPolicy)) {
-    UINT32 Crc = 0;
+    EFI_TPL Tpl;
+    UINT32  Crc;
 
     // Raise TPL Level
-    EFI_TPL OldTpl = gBS->RaiseTPL (TPL_HIGH_LEVEL);
+    Tpl = gBS->RaiseTPL (TPL_HIGH_LEVEL);
 
     // Set New Function
     gSystemLoadImage = gBS->LoadImage;
@@ -193,7 +210,7 @@ MsBootPolicyLibConstructor (
     gBS->Hdr.CRC32 = Crc;
 
     // Restore TPL Level
-    gBS->RestoreTPL (OldTpl);
+    gBS->RestoreTPL (Tpl);
   }
 
   return EFI_SUCCESS;

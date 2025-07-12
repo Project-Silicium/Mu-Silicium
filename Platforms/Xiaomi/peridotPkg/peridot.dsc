@@ -52,10 +52,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"POCO_F6_peridot"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"POCO F6"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1220
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2712
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1220
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2712
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

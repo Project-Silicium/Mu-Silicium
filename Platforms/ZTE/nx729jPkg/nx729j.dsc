@@ -56,10 +56,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"RedMagic_8_Pro_nx729j"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"RedMagic 8 Pro"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1116
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2480
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1116
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2480
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

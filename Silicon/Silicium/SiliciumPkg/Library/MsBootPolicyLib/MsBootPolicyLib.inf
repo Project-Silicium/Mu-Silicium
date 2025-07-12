@@ -27,7 +27,6 @@
   DebugLib
   DevicePathLib
   UefiBootServicesTableLib
-  MsPlatformDevicesLib
 
 [Protocols]
   gMsButtonServicesProtocolGuid

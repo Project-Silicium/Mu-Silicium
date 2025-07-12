@@ -56,10 +56,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"11_Lite_5G_NE_lisa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"11 Lite 5G NE"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

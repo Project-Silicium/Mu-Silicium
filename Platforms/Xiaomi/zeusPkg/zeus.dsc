@@ -57,10 +57,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"12_Pro_zeus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"12 Pro"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1440
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|3200
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

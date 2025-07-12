@@ -50,10 +50,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Moto_G30_caprip"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Moto G30"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1600
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|720
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1600
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

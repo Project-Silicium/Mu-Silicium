@@ -1002,7 +1002,7 @@
 |:-------------------|:-----------------------------------------------------|:-----:|
 | Main Display       |                                                      | ✅    |
 | Cover Display      | No actual Driver to Handle it & Wrong Orientation    | ⚠️    |
-| Internal Storage   |                                                      | ✅    |
+| Internal Storage   | Doesn't Init Properly sometimes                      | ⚠️    |
 | Side Buttons       |                                                      | ✅    |
 | USB Host Mode      |                                                      | ❌    |
 | USB Device Mode    | Requires a Reconnect if it was Connected during Boot | ✅    |

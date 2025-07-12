@@ -50,10 +50,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_A10.1_gtaxllte"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab A10.1"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1200
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1200
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1920
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1200

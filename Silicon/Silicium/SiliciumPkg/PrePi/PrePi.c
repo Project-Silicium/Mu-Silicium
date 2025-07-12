@@ -22,7 +22,10 @@
 
 #include "PrePi.h"
 
-STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFd;
+//
+// Global Variables
+//
+STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFdRegion;
 
 EFI_STATUS
 PrePeiCoreGetMpCoreInfo (
@@ -57,6 +60,7 @@ GetPlatformPpi (
 
   // Get Correct Ppi
   for (UINTN Index = 0; Index < PpiListCount; Index++, PpiList++) {
+    // Compare GUIDs
     if (CompareGuid (PpiList->Guid, PpiGuid) == TRUE) {
       *Ppi = PpiList->Ppi;
       return EFI_SUCCESS;
@@ -71,41 +75,43 @@ PrePiMain (IN UINT64 StartTimeStamp)
 {
   EFI_STATUS                      Status;
   EFI_HOB_HANDOFF_INFO_TABLE     *HobList;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeap;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStack;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeapRegion;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStackRegion;
   FIRMWARE_SEC_PERFORMANCE        Performance;
 
-  // Get DXE Heap Memory Region Infos
-  Status  = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeap);
-  Status |= LocateMemoryMapAreaByName ("DXE_Heap", &DxeHeap);
-  if (EFI_ERROR (Status) && !DxeHeap.Address) {
-    DEBUG ((EFI_D_ERROR, "Failed to Get DXE Heap Memory Region!\n"));
+  // Locate "DXE Heap" Memory Region
+  Status  = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeapRegion);
+  Status |= LocateMemoryMapAreaByName ("DXE_Heap", &DxeHeapRegion);
+  if (EFI_ERROR (Status) && !DxeHeapRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'DXE Heap' Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);
   }
 
-  // Get UEFI Stack Memory Region Infos
-  Status  = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStack);
-  Status |= LocateMemoryMapAreaByName ("UEFI_Stack", &UefiStack);
-  if (EFI_ERROR (Status) && !UefiStack.Address) {
-    DEBUG ((EFI_D_ERROR, "Failed to Get UEFI Stack Memory Region!\n"));
+  // Locate "UEFI Stack" Memory Region
+  Status  = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStackRegion);
+  Status |= LocateMemoryMapAreaByName ("UEFI_Stack", &UefiStackRegion);
+  if (EFI_ERROR (Status) && !UefiStackRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI Stack' Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);
   }
 
   // Declare UEFI Regions
   UINTN MemoryBase     = FixedPcdGet32 (PcdSystemMemoryBase);
-  UINTN UefiMemoryBase = DxeHeap.Address;
-  UINTN UefiMemorySize = DxeHeap.Length;
-  UINTN StacksSize     = UefiStack.Length;
+  UINTN UefiMemoryBase = DxeHeapRegion.Address;
+  UINTN UefiMemorySize = DxeHeapRegion.Length;
+  UINTN StacksSize     = UefiStackRegion.Length;
   UINTN StacksBase     = UefiMemoryBase + UefiMemorySize - StacksSize;
 
-  // Check if we are in System Memory and beyond
-  ASSERT (IS_XIP () || ((UefiFd.Address >= MemoryBase) && ((UINT64)(UefiFd.Address + UefiFd.Length) <= (UINT64)mSystemMemoryEnd)));
+  // Check UEFI Memory Location
+  ASSERT (IS_XIP () || ((UefiFdRegion.Address >= MemoryBase) && ((UINT64)(UefiFdRegion.Address + UefiFdRegion.Length) <= (UINT64)mSystemMemoryEnd)));
 
   // Init Architecture Specific Bits
   ArchInitialize ();
 
   // Init Debug Agent
-  InitializeDebugAgent          (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
+  InitializeDebugAgent (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
+
+  // Set Debug Timer Interrupt
   SaveAndSetDebugTimerInterrupt (TRUE);
 
   // Declare PI/UEFI Memory Region
@@ -114,10 +120,10 @@ PrePiMain (IN UINT64 StartTimeStamp)
 
   DEBUG ((EFI_D_WARN, "MMU In\r"));
 
-  // Init MMU and Memory HOBs
+  // Init MMU and Build Memory HOBs
   Status = MemoryPeim (UefiMemoryBase, UefiMemorySize);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Enable MMU and Memory HOBs!\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Enable MMU and Build Memory HOBs!\n"));
     ASSERT_EFI_ERROR (Status);
   }
 
@@ -127,6 +133,7 @@ PrePiMain (IN UINT64 StartTimeStamp)
   // Build CPU HOB
   BuildCpuHob ((UINT8)ArmGetPhysicalAddressBits (), PcdGet8 (PcdPrePiCpuIoSize));
 
+  // Check 
   if (ArmIsMpCore ()) {
     ARM_MP_CORE_INFO_PPI *ArmMpCoreInfoPpi = NULL;
     ARM_CORE_INFO        *ArmCoreInfoTable = NULL;
@@ -139,9 +146,10 @@ PrePiMain (IN UINT64 StartTimeStamp)
       ASSERT_EFI_ERROR (Status);
     }
 
-    // Build MP Core Info Table
+    // Get MP Core Infos
     Status = ArmMpCoreInfoPpi->GetMpCoreInfo (&ArmCoreCount, &ArmCoreInfoTable);
     if (!EFI_ERROR (Status) && ArmCoreCount > 0) {
+      // Build MP Core Data HOB
       BuildGuidDataHob (&gArmMpCoreInfoGuid, ArmCoreInfoTable, sizeof (ARM_CORE_INFO) * ArmCoreCount);
     }
   }
@@ -177,7 +185,7 @@ PrePiMain (IN UINT64 StartTimeStamp)
   // Load DXE Core
   Status = LoadDxeCoreFromFv (NULL, 0);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Load DXE Core!\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Load DXE Core from FV!\n"));
     ASSERT_EFI_ERROR (Status);
   }
 }
@@ -186,28 +194,38 @@ VOID
 CEntryPoint ()
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX Display;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayRegion;
   UINT64                          StartTimeStamp;
 
   // Run SoC Specific Code
   PlatformInitialize ();
 
-  // Clear Screen
-  Status = LocateMemoryMapAreaByName ("Display Reserved", &Display);
+  //
+  // !!! Make this Debug only !!!
+  //
+
+  // Locate 'Display Reserved' Memory Region
+  Status = LocateMemoryMapAreaByName ("Display Reserved", &DisplayRegion);
   if (!EFI_ERROR (Status)) {
-    ZeroMem ((VOID *)Display.Address, Display.Length);
+    // Clear Display
+    ZeroMem ((VOID *)DisplayRegion.Address, DisplayRegion.Length);
   }
 
-  // Clear Screen
-  Status = LocateMemoryMapAreaByName ("Display_Reserved", &Display);
+  // Locate 'Display_Reserved' Memory Region
+  Status = LocateMemoryMapAreaByName ("Display_Reserved", &DisplayRegion);
   if (!EFI_ERROR (Status)) {
-    ZeroMem ((VOID *)Display.Address, Display.Length);
+    // Clear Display
+    ZeroMem ((VOID *)DisplayRegion.Address, DisplayRegion.Length);
   }
+
+  //
+  // !!! Make this Debug only !!!
+  //
 
   // Init Serial Port
   SerialPortInitialize ();
 
-  // Print UEFI Message
+  // Print UEFI Version Message
   DEBUG ((EFI_D_WARN, "\n"));
   DEBUG ((EFI_D_WARN, "Project Silicium for %a\n",               FixedPcdGetPtr (PcdSmbiosSystemModel)));
   DEBUG ((EFI_D_WARN, "Firmware Version %s Build at %a on %a\n", PcdGetPtr (PcdFirmwareVersionString), __TIME__, __DATE__));
@@ -220,10 +238,11 @@ CEntryPoint ()
     // Get Start Time Stamp
     StartTimeStamp = GetPerformanceCounter ();
   } else {
+    // Set Dummy Start Time Stamp Value
     StartTimeStamp = 0;
   }
 
-  // Define Global Variable Region
+  // Check UEFI Memory Location
   if (!IS_XIP ()) {
     if (ArmIsMpCore ()) {
       // Signal Variable Region is Defined
@@ -231,16 +250,16 @@ CEntryPoint ()
     }
   }
 
-  // Get UEFI FD Memory Region Infos
-  Status  = LocateMemoryMapAreaByName ("UEFI FD", &UefiFd);
-  Status |= LocateMemoryMapAreaByName ("UEFI_FD", &UefiFd);
-  if (EFI_ERROR (Status) && !UefiFd.Address) {
-    DEBUG ((EFI_D_ERROR, "Failed to Get UEFI FD Memory Region!\n"));
+  // Locate 'UEFI FD' Memory Region
+  Status  = LocateMemoryMapAreaByName ("UEFI FD", &UefiFdRegion);
+  Status |= LocateMemoryMapAreaByName ("UEFI_FD", &UefiFdRegion);
+  if (EFI_ERROR (Status) && !UefiFdRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI FD' Memory Region!\n"));
     ASSERT_EFI_ERROR (Status);
   }
 
   // Invalidate Data Cache
-  InvalidateDataCacheRange ((VOID *)UefiFd.Address, UefiFd.Length);
+  InvalidateDataCacheRange ((VOID *)UefiFdRegion.Address, UefiFdRegion.Length);
 
   // Go to Main Function
   PrePiMain (StartTimeStamp);

@@ -57,10 +57,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Pad_pipa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Pad 6"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1800
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2880
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1800
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2880
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

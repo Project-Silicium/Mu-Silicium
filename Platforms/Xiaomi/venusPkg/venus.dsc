@@ -57,10 +57,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_venus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11"
 
-  # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|3200
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|32
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1440
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|3200
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
