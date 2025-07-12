@@ -1,0 +1,19 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AcpiDeviceUpdateLib
+  FILE_GUID                      = DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = AcpiDeviceUpdateLib
+
+[Sources]
+  AcpiDeviceUpdateLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  BaseLib
+  UefiLib
+
