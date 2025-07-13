@@ -3929,37 +3929,40 @@
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
 
-| Feature              | Description                       | State |
-|:---------------------|:----------------------------------|:-----:|
-| Internal Storage     |                                   | ❌    |
-| SD Card              |                                   | ❌    |
-| Side Buttons         |                                   | ❌    |
-| Proximity Sensor     |                                   | ❌    |
-| Light Sensor         |                                   | ❌    |
-| Accelerometer Sensor |                                   | ❌    |
-| Compass Sensor       |                                   | ❌    |
-| Gyroscope Sensor     |                                   | ❌    |
-| Fingerprint Sensor   |                                   | ❌    |
-| Hall Sensor          |                                   | ❌    |
-| Temperature Sensor   |                                   | ❌    |
-| Battery              |                                   | ❌    |
-| USB Host Mode        |                                   | ❌    |
-| USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
-| USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
-| Charging             |                                   | ❌    |
-| WLAN                 |                                   | ❌    |
-| CPU                  |                                   | ✅    |
-| Touchscreen          |                                   | ❌    |
-| Bluetooth            |                                   | ❌    |
-| GPS                  |                                   | ❌    |
-| Speakers             |                                   | ❌    |
-| 3.5mm Audio Jack     |                                   | ❌    |
-| Microphone           |                                   | ❌    |
-| GPU                  |                                   | ❌    |
-| Camera               |                                   | ❌    |
-| Mobile Data          |                                   | ❌    |
-| Display              |                                   | ✅    |
-| Vibration            |                                   | ❌    |
+> [!IMPORTANT]
+> Needs [Windows Drivers](https://github.com/AistopGit/windows_oem_xiaomi_nitrogen).
+
+| Feature              | Description                                | State |
+|:---------------------|:-------------------------------------------|:-----:|
+| Internal Storage     |                                            | ✅    |
+| SD Card              |                                            | ❌    |
+| Side Buttons         |                                            | ❌    |
+| Proximity Sensor     |                                            | ❌    |
+| Light Sensor         |                                            | ❌    |
+| Accelerometer Sensor |                                            | ❌    |
+| Compass Sensor       |                                            | ❌    |
+| Gyroscope Sensor     |                                            | ❌    |
+| Fingerprint Sensor   |                                            | ❌    |
+| Hall Sensor          |                                            | ❌    |
+| Temperature Sensor   |                                            | ❌    |
+| Battery              |                                            | ❌    |
+| USB Host Mode        | Depends What Mode it was in UEFI, unstable | ⚠️    |
+| USB Device Mode      | Depends What Mode it was in UEFI.          | ✅    |
+| USB Power Delivery   | Depends What Mode it was in UEFI.          | ✅    |
+| Charging             |                                            | ❌    |
+| WLAN                 |                                            | ❌    |
+| CPU                  |                                            | ✅    |
+| Touchscreen          | Only Goodix GT9xx is supported             | ✅    |
+| Bluetooth            |                                            | ❌    |
+| GPS                  |                                            | ❌    |
+| Speakers             |                                            | ❌    |
+| 3.5mm Audio Jack     |                                            | ❌    |
+| Microphone           |                                            | ❌    |
+| GPU                  |                                            | ❌    |
+| Camera               |                                            | ❌    |
+| Mobile Data          |                                            | ❌    |
+| Display              |                                            | ✅    |
+| Vibration            |                                            | ❌    |
 
 </td><td>
 
