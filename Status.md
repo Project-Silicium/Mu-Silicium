@@ -3177,6 +3177,49 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 695 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Redmi Note 11 Pro 5G
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-11-Pro-5G.png" width="550" alt="Preview">
+
+**State: Active** <br>
+**Codename: veux** <br>
+**Maintainers: [index986](https://github.com/index986)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [index986](https://github.com/index986/)** <br>
+**Testers: [index986](https://github.com/index986)**
+
+### UEFI Status
+
+| Feature            | Description     | State |
+|:-------------------|:---------------------|:-----:|
+| Display            |                      | ✅    |
+| Internal Storage   |                      | ✅    |
+| Side Buttons       |                      | ✅    |
+| USB Host Mode      |                      | ❌    |
+| USB Device Mode    |                      | ✅    |
+| USB Power Delivery |                      | ❌    |
+| Mass Storage       | No unplug protection | ⚠️    |
+| SD Card            |                      | ❌    |
+| Windows Boot       |                      | ❔    |
+| Linux Boot         |                      | ❔    |
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
+---
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 680/685 Devices</strong></b></summary>
 
 <br>

@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = veux
+  PACKAGE_GUID                        = 3FAE1F62-E8F6-45A8-BFF8-B9F7FD3121D4
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gveuxTokenSpaceGuid                 = { 0x621FAE3F, 0xF6E8, 0xA845, { 0xBF, 0xF8, 0xB9, 0xF7, 0xFD, 0x31, 0x21, 0xD4 } }
