@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = a52q
+  PACKAGE_GUID                        = 30BBFD12-6FF0-4D5E-A7F6-3969D870ADE6
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gmiatollTokenSpaceGuid              = { 0x12fDBB30, 0xF06F, 0x5E4D, { 0xA7, 0xF6, 0x39, 0x69, 0xD8, 0x70, 0xAD, 0xE6 } }
