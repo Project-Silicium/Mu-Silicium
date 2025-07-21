@@ -3171,6 +3171,113 @@
   </summary>
 </details>
 
+<details>
+<summary><b><strong>Samsung Devices</strong></b></summary>
+
+## Samsung Galaxy A52
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-A52.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: a52q** <br>
+**Maintainer: [arminask](https://github.com/arminask/)** <br>
+**Contributors: [N1kroks](https://github.com/N1kroks/)** <br>
+**Tester: [arminask](https://github.com/arminask/)**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ✅    |
+| USB Device Mode    |                   | ❌    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       | Needs Device Mode | ❌    |
+| SD Card            |                   | ✅    |
+| Windows Boot       |                   | ✅    |
+| Linux Boot         |                   | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Needs [Windows Drivers](https://github.com).
+> (Not published yet, work in progress)
+
+| Feature              | Description           | State |
+|:---------------------|:----------------------|:-----:|
+| Internal Storage     |                       | ✅    |
+| SD Card              |                       | ✅    |
+| Side Buttons         |                       | ✅    |
+| Proximity Sensor     |                       | ❌    |
+| Light Sensor         |                       | ❌    |
+| Accelerometer Sensor |                       | ❌    |
+| Compass Sensor       |                       | ❌    |
+| Gyroscope Sensor     |                       | ❌    |
+| Fingerprint Sensor   |                       | ❌    |
+| NFC Sensor           |                       | ❌    |
+| Battery              |                       | ✅    |
+| USB Host Mode        |                       | ✅    |
+| USB Device Mode      |                       | ❌    |
+| USB Power Delivery   |                       | ❌    |
+| Charging             |                       | ✅    |
+| WLAN                 |                       | ✅    |
+| CPU                  |                       | ✅    |
+| Touchscreen          |                       | ✅    |
+| Bluetooth            |                       | ❌    |
+| GPS                  |                       | ❌    |
+| Speakers             |                       | ❌    |
+| 3.5mm Audio Jack     |                       | ❌    |
+| Microphone           |                       | ❌    |
+| GPU                  |                       | ❌    |
+| Camera               |                       | ❌    |
+| Mobile Data          |                       | ❌    |
+| Display              |                       | ✅    |
+| Vibration            |                       | ✅    |
+
+</td><td>
+
+| Feature              | Description | State |
+|:---------------------|:------------|:-----:|
+| Internal Storage     |             | ❌    |
+| SD Card              |             | ❌    |
+| Side Buttons         |             | ❌    |
+| Proximity Sensor     |             | ❌    |
+| Light Sensor         |             | ❌    |
+| Accelerometer Sensor |             | ❌    |
+| Compass Sensor       |             | ❌    |
+| Gyroscope Sensor     |             | ❌    |
+| Fingerprint Sensor   |             | ❌    |
+| NFC Sensor           |             | ❌    |
+| Battery              |             | ❌    |
+| USB Host Mode        |             | ❌    |
+| USB Device Mode      |             | ❌    |
+| USB Power Delivery   |             | ❌    |
+| Charging             |             | ❌    |
+| WLAN                 |             | ❌    |
+| CPU                  |             | ❌    |
+| Touchscreen          |             | ❌    |
+| Bluetooth            |             | ❌    |
+| GPS                  |             | ❌    |
+| Speakers             |             | ❌    |
+| 3.5mm Audio Jack     |             | ❌    |
+| Microphone           |             | ❌    |
+| GPU                  |             | ❌    |
+| Camera               |             | ❌    |
+| Mobile Data          |             | ❌    |
+| Display              |             | ❌    |
+| Vibration            |             | ❌    |
+
+</td></tr> </table>
+
+  </summary>
+</details>
+
 ---
 
   </summary>
