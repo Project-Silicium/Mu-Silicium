@@ -3,209 +3,51 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
+#include <Library/UefiBootServicesTableLib.h>
 #include <Library/DebugLib.h>
 #include <Library/BaseMemoryLib.h>
-#include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/AslUpdateLib.h>
 
 //
 // Function implementations
 //
-STATIC EFI_ACPI_SDT_PROTOCOL   *mAcpiSdtProtocol;
-STATIC EFI_ACPI_TABLE_PROTOCOL *mAcpiTableProtocol;
+STATIC EFI_ACPI_SDT_PROTOCOL   *mAcpiSdt   = NULL;
+STATIC EFI_ACPI_TABLE_PROTOCOL *mAcpiTable = NULL;
 
 EFI_STATUS
-LocateAcpiProtocols ()
+InitializeAslUpdateLib ()
 {
   EFI_STATUS Status;
 
   // Locate ACPI SDT Protocol
-  if (mAcpiSdtProtocol == NULL) {
-    Status = gBS->LocateProtocol (&gEfiAcpiSdtProtocolGuid, NULL, (VOID *)&mAcpiSdtProtocol);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate ACPI ADT Protocol! Status = %r\n", __FUNCTION__, Status));
-      return Status;
-    }
+  Status = gBS->LocateProtocol (&gEfiAcpiSdtProtocolGuid, NULL, (VOID **)&mAcpiSdt);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate ACPI ADT Protocol!\n"));
+    goto exit;
   }
 
   // Locate ACPI Tables Protocol
-  if (mAcpiTableProtocol == NULL) {
-    Status = gBS->LocateProtocol (&gEfiAcpiTableProtocolGuid, NULL, (VOID *)&mAcpiTableProtocol);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate ACPI Table Protocol! Status = %r\n", __FUNCTION__, Status));
-      return Status;
-    }
-  }
-
-  return EFI_SUCCESS;
-}
-
-EFI_STATUS
-EFIAPI
-LocateAcpiTableBySignature (
-  IN     UINT32                        Signature,
-  IN OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
-  IN OUT UINTN                        *Handle)
-{
-  EFI_STATUS                   Status;
-  EFI_ACPI_DESCRIPTION_HEADER *AcpiTable;
-
-  for (INT8 i = 0; i < 255; i++) {
-    EFI_ACPI_TABLE_VERSION Version;
-
-    // Get ACPI Table
-    Status = mAcpiSdtProtocol->GetAcpiTable (i, (EFI_ACPI_SDT_HEADER **)&AcpiTable, &Version, Handle);
-    if (Status == EFI_NOT_FOUND) {
-      return Status;
-    } else if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to get ACPI Table by Index %d! Status = %r\n", __FUNCTION__, i, Status));
-      return Status;
-    }
-
-    // Compare Signature
-    if (AcpiTable->Signature == Signature) {
-      // Pass ACPI Table
-      *Table = AllocateCopyPool (AcpiTable->Length, AcpiTable);
-      if (*Table == NULL) {
-        DEBUG ((EFI_D_ERROR, "%a: Failed to Pass ACPI Table %d Data!\n", __FUNCTION__, i));
-        return EFI_OUT_OF_RESOURCES;
-      }
-    }
-  }
-
-  return EFI_SUCCESS;
-}
-
-EFI_STATUS
-EFIAPI
-UpdateNameAslCode (
-  IN UINT32  AslSignature,
-  IN VOID   *Buffer,
-  IN UINTN   Length)
-{
-  EFI_STATUS                   Status;
-  EFI_ACPI_DESCRIPTION_HEADER *Table;
-  UINT32                      *Signature;
-  UINT8                       *CurrPtr;
-  UINT8                       *EndPtr;
-  UINTN                        Handle;
-
-  // Locate ACPI Protocols
-  Status = LocateAcpiProtocols ();
+  Status = gBS->LocateProtocol (&gEfiAcpiTableProtocolGuid, NULL, (VOID **)&mAcpiTable);
   if (EFI_ERROR (Status)) {
-    return Status;
+    DEBUG ((EFI_D_ERROR, "Failed to Locate ACPI Table Protocol!\n"));
+    goto exit;
   }
 
-  // Locate ACPI Table with Signature
-  Status = LocateAcpiTableBySignature (EFI_ACPI_3_0_DIFFERENTIATED_SYSTEM_DESCRIPTION_TABLE_SIGNATURE, (EFI_ACPI_DESCRIPTION_HEADER **)&Table, &Handle);
-  if (EFI_ERROR (Status)) {
-    return Status;
-  }
-
-  // Set Current Pointer
-  CurrPtr = (UINT8 *)Table;
-  if (CurrPtr == NULL) {
-    // Free Buffer
-    FreePool (Table);
-
-    return EFI_NOT_FOUND;
-  }
-
-  // Set End Pointer
-  EndPtr = CurrPtr + ((EFI_ACPI_COMMON_HEADER *)CurrPtr)->Length;
-
-  for (UINT8 *DsdtPointer = CurrPtr; DsdtPointer < EndPtr; DsdtPointer++) {
-    // Get ACPI Table Signature
-    Signature = (UINT32 *)DsdtPointer;
-
-    // Compare Signature
-    if ((*Signature) == AslSignature) {
-      // Compare Name Encoding
-      if (*(DsdtPointer-1) == AML_NAME_OP) {
-        CopyMem (DsdtPointer + 5, Buffer, Length);
-
-        // Remove ACPI Table
-        Status = mAcpiTableProtocol->UninstallAcpiTable (mAcpiTableProtocol, Handle);
-        if (EFI_ERROR (Status)) {
-          DEBUG ((EFI_D_ERROR, "%a: Failed to Remove ACPI Table! Status = %r\n", __FUNCTION__, Status));
-
-          // Free Buffer
-          FreePool (Table);
-
-          return Status;
-        }
-
-        // Reset Handle
-        Handle = 0;
-
-        // Install ACPI Table
-        Status = mAcpiTableProtocol->InstallAcpiTable (mAcpiTableProtocol, Table, Table->Length, &Handle);
-        if (EFI_ERROR (Status)) {
-          DEBUG ((EFI_D_ERROR, "%a: Failed to Install ACPI Table!\n", __FUNCTION__));
-          ASSERT_EFI_ERROR (Status);
-        }
-
-        // Free Buffer
-        FreePool (Table);
-
-        return EFI_SUCCESS;
-      }
-    }
-  }
-
-  // Free Buffer
-  FreePool (Table);
-
-  return EFI_NOT_FOUND;
-}
-
-EFI_STATUS
-LocateAcpiTableByOemTableId (
-  IN     UINT8                        *TableId,
-  IN     UINT8                         TableIdSize,
-  IN OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
-  IN OUT UINTN                        *Handle)
-{
-  EFI_STATUS                   Status;
-  EFI_ACPI_DESCRIPTION_HEADER *AcpiTable;
-
-  for (INT8 i = 0; i < 255; i++) {
-    EFI_ACPI_TABLE_VERSION Version;
-
-    // Get ACPI Table
-    Status = mAcpiSdtProtocol->GetAcpiTable (i, (EFI_ACPI_SDT_HEADER **)&AcpiTable, &Version, Handle);
-    if (Status == EFI_NOT_FOUND) {
-      return Status;
-    } else if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to get ACPI Table by Index %d! Status = %r\n", __FUNCTION__, i, Status));
-      return Status;
-    }
-
-    // Compare OEM ID
-    if (CompareMem (&(AcpiTable->OemTableId), TableId, TableIdSize)) {
-      // Pass ACPI Table
-      *Table = AcpiTable;
-      if (*Table == NULL) {
-        DEBUG ((EFI_D_ERROR, "%a: Failed to Pass ACPI Table %d Data!\n", __FUNCTION__, i));
-        return EFI_NOT_READY;
-      }
-    }
-  }
-
-  return EFI_SUCCESS;
+exit:
+  return Status;
 }
 
 VOID
 AcpiPlatformChecksum (
-  IN VOID  *Buffer,
-  IN UINTN  Size,
-  IN UINTN  ChecksumOffset)
+  IN VOID *Buffer,
+  IN UINTN Size,
+  IN UINTN ChecksumOffset)
 {
-  UINT8 *Ptr  = Buffer;
   UINT8  Sum  = 0;
+  UINT8 *Ptr  = Buffer;
 
-  // Set Dummy Checksum
+  // Set Checksum to 0 first
   Ptr[ChecksumOffset] = 0;
 
   // Add all Content of Buffer
@@ -215,140 +57,316 @@ AcpiPlatformChecksum (
 
   // Set Checksum
   Ptr                 = Buffer;
-  Ptr[ChecksumOffset] = (UINT8)(0xFF - Sum + 1);
+  Ptr[ChecksumOffset] = (UINT8)(0xff - Sum + 1);
+}
+
+EFI_STATUS
+LocateAcpiTableByOemTableId (
+  IN     UINT8                        *TableId,
+  IN     UINT8                         TableIdSize,
+  IN OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
+  IN OUT UINTN                        *Handle)
+{
+  EFI_STATUS                   Status   = EFI_SUCCESS;
+  INTN                         Index    = 0;
+  EFI_ACPI_TABLE_VERSION       Version  = 0;
+  EFI_ACPI_DESCRIPTION_HEADER *OrgTable = NULL;
+
+  if (mAcpiSdt == NULL) {
+    // Init ACPI Protocols
+    Status = InitializeAslUpdateLib ();
+
+    if (EFI_ERROR (Status)) {
+      goto exit;
+    }
+  }
+
+  do {
+    // Locate ACPI Table with matching ID
+    Status = mAcpiSdt->GetAcpiTable (Index, (EFI_ACPI_SDT_HEADER **)&OrgTable, &Version, Handle);
+    if (Status == EFI_NOT_FOUND) {
+      break;
+    } else if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate ACPI Table! Status = %r\n", Status));
+      goto exit;
+    }
+
+    Index++;
+  } while (CompareMem (&(OrgTable->OemTableId), TableId, TableIdSize));
+
+  if (Status != EFI_NOT_FOUND) {
+    *Table = OrgTable;
+    ASSERT (*Table);
+  }
+
+exit:
+  return Status;
+}
+
+EFI_STATUS
+EFIAPI
+UpdateNameAslCode (
+  IN UINT32 AslSignature,
+  IN VOID  *Buffer,
+  IN UINTN  Length)
+{
+  EFI_STATUS                   Status      = EFI_SUCCESS;
+  EFI_ACPI_DESCRIPTION_HEADER *Table       = NULL;
+  UINT8                       *CurrPtr     = 0;
+  UINT8                       *EndPtr      = 0;
+  UINT32                      *Signature   = 0;
+  UINT8                       *DsdtPointer = 0;
+  UINTN                        Handle      = 0;
+
+  if (mAcpiTable == NULL) {
+    // Init ACPI Protocols
+    Status = InitializeAslUpdateLib ();
+
+    if (EFI_ERROR (Status)) {
+      goto exit;
+    }
+  }
+
+  // Locate ACPI Table with matching Signature
+  Status = LocateAcpiTableBySignature (EFI_ACPI_3_0_DIFFERENTIATED_SYSTEM_DESCRIPTION_TABLE_SIGNATURE, (EFI_ACPI_DESCRIPTION_HEADER **)&Table, &Handle);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate ACPI Table with its Signature! Status = %r\n", Status));
+    goto exit;
+  }
+
+  // Point to the Beginning of the DSDT Table
+  CurrPtr = (UINT8 *)Table;
+  if (CurrPtr == NULL) {
+    Status = EFI_NOT_FOUND;
+    goto cleanup;
+  }
+
+  // EndPtr = beginning of table + length of table
+  EndPtr = CurrPtr + ((EFI_ACPI_COMMON_HEADER *)CurrPtr)->Length;
+
+  // Loop through the ASL Looking for Values that we must Fix Up
+  for (DsdtPointer = CurrPtr; DsdtPointer < EndPtr; DsdtPointer++) {
+    // Get a Pointer to Compare for Signature
+    Signature = (UINT32 *)DsdtPointer;
+
+    // Check if this is the Device Object Signature we are Looking for
+    if ((*Signature) == AslSignature) {
+      // Look for Name Encoding
+      if (*(DsdtPointer-1) == AML_NAME_OP) {
+        CopyMem (DsdtPointer+5, Buffer, Length);
+
+        // Remove ACPI Table
+        Status = mAcpiTable->UninstallAcpiTable (mAcpiTable, Handle);
+        if (EFI_ERROR (Status)) {
+          DEBUG ((EFI_D_ERROR, "Failed to Remove ACPI Table! Status = %r\n", Status));
+          goto cleanup;
+        }
+
+        Handle = 0;
+
+        // Install ACPI Table
+        Status = mAcpiTable->InstallAcpiTable (mAcpiTable, Table, Table->Length, &Handle);
+        if (EFI_ERROR (Status)) {
+          DEBUG ((EFI_D_ERROR, "Failed to Install ACPI Table!\n"));
+          ASSERT_EFI_ERROR (Status);
+        }
+
+        goto cleanup;
+      }
+    }
+  }
+
+  Status = EFI_NOT_FOUND;
+
+cleanup:
+  FreePool (Table);
+
+exit:
+  return Status;
 }
 
 EFI_STATUS
 EFIAPI
 UpdateSsdtNameAslCode (
-  IN UINT8  *TableId,
-  IN UINT8   TableIdSize,
-  IN UINT32  AslSignature,
-  IN VOID   *Buffer,
-  IN UINTN   Length)
+  IN UINT8 *TableId,
+  IN UINT8  TableIdSize,
+  IN UINT32 AslSignature,
+  IN VOID  *Buffer,
+  IN UINTN  Length)
 {
-  EFI_STATUS                   Status;
-  EFI_ACPI_DESCRIPTION_HEADER *Table;
-  UINT32                      *Signature;
-  UINT8                       *CurrPtr;
-  UINTN                        Handle;
+  EFI_STATUS                   Status      = EFI_SUCCESS;
+  EFI_ACPI_DESCRIPTION_HEADER *Table       = NULL;
+  UINT8                       *CurrPtr     = 0;
+  UINT32                      *Signature   = 0;
+  UINT8                       *SsdtPointer = 0;
+  UINTN                        Handle      = 0;
 
-  // Locate ACPI Protocols
-  Status = LocateAcpiProtocols ();
-  if (EFI_ERROR (Status)) {
-    return Status;
+  if (mAcpiTable == NULL) {
+    // Init ACPI Protocols
+    Status = InitializeAslUpdateLib ();
+
+    if (EFI_ERROR (Status)) {
+      goto exit;
+    }
   }
 
-  // Locate ACPI Table with OEM ID
+  // Locate ACPI Table with matching OEM Table ID
   Status = LocateAcpiTableByOemTableId (TableId, TableIdSize, (EFI_ACPI_DESCRIPTION_HEADER **)&Table, &Handle);
   if (EFI_ERROR (Status)) {
-    return Status;
+    DEBUG ((EFI_D_ERROR, "Failed to Locate ACPI Table with its OEM Table ID! Status = %r\n", Status));
+    goto exit;
   }
 
-  // Set Current Pointer
+  // Point to the Beginning of the DSDT Table
   CurrPtr = (UINT8 *)Table;
   if (CurrPtr == NULL) {
-    return EFI_NOT_FOUND;
+    Status = EFI_NOT_FOUND;
+    goto exit;
   }
 
-  for (UINT8 *SsdtPointer = CurrPtr; SsdtPointer <= (CurrPtr + ((EFI_ACPI_COMMON_HEADER *)CurrPtr)->Length); SsdtPointer++) {
-    // Get ACPI Table Signature
+  // Loop through the ASL Looking for Values that we must Fix Up
+  for (SsdtPointer = CurrPtr; SsdtPointer <= (CurrPtr + ((EFI_ACPI_COMMON_HEADER *)CurrPtr)->Length); SsdtPointer++) {
+    // Get a Pointer to Compare for Signature
     Signature = (UINT32 *)SsdtPointer;
 
-    // Comapre Signature
+    // Check if this is the Device Object Signature we are Looking for
     if ((*Signature) == AslSignature) {
-      // Compare Name Encoding
-      if (*(SsdtPointer - 1) == AML_NAME_OP) {
-        // Copy ACPI Table
-        CopyMem (SsdtPointer + 5, Buffer, Length);
+      // Look for Name Encoding
+      if (*(SsdtPointer-1) == AML_NAME_OP) {
+        CopyMem (SsdtPointer+5, Buffer, Length);
 
-        // Checksum ACPI Table
         AcpiPlatformChecksum (Table, Table->Length, OFFSET_OF (EFI_ACPI_DESCRIPTION_HEADER, Checksum));
 
-        return EFI_SUCCESS;
+        goto exit;
       }
     }
   }
 
-  return EFI_NOT_FOUND;
+  Status = EFI_NOT_FOUND;
+
+exit:
+  return Status;
 }
 
 EFI_STATUS
 EFIAPI
 UpdateMethodAslCode (
-  IN UINT32  AslSignature,
-  IN VOID   *Buffer,
-  IN UINTN   Length)
+  IN UINT32 AslSignature,
+  IN VOID  *Buffer,
+  IN UINTN  Length)
 {
-  EFI_STATUS                   Status;
-  EFI_ACPI_DESCRIPTION_HEADER *Table;
-  UINT32                      *Signature;
-  UINT8                       *CurrPtr;
-  UINTN                        Handle;
+  EFI_STATUS                   Status      = EFI_SUCCESS;
+  EFI_ACPI_DESCRIPTION_HEADER *Table       = NULL;
+  UINT8                       *CurrPtr     = 0;
+  UINT32                      *Signature   = 0;
+  UINT8                       *DsdtPointer = 0;
+  UINTN                        Handle      = 0;
 
-  // Locate ACPI Protocols
-  Status = LocateAcpiProtocols ();
-  if (EFI_ERROR (Status)) {
-    return Status;
+  if (mAcpiTable == NULL) {
+    // Init ACPI Protocols
+    Status = InitializeAslUpdateLib ();
+
+    if (EFI_ERROR (Status)) {
+      goto exit;
+    }
   }
 
-  // Locate ACPI Table with Signature
+  // Locate ACPI Table with matching Signature
   Status = LocateAcpiTableBySignature (EFI_ACPI_3_0_DIFFERENTIATED_SYSTEM_DESCRIPTION_TABLE_SIGNATURE, (EFI_ACPI_DESCRIPTION_HEADER **)&Table, &Handle);
   if (EFI_ERROR (Status)) {
-    return Status;
+    DEBUG ((EFI_D_ERROR, "Failed to Locate ACPI Table with its Signature! Status = %r\n", Status));
+    goto exit;
   }
 
-  // Set Current Pointer
+  // Point to the Beginning of the DSDT Table
   CurrPtr = (UINT8 *)Table;
   if (CurrPtr == NULL) {
-    // Free Buffer
-    FreePool (Table);
-
-    return EFI_NOT_FOUND;
+    Status = EFI_NOT_FOUND;
+    goto cleanup;
   }
 
-  for (UINT8 *DsdtPointer = CurrPtr; DsdtPointer <= (CurrPtr + ((EFI_ACPI_COMMON_HEADER *)CurrPtr)->Length); DsdtPointer++) {
-    // Get ACPI Table Signature
+  // Loop through the ASL Looking for Values that we must Fix Up.
+  for (DsdtPointer = CurrPtr; DsdtPointer <= (CurrPtr + ((EFI_ACPI_COMMON_HEADER *)CurrPtr)->Length); DsdtPointer++) {
+    // Get a Pointer to Compare for Signature
     Signature = (UINT32 *)DsdtPointer;
 
-    // Compare Signature
+    // Check if this is the Device Object Signature we are Looking for
     if ((*Signature) == AslSignature) {
-      // Compare Name Encoding
-      if ((*(DsdtPointer - 3) == AML_METHOD_OP) || (*(DsdtPointer - 2) == AML_METHOD_OP)) {
-        // Copy ACPI Table
+      // Look for Name Encoding
+      if ((*(DsdtPointer-3) == AML_METHOD_OP) || (*(DsdtPointer-2) == AML_METHOD_OP)) {
         CopyMem (DsdtPointer, Buffer, Length);
 
         // Remove ACPI Table
-        Status = mAcpiTableProtocol->UninstallAcpiTable (mAcpiTableProtocol, Handle);
+        Status = mAcpiTable->UninstallAcpiTable (mAcpiTable, Handle);
         if (EFI_ERROR (Status)) {
-          DEBUG ((EFI_D_ERROR, "%a: Failed to Remove ACPI Table! Status = %r\n", __FUNCTION__, Status));
-
-          // Free Buffer
-          FreePool (Table);
-
-          return Status;
+          DEBUG ((EFI_D_ERROR, "Failed to Remove ACPI Table! Status = %r\n", Status));
+          goto cleanup;
         }
 
-        // Reset Handle
         Handle = 0;
 
         // Install ACPI Table
-        Status = mAcpiTableProtocol->InstallAcpiTable (mAcpiTableProtocol, Table, Table->Length, &Handle);
+        Status = mAcpiTable->InstallAcpiTable (mAcpiTable, Table, Table->Length, &Handle);
         if (EFI_ERROR (Status)) {
-          DEBUG ((EFI_D_ERROR, "%a: Failed to Install ACPI Table!\n", __FUNCTION__));
+          DEBUG ((EFI_D_ERROR, "Failed to Install ACPI Table!\n"));
           ASSERT_EFI_ERROR (Status);
         }
 
-        // Free Buffer
-        FreePool (Table);
-
-        return EFI_SUCCESS;
+        goto cleanup;
       }
     }
   }
 
-  // Free Buffer
+  Status = EFI_NOT_FOUND;
+
+cleanup:
   FreePool (Table);
 
-  return EFI_NOT_FOUND;
+exit:
+  return Status;
 }
+
+EFI_STATUS
+EFIAPI
+LocateAcpiTableBySignature (
+  IN     UINT32                        Signature,
+  IN OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
+  IN OUT UINTN                        *Handle)
+{
+  EFI_STATUS                   Status   = EFI_SUCCESS;
+  INTN                         Index    = 0;
+  EFI_ACPI_TABLE_VERSION       Version  = 0;
+  EFI_ACPI_DESCRIPTION_HEADER *OrgTable = NULL;
+
+  if (mAcpiTable == NULL) {
+    // Init ACPI Protocols
+    Status = InitializeAslUpdateLib ();
+
+    if (EFI_ERROR (Status)) {
+      goto exit;
+    }
+  }
+
+  // Locate Table with Matching ID
+  do {
+    Status = mAcpiSdt->GetAcpiTable (Index, (EFI_ACPI_SDT_HEADER **)&OrgTable, &Version, Handle);
+    if (Status == EFI_NOT_FOUND) {
+      break;
+    } else if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Get ACPI Table! Status = %r\n", Status));
+      goto exit;
+    }
+
+
+    Index++;
+  } while (OrgTable->Signature != Signature);
+
+  if (Status != EFI_NOT_FOUND) {
+    *Table = AllocateCopyPool (OrgTable->Length, OrgTable);
+    ASSERT (*Table);
+  }
+
+exit:
+  return Status;
+}
+
