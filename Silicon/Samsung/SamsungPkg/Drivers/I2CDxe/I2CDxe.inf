@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = I2CDxe
+  FILE_GUID                      = 23247E37-8467-4B03-82FC-7BA26C8503E0
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitI2CDriver
+
+[Sources]
+  I2CDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  I2CHostTableLib
+  TimerLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+
+[Protocols]
+  gEfiGpioProtocolGuid
+  gEfiI2CProtocolGuid
+
+[Depex]
+  TRUE
