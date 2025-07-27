@@ -203,6 +203,7 @@
   FltUsedLib|MdePkg/Library/FltUsedLib/FltUsedLib.inf
   PcdDatabaseLoaderLib|MdeModulePkg/Library/PcdDatabaseLoaderLib/Dxe/PcdDatabaseLoaderLibDxe.inf
   ExtractGuidedSectionLib|EmbeddedPkg/Library/PrePiExtractGuidedSectionLib/PrePiExtractGuidedSectionLib.inf
+  DmaLib|EmbeddedPkg/Library/CoherentDmaLib/CoherentDmaLib.inf
 
   #
   # Boot Manager Libraries

@@ -1,0 +1,3 @@
+REPO:   https://github.com/idaviden/kaikidan
+BRANCH: linaro-release
+FOLDER: SamsungPlatformPkg/ExynosPkg/Exynos5250/Drivers/eMMCDxe
