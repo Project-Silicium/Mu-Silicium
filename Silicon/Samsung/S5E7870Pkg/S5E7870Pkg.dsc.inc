@@ -73,5 +73,6 @@
 
 [Components]
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc
