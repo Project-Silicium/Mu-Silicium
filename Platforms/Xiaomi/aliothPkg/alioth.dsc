@@ -102,4 +102,4 @@
   DeviceGuidLib|aliothPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|aliothPkg/Library/AcpiDeviceUpdateLib/AcpiDeviceUpdateLib.inf
 
-!include SM8250Pkg/SM8250Pkg.dsc.inc
+!include KonaPkg/KonaPkg.dsc.inc

@@ -83,4 +83,4 @@
   DeviceGuidLib|laurel_sproutPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM6125Pkg/SM6125Pkg.dsc.inc
+!include NicobarPkg/NicobarPkg.dsc.inc

@@ -90,4 +90,4 @@
   DeviceGuidLib|gts8Pkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM8450Pkg/SM8450Pkg.dsc.inc
+!include WaipioPkg/WaipioPkg.dsc.inc

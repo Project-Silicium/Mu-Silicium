@@ -91,4 +91,4 @@
   DeviceGuidLib|i005dPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM8350Pkg/SM8350Pkg.dsc.inc
+!include LahainaPkg/LahainaPkg.dsc.inc

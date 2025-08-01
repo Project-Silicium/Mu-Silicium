@@ -83,4 +83,4 @@
   DeviceGuidLib|caymanslmPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SDM845Pkg/SDM845Pkg.dsc.inc
+!include NapaliPkg/NapaliPkg.dsc.inc

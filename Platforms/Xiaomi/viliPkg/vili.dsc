@@ -30,7 +30,6 @@
   # 0 = SM8350
   # 1 = SM8350-AB
   # 2 = SM8350-AC
-  # 3 = SG8175P
   #
   SOC_TYPE                       = 0
 
@@ -92,4 +91,4 @@
   DeviceGuidLib|viliPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM8350Pkg/SM8350Pkg.dsc.inc
+!include LahainaPkg/LahainaPkg.dsc.inc

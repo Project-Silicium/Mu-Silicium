@@ -91,4 +91,4 @@
   DeviceGuidLib|spacewarPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM7325Pkg/SM7325Pkg.dsc.inc
+!include KodiakPkg/KodiakPkg.dsc.inc

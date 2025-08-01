@@ -90,4 +90,4 @@
   DeviceGuidLib|bitraPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM8250Pkg/SM8250Pkg.dsc.inc
+!include KonaPkg/KonaPkg.dsc.inc

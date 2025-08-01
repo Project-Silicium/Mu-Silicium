@@ -84,4 +84,4 @@
   DeviceGuidLib|a52qPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM7125Pkg/SM7125Pkg.dsc.inc
+!include RennellPkg/RennellPkg.dsc.inc

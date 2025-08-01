@@ -93,4 +93,4 @@
   DeviceGuidLib|cepheusPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM8150Pkg/SM8150Pkg.dsc.inc
+!include HanaPkg/HanaPkg.dsc.inc

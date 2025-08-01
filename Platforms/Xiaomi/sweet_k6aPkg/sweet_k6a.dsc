@@ -90,4 +90,4 @@
   DeviceGuidLib|sweet_k6aPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM7150Pkg/SM7150Pkg.dsc.inc
+!include MooreaPkg/MooreaPkg.dsc.inc

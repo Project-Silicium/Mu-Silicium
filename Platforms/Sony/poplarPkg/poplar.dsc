@@ -83,4 +83,4 @@
   DeviceGuidLib|poplarPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include MSM8998Pkg/MSM8998Pkg.dsc.inc
+!include NazgulPkg/NazgulPkg.dsc.inc

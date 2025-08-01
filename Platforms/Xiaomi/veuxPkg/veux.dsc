@@ -84,4 +84,4 @@
   DeviceGuidLib|veuxPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM6375Pkg/SM6375Pkg.dsc.inc
+!include StraitPkg/StraitPkg.dsc.inc

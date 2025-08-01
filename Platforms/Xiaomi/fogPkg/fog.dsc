@@ -90,4 +90,4 @@
   DeviceGuidLib|fogPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM6225Pkg/SM6225Pkg.dsc.inc
+!include DivarPkg/DivarPkg.dsc.inc

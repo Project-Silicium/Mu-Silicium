@@ -94,4 +94,4 @@
 [Components]
   QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
-!include SM8450Pkg/SM8450Pkg.dsc.inc
+!include WaipioPkg/WaipioPkg.dsc.inc

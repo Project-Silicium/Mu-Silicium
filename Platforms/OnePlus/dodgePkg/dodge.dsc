@@ -95,4 +95,4 @@
 [Components]
   QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
-!include SM8750Pkg/SM8750Pkg.dsc.inc
+!include PakalaPkg/PakalaPkg.dsc.inc
