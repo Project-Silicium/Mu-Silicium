@@ -39,9 +39,6 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17B00000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17B00000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00000660
-
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 636"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SDM636"

@@ -39,9 +39,6 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x50042000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x50042000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00000210
-
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"

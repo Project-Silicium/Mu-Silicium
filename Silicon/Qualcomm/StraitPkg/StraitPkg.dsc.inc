@@ -39,9 +39,6 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x0F240000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x0F240000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006375
-
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 695 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6375"

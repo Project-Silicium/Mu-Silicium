@@ -39,9 +39,6 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x16080000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x16080000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00008750
-
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite"
 !if $(SOC_TYPE) == 0

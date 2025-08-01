@@ -39,9 +39,6 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0xF300000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xF300000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00006225
-
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680"

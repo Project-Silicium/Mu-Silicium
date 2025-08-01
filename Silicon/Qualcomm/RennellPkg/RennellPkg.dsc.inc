@@ -39,9 +39,6 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00007125
-
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 720G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7125"

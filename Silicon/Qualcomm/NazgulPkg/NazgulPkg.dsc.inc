@@ -39,9 +39,6 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17B00000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17B00000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00008998
-
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 835"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"MSM8998"
