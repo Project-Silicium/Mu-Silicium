@@ -45,13 +45,13 @@
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AA"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AA"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AB"
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7150-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AC"
 !endif
 
   # CPU

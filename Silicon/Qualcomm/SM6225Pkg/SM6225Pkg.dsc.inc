@@ -45,10 +45,10 @@
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM6225"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6225"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM6225-AD"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6225-AD"
 !endif
 
   # CPU

@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8s Gen 3"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8635"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8635"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

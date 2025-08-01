@@ -45,7 +45,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType

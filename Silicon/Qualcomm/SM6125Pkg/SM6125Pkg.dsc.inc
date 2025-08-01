@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 665"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM6125"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6125"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

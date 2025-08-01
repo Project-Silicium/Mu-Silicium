@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 720G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7125"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7125"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

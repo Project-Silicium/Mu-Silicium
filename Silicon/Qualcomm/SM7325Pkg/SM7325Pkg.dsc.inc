@@ -45,13 +45,13 @@
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7325"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7325"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G+"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7325-AE"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7325-AE"
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 782G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM7325-AF"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7325-AF"
 !endif
 
   # CPU

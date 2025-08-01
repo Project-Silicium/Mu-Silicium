@@ -42,7 +42,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 845"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SDM845"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SDM845"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

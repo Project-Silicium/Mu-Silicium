@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 835"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"MSM8998"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"MSM8998"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

@@ -44,7 +44,7 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 695 5G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM6375"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6375"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

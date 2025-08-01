@@ -45,16 +45,16 @@
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 5G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8350"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8350"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888+ 5G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8350-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8350-AB"
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 4G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SM8350-AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8350-AC"
 !elseif $(SOC_TYPE) == 3
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) G3x Gen 1"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SG8175P"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SG8175P"
 !endif
 
   # CPU

@@ -45,13 +45,13 @@
   # SmBios
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 660"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SDM660"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SDM660"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 636"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SDM636"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SDM636"
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 630"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"SDM630"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SDM630"
 !endif
 
   # CPU
