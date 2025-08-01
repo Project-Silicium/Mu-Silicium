@@ -58,7 +58,6 @@
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
   gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|FALSE
   gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
 
 [LibraryClasses]

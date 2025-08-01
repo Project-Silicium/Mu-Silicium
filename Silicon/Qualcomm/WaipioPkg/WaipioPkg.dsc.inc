@@ -58,10 +58,12 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
+  # FV Decompress Address
+  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7044830
+
   # Platform Pei HOBs
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
   gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|TRUE
   gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
 
 [LibraryClasses]

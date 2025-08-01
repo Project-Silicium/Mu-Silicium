@@ -99,12 +99,12 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|""|VOID*|0x0000C000
   gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|FALSE|BOOLEAN|0x0000C001
   gQcomPkgTokenSpaceGuid.PcdEnableShimHob|FALSE|BOOLEAN|0x0000C002
-  gQcomPkgTokenSpaceGuid.PcdEnableFvDecompressHob|FALSE|BOOLEAN|0x0000C003
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE|BOOLEAN|0x0000C004
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE|BOOLEAN|0x0000C003
 
   # XBL Protocol Addresses
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000C100
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0|UINT64|0x0000C101
+  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0|UINT64|0x0000C100
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000C101
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0|UINT64|0x0000C102
 
   # XBL Device Tree
   gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile|{ 0x0D, 0x57, 0xFD, 0x9D, 0xE2, 0xA9, 0x49, 0xEA, 0xB7, 0x9B, 0x21, 0xEB, 0xC7, 0xB4, 0xD8, 0xA5 }|VOID*|0x0000C200

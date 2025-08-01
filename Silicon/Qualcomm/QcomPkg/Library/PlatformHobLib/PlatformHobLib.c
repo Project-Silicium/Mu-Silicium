@@ -183,61 +183,64 @@ BuildPlatformHobs ()
 {
   EFI_STATUS                      Status;
   ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlkRegion;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFdRegion;
-  UINT64                          SchedAddress;
-  UINT64                          DtbExtAddress;
 
   // Get XBL HOB Addresses
-  SchedAddress  = FixedPcdGet64 (PcdScheduleInterfaceAddr);
-  DtbExtAddress = FixedPcdGet64 (PcdDTBExtensionAddr);
+  UINT64 SchedAddress        = FixedPcdGet64 (PcdScheduleInterfaceAddr);
+  UINT64 DtbExtAddress       = FixedPcdGet64 (PcdDtbExtensionAddr);
+  UINT64 FvDecompressAddress = FixedPcdGet64 (PcdFvDecompressAddr);
 
-  // Build Info Blk HOB
+  // Locate "Info Blk" Memory Region
   Status  = LocateMemoryMapAreaByName ("Info Blk", &InfoBlkRegion);
   Status |= LocateMemoryMapAreaByName ("Info_Blk", &InfoBlkRegion);
   if (EFI_ERROR (Status) && !InfoBlkRegion.Address) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'Info Blk' Memory Region! Status = %r\n", __FUNCTION__, Status));
   } else if (FixedPcdGetBool (PcdEnableInfoBlkHob)) {
+    // Set Info BLK Address
     UINTN InfoBlkAddress = InfoBlkRegion.Address;
 
+    // Build Info Blk HOB
     BuildGuidDataHob (&gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof (InfoBlkAddress));
   }
 
-  // Build Shim HOB
+  // Check PCD Value
   if (FixedPcdGetBool (PcdEnableShimHob)) {
+    // Set Sh Lib Address
     UINTN ShLibAddress = (UINTN)&ShLib;
 
+    // Build Shim HOB
     BuildGuidDataHob (&gEfiShimLibraryHobGuid, &ShLibAddress, sizeof (ShLibAddress));
   }
 
-  // Build FV Decompress HOB
-  Status  = LocateMemoryMapAreaByName ("UEFI FD", &UefiFdRegion);
-  Status |= LocateMemoryMapAreaByName ("UEFI_FD", &UefiFdRegion);
-  if (EFI_ERROR (Status) && !UefiFdRegion.Address) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'UEFI FD' Memory Region! Status = %r\n", __FUNCTION__, Status));
-  } else if (FixedPcdGetBool (PcdEnableFvDecompressHob)) {
-    UINTN FvDecompressAddress = UefiFdRegion.Address + 0x403D0;
-
-    BuildGuidDataHob (&gFvDecompressHobGuid, &FvDecompressAddress, sizeof (FvDecompressAddress));
-  }
-
-  // Build Prodmode HOB
+  // Check PCD Value
   if (FixedPcdGetBool (PcdEnableProdmodeHob)) {
+    // Set Prodmode Value
     BOOLEAN Prodmode = FALSE;
 
+    // Build Prodmode HOB
     BuildGuidDataHob (&gEfiProdmodeHobGuid, &Prodmode, sizeof (Prodmode));
   }
 
-  // Build Schedule Interface HOB
+  // Check FV Decompress Address
+  if (FvDecompressAddress) {
+    // Build FV Decompress HOB
+    BuildGuidDataHob (&gFvDecompressHobGuid, &FvDecompressAddress, sizeof (FvDecompressAddress));
+  }
+
+  // Check Schedule Interface Address
   if (SchedAddress) {
+    // Populate Schedule Interface Protocol
     EFI_KERNEL_PROTOCOL *SchedIntfProtocol = (VOID *)SchedAddress;
 
+    // Build Schedule Interface HOB
     BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntfProtocol, sizeof (SchedIntfProtocol));
   }
 
-  // Build DTB Extension HOB
+  // Check DTB Extension Address
   if (DtbExtAddress) {
+    // Populate DTB Extension Protocol
     EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)DtbExtAddress;
 
+    // Build DTB Extension HOB
     BuildGuidDataHob (&gEfiDTBExtnHobGuid, &DTBExtnProtocol, sizeof (DTBExtnProtocol));
   }
 }
