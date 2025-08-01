@@ -13,7 +13,7 @@
 		linux,initrd-end = <0x00 0xb7fff1ec>;
 		linux,initrd-start = <0x00 0xb7097000>;
 		kaslr-seed = <0x00 0x00>;
-		bootargs = "console=ttyMSM0,115200n8 loglevel=6 kpti=0 log_buf_len=256K kernel.panic_on_rcu_stall=1 swiotlb=noforce loop.max_part=7 cgroup.memory=nokmem,nosocket pcie_ports=compat msm_rtb.filter=0x237 allow_mismatched_32bit_el0 kasan=off rcupdate.rcu_expedited=1 rcu_nocbs=0-7 ftrace_dump_on_oops pstore.compress=none cpufreq.default_governor=performance can.stats_timer=0 fsa4480_i2c.async_probe=1 slub_debug=- disable_dma32=on video=vfb:640x400,bpp=32,memsize=3072000 disable_dma32=on mtdoops.fingerprint=crDroidAndroid-15.0-20250611-marble-v11.6 bootconfig  bootinfo.pureason=0x40001 bootinfo.pdreason=0x2 debug_ext.initrd_size=15775 hwid.hwid_value=1638400 hwid.project=15 hwid.build_adc=57022 hwid.project_adc=57038 msm_drm.dsi_display0=qcom,mdss_dsi_m16t_36_0d_0b_dsc_vid: msm_drm.oled_wp=0000000000000000 msm_drm.debugpolicy=0x20 rootwait ro init=/init block2mtd.block2mtd=/dev/block/sda15,2097152 mtdoops.mtddev=0 mtdoops.record_size=2097152 mtdoops.dump_oops=0 printk.always_kmsg_dump=1 log_buf_len=2M loglevel=6 msm_geni_serial.con_enabled=0";
+		bootargs = "console=ttyMSM0,115200n8 loglevel=6 kpti=0 log_buf_len=256K kernel.panic_on_rcu_stall=1 swiotlb=noforce loop.max_part=7 cgroup.memory=nokmem,nosocket pcie_ports=compat msm_rtb.filter=0x237 allow_mismatched_32bit_el0 kasan=off rcupdate.rcu_expedited=1 rcu_nocbs=0-7 ftrace_dump_on_oops pstore.compress=none cpufreq.default_governor=performance can.stats_timer=0 fsa4480_i2c.async_probe=1 slub_debug=- disable_dma32=on video=vfb:640x400,bpp=32,memsize=3072000 disable_dma32=on mtdoops.fingerprint=crDroidAndroid-15.0-20250611-marble-v11.6 bootconfig  bootinfo.pureason=0x80001 bootinfo.pdreason=0x2 debug_ext.initrd_size=15775 hwid.hwid_value=1638400 hwid.project=15 hwid.build_adc=57015 hwid.project_adc=57033 msm_drm.dsi_display0=qcom,mdss_dsi_m16t_36_0d_0b_dsc_vid: msm_drm.oled_wp=0000000000000000 msm_drm.debugpolicy=0x20 rootwait ro init=/init block2mtd.block2mtd=/dev/block/sda15,2097152 mtdoops.mtddev=0 mtdoops.record_size=2097152 mtdoops.dump_oops=0 printk.always_kmsg_dump=1 log_buf_len=2M loglevel=6 msm_geni_serial.con_enabled=0";
 		stdout-path = "/soc/qcom,qup_uart@99c000:115200n8";
 		phandle = <0x24d>;
 	};
@@ -22,7 +22,7 @@
 		ddr_manufacturer_id = <0xff>;
 		ddr_device_type = <0x08>;
 		ufs_ffu_batterystatus = <0x00>;
-		ufs_ffu_bootreason = <0x20>;
+		ufs_ffu_bootreason = <0x00>;
 		ddr_size = <0x0c>;
 		device_type = "memory";
 		reg = <0x00 0x80000000 0x00 0x6a000000 0x00 0xf4600000 0x00 0xba00000 0x08 0x00 0x00 0x37500000 0x09 0x00 0x01 0x80000000 0x08 0x40000000 0x00 0xc0000000 0x08 0x37b00000 0x00 0x1e00000>;
@@ -30894,9 +30894,9 @@
 			interrupts = <0x00 0x00 0x01>;
 		};
 
-		qcom,resource-manager-rpc@6decd58296ed8ed3 {
+		qcom,resource-manager-rpc@ac45b8f3be45a08b {
 			compatible = "qcom,resource-manager-1-0", "qcom,resource-manager", "qcom,gunyah-message-queue", "qcom,gunyah-capability";
-			reg = <0x6decd582 0x96ed8ed3 0x6decd582 0x96edd6f6>;
+			reg = <0xac45b8f3 0xbe45a08b 0xac45b8f3 0xbe45bf1a>;
 			interrupts = <0x00 0x3a0 0x01 0x00 0x3a1 0x01>;
 			qcom,free-irq-start = <0x3c0>;
 			qcom,is-full-duplex;

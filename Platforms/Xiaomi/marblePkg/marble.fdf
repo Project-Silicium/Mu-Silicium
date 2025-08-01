@@ -1,7 +1,9 @@
-##
+## @file
+#
 #  Copyright (c) 2018, Linaro Limited. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
 ##
 
 ################################################################################
@@ -59,7 +61,7 @@ FV = FVMAIN_COMPACT
 ################################################################################
 
 [FV.FvMain]
-FvNameGuid         = 631008B0-B2D1-410A-8B49-2C5C4D8ECC7E
+FvNameGuid         = 00bf6247-21d4-4219-a7f9-7b7a782c3c27
 BlockSize          = 0x1000
 NumBlocks          = 0        # This FV gets compressed so make it just big enough
 FvAlignment        = 8        # FV alignment and FV attributes setting.
@@ -83,19 +85,20 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
-  # SmBios
+   # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
   INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI
-  #INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  #INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  #!include Include/ACPI.inc
+  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+
+  !include Include/ACPI.inc
 
   # Device Tree
   #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
   #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
-  #  SECTION RAW = marblePkg/FdtBlob/sm7475-xiaomi-marble.dtb
+  #  SECTION RAW = marblePkg/FdtBlob/SM7475-Xiaomi-marble.dtb
   #  SECTION UI = "DeviceTreeBlob"
   #}
 
@@ -121,7 +124,7 @@ READ_LOCK_STATUS   = TRUE
 
   INF SiliciumPkg/PrePi/PrePi.inf
 
-  FILE FREEFORM = DDE58710-41CD-4306-DBFB-3FA90BB1D2DD {
+  FILE FREEFORM = dde58710-41cd-4306-dbfb-3fa90bb1d2dd {
     SECTION UI = "uefiplat.cfg"
     SECTION RAW = Binaries/marble/RawFiles/uefiplat.cfg
   }

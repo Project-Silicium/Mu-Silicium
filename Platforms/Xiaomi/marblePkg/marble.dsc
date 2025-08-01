@@ -1,4 +1,5 @@
 ##
+#
 #  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
@@ -6,8 +7,8 @@
 #  Copyright (c) Microsoft Corporation.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
 ##
-
 ################################################################################
 #
 # Defines Section - statements that will be processed to create a Makefile.
@@ -15,7 +16,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = marble
-  PLATFORM_GUID                  = A183C345-F702-489C-B599-4035AE2483A9
+  PLATFORM_GUID                  = 00bf6247-21d4-4219-a7f9-7b7a782c3c27
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/marblePkg
@@ -24,27 +25,29 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = marblePkg/marble.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  AB_SLOT_SUPPORT                = 0
   HAS_BUILD_IN_KEYBOARD          = 0
+  # If your SoC has multimple variants define the Number here
+  # If not don't add this Define
+  SOC_TYPE                       = 2
 
-  #
-  # 0 = SM8450
-  # 1 = SM7475
-  #
-  SOC_TYPE                       = 1
-
+# If your SoC has multiple variants keep these Build Options
+# If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DAB_SLOT_SUPPORT=$(AB_SLOT_SUPPORT) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+
+[LibraryClasses]
+  DeviceMemoryMapLib|MarblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|MarblePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"YuzuruRiverflow"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Yuzuru10"
 
   # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|
+  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
@@ -53,45 +56,32 @@
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F5"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"marble"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F5_marble"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Marble"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"PocoF5_Marble"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F5"
 
-  # Simple Frame Buffer - Poco F5 Display (1080x2400 120Hz)
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2400
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+  # Simple FrameBuffer (Poco F5 - 6.67" AMOLED, 1080x2400, 30-bit color)
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|30
 
-  # Platform Pei
-  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920 # May need adjustment for SM7475
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703B0C8     # May need adjustment for SM7475
+  # Dynamic RAM Start Address (First available region after reserved areas)
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xF8000000
 
-  # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE0000000     # Based on iomem reserved region
+  # SD Card Slot
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE            # Poco F5 does not have SD Card Slot
 
-  # SD Card Slot - Poco F5 has no SD card slot
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-
-  # USB Controller - Poco F5 has USB-C
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
+  # USB Controller
+  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE            # This should be TRUE unless your UsbConfigDxe is Patched to be Dual Role.
 
 [PcdsDynamicDefault]
-  # Display Configuration - Poco F5 (1080x2400)
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
-
-  # Console Configuration (adjusted for 1080x2400 resolution)
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135  # 1080/8 chars
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|150     # 2400/16 lines
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|150
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
 
-[LibraryClasses]
-  DeviceMemoryMapLib|marblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|marblePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include SM7475Pkg/SM7475Pkg.dsc.inc
+!include SM7475Pkg/SM7475.dsc.inc
