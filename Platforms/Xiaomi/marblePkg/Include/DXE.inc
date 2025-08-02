@@ -23,7 +23,7 @@ INF Binaries/marble/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
 INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
+#INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
 INF Binaries/marble/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
 INF Binaries/marble/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -49,12 +49,12 @@ INF Binaries/marble/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
 INF Binaries/marble/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
 INF Binaries/marble/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
 
-INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+#INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
 
 INF Binaries/marble/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
 INF Binaries/marble/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
 INF Binaries/marble/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+#INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
 INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf

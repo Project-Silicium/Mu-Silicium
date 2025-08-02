@@ -2,8 +2,8 @@
 
 # Build an Android kernel that is actually UEFI disguised as the Kernel
 cat ./BootShim/BootShim.bin "./Build/marblePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd" > "./Build/marblePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim"||exit 1
-gzip -c < "./Build/marblePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim" > "./Build/marblePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/marble_UEFI.fd-bootshim.gz"||exit 1
-cat "./Build/zeusPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim.gz" ./Resources/DTBs/marble.dtb > ./Resources/bootpayload.bin||exit 1
+gzip -c < "./Build/marblePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim" > "./Build/marblePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim.gz"||exit 1
+cat "./Build/marblePkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MARBLE_UEFI.fd-bootshim.gz" ./Resources/DTBs/marble.dts > ./Resources/bootpayload.bin||exit 1
 
 # Create bootable Android boot.img
 python3 ./Resources/Scripts/mkbootimg.py \

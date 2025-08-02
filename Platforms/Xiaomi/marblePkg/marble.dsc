@@ -26,9 +26,6 @@
   FLASH_DEFINITION               = marblePkg/marble.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   HAS_BUILD_IN_KEYBOARD          = 0
-  # If your SoC has multimple variants define the Number here
-  # If not don't add this Define
-  SOC_TYPE                       = 2
 
 # If your SoC has multiple variants keep these Build Options
 # If not don't add "-DSOC_TYPE=$(SOC_TYPE)" to the Build Options.
@@ -36,8 +33,9 @@
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [LibraryClasses]
-  DeviceMemoryMapLib|MarblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|MarblePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceMemoryMapLib|marblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|marblePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -53,6 +51,10 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
+    # XBL Protocols
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920
+  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703C0C8
+
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F5"
@@ -61,9 +63,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F5"
 
   # Simple FrameBuffer (Poco F5 - 6.67" AMOLED, 1080x2400, 30-bit color)
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2400
-  gSiliciumPkgTokenSpaceGuid.PcdMipiFrameBufferColorDepth|30
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2400
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
   # Dynamic RAM Start Address (First available region after reserved areas)
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xF8000000
@@ -75,13 +77,14 @@
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE            # This should be TRUE unless your UsbConfigDxe is Patched to be Dual Role.
 
 [PcdsDynamicDefault]
+  # Display Configuration - Poco F5 (1080x2400)
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135  # 1080/8 chars
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|150     # 2400/16 lines
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|150
 
-!include SM7475Pkg/SM7475.dsc.inc
+!include SM7475Pkg/SM7475Pkg.dsc.inc

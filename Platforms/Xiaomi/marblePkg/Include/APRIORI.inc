@@ -1,5 +1,4 @@
 APRIORI DXE {
-  # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
@@ -9,17 +8,15 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
-  # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
 
-  # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
+  #INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+ # INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -36,7 +33,7 @@ APRIORI DXE {
   INF Binaries/marble/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
+ # INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
   INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
@@ -49,7 +46,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  INF Binaries/marble/QcomPkg/Drivers/ExLEDDxe/ExLEDDxe.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
@@ -125,5 +121,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-  INF Binaries/marble/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 }
