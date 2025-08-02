@@ -1,0 +1,25 @@
+import React from "react";
+
+interface UEFIEntry {
+  feature: string;
+  description?: string;
+  state: string;
+}
+
+interface DeviceDetails {
+  state: string;
+  codename: string;
+  maintainer: string;
+  contributors: string;
+  testers: string;
+  uefiStatus: UEFIEntry[];
+}
+
+export default function UEFIStatusTable({ details }: { details: DeviceDetails }) {
+  return (
+    <div className="mt-4 border rounded-lg p-4 text-sm bg-gray-50 dark:bg-zinc-900">
+      {/* your table here */}
+    </div>
+  );
+}
+
