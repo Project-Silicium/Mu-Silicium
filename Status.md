@@ -308,7 +308,15 @@
 <table>
 <th>Linux</th>
 </tr>
-<tr><td>
+<tr>
+
+  > [!IMPORTANT]
+> Linux Requires: [Mainline Kernel](https://github.com/index986/sm8750-mainline).
+
+> [!INFO]
+> postmarketOS page: [Link](https://wiki.postmarketos.org/wiki/OnePlus_13_(oneplus-dodge)).
+> 
+<td>
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
