@@ -1188,8 +1188,7 @@
   </summary>
 </details>
 
-</details>
-
+---
 
   </summary>
 </details>
