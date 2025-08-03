@@ -1167,8 +1167,8 @@
 **State: Active** <br>
 **Codename: marble** <br>
 **Maintainers: [Yuzuru10](https://github.com/Yuzuru10/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/))** <br>
-**Testers: [Yuzuru10](https://github.com/Yuzuru10/), People from tg/discord nothing group**
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Testers: [Yuzuru10](https://github.com/Yuzuru10/)**
 
 ### UEFI Status
 
