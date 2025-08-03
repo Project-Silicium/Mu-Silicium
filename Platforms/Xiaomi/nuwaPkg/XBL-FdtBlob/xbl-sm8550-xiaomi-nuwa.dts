@@ -1,0 +1,2458 @@
+/dts-v1/;
+
+/ {
+	compatible = "qcom,kailua";
+	model = "qcom,kailua";
+	#address-cells = <0x02>;
+	#size-cells = <0x02>;
+
+	soc {
+		#address-cells = <0x01>;
+		#size-cells = <0x01>;
+		phandle = <0x07>;
+
+		ddr_common_dt {
+			compatible = "qcom,ddr_common_dt";
+			print_severity_dt = <0x2012>;
+			ddr_log_level_dt = <0x00>;
+		};
+
+		ddr_target_dt {
+			compatible = "qcom,ddr_target_dt";
+			ddr_trng_always_en = <0x00>;
+			extnd_term_log_flag = <0x01>;
+			ddr_tr_led_flag = <0x00>;
+			ddr_boot_freq = <0x1fef00>;
+		};
+
+		PlatformInfo {
+			PlatformInfo = [03 08 01 00 00 00];
+		};
+
+		pinctrl@f100000 {
+			compatible = "qcom,kailua-pinctrl";
+			reg = <0xf100000 0x100000>;
+			ngpios = <0xd2>;
+			width = <0x1000>;
+			id = <0x00>;
+			version = <0x01>;
+			gpio-controller;
+			#gpio-cells = <0x02>;
+			qcom,sleep-config = <0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x151 0x45 0x151 0x151 0x45 0x151 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x149 0x149 0x192 0x45 0x191 0x14a 0x14a 0x18a 0x45 0x45 0x45 0x18a 0x45 0x14a 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x51 0x45 0x45 0x45 0x51 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45 0x45>;
+			phandle = <0x08>;
+		};
+
+		ufs0@1D80000 {
+			compatible = "qcom,ufs";
+			reg = <0x1d80000 0x7000>;
+			EnableLogging = [00];
+			FUA_Value = [00];
+			LinkStartupRetryCount = [05];
+			BatteryThresholdMv = <0xe10>;
+			phandle = <0x09>;
+
+			timeout_values {
+				fDeviceInitTimeoutUs = <0x2625a0>;
+				UTRDPollTimeoutUs = <0x1c9c380>;
+			};
+
+			init_speed_params {
+				EnableHighSpeed = [01];
+				NumGears = [05];
+				NumLanes = [02];
+				Rate = [01];
+			};
+
+			perf_speed_params {
+				EnableHighSpeed = [01];
+				NumGears = [05];
+				NumLanes = [02];
+				Rate = [01];
+			};
+		};
+
+		BootTempBsp {
+			compatible = "qcom,BootTempBsp";
+
+			BootTempThres {
+				nUpperThresholdDegC = <0x96>;
+				nLowerThresholdDegC = <0xffffff6a>;
+				uMaxNumIterations = <0x28>;
+				uWaitPerIterationMicroSec = <0x7a120>;
+				uSensor = <0x00>;
+			};
+		};
+
+		usb {
+			phandle = <0x0a>;
+		};
+
+		i2c@900000 {
+			#address-cells = <0x01>;
+			#size-cells = <0x00>;
+			compatible = "qcom,i2c-controller";
+			reg = <0x900000 0x100000>;
+			phandle = <0x0b>;
+
+			i2c_device_config_3@3 {
+				reg = <0x03>;
+				core_base_addr = <0x900000>;
+				common_base_addr = <0x9c0000>;
+				core_offset = <0x88000>;
+				qupv3_instance = [00];
+				core_index = [03];
+				se_index = [02];
+				gpi_index = [02];
+				core_irq = [00];
+				polled_mode = [01];
+				i2c_hub = [01];
+				min_data_length_for_dma = [00];
+				scl_encoding = <0x18151>;
+				sda_encoding = <0x18141>;
+				tcsr_reg_offset = <0x00>;
+				tcsr_base_addr = <0x1fc0000>;
+				tcsr_reg_value = <0x00>;
+				se_clock = "gcc_qupv3_i2c_s2_clk";
+			};
+
+			i2c_device_config_4@4 {
+				reg = <0x04>;
+				core_base_addr = <0x900000>;
+				common_base_addr = <0x9c0000>;
+				core_offset = <0x8c000>;
+				qupv3_instance = [00];
+				core_index = [04];
+				se_index = [03];
+				gpi_index = [03];
+				core_irq = [00];
+				polled_mode = [01];
+				i2c_hub = [01];
+				min_data_length_for_dma = [00];
+				scl_encoding = <0x18171>;
+				sda_encoding = <0x18161>;
+				tcsr_reg_offset = <0x00>;
+				tcsr_base_addr = <0x1fc0000>;
+				tcsr_reg_value = <0x00>;
+				se_clock = "gcc_qupv3_i2c_s3_clk";
+			};
+
+			i2c_device_config_12@c {
+				reg = <0x0c>;
+				core_base_addr = <0xa00000>;
+				common_base_addr = <0xac0000>;
+				core_offset = "\0\b@";
+				qupv3_instance = [01];
+				core_index = [0c];
+				se_index = [01];
+				gpi_index = [0b];
+				core_irq = [00];
+				polled_mode = [01];
+				i2c_hub = [00];
+				min_data_length_for_dma = [00];
+				scl_encoding = <0x18211>;
+				sda_encoding = <0x18201>;
+				tcsr_reg_offset = <0x00>;
+				tcsr_base_addr = <0x1fc0000>;
+				tcsr_reg_value = <0x00>;
+				se_clock = "gcc_qupv3_wrap1_s1_clk";
+			};
+
+			i2c_device_config_23@17 {
+				reg = <0x17>;
+				core_base_addr = <0x800000>;
+				common_base_addr = <0x8c0000>;
+				core_offset = <0x90000>;
+				qupv3_instance = [02];
+				core_index = [17];
+				se_index = [04];
+				gpi_index = [16];
+				core_irq = [00];
+				polled_mode = [01];
+				i2c_hub = [00];
+				min_data_length_for_dma = [00];
+				scl_encoding = <0x40018031>;
+				sda_encoding = <0x40018021>;
+				tcsr_reg_offset = <0x00>;
+				tcsr_base_addr = <0x1fc0000>;
+				tcsr_reg_value = <0x00>;
+				se_clock = "gcc_qupv3_wrap2_s4_clk";
+			};
+		};
+
+		spi@A00000 {
+			#address-cells = <0x01>;
+			#size-cells = <0x00>;
+			compatible = "qcom,spi-controller";
+			reg = <0xa00000 0x100000>;
+			phandle = <0x0c>;
+
+			spi_device_config_1@1 {
+				reg = <0x01>;
+				core_base_addr = <0xa00000>;
+				common_base_addr = <0xac0000>;
+				core_offset = <0x80000>;
+				qupv3_instance = [01];
+				core_index = [00];
+				se_index = [00];
+				gpi_index = [00];
+				core_irq = [00];
+				polled_mode = [01];
+				min_data_length_for_dma = [00];
+				miso_encoding = <0x481c1>;
+				mosi_encoding = <0x4c1d1>;
+				clk_encoding = <0x441e1>;
+				cs_encoding = <0x4c1f1>;
+				sleep_miso_encoding = [00];
+				sleep_mosi_encoding = [00];
+				sleep_clk_encoding = [00];
+				sleep_cs_encoding = [00];
+				tcsr_reg_offset = <0x00>;
+				tcsr_base_addr = <0x1fc0000>;
+				tcsr_reg_value = <0x00>;
+				se_clock_frequency = <0x4b00>;
+				se_clock_dfs_index = [01];
+				se_clock = "gcc_qupv3_wrap1_s0_clk";
+			};
+		};
+
+		quantum_dt {
+			enter_quantum = <0x00>;
+		};
+
+		pil {
+
+			pil_proxy_vote {
+				phandle = <0x0d>;
+
+				pil_proxy_vote_1 {
+					subsys_id = <0x01>;
+					client_name = "PIL_ADSP";
+					rail_names = "/vcs/vdd_lpi_mx\0/vcs/vdd_lpi_cx";
+					rail_voltage_levels = <0x100 0x100>;
+					icb_name = "/icb/arbiter";
+					icb_arb_master_slave = <0x19 0x00>;
+					icb_arb_request_type = <0x04>;
+					icb_arb_request_data = <0x00 0x5f5e100 0x00 0x5f5e100>;
+					flag = <0x03 0x03>;
+				};
+
+				pil_proxy_vote_4 {
+					subsys_id = <0x04>;
+					client_name = "PIL_MODEM";
+					rail_names = "/vcs/vdd_mx\0/vcs/vdd_cx\0/vcs/vdd_mxc";
+					rail_voltage_levels = <0x100 0x100 0x100>;
+					flag = <0x03 0x03>;
+				};
+
+				pil_proxy_vote_18 {
+					subsys_id = <0x12>;
+					client_name = "PIL_CDSP";
+					rail_names = "/vcs/vdd_mx\0/vcs/vdd_cx\0/vcs/vdd_mxc\0/vcs/vdd_nsp";
+					rail_voltage_levels = <0x100 0x100 0x100 0x100>;
+					icb_name = "/icb/arbiter";
+					icb_arb_master_slave = <0xad 0x2f 0x9a 0x00>;
+					icb_arb_request_type = <0x04 0x04>;
+					icb_arb_request_data = <0x00 0x5f5e100 0x00 0x5f5e100 0x01 0x2a05f200 0x00 0xee6b2800>;
+					flag = <0x02 0x01>;
+				};
+
+				pil_proxy_vote_37 {
+					subsys_id = <0x25>;
+					client_name = "PIL_CDSP";
+					rail_names = "/vcs/vdd_mx\0/vcs/vdd_cx\0/vcs/vdd_mxc\0/vcs/vdd_nsp";
+					rail_voltage_levels = <0x100 0x100 0x100 0x100>;
+					icb_name = "/icb/arbiter";
+					icb_arb_master_slave = <0xad 0x2f 0x9a 0x00>;
+					icb_arb_request_type = <0x04 0x04>;
+					icb_arb_request_data = <0x00 0x5f5e100 0x00 0x5f5e100 0x01 0x2a05f200 0x00 0xee6b2800>;
+					flag = <0x11 0x12>;
+				};
+			};
+		};
+
+		bam_config {
+			bam_pa = <0x00 0x1dc4000>;
+			options = <0x100>;
+			cfg_bits = <0xfffff004>;
+			ee = [00];
+			sec_config = <0x00 0x00>;
+			size = <0x40000>;
+		};
+
+		bam_config_dummy {
+			bam_pa = <0x00 0x00>;
+			options = <0x00>;
+			cfg_bits = <0x00>;
+			ee = [00];
+			sec_config = <0x00 0x00>;
+			size = <0x00>;
+		};
+
+		iort {
+			Signature = <0x54524f49>;
+			Revision = <0x01>;
+			Checksum = <0x00>;
+			OEMID = "QCOM";
+			OEMTableID = <0x51434f4d 0x45444b32>;
+			OEMRevision = <0x8998>;
+			CreatorID = <0x51434f4d>;
+			CreatorRevision = <0x01>;
+			NumberofIORTNodes = <0x16>;
+			Reserved = <0x00>;
+			instance_handles = <0x01 0x02>;
+
+			APPS_MMU500_SMMU_APP {
+				Type = <0x03>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x00>;
+				BaseAddress = <0x15000000>;
+				Span = <0x80000>;
+				Flags = <0x03>;
+				Model = <0x03>;
+				NumContextInterrupts = <0x60>;
+				NumPMUInterrupts = <0x00>;
+				NSGIRPT_GSIV = <0x61>;
+				NSGIRPT_FLAGS = <0x00>;
+				NSGCFGIRPT_GSIV = <0x00>;
+				NSGCFGIRPT_FLAGS = <0x00>;
+				ContextInterrupts = <0x81 0x82 0x83 0x84 0x85 0x86 0x87 0x88 0x89 0x8a 0x8b 0x8c 0x8d 0x8e 0x8f 0x90 0x91 0x92 0x93 0x94 0x95 0x96 0xd5 0xd6 0xd7 0xd8 0xd9 0xda 0xdb 0xdc 0xdd 0xde 0xdf 0xe0 0x15b 0x15c 0x15d 0x15e 0x15f 0x160 0x161 0x162 0x163 0x164 0x165 0x166 0x167 0x168 0x169 0x16a 0x16b 0x16c 0x16d 0x16e 0x16f 0x170 0x171 0x172 0x173 0x174 0x175 0x176 0x177 0x178 0x179 0x1ab 0x1ac 0x1ad 0x1ae 0x1af 0x1b0 0x1b1 0x1b2 0x1b3 0x1b4 0x1b5 0x1b6 0x1b7 0x1b8 0x1b9 0x1c2 0x1c3 0x1bc 0x1c5 0x2e2 0x1c7 0x1c8 0x1c9 0x2d1 0x2d2 0x2d3 0x2d4 0x2d5 0x2d6 0x2d7 0x2d8>;
+				ContextInterruptFlags = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
+				PMUInterrupts = <0x00>;
+				PMUInterruptFlags = <0x00>;
+				SIDMAPPING = <0x00>;
+				phandle = <0x01>;
+			};
+
+			GPU_GFX_MMU500_SMMU_GFX {
+				Type = <0x03>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x00>;
+				BaseAddress = <0x3da0000>;
+				Span = <0x20000>;
+				Flags = <0x03>;
+				Model = <0x03>;
+				NumContextInterrupts = <0x19>;
+				NumPMUInterrupts = <0x00>;
+				NSGIRPT_GSIV = <0x2c1>;
+				NSGIRPT_FLAGS = <0x00>;
+				NSGCFGIRPT_GSIV = <0x00>;
+				NSGCFGIRPT_FLAGS = <0x00>;
+				ContextInterrupts = <0x2c5 0x2c6 0x2c7 0x2c8 0x2c9 0x2ca 0x2cb 0x2cc 0x2cd 0x2ce 0x2cf 0x1c6 0x1fc 0x25e 0x25f 0x260 0x261 0x2b3 0x2b5 0x2b8 0x2b9 0x2ba 0x2bc 0x2bd 0x2db>;
+				ContextInterruptFlags = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
+				PMUInterrupts = <0x00>;
+				PMUInterruptFlags = <0x00>;
+				SIDMAPPING = <0x00>;
+				phandle = <0x02>;
+			};
+
+			NAMEDNODE_CRYPTO {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x03>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "CRYPTO";
+
+				SIDMappings {
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x481>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0x480>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x483>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_Camera {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x0b>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "CAMERA";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = "\0 \b";
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x10400801>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0x10000821>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x840>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1820>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_5 {
+						InputBase = <0x3000005>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1860>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_6 {
+						InputBase = <0x3000006>;
+						NumIDs = <0x01>;
+						OutputBase = <0xc01800>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_8 {
+						InputBase = <0x3000008>;
+						NumIDs = <0x01>;
+						OutputBase = <0x18c2>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_9 {
+						InputBase = <0x3000009>;
+						NumIDs = <0x01>;
+						OutputBase = <0x4018a0>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_10 {
+						InputBase = <0x300000a>;
+						NumIDs = <0x01>;
+						OutputBase = <0x801861>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_11 {
+						InputBase = <0x300000b>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1881>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_Compute {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x2a>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "COMPUTE";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1961>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1962>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1963>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1964>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1965>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_5 {
+						InputBase = <0x3000005>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1966>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_6 {
+						InputBase = <0x3000006>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1967>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_7 {
+						InputBase = <0x3000007>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1968>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_8 {
+						InputBase = <0x3000008>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1969>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_9 {
+						InputBase = <0x3000009>;
+						NumIDs = <0x01>;
+						OutputBase = <0x196b>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_10 {
+						InputBase = <0x300000a>;
+						NumIDs = <0x01>;
+						OutputBase = <0x196c>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_11 {
+						InputBase = <0x300000b>;
+						NumIDs = <0x01>;
+						OutputBase = <0x196d>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_12 {
+						InputBase = <0x300000c>;
+						NumIDs = <0x01>;
+						OutputBase = <0x196e>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_13 {
+						InputBase = <0x300000d>;
+						NumIDs = <0x01>;
+						OutputBase = <0x196f>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_14 {
+						InputBase = <0x300000e>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c01>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_15 {
+						InputBase = <0x300000f>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c02>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_16 {
+						InputBase = <0x3000010>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c03>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_17 {
+						InputBase = <0x3000011>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c04>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_18 {
+						InputBase = <0x3000012>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c05>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_19 {
+						InputBase = <0x3000013>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c06>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_20 {
+						InputBase = <0x3000014>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c07>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_21 {
+						InputBase = <0x3000015>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c08>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_22 {
+						InputBase = <0x3000016>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c09>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_23 {
+						InputBase = <0x3000017>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c0b>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_24 {
+						InputBase = <0x3000018>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c0c>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_25 {
+						InputBase = <0x3000019>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c0d>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_26 {
+						InputBase = <0x300001a>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c0e>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_27 {
+						InputBase = <0x300001b>;
+						NumIDs = <0x01>;
+						OutputBase = <0x200c0f>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_30 {
+						InputBase = <0x300001e>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c1>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_31 {
+						InputBase = <0x300001f>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c2>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_32 {
+						InputBase = <0x3000020>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c3>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_33 {
+						InputBase = <0x3000021>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c4>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_34 {
+						InputBase = <0x3000022>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c5>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_35 {
+						InputBase = <0x3000023>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c6>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_36 {
+						InputBase = <0x3000024>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c7>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_37 {
+						InputBase = <0x3000025>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c8>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_38 {
+						InputBase = <0x3000026>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19c9>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_39 {
+						InputBase = <0x3000027>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19cb>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_40 {
+						InputBase = <0x3000028>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19cc>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_41 {
+						InputBase = <0x3000029>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19cd>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_42 {
+						InputBase = <0x300002a>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19ce>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_43 {
+						InputBase = <0x300002b>;
+						NumIDs = <0x01>;
+						OutputBase = <0x19cf>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_Display {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x04>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "DISPLAY";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x21c00>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1c01>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1c03>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x21c04>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_ECATS_95TEST {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x02>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "ECATS_TEST";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x400>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x401>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_EVA {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x04>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "EVA";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1920>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x43000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1920>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1923>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1924>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_GPU {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x06>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "GPU";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x00>;
+						Flags = <0x00>;
+						OutputReference = <0x02>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x01>;
+						Flags = <0x00>;
+						OutputReference = <0x02>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0x02>;
+						Flags = <0x00>;
+						OutputReference = <0x02>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x04>;
+						Flags = <0x00>;
+						OutputReference = <0x02>;
+					};
+
+					SIDMappings_5 {
+						InputBase = <0x3000005>;
+						NumIDs = <0x01>;
+						OutputBase = <0x05>;
+						Flags = <0x00>;
+						OutputReference = <0x02>;
+					};
+
+					SIDMappings_6 {
+						InputBase = <0x3000006>;
+						NumIDs = <0x01>;
+						OutputBase = <0x07>;
+						Flags = <0x00>;
+						OutputReference = <0x02>;
+					};
+				};
+			};
+
+			NAMEDNODE_IPA {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x05>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "IPA";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x4a0>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x4a1>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0x4a2>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x4a3>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x4a4>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_LPASS {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x07>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "LPASS";
+
+				SIDMappings {
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x801001>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0x801003>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1004>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1005>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_5 {
+						InputBase = <0x3000005>;
+						NumIDs = <0x01>;
+						OutputBase = <0x100b>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_14 {
+						InputBase = <0x300000e>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1061>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_15 {
+						InputBase = <0x300000f>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1063>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_PCIE0 {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x01>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "PCIE0";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x7f1400>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_PCIE1 {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x01>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "PCIE1";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x7f1480>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_QDSS {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x02>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "QDSS";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x2004c0>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x500>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_QUP1 {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x03>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "QUP1";
+
+				SIDMappings {
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0xb6>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0xb8>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0xa3>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_QUP2 {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x03>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "QUP2";
+
+				SIDMappings {
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x436>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_2 {
+						InputBase = <0x3000002>;
+						NumIDs = <0x01>;
+						OutputBase = <0x438>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x423>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_SDC2 {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x01>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "SDC2";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x540>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_SDC4 {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x01>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "SDC4";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x80>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_Sensors {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x02>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "SENSORS";
+
+				SIDMappings {
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x10c3>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x10d6>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_UFS_95MEM {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x01>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "UFS_MEM";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x60>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_USB0 {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x01>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "USB0";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x40>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+
+			NAMEDNODE_Video {
+				Type = <0x01>;
+				Revision = <0x01>;
+				Reserved = <0x00>;
+				NumberofMappings = <0x05>;
+				NodeFlags = <0x00>;
+				CacheCoherency = <0x00>;
+				AllocationHints = <0x00>;
+				Reserved1 = <0x00>;
+				MemAccessFlags = <0x00>;
+				DeviceMemAddressSize = <0x24>;
+				DevObjectName = "VIDEO";
+
+				SIDMappings {
+
+					SIDMappings_0 {
+						InputBase = <0x3000000>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1940>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_1 {
+						InputBase = <0x3000001>;
+						NumIDs = <0x01>;
+						OutputBase = <0x41941>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_3 {
+						InputBase = <0x3000003>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1943>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_4 {
+						InputBase = <0x3000004>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1944>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+
+					SIDMappings_5 {
+						InputBase = <0x3000005>;
+						NumIDs = <0x01>;
+						OutputBase = <0x1947>;
+						Flags = <0x00>;
+						OutputReference = <0x01>;
+					};
+				};
+			};
+		};
+
+		sdc1@8804000 {
+			compatible = "qcom,sdcc";
+			reg = <0x8804000 0x1000>;
+			EnableLogging = [00];
+			DriveStrength = <0x1fe4>;
+			MaxSpeedMode = [05];
+			phandle = <0x0e>;
+
+			HsrSettings {
+				DLLConfig = <0x7442c>;
+				DLLTestCtrl = <0x1800000>;
+				DDRConfig = <0x80040868>;
+				DLLUserCtrl = <0x90106c0>;
+				DLLConfig2 = <0x5400>;
+				DLLConfig3 = <0x08>;
+
+				SDR104 {
+
+					V1 {
+						DLLConfig2 = "\0\b|";
+						DLLConfig3 = <0x08>;
+					};
+
+					V2 {
+						DLLConfig2 = <0x8a800>;
+						DLLConfig3 = <0x10>;
+					};
+				};
+
+				SDR50 {
+					DLLConfig2 = <0x5400>;
+					DLLConfig3 = <0x08>;
+				};
+			};
+		};
+
+		usb0 {
+			compatible = "qcom,usb";
+
+			hs_phy_cfg {
+				table = <0xffffffff 0x00 0xffffffff 0x00 0xffffffff 0x00 0xffffffff 0x00>;
+			};
+
+			ss_phy_cfg {
+				table = <0x88e8008 0x01 0x88e9c40 0x01 0x88e9000 0xc0 0x88e9004 0x01 0x88e9010 0x02 0x88e9014 0x16 0x88e9018 0x36 0x88e901c 0x04 0x88e9020 0x16 0x88e9024 0x41 0x88e9028 0x41 0x88e902c 0x00 0x88e9030 0x55 0x88e9034 0x75 0x88e9038 0x01 0x88e903c 0x01 0x88e9048 0x25 0x88e904c 0x02 0x88e9050 0x5c 0x88e9054 0x0f 0x88e9058 0x5c 0x88e905c 0x0f 0x88e9060 0xc0 0x88e9064 0x01 0x88e9070 0x02 0x88e9074 0x16 0x88e9078 0x36 0x88e9080 0x08 0x88e9084 0x1a 0x88e9088 0x41 0x88e908c 0x00 0x88e9090 0x55 0x88e9094 0x75 0x88e9098 0x01 0x88e90a8 0x25 0x88e90ac 0x02 0x88e90bc 0x0a 0x88e90c0 0x01 0x88e90cc 0x62 0x88e90d0 0x02 0x88e90e8 0x0c 0x88e9110 0x1a 0x88e9124 0x14 0x88e9140 0x04 0x88e9170 0x20 0x88e9174 0x16 0x88e91a4 0xb6 0x88e91a8 0x4b 0x88e91ac 0x37 0x88e91b4 0x0c 0x88e9234 0x00 0x88e9238 0x00 0x88e923c 0x1f 0x88e9240 0x09 0x88e9284 0xf5 0x88e928c 0x3f 0x88e9290 0x3f 0x88e9294 0x5f 0x88e92a4 0x12 0x88e92e4 0x21 0x88e9408 0x0a 0x88e9414 0x06 0x88e9430 0x2f 0x88e9434 0x7f 0x88e943c 0xff 0x88e9440 0x0f 0x88e9444 0x99 0x88e944c 0x08 0x88e9450 0x08 0x88e9454 0x00 0x88e9458 0x0a 0x88e9460 0xa0 0x88e94d4 0x54 0x88e94d8 0x0f 0x88e94dc 0x13 0x88e94ec 0x0f 0x88e94f0 0x4a 0x88e94f4 0x0a 0x88e94f8 0x07 0x88e94fc 0x00 0x88e9510 0x47 0x88e951c 0x04 0x88e9524 0x0e 0x88e955c 0x3f 0x88e9560 0xbf 0x88e9564 0xff 0x88e9568 0xdf 0x88e956c 0xed 0x88e9570 0xdc 0x88e9574 0x5c 0x88e9578 0x9c 0x88e957c 0x1d 0x88e9580 0x09 0x88e95a0 0x04 0x88e95a4 0x38 0x88e95a8 0x0c 0x88e95b0 0x10 0x88e95e4 0x14 0x88e95f8 0x08 0x88e9634 0x00 0x88e9638 0x00 0x88e963c 0x1f 0x88e9640 0x09 0x88e9684 0xf5 0x88e968c 0x3f 0x88e9690 0x3f 0x88e9694 0x5f 0x88e96a4 0x12 0x88e96e4 0x05 0x88e9808 0x0a 0x88e9814 0x06 0x88e9830 0x2f 0x88e9834 0x7f 0x88e983c 0xff 0x88e9840 0x0f 0x88e9844 0x99 0x88e984c 0x08 0x88e9850 0x08 0x88e9854 0x00 0x88e9858 0x0a 0x88e9860 0xa0 0x88e98d4 0x54 0x88e98d8 0x0f 0x88e98dc 0x13 0x88e98ec 0x0f 0x88e98f0 0x4a 0x88e98f4 0x0a 0x88e98f8 0x07 0x88e98fc 0x00 0x88e9910 0x47 0x88e991c 0x04 0x88e9924 0x0e 0x88e995c 0xbf 0x88e9960 0xbf 0x88e9964 0xbf 0x88e9968 0xdf 0x88e996c 0xfd 0x88e9970 0xdc 0x88e9974 0x5c 0x88e9978 0x9c 0x88e997c 0x1d 0x88e9980 0x09 0x88e99a0 0x04 0x88e99a4 0x38 0x88e99a8 0x0c 0x88e99b0 0x10 0x88e99e4 0x14 0x88e99f8 0x08 0x88e9cc4 0xc4 0x88e9cc8 0x89 0x88e9ccc 0x20 0x88e9cd8 0x13 0x88e9cdc 0x21 0x88e9d88 0x99 0x88e9d90 0xe7 0x88e9d94 0x03 0x88e9db0 0x0a 0x88e9dc0 0x88 0x88e9dc4 0x13 0x88e9dd0 0x0c 0x88e9ddc 0x4b 0x88e9dec 0x10 0x88e9f00 0x68 0x88e9f18 0xf8 0x88e9f3c 0x07 0x88e9f40 0x40 0x88e9f44 0x00 0x00 0x00>;
+			};
+		};
+
+		ssr {
+			max_subsys_configured = <0x03>;
+
+			smp2p_err_fatal {
+				entry_name = "slave-kernel";
+				bit = <0x00>;
+				phandle = <0x03>;
+			};
+
+			smp2p_err_ready {
+				entry_name = "slave-kernel";
+				bit = <0x01>;
+				phandle = <0x05>;
+			};
+
+			smp2p_proxy_unvote {
+				entry_name = "slave-kernel";
+				bit = <0x02>;
+				phandle = <0x04>;
+			};
+
+			smp2p_stop_ack {
+				entry_name = "slave-kernel";
+				bit = <0x03>;
+				phandle = <0x06>;
+			};
+
+			ssr_subsys_config_1 {
+				subsys_name = "adsp";
+				subsys_id = <0x01>;
+				host = <0x02>;
+				sfr_type = <0x1a7>;
+				wdog_intr = <0x206 0x00>;
+				err_fatal = <0x03>;
+				proxy_unvote = <0x04>;
+				err_ready = <0x05>;
+				stop_ack_bit = <0x06>;
+				qmi_svc_ins = <0x14>;
+			};
+
+			ssr_subsys_config_2 {
+				subsys_name = "cdsp";
+				subsys_id = <0x12>;
+				host = <0x05>;
+				sfr_type = <0x259>;
+				wdog_intr = <0x262 0x00>;
+				err_fatal = <0x03>;
+				proxy_unvote = <0x04>;
+				err_ready = <0x05>;
+				stop_ack_bit = <0x06>;
+				qmi_svc_ins = <0x17>;
+			};
+
+			ssr_subsys_config_3 {
+				subsys_name = "modem";
+				subsys_id = <0x04>;
+				host = <0x01>;
+				sfr_type = <0x1a5>;
+				wdog_intr = <0x128 0x00>;
+				err_fatal = <0x03>;
+				proxy_unvote = <0x04>;
+				err_ready = <0x05>;
+				stop_ack_bit = <0x06>;
+				qmi_svc_ins = <0x12>;
+			};
+		};
+
+		disp_rdump_region@E3940000 {
+			compatible = "qcom,display";
+			reg = <0xe3940000 0x2b00000>;
+			label = "disp_rdump_region";
+			phandle = <0x0f>;
+		};
+	};
+
+	sw {
+		phandle = <0x10>;
+
+		boot {
+			config = <0x00 0x00 0x00>;
+			test_mode = <0x02>;
+			xbl_sc_wdog = <0x01>;
+			skip_ddr_init_in_EDL = <0x00>;
+			vibration = <0x00>;
+			save_logs_to_media = <0x01>;
+
+			forced_download {
+				feature = <0x01>;
+				check_usb_option = <0x01>;
+				check_dp_timeout = <0x2710>;
+				ignore_pwr_key = <0x00>;
+			};
+
+			fedl_timeout {
+				ver = <0x01>;
+				action = <0x01>;
+			};
+		};
+
+		pmic {
+
+			pm {
+				phandle = <0x11>;
+
+				pon {
+					compatible = "qcom,pm-pon";
+
+					pshold {
+						enable = [01];
+						reset-type = [01];
+					};
+
+					smpl {
+						enable = [01];
+						smpl-delay = <0x320>;
+					};
+
+					s2-kpdpwr {
+						enable = [01];
+						reset-type = [01];
+						s1-ms = <0x1a40>;
+						s2-ms = <0x7d0>;
+					};
+
+					s2-kpdpwr-resin {
+						enable = [01];
+						reset-type = [00];
+						s1-ms = <0xc00>;
+						s2-ms = <0x7d0>;
+					};
+
+					s2-resin {
+						enable = [00];
+						reset-type = [01];
+						s1-ms = <0x2810>;
+						s2-ms = <0x7d0>;
+					};
+
+					s3-reset {
+						enable = [01];
+						s3-src = [00];
+						timer-value-ms = <0x3e80>;
+					};
+
+					uvlo-config {
+						config-value = <0x00>;
+					};
+
+					ovlo-config {
+						config-value = <0x00>;
+					};
+
+					long-pwrkey-dbnc-chk {
+						dbnc-time-ms = <0x9c4>;
+						chk-at = [02];
+					};
+				};
+
+				display {
+					compatible = "qcom,pm-display";
+					swire-map = [00];
+					apply-default-volt = [00];
+					default-elvss = <0xfffff060>;
+					default-elvdd = <0x11f8>;
+					default-oledb = <0x1900>;
+				};
+
+				haptics {
+					compatible = "qcom,pm-haptics";
+					ext-boost-vdd = <0x01>;
+					vmax-hdrm = <0x0a>;
+					vmax-mv = <0x578>;
+					tlra-ol = <0x602>;
+					autores-cfg = <0x01>;
+					vbatt-min = <0x00>;
+					boost-cfg-bob = <0x00>;
+					lra-resistance = <0x24>;
+					swr-io-volt = <0x00>;
+				};
+
+				charger {
+					parallel-charger = <0x00>;
+					charger-pmic-index = <0x07>;
+					loader-dbc-threshold = <0x9c4>;
+					dbc-sdp-thd-inc = <0x1f4>;
+					skip-loader-dbc = <0x00>;
+					core-dbc-threshold = <0xc80>;
+					skip-core-dbc = <0x00>;
+					uv-oc-1s-threshold = <0x960>;
+					uv-oc-2s-threshold = <0x16a8>;
+					apply-ichg-fs = <0x01>;
+					ichg-fs = <0x00>;
+					batt-2s-option = <0x01>;
+					batt-1s2p-id2 = <0x00>;
+					batt-1s2p-therm2 = <0x00>;
+					too-hot-afp-threshold = <0x52>;
+					apply-too-hot-afp = <0x01>;
+					too-cold-afp-threshold = <0xfffffff1>;
+					apply-too-cold-afp = <0x00>;
+					apply-boot-wo-batt = <0x01>;
+					boot-wo-batt = <0x01>;
+					icl-boot-wo-batt = <0x3e8>;
+					apply-float-voltage = <0x01>;
+					float-voltage-mv = <0x1162>;
+					apply-pre-charge-current = <0x01>;
+					pre-charge-ma = <0xfa>;
+					apply-fast-charge-current = <0x01>;
+					fast-charge-ma = <0x5dc>;
+					apply-icl = <0x01>;
+					icl-ma = <0x5dc>;
+					apply-float-charger-icl = <0x01>;
+					float-charger-icl-ma = <0x3e8>;
+					apply-vsysmin = <0x00>;
+					vsysmin = <0xc80>;
+					usb-suspend = <0x00>;
+					wls-usb-prior-swap = <0x00>;
+					batt-detect-src = <0x00>;
+					max-dbg-board-id = <0x2af8>;
+					min-dbg-board-id = <0xbb8>;
+					detect-jig-by-therm = <0x00>;
+					max-therm = <0x30c>;
+					min-therm = <0x50>;
+					jig-icl-ma = <0x5dc>;
+					uvp-recover-delay = <0x12c>;
+					ignore-temp-in-dbc = <0x00>;
+					batt-therm-pull-up = <0x01>;
+					ibat-via-ext-sense = <0x00>;
+					ext-rsns-adc-scale = <0x00>;
+					vbat-thd-rtc-pon = <0xe10>;
+					vsys-min-recover-mv = <0x11f8>;
+					vflt-recover-mv = <0x1194>;
+				};
+
+				camera {
+					compatible = "qcom,pm-camera";
+					rst-signal = <0x07 0x0b>;
+				};
+
+				sw-config {
+					compatible = "qcom,pm-sw";
+					verbose = <0x00>;
+					driver-post-init = <0x43 0x00 0x01 0x07 0x05 0x43 0x00 0x01 0x09 0x05 0x06 0x00 0x0c 0x02 0x00 0x06 0x00 0x0c 0x03 0x00 0x64 0x00 0x00 0x00 0x0a>;
+					apply-rsns-trim = <0x00>;
+					rsns-trim-value = <0x00>;
+					primming-enable = <0x00>;
+					gfx-count-ctrl = <0x00>;
+				};
+			};
+
+			psi {
+				compatible = "qcom,pm-psi";
+				phandle = <0x12>;
+
+				pm-psi-variant {
+					major = [00];
+					minor = [00 00];
+				};
+
+				pm-psi-clogic {
+					clogic-version = <0x01>;
+					clogic-data = <0x00 0x00 0x00 0x10 0xff 0x52 0x01>;
+				};
+
+				pm-psi-seq {
+					opsi-settings-version = <0x01>;
+					post-device-opsi = <0x00 0x00 0x04 0x00 0x00 0x00 0x00 0x00 0x00>;
+				};
+			};
+
+			adc {
+				phandle = <0x13>;
+
+				vadc {
+					#address-cells = <0x01>;
+					#size-cells = <0x00>;
+					phandle = <0x14>;
+
+					spmi-vadc@7 {
+						compatible = "qcom,spmi-vadc";
+						reg = <0x90>;
+						use-interrupt = <0x00>;
+						fullscale-code = <0x70e4>;
+						fullscale-uV = <0x1c9c38>;
+						fullratiometric-code = <0x4000>;
+						read-timeout-uS = <0x7a120>;
+						ldo-settling-uS = <0x43>;
+						slave-id = <0x00>;
+						peripheral-id = <0x90>;
+						master-id = <0x00>;
+						pmic-device = <0x00>;
+						bus-id = <0x00>;
+						phandle = <0x15>;
+
+						vadc_ch_cfg {
+
+							VPH_PWR {
+								hw-channel = <0x8e>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x03>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							PMIC_TEMP7 {
+								hw-channel = <0x03>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0xfffbd598>;
+								scaling-method = "xtuV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table = "/sw/pmic/adc/vadc/spmi-vadc@7/therm_table/therm_tb@2";
+							};
+
+							CHG_TEMP {
+								hw-channel = <0x10>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							BATT_THERM {
+								hw-channel = <0x44>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "raio";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0xfffffeef>;
+								scaling-method = "xtr ";
+								pull-up-res = <0x186a0>;
+								adc-sid = <0x07>;
+								int-table = "/sw/pmic/adc/vadc/spmi-vadc@7/therm_table/therm_tb@1";
+							};
+
+							BATT_THERM_PU_30K {
+								hw-channel = <0x24>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "raio";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0xfffffeef>;
+								scaling-method = "xtr ";
+								pull-up-res = <0x7530>;
+								adc-sid = <0x07>;
+								int-table = "/sw/pmic/adc/vadc/spmi-vadc@7/therm_table/therm_tb@1";
+							};
+
+							BATT_THERM_PU_400K {
+								hw-channel = <0x64>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "raio";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0xfffffeef>;
+								scaling-method = "xtr ";
+								pull-up-res = <0x61a80>;
+								adc-sid = <0x07>;
+								int-table = "/sw/pmic/adc/vadc/spmi-vadc@7/therm_table/therm_tb@1";
+							};
+
+							BATT_THERM_OHMS {
+								hw-channel = <0x44>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "raio";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0x00>;
+								scaling-method = "res ";
+								pull-up-res = <0x186a0>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							BATT_ID_OHMS {
+								hw-channel = <0x45>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "raio";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0x00>;
+								scaling-method = "res ";
+								pull-up-res = <0x186a0>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							BATT_ID_OHMS_PU_30K {
+								hw-channel = <0x25>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "raio";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0x00>;
+								scaling-method = "res ";
+								pull-up-res = <0x7530>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							BATT_ID_OHMS_PU_400K {
+								hw-channel = <0x65>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "raio";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0x00>;
+								scaling-method = "res ";
+								pull-up-res = <0x61a80>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							USBC_MUX_OPEN {
+								hw-channel = <0x13>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x04>;
+								decimation-ratio = <0x400>;
+								cal-method = "raio";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0x00>;
+								scaling-method = "res ";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							VBATT {
+								hw-channel = <0x8f>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x03>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							VBATT_2S {
+								hw-channel = <0x8f>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x06>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							VBATT_2S_MID {
+								hw-channel = <0x96>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x03>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							USB_IN {
+								hw-channel = <0x11>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x10>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							VWLS {
+								hw-channel = <0x12>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x10>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							USB_IN_I {
+								hw-channel = <0x17>;
+								settling-delay-uS = <0x00>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x08 0x19>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x00>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							HW_ID_GPIO {
+								hw-channel = <0x4c>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x186a0>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+
+							PROJECT_ID_GPIO {
+								hw-channel = <0x4b>;
+								settling-delay-uS = <0x64>;
+								average-sample = <0x01>;
+								decimation-ratio = <0x400>;
+								cal-method = "abs ";
+								scaling-factor = <0x01 0x01>;
+								offset-factor = <0x00>;
+								scaling-method = "tomV";
+								pull-up-res = <0x186a0>;
+								adc-sid = <0x07>;
+								int-table;
+							};
+						};
+
+						vadc-avg-ch {
+							ch-name = "XO_THERM_GPS";
+							low-name = "XO_THERM_GPS_LOW";
+							med-name = "XO_THERM_GPS_MED";
+							high-name = "XO_THERM_GPS_HIGH";
+							med-to-low = <0x1400>;
+							low-to-med = <0x3c00>;
+							high-to-med = <0x8000>;
+							med-to-high = <0xa800>;
+						};
+
+						gpio-map {
+
+							aux_pin1 {
+								pmic-sid = <0x07>;
+								gpio-num = <0x04>;
+							};
+
+							aux_pin2 {
+								pmic-sid = <0x07>;
+								gpio-num = <0x05>;
+							};
+						};
+
+						therm_table {
+							#address-cells = <0x01>;
+							#size-cells = <0x00>;
+							phandle = <0x16>;
+
+							therm_tb@1 {
+								reg = <0x01>;
+								table = <0x40dd78 0xe9 0x2dd9e4 0xee 0x20ca24 0xf3 0x17b588 0xf8 0x1152c4 0xfd 0xcc8a8 0x102 0x985e4 0x107 0x7286c 0x10c 0x56d10 0x111 0x425b8 0x116 0x331f8 0x11b 0x27ac4 0x120 0x1f018 0x125 0x186a0 0x12a 0x13560 0x12f 0xf6e0 0x134 0xc60c 0x139 0x9fc4 0x13e 0x81b0 0x143 0x69dc 0x148 0x56b8 0x14d 0x477c 0x152 0x3b60 0x157 0x3138 0x15c 0x2968 0x161 0x22ba 0x166 0x1d4c 0x16b 0x18d8 0x170 0x1522 0x175 0x120c 0x17a 0xf82 0x17f 0xd5c 0x184 0xb86 0x189 0xa00 0x18e>;
+								phandle = <0x17>;
+							};
+
+							therm_tb@2 {
+								reg = <0x02>;
+								table = <0x69e24 0x34008 0x7380c 0x38e28 0x7d190 0x3dc48 0x86a4c 0x42a68 0x902a4 0x47888 0x99a34 0x4c6a8 0xa30fc 0x514c8 0xac760 0x562e8 0xb5c98 0x5b108 0xbf0a4 0x5ff28 0xc8384 0x64d48>;
+								phandle = <0x18>;
+							};
+						};
+					};
+				};
+			};
+
+			arb {
+				phandle = <0x19>;
+
+				access {
+					none;
+					ssc;
+					secpro;
+					invalid;
+					aop;
+					adsp = <0x00 0x01 0x90 0x01 0x00 0x01 0x92 0x01 0x00 0x04 0x8c 0x01 0x00 0x01 0x93 0x01 0x00 0x04 0x8b 0x01 0x00 0x04 0x8d 0x01>;
+					apps = <0x00 0x07 0x91 0x01 0x00 0x01 0x89 0x01>;
+					tz;
+					mss;
+					uefi = <0x00 0x00 0x72 0x01 0x00 0x01 0xc8 0x01>;
+					phandle = <0x1a>;
+				};
+
+				mgpi {
+					compatible = "qcom,arb_mgpi";
+					phandle = <0x1b>;
+				};
+
+				pvc {
+					compatible = "qcom,arb_pvc";
+					phandle = <0x1c>;
+				};
+			};
+		};
+
+		smem {
+			compatible = "qcom,kailua-smem";
+			smem-vers = <0xc0000>;
+			smem-toc-vers = <0x01>;
+			smem-max-items = <0x288>;
+			phandle = <0x1d>;
+
+			smem-partitions {
+
+				part-01 {
+					size = <0x60000>;
+					flags = <0x03>;
+					host0 = <0x00>;
+					host1 = <0x02>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-02 {
+					size = <0x20000>;
+					flags = <0x03>;
+					host0 = <0x00>;
+					host1 = <0x05>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-03 {
+					size = <0x8000>;
+					flags = <0x03>;
+					host0 = <0x00>;
+					host1 = <0x08>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-04 {
+					size = <0x4000>;
+					flags = <0x03>;
+					host0 = <0x07>;
+					host1 = <0x0b>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-05 {
+					size = <0x2000>;
+					flags = <0x03>;
+					host0 = <0x07>;
+					host1 = <0x05>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-06 {
+					size = <0x4000>;
+					flags = <0x03>;
+					host0 = <0x07>;
+					host1 = <0x02>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-07 {
+					size = <0x2000>;
+					flags = <0x03>;
+					host0 = <0x07>;
+					host1 = <0x01>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-08 {
+					size = <0x4000>;
+					flags = <0x03>;
+					host0 = <0x01>;
+					host1 = <0x0b>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-09 {
+					size = <0x7c000>;
+					flags = <0x03>;
+					host0 = <0x00>;
+					host1 = <0x01>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-10 {
+					size = <0x30000>;
+					flags = <0x03>;
+					host0 = <0x01>;
+					host1 = <0x02>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-11 {
+					size = <0x8000>;
+					flags = <0x03>;
+					host0 = <0x00>;
+					host1 = <0x0e>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-12 {
+					size = <0x2000>;
+					flags = <0x03>;
+					host0 = <0x01>;
+					host1 = <0x0e>;
+					size-cacheline = <0x20>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+
+				part-13 {
+					size = <0x00>;
+					flags = <0x00>;
+					host0 = <0xffff>;
+					host1 = <0xffff>;
+					size-cacheline = <0x00>;
+					exclusion-sizes = <0x00 0x00 0x00 0x00>;
+				};
+			};
+		};
+
+		uefi {
+
+			uefiplat {
+				size = <0x2096>;
+				payload = [5b 43 6f 6e 66 69 67 5d 0a 56 65 72 73 69 6f 6e 20 3d 20 33 0a 4d 61 78 4d 65 6d 6f 72 79 52 65 67 69 6f 6e 73 20 3d 20 37 34 0a 0a 5b 4d 65 6d 6f 72 79 4d 61 70 5d 0a 23 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 45 46 49 5f 52 45 53 4f 55 52 43 45 5f 20 45 46 49 5f 52 45 53 4f 55 52 43 45 5f 41 54 54 52 49 42 55 54 45 5f 20 45 46 49 5f 4d 45 4d 4f 52 59 5f 54 59 50 45 20 41 52 4d 5f 52 45 47 49 4f 4e 5f 41 54 54 52 49 42 55 54 45 5f 0a 23 4d 65 6d 42 61 73 65 2c 20 20 20 4d 65 6d 53 69 7a 65 2c 20 20 20 4d 65 6d 4c 61 62 65 6c 28 33 32 20 43 68 61 72 2e 29 2c 20 42 75 69 6c 64 48 6f 62 2c 20 52 65 73 6f 75 72 63 65 54 79 70 65 2c 20 52 65 73 6f 75 72 63 65 41 74 74 72 69 62 75 74 65 2c 20 4d 65 6d 6f 72 79 54 79 70 65 2c 20 43 61 63 68 65 41 74 74 72 69 62 75 74 65 73 0a 23 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 20 44 44 52 20 20 2d 2d 2d 2d 2d 0a 30 78 38 30 30 30 30 30 30 30 2c 20 30 78 30 31 32 30 30 30 30 30 2c 20 22 4e 4f 4d 41 50 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 4e 6f 4d 61 70 2c 20 20 4d 45 4d 5f 52 45 53 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 52 65 73 65 72 76 2c 20 55 4e 43 41 43 48 45 44 5f 55 4e 42 55 46 46 45 52 45 44 5f 58 4e 0a 30 78 38 31 32 30 30 30 30 30 2c 20 30 78 30 30 38 30 30 30 30 30 2c 20 22 52 53 52 56 30 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 65 73 65 72 76 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 38 31 41 30 30 30 30 30 2c 20 30 78 30 30 30 34 30 30 30 30 2c 20 22 58 42 4c 20 44 54 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 65 73 65 72 76 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 38 31 41 34 30 30 30 30 2c 20 30 78 30 30 31 43 30 30 30 30 2c 20 22 58 42 4c 20 52 61 6d 64 75 6d 70 22 2c 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 52 65 73 65 72 76 2c 20 55 4e 43 41 43 48 45 44 5f 55 4e 42 55 46 46 45 52 45 44 5f 58 4e 0a 30 78 38 31 43 30 30 30 30 30 2c 20 30 78 30 30 30 41 30 30 30 30 2c 20 22 41 4f 50 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 52 65 73 65 72 76 2c 20 55 4e 43 41 43 48 45 44 5f 55 4e 42 55 46 46 45 52 45 44 5f 58 4e 0a 30 78 38 31 44 30 30 30 30 30 2c 20 30 78 30 30 32 30 30 30 30 30 2c 20 22 53 4d 45 4d 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 52 65 73 65 72 76 2c 20 55 4e 43 41 43 48 45 44 5f 55 4e 42 55 46 46 45 52 45 44 5f 58 4e 0a 30 78 38 36 45 30 30 30 30 30 2c 20 30 78 30 32 41 30 30 30 30 30 2c 20 22 52 53 52 56 31 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 65 73 65 72 76 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 38 39 38 30 30 30 30 30 2c 20 30 78 31 39 32 38 30 30 30 30 2c 20 22 50 49 4c 20 52 65 73 65 72 76 65 64 22 2c 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 52 65 73 65 72 76 2c 20 55 4e 43 41 43 48 45 44 5f 55 4e 42 55 46 46 45 52 45 44 5f 58 4e 0a 30 78 41 32 41 38 30 30 30 30 2c 20 30 78 30 32 42 30 30 30 30 30 2c 20 22 44 69 73 70 6c 61 79 20 44 65 6d 75 72 61 22 2c 20 20 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 65 73 65 72 76 2c 20 57 52 49 54 45 5f 54 48 52 4f 55 47 48 5f 58 4e 0a 30 78 41 35 35 38 30 30 30 30 2c 20 30 78 30 30 42 38 30 30 30 30 2c 20 22 52 53 52 56 32 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 65 73 65 72 76 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 41 36 31 30 30 30 30 30 2c 20 30 78 30 30 46 30 30 30 30 30 2c 20 22 44 42 49 20 44 75 6d 70 22 2c 20 20 20 20 20 20 20 20 20 20 4e 6f 48 6f 62 2c 20 20 4d 4d 41 50 5f 49 4f 2c 20 49 4e 49 54 49 41 4c 49 5a 45 44 2c 20 43 6f 6e 76 2c 20 20 20 55 4e 43 41 43 48 45 44 5f 55 4e 42 55 46 46 45 52 45 44 5f 58 4e 0a 30 78 41 37 30 30 30 30 30 30 2c 20 30 78 30 30 34 30 30 30 30 30 2c 20 22 55 45 46 49 20 46 44 22 2c 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 0a 30 78 41 37 34 30 30 30 30 30 2c 20 30 78 30 30 32 30 30 30 30 30 2c 20 22 55 45 46 49 20 46 44 20 52 65 73 65 72 76 65 64 22 2c 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 0a 30 78 41 37 36 30 30 30 30 30 2c 20 30 78 30 30 30 30 31 30 30 30 2c 20 22 43 50 55 20 56 65 63 74 6f 72 73 22 2c 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 0a 30 78 41 37 36 30 31 30 30 30 2c 20 30 78 30 30 30 30 31 30 30 30 2c 20 22 49 6e 66 6f 20 42 6c 6b 22 2c 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 74 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 41 37 36 30 32 30 30 30 2c 20 30 78 30 30 30 30 33 30 30 30 2c 20 22 4d 4d 55 20 50 61 67 65 54 61 62 6c 65 73 22 2c 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 20 20 0a 30 78 41 37 36 30 35 30 30 30 2c 20 30 78 30 30 30 30 38 30 30 30 2c 20 22 4c 6f 67 20 42 75 66 66 65 72 22 2c 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 74 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 20 20 20 20 20 20 0a 30 78 41 37 36 30 44 30 30 30 2c 20 30 78 30 30 30 34 30 30 30 30 2c 20 22 55 45 46 49 20 53 74 61 63 6b 22 2c 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 41 37 36 34 44 30 30 30 2c 20 30 78 30 30 30 38 43 30 30 30 2c 20 22 53 45 43 20 48 65 61 70 22 2c 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 41 37 36 44 39 30 30 30 2c 20 30 78 30 30 34 30 30 30 30 30 2c 20 22 53 63 68 65 64 20 48 65 61 70 22 2c 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 41 37 41 44 39 30 30 30 2c 20 30 78 30 30 34 30 30 30 30 30 2c 20 22 46 56 20 52 65 67 69 6f 6e 22 2c 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 41 37 45 44 39 30 30 30 2c 20 30 78 30 30 31 32 37 30 30 30 2c 20 22 55 45 46 49 20 52 45 53 56 22 2c 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 42 73 44 61 74 61 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 41 38 30 30 30 30 30 30 2c 20 30 78 31 30 30 30 30 30 30 30 2c 20 22 4b 65 72 6e 65 6c 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 65 73 65 72 76 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 42 38 30 30 30 30 30 30 2c 20 30 78 30 32 42 30 30 30 30 30 2c 20 22 44 69 73 70 6c 61 79 20 52 65 73 65 72 76 65 64 22 2c 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 65 73 65 72 76 2c 20 57 52 49 54 45 5f 54 48 52 4f 55 47 48 5f 58 4e 0a 30 78 42 41 42 30 30 30 30 30 2c 20 30 78 30 44 31 43 30 30 30 30 2c 20 22 44 58 45 20 48 65 61 70 22 2c 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 53 59 53 5f 4d 45 4d 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 43 6f 6e 76 2c 20 20 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 44 38 38 30 30 30 30 30 2c 20 30 78 30 38 41 30 30 30 30 30 2c 20 22 54 5a 41 70 70 73 20 52 65 73 65 72 76 65 64 22 2c 20 20 20 41 64 64 44 79 6e 61 6d 69 63 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 52 65 73 65 72 76 2c 20 55 4e 43 41 43 48 45 44 5f 55 4e 42 55 46 46 45 52 45 44 5f 58 4e 0a 30 78 45 45 42 30 30 30 30 30 2c 20 30 78 30 34 42 30 30 30 30 30 2c 20 22 52 53 52 56 33 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 4d 65 6d 2c 20 4d 45 4d 5f 52 45 53 2c 20 53 59 53 5f 4d 45 4d 5f 43 41 50 2c 20 52 65 73 65 72 76 2c 20 57 52 49 54 45 5f 42 41 43 4b 5f 58 4e 0a 30 78 46 46 38 30 30 30 30 30 2c 20 30 78 30 30 38 30 30 30 30 30 2c 20 22 4e 4f 4d 41 50 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 4e 6f 4d 61 70 2c 20 20 4d 45 4d 5f 52 45 53 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 52 65 73 65 72 76 2c 20 55 4e 43 41 43 48 45 44 5f 55 4e 42 55 46 46 45 52 45 44 5f 58 4e 0a 0a 5b 52 65 67 69 73 74 65 72 4d 61 70 5d 0a 23 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 20 4f 74 68 65 72 20 2d 2d 2d 2d 2d 0a 30 78 31 34 36 38 30 30 30 30 2c 20 30 78 30 30 30 32 41 30 30 30 2c 20 22 49 4d 45 4d 20 42 61 73 65 22 2c 20 20 20 20 20 20 20 20 20 20 4e 6f 48 6f 62 2c 20 20 4d 4d 41 50 5f 49 4f 2c 20 49 4e 49 54 49 41 4c 49 5a 45 44 2c 20 43 6f 6e 76 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 31 34 36 41 41 30 30 30 2c 20 30 78 30 30 30 31 36 30 30 30 2c 20 22 49 4d 45 4d 20 43 6f 6f 6b 69 65 20 42 61 73 65 22 2c 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 49 4e 49 54 49 41 4c 49 5a 45 44 2c 20 43 6f 6e 76 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 23 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 20 52 65 67 69 73 74 65 72 20 2d 2d 0a 30 78 30 30 34 30 30 30 30 30 2c 20 30 78 30 30 31 30 30 30 30 30 2c 20 22 49 50 43 5f 52 4f 55 54 45 52 5f 54 4f 50 22 2c 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 30 37 38 30 30 30 30 2c 20 30 78 30 30 30 30 37 30 30 30 2c 20 22 53 45 43 55 52 49 54 59 20 43 4f 4e 54 52 4f 4c 22 2c 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 30 38 30 30 30 30 30 2c 20 30 78 30 30 33 30 30 30 30 30 2c 20 22 51 55 50 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 31 30 43 30 30 30 30 2c 20 30 78 30 30 30 30 43 30 30 30 2c 20 22 50 52 4e 47 5f 43 46 47 5f 50 52 4e 47 22 2c 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 31 44 43 30 30 30 30 2c 20 30 78 30 30 30 34 30 30 30 30 2c 20 22 43 52 59 50 54 4f 30 20 43 52 59 50 54 4f 22 2c 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 31 46 30 30 30 30 30 2c 20 30 78 30 30 31 30 30 30 30 30 2c 20 22 43 4f 52 45 5f 54 4f 50 5f 43 53 52 22 2c 20 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 38 38 30 30 30 30 30 2c 20 30 78 30 30 31 30 30 30 30 30 2c 20 22 50 45 52 49 50 48 5f 53 53 22 2c 20 20 20 20 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 41 36 30 30 30 30 30 2c 20 30 78 30 30 32 30 30 30 30 30 2c 20 22 55 53 42 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 42 30 30 30 30 30 30 2c 20 30 78 30 34 30 30 30 30 30 30 2c 20 22 41 4f 53 53 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 30 46 30 30 30 30 30 30 2c 20 30 78 30 31 30 30 30 30 30 30 2c 20 22 54 4c 4d 4d 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 31 35 30 30 30 30 30 30 2c 20 30 78 30 30 32 30 30 30 30 30 2c 20 22 53 4d 4d 55 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 30 78 31 37 30 30 30 30 30 30 2c 20 30 78 30 32 30 30 30 30 30 30 2c 20 22 41 50 53 53 5f 48 4d 22 2c 20 20 20 20 20 20 20 20 20 20 20 20 41 64 64 44 65 76 2c 20 4d 4d 41 50 5f 49 4f 2c 20 55 4e 43 41 43 48 45 41 42 4c 45 2c 20 4d 6d 49 4f 2c 20 20 20 4e 53 5f 44 45 56 49 43 45 0a 0a 5b 43 6f 6e 66 69 67 50 61 72 61 6d 65 74 65 72 73 5d 0a 23 20 55 70 64 61 74 65 20 63 6f 75 6e 74 20 69 66 20 6d 6f 72 65 20 74 68 61 6e 20 64 65 66 61 75 6c 74 20 33 30 20 65 6e 74 72 69 65 73 0a 43 6f 6e 66 69 67 50 61 72 61 6d 65 74 65 72 43 6f 75 6e 74 20 3d 20 36 34 0a 0a 23 23 20 55 45 46 49 20 43 4f 52 45 0a 50 6c 61 74 43 6f 6e 66 69 67 46 69 6c 65 4e 61 6d 65 20 3d 20 22 75 65 66 69 70 6c 61 74 4c 41 2e 63 66 67 22 0a 4f 73 54 79 70 65 53 74 72 69 6e 67 20 3d 20 22 4c 41 22 0a 0a 23 20 46 6f 72 63 65 20 62 6f 6f 74 69 6e 67 20 74 6f 20 73 68 65 6c 6c 20 77 68 69 6c 73 74 20 69 6e 20 70 72 65 2d 73 69 6c 69 63 6f 6e 20 70 68 61 73 65 0a 45 6e 61 62 6c 65 53 68 65 6c 6c 20 3d 20 30 78 31 0a 0a 23 20 54 75 6e 65 20 62 61 73 65 64 20 6f 6e 20 53 65 63 20 68 65 61 70 20 6e 65 65 64 73 20 66 6f 72 20 46 56 20 64 65 63 6f 6d 70 72 65 73 73 69 6f 6e 20 61 6e 64 20 4d 4d 55 20 74 61 62 6c 65 73 20 74 68 72 6f 75 67 68 20 44 78 65 2f 42 44 53 0a 53 65 63 50 61 67 65 50 6f 6f 6c 43 6f 75 6e 74 20 3d 20 30 78 38 30 30 0a 0a 23 20 53 68 61 72 65 64 20 49 4d 45 4d 20 28 43 6f 6f 6b 69 65 73 2c 20 4f 66 66 73 65 74 73 29 0a 53 68 61 72 65 64 49 4d 45 4d 42 61 73 65 41 64 64 72 20 20 20 20 3d 20 30 78 31 34 36 41 41 30 30 30 0a 44 6c 6f 61 64 43 6f 6f 6b 69 65 41 64 64 72 20 3d 20 30 78 30 31 46 44 39 30 30 30 0a 23 20 66 6f 72 20 66 75 6c 6c 20 64 75 6d 70 20 30 78 31 30 2c 20 66 6f 72 20 6d 69 6e 69 64 75 6d 70 20 30 78 32 30 0a 44 6c 6f 61 64 43 6f 6f 6b 69 65 56 61 6c 75 65 20 3d 20 30 78 31 30 0a 0a 23 20 64 65 62 75 67 20 63 6f 6f 6b 69 65 20 6f 66 20 50 49 4c 20 73 75 62 73 79 73 74 65 6d 2c 20 64 65 66 69 6e 65 64 20 69 6e 20 46 42 43 20 73 63 72 69 70 74 0a 50 69 6c 53 75 62 73 79 73 44 62 67 43 6f 6f 6b 69 65 41 64 64 72 20 3d 20 30 78 31 34 36 41 41 36 44 43 0a 50 69 6c 53 75 62 73 79 73 44 62 67 43 6f 6f 6b 69 65 56 61 6c 20 3d 20 30 78 35 33 34 34 34 32 34 37 0a 0a 23 20 4e 75 6d 43 70 75 73 20 2d 20 6d 61 78 20 6e 75 6d 62 65 72 20 6f 66 20 63 6f 72 65 73 0a 4e 75 6d 43 70 75 73 20 3d 20 38 0a 23 20 4e 75 6d 41 63 74 69 76 65 43 6f 72 65 73 20 2d 20 6e 75 6d 62 65 72 20 6f 66 20 63 6f 72 65 73 20 75 73 65 64 0a 4e 75 6d 41 63 74 69 76 65 43 6f 72 65 73 20 3d 20 38 0a 0a 23 23 20 55 4c 6f 67 46 69 6c 65 0a 53 70 65 63 69 61 6c 4c 6f 67 50 61 72 74 69 74 69 6f 6e 20 3d 20 22 4c 4f 47 46 53 3a 5c 22 0a 4d 61 78 4c 6f 67 46 69 6c 65 53 69 7a 65 20 3d 20 30 78 34 30 30 30 30 30 0a 0a 23 20 55 45 46 49 20 6d 65 6d 6f 72 79 20 75 73 65 0a 55 65 66 69 4d 65 6d 55 73 65 54 68 72 65 73 68 6f 6c 64 20 3d 20 30 78 45 31 0a 0a 23 23 20 55 53 42 20 23 23 0a 55 53 42 48 53 31 5f 43 6f 6e 66 69 67 20 3d 20 30 78 30 0a 55 73 62 46 6e 49 6f 52 65 76 4e 75 6d 20 3d 20 30 78 30 30 30 31 30 30 30 31 0a 0a 23 23 20 42 75 74 74 6f 6e 73 20 2f 20 4b 65 79 50 61 64 20 23 23 0a 50 77 72 42 74 6e 53 68 75 74 64 6f 77 6e 46 6c 61 67 20 3d 20 30 78 30 0a 0a 23 23 20 53 44 43 43 20 23 23 0a 53 64 63 31 47 70 69 6f 43 6f 6e 66 69 67 4f 6e 20 3d 20 30 78 31 45 39 32 0a 53 64 63 32 47 70 69 6f 43 6f 6e 66 69 67 4f 6e 20 3d 20 30 78 31 45 39 32 0a 53 64 63 31 47 70 69 6f 43 6f 6e 66 69 67 4f 66 66 20 3d 20 30 78 41 30 30 0a 53 64 63 32 47 70 69 6f 43 6f 6e 66 69 67 4f 66 66 20 3d 20 30 78 41 30 30 0a 0a 23 23 20 53 44 48 43 20 4d 6f 64 65 20 30 3a 4c 65 67 61 63 79 20 4d 6f 64 65 2c 20 4e 6f 6e 2d 7a 65 72 6f 3a 20 53 44 48 43 20 4d 6f 64 65 20 23 23 0a 45 6e 61 62 6c 65 53 44 48 43 53 77 69 74 63 68 20 3d 20 30 78 31 0a 0a 23 23 20 55 46 53 0a 45 6e 61 62 6c 65 55 66 73 49 4f 43 20 3d 20 31 0a 55 66 73 53 6d 6d 75 43 6f 6e 66 69 67 46 6f 72 4f 74 68 65 72 42 6f 6f 74 44 65 76 20 3d 20 31 0a 0a 23 23 20 50 43 49 45 0a 23 23 20 50 43 49 65 52 50 4e 75 6d 62 65 72 20 42 49 54 20 37 3a 30 20 20 2d 3e 20 6e 75 6d 62 65 72 20 6f 66 20 52 50 73 20 74 6f 20 62 65 20 65 6e 61 62 6c 65 64 0a 23 23 20 50 43 49 65 52 50 4e 75 6d 62 65 72 20 42 49 54 20 31 35 3a 38 20 2d 3e 20 42 49 54 20 6d 61 73 6b 20 74 6f 20 69 64 65 6e 74 69 66 79 20 77 68 69 63 68 20 52 50 73 20 61 72 65 20 65 6e 61 62 6c 65 64 0a 23 23 20 45 67 2e 20 76 61 6c 75 65 3a 20 30 78 30 35 30 32 20 20 20 20 20 2d 3e 20 54 6f 74 61 6c 20 74 77 6f 20 6e 75 6d 62 65 72 73 20 6f 66 20 52 50 73 2c 20 52 50 30 20 61 6e 64 20 52 50 32 20 61 72 65 20 65 6e 61 62 6c 65 64 0a 23 23 20 54 6f 74 61 6c 20 52 50 73 20 73 75 70 70 6f 72 74 65 64 20 38 20 6e 75 6d 62 65 72 73 20 61 6e 64 20 62 69 74 73 20 61 6c 6c 6f 63 61 74 65 64 20 61 72 65 20 31 36 20 62 69 74 73 0a 23 50 43 49 65 52 50 4e 75 6d 62 65 72 3d 30 78 30 31 30 31 0a 0a 23 23 20 53 65 63 75 72 69 74 79 20 66 6c 61 67 20 23 23 0a 53 65 63 75 72 69 74 79 46 6c 61 67 20 3d 20 30 78 43 34 0a 23 20 53 65 63 42 6f 6f 74 45 6e 61 62 6c 65 46 6c 61 67 20 3d 20 30 78 31 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 30 30 30 30 30 30 30 31 0a 23 20 54 72 65 65 54 70 6d 45 6e 61 62 6c 65 46 6c 61 67 20 3d 20 30 78 32 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 30 30 30 30 30 30 31 30 0a 23 20 43 6f 6d 6d 6f 6e 4d 62 6e 4c 6f 61 64 46 6c 61 67 20 3d 20 30 78 34 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 30 30 30 30 30 31 30 30 0a 23 20 44 78 48 64 63 70 32 4c 6f 61 64 46 6c 61 67 20 3d 20 30 78 38 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 30 30 30 30 31 30 30 30 0a 23 20 56 61 72 69 61 62 6c 65 53 65 72 76 69 63 65 73 46 6c 61 67 20 3d 20 30 78 31 30 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 30 30 30 31 30 30 30 30 0a 23 20 57 69 6e 73 65 63 61 70 70 46 6c 61 67 20 3d 20 30 78 32 30 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 30 30 31 30 30 30 30 30 0a 23 20 4c 6f 61 64 53 65 63 41 70 70 46 6c 61 67 20 3d 20 30 78 34 30 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 30 31 30 30 30 30 30 30 0a 23 20 4c 6f 61 64 4b 65 79 6d 61 73 74 65 72 46 6c 61 67 20 3d 20 30 78 38 30 20 20 20 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 31 30 30 30 30 30 30 30 0a 23 20 45 6e 61 62 6c 65 51 73 65 65 4c 6f 67 73 46 6c 61 67 20 3d 20 30 78 31 30 30 20 20 20 20 20 20 20 20 20 20 20 20 69 2e 65 2e 20 30 62 20 30 30 30 30 30 30 30 31 20 30 30 30 30 30 30 30 30 0a 0a 23 23 20 44 65 66 61 75 6c 74 20 61 70 70 20 74 6f 20 62 6f 6f 74 20 69 6e 20 70 6c 61 74 66 6f 72 6d 20 42 44 53 20 69 6e 69 74 0a 44 65 66 61 75 6c 74 43 68 61 72 67 65 72 41 70 70 20 3d 20 22 51 63 6f 6d 43 68 61 72 67 65 72 41 70 70 22 0a 44 65 66 61 75 6c 74 42 44 53 42 6f 6f 74 41 70 70 20 3d 20 22 4c 69 6e 75 78 4c 6f 61 64 65 72 22 0a 0a 23 23 20 45 6e 61 62 6c 65 20 48 6f 74 4b 65 79 20 64 65 74 65 63 74 69 6f 6e 20 69 6e 20 52 45 54 41 49 4c 20 64 65 76 69 63 65 73 0a 44 65 74 65 63 74 52 65 74 61 69 6c 55 73 65 72 41 74 74 65 6e 74 69 6f 6e 48 6f 74 6b 65 79 20 3d 20 30 78 30 30 0a 23 23 20 30 78 31 37 20 69 73 20 53 43 41 4e 5f 45 53 43 0a 44 65 74 65 63 74 52 65 74 61 69 6c 55 73 65 72 41 74 74 65 6e 74 69 6f 6e 48 6f 74 6b 65 79 43 6f 64 65 20 3d 20 30 78 31 37 0a 23 23 20 45 6e 61 62 6c 65 20 4f 45 4d 20 53 65 74 75 70 20 41 70 70 20 6c 61 75 6e 63 68 20 69 6e 20 52 65 74 61 69 6c 20 23 23 0a 45 6e 61 62 6c 65 4f 45 4d 53 65 74 75 70 41 70 70 49 6e 52 65 74 61 69 6c 20 3d 20 30 78 30 0a 0a 0a 23 23 20 4c 6f 67 46 73 20 70 61 72 74 69 74 69 6f 6e 0a 23 23 20 4e 4f 54 45 3a 20 45 6e 73 75 72 65 20 6c 6f 67 66 73 20 62 69 6e 20 69 73 20 66 6c 61 73 68 65 64 20 66 72 6f 6d 20 2f 54 6f 6f 6c 73 2f 62 69 6e 61 72 69 65 73 20 23 23 0a 45 6e 61 62 6c 65 4c 6f 67 46 73 53 79 6e 63 49 6e 52 65 74 61 69 6c 20 3d 20 30 78 30 0a 0a 23 23 20 53 68 6d 42 72 69 64 67 65 20 4d 65 6d 6f 72 79 20 53 69 7a 65 0a 53 68 6d 42 72 69 64 67 65 6d 65 6d 53 69 7a 65 20 3d 20 30 78 41 30 30 30 30 30 0a 0a 23 23 20 20 4d 75 6c 74 69 74 68 72 65 61 64 69 6e 67 20 6f 70 74 69 6f 6e 73 0a 45 6e 61 62 6c 65 4d 75 6c 74 69 54 68 72 65 61 64 69 6e 67 20 3d 20 31 0a 4d 61 78 43 6f 72 65 43 6e 74 20 3d 20 38 0a 23 20 4b 65 65 70 20 74 68 65 20 66 6f 6c 6c 6f 77 69 6e 67 20 6e 75 6d 62 65 72 20 6f 66 20 63 6f 72 65 73 20 61 63 74 69 76 65 2c 20 69 6e 63 6c 75 64 69 6e 67 20 74 68 65 20 62 6f 6f 74 20 63 6f 72 65 0a 23 20 46 6f 72 20 45 61 72 6c 79 20 70 72 65 73 69 6c 69 63 6f 6e 20 73 74 61 67 65 2c 20 74 68 69 73 20 63 6e 61 20 62 65 20 73 65 74 20 74 6f 20 31 20 73 69 6e 63 65 20 77 65 20 77 61 6e 74 20 74 6f 20 65 6e 61 62 6c 65 20 0a 23 20 31 20 63 6f 72 65 20 69 65 20 62 6f 6f 74 20 63 6f 72 65 0a 45 61 72 6c 79 49 6e 69 74 43 6f 72 65 43 6e 74 20 3d 20 31 0a 0a 23 23 20 47 65 74 20 54 5a 20 41 70 70 20 4c 6f 67 73 20 23 23 0a 45 6e 61 62 6c 65 55 65 66 69 53 65 63 41 70 70 44 65 62 75 67 4c 6f 67 44 75 6d 70 20 3d 20 30 78 30 0a 0a 23 23 20 41 6c 6c 6f 77 20 4e 6f 6e 20 50 65 72 73 69 73 74 65 6e 74 20 56 61 72 69 61 6c 62 65 73 20 69 6e 20 52 65 74 61 69 6c 20 23 23 0a 23 23 20 4e 4f 54 45 3a 20 52 65 63 6f 6d 6d 65 6e 64 20 64 69 73 61 62 6c 69 6e 67 20 66 65 61 74 75 72 65 20 66 6f 72 20 52 65 74 61 69 6c 20 64 65 76 69 63 65 73 0a 41 6c 6c 6f 77 4e 6f 6e 50 65 72 73 69 73 74 65 6e 74 56 61 72 73 49 6e 52 65 74 61 69 6c 20 3d 20 30 78 31 0a 0a 23 20 49 6e 69 74 69 61 6c 69 7a 65 20 44 69 73 70 6c 61 79 20 70 61 6e 65 6c 20 69 6e 20 69 74 73 20 6f 77 6e 20 74 68 72 65 61 64 20 74 6f 20 72 75 6e 20 69 6e 20 70 61 72 61 6c 6c 65 6c 20 74 6f 20 62 6f 6f 74 69 6e 67 0a 45 6e 61 62 6c 65 44 69 73 70 6c 61 79 54 68 72 65 61 64 20 3d 20 30 78 31 0a 0a 23 20 55 73 69 6e 67 20 69 6d 61 67 65 66 76 20 74 6f 20 6c 6f 61 64 20 64 69 73 70 6c 61 79 20 6c 6f 67 6f 0a 45 6e 61 62 6c 65 44 69 73 70 6c 61 79 49 6d 61 67 65 46 76 20 3d 20 30 78 30 0a 0a 23 23 20 44 79 6e 61 6d 69 63 20 55 41 52 54 20 4c 6f 67 20 42 75 66 66 65 72 20 53 69 7a 65 0a 23 23 20 52 65 66 65 72 20 74 6f 20 51 63 6f 6d 50 6b 67 2f 44 6f 63 73 2f 55 65 66 69 4c 6f 67 42 75 66 66 65 72 53 69 7a 65 43 6f 6e 66 69 67 52 65 61 64 6d 65 2e 74 78 74 20 66 6f 72 20 75 73 61 67 65 0a 23 55 41 52 54 4c 6f 67 42 75 66 66 65 72 53 69 7a 65 20 3d 20 30 78 31 39 30 30 30 0a 0a 23 44 44 52 49 6e 66 6f 44 78 65 20 45 6e 76 44 78 65 20 65 76 65 6e 74 20 63 61 6c 6c 62 61 63 6b 20 66 6c 61 67 0a 44 44 52 49 6e 66 6f 4e 6f 74 69 66 79 46 6c 61 67 20 3d 20 30 78 30 0a 0a 23 20 20 46 56 20 44 65 63 6f 6d 70 72 65 73 73 69 6f 6e 20 6f 6e 20 6d 75 6c 74 69 63 6f 72 65 20 6f 70 74 69 6f 6e 0a 23 20 20 56 61 6c 75 65 20 69 73 20 30 20 66 6f 72 20 65 61 72 6c 79 20 70 72 65 73 69 6c 69 63 6f 6e 20 73 74 61 67 65 0a 45 6e 61 62 6c 65 4d 75 6c 74 69 43 6f 72 65 46 76 44 65 63 6f 6d 70 72 65 73 73 69 6f 6e 20 3d 20 30 0a 0a 23 23 20 45 6e 61 62 6c 65 2f 44 69 73 61 62 6c 65 20 56 61 72 69 61 62 6c 65 20 50 6f 6c 69 63 79 20 45 6e 67 69 6e 65 20 23 23 0a 45 6e 61 62 6c 65 56 61 72 69 61 62 6c 65 50 6f 6c 69 63 79 45 6e 67 69 6e 65 20 3d 20 30 0a 0a 23 23 20 41 6c 6c 6f 77 20 69 6e 64 69 76 69 64 75 61 6c 20 41 43 50 49 20 74 61 62 6c 65 73 20 6c 6f 61 64 69 6e 67 20 23 23 20 0a 45 6e 61 62 6c 65 41 43 50 49 46 61 6c 6c 62 61 63 6b 20 3d 20 30 78 30 0a 0a 23 23 20 41 64 64 72 65 73 73 20 74 6f 20 67 65 74 20 56 61 6c 75 65 20 6f 66 20 44 52 41 4d 20 63 6c 6f 63 6b 20 70 65 72 69 6f 64 20 4d 43 43 43 5f 43 4c 4b 5f 50 45 52 49 4f 44 0a 44 52 41 4d 5f 43 4c 4b 5f 50 45 52 49 4f 44 5f 41 44 44 52 20 3d 20 30 78 32 34 30 42 41 30 35 30 0a 23 23 20 4e 4f 54 45 3a 20 44 6f 20 6e 6f 74 20 72 65 6d 6f 76 65 20 6c 61 73 74 20 6e 65 77 6c 69 6e 65 2c 20 72 65 71 75 69 72 65 64 20 62 79 20 70 61 72 73 65 72 20 23 23 0a 0a];
+			};
+
+			uefipil {
+				size = <0x1a6e>;
+				payload = [5b 50 49 4c 5d 0a 43 66 67 56 65 72 73 69 6f 6e 20 3d 20 31 0a 0a 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 0a 23 23 20 0a 23 23 20 20 20 50 49 4c 20 63 6f 6e 66 69 67 75 72 61 74 69 6f 6e 2c 20 63 6f 6e 74 61 69 6e 73 20 74 68 65 20 62 61 73 65 20 61 64 64 72 65 73 73 20 61 6e 64 20 73 69 7a 65 20 6f 66 20 69 6d 61 67 65 20 6c 6f 61 64 0a 23 23 20 20 20 69 6e 66 6f 72 6d 61 74 69 6f 6e 20 72 65 67 69 6f 6e 20 69 6e 20 49 4d 45 4d 0a 23 23 0a 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 5c 0a 0a 5b 49 4d 41 47 45 5f 4c 4f 41 44 5f 49 4e 46 4f 5f 52 45 47 49 4f 4e 5d 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 42 61 73 65 20 3d 20 30 78 31 34 36 41 41 39 34 43 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 53 69 7a 65 20 3d 20 32 30 30 0a 0a 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 0a 23 23 20 0a 23 23 20 20 20 50 49 4c 20 63 6f 6e 66 69 67 75 72 61 74 69 6f 6e 2c 20 63 6f 6e 74 61 69 6e 73 20 74 68 65 20 6c 69 73 74 20 6f 66 20 69 6d 61 67 65 73 20 77 68 69 63 68 20 69 73 20 61 6c 6c 6f 77 65 64 20 0a 23 23 20 20 20 74 6f 20 62 65 20 6c 6f 61 64 65 64 20 62 79 20 50 49 4c 20 69 6e 20 72 65 74 61 69 6c 2e 20 50 49 4c 20 64 6f 65 73 20 6e 6f 74 20 73 75 70 70 6f 72 74 20 69 6d 61 67 65 73 20 62 65 79 6f 6e 64 0a 23 23 20 20 20 74 68 65 20 6c 69 73 74 0a 23 23 0a 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 5c 0a 0a 5b 52 45 54 41 49 4c 5d 0a 41 42 4c 0a 53 50 53 53 0a 49 6d 61 67 65 46 76 0a 46 55 4c 4c 5f 41 44 53 50 0a 46 55 4c 4c 5f 41 44 53 50 5f 44 54 42 0a 0a 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 0a 23 23 20 0a 23 23 20 20 20 50 49 4c 20 63 6f 6e 66 69 67 75 72 61 74 69 6f 6e 2c 20 63 6f 6e 74 61 69 6e 73 20 74 68 65 20 6c 69 73 74 20 6f 66 20 69 6d 61 67 65 73 20 77 68 69 63 68 20 77 69 6c 6c 20 62 65 20 0a 23 23 20 20 20 6c 6f 61 64 65 64 20 62 79 20 50 49 4c 20 62 79 20 64 65 66 61 75 6c 74 0a 23 23 0a 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 5c 0a 0a 5b 41 55 54 4f 5d 0a 41 42 4c 0a 0a 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 0a 23 23 20 0a 23 23 20 20 20 50 49 4c 20 69 6d 61 67 65 20 63 6f 6e 66 69 67 75 72 61 74 69 6f 6e 2c 20 75 70 64 61 74 65 64 20 74 6f 20 4b 61 69 6c 75 61 20 56 34 20 6d 65 6d 6f 72 79 20 6d 61 70 0a 23 23 0a 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 5c 0a 23 46 65 77 20 70 61 72 61 6d 65 74 65 72 20 76 61 6c 75 65 73 20 61 72 65 20 63 6f 6d 6d 65 6e 74 65 64 20 66 6f 72 20 44 54 42 27 73 20 61 6e 64 20 73 68 61 6c 6c 20 62 65 20 75 70 64 61 74 65 64 20 6c 61 74 65 72 0a 5b 46 55 4c 4c 5f 41 44 53 50 5f 44 54 42 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 61 64 73 70 5f 64 74 62 0a 53 75 62 73 79 73 49 44 20 3d 20 33 36 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 45 39 38 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 38 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 4e 6f 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 4e 6f 0a 0a 5b 46 55 4c 4c 5f 41 44 53 50 5d 0a 50 72 65 49 6d 61 67 65 20 3d 20 22 46 55 4c 4c 5f 41 44 53 50 5f 44 54 42 22 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 6d 6f 64 65 6d 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 61 64 73 70 0a 53 75 62 73 79 73 49 44 20 3d 20 31 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 45 41 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 34 30 38 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 50 72 6f 78 79 47 75 69 64 20 3d 20 22 33 36 46 45 32 37 45 31 20 33 33 45 39 20 34 35 41 44 20 39 38 44 41 20 43 38 38 34 33 38 43 41 38 38 31 36 22 0a 0a 23 5b 46 55 4c 4c 5f 53 4c 50 49 5d 0a 23 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 23 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 6d 6f 64 65 6d 5f 61 0a 23 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 73 6c 70 69 0a 23 53 75 62 73 79 73 49 44 20 3d 20 31 32 0a 23 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 45 41 30 30 30 30 30 0a 23 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 34 30 38 30 30 30 30 0a 23 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 23 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 23 50 72 6f 78 79 47 75 69 64 20 3d 20 22 42 32 44 43 46 43 33 34 20 42 32 41 30 20 34 42 42 37 20 42 44 42 30 20 33 31 44 42 30 31 45 33 43 43 32 41 22 0a 0a 5b 46 55 4c 4c 5f 43 44 53 50 5f 44 54 42 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 64 65 76 69 63 65 5f 74 72 65 65 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 63 64 73 70 5f 64 74 62 0a 53 75 62 73 79 73 49 44 20 3d 20 33 37 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 45 39 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 38 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 4e 6f 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 4e 6f 0a 0a 0a 5b 46 55 4c 4c 5f 43 44 53 50 5d 0a 50 72 65 49 6d 61 67 65 20 3d 20 22 46 55 4c 4c 5f 43 44 53 50 5f 44 54 42 22 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 6d 6f 64 65 6d 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 63 64 73 70 0a 53 75 62 73 79 73 49 44 20 3d 20 31 38 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 43 39 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 32 30 30 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 50 72 6f 78 79 47 75 69 64 20 3d 20 22 34 35 45 31 34 43 30 34 20 44 31 33 34 20 34 45 45 34 20 41 43 31 33 20 37 30 39 38 46 30 41 39 46 32 36 31 22 0a 0a 23 5b 46 55 4c 4c 5f 4e 50 55 5d 0a 23 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 23 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 6d 6f 64 65 6d 5f 61 0a 23 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 6e 70 75 0a 23 53 75 62 73 79 73 49 44 20 3d 20 32 33 0a 23 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 38 36 39 30 30 30 30 30 0a 23 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 35 30 30 30 30 30 0a 23 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 23 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 23 50 72 6f 78 79 47 75 69 64 20 3d 20 22 34 35 36 35 34 31 34 30 20 37 37 38 45 20 34 33 38 34 20 38 45 45 43 20 37 30 33 46 44 41 43 45 33 31 37 32 22 0a 0a 5b 46 55 4c 4c 5f 4d 4f 44 45 4d 5f 44 54 42 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 71 64 73 70 36 73 77 5f 64 74 62 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 6d 6f 64 65 6d 5f 64 74 62 0a 53 75 62 73 79 73 49 44 20 3d 20 33 38 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 42 30 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 38 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 4e 6f 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 4e 6f 0a 0a 0a 5b 46 55 4c 4c 5f 4d 4f 44 45 4d 5d 0a 50 72 65 49 6d 61 67 65 20 3d 20 22 46 55 4c 4c 5f 4d 4f 44 45 4d 5f 44 54 42 22 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 6d 6f 64 65 6d 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 6d 6f 64 65 6d 0a 53 75 62 73 79 73 49 44 20 3d 20 34 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 38 39 38 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 31 31 38 30 30 30 30 30 20 20 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 50 72 6f 78 79 47 75 69 64 20 3d 20 22 36 31 35 31 33 36 39 35 20 45 30 43 36 20 34 46 30 37 20 42 46 34 31 20 41 35 31 41 37 37 37 30 36 34 30 45 22 0a 0a 5b 43 4f 52 45 5f 41 44 53 50 5f 44 54 42 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 63 6f 72 65 5f 6e 68 6c 6f 73 5f 61 0a 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 61 64 73 70 5f 64 74 62 73 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 61 64 73 70 5f 64 74 62 0a 53 75 62 73 79 73 49 44 20 3d 20 33 36 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 45 39 38 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 38 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 4e 6f 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 4e 6f 0a 0a 5b 43 4f 52 45 5f 41 44 53 50 5d 0a 50 72 65 49 6d 61 67 65 20 3d 20 22 43 4f 52 45 5f 41 44 53 50 5f 44 54 42 22 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 63 6f 72 65 5f 6e 68 6c 6f 73 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 61 64 73 70 0a 53 75 62 73 79 73 49 44 20 3d 20 31 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 45 41 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 34 30 38 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 50 72 6f 78 79 47 75 69 64 20 3d 20 22 33 36 46 45 32 37 45 31 20 33 33 45 39 20 34 35 41 44 20 39 38 44 41 20 43 38 38 34 33 38 43 41 38 38 31 36 22 0a 0a 23 5b 43 4f 52 45 5f 53 4c 50 49 5d 0a 23 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 63 6f 72 65 5f 6e 68 6c 6f 73 5f 61 0a 23 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 23 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 73 6c 70 69 0a 23 53 75 62 73 79 73 49 44 20 3d 20 31 32 0a 23 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 45 41 30 30 30 30 30 0a 23 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 34 30 38 30 30 30 30 09 0a 23 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 23 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 23 50 72 6f 78 79 47 75 69 64 20 3d 20 22 42 32 44 43 46 43 33 34 20 42 32 41 30 20 34 42 42 37 20 42 44 42 30 20 33 31 44 42 30 31 45 33 43 43 32 41 22 0a 0a 5b 43 4f 52 45 5f 43 44 53 50 5f 44 54 42 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 63 6f 72 65 5f 6e 68 6c 6f 73 5f 61 0a 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 64 65 76 69 63 65 5f 74 72 65 65 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 63 64 73 70 5f 64 74 62 0a 53 75 62 73 79 73 49 44 20 3d 20 33 37 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 45 39 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 38 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 4e 6f 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 4e 6f 0a 0a 5b 43 4f 52 45 5f 43 44 53 50 5d 0a 50 72 65 49 6d 61 67 65 20 3d 20 22 43 4f 52 45 5f 43 44 53 50 5f 44 54 42 22 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 63 6f 72 65 5f 6e 68 6c 6f 73 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 63 64 73 70 0a 53 75 62 73 79 73 49 44 20 3d 20 31 38 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 43 39 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 32 30 30 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 50 72 6f 78 79 47 75 69 64 20 3d 20 22 34 35 45 31 34 43 30 34 20 44 31 33 34 20 34 45 45 34 20 41 43 31 33 20 37 30 39 38 46 30 41 39 46 32 36 31 22 0a 0a 23 5b 43 4f 52 45 5f 4e 50 55 5d 0a 23 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 63 6f 72 65 5f 6e 68 6c 6f 73 5f 61 0a 23 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 23 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 6e 70 75 0a 23 53 75 62 73 79 73 49 44 20 3d 20 32 33 0a 23 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 38 36 39 30 30 30 30 30 0a 23 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 35 30 30 30 30 30 0a 23 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 23 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 23 50 72 6f 78 79 47 75 69 64 20 3d 20 22 34 35 36 35 34 31 34 30 20 37 37 38 45 20 34 33 38 34 20 38 45 45 43 20 37 30 33 46 44 41 43 45 33 31 37 32 22 0a 0a 5b 43 4f 52 45 5f 4d 4f 44 45 4d 5f 44 54 42 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 63 6f 72 65 5f 6e 68 6c 6f 73 5f 61 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 71 64 73 70 36 73 77 5f 64 74 62 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 6d 6f 64 65 6d 5f 64 74 62 0a 53 75 62 73 79 73 49 44 20 3d 20 33 38 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 42 30 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 38 30 30 30 30 20 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 4e 6f 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 4e 6f 0a 0a 5b 43 4f 52 45 5f 4d 4f 44 45 4d 5d 0a 50 72 65 49 6d 61 67 65 20 3d 20 22 43 4f 52 45 5f 4d 4f 44 45 4d 5f 44 54 42 22 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 63 6f 72 65 5f 6e 68 6c 6f 73 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 23 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 23 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 71 64 73 70 36 73 77 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 6d 6f 64 65 6d 0a 53 75 62 73 79 73 49 44 20 3d 20 34 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 38 39 38 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 31 31 38 30 30 30 30 30 20 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 50 72 6f 78 79 47 75 69 64 20 3d 20 22 36 31 35 31 33 36 39 35 20 65 30 63 36 20 34 66 30 37 20 62 66 34 31 20 61 35 31 61 37 37 37 30 36 34 30 65 22 0a 0a 5b 53 50 53 53 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 73 70 6c 69 74 0a 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 6d 6f 64 65 6d 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 45 42 44 30 41 30 41 32 20 42 39 45 35 20 34 34 33 33 20 38 37 43 30 20 36 38 42 36 42 37 32 36 39 39 43 37 22 0a 49 6d 61 67 65 50 61 74 68 20 3d 20 5c 69 6d 61 67 65 5c 73 70 73 73 31 74 0a 53 75 62 73 79 73 49 44 20 3d 20 31 34 0a 52 65 73 76 4d 65 6d 6f 72 79 53 74 61 72 74 20 3d 20 30 78 39 42 31 30 30 30 30 30 0a 52 65 73 76 4d 65 6d 6f 72 79 53 69 7a 65 20 3d 20 30 78 31 38 30 30 30 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 59 65 73 0a 4f 76 65 72 72 69 64 65 45 6c 66 41 64 64 72 20 3d 20 59 65 73 0a 50 72 6f 78 79 47 75 69 64 20 3d 20 22 32 42 34 44 45 37 45 39 20 42 37 39 36 20 34 46 45 37 20 42 32 31 30 20 34 39 46 31 31 43 36 42 41 42 43 32 22 0a 0a 5b 41 42 4c 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 66 76 0a 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 61 62 6c 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 42 44 36 39 32 38 41 31 20 34 43 45 30 20 41 30 33 38 20 34 46 33 41 20 31 34 39 35 45 33 45 44 44 46 46 42 22 0a 53 75 62 73 79 73 49 44 20 3d 20 32 31 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 4e 6f 0a 55 6e 6c 6f 63 6b 20 3d 20 59 65 73 0a 0a 5b 49 6d 61 67 65 46 76 5d 0a 54 79 70 65 20 3d 20 65 6c 66 5f 66 76 0a 23 50 61 72 74 69 4c 61 62 65 6c 20 3d 20 69 6d 61 67 65 66 76 5f 61 0a 23 50 61 72 74 69 52 6f 6f 74 47 75 69 64 20 3d 20 0a 50 61 72 74 69 47 75 69 64 20 3d 20 22 31 37 39 31 31 31 37 37 20 43 39 45 36 20 34 33 37 32 20 39 33 33 43 20 38 30 34 42 36 37 38 45 36 36 36 46 22 0a 53 75 62 73 79 73 49 44 20 3d 20 32 30 0a 49 6d 61 67 65 4c 6f 61 64 49 6e 66 6f 20 3d 20 4e 6f 0a 55 6e 6c 6f 63 6b 20 3d 20 59 65 73 0a 0a];
+			};
+		};
+
+		smp2p {
+			compatible = "qcom,smp2p";
+			fflags = <0x01>;
+			max-entries = <0x10>;
+
+			smp2p-interrupts {
+
+				intr-01 {
+					dest = <0x02>;
+					proc = <0x03>;
+					irq = <0x02>;
+				};
+
+				intr-02 {
+					dest = <0x05>;
+					proc = <0x06>;
+					irq = <0x02>;
+				};
+
+				intr-03 {
+					dest = <0x01>;
+					proc = <0x02>;
+					irq = <0x02>;
+				};
+
+				intr-04 {
+					dest = <0xffff>;
+					proc = <0x88>;
+					irq = <0xffffffff>;
+				};
+			};
+		};
+
+		glink {
+			compatible = "qcom,glink";
+
+			xport-smem-config {
+
+				edge-01 {
+					remote-host = <0x02>;
+					fifo-size = <0x4000>;
+					mtu-size = <0x1000>;
+					irq-out = <0x03 0x00>;
+					default-qos = <0x01>;
+					custom-fifo-alloc = <0x00>;
+					clear-interrupt = <0x00>;
+				};
+
+				edge-02 {
+					remote-host = <0x05>;
+					fifo-size = <0x4000>;
+					mtu-size = <0x1000>;
+					irq-out = <0x06 0x00>;
+					default-qos = <0x01>;
+					custom-fifo-alloc = <0x00>;
+					clear-interrupt = <0x00>;
+				};
+
+				edge-03 {
+					remote-host = <0x01>;
+					fifo-size = <0x4000>;
+					mtu-size = <0x1000>;
+					irq-out = <0x02 0x00>;
+					default-qos = <0x01>;
+					custom-fifo-alloc = <0x00>;
+					clear-interrupt = <0x00>;
+				};
+			};
+		};
+	};
+
+	__symbols__ {
+		soc = "/soc";
+		tlmm = "/soc/pinctrl@f100000";
+		ufs = "/soc/ufs0@1D80000";
+		usb = "/soc/usb";
+		i2c = "/soc/i2c@900000";
+		spi = "/soc/spi@A00000";
+		pil_proxy_vote = "/soc/pil/pil_proxy_vote";
+		APPS_MMU500_SMMU_APP_handle = "/soc/iort/APPS_MMU500_SMMU_APP";
+		GPU_GFX_MMU500_SMMU_GFX_handle = "/soc/iort/GPU_GFX_MMU500_SMMU_GFX";
+		sdcc = "/soc/sdc1@8804000";
+		smp2p_err_fatal_handle = "/soc/ssr/smp2p_err_fatal";
+		smp2p_err_ready_handle = "/soc/ssr/smp2p_err_ready";
+		smp2p_proxy_unvote_handle = "/soc/ssr/smp2p_proxy_unvote";
+		smp2p_stop_ack_handle = "/soc/ssr/smp2p_stop_ack";
+		disp_rdump_memory = "/soc/disp_rdump_region@E3940000";
+		sw = "/sw";
+		pm = "/sw/pmic/pm";
+		psi = "/sw/pmic/psi";
+		adc = "/sw/pmic/adc";
+		vadc = "/sw/pmic/adc/vadc";
+		pm8550b = "/sw/pmic/adc/vadc/spmi-vadc@7";
+		therm_table = "/sw/pmic/adc/vadc/spmi-vadc@7/therm_table";
+		sys_therm_tb = "/sw/pmic/adc/vadc/spmi-vadc@7/therm_table/therm_tb@1";
+		pmic_die_temp_tb = "/sw/pmic/adc/vadc/spmi-vadc@7/therm_table/therm_tb@2";
+		arb = "/sw/pmic/arb";
+		access = "/sw/pmic/arb/access";
+		mgpi = "/sw/pmic/arb/mgpi";
+		pvc = "/sw/pmic/arb/pvc";
+		smem = "/sw/smem";
+	};
+};
