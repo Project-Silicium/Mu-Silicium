@@ -31,6 +31,8 @@
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|27
+  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17100000
@@ -38,13 +40,22 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17180000
 
   # SmBios
+  !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8475"
+  !elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 7+ Gen 2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7475"
+  !endif
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+  !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
+  !elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2910
+  !endif
 
   # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20

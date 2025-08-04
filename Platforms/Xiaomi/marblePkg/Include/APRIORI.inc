@@ -13,10 +13,9 @@ APRIORI DXE {
 
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-  #INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
- # INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -33,7 +32,6 @@ APRIORI DXE {
   INF Binaries/marble/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
- # INF QcomPkg/Drivers/ClockSpeedUpDxe/ClockSpeedUpDxe.inf
   INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
