@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = nuwa
+  PACKAGE_GUID                        = 73D912C8-FB8D-49E2-9134-572119F96A3D
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gnuwaTokenSpaceGuid                 = { 0xC812D973, 0x8DFB, 0xE249, { 0x91, 0x34, 0x57, 0x21, 0x19, 0xF9, 0x6A, 0x3D } }
