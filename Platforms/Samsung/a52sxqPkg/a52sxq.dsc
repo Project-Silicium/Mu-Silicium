@@ -90,6 +90,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|a52sxqPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|a52sxqPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceGuidLib|a52sxqPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM7325Pkg/SM7325Pkg.dsc.inc
+!include KodiakPkg/KodiakPkg.dsc.inc

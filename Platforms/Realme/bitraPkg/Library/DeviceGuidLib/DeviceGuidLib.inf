@@ -1,0 +1,18 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = DeviceGuidLib
+  FILE_GUID                      = A2B9202F-1BBA-421B-9FDB-EBCF54833111
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = DeviceGuidLib|DXE_DRIVER
+
+[Sources]
+  DeviceGuidLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  bitraPkg/bitra.dec
+
+[Guids]
+  gbitraTokenSpaceGuid

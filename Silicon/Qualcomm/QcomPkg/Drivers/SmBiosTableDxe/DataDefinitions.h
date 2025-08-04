@@ -109,7 +109,7 @@ SMBIOS_TABLE_TYPE1 mSysInfoType1 = {
     0x0000,
     0x0000,
     {
-      0x00,                 // TODO: Somehow Update this UUID to the Device GUID.
+      0x00,
       0x00,
       0x00,
       0x00,

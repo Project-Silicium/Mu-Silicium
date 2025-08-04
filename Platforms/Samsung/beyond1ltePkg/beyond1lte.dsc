@@ -67,6 +67,7 @@
 
 [LibraryClasses]
   DeviceMemoryMapLib|beyond1ltePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceGuidLib|beyond1ltePkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   KeypadDeviceLib|beyond1ltePkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 

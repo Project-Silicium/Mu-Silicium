@@ -67,6 +67,7 @@
 
 [LibraryClasses]
   DeviceMemoryMapLib|e1sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceGuidLib|e1sPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   KeypadDeviceLib|e1sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 

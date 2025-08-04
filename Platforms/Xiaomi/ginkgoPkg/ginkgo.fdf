@@ -100,7 +100,7 @@ READ_LOCK_STATUS   = TRUE
   #}
 
   # USB Power	
-  INF SM6125Pkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
+  INF NicobarPkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
 
   !include QcomPkg/Extra.fdf.inc
 

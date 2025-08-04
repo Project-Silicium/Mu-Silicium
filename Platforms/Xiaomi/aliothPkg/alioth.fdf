@@ -100,7 +100,7 @@ READ_LOCK_STATUS   = TRUE
   #}
 
   # Usb Helper
-  INF SM8250Pkg/Drivers/UsbHelperDxe/UsbHelperDxe.inf
+  INF KonaPkg/Drivers/UsbHelperDxe/UsbHelperDxe.inf
 
   !include QcomPkg/Extra.fdf.inc
 

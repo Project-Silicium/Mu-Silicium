@@ -67,6 +67,7 @@
 
 [LibraryClasses]
   DeviceMemoryMapLib|r8sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceGuidLib|r8sPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   KeypadDeviceLib|r8sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 

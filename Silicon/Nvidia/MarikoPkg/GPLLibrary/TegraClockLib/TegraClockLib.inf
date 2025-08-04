@@ -1,0 +1,34 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TegraClockLib
+  FILE_GUID                      = A6A49989-FC9A-48C3-B870-2DC2010C156D
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = TegraClockLib|DXE_DRIVER
+
+[Sources]
+  TegraClockLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  NvidiaPkg/NvidiaPkg.dec
+
+[LibraryClasses]
+  IoLib
+
+[FixedPcd]
+  gNvidiaPkgTokenSpaceGuid.PcdCGeneralID
+  gNvidiaPkgTokenSpaceGuid.PcdMemoryID
+  gNvidiaPkgTokenSpaceGuid.PcdPeriphID
+  gNvidiaPkgTokenSpaceGuid.PcdAudioID
+  gNvidiaPkgTokenSpaceGuid.PcdUsbID
+  gNvidiaPkgTokenSpaceGuid.PcdDisplayID
+  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID
+  gNvidiaPkgTokenSpaceGuid.PcdXCpuID
+  gNvidiaPkgTokenSpaceGuid.PcdEpciID
+  gNvidiaPkgTokenSpaceGuid.PcdSfrom32KhzID
+  gNvidiaPkgTokenSpaceGuid.PcdDpID
+  gNvidiaPkgTokenSpaceGuid.Pcd32KhzID
+  gNvidiaPkgTokenSpaceGuid.PcdOscID
+  gNvidiaPkgTokenSpaceGuid.PcdClkmID
+  gNvidiaPkgTokenSpaceGuid.PcdIDCount

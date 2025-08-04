@@ -31,20 +31,15 @@
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|25600000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|27
-  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x10200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x10240000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10240000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00009945
-
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 2400 @ 3.21 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"S5E9945"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E9945"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|10

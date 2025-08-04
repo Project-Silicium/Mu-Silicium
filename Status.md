@@ -743,7 +743,7 @@
 </details>
 
 <details>
-<summary><b><strong>Snapdragon 8 Gen 1/8+ Gen 1 Devices</strong></b></summary>
+<summary><b><strong>Snapdragon 8+ Gen 1 Devices</strong></b></summary>
 
 <br>
 
@@ -850,6 +850,88 @@
 
   </summary>
 </details>
+
+<details>
+<summary><b><strong>Samsung Devices</strong></b></summary>
+
+## Samsung Galaxy Z Flip 4
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Z-Flip-4.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: b4q** <br>
+**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: [Robotix](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+| Feature            | Description                                          | State |
+|:-------------------|:-----------------------------------------------------|:-----:|
+| Main Display       |                                                      | ✅    |
+| Cover Display      | No actual Driver to Handle it & Wrong Orientation    | ⚠️    |
+| Internal Storage   | Doesn't Init Properly sometimes                      | ⚠️    |
+| Side Buttons       |                                                      | ✅    |
+| USB Host Mode      |                                                      | ❌    |
+| USB Device Mode    | Requires a Reconnect if it was Connected during Boot | ✅    |
+| USB Power Delivery |                                                      | ❌    |
+| Mass Storage       |                                                      | ✅    |
+| Windows Boot       |                                                      | ✅    |
+| Linux Boot         |                                                      | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+| Feature              | Description                                                                                                       | State |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
+| Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
+| Side Buttons         |                                                                                                                   | ❌    |
+| Proximity Sensor     |                                                                                                                   | ❌    |
+| Light Sensor         |                                                                                                                   | ❌    |
+| Accelerometer Sensor |                                                                                                                   | ❌    |
+| Compass Sensor       |                                                                                                                   | ❌    |
+| Gyroscope Sensor     |                                                                                                                   | ❌    |
+| Fingerprint Sensor   |                                                                                                                   | ❌    |
+| Barometer Sensor     |                                                                                                                   | ❌    |
+| Geomagnetic Sensor   |                                                                                                                   | ❌    |
+| Hall Sensor          |                                                                                                                   | ❌    |
+| Temperature Sensor   |                                                                                                                   | ❌    |
+| Battery              |                                                                                                                   | ❌    |
+| USB Host Mode        |                                                                                                                   | ❌    |
+| USB Device Mode      |                                                                                                                   | ❌    |
+| USB Power Delivery   |                                                                                                                   | ❌    |
+| Charging             |                                                                                                                   | ❌    |
+| WLAN                 |                                                                                                                   | ❌    |
+| CPU                  |                                                                                                                   | ✅    |
+| Touchscreen          |                                                                                                                   | ❌    |
+| Bluetooth            |                                                                                                                   | ❌    |
+| GPS                  |                                                                                                                   | ❌    |
+| Speakers             |                                                                                                                   | ❌    |
+| Microphone           |                                                                                                                   | ❌    |
+| GPU                  |                                                                                                                   | ❌    |
+| Camera               |                                                                                                                   | ❌    |
+| Mobile Data          |                                                                                                                   | ❌    |
+| Display              |                                                                                                                   | ✅    |
+| Vibration            |                                                                                                                   | ❌    |
+
+</td></tr>
+</table>
+
+  </summary>
+</details>
+
+---
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 8 Gen 1 Devices</strong></b></summary>
+
+<br>
 
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
@@ -982,72 +1064,6 @@
 | Display              | Wrong Orientation                                                                                                 | ⚠️    |
 | Vibration            |                                                                                                                   | ❌    |
 | S Pen                |                                                                                                                   | ❌    |
-
-</td></tr>
-</table>
-
-## Samsung Galaxy Z Flip 4
-
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-Z-Flip-4.png" width="500" alt="Preview">
-
-**State: Active** <br>
-**Codename: b4q** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
-
-### UEFI Status
-
-| Feature            | Description                                          | State |
-|:-------------------|:-----------------------------------------------------|:-----:|
-| Main Display       |                                                      | ✅    |
-| Cover Display      | No actual Driver to Handle it & Wrong Orientation    | ⚠️    |
-| Internal Storage   | Doesn't Init Properly sometimes                      | ⚠️    |
-| Side Buttons       |                                                      | ✅    |
-| USB Host Mode      |                                                      | ❌    |
-| USB Device Mode    | Requires a Reconnect if it was Connected during Boot | ✅    |
-| USB Power Delivery |                                                      | ❌    |
-| Mass Storage       |                                                      | ✅    |
-| Windows Boot       |                                                      | ✅    |
-| Linux Boot         |                                                      | ❌    |
-
-### OS Status
-
-<table>
-<tr><th>Windows</th></tr>
-<tr><td>
-
-| Feature              | Description                                                                                                       | State |
-|:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
-| Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
-| Side Buttons         |                                                                                                                   | ❌    |
-| Proximity Sensor     |                                                                                                                   | ❌    |
-| Light Sensor         |                                                                                                                   | ❌    |
-| Accelerometer Sensor |                                                                                                                   | ❌    |
-| Compass Sensor       |                                                                                                                   | ❌    |
-| Gyroscope Sensor     |                                                                                                                   | ❌    |
-| Fingerprint Sensor   |                                                                                                                   | ❌    |
-| Barometer Sensor     |                                                                                                                   | ❌    |
-| Geomagnetic Sensor   |                                                                                                                   | ❌    |
-| Hall Sensor          |                                                                                                                   | ❌    |
-| Temperature Sensor   |                                                                                                                   | ❌    |
-| Battery              |                                                                                                                   | ❌    |
-| USB Host Mode        |                                                                                                                   | ❌    |
-| USB Device Mode      |                                                                                                                   | ❌    |
-| USB Power Delivery   |                                                                                                                   | ❌    |
-| Charging             |                                                                                                                   | ❌    |
-| WLAN                 |                                                                                                                   | ❌    |
-| CPU                  |                                                                                                                   | ✅    |
-| Touchscreen          |                                                                                                                   | ❌    |
-| Bluetooth            |                                                                                                                   | ❌    |
-| GPS                  |                                                                                                                   | ❌    |
-| Speakers             |                                                                                                                   | ❌    |
-| Microphone           |                                                                                                                   | ❌    |
-| GPU                  |                                                                                                                   | ❌    |
-| Camera               |                                                                                                                   | ❌    |
-| Mobile Data          |                                                                                                                   | ❌    |
-| Display              |                                                                                                                   | ✅    |
-| Vibration            |                                                                                                                   | ❌    |
 
 </td></tr>
 </table>
@@ -3801,8 +3817,8 @@
 
   </summary>
 </details>
-</td></tr> </table>
 
+---
 
   </summary>
 </details>
@@ -4084,7 +4100,48 @@
 </details>
 
 <details>
-<summary><b><strong>Snapdragon 660/636/630 Devices</strong></b></summary>
+<summary><b><strong>Snapdragon 660 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi Redmi Note 7
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-7.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: lavender** <br>
+**Maintainer: [index986](https://github.com/index986/)** <br>
+**Contributors: [index986](https://github.com/index986)** <br>
+**Tester: [index986](https://github.com/index986/)**
+
+### UEFI Status
+
+| Feature            | Description                    | State |
+|:-------------------|:-------------------------------|:-----:|
+| Display            |                                | ✅    |
+| Internal Storage   |                                | ✅    |
+| Side Buttons       |                                | ✅    |
+| USB Host Mode      |                                | ❌    |
+| USB Device Mode    |                                | ✅    |
+| USB Power Delivery | Unstable if fastboot boot used | ⚠️    |
+| Mass Storage       |                                | ✅    |
+| SD Card            |                                | ✅    |
+| Windows Boot       | Windows PE only                | ⚠️    |
+| Linux Boot         |                                | ❔    |
+
+  </summary>
+</details>
+
+---
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 636 Devices</strong></b></summary>
 
 <br>
 
@@ -4193,31 +4250,6 @@
 
 </td></tr> </table>
 
-## Xiaomi Redmi Note 7
-
-<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-7.png" width="500" alt="Preview">
-
-**State: Inactive** <br>
-**Codename: lavender** <br>
-**Maintainer: [index986](https://github.com/index986/)** <br>
-**Contributors: [index986](https://github.com/index986)** <br>
-**Tester: [index986](https://github.com/index986/)**
-
-### UEFI Status
-
-| Feature            | Description                    | State |
-|:-------------------|:-------------------------------|:-----:|
-| Display            |                                | ✅    |
-| Internal Storage   |                                | ✅    |
-| Side Buttons       |                                | ✅    |
-| USB Host Mode      |                                | ❌    |
-| USB Device Mode    |                                | ✅    |
-| USB Power Delivery | Unstable if fastboot boot used | ⚠️    |
-| Mass Storage       |                                | ✅    |
-| SD Card            |                                | ✅    |
-| Windows Boot       | Windows PE only                | ⚠️    |
-| Linux Boot         |                                | ❔    |
-
   </summary>
 </details>
 
@@ -4242,15 +4274,42 @@
 <details>
 <summary><b><strong>Nintendo Devices</strong></b></summary>
 
-## Nintendo Switch
+## Nintendo Switch (2017)
 
 <img align="right" src="Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
 
 **State: Inactive** <br>
-**Codename: HAC-001** <br>
+**Codename: nx** <br>
+**Model: 0** <br>
 **Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: [Robotix](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            | Wrong Orientation | ⚠️    |
+| Internal Storage   |                   | ❌    |
+| Joy Cons           |                   | ❌    |
+| Side Buttons       | No Power Button   | ⚠️    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ❌    |
+| USB Power Delivery |                   | ❌    |
+| SD Card            |                   | ❌    |
+| Windows Boot       |                   | ❌    |
+| Linux Boot         |                   | ❌    |
+
+## Nintendo Switch (2019)
+
+<img align="right" src="Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: nx** <br>
+**Model: 1** <br>
+**Maintainer: None** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: None**
 
 ### UEFI Status
 

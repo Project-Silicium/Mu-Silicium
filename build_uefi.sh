@@ -75,12 +75,6 @@ if [ ${TARGET_REQUIRES_BOOTSHIM} == 1 ]; then
 	popd &> /dev/null
 fi
 
-# Remove Mu Patches
-pushd Common/Mu  &> /dev/null || exit 1
-git apply -R Math.patch &> /dev/null
-rm Math.patch &> /dev/null
-popd &> /dev/null
-
 # Remove Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
 git apply -R UsbBus.patch &> /dev/null
@@ -116,7 +110,6 @@ python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/DeviceBuild.py" -
 # Copy Mu Patches to the Right Location
 cp Resources/MuPatches/UsbBus.patch Resources/MuPatches/BdsWait.patch Resources/MuPatches/PdbPointer.patch Mu_Basecore/ || exit 1
 cp Resources/MuPatches/Timer.patch Silicon/Arm/Mu_Tiano/ || exit 1
-cp Resources/MuPatches/Math.patch Common/Mu/ || exit 1
 
 # Apply Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1

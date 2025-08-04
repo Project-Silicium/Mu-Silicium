@@ -34,7 +34,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Not Specified"|VOID*|0x0000A301
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Not Specified"|VOID*|0x0000A302
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Not Specified"|VOID*|0x0000A303
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"Not Specified"|VOID*|0x0000A304
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"Not Specified"|VOID*|0x0000A304
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Not Specified"|VOID*|0x0000A305
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Not Specified"|VOID*|0x0000A306
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Not Specified"|VOID*|0x0000A307

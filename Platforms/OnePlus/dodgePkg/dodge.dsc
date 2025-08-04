@@ -64,7 +64,7 @@
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703C0F0
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0F0
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703CE58
 
   # Dynamic RAM Start Address
@@ -89,9 +89,10 @@
 [LibraryClasses]
   DeviceMemoryMapLib|dodgePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|dodgePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceGuidLib|dodgePkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [Components]
   QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
-!include SM8750Pkg/SM8750Pkg.dsc.inc
+!include PakalaPkg/PakalaPkg.dsc.inc

@@ -81,6 +81,7 @@
 [LibraryClasses]
   DeviceMemoryMapLib|a52qPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|a52qPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceGuidLib|a52qPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include SM7125Pkg/SM7125Pkg.dsc.inc
+!include RennellPkg/RennellPkg.dsc.inc

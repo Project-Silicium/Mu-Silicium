@@ -31,20 +31,15 @@
   gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|27
-  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x12301000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x12302000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x12302000
 
-  # ACPI
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00007885
-
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7885 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorCodename|"S5E7885"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E7885"
 
   # CPU
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
