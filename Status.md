@@ -4233,13 +4233,40 @@
 
 ## Nintendo Switch (2017)
 
-<img align="right" src="Resources/Pictures/Nintendo-Switch-2017.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
 
 **State: Inactive** <br>
 **Codename: nx** <br>
+**Model: 0** <br>
 **Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
 **Tester: [Robotix](https://github.com/Robotix22/)**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            | Wrong Orientation | ⚠️    |
+| Internal Storage   |                   | ❌    |
+| Joy Cons           |                   | ❌    |
+| Side Buttons       | No Power Button   | ⚠️    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ❌    |
+| USB Power Delivery |                   | ❌    |
+| SD Card            |                   | ❌    |
+| Windows Boot       |                   | ❌    |
+| Linux Boot         |                   | ❌    |
+
+## Nintendo Switch (2019)
+
+<img align="right" src="Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: nx** <br>
+**Model: 1** <br>
+**Maintainer: None** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Tester: None**
 
 ### UEFI Status
 

@@ -1,4 +1,5 @@
 #FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+!if $(DEVICE_MODEL) == 0
 #  SECTION RAW = Erista/APIC.aml
 #  SECTION RAW = Erista/BERT.aml
 #  SECTION RAW = Erista/BGRT.aml
@@ -6,7 +7,7 @@
 !if $(TARGET) == DEBUG
 #  SECTION RAW = Erista/DBG2.aml
 !endif
-#  SECTION RAW = Icosa/DSDT.aml
+#  SECTION RAW = icosa/DSDT.aml
 #  SECTION RAW = Erista/FACP.aml
 #  SECTION RAW = Erista/FPDT.aml
 #  SECTION RAW = Erista/GTDT.aml
@@ -17,5 +18,27 @@
 #  SECTION RAW = Erista/SPCR.aml
 #  SECTION RAW = Erista/TPM2.aml
 #  SECTION RAW = Erista/XSDT.aml
+!else
+#  SECTION RAW = Mariko/APIC.aml
+#  SECTION RAW = Mariko/BERT.aml
+#  SECTION RAW = Mariko/BGRT.aml
+#  SECTION RAW = Mariko/CSRT.aml
+!if $(TARGET) == DEBUG
+#  SECTION RAW = Mariko/DBG2.aml
+!endif
+!if $(DEVICE_MODEL) == 1
+#  SECTION RAW = iowa/DSDT.aml
+!endif
+#  SECTION RAW = Mariko/FACP.aml
+#  SECTION RAW = Mariko/FPDT.aml
+#  SECTION RAW = Mariko/GTDT.aml
+#  SECTION RAW = Mariko/IORT.aml
+#  SECTION RAW = Mariko/MCFG.aml
+#  SECTION RAW = Mariko/MSDM.aml
+#  SECTION RAW = Mariko/PPTT.aml
+#  SECTION RAW = Mariko/SPCR.aml
+#  SECTION RAW = Mariko/TPM2.aml
+#  SECTION RAW = Mariko/XSDT.aml
+!endif
 #  SECTION UI = "AcpiTables"
 #}

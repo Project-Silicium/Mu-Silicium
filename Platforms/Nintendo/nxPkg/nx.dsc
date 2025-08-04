@@ -26,6 +26,7 @@
   USE_CUSTOM_DISPLAY_DRIVER      = 0
   HAS_BUILD_IN_KEYBOARD          = 0
 
+!if $(DEVICE_MODEL) == 0
   #
   # 0 = ODNX02-A2
   # 1 = TM670D-A1
@@ -34,6 +35,15 @@
   # 4 = TM660M-A2
   #
   SOC_TYPE                       = 0
+!elseif $(DEVICE_MODEL) == 1
+  #
+  # 0 = ODNX10-A1
+  # 1 = TM675M-A1
+  #
+  SOC_TYPE                       = 0
+!else
+!error "Invalid Model Type! 0 for Icosa, 1 for Iowa"
+!endif
 
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
@@ -56,7 +66,11 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo K.K."
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nx"
+!if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"icosa"
+!elseif $(DEVICE_MODEL) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"iowa"
+!endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch"
 
   # Simple Frame Buffer (TODO: Rotate Screen Somehow)
@@ -88,4 +102,8 @@
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
+!if $(DEVICE_MODEL) == 0
 !include EristaPkg/EristaPkg.dsc.inc
+!else
+!include MarikoPkg/MarikoPkg.dsc.inc
+!endif

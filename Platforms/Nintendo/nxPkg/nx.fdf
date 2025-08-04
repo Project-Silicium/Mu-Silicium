@@ -84,7 +84,11 @@ READ_LOCK_STATUS   = TRUE
 
   # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
+!if $(DEVICE_MODEL) == 0
   INF EristaPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+!else
+  INF MarikoPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+!endif
 
   # ACPI
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
@@ -94,7 +98,11 @@ READ_LOCK_STATUS   = TRUE
   # Device Tree
   #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
   #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
+!if $(DEVICE_MODEL) == 0
   #  SECTION RAW = nxPkg/FdtBlob/tegra210-nintendo-icosa.dtb
+!elseif $(DEVICE_MODEL) == 1
+  #  SECTION RAW = nxPkg/FdtBlob/tegra214-nintendo-iowa.dtb
+!endif
   #  SECTION UI = "DeviceTreeBlob"
   #}
 
