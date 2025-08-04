@@ -27,38 +27,37 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x12301000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x12302000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x12302000
 
-  # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7885 @ 2.20 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E7885"
-
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
-
-  # CPU Caches (Unoffical Values)
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x0
-
-  # Memory Speed & Type
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866    # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
   # DDR Info (Unknown)
   gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x0
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x0
+
+  # SmBios
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7885 @ 2.20 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E7885"
+
+  # SmBios CPU Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40    # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40    # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800       # Unoffical Value
+
+  # SmBios Memory Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866            # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
   PlatformPrePiLib|S5E7885Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

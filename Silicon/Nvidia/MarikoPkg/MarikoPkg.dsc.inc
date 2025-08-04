@@ -27,15 +27,19 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc -mtune=cortex-a57
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|4
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|1
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x50041000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x50042000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x50042000
+
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1+ @ 2.10 GHz"
@@ -46,11 +50,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM675M-A1"
 !endif
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|4
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|1
-
-  # Clock IDs
+  # Clock
   gNvidiaPkgTokenSpaceGuid.PcdCGeneralID|0
   gNvidiaPkgTokenSpaceGuid.PcdMemoryID|1
   gNvidiaPkgTokenSpaceGuid.PcdPeriphID|2

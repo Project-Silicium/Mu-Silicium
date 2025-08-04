@@ -27,15 +27,27 @@
   *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
+
+  # FV Decompress Address
+  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7043418
+
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17100000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17180000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17140000
+
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 2"
@@ -45,32 +57,20 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8550-AC"
 !endif
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+  # SmBios CPU Extras
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3190
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3360
 !endif
-
-  # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000         # Unoffical Value
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4200
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
-  
-  # FV Decompress Address
-  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7043418
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
 
 [LibraryClasses]
   PlatformPrePiLib|KailuaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

@@ -27,15 +27,27 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
+
+  # FV Decompress Address
+  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0x9FC403C8
+
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
+
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
   # SmBios
 !if $(SOC_TYPE) == 0
@@ -49,9 +61,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7325-AF"
 !endif
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+  # SmBios CPU Extras
 !if $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2520
 !elseif $(SOC_TYPE) == 2
@@ -59,24 +69,14 @@
 !else
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2400
 !endif
-
-  # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x80
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
-
-  # FV Decompress Address
-  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0x9FC403C8
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
 
 [LibraryClasses]
   PlatformPrePiLib|KodiakPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

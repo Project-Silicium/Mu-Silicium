@@ -27,38 +27,38 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
+
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17B00000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17B00000
 
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
+
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 636"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SDM636"
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|1800
-
-  # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
 
 [LibraryClasses]
   PlatformPrePiLib|BlackboltPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

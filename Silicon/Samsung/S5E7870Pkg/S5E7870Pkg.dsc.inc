@@ -27,37 +27,37 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x104E0000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x104E2000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x104E2000
 
-  # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7870 @ 1.60 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E7870"
-
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|1600
-
-  # CPU Caches (Unoffical Values)
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x100
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x100
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200
-
-  # Memory Speed & Type
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|933    # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|29
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
   # DDR Info (Unknown)
   gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x0
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x0
+
+  # SmBios
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7870 @ 1.60 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E7870"
+
+  # SmBios CPU Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|1600
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x100    # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x100    # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200        # Unoffical Value
+
+  # SmBios Memory Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|933              # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|29
 
 [LibraryClasses]
   PlatformPrePiLib|S5E7870Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

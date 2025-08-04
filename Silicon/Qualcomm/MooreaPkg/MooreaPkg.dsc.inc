@@ -27,15 +27,24 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
+
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
+
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
 
   # SmBios
 !if $(SOC_TYPE) == 0
@@ -49,29 +58,20 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AC"
 !endif
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  # SmBios CPU Extras
 !if $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2300
 !else
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2210
 !endif
-
-  # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
 
 [LibraryClasses]
   PlatformPrePiLib|MooreaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

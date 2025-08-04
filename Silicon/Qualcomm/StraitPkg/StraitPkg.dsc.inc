@@ -27,39 +27,39 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
-  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
+
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x0F200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x0F240000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x0F240000
 
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
+  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
+
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 695"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6375"
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
-
-  # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2133
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
 
 [LibraryClasses]
   PlatformPrePiLib|StraitPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

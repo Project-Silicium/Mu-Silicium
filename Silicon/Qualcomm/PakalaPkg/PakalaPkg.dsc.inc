@@ -27,15 +27,31 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
+
+  # FV Decompress Address
+  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7049F78
+
+  # CPU
+!if $(SOC_TYPE) == 1
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|7
+!else
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+!endif
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x16000000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x16080000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x16080000
+
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite"
@@ -47,36 +63,20 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8750-AC"
 !endif
 
-  # CPU
-!if $(SOC_TYPE) == 1
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|7
-!else
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-!endif
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  # SmBios CPU Extras
 !if $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|4470
 !else
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|4320
 !endif
-
-  # CPU Caches
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x0        # Unknown
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|5300
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
-
-  # FV Decompress Address
-  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7049F78
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
 
 [LibraryClasses]
   PlatformPrePiLib|PakalaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

@@ -27,42 +27,42 @@
   *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
+
+  # FV Decompress Address
+  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7044830
+
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17100000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17180000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17180000
 
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
+
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8475"
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
-
-  # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x1800
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
-
-  # FV Decompress Address
-  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7044830
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
 
 [LibraryClasses]
   PlatformPrePiLib|PalimaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

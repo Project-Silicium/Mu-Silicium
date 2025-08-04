@@ -27,16 +27,25 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
-  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
+
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xF200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0xF300000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xF300000
+
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
+  gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
 
   # SmBios
 !if $(SOC_TYPE) == 0
@@ -47,28 +56,19 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6225-AD"
 !endif
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  # SmBios CPU Extras
 !if $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2800
 !else
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2400
 !endif
-
-  # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2133
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
 
 [LibraryClasses]
   PlatformPrePiLib|DivarPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

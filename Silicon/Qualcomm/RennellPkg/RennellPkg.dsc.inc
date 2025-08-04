@@ -27,39 +27,39 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
+  # Platform Pei HOBs
+  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
+  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
+
+  # CPU
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
 
+  # Timer
+  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
+  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
+  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
+
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 720G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7125"
 
-  # CPU
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2400
-
-  # CPU Cache
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
 
-  # Memory Speed & Type
+  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2100
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
-
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
 
 [LibraryClasses]
   PlatformPrePiLib|RennellPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
