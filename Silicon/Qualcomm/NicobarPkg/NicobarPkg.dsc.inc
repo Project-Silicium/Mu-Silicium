@@ -32,7 +32,6 @@
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
-  gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|26
 
   # GIC
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xF200000
