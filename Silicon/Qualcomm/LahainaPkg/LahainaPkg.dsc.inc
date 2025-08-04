@@ -38,14 +38,17 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
 
   # SmBios
-!if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 5G"
+!if $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888+"
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888"
+!endif
+
+!if $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8350"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888+ 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8350-AB"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 888 4G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8350-AC"
 !endif
 

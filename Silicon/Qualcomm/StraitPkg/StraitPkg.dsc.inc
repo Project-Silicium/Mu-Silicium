@@ -39,7 +39,7 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x0F240000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 695 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 695"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6375"
 
   # CPU
