@@ -666,6 +666,36 @@
 </details>
 
 <details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi 13 Pro
+
+<img align="right" src="Resources/Pictures/Xiaomi-13-Pro.png" width="350" alt="Preview">
+
+**State: Active** <br>
+**Codename: nuwa** <br>
+**Maintainers: [Alfa](https://github.com/alfaonyt/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)** <br>
+**Testers: [Alfa](https://github.com/alfaonyt/)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
+
+  </summary>
+</details>
+
+<details>
 <summary><b><strong>ZTE Devices</strong></b></summary>
 
 ## ZTE Nubia RedMagic 8 Pro
