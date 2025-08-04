@@ -57,9 +57,10 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
-    # XBL Protocols
+  # Protocol Addresses
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920
-  gQcomPkgTokenSpaceGuid.PcdDTBExtensionAddr|0xA703C0C8
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0C8
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
