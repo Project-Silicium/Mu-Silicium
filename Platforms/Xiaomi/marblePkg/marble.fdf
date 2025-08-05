@@ -85,14 +85,13 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
-   # SmBios
+  # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
   INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-
   !include Include/ACPI.inc
 
   # Device Tree
@@ -100,6 +99,13 @@ READ_LOCK_STATUS   = TRUE
   #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
   #  SECTION RAW = marblePkg/FdtBlob/SM7475-Xiaomi-marble.dtb
   #  SECTION UI = "DeviceTreeBlob"
+  #}
+
+  # Modded XBL Device Tree
+  #INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
+  #FILE FREEFORM = PCD (gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile) {
+  #  SECTION RAW = marblepPkg/XBL-FdtBlob/xbl-sm7475-xiaomi-marble.dtb
+  #  SECTION UI = "XBL Device Tree"
   #}
 
   !include QcomPkg/Extra.fdf.inc

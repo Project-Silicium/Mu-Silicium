@@ -1,8 +1,8 @@
 [Defines]
   DEC_SPECIFICATION                   = 0x00010005
   PACKAGE_NAME                        = marble
-  PACKAGE_GUID                        = 00bf6247-21d4-4219-a7f9-7b7a782c3c27
+  PACKAGE_GUID                        = 00BF6247-21D4-4219-A7F9-7B7A782C3C27
   PACKAGE_VERSION                     = 0.1
 
 [Guids]
-  gmarbleTokenSpaceGuid                 = { 0x4762BF00, 0xD421, 0x1942, { 0xa7, 0xf9, 0x7b, 0x7a, 0x78, 0x2c, 0x3c, 0x27 } }
+  gmarbleTokenSpaceGuid               = { 0x4762BF00, 0xD421, 0x1942, { 0xA7, 0xF9, 0x7B, 0x7A, 0x78, 0x2C, 0x3C, 0x27 } }

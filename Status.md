@@ -818,7 +818,7 @@
 </details>
 
 <details>
-<summary><b><strong>Snapdragon 8+ Gen 1 Devices</strong></b></summary>
+<summary><b><strong>Snapdragon 8+ Gen 1 / 7+ Gen 2 Devices</strong></b></summary>
 
 <br>
 
@@ -994,6 +994,36 @@
 
 </td></tr>
 </table>
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi Poco F5
+
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-F5.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: marble** <br>
+**Maintainers: [Yuzuru10](https://github.com/Yuzuru10/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
+**Testers: [Yuzuru10](https://github.com/Yuzuru10/)**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ✅    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |                   | ✅    |
+| Windows Boot       |                   | ❔    |
+| Linux Boot         |                   | ❔    |
 
   </summary>
 </details>
@@ -1237,47 +1267,6 @@
 </details>
 ---
 
-
----
-
-  </summary>
-</details>
-
-<details>
-<summary><b><strong>Snapdragon 7+ Gen 2 Devices</strong></b></summary>
-
-<br>
-
-<details>
-<summary><b><strong>Xiaomi Devices</strong></b></summary>
-
-## Xiaomi Poco F5
-
-<img align="right" src="Resources/Pictures/Xiaomi-Poco-F5.png" width="500" alt="Preview">
-
-**State: Active** <br>
-**Codename: marble** <br>
-**Maintainers: [Yuzuru10](https://github.com/Yuzuru10/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [Yuzuru10](https://github.com/Yuzuru10/)**
-
-### UEFI Status
-
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ❌    |
-| USB Device Mode    |                   | ✅    |
-| USB Power Delivery |                   | ❌    |
-| Mass Storage       |                   | ✅    |
-| Windows Boot       |                   | ❔    |
-| Linux Boot         |                   | ❔    |
-
-
-  </summary>
-</details>
 
 ---
 

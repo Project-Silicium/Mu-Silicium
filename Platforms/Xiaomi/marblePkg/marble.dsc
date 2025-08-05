@@ -16,7 +16,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = marble
-  PLATFORM_GUID                  = 00bf6247-21d4-4219-a7f9-7b7a782c3c27
+  PLATFORM_GUID                  = 00BF6247-21D4-4219-A7F9-7B7A782C3C27
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/marblePkg
@@ -36,13 +36,6 @@
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
-[LibraryClasses]
-  DeviceMemoryMapLib|marblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|marblePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DeviceGuidLib|marblePkg/Library/DeviceGuidLib/DeviceGuidLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
@@ -57,22 +50,22 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
-  # Protocol Addresses
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920
-  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0C8
-  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F5"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Marble"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"PocoF5_Marble"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"marble"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F5_marble"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F5"
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+
+  # Protocol Addresses
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C920
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0C8
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
@@ -88,9 +81,18 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135  # 1080/8 chars
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|150     # 2400/16 lines
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|150
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
+
+[LibraryClasses]
+  DeviceMemoryMapLib|marblePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceConfigurationMapLib|marblePkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
+  DeviceGuidLib|marblePkg/Library/DeviceGuidLib/DeviceGuidLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+#[Components]
+#  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
 !include PalimaPkg/PalimaPkg.dsc.inc

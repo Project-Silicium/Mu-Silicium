@@ -3,8 +3,7 @@
 STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
-  // NOTE: All Conf are located before Terminator!
-
+  // Configuration Map
   {"EnableShell", 0x1},
   {"SecPagePoolCount", 0x800},
   {"SharedIMEMBaseAddr", 0x146AA000},

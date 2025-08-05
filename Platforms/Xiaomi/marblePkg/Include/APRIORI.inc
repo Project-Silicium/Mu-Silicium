@@ -1,6 +1,7 @@
 APRIORI DXE {
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+  #INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -13,6 +14,7 @@ APRIORI DXE {
 
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+
   INF Binaries/marble/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
   INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
@@ -32,6 +34,7 @@ APRIORI DXE {
   INF Binaries/marble/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+
   INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
@@ -65,11 +68,11 @@ APRIORI DXE {
 
   INF Binaries/marble/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/marble/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-  !else
+!else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-  !endif
+!endif
 
   INF Binaries/marble/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
@@ -107,9 +110,9 @@ APRIORI DXE {
   INF Binaries/marble/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/marble/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-  !endif
+!endif
   INF Binaries/marble/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/RNGDxe/RngDxe.inf
@@ -118,5 +121,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-
 }

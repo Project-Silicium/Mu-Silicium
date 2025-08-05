@@ -3,5 +3,5 @@
 EFI_GUID
 GetDeviceGuid ()
 {
-    return gmarbleTokenSpaceGuid;
+  return gmarbleTokenSpaceGuid;
 }
