@@ -104,7 +104,7 @@ READ_LOCK_STATUS   = TRUE
   # Modded XBL Device Tree
   #INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
   #FILE FREEFORM = PCD (gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile) {
-  #  SECTION RAW = marblepPkg/XBL-FdtBlob/xbl-sm7475-xiaomi-marble.dtb
+  #  SECTION RAW = marblePkg/XBL-FdtBlob/xbl-sm7475-xiaomi-marble.dtb
   #  SECTION UI = "XBL Device Tree"
   #}
 
@@ -142,3 +142,4 @@ READ_LOCK_STATUS   = TRUE
   }
 
   !include SiliciumPkg/Common.fdf.inc
+
