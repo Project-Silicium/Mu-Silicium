@@ -11,6 +11,6 @@ python3 ./Resources/Scripts/mkbootimg.py \
   --ramdisk ./Resources/ramdisk \
   --os_version 15.0.0 \
   --os_patch_level "$(date '+%Y-%m')" \
-  --header_version 4 \
+  --header_version 1 \
   -o Mu-nuwa.img \
   ||_error "\nFailed to create Android Boot Image!\n"
