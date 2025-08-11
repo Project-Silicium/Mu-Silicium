@@ -16,12 +16,14 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  UefiBootServicesTableLib
+  DebugLib
   AslUpdateLib
   MemoryMapHelperLib
+  UefiBootServicesTableLib
   RFSProtectionLib
+  IoLib
 
 [Protocols]
   gEfiChipInfoProtocolGuid
-  gEfiSMEMProtocolGuid
   gEfiPlatformInfoProtocolGuid
+  gEfiSMEMProtocolGuid
