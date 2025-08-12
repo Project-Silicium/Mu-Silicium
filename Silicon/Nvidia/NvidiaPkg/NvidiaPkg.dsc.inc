@@ -30,6 +30,9 @@
   MemoryProtectionLib|NvidiaPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
 
 [Components]
+  # SmBios
+  NvidiaPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+
   # Custom Tegra Drivers
   NvidiaPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf

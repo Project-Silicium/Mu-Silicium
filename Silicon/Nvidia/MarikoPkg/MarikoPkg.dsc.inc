@@ -50,6 +50,16 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM675M-A1"
 !endif
 
+  # SmBios CPU Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2100
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x30
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
+
+  # SmBios Memory Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1600    # Incorrect?
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
+
   # Clock
   gNvidiaPkgTokenSpaceGuid.PcdCGeneralID|0
   gNvidiaPkgTokenSpaceGuid.PcdMemoryID|1
@@ -75,8 +85,5 @@
   SoCPlatformLib|MarikoPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
   DynamicRamLib|MarikoPkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
   TegraClockLib|MarikoPkg/GPLLibrary/TegraClockLib/TegraClockLib.inf
-
-[Components]
-  MarikoPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include NvidiaPkg/NvidiaPkg.dsc.inc

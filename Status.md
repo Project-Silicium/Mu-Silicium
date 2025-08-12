@@ -1265,8 +1265,6 @@
 
   </summary>
 </details>
----
-
 
 ---
 
@@ -4363,6 +4361,22 @@
 | SD Card            |                   | ❌    |
 | Windows Boot       |                   | ❌    |
 | Linux Boot         |                   | ❌    |
+
+  </summary>
+</details>
+
+---
+
+  </summary>
+</details>
+
+<details>
+<summary><b><strong>Tegra X1+ Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Nintendo Devices</strong></b></summary>
 
 ## Nintendo Switch (2019)
 
