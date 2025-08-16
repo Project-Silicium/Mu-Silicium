@@ -316,7 +316,6 @@
 > [!NOTE]
 > The PostmarketOS Site for this Device can be Found [here](https://wiki.postmarketos.org/wiki/OnePlus_13_(oneplus-dodge)).
 
-
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
 | Internal Storage     |               | ✅    |
@@ -333,10 +332,10 @@
 | USB Host Mode        |               | ❌    |
 | USB Device Mode      |               | ✅    |
 | USB Power Delivery   |               | ❌    |
-| Charging             |               | ❌    |
+| Charging             | No indication | ⚠️    |
 | WLAN                 |               | ❌    |
 | CPU                  |               | ✅    |
-| Touchscreen          |               | ❌    |
+| Touchscreen          |               | ✅    |
 | Bluetooth            |               | ❌    |
 | GPS                  |               | ❌    |
 | Speakers             |               | ❌    |
