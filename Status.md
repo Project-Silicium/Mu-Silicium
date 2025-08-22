@@ -734,7 +734,49 @@
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
 | Windows Boot       |             | ❌    |
-| Linux Boot         |             | ❌    |
+| Linux Boot         |             | ✅    |
+
+### OS Status
+
+<table>
+<tr><th>Linux</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Linux Requires: [Mainline Kernel](https://github.com/alfaonyt/nuwa-mainline).
+
+
+| Feature              | Description             | State |
+|:---------------------|:------------------------|:-----:|
+| Internal Storage     | No UFS Deep Sleep       | ✅    |
+| Side Buttons         |                         | ✅    |
+| Proximity Sensor     |                         | ❌    |
+| Light Sensor         |                         | ❌    |
+| Accelerometer Sensor |                         | ❌    |
+| Gyroscope Sensor     |                         | ❌    |
+| Magnetometer Sensor  |                         | ❌    |
+| Fingerprint Sensor   |                         | ❌    |
+| NFC Sensor           |                         | ❌    |
+| Temperature Sensor   |                         | ❌    |
+| Battery              |                         | ✅    |
+| USB Host Mode        | Untested. Should work   | ❔    |
+| USB Device Mode      |                         | ✅    |
+| USB Power Delivery   | Untested                | ❔    |
+| Charging             |                         | ✅    |
+| WLAN                 |                         | ✅    |
+| CPU                  |                         | ✅    |
+| Touchscreen          | WIP                     | ❌    |
+| Bluetooth            |                         | ✅    |
+| GPS                  |                         | ❌    |
+| Speakers             |                         | ✅    |
+| Microphone           |                         | ❌    |
+| GPU                  |                         | ✅    |
+| Camera               |                         | ❌    |
+| Mobile Data          |                         | ✅    |
+| Display              |                         | ✅    | 
+| Vibration            |                         | ❌    |
+
+</td></tr> </table>
 
   </summary>
 </details>
