@@ -3,5 +3,5 @@
 EFI_GUID
 GetDeviceGuid ()
 {
-  return ghotdogTokenSpaceGuid;
+  return gcheeseburgerTokenSpaceGuid;
 }

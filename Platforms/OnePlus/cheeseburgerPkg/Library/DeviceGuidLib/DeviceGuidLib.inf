@@ -12,7 +12,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
-  hotdogPkg/hotdog.dec
+  cheeseburgerPkg/cheeseburger.dec
 
 [Guids]
-  ghotdogTokenSpaceGuid
+  gcheeseburgerTokenSpaceGuid

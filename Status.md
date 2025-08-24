@@ -2832,7 +2832,7 @@
 
 <img align="right" src="Resources/Pictures/OnePlus-5.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: cheeseburger** <br>
 **Maintainer: [index986](https://github.com/index986/)** <br>
 **Contributors: [index986](https://github.com/index986/)** <br>
