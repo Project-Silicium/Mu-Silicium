@@ -39,7 +39,6 @@
 | Windows Boot       |                | ❌    |
 | Linux Boot         |                | ❌    |
 
-  </summary>
 </details>
 
 <details>
@@ -73,7 +72,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: x1s** <br>
 **Maintainer: [halal-beef](https://github.com/halal-beef/)** <br>
 **Contributors: [halal-beef](https://github.com/halal-beef/)** <br>
@@ -117,7 +116,6 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-  </summary>
 </details>
 
 <details>
@@ -127,7 +125,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S10.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: beyond1lte** <br>
 **Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
@@ -147,7 +145,6 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-  </summary>
 </details>
 
 <details>
@@ -159,9 +156,9 @@
 
 **State: Inactive** <br>
 **Codename: starlte** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
+**Maintainer: None** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -177,11 +174,19 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Exynos 7885 Devices</strong></b></summary>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 ## Samsung Galaxy A10
 
@@ -231,17 +236,25 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Exynos 7870 Devices</strong></b></summary>
 
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
+
 ## Samsung Galaxy Tab A 10.1
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A-10.1.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: gtaxllte** <br>
 **Maintainer: [Glitchythedev](https://github.com/Glitchythedev/) & [AistopGit](https://github.com/AistopGit)** <br>
 **Contributors: [Glitchythedev](https://github.com/Glitchythedev/) & [AistopGit](https://github.com/AistopGit)** <br>
@@ -252,7 +265,7 @@
 | Feature            | Description           | State |
 |:-------------------|:----------------------|:-----:|
 | Display            |                       | ✅    |
-| Internal Storage   | Untested Writes | ✅    |
+| Internal Storage   | Untested Writes       | ✅    |
 | Side Buttons       |                       | ✅    |
 | USB Host Mode      |                       | ❌    |
 | USB Device Mode    |                       | ❌    |
@@ -261,10 +274,8 @@
 | Windows Boot       |                       | ❌    |
 | Linux Boot         |                       | ❌    |
 
-  </summary>
 </details>
 
-  </summary>
 </details>
 
 ---
@@ -306,8 +317,7 @@
 | Linux Boot         |              | ✅    |
 
 <table>
-<th>Linux</th>
-</tr>
+<tr><th>Linux</th></tr>
 <tr><td>
 
 > [!IMPORTANT]
@@ -347,22 +357,28 @@
 | Display              |               | ✅    | 
 | Vibration            |               | ❌    |
 
-</td>
+</td></tr>
+</table>
 
-</td></tr> </table>
-
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 8s Gen 3 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Realme Devices</strong></b></summary>
@@ -371,7 +387,7 @@
 
 <img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="400" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: bale** <br>
 **Maintainers: [InternalHellhound](https://github.com/InternalHellhound)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/), [InternalHellhound](https://github.com/InternalHellhound), [index986](https://github.com/index986/), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)** <br>
@@ -388,14 +404,13 @@
 | USB Device Mode    |              | ✅    |
 | USB Power Delivery |              | ❌    |
 | Mass Storage       |              | ✅    |
-| Windows Boot       | WinPE Booted | ✅    |
+| Windows Boot       |              | ✅    |
 | Linux Boot         | Mainline WIP | ⚠️    |
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><!-- <th>Linux</th> -->
-</tr>
+<tr><th>Windows</th></tr>
 <tr><td>
 
 > [!IMPORTANT]
@@ -435,8 +450,6 @@
 <!--
 <td>
 
-> NOTE: Haven't booted yet
-
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
 | Internal Storage     |               | ❔    |
@@ -469,22 +482,19 @@
 
 </td>
 -->
-</tr> </table>
+</tr>
+</table>
 
-  </summary>
-
-  
 </details>
-
 
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
 ## POCO F6
 
-<img align="right" src="Resources/Pictures/Xiaomi-POCO-F6.jpg" width="400" alt="Preview">
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-F6.png" width="400" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: peridot** <br>
 **Maintainers: [PugzAreCute](https://github.com/PugzAreCute)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [PugzAreCute](https://github.com/PugzAreCute), [InternalHellhound](https://github.com/InternalHellhound), [iNUCi](https://github.com/iNUCi), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)** <br>
@@ -492,7 +502,7 @@
 
 ### UEFI Status
 
-| Feature            | Description | State |
+| Feature            | Description  | State |
 |:-------------------|:-------------|:-----:|
 | Display            |              | ✅    |
 | Internal Storage   |              | ✅    |
@@ -501,7 +511,7 @@
 | USB Device Mode    |              | ✅    |
 | USB Power Delivery |              | ❌    |
 | Mass Storage       |              | ✅    |
-| Windows Boot       | WinPE Booted | ✅    |
+| Windows Boot       |              | ✅    |
 | Linux Boot         | Mainline WIP | ⚠️    |
 
 ### OS Status
@@ -548,8 +558,6 @@
 <!--
 <td>
 
-> NOTE: Haven't booted yet
-
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
 | Internal Storage     |               | ❔    |
@@ -582,22 +590,28 @@
 
 </td>
 -->
-</tr> </table>
+</tr>
+</table>
 
-  </summary>
-
-  
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 8 Gen 2 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>OnePlus Devices</strong></b></summary>
@@ -631,9 +645,6 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-
-> [!IMPORTANT]
-> Only Windows Builds 26090 or higher Work.
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -704,9 +715,9 @@
 | Display              |                         | ✅    | 
 | Vibration            |                         | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -745,7 +756,6 @@
 > [!IMPORTANT]
 > Linux Requires: [Mainline Kernel](https://github.com/alfaonyt/nuwa-mainline).
 
-
 | Feature              | Description             | State |
 |:---------------------|:------------------------|:-----:|
 | Internal Storage     | No UFS Deep Sleep       | ✅    |
@@ -776,9 +786,9 @@
 | Display              |                         | ✅    | 
 | Vibration            |                         | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -814,9 +824,6 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
-> [!IMPORTANT]
-> Only Windows Builds 26090 or higher Work.
-
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
 | Internal Storage     |               | ✅    |
@@ -848,20 +855,28 @@
 | Vibration            |               | ❌    |
 
 </td>
-</tr> </table>
+</tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 8+ Gen 1 / 7+ Gen 2 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Nothing Devices</strong></b></summary>
@@ -870,7 +885,7 @@
 
 <img align="right" src="Resources/Pictures/Nothing-Phone-2.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: pong** <br>
 **Maintainers: [index986](https://github.com/index986/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)** <br>
@@ -962,9 +977,9 @@
 | Display              |               | ✅    | 
 | Vibration            |               | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -974,7 +989,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Z-Flip-4.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: b4q** <br>
 **Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
@@ -986,7 +1001,7 @@
 |:-------------------|:-----------------------------------------------------|:-----:|
 | Main Display       |                                                      | ✅    |
 | Cover Display      | No actual Driver to Handle it & Wrong Orientation    | ⚠️    |
-| Internal Storage   | Doesn't Init Properly sometimes                      | ⚠️    |
+| Internal Storage   |                                                      | ✅    |
 | Side Buttons       |                                                      | ✅    |
 | USB Host Mode      |                                                      | ❌    |
 | USB Device Mode    | Requires a Reconnect if it was Connected during Boot | ✅    |
@@ -1036,7 +1051,6 @@
 </td></tr>
 </table>
 
-  </summary>
 </details>
 
 <details>
@@ -1066,18 +1080,25 @@
 | Windows Boot       |                   | ❔    |
 | Linux Boot         |                   | ❔    |
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 8 Gen 1 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
@@ -1214,7 +1235,6 @@
 </td></tr>
 </table>
 
-  </summary>
 </details>
 
 <details>
@@ -1302,20 +1322,28 @@
 | Display              |               | ✅    | 
 | Vibration            |               | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 888/888+ Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Asus Devices</strong></b></summary>
@@ -1344,7 +1372,6 @@
 | Windows Boot       |                   | ❌    |
 | Linux Boot         |                   | ❌    |
 
-  </summary>
 </details>
 
 <details>
@@ -1354,11 +1381,11 @@
 
 <img align="right" src="Resources/Pictures/Oneplus-9.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: lemonade** <br>
 **Maintainer: [arminask](https://github.com/arminask/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Tester: [arminask](https://github.com/arminask/)**
 
 ### UEFI Status
 
@@ -1379,9 +1406,6 @@
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
-
-> [!IMPORTANT]
-> Only Windows Builds 26090 or higher Work.
 
 | Feature              | Description | State |
 |:---------------------|:------------|:-----:|
@@ -1417,9 +1441,9 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -1432,7 +1456,7 @@
 **State: Inactive** <br>
 **Codename: r9qb2** <br>
 **Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/),[Nikroks](https://github.com/N1kroks/), [Icesito68](https://github.com/Icesito68/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [Nikroks](https://github.com/N1kroks/), [Icesito68](https://github.com/Icesito68/)** <br>
 **Tester: None**
 
 ### UEFI Status
@@ -1454,9 +1478,6 @@
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
-
-> [!IMPORTANT]
-> Only Windows Builds 26090 or higher Work.
 
 | Feature              | Description         | State |
 |:---------------------|:--------------------|:-----:|
@@ -1496,9 +1517,9 @@
 
 **State: Inactive** <br>
 **Codename: q2q** <br>
-**Maintainer: [Azkali](https://github.com/Azkali/)** <br>
+**Maintainer: None** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [Azkali](https://github.com/Azkali/)** <br>
-**Tester: [Azkali](https://github.com/Azkali/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -1519,9 +1540,6 @@
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
-
-> [!IMPORTANT]
-> Only Windows Builds 26090 or higher Work.
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -1558,9 +1576,9 @@
 | Display              |               | ✅    |
 | Vibration            |               | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -1630,7 +1648,8 @@
 | Display               |             | ✅    |
 | Vibration             |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Xiaomi 11T Pro
 
@@ -1661,10 +1680,6 @@
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
-
-> [!IMPORTANT]
-> Only Windows Builds 26090 or higher Work. <br>
-> and Windows Drivers are Required.
 
 | Feature              | Description | State |
 |:---------------------|:------------|:-----:|
@@ -1700,14 +1715,13 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
@@ -1779,9 +1793,9 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -1850,9 +1864,9 @@
 | Display               |             | ✅    |
 | Vibration             |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -1864,9 +1878,9 @@
 
 **State: Inactive** <br>
 **Codename: bitra** <br>
-**Maintainer: [kubawis128](https://github.com/kubawis128/)** <br>
+**Maintainer: None** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [kubawis128](https://github.com/kubawis128/)** <br>
-**Testers: [kubawis128](https://github.com/kubawis128/)**
+**Testers: None**
 
 ### UEFI Status
 
@@ -1950,9 +1964,9 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -1987,9 +2001,6 @@
 <table>
 <tr><th>Windows</th><th>Linux</th></tr>
 <tr><td>
-
-> [!IMPORTANT]
-> Needs [Windows Drivers](https://github.com/N1kroks/SM8250-Drivers).
 
 | Feature              | Description                       | State |
 |:---------------------|:----------------------------------|:-----:|
@@ -2043,7 +2054,8 @@
 | Camera               |                                   | ❌    |
 | Display              |                                   | ✅    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Xiaomi Poco F3 / Redmi K40 / Mi 11X
 
@@ -2106,7 +2118,8 @@
 
 </td><td>
 
-> NOTE: Linux Requires: [Mainline kernel](https://github.com/mainlining/linux/tree/nikroks/alioth)
+> [!IMPORTANT]
+> Linux Requires: [Mainline Kernel](https://github.com/mainlining/linux/tree/nikroks/alioth)
 
 | Feature              | Description                       | State |
 |:---------------------|:----------------------------------|:-----:|
@@ -2137,14 +2150,13 @@
 | Display              |                                   | ✅    |
 | Vibration            |                                   | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
@@ -2161,9 +2173,9 @@
 
 **State: Inactive** <br>
 **Codename: betalm** <br>
-**Maintainers: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69)** <br>
+**Maintainers: None** <br>
 **Contributors: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69), [Icesito68](https://github.com/Icesito68)** <br>
-**Testers: [n00b69](https://github.com/n00b69)**
+**Testers: None**
 
 ### UEFI Status
 
@@ -2219,9 +2231,9 @@
 | Display              |                                                              | ✅    |
 | Vibration            |                                                              | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -2288,9 +2300,9 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -2300,7 +2312,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Pad-5.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: nabu** <br>
 **Maintainers: [iNUCi](https://github.com/iNUCi)** <br>
 **Contributors: [iNUCi](https://github.com/iNUCi), [Robotix](https://github.com/Robotix22/)** <br>
@@ -2356,8 +2368,7 @@
 | Display              |                                                              | ✅    |
 | Vibration            |                                                              | ❌    |
 
-</td>
-<td>
+</td><td>
 
 > [!IMPORTANT]
 > Linux Requires: [Mainline Kernel](https://gitlab.com/sm8150-mainline/linux).
@@ -2389,7 +2400,8 @@
 | Display              |                                                              | ✅    |
 | Vibration            |                                                              | ❌    |
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Xiaomi Mi 9
 
@@ -2397,9 +2409,9 @@
 
 **State: Inactive** <br>
 **Codename: cepheus** <br>
-**Maintainers: [Daniel224455](https://github.com/Daniel224455)** <br>
+**Maintainers: None** <br>
 **Contributors: [Daniel224455](https://github.com/Daniel224455)** <br>
-**Testers: [motylek](https://github.com/jotkauser)**
+**Testers: None**
 
 ### UEFI Status
 
@@ -2453,7 +2465,8 @@
 | Display              |                                                              | ✅    |
 | Vibration            |                                                              | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Xiaomi Poco X3 Pro
 
@@ -2519,14 +2532,13 @@
 | Display              |                                                              | ✅    |
 | Vibration            |                                                              | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
@@ -2603,9 +2615,9 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table> 
+</td></tr>
+</table> 
 
-  </summary>
 </details>
 
 <details>
@@ -2656,7 +2668,7 @@
 | USB Device Mode    |                   | ❌    |
 | USB Power Delivery |                   | ❌    |
 | Mass Storage       | Needs Device Mode | ❌    |
-| Windows Boot       | Windows PE Only   | ⚠️    |
+| Windows Boot       |                   | ⚠️    |
 | Linux Boot         |                   | ❌    |
 
 ### OS Status
@@ -2664,6 +2676,9 @@
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE Boots.
 
 | Feature              | Description | State |
 |:---------------------|:------------|:-----:|
@@ -2695,20 +2710,28 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 835 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Sony Devices</strong></b></summary>
@@ -2817,20 +2840,28 @@
 | Display              |                           | ✅    |
 | Vibration            |                           | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Nothing Devices</strong></b></summary>
@@ -2859,7 +2890,6 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-  </summary>
 </details>
 
 <details>
@@ -2930,9 +2960,9 @@
 | Display              |                       | ✅    |
 | Vibration            |                       | ✅    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -3003,14 +3033,13 @@
 | Display              |                       | ✅    |
 | Vibration            |                       | ✅    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
@@ -3083,9 +3112,9 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -3097,9 +3126,9 @@
 
 **State: Inactive** <br>
 **Codename: surya** <br>
-**Maintainer: [remtrik](https://github.com/remtrik/)** <br>
+**Maintainer: None** <br>
 **Contributors: [Nikroks](https://github.com/N1kroks/), [remtrik](https://github.com/remtrik)** <br>
-**Tester: [remtrik](https://github.com/remtrik/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -3159,7 +3188,8 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Xiaomi Redmi Note 10 Pro
 
@@ -3211,12 +3241,10 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
@@ -3328,9 +3356,9 @@
 | Display              |             | ✅    |
 | Vibration            |             | ✅    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 <details>
@@ -3435,14 +3463,13 @@
 | Display              |             | ❌    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
@@ -3478,14 +3505,13 @@
 | Windows Boot       |                      | ❔    |
 | Linux Boot         |                      | ❔    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
@@ -3502,9 +3528,9 @@
 
 **State: Inactive** <br>
 **Codename: fog** <br>
-**Maintainer: [Statzar](https://github.com/Statzar)/** <br>
+**Maintainer: None** <br>
 **Contributors: [Statzar](https://github.com/Statzar/)** <br>
-**Tester: [Statzar](https://github.com/Statzar/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -3591,7 +3617,8 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Xiaomi Redmi Note 11
 
@@ -3599,9 +3626,9 @@
 
 **State: Inactive** <br>
 **Codename: spes** <br>
-**Maintainer: [Statzar](https://github.com/Statzar/)** <br>
+**Maintainer: None** <br>
 **Contributors: [Statzar](https://github.com/Statzar/)** <br>
-**Tester: [Statzar](https://github.com/Statzar/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -3690,7 +3717,8 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Xiaomi Redmi Note 12
 
@@ -3787,20 +3815,28 @@
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 665 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
@@ -3837,8 +3873,8 @@
 **State: Inactive** <br>
 **Codename: willow** <br>
 **Maintainer: None** <br>
-**Contributors: [SwedMlite](https://github.com/SwedMlite), [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [Dima](https://github.com/dimabimaev/)**
+**Contributors: [SwedMlite](https://github.com/SwedMlite), [Robotix](https://github.com/Robotix22/), [Vicente Cortes](https://github.com/vicenteicc2008/)** <br>
+**Testers: None**
 
 ### UEFI Status
 
@@ -3918,18 +3954,25 @@
 | Windows Boot       |                           | ❌    |
 | Linux Boot         |                           | ❌    |
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 662 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Motorola Devices</strong></b></summary>
@@ -3996,7 +4039,8 @@
 | Display              |              | ✅    |
 | Vibration            |              | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Motorola Moto G9 Power
 
@@ -4023,7 +4067,6 @@
 | Windows Boot       |                   | ❌    |
 | Linux Boot         |                   | ❌    |
 
-  </summary>
 </details>
 
 <details>
@@ -4035,9 +4078,9 @@
 
 **State: Inactive** <br>
 **Codename: gta4l** <br>
-**Maintainer: [V6lhost](https://github.com/V6lhost/)** <br>
+**Maintainer: None** <br>
 **Contributors: [V6lhost](https://github.com/V6lhost/)** <br>
-**Tester: [V6lhost](https://github.com/V6lhost/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -4054,9 +4097,7 @@
 | Windows Boot       |                          | ❔    |
 | Linux Boot         |                          | ❌    |
 
-  </summary>
 </details>
-
 
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
@@ -4127,17 +4168,18 @@
 | Display              |              | ✅    |
 | Vibration            |              | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Xiaomi Poco M3
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-M3.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: citrus** <br>
-**Maintainer: [deuspato](https://github.com/deuspato)** <br>
+**Maintainer: None** <br>
 **Contributors: [Robotix](https://github.com/Robotix22), [9.8.7.6](https://github.com/Daniel224455), [NUC](https://github.com/iNUCi), [Aistop](https://github.com/AistopGit), [All_One1](https://github.com/Ost268), [Heyylucazzz](https://github.com/heyylucazzz)** <br>
-**Tester: [deuspato](https://github.com/deuspato)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -4192,20 +4234,28 @@
 | Display              |              | ✅    |
 | Vibration            |              | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 660 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
@@ -4216,9 +4266,9 @@
 
 **State: Inactive** <br>
 **Codename: lavender** <br>
-**Maintainer: [index986](https://github.com/index986/)** <br>
+**Maintainer: None** <br>
 **Contributors: [index986](https://github.com/index986)** <br>
-**Tester: [index986](https://github.com/index986/)**
+**Tester: None**
 
 ### UEFI Status
 
@@ -4232,21 +4282,72 @@
 | USB Power Delivery | Unstable if fastboot boot used | ⚠️    |
 | Mass Storage       |                                | ✅    |
 | SD Card            |                                | ✅    |
-| Windows Boot       | Windows PE only                | ⚠️    |
+| Windows Boot       |                                | ⚠️    |
 | Linux Boot         |                                | ❔    |
 
-  </summary>
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE Boots.
+
+| Feature              | Description                                | State |
+|:---------------------|:-------------------------------------------|:-----:|
+| Internal Storage     |                                            | ❌    |
+| SD Card              |                                            | ❌    |
+| Side Buttons         |                                            | ❌    |
+| Proximity Sensor     |                                            | ❌    |
+| Light Sensor         |                                            | ❌    |
+| Accelerometer Sensor |                                            | ❌    |
+| Compass Sensor       |                                            | ❌    |
+| Gyroscope Sensor     |                                            | ❌    |
+| Fingerprint Sensor   |                                            | ❌    |
+| Hall Sensor          |                                            | ❌    |
+| Temperature Sensor   |                                            | ❌    |
+| Battery              |                                            | ❌    |
+| USB Host Mode        |                                            | ❌    |
+| USB Device Mode      |                                            | ❔    |
+| USB Power Delivery   |                                            | ❌    |
+| Charging             |                                            | ❌    |
+| WLAN                 |                                            | ❌    |
+| CPU                  |                                            | ✅    |
+| Touchscreen          |                                            | ❌    |
+| Bluetooth            |                                            | ❌    |
+| GPS                  |                                            | ❌    |
+| Speakers             |                                            | ❌    |
+| 3.5mm Audio Jack     |                                            | ❌    |
+| Microphone           |                                            | ❌    |
+| GPU                  |                                            | ❌    |
+| Camera               |                                            | ❌    |
+| Mobile Data          |                                            | ❌    |
+| Display              |                                            | ✅    |
+| Vibration            |                                            | ❌    |
+
+</td></tr>
+</table>
+
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Snapdragon 636 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
@@ -4351,15 +4452,13 @@
 | Display              |                                   | ✅    |
 | Vibration            |                                   | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
-  </summary>
 </details>
 
-  </summary>
 </details>
 
-  </summary>
 </details>
 
 ---
@@ -4373,6 +4472,15 @@
 <summary><b><strong>Tegra X1 Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Nintendo Devices</strong></b></summary>
@@ -4403,18 +4511,25 @@
 | Windows Boot       |                   | ❌    |
 | Linux Boot         |                   | ❌    |
 
-  </summary>
 </details>
 
 ---
 
-  </summary>
 </details>
 
 <details>
 <summary><b><strong>Tegra X1+ Devices</strong></b></summary>
 
 <br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 <details>
 <summary><b><strong>Nintendo Devices</strong></b></summary>
@@ -4445,11 +4560,8 @@
 | Windows Boot       |                   | ❌    |
 | Linux Boot         |                   | ❌    |
 
-  </summary>
 </details>
 
-  </summary>
 </details>
 
-  </summary>
 </details>
