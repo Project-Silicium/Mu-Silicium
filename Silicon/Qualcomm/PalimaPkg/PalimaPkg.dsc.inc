@@ -53,7 +53,7 @@
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8475"
-!elseif $(SOC_TYPE) == 1
+!elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 7+ Gen 2"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7475-AB"
 !endif
@@ -62,6 +62,8 @@
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
 !elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3000
+!elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2910
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20

@@ -24,7 +24,7 @@
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc # Incorrect?
 
 [PcdsFixedAtBuild]
   # Platform Pei HOBs
@@ -72,7 +72,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x0        # Unknown
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000          # Unoffical Value
 
   # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|5300

@@ -57,7 +57,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
 
   # SmBios Memory Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1333
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]

@@ -58,7 +58,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
 
   # SmBios Memory Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866          # LPDDR3 Variant: 933 MHz
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
   gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|TRUE               # Xiaomi Only?
 

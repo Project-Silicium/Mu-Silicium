@@ -24,7 +24,7 @@
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv9.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Platform Pei HOBs
@@ -54,7 +54,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8635"
 
   # SmBios CPU Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3010
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3000
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400

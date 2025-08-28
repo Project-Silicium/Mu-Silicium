@@ -51,7 +51,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7125"
 
   # SmBios CPU Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2300
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100

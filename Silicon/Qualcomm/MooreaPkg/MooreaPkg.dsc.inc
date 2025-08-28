@@ -62,7 +62,7 @@
 !if $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2300
 !else
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2210
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40

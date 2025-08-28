@@ -54,7 +54,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8450"
 
   # SmBios CPU Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3000
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2995
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400

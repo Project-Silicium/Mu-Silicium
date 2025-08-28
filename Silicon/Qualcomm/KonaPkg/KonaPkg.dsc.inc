@@ -60,9 +60,9 @@
 
   # SmBios CPU Extras
 !if $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3090
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3100
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3190
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
 !else
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2840
 !endif
