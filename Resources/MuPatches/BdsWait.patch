@@ -1,8 +1,8 @@
 diff --git a/MdeModulePkg/Universal/BdsDxe/BdsEntry.c b/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
-index dc6fcfd3ab..2f4b85d675 100644
+index 79535cf0c7..1e67d4ac29 100644
 --- a/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
 +++ b/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
-@@ -318,7 +318,6 @@ BdsWait (
+@@ -319,7 +319,6 @@ BdsWait (
    IN EFI_EVENT  HotkeyTriggered
    )
  {
@@ -10,7 +10,7 @@ index dc6fcfd3ab..2f4b85d675 100644
    UINT16      TimeoutRemain;
  
    DEBUG ((DEBUG_INFO, "[Bds]BdsWait ...Zzzzzzzzzzzz...\n"));
-@@ -328,18 +327,6 @@ BdsWait (
+@@ -329,18 +328,6 @@ BdsWait (
      DEBUG ((DEBUG_INFO, "[Bds]BdsWait(%d)..Zzzz...\n", (UINTN)TimeoutRemain));
      PlatformBootManagerWaitCallback (TimeoutRemain);
  

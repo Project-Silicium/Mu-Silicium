@@ -77,22 +77,14 @@ fi
 
 # Remove Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
-git apply -R UsbBus.patch &> /dev/null
 git apply -R BdsWait.patch &> /dev/null
-git apply -R PdbPointer.patch &> /dev/null
-git apply -R PageDebug.patch &> /dev/null
-rm UsbBus.patch &> /dev/null
 rm BdsWait.patch &> /dev/null
-rm PdbPointer.patch &> /dev/null
-rm PageDebug.patch &> /dev/null
 popd &> /dev/null
 
 # Remove Mu_Tiano Patches
 pushd Silicon/Arm/Mu_Tiano  &> /dev/null || exit 1
 git apply -R Timer.patch &> /dev/null
-git apply -R GcdAttribute.patch &> /dev/null
 rm Timer.patch &> /dev/null
-rm GcdAttribute.patch &> /dev/null
 popd &> /dev/null
 
 # Set Release Type of UEFI
@@ -108,14 +100,12 @@ python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/DeviceBuild.py" -
 python3 "Platforms/${TARGET_DEVICE_VENDOR}/${TARGET_DEVICE}Pkg/DeviceBuild.py" --update -t ${TARGET_BUILD_MODE} || _error "\nFailed to Update UEFI Env!\n"
 
 # Copy Mu Patches to the Right Location
-cp Resources/MuPatches/UsbBus.patch Resources/MuPatches/BdsWait.patch Resources/MuPatches/PdbPointer.patch Mu_Basecore/ || exit 1
+cp Resources/MuPatches/BdsWait.patch Mu_Basecore/ || exit 1
 cp Resources/MuPatches/Timer.patch Silicon/Arm/Mu_Tiano/ || exit 1
 
 # Apply Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
-git apply UsbBus.patch &> /dev/null
 git apply BdsWait.patch &> /dev/null
-git apply PdbPointer.patch &> /dev/null
 popd &> /dev/null
 
 # Apply Mu_Tiano Patches

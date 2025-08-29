@@ -29,7 +29,7 @@
   INF Binaries/veux/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/veux/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

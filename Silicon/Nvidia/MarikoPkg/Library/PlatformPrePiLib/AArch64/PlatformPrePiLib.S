@@ -1,4 +1,4 @@
-#include <AsmMacroIoLibV8.h>
+#include <AsmMacroLib.h>
 
 ASM_FUNC (PlaformAssemblyInit)
   // Set Stack Pointer to EL1 (Actually for NX Only)

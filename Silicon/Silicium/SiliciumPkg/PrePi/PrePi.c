@@ -33,8 +33,10 @@ PrePeiCoreGetMpCoreInfo (
   OUT ARM_CORE_INFO **ArmCoreTable)
 {
   // Get Core Table & Count
-  *CoreCount    = PcdGet32 (PcdCoreCount);
   *ArmCoreTable = GetCoreTable ();
+  *CoreCount    = sizeof (ArmCoreTable);
+
+  DEBUG ((EFI_D_WARN, "Core Count: %u\n", *CoreCount));
 
   return EFI_SUCCESS;
 }
@@ -51,8 +53,8 @@ EFI_PEI_PPI_DESCRIPTOR gPlatformPpiTable[] = {
 
 EFI_STATUS
 GetPlatformPpi (
-  IN  EFI_GUID *PpiGuid,
-  OUT VOID    **Ppi)
+  IN  EFI_GUID  *PpiGuid,
+  OUT VOID     **Ppi)
 {
   UINTN                   PpiListSize  = sizeof (gPlatformPpiTable);
   UINTN                   PpiListCount = PpiListSize / sizeof (EFI_PEI_PPI_DESCRIPTOR);
@@ -80,19 +82,25 @@ PrePiMain (IN UINT64 StartTimeStamp)
   FIRMWARE_SEC_PERFORMANCE        Performance;
 
   // Locate "DXE Heap" Memory Region
-  Status  = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeapRegion);
-  Status |= LocateMemoryMapAreaByName ("DXE_Heap", &DxeHeapRegion);
-  if (EFI_ERROR (Status) && !DxeHeapRegion.Address) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'DXE Heap' Memory Region!\n"));
-    ASSERT_EFI_ERROR (Status);
+  Status = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeapRegion);
+  if (EFI_ERROR (Status)) {
+    // Locate "DXE_Heap" Memory Region
+    Status = LocateMemoryMapAreaByName ("DXE_Heap", &DxeHeapRegion);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate 'DXE Heap' Memory Region!\n"));
+      ASSERT_EFI_ERROR (Status);
+    }
   }
 
   // Locate "UEFI Stack" Memory Region
-  Status  = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStackRegion);
-  Status |= LocateMemoryMapAreaByName ("UEFI_Stack", &UefiStackRegion);
-  if (EFI_ERROR (Status) && !UefiStackRegion.Address) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI Stack' Memory Region!\n"));
-    ASSERT_EFI_ERROR (Status);
+  Status = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStackRegion);
+  if (EFI_ERROR (Status)) {
+    // Locate "UEFI_Stack" Memory Region
+    Status = LocateMemoryMapAreaByName ("UEFI_Stack", &UefiStackRegion);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI Stack' Memory Region!\n"));
+      ASSERT_EFI_ERROR (Status);
+    }
   }
 
   // Declare UEFI Regions
@@ -133,7 +141,7 @@ PrePiMain (IN UINT64 StartTimeStamp)
   // Build CPU HOB
   BuildCpuHob ((UINT8)ArmGetPhysicalAddressBits (), PcdGet8 (PcdPrePiCpuIoSize));
 
-  // Check 
+  // Check for MP Core
   if (ArmIsMpCore ()) {
     ARM_MP_CORE_INFO_PPI *ArmMpCoreInfoPpi = NULL;
     ARM_CORE_INFO        *ArmCoreInfoTable = NULL;
@@ -195,7 +203,18 @@ CEntryPoint ()
 {
   EFI_STATUS                      Status;
   ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayRegion;
+  ARM_MEMORY_REGION_DESCRIPTOR_EX CpuVectorsRegion;
   UINT64                          StartTimeStamp;
+
+  // Locate "CPU Vectors" Memory Region
+  Status = LocateMemoryMapAreaByName ("CPU Vectors", &CpuVectorsRegion);
+  if (EFI_ERROR (Status)) {
+    // Locate "CPU_Vectors" Memory Region
+    ASSERT_EFI_ERROR (LocateMemoryMapAreaByName ("CPU_Vectors", &CpuVectorsRegion));
+  }
+
+  // Write Vector Table Address
+  ArmWriteVBar (CpuVectorsRegion.Address);
 
   // Run SoC Specific Code
   PlatformInitialize ();
@@ -232,9 +251,6 @@ CEntryPoint ()
   DEBUG ((EFI_D_WARN, "\n"));
 
   if (PerformanceMeasurementEnabled ()) {
-    // Init Timer HW Controller
-    TimerConstructor ();
-
     // Get Start Time Stamp
     StartTimeStamp = GetPerformanceCounter ();
   } else {
@@ -250,12 +266,15 @@ CEntryPoint ()
     }
   }
 
-  // Locate 'UEFI FD' Memory Region
-  Status  = LocateMemoryMapAreaByName ("UEFI FD", &UefiFdRegion);
-  Status |= LocateMemoryMapAreaByName ("UEFI_FD", &UefiFdRegion);
-  if (EFI_ERROR (Status) && !UefiFdRegion.Address) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI FD' Memory Region!\n"));
-    ASSERT_EFI_ERROR (Status);
+  // Locate "UEFI FD" Memory Region
+  Status = LocateMemoryMapAreaByName ("UEFI FD", &UefiFdRegion);
+  if (EFI_ERROR (Status)) {
+    // Locate "UEFI_FD" Memory Region
+    Status = LocateMemoryMapAreaByName ("UEFI_FD", &UefiFdRegion);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI FD' Memory Region!\n"));
+      ASSERT_EFI_ERROR (Status);
+    }
   }
 
   // Invalidate Data Cache

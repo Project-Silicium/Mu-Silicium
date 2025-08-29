@@ -37,7 +37,7 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10102000
 
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
+  gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 

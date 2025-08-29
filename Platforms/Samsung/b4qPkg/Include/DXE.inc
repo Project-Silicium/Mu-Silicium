@@ -27,7 +27,7 @@
   INF Binaries/b4q/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/b4q/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

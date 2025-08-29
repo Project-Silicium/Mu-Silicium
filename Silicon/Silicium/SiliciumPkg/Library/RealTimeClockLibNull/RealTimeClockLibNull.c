@@ -40,7 +40,7 @@ LibGetTime (
   // Get Timer Freq
   Freq = ArmGenericTimerGetTimerFreq ();
   if (!Freq) {
-    Freq = PcdGet32 (PcdArmArchTimerFreqInHz);
+    Freq = PcdGet64 (PcdTimerFreqOverwrite);
     ASSERT (Freq);
   }
 

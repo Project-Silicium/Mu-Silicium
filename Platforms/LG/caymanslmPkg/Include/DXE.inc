@@ -26,7 +26,7 @@
   INF Binaries/caymanslm/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/caymanslm/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
