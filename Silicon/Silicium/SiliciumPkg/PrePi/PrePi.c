@@ -36,8 +36,6 @@ PrePeiCoreGetMpCoreInfo (
   *ArmCoreTable = GetCoreTable ();
   *CoreCount    = sizeof (ArmCoreTable);
 
-  DEBUG ((EFI_D_WARN, "Core Count: %u\n", *CoreCount));
-
   return EFI_SUCCESS;
 }
 
