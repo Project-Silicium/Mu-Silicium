@@ -1,0 +1,7 @@
+<script>
+  // Redirect all 404s to index.html (for React Router or any SPA)
+  const pathname = document.location.pathname.replace("/project-silicium", "");
+  const search = document.location.search;
+  const redirect = "/project-silicium/" + (pathname === "/" ? "" : "#" + pathname) + search;
+  location.replace(redirect);
+</script>
