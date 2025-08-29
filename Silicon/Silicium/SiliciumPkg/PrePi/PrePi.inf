@@ -48,6 +48,8 @@
 [Guids]
   gArmMpCoreInfoGuid
   gEfiFirmwarePerformanceGuid
+  gDxeMemoryProtectionSettingsGuid
+  gMmMemoryProtectionSettingsGuid
 
 [Ppis]
   gArmMpCoreInfoPpiGuid
