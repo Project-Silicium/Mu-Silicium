@@ -2845,6 +2845,35 @@
 
 </details>
 
+<details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## OnePlus 5
+
+<img align="right" src="Resources/Pictures/OnePlus-5.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: cheeseburger** <br>
+**Maintainer: [index986](https://github.com/index986/)** <br>
+**Contributors: [index986](https://github.com/index986/)** <br>
+**Tester: [index986](https://github.com/index986/)**
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       |                          | ✅    |
+| USB Host Mode      |                          | ❔    |
+| USB Device Mode    |                          | ✅    |
+| USB Power Delivery |                          | ❔    |
+| Mass Storage       |                          | ✅    |
+| Windows Boot       |                          | ❔    |
+| Linux Boot         |                          | ❔    |
+
+</details>
+
 ---
 
 </details>
