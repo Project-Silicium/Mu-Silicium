@@ -30,7 +30,7 @@
   INF Binaries/betalm/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/betalm/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

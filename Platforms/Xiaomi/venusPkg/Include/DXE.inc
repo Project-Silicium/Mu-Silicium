@@ -25,7 +25,7 @@
   INF Binaries/venus/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/venus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

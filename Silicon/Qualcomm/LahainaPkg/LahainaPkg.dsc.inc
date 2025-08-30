@@ -24,7 +24,7 @@
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8.4-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Platform Pei HOBs
@@ -45,7 +45,6 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
 
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
@@ -66,7 +65,7 @@
 
   # SmBios CPU Extras
 !if $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3000
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2995
 !else
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2840
 !endif
@@ -83,8 +82,8 @@
   PlatformPrePiLib|LahainaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|LahainaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|LahainaPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   SoCPlatformLib|LahainaPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

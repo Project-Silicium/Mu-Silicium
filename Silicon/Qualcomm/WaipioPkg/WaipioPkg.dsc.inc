@@ -45,7 +45,6 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17180000
 
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
@@ -54,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8450"
 
   # SmBios CPU Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3000
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2995
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
@@ -68,8 +67,8 @@
   PlatformPrePiLib|WaipioPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|WaipioPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|WaipioPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   SoCPlatformLib|WaipioPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

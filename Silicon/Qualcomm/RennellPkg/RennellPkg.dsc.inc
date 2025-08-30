@@ -42,7 +42,6 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
 
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
 
@@ -51,7 +50,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7125"
 
   # SmBios CPU Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2300
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100
@@ -65,8 +64,8 @@
   PlatformPrePiLib|RennellPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|RennellPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|RennellPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   SoCPlatformLib|RennellPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

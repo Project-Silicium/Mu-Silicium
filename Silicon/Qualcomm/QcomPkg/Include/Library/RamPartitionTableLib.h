@@ -16,9 +16,9 @@
 #define RAM_PARTITION_BASE              FixedPcdGet64 (PcdRamPartitionBase)
 
 //
-// RAM Partition Entry Structure
+// RAM Partition Entry
 //
-typedef struct ram_partition_entry {
+typedef struct {
   CHAR8  Name[16]; 
   UINT64 Base;
   UINT64 Length;
@@ -34,25 +34,25 @@ typedef struct ram_partition_entry {
   UINT8  Reserved2;
   UINT32 MinPasrSize;
   UINT64 AvailableLength;
-} RamPartitionEntry;
+} EFI_RAM_PARTITION_ENTRY;
 
 //
-// RAM Partition Table Structure
+// RAM Partition Table
 //
-typedef struct ram_partition_table {
-  UINT32            Magic1;
-  UINT32            Magic2;
-  UINT32            Version;
-  UINT32            Reserved1;
-  UINT32            NumPartitions;
-  UINT32            Reserved2;
-  RamPartitionEntry RamPartitionEntry[RAM_NUM_PART_ENTRIES];
-} RamPartitionTable;
+typedef struct {
+  UINT32                  Magic1;
+  UINT32                  Magic2;
+  UINT32                  Version;
+  UINT32                  Reserved1;
+  UINT32                  NumPartitions;
+  UINT32                  Reserved2;
+  EFI_RAM_PARTITION_ENTRY RamPartitionEntry[RAM_NUM_PART_ENTRIES];
+} EFI_RAM_PARTITION_TABLE;
 
 EFI_STATUS
 GetRamPartitions (
-  OUT RamPartitionTable **RamPartTable,
-  OUT UINT32             *Version
+  OUT EFI_RAM_PARTITION_TABLE **RamPartTable,
+  OUT UINT32                   *Version
   );
 
 #endif /* _RAM_PARTITION_TABLE_LIB_H_ */

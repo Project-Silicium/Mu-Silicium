@@ -37,7 +37,6 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x50042000
 
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
@@ -80,8 +79,8 @@
 [LibraryClasses]
   PlatformPrePiLib|MarikoPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   SoCPlatformLib|MarikoPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
   DynamicRamLib|MarikoPkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
   TegraClockLib|MarikoPkg/GPLLibrary/TegraClockLib/TegraClockLib.inf

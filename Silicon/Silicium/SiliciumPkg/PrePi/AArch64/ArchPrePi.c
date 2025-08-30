@@ -4,9 +4,6 @@
 **/
 
 #include <Library/ArmLib.h>
-#include <Library/PcdLib.h>
-
-#include <Chipset/AArch64.h>
 
 VOID
 ArchInitialize ()

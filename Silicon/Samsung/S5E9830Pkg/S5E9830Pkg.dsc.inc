@@ -24,7 +24,7 @@
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # CPU
@@ -37,7 +37,7 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10102000
 
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|26000000
+  gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 

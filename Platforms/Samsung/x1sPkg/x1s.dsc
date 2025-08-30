@@ -36,9 +36,6 @@
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"halal-beef"
 
-  # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x80001000
-
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x80002000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000

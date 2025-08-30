@@ -30,7 +30,7 @@
   INF Binaries/j706f/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/j706f/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

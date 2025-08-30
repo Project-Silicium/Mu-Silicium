@@ -24,7 +24,7 @@
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 1
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   # Platform Pei HOBs
@@ -42,7 +42,6 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x0F240000
 
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
@@ -64,8 +63,8 @@
 [LibraryClasses]
   PlatformPrePiLib|StraitPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   SoCPlatformLib|StraitPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

@@ -25,7 +25,7 @@
   INF Binaries/spacewar/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/spacewar/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

@@ -28,7 +28,7 @@
   INF Binaries/surya/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/surya/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/surya/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

@@ -6,8 +6,8 @@
 
 EFI_STATUS
 GetRamPartitionVersion (
-  IN  RamPartitionTable *RamPartTable,
-  OUT UINT32            *Version)
+  IN  EFI_RAM_PARTITION_TABLE *RamPartTable,
+  OUT UINT32                  *Version)
 {
   // Check if RAM Partition Magics are Valid
   if (RamPartTable->Magic1 == RAM_PART_MAGIC1 && RamPartTable->Magic2 == RAM_PART_MAGIC2) {
@@ -20,8 +20,8 @@ GetRamPartitionVersion (
 
 EFI_STATUS
 GetRamPartitions (
-  OUT RamPartitionTable **RamPartTable,
-  OUT UINT32             *Version)
+  OUT EFI_RAM_PARTITION_TABLE **RamPartTable,
+  OUT UINT32                   *Version)
 {
   EFI_STATUS         Status        = EFI_SUCCESS;
   EFI_SMEM_PROTOCOL *mSmemProtocol = NULL;

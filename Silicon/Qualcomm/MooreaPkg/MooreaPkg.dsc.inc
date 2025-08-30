@@ -42,7 +42,6 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
 
   # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerFreqInHz|19200000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
 
@@ -62,7 +61,7 @@
 !if $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2300
 !else
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2210
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
@@ -77,8 +76,8 @@
   PlatformPrePiLib|MooreaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|MooreaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|MooreaPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   SoCPlatformLib|MooreaPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 !include QcomPkg/QcomPkg.dsc.inc

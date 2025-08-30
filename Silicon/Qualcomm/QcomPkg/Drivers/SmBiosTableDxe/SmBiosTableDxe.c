@@ -505,11 +505,11 @@ RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS         Status            = EFI_SUCCESS;
-  RamPartitionTable *RamPartitionTable = NULL;
-  UINT32             NumPartitions     = 0;
-  UINT32             PartitionVersion  = 0;
-  UINT64             SystemMemorySize  = 0;
+  EFI_STATUS               Status            = EFI_SUCCESS;
+  EFI_RAM_PARTITION_TABLE *RamPartitionTable = NULL;
+  UINT32                   NumPartitions     = 0;
+  UINT32                   PartitionVersion  = 0;
+  UINT64                   SystemMemorySize  = 0;
 
   // Get RAM Partitions
   Status = GetRamPartitions (&RamPartitionTable, &PartitionVersion);

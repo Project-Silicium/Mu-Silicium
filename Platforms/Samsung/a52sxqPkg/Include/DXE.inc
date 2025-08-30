@@ -23,7 +23,7 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

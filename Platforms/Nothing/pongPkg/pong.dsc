@@ -28,7 +28,8 @@
 
   #
   # 0 = SM8475
-  # 1 = SM7475-AB
+  # 1 = SM8475 (3 GHz)
+  # 2 = SM7475-AB
   #
   SOC_TYPE                       = 0
 
@@ -41,9 +42,6 @@
 
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"index986"
-
-  # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000

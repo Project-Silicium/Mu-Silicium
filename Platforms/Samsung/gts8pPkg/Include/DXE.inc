@@ -27,7 +27,7 @@
   INF Binaries/gts8p/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/gts8p/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

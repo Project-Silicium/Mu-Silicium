@@ -28,7 +28,7 @@
   INF Binaries/sweet_k6a/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
-  INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
+  INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

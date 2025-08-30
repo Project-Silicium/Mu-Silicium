@@ -29,9 +29,10 @@
 
   #
   # 0 = SM8475
-  # 1 = SM7475
+  # 1 = SM8475 (3 GHz)
+  # 2 = SM7475-AB
   #
-  SOC_TYPE                       = 1
+  SOC_TYPE                       = 2
 
 [BuildOptions]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
@@ -42,9 +43,6 @@
 
   # Device Maintainer
   gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Yuzuru10"
-
-  # CPU Vector Address
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0xA7600000
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
