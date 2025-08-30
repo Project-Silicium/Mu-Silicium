@@ -1,0 +1,16 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = I2CHostTableLib
+  FILE_GUID                      = AEC63D99-0FE0-47AC-B066-B45C343B52C9
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = I2CHostTableLib
+
+[Sources]
+  I2CHostTableLib.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
