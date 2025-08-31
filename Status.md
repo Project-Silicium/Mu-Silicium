@@ -1352,11 +1352,11 @@
 
 <img align="right" src="Resources/Pictures/Asus-ROG-Phone-5.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: i005d** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [alfaonyt](https://github.com/alfaonyt/)** <br>
-**Tester: None**
+**Maintainer: [Alfa](https://github.com/alfaonyt/)** <br>
+**Contributors: [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)** <br>
+**Tester: [Alfa](https://github.com/alfaonyt/)**
 
 ### UEFI Status
 
@@ -1365,12 +1365,12 @@
 | Display            |                   | ✅    |
 | Internal Storage   |                   | ✅    |
 | Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ✅    |
 | USB Power Delivery |                   | ❌    |
-| Mass Storage       |Needs Device Mode  | ❌    |
+| Mass Storage       |                   | ✅    |
 | Windows Boot       |                   | ❌    |
-| Linux Boot         |                   | ❌    |
+| Linux Boot         | WIP               | ❌    |
 
 </details>
 
