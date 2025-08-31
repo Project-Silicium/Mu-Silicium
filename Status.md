@@ -2758,7 +2758,7 @@
 | USB Power Delivery | Dies on Disconnect       | ⚠️    |
 | Mass Storage       | Disabled to prevent Wipe | ❌    |
 | SD Card            |                          | ✅    |
-| Windows Boot       |                          | ✅    |
+| Windows Boot       |                          | ⚠️    |
 | Linux Boot         |                          | ✅    |
 
 ### OS Status
@@ -2769,12 +2769,11 @@
 
 > [!IMPORTANT]
 > Only Windows PE can Boot.
-> and Needs Windows Drivers!
 
 | Feature              | Description               | State |
 |:---------------------|:--------------------------|:-----:|
 | Internal Storage     | Probably Works if Enabled | ❔    |
-| SD Card              |                           | ✅    |
+| SD Card              |                           | ❌    |
 | Side Buttons         |                           | ❌    |
 | Proximity Sensor     |                           | ❌    |
 | Light Sensor         |                           | ❌    |
