@@ -42,7 +42,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Yuzuru10"
+  #gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
@@ -66,7 +66,7 @@
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0C8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFC500000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
@@ -90,7 +90,7 @@
   DeviceGuidLib|marblePkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-#[Components]
-#  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
+[Components]
+  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
 !include PalimaPkg/PalimaPkg.dsc.inc

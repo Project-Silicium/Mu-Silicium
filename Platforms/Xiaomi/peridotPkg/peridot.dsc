@@ -29,7 +29,7 @@
   HAS_BUILD_IN_KEYBOARD          = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) 
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) 
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -44,10 +44,10 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"POCO F6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"peridot"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"POCO_F6_peridot"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"POCO F6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F6_peridot"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F6"
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1220
@@ -60,7 +60,7 @@
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703F0E8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xF3200000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE6440000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
@@ -83,5 +83,8 @@
   DeviceConfigurationMapLib|peridotPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
   DeviceGuidLib|peridotPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+[Components]
+  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
 !include PalawanPkg/PalawanPkg.dsc.inc

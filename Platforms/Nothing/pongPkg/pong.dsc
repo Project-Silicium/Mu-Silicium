@@ -89,4 +89,7 @@
   DeviceGuidLib|pongPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
+[Components]
+  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
+
 !include PalimaPkg/PalimaPkg.dsc.inc

@@ -4,9 +4,9 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 # SECTION RAW = Lahaina/BGRT.aml
 # SECTION RAW = Lahaina/CSRT.aml
 !if $(TARGET) == DEBUG
-# SECTION RAW = Lahaina/DBG2.aml
+  SECTION RAW = Lahaina/DBG2.aml
 !endif
-  SECTION RAW = q2q/DSDT.aml
+  SECTION RAW = Lahaina/DSDT_minimal.aml
   SECTION RAW = Lahaina/FACP.aml
 # SECTION RAW = Lahaina/FPDT.aml
   SECTION RAW = Lahaina/GTDT.aml

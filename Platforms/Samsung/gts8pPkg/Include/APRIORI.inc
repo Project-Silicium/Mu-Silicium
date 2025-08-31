@@ -103,10 +103,7 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-  # PmicGlinkDxe
   INF Binaries/gts8p/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-  # QcomChargerDxeLA
-  # ChargerExDxe
   INF Binaries/gts8p/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

@@ -1,7 +1,6 @@
 FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 # SECTION RAW = Kamorta/APIC.aml
   SECTION RAW = Kamorta/APIC.4Cores.aml
-# SECTION RAW = Kamorta/APIC.UniCore.aml
 # SECTION RAW = Kamorta/BERT.aml
 # SECTION RAW = Kamorta/BGRT.aml
 # SECTION RAW = Kamorta/CSRT.aml

@@ -3,6 +3,7 @@
 STATIC
 CONFIGURATION_DESCRIPTOR_EX
 gDeviceConfigurationDescriptorEx[] = {
+  // Configuration Map
   {"EnableShell", 0x1},
   {"SecPagePoolCount", 0x800},
   {"SharedIMEMBaseAddr", 0x14680000},
@@ -43,13 +44,12 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableACPIFallback", 0x0},
   {"DRAM_CLK_PERIOD_ADDR", 0x240BA050},
 
-
-    // Terminator
-    {"Terminator", 0xFFFFFFFF}
+  // Terminator
+  {"Terminator", 0xFFFFFFFF}
 };
 
 CONFIGURATION_DESCRIPTOR_EX*
 GetDeviceConfigurationMap ()
 {
-    return gDeviceConfigurationDescriptorEx;
+  return gDeviceConfigurationDescriptorEx;
 }

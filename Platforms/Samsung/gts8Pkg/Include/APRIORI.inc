@@ -4,6 +4,7 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+  INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -102,10 +103,7 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-  # PmicGlinkDxe
   INF Binaries/gts8/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
-  # QcomChargerDxeLA
-  # ChargerExDxe
   INF Binaries/gts8/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

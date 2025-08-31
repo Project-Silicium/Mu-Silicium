@@ -36,7 +36,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"deuspato"
+  #gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
@@ -59,7 +59,7 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x5FC35648
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x64400000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE

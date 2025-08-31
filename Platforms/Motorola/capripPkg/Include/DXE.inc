@@ -70,7 +70,6 @@
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/BacklightDxe/BacklightDxe.inf
 
-
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/caprip/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else

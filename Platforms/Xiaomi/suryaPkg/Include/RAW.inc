@@ -8,7 +8,6 @@
     SECTION RAW = Binaries/surya/RawFiles/Panel_huaxing_nt36672c_fhd_vid.xml
   }
 
-
   FILE FREEFORM = E7F74CA4-1FA1-4E9A-94E9-475345CA70D0 {
     SECTION UI = "Panel_tianma_nt36672c_fhd_vid.xml"
     SECTION RAW = Binaries/surya/RawFiles/Panel_tianma_nt36672c_fhd_vid.xml

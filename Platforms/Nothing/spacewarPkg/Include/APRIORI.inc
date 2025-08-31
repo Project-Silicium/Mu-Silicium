@@ -126,4 +126,3 @@ APRIORI DXE {
   
   INF Binaries/spacewar/QcomPkg/Drivers/DeviceInfoDxe/DeviceInfoDxe.inf
 }
-

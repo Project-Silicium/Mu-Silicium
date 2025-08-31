@@ -256,9 +256,9 @@
 
 **State: Inactive** <br>
 **Codename: gtaxllte** <br>
-**Maintainer: [Glitchythedev](https://github.com/Glitchythedev/) & [AistopGit](https://github.com/AistopGit)** <br>
-**Contributors: [Glitchythedev](https://github.com/Glitchythedev/) & [AistopGit](https://github.com/AistopGit)** <br>
-**Tester: [Glitchythedev](https://github.com/Glitchythedev/) & [AistopGit](https://github.com/AistopGit)**
+**Maintainer: [AistopGit](https://github.com/AistopGit)** <br>
+**Contributors: [Glitchythedev](https://github.com/Glitchythedev/), [AistopGit](https://github.com/AistopGit)** <br>
+**Tester: [Glitchythedev](https://github.com/Glitchythedev/), [AistopGit](https://github.com/AistopGit)**
 
 ### UEFI Status
 
@@ -1060,11 +1060,11 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F5.png" width="500" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: marble** <br>
-**Maintainers: [Yuzuru10](https://github.com/Yuzuru10/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [Yuzuru10](https://github.com/Yuzuru10/)**
+**Maintainers: None** <br>
+**Contributors: [Yuzuru10](https://github.com/Yuzuru10/), [Robotix](https://github.com/Robotix22/)** <br>
+**Testers: None**
 
 ### UEFI Status
 
@@ -2312,7 +2312,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Pad-5.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: nabu** <br>
 **Maintainers: [iNUCi](https://github.com/iNUCi)** <br>
 **Contributors: [iNUCi](https://github.com/iNUCi), [Robotix](https://github.com/Robotix22/)** <br>
@@ -3191,31 +3191,6 @@
 </td></tr>
 </table>
 
-## Xiaomi Redmi Note 10 Pro
-
-<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-10-Pro.png" width="500" alt="Preview">
-
-**State: Inactive** <br>
-**Codename: sweet** <br>
-**Maintainers: None** <br>
-**Contributors: [remtrik](https://github.com/remtrik/), [hiprivsid](https://github.com/hiprivsid/)** <br>
-**Tester: None**
-
-### UEFI Status
-
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
-| USB Power Delivery |                   | ❌    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| SD Card            |                   | ❌    |
-| Windows Boot       |                   | ❌    |
-| Linux Boot         |                   | ❌    |
-
 ## Xiaomi Redmi Note 12 Pro 4G
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
@@ -3484,11 +3459,11 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-11-Pro-5G.png" width="550" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: veux** <br>
-**Maintainers: [index986](https://github.com/index986)** <br>
+**Maintainers: None** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [index986](https://github.com/index986/)** <br>
-**Testers: [index986](https://github.com/index986)**
+**Testers: None**
 
 ### UEFI Status
 

@@ -97,7 +97,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/q2q/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  # PmicGlinkDxe
   INF Binaries/q2q/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
@@ -107,6 +106,8 @@ APRIORI DXE {
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/q2q/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/q2q/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1

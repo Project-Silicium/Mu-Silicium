@@ -36,7 +36,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"V6lhost"
+  #gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
@@ -54,8 +54,11 @@
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2000
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
+  # Platform Pei
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
+
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x71d00000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x71D00000
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
@@ -70,9 +73,9 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1200
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2000
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|150
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|116
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|115
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|150
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|116
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|115
 
 [LibraryClasses]
   DeviceMemoryMapLib|gta4lPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

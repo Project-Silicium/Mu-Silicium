@@ -105,18 +105,18 @@ APRIORI DXE {
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/a52sxq/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
 
   INF Binaries/a52sxq/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52sxq/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-  INF QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
-  !endif
+!endif
   INF Binaries/a52sxq/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/RNGDxe/RngDxe.inf

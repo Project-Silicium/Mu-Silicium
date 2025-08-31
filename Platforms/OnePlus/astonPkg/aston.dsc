@@ -73,7 +73,7 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703A950
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x880000000 
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE1200000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
@@ -96,5 +96,8 @@
   DeviceConfigurationMapLib|astonPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
   DeviceGuidLib|astonPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+[Components]
+  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
 !include KailuaPkg/KailuaPkg.dsc.inc

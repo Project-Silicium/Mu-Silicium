@@ -39,7 +39,7 @@ class CommonPlatform ():
         "Silicon/Arm/Mu_Tiano",
         "Silicon/Qualcomm",
         "Silicon/Silicium",
-        "Silicium-ACPI/Platforms/Mototola",
+        "Silicium-ACPI/Platforms/Motorola",
         "Silicium-ACPI/SoCs/Qualcomm"
     )
 

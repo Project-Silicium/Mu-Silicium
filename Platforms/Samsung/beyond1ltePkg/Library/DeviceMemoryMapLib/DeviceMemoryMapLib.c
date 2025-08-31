@@ -32,8 +32,6 @@ gDeviceMemoryDescriptorEx[] = {
   {"RAM Partition",      0xE1900000, 0x1BF00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"EL2 Earlymem",       0xFD800000, 0x02800000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
 
-  // Memory Hole: 0x100000000 -> 0x880000000 (0x780000000)
-
   // Register Regions
   {"Chip Info",          0x10000000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Gic Distributor",    0x10101000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},

@@ -67,8 +67,6 @@
   INF Binaries/alioth/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-
-  # Only used for DisplayDxe for Qualcomm Demura
   INF Binaries/alioth/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 

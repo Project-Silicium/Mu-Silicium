@@ -41,7 +41,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Icesito68"
+  #gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
@@ -58,6 +58,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2340
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+
+  # Platform Pei
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37980
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x100000000

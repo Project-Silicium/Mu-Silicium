@@ -98,7 +98,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  # MpPowerDxe
   INF Binaries/ginkgo/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/ginkgo/QcomPkg/Drivers/RNGDxe/RngDxe.inf

@@ -6,7 +6,7 @@
 !if $(TARGET) == DEBUG
 #  SECTION RAW = Waipio/DBG2.aml
 !endif
-#  SECTION RAW = Waipio/DSDT_minimal.aml
+#  SECTION RAW = zeus/DSDT.aml
 #  SECTION RAW = Waipio/FACP.aml
 #  SECTION RAW = Waipio/FPDT.aml
 #  SECTION RAW = Waipio/GTDT.aml

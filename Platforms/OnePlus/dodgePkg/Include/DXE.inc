@@ -24,7 +24,7 @@
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/dodge/QcomPkg/Drivers/FontDxe/FontDxe.inf
- # INF Binaries/dodge/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf 
+  #INF Binaries/dodge/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf 
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -80,7 +80,7 @@
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/dodge/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
- # INF Binaries/dodge/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
+  #INF Binaries/dodge/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/OplusFpgaDxe/OplusFpga.inf
   INF Binaries/dodge/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
