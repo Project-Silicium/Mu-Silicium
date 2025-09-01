@@ -122,4 +122,3 @@
   INF Binaries/spacewar/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-

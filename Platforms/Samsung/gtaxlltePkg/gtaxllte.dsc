@@ -34,7 +34,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Glitchythedev & AistopGit"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"AistopGit"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x40001000

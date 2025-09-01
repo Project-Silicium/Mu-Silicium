@@ -1,6 +1,5 @@
 #FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 #  SECTION RAW = Moorea/APIC.aml
-#  SECTION RAW = Moorea/APIC.UniCore.aml
 #  SECTION RAW = Moorea/BERT.aml
 #  SECTION RAW = Moorea/BGRT.aml
 #  SECTION RAW = Moorea/CSRT.aml

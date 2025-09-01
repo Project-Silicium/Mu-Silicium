@@ -1,7 +1,5 @@
 #FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 #  SECTION RAW = Nicobar/APIC.aml
-#  SECTION RAW = Nicobar/APIC.4Cores.aml
-#  SECTION RAW = Nicobar/APIC.UniCore.aml
 #  SECTION RAW = Nicobar/BERT.aml
 #  SECTION RAW = Nicobar/BGRT.aml
 #  SECTION RAW = Nicobar/CSRT.aml

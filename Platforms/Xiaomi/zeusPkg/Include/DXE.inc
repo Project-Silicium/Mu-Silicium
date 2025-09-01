@@ -118,4 +118,3 @@
   INF Binaries/zeus/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/zeus/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
   #INF Binaries/zeus/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
-  

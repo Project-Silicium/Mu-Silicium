@@ -6,7 +6,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 !if $(TARGET) == DEBUG
   SECTION RAW = Nazgul/DBG2.aml
 !endif
-  SECTION RAW = poplar/DSDT.aml
+  SECTION RAW = Nazgul/DSDT_minimal.aml
   SECTION RAW = Nazgul/FACP.aml
 # SECTION RAW = Nazgul/FPDT.aml
   SECTION RAW = Nazgul/GTDT.aml

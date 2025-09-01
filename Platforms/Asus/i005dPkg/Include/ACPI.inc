@@ -6,7 +6,7 @@
 !if $(TARGET) == DEBUG
 #  SECTION RAW = Lahaina/DBG2.aml
 !endif
-#  SECTION RAW = Lahaina/DSDT_minimal.aml
+#  SECTION RAW = i005d/DSDT.aml
 #  SECTION RAW = Lahaina/FACP.aml
 #  SECTION RAW = Lahaina/FPDT.aml
 #  SECTION RAW = Lahaina/GTDT.aml

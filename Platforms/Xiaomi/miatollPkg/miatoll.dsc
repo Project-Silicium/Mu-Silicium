@@ -83,6 +83,7 @@
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"       # Actually its "LA".
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC36588
 
   # Dynamic RAM Start Address
   gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000

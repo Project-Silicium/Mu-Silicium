@@ -54,11 +54,7 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  # QdssDxe
-
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
-
-  # DppDxe
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
@@ -72,9 +68,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/equuleus/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  # I2CDxe
   INF Binaries/equuleus/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
-  # SPIDxe
   INF Binaries/equuleus/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   INF Binaries/equuleus/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf

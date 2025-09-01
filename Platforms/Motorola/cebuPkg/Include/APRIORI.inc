@@ -42,7 +42,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  # SdccDxe_SDBoot
   INF Binaries/cebu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
@@ -98,7 +97,6 @@ APRIORI DXE {
   INF Binaries/cebu/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
-  # MpPowerDxe
   INF Binaries/cebu/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/MacDxe/MacDxe.inf

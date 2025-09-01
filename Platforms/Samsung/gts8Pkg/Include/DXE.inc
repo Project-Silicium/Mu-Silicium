@@ -106,7 +106,7 @@
   INF Binaries/gts8/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-  INF Binaries/gts8/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
+  INF Binaries/gts8/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   #INF Binaries/gts8/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf

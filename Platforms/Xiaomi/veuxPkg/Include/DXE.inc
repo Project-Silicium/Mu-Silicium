@@ -72,8 +72,8 @@
   INF Binaries/veux/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/veux/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-#  INF Binaries/veux/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
-#  INF Binaries/veux/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
+  #INF Binaries/veux/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+  #INF Binaries/veux/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/veux/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/TsensDxe/TsensDxe.inf

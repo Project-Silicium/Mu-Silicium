@@ -88,9 +88,9 @@ READ_LOCK_STATUS   = TRUE
   INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI
-  #INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  #INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  #!include Include/ACPI.inc
+  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  !include Include/ACPI.inc
 
   # Device Tree
   #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf

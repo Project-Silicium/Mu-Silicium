@@ -1,8 +1,3 @@
-  FILE FREEFORM = DDE58710-41CD-4306-DBFB-3FA90BB1D2DD {
-    SECTION UI = "uefiplat.cfg"
-    SECTION RAW = Binaries/i005d/RawFiles/uefiplat.cfg
-  }
-
   FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
     SECTION UI = "BDS_Menu.cfg"
     SECTION RAW = Binaries/i005d/RawFiles/BDS_Menu.cfg

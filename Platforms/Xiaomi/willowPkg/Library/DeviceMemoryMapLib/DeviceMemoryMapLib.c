@@ -7,7 +7,7 @@ gDeviceMemoryDescriptorEx[] = {
 
   // DDR Regions
   {"RAM Partition",     0x40000000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"Hypervisor",        0x45700000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"HYP",               0x45700000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"RAM Partition",     0x45D00000, 0x00220000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"AOP CMD DB",        0x45F20000, 0x00020000, AddMem, MEM_RES, WRITE_COMBINEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
 //{"RAM Partition",     0x45F40000, 0x000C0000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},

@@ -45,7 +45,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"UsbFnIoRevNum", 0x00010001},
   {"USBHS1_Config", 0x0},
   {"UefiMemUseThreshold", 0x94},
-  {"ImageFVFlashed   ", 0x0},
+  {"ImageFVFlashed", 0x0},
   {"EnableLogFsSyncInRetail", 0x0},
 
   // Terminator

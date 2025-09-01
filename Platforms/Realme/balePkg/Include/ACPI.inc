@@ -1,6 +1,5 @@
 FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Palawan/APIC.aml
-# SECTION RAW = Palawan/APIC.UniCore.aml
 # SECTION RAW = Palawan/BERT.aml
 # SECTION RAW = Palawan/BGRT.aml
 # SECTION RAW = Palawan/CSRT.aml

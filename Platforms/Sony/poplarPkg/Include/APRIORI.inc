@@ -51,8 +51,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  # DppDxe
-
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
@@ -85,16 +83,12 @@ APRIORI DXE {
   INF Binaries/poplar/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
 
-  # DebugPortDxe
-  # SerialDxe
-
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
-  # TsFwUpgradeDxe
   INF Binaries/poplar/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
@@ -106,19 +100,7 @@ APRIORI DXE {
   INF Binaries/poplar/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF Binaries/poplar/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/MdtpDxe/MdtpDxe.inf
-
-  INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-
   INF Binaries/poplar/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  # OSConfigDxe
-  # MpParkDxe
   INF Binaries/poplar/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
-
-  INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
-
-  # MemoryMapDxe
-  # AdapterInformationDxe
 }
