@@ -2869,8 +2869,15 @@
 | USB Power Delivery |                          | ❔    |
 | Mass Storage       |                          | ✅    |
 | Windows Boot       |                          | ❔    |
-| Linux Boot         |                          | ❔    |
+| Linux Boot         |                          | ✅    |
+<table>
+<tr><th>Linux</th>
+<tr><td>
 
+> [!NOTE]
+> The PostmarketOS Site for this Device with extended status and fixes can be Found [here](https://wiki.postmarketos.org/wiki/OnePlus_5_(oneplus-cheeseburger)).
+</td></tr>
+</table>
 </details>
 
 ---
