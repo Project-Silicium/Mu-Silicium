@@ -1060,11 +1060,11 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F5.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: marble** <br>
-**Maintainers: None** <br>
+**Maintainers: [Yuzuru10](https://github.com/Yuzuru10/)** <br>
 **Contributors: [Yuzuru10](https://github.com/Yuzuru10/), [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: None**
+**Testers: [Yuzuru10](https://github.com/Yuzuru10/)**
 
 ### UEFI Status
 
@@ -1078,7 +1078,7 @@
 | USB Power Delivery |                   | ❌    |
 | Mass Storage       |                   | ✅    |
 | Windows Boot       |                   | ❔    |
-| Linux Boot         |                   | ❔    |
+| Linux Boot         |                   | WIP    |
 
 </details>
 
