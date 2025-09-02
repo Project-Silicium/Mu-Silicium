@@ -42,7 +42,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  #gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Yuzuru10"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Yuzuru10"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
