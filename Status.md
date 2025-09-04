@@ -17,6 +17,15 @@
 
 ## Samsung Galaxy S24
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-9` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S24.png" width="400" alt="Preview">
 
 **State: Inactive** <br>
@@ -46,6 +55,15 @@
 
 ## Samsung Galaxy Note 20 5G
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-17` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Note20-5G.png" width="250" alt="Preview">
 
 **State: Inactive** <br>
@@ -70,6 +88,15 @@
 
 ## Samsung Galaxy S20 5G
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-23` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
 
 **State: Inactive** <br>
@@ -92,7 +119,16 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-## Galaxy S20 FE
+## Samsung Galaxy S20 FE
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-23` Version is Required on this Phone!
+
+</td></tr>
+</table>
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE.png" width="432" alt="Preview">
 
@@ -123,6 +159,15 @@
 
 ## Samsung Galaxy S10
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-16` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S10.png" width="500" alt="Preview">
 
 **State: Inactive** <br>
@@ -151,6 +196,15 @@
 <summary><b><strong>Exynos 9810 Devices</strong></b></summary>
 
 ## Samsung Galaxy S9
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-17` Version is Required on this Phone!
+
+</td></tr>
+</table>
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S9.png" width="500" alt="Preview">
 
@@ -190,6 +244,15 @@
 
 ## Samsung Galaxy A10
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-9` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-A10.png" width="500" alt="Preview">
 
 **State: Inactive** <br>
@@ -212,7 +275,16 @@
 | Windows Boot       |             | ❌    |
 | Linux Boot         |             | ❌    |
 
-## Samsung Galaxy A7
+## Samsung Galaxy A7 (2018)
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-5` Version is Required on this Phone!
+
+</td></tr>
+</table>
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-A7.png" width="500" alt="Preview">
 
@@ -250,7 +322,16 @@
 </td></tr>
 </table>
 
-## Samsung Galaxy Tab A 10.1
+## Samsung Galaxy Tab A 10.1 (2016)
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-7` Version is Required on this Phone!
+
+</td></tr>
+</table>
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A-10.1.png" width="500" alt="Preview">
 
@@ -987,6 +1068,15 @@
 
 ## Samsung Galaxy Z Flip 4
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-10` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Z-Flip-4.png" width="500" alt="Preview">
 
 **State: Inactive** <br>
@@ -1105,6 +1195,15 @@
 
 ## Samsung Galaxy Tab S8+ 5G
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-9` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8+-5G.png" width="500" alt="Preview">
 
 **State: Active** <br>
@@ -1170,6 +1269,15 @@
 </table>
 
 ## Samsung Galaxy Tab S8 5G
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-9` Version is Required on this Phone!
+
+</td></tr>
+</table>
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S8-5G.png" width="500" alt="Preview">
 
@@ -1451,6 +1559,15 @@
 
 ## Samsung Galaxy S21 FE
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-18` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S21-Fe.png" width="500" alt="Preview">
 
 **State: Inactive** <br>
@@ -1512,6 +1629,15 @@
 </td></tr> </table>
 
 ## Samsung Galaxy Z Fold 3 5G
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-14` Version is Required on this Phone!
+
+</td></tr>
+</table>
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Z-Fold-3-5G.png" width="500" alt="Preview">
 
@@ -2896,6 +3022,15 @@
 
 ## Samsung Galaxy A52s 5G
 
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-11` Version is Required on this Phone!
+
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-A52s-5G.png" width="500" alt="Preview">
 
 **State: Active** <br>
@@ -3339,6 +3474,17 @@
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
 ## Samsung Galaxy A52
+
+<!--
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-?` Version is Required on this Phone!
+
+</td></tr>
+</table>
+-->
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-A52.png" width="500" alt="Preview">
 
@@ -4046,7 +4192,16 @@
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
-## Samsung Galaxy Tab A7 LTE (T507)
+## Samsung Galaxy Tab A7 10.4 (2020)
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-8` Version is Required on this Phone!
+
+</td></tr>
+</table>
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A7-LTE.png" width="500" alt="Preview">
 
