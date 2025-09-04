@@ -46,7 +46,7 @@ fi
 # Parse Device Config File
 if [ -f "Resources/Configs/${TARGET_DEVICE}.conf" ]
 then source "Resources/Configs/${TARGET_DEVICE}.conf"
-else _error "\nDevice configuration not found from ${TARGET_DEVICE}!\nCheck if your .conf File is in the 'Recourses/Configs' Folder.\n"
+else _error "\nDevice configuration not found for ${TARGET_DEVICE}!\nCheck if your .conf File is in the 'Resources/Configs' Folder.\n"
 fi
 
 # Check Device Models
