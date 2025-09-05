@@ -41,7 +41,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000 
 
   # Device Maintainer
-  #gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Rostislav Lastockin"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Rostislav Lastockin"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FFB0000
