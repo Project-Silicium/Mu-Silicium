@@ -2617,7 +2617,7 @@
 | SD Card            |             | ❌    |
 | Mass Storage       | Broken      | ❌    |
 | Windows Boot       |             | ✅    |
-| Linux Boot         | Untested    | ❔    |
+| Linux Boot         |             | ✅    |
 
 ### OS Status
 
@@ -2631,7 +2631,7 @@
 | Feature              | Description                                                  | State |
 |:---------------------|:-------------------------------------------------------------|:-----:|
 | Internal Storage     |                                                              | ✅    |
-| SD Card              | Hot Plug doesn't work                                        | ⚠️    |
+| SD Card              |                                                              | ✅    |
 | Side Buttons         |                                                              | ✅    |
 | Proximity Sensor     |                                                              | ❌    |
 | Accelerometer Sensor |                                                              | ✅    |
@@ -3271,13 +3271,13 @@
 | Display            |                   | ✅    |
 | Internal Storage   |                   | ✅    |
 | Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ✅    |
 | USB Power Delivery |                   | ❌    |
-| Mass Storage       | Needs Device Mode | ❌    |
+| Mass Storage       | Broken.           | ❌    |
 | SD Card            |                   | ✅    |
 | Windows Boot       |                   | ✅    |
-| Linux Boot         |                   | ❌    |
+| Linux Boot         |                   | ✅    |
 
 ### OS Status
 
@@ -3306,7 +3306,7 @@
 | Temperature Sensor   |             | ✅    |
 | Battery              |             | ✅    |
 | USB Host Mode        |             | ✅    |
-| USB Device Mode      |             | ❌    |
+| USB Device Mode      |             | ✅    |
 | USB Power Delivery   |             | ❌    |
 | Charging             |             | ❌    |
 | WLAN                 |             | ❌    |
