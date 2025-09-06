@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = MediaTekPkg
+  PACKAGE_GUID                        = B46510CC-E100-4E2F-9102-ABFCF56D4244
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gMediaTekPkgTokenSpaceGuid          = { 0xCC1065B4, 0x00E1, 0x2F4E, { 0x91, 0x02, 0xAB, 0xFC, 0xF5, 0x6D, 0x42, 0x44 } }

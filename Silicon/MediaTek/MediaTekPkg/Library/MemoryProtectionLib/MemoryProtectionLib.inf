@@ -1,0 +1,15 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MemoryProtectionLib
+  FILE_GUID                      = 010DE4E1-9612-4457-A80F-1E5B39725D09
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MemoryProtectionLib
+
+[Sources]
+  MemoryProtectionLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
