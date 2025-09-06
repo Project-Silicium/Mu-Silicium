@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = lancelot
+  PACKAGE_GUID                        = 02130540-5641-43DE-A3C3-5DFE24CB4714
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  glancelotTokenSpaceGuid             = { 0x40051302, 0x4156, 0xDE43, { 0xA3, 0xC3, 0x5D, 0xFE, 0x24, 0xCB, 0x47, 0x14 } }
