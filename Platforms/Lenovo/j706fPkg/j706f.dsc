@@ -72,16 +72,6 @@
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
-[PcdsDynamicDefault]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|2560
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1600
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|2560
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|1600
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|320
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|84
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|320
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|84
-
 [LibraryClasses]
   DeviceMemoryMapLib|j706fPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|j706fPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf

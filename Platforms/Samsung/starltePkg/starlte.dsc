@@ -52,16 +52,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2960
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
 
-[PcdsDynamicDefault]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2960
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1440
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2960
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|180
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|155
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|180
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|155
-
 [LibraryClasses]
   DeviceMemoryMapLib|starltePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceGuidLib|starltePkg/Library/DeviceGuidLib/DeviceGuidLib.inf

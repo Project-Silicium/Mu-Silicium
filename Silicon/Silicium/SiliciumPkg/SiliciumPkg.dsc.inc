@@ -103,6 +103,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdDebugFrameBufferDelay|10000          # In Microseconds
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
 
+[PcdsDynamicDefault]
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|0
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|0
+
 [PcdsFeatureFlag]
   gEfiMdePkgTokenSpaceGuid.PcdComponentNameDisable|TRUE
   gEfiMdePkgTokenSpaceGuid.PcdDriverDiagnosticsDisable|TRUE

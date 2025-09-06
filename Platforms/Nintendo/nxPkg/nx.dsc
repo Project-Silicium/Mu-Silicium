@@ -78,16 +78,6 @@
   # Dynamic RAM
   gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000
 
-[PcdsDynamicDefault]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1280
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|720
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|1280
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|90
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|67
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|90
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|67
-
 [LibraryClasses]
   DeviceMemoryMapLib|nxPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceGuidLib|nxPkg/Library/DeviceGuidLib/DeviceGuidLib.inf

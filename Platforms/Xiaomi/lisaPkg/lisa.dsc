@@ -73,16 +73,6 @@
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|FALSE
-  
-[PcdsDynamicDefault]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2400
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|1080
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|2400
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|126
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|135
-  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|126
 
 [LibraryClasses]
   DeviceMemoryMapLib|lisaPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
