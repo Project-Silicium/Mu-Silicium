@@ -21,7 +21,12 @@ gDeviceMemoryDescriptorEx[] = {
   {"Log Buffer",        0x9FFF7000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"Info Blk",          0x9FFFF000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
 
-// Register Regions
+  // Other Memory Regions
+  {"IMEM_Base",          0x14680000, 0x00040000, NoHob,  MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
+  {"IMEM_Cookie_Base",   0x146BF000, 0x00001000, AddDev, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
+  {"QDSS_STM",   	 0x16000000, 0x01000000, AddDev, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
+
+  // Register Regions
   {"IMEM Base",          0x14680000, 0x00040000, NoHob, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
   {"IMEM Cookie Base",   0x146BF000, 0x00001000, AddDev, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},
   {"QDSS_STM",           0x16000000, 0x01000000, AddDev, MMAP_IO, INITIALIZED, Conv, NS_DEVICE},

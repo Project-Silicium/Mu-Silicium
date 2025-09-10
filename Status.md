@@ -148,7 +148,7 @@
 </details>
 
 <details>
-<summary><b><strong>Exynos 9810 Devices</strong></b></summary>
+<summary><b><strong>Exynos 9810 Devices</strong></b></suFmmary>
 
 ## Samsung Galaxy S9
 
@@ -2864,18 +2864,52 @@
 | Display            |                          | ✅    |
 | Internal Storage   |                          | ✅    |
 | Side Buttons       |                          | ✅    |
-| USB Host Mode      |                          | ❔    |
+| USB Host Mode      |                          | ❌   |
 | USB Device Mode    |                          | ✅    |
 | USB Power Delivery |                          | ❔    |
 | Mass Storage       |                          | ✅    |
-| Windows Boot       |                          | ❔    |
+| Windows Boot       |                          | ❌    |
 | Linux Boot         |                          | ✅    |
 <table>
 <tr><th>Linux</th>
 <tr><td>
 
 > [!NOTE]
-> The PostmarketOS Site for this Device with extended status and fixes can be Found [here](https://wiki.postmarketos.org/wiki/OnePlus_5_(oneplus-cheeseburger)).
+> The PostmarketOS Site for this Device fixes can be Found [here](https://wiki.postmarketos.org/wiki/OnePlus_5_(oneplus-cheeseburger)).
+
+> [!NOTE]
+> Arch ARM seems to be most stable.
+
+| Feature              | Description               | State |
+|:---------------------|:--------------------------|:-----:|
+| Internal Storage     |                           | ✅    |
+| Side Buttons         |                           | ✅    |
+| Proximity Sensor     |                           | ❌    |
+| Light Sensor         |                           | ❌    |
+| Accelerometer Sensor |                           | ❌    |
+| Compass Sensor       |                           | ❌    |
+| Fingerprint Sensor   |                           | ❌    |
+| Hall Sensor          |                           | ✅    |
+| NFC Sensor           |                           | ✅    |
+| Temperature Sensor   |                           | ❌    |
+| Battery              |                           | ✅    |
+| USB Host Mode        |                           | ❌    |
+| USB Device Mode      |                           | ✅    |
+| USB Power Delivery   |                           | ❔    |
+| Charging             |                           | ✅    |
+| WLAN                 | Unstable                  | ⚠️    |
+| CPU                  |                           | ✅    |
+| Touchscreen          | Upside down, fix on wiki  | ⚠️    |
+| Bluetooth            |                           | ✅    |
+| GPS                  |                           | ✅    |
+| Speakers             |                           | ❌    |
+| 3.5mm Audio Jack     |                           | ❌    |
+| Microphone           |                           | ❌    |
+| GPU                  | Unstable                  | ⚠️    |
+| Camera               |                           | ❌    |
+| Mobile Data          |                           | ❌    |
+| Display              |                           | ✅    |
+| Vibration            |                           | ❌    |
 </td></tr>
 </table>
 </details>
