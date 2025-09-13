@@ -1,0 +1,6 @@
+#ifndef _PMIC_WRAPPER_IMPL_LIB_H_
+#define _PMIC_WRAPPER_IMPL_LIB_H_
+
+extern MTK_PMIC_WRAPPER_PLATFORM_INFO PlatformInfo;
+
+#endif /* _PMIC_WRAPPER_IMPL_LIB_H_ */

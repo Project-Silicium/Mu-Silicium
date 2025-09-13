@@ -26,4 +26,10 @@
   # SmBios
   MediaTekPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
+  # Custom MediaTek Drivers
+  MediaTekPkg/Drivers/GpioDxe/GpioDxe.inf
+  MediaTekPkg/Drivers/PmicWrapperDxe/PmicWrapperDxe.inf
+  MediaTekPkg/Drivers/MT6358PmicDxe/MT6358PmicDxe.inf
+  MediaTekPkg/Drivers/MsdcDxe/MsdcDxe.inf
+
 !include SiliciumPkg/SiliciumPkg.dsc.inc

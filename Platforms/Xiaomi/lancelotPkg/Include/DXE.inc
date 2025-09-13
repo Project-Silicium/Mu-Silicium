@@ -22,8 +22,23 @@
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF FatPkg/EnhancedFatDxe/Fat.inf
+  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+
+  INF MediaTekPkg/Drivers/GpioDxe/GpioDxe.inf
+  INF MediaTekPkg/Drivers/PmicWrapperDxe/PmicWrapperDxe.inf
+  INF MediaTekPkg/Drivers/MT6358PmicDxe/MT6358PmicDxe.inf
+
+  INF MediaTekPkg/Drivers/MsdcDxe/MsdcDxe.inf
+  INF MdeModulePkg/Bus/Sd/EmmcDxe/EmmcDxe.inf
+  INF MdeModulePkg/Bus/Sd/SdDxe/SdDxe.inf
+
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
+  INF SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
+  INF SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf

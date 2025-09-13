@@ -68,5 +68,8 @@
   HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   SoCPlatformLib|MT6768Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  GpioImplLib|MT6768Pkg/Library/GpioImplLib/GpioImplLib.inf
+  PmicWrapperImplLib|MT6768Pkg/Library/PmicWrapperImplLib/PmicWrapperImplLib.inf
+  MsdcImplLib|MT6768Pkg/Library/MsdcImplLib/MsdcImplLib.inf
 
 !include MediaTekPkg/MediaTekPkg.dsc.inc

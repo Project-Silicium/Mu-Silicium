@@ -1,0 +1,31 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PmicWrapperDxe
+  FILE_GUID                      = B8CAD61B-9B78-42EB-BA73-FCF1A4FC8124
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitPmicWrapper
+
+[Sources]
+  PmicWrapperDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  MediaTekPkg/MediaTekPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+  TimerLib
+  DebugLib
+  IoLib
+  PmicWrapperImplLib
+
+[Protocols]
+  gMediaTekPmicWrapperProtocolGuid
+
+[Depex]
+  TRUE

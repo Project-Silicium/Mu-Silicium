@@ -1,0 +1,28 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MT6358PmicDxe
+  FILE_GUID                      = 9CF0470A-AE6B-44C5-A948-9645ABDC05A5
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitPmic
+
+[Sources]
+  MT6358PmicDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  MediaTekPkg/MediaTekPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+
+[Protocols]
+  gMediaTekPmicWrapperProtocolGuid
+  gMediaTekPmicProtocolGuid
+
+[Depex]
+  TRUE

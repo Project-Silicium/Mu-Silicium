@@ -61,6 +61,12 @@
 [LibraryClasses]
   DeviceMemoryMapLib|lancelotPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceGuidLib|lancelotPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
+  KeypadDeviceLib|lancelotPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+[Components]
+  # Keypad
+  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
 !include MT6768Pkg/MT6768Pkg.dsc.inc
