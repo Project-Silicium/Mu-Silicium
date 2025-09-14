@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = cheeseburger
+  PACKAGE_GUID                        = AA74E5F0-C6AC-4ADA-A917-3B97B854EFBA
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gcheeseburgerTokenSpaceGuid               = { 0xF0E574AA, 0xACC6, 0xDA4A, { 0xA9, 0x17, 0x3B, 0x97, 0xB8, 0x54, 0xEF, 0xBA } }

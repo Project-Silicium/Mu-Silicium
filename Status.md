@@ -3015,6 +3015,76 @@
 
 </details>
 
+<details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## OnePlus 5
+
+<img align="right" src="Resources/Pictures/OnePlus-5.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: cheeseburger** <br>
+**Maintainer: [index986](https://github.com/index986/)** <br>
+**Contributors: [index986](https://github.com/index986/)** <br>
+**Tester: [index986](https://github.com/index986/)**
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       |                          | ✅    |
+| USB Host Mode      |                          | ❌   |
+| USB Device Mode    |                          | ✅    |
+| USB Power Delivery |                          | ❔    |
+| Mass Storage       |                          | ✅    |
+| Windows Boot       |                          | ❌    |
+| Linux Boot         |                          | ✅    |
+<table>
+<tr><th>Linux</th>
+<tr><td>
+
+> [!NOTE]
+> The PostmarketOS Site for this Device fixes can be Found [here](https://wiki.postmarketos.org/wiki/OnePlus_5_(oneplus-cheeseburger)).
+
+> [!NOTE]
+> Arch ARM seems to be most stable.
+
+| Feature              | Description               | State |
+|:---------------------|:--------------------------|:-----:|
+| Internal Storage     |                           | ✅    |
+| Side Buttons         |                           | ✅    |
+| Proximity Sensor     |                           | ❌    |
+| Light Sensor         |                           | ❌    |
+| Accelerometer Sensor |                           | ❌    |
+| Compass Sensor       |                           | ❌    |
+| Fingerprint Sensor   |                           | ❌    |
+| Hall Sensor          |                           | ✅    |
+| NFC Sensor           |                           | ✅    |
+| Temperature Sensor   |                           | ❌    |
+| Battery              |                           | ✅    |
+| USB Host Mode        |                           | ❌    |
+| USB Device Mode      |                           | ✅    |
+| USB Power Delivery   |                           | ❔    |
+| Charging             |                           | ✅    |
+| WLAN                 | Unstable                  | ⚠️    |
+| CPU                  |                           | ✅    |
+| Touchscreen          | Upside down, fix on wiki  | ⚠️    |
+| Bluetooth            |                           | ✅    |
+| GPS                  |                           | ✅    |
+| Speakers             |                           | ❌    |
+| 3.5mm Audio Jack     |                           | ❌    |
+| Microphone           |                           | ❌    |
+| GPU                  | Unstable                  | ⚠️    |
+| Camera               |                           | ❌    |
+| Mobile Data          |                           | ❌    |
+| Display              |                           | ✅    |
+| Vibration            |                           | ❌    |
+</td></tr>
+</table>
+</details>
+
 ---
 
 </details>
