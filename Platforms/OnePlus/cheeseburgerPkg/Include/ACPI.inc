@@ -4,7 +4,7 @@
 #  SECTION RAW = Nazgul/BGRT.aml
 #  SECTION RAW = Nazgul/CSRT.aml
 #!if $(TARGET) == DEBUG
-#   SECTION RAW = Nazgul/DBG2.aml
+#  SECTION RAW = Nazgul/DBG2.aml
 #!endif
 #  SECTION RAW = cheeseburger/DSDT.aml
 #  SECTION RAW = Nazgul/FACP.aml

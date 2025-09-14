@@ -3035,12 +3035,13 @@
 | Display            |                          | ✅    |
 | Internal Storage   |                          | ✅    |
 | Side Buttons       |                          | ✅    |
-| USB Host Mode      |                          | ❌   |
+| USB Host Mode      |                          | ❌    |
 | USB Device Mode    |                          | ✅    |
-| USB Power Delivery |                          | ❔    |
+| USB Power Delivery |                          | ❌    |
 | Mass Storage       |                          | ✅    |
 | Windows Boot       |                          | ❌    |
 | Linux Boot         |                          | ✅    |
+
 <table>
 <tr><th>Linux</th>
 <tr><td>
@@ -3081,8 +3082,10 @@
 | Mobile Data          |                           | ❌    |
 | Display              |                           | ✅    |
 | Vibration            |                           | ❌    |
+
 </td></tr>
 </table>
+
 </details>
 
 ---
