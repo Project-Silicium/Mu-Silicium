@@ -87,6 +87,10 @@
   # Graphics
   #
   gSiliciumPkgTokenSpaceGuid.PcdDebugFrameBufferDelay|10000          # In Microseconds
+
+  #
+  # Input
+  #
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
 
 [PcdsDynamicDefault]

@@ -17,13 +17,13 @@
   # Simple Frame Buffer (Primary)
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|0|UINT32|0x0000A000
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|0|UINT32|0x0000A001
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|0|UINT32|0x0000A002
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|0|UINT8|0x0000A002
 
   # Simple Frame Buffer (Secondary)
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferOffset|0|UINT32|0x0000A100
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferOffset|0|UINT64|0x0000A100
   gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferWidth|0|UINT32|0x0000A101
   gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferHeight|0|UINT32|0x0000A102
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferColorDepth|0|UINT32|0x0000A103
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferColorDepth|0|UINT8|0x0000A103
   gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferDebug|FALSE|BOOLEAN|0x0000A104
 
   # Simple Frame Buffer (Extras)

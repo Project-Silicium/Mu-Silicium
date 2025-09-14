@@ -1,179 +1,78 @@
-//#include <Library/ArmLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/CacheMaintenanceLib.h>
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/SerialPortLib.h>
 #include <Library/TimerLib.h>
 
-#include <Resources/font5x12.h>
-
+#include "Fonts/5x12.h"
 #include "FrameBuffer.h"
 
 //
 // Global Variables
 //
-STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX  DisplayMemoryRegion;
-STATIC FBCON_POSITION                  *CurrentPosition;
-STATIC FBCON_POSITION                   MaxPosition;
-STATIC UINTN                            ScreenWidth;
-STATIC UINTN                            ScreenHeight;
-STATIC UINTN                            ScreenColorDepth;
+STATIC EFI_FRAME_BUFFER_DATA FrameBufferData;
 
 VOID
 DrawDebugMessage (
-  CHAR8 *Pixels,
-  UINTN  Stride,
-  UINTN  Bpp,
-  UINTN *Glyph)
+  CHAR8  *Pixels,
+  UINT32 *Glyph)
 {
-  UINT32 ForegroundColor;
-  UINT32 BackgroundColor;
-  UINTN  Data;
-  UINTN  Temp;
+  UINT32 Color;
+  UINT32 Data;
+  UINT32 Temp;
 
-  // Set Background Pixels Variable
-  CHAR8 *BackgroundPixels = Pixels;
+  // Set Stride Value
+  UINTN Stride = FrameBufferData.Width - FrameBufferData.FontData.Width * FrameBufferData.FontData.Scale;
 
-  // Update Stride Value
-  Stride -= FONT_WIDTH * SCALE_FACTOR;
+  for (UINT8 i = 0; i < 2; i++) {
+    // Set Data Variable
+    Data = Glyph[i];
 
-  // Go thru each Pixel
-  for (UINTN y = 0; y < FONT_HEIGHT / 2; y++) {
-    for (UINTN i = 0; i < SCALE_FACTOR; i++) {
-      for (UINTN x = 0; x < FONT_WIDTH; x++) {
-        for (UINTN j = 0; j < SCALE_FACTOR; j++) {
-          // Set Background Color
-          BackgroundColor = 0xFF000000;
+    for (UINT8 j = 0; j < FrameBufferData.FontData.Height / 2; j++) {
+      Temp = Data;
 
-          for (UINTN k = 0; k < Bpp; k++) {
-            // Draw Background Color
-            *BackgroundPixels = (UINT8)BackgroundColor;
-            BackgroundColor   = BackgroundColor >> 8;
+      for (UINT8 k = 0; k < FrameBufferData.FontData.Scale; k++) {
+        Data = Temp;
 
-            // Update Position
-            BackgroundPixels++;
-          }
-        }
-      }
+        for (UINT8 l = 0; l < FrameBufferData.FontData.Width; l++) {
+          if (Data & 1) {
+            for (UINT8 m = 0; m < FrameBufferData.FontData.Scale; m++) {
+              // Set Text Color
+              Color = 0xFFFFFFFF;
 
-      // Update Position
-      BackgroundPixels += (Stride * Bpp);
-    }
-  }
+              for (UINT8 n = 0; n < FrameBufferData.BytesPerPixel; n++) {
+                // Draw Text Char
+                *Pixels = (UINT8)Color;
 
-  // Go thru each Pixel
-  for (UINTN y = 0; y < FONT_HEIGHT / 2; y++) {
-    for (UINTN i = 0; i < SCALE_FACTOR; i++) {
-      for (UINTN x = 0; x < FONT_WIDTH; x++) {
-        for (UINTN j = 0; j < SCALE_FACTOR; j++) {
-          // Set background Pixels
-          BackgroundColor = 0xFF000000;
+                // Shift Color
+                Color >>= 8;
 
-          for (UINTN k = 0; k < Bpp; k++) {
-            // Draw Background Color
-            *BackgroundPixels = (UINT8)BackgroundColor;
-            BackgroundColor   = BackgroundColor >> 8;
-
-            // Update Position
-            BackgroundPixels++;
-          }
-        }
-      }
-
-      // Update Position
-      BackgroundPixels += (Stride * Bpp);
-    }
-  }
-
-  // Set Data Variable
-  Data = Glyph[0];
-
-  // Go thru each Pixel
-  for (UINTN y = 0; y < FONT_HEIGHT / 2; y++) {
-    Temp = Data;
-
-    for (UINTN i = 0; i < SCALE_FACTOR; i++) {
-      Data = Temp;
-
-      for (UINTN x = 0; x < FONT_WIDTH; x++) {
-        if (Data & 1) {
-          for (UINTN j = 0; j < SCALE_FACTOR; j++) {
-            // Set Foreground Color
-            ForegroundColor = 0xFFFFFFFF;
-
-            for (UINTN k = 0; k < Bpp; k++) {
-              // Draw Foreground Color
-              *Pixels         = (UINT8)ForegroundColor;
-              ForegroundColor = ForegroundColor >> 8;
-
+                // Update Position
+                Pixels++;
+              }
+            }
+          } else {
+            for (UINT8 m = 0; m < FrameBufferData.FontData.Scale; m++) {
               // Update Position
-              Pixels++;
+              Pixels += FrameBufferData.BytesPerPixel;
             }
           }
-        } else {
-          // Update Position
-          for (UINTN j = 0; j < SCALE_FACTOR; j++) {
-            Pixels = Pixels + Bpp;
-          }
+
+          // Shift Position
+          Data >>= 1;
         }
 
-        // Shift Position
-        Data >>= 1;
+        // Update Position
+        Pixels += (Stride * FrameBufferData.BytesPerPixel);
       }
-
-      // Update Position
-      Pixels += (Stride * Bpp);
-    }
-  }
-
-  // Set Data Position
-  Data = Glyph[1];
-
-  for (UINTN y = 0; y < FONT_HEIGHT / 2; y++) {
-    Temp = Data;
-
-    for (UINTN i = 0; i < SCALE_FACTOR; i++) {
-      Data = Temp;
-
-      for (UINTN x = 0; x < FONT_WIDTH; x++) {
-        if (Data & 1) {
-          for (UINTN j = 0; j < SCALE_FACTOR; j++) {
-            // Set Foreground Color
-            ForegroundColor = 0xFFFFFFFF;
-
-            for (UINTN k = 0; k < Bpp; k++) {
-              // Draw Foreground Color
-              *Pixels  = (UINT8)ForegroundColor;
-              ForegroundColor = ForegroundColor >> 8;
-
-              // Update Position
-              Pixels++;
-            }
-          }
-        } else {
-          // Update Position
-          for (UINTN j = 0; j < SCALE_FACTOR; j++) {
-            Pixels = Pixels + Bpp;
-          }
-        }
-
-        // Shift Position
-        Data >>= 1;
-      }
-
-      // Update Position
-      Pixels += (Stride * Bpp);
     }
   }
 }
 
 VOID
-WriteFrameBuffer (CHAR8 Buffer)
+WriteFrameBuffer (IN CHAR8 Buffer)
 {
-  CHAR8  *Pixels;
-
-  // Get Interrupts State
-  BOOLEAN InterruptsEnabled = ArmGetInterruptState ();
+  CHAR8 *Pixels;
 
 Print:
   // Check Buffer Length
@@ -181,87 +80,57 @@ Print:
     return;
   }
 
-  if ((UINT8)Buffer < 32) {
-    if (Buffer == '\n') {
-      // Create new Line
-      goto newline;
-    } else if (Buffer == '\r') {
-      // Reset X Position
-      CurrentPosition->x = 0;
-      return;
-    } else {
-      return;
-    }
-  }
-
-  // Save some Space
-  if (CurrentPosition->x == 0 && (UINT8)Buffer == ' ') {
+  // Check for "\r"
+  if (Buffer == '\r') {
+    // Reset X Position
+    FrameBufferData.CurrentPosition->XPos = 0;
     return;
   }
 
-  // Disable Interrupts
-  if (InterruptsEnabled) {
-    ArmDisableInterrupts ();
+  // Check for "\n" and Max Position
+  if (Buffer == '\n' || FrameBufferData.CurrentPosition->XPos >= FrameBufferData.MaxPosition.XPos - FrameBufferData.FontData.Scale) {
+    // Wait
+    MicroSecondDelay (FrameBufferData.PrintDelay);
+
+    // Increase Y Position
+    FrameBufferData.CurrentPosition->YPos += FrameBufferData.FontData.Scale;
+
+    // Reset X Position
+    FrameBufferData.CurrentPosition->XPos = 0;
+
+    if (FrameBufferData.CurrentPosition->YPos >= FrameBufferData.MaxPosition.YPos) {
+      // Clear Screen
+      ZeroMem ((VOID *)FrameBufferData.MemoryRegion.Address, FrameBufferData.MemoryRegion.Length);
+
+      // Flush Frame Buffer
+      WriteBackInvalidateDataCacheRange ((VOID *)FrameBufferData.MemoryRegion.Address, FrameBufferData.MemoryRegion.Length);
+
+      // Reset Y Position
+      FrameBufferData.CurrentPosition->YPos = 0;
+
+      goto Print;
+    }
+
+    // Flush Frame Buffer
+    WriteBackInvalidateDataCacheRange ((VOID *)FrameBufferData.MemoryRegion.Address, FrameBufferData.MemoryRegion.Length);
+    return;
+  }
+
+  // Save some Space
+  if (FrameBufferData.CurrentPosition->XPos == 0 && (UINT8)Buffer == ' ') {
+    return;
   }
 
   // Set Debug Message Configuration
-  Pixels  = (VOID *)DisplayMemoryRegion.Address;
-  Pixels += CurrentPosition->y * ((ScreenColorDepth / 8) * FONT_HEIGHT * ScreenWidth);
-  Pixels += CurrentPosition->x * SCALE_FACTOR * ((ScreenColorDepth / 8) * (FONT_WIDTH + 1));
+  Pixels  = (VOID *)FrameBufferData.MemoryRegion.Address;
+  Pixels += FrameBufferData.CurrentPosition->YPos * (FrameBufferData.BytesPerPixel * FrameBufferData.FontData.Height * FrameBufferData.Width);
+  Pixels += (FrameBufferData.CurrentPosition->XPos * FrameBufferData.FontData.Scale) * (FrameBufferData.BytesPerPixel * (FrameBufferData.FontData.Width + 1));
 
   // Draw Debug Message
-  DrawDebugMessage (Pixels, ScreenWidth, (ScreenColorDepth / 8), font5x12 + (Buffer - 32) * 2);
+  DrawDebugMessage (Pixels, Font5x12 + (Buffer - 32) * 2);
 
   // Increase X Position
-  CurrentPosition->x++;
-
-  // Create new Line
-  if (CurrentPosition->x >= (INT32)(MaxPosition.x / SCALE_FACTOR)) {
-    goto newline;
-  }
-
-  // Enable Interrupts
-  if (InterruptsEnabled) {
-    ArmEnableInterrupts ();
-  }
-
-  return;
-
-newline:
-  // Wait
-  MicroSecondDelay (FixedPcdGet32 (PcdDebugFrameBufferDelay));
-
-  // Increase Y Position
-  CurrentPosition->y += SCALE_FACTOR;
-
-  // Reset X Position
-  CurrentPosition->x  = 0;
-
-  if (CurrentPosition->y >= MaxPosition.y - SCALE_FACTOR) {
-    // Clear Screen
-    ZeroMem ((VOID *)DisplayMemoryRegion.Address, (ScreenWidth * ScreenHeight * (ScreenColorDepth / 8)));
-
-    // Flush Frame Buffer
-    WriteBackInvalidateDataCacheRange ((VOID *)DisplayMemoryRegion.Address, (ScreenWidth * ScreenHeight * (ScreenColorDepth / 8)));
-
-    // Reset Y Position
-    CurrentPosition->y = -1;
-
-    // Enable Interrupts
-    if (InterruptsEnabled) {
-      ArmEnableInterrupts ();
-    }
-
-    goto Print;
-  }
-
-  // Flush FrameBuffer
-  WriteBackInvalidateDataCacheRange ((VOID *)DisplayMemoryRegion.Address, (ScreenWidth * ScreenHeight * (ScreenColorDepth / 8)));
-
-  // Enable Interrupts
-  if (InterruptsEnabled) {
-    ArmEnableInterrupts ();
-  }
+  FrameBufferData.CurrentPosition->XPos++;
 }
 
 UINTN
@@ -355,38 +224,46 @@ SerialPortInitialize ()
   EFI_STATUS Status;
 
   // Locate "Display Reserved" Memory Region
-  Status  = LocateMemoryMapAreaByName ("Display Reserved", &DisplayMemoryRegion);
-  Status |= LocateMemoryMapAreaByName ("Display_Reserved", &DisplayMemoryRegion);
-  if (EFI_ERROR (Status) && !DisplayMemoryRegion.Address) { 
+  Status  = LocateMemoryMapAreaByName ("Display Reserved", &FrameBufferData.MemoryRegion);
+  Status |= LocateMemoryMapAreaByName ("Display_Reserved", &FrameBufferData.MemoryRegion);
+  if (EFI_ERROR (Status) && !FrameBufferData.MemoryRegion.Address) { 
     return EFI_UNSUPPORTED;
   }
 
   // Get Secondary Frame Buffer Offset
-  UINT32 Offset = FixedPcdGet32 (PcdSecondaryFrameBufferOffset);
+  UINT64 FrameBufferOffset = FixedPcdGet64 (PcdSecondaryFrameBufferOffset);
 
   // Get Frame Buffer Infos
-  if (Offset && FixedPcdGetBool (PcdSecondaryFrameBufferDebug)) {
-    // Update "Display Reserved" Memory Region
-    DisplayMemoryRegion.Address += Offset;
-    DisplayMemoryRegion.Length  -= Offset;
-
+  if (FrameBufferOffset && FixedPcdGetBool (PcdSecondaryFrameBufferDebug)) {
     // Set Screen Infos
-    ScreenWidth      = FixedPcdGet32 (PcdSecondaryFrameBufferWidth);
-    ScreenHeight     = FixedPcdGet32 (PcdSecondaryFrameBufferHeight);
-    ScreenColorDepth = FixedPcdGet32 (PcdSecondaryFrameBufferColorDepth);
+    FrameBufferData.Width         = FixedPcdGet32 (PcdSecondaryFrameBufferWidth);
+    FrameBufferData.Height        = FixedPcdGet32 (PcdSecondaryFrameBufferHeight);
+    FrameBufferData.BytesPerPixel = FixedPcdGet8  (PcdSecondaryFrameBufferColorDepth) / 8;
   } else {
     // Set Screen Infos
-    ScreenWidth      = FixedPcdGet32 (PcdPrimaryFrameBufferWidth);
-    ScreenHeight     = FixedPcdGet32 (PcdPrimaryFrameBufferHeight);
-    ScreenColorDepth = FixedPcdGet32 (PcdPrimaryFrameBufferColorDepth);
+    FrameBufferData.Width         = FixedPcdGet32 (PcdPrimaryFrameBufferWidth);
+    FrameBufferData.Height        = FixedPcdGet32 (PcdPrimaryFrameBufferHeight);
+    FrameBufferData.BytesPerPixel = FixedPcdGet8  (PcdPrimaryFrameBufferColorDepth) / 8;
   }
 
+  // Update "Display Reserved" Memory Region
+  FrameBufferData.MemoryRegion.Address += FrameBufferOffset;
+  FrameBufferData.MemoryRegion.Length   = FrameBufferData.Width * FrameBufferData.Height * FrameBufferData.BytesPerPixel;
+
+  // Set Default Print Delay
+  FrameBufferData.PrintDelay = FixedPcdGet32 (PcdDebugFrameBufferDelay);
+
+  // Set Font Data (TODO: Add New Dynamic Scale Method)
+  FrameBufferData.FontData.Width  = 5;
+  FrameBufferData.FontData.Height = 12;
+  FrameBufferData.FontData.Scale  = 1;
+
   // Set Total Position
-  CurrentPosition = (FBCON_POSITION *)(DisplayMemoryRegion.Address + (ScreenWidth * ScreenHeight * ScreenColorDepth / 8));
+  FrameBufferData.CurrentPosition = (EFI_FRAME_BUFFER_POSITION *)(FrameBufferData.MemoryRegion.Address + (FrameBufferData.Width * FrameBufferData.Height * FrameBufferData.BytesPerPixel));
 
   // Calculate Max Position
-  MaxPosition.x = ScreenWidth / (FONT_WIDTH + 1);
-  MaxPosition.y = ScreenHeight / FONT_HEIGHT;
+  FrameBufferData.MaxPosition.XPos = FrameBufferData.Width / FrameBufferData.FontData.Width;
+  FrameBufferData.MaxPosition.YPos = FrameBufferData.Height / FrameBufferData.FontData.Height;
 
-  return RETURN_SUCCESS;
+  return EFI_SUCCESS;
 }

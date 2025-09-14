@@ -54,8 +54,8 @@ UntrapVFP:
 
 SetupCoreStack:
   // Get Stack Base & Size
-  ldr  x0, =FixedPcdGet32(PcdPrePiStackBase)
-  ldr  x1, =FixedPcdGet32(PcdPrePiStackSize)
+  ldr  x0, =FixedPcdGet32 (PcdPrePiStackBase)
+  ldr  x1, =FixedPcdGet32 (PcdPrePiStackSize)
 
   // Preapre Stack Clear
   add  x2, x0, x1
@@ -78,12 +78,12 @@ ClearStack:
   add  sp, x2, xzr
 
 EnableCaches:
-  // Invalidate D-Cache
-  bl   ArmInvalidateDataCacheEntryByMVA
+  // Disable D-Cache
+  bl   ASM_PFX (ArmDisableDataCache)
 
   // Enable I-Cache & D-Cache
-  bl   ASM_PFX(ArmEnableInstructionCache)
-  bl   ASM_PFX(ArmEnableDataCache)
+  bl   ASM_PFX (ArmEnableInstructionCache)
+  bl   ASM_PFX (ArmEnableDataCache)
 
 JumpToC:
   // Restore Values
