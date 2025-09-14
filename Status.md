@@ -369,10 +369,10 @@
 <details>
 <summary><b><strong>MediaTek P65/G80 Devices</strong></b></summary>
 
+<br>
+
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
-
-<br>
 
 ## Xiaomi Redmi 9
 
