@@ -362,6 +362,51 @@
 ---
 
 <details>
+<summary><b><strong>MediaTek Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>MediaTek P65/G80 Devices</strong></b></summary>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+<br>
+
+## Xiaomi Redmi 9
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-9.png" width="500" alt="Preview">
+
+**State: Inactive** <br>
+**Codename: lancelot** <br>
+**Maintainer: [Nikroks](https://github.com/N1kroks/)** <br>
+**Contributors: [Nikroks](https://github.com/N1kroks/)** <br>
+**Tester: [Nikroks](https://github.com/N1kroks/)**
+
+### UEFI Status
+
+| Feature            | Description    | State |
+|:-------------------|:---------------|:-----:|
+| Display            |                | ✅    |
+| Internal Storage   |                | ✅    |
+| Side Buttons       |                | ✅    |
+| USB Host Mode      |                | ❌    |
+| USB Device Mode    |                | ❌    |
+| USB Power Delivery |                | ❌    |
+| SD Card            |                | ❌    |
+| Windows Boot       |                | ❌    |
+| Linux Boot         |                | ❌    |
+
+</details>
+
+</details>
+
+</details>
+
+---
+
+<details>
 <summary><b><strong>Snapdragon Devices</strong></b></summary>
 
 <br>

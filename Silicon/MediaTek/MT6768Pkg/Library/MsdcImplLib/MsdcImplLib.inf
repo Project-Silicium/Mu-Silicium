@@ -1,0 +1,23 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MsdcImplLib
+  FILE_GUID                      = 8EC6D266-0422-48E2-BE12-D91E00D72689
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = MsdcImplLib
+
+[Sources]
+  MsdcImplLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  MediaTekPkg/MediaTekPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  DebugLib
+
+[Protocols]
+  gMediaTekGpioProtocolGuid

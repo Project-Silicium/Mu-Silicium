@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = GpioDxe
+  FILE_GUID                      = 1795051D-DD72-436A-A43B-B1BEA81316BC
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitGpioDriver
+
+[Sources]
+  GpioDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  MediaTekPkg/MediaTekPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+  DebugLib
+  IoLib
+  GpioImplLib
+
+[Protocols]
+  gMediaTekGpioProtocolGuid
+
+[Depex]
+  TRUE
