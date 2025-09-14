@@ -148,7 +148,7 @@
 </details>
 
 <details>
-<summary><b><strong>Exynos 9810 Devices</strong></b></suFmmary>
+<summary><b><strong>Exynos 9810 Devices</strong></b></summary>
 
 ## Samsung Galaxy S9
 
