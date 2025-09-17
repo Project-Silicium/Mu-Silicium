@@ -71,6 +71,8 @@
   # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|TRUE
+
 
 [LibraryClasses]
   PlatformPrePiLib|MooreaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf

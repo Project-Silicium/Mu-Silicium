@@ -3392,7 +3392,7 @@
 | USB Host Mode      |                   | ❌    |
 | USB Device Mode    |                   | ✅    |
 | USB Power Delivery |                   | ❌    |
-| Mass Storage       | Broken.           | ❌    |
+| Mass Storage       |                   | ✅    |
 | SD Card            |                   | ✅    |
 | Windows Boot       |                   | ✅    |
 | Linux Boot         |                   | ✅    |
@@ -3420,16 +3420,16 @@
 | Fingerprint Sensor   |             | ❌    |
 | Hall Sensor          |             | ❌    |
 | Gravity Sensor       |             | ❌    |
-| NFC Sensor           |             | ❌    |
+| NFC Sensor           |             | ⚠️    |
 | Temperature Sensor   |             | ✅    |
 | Battery              |             | ✅    |
 | USB Host Mode        |             | ✅    |
 | USB Device Mode      |             | ✅    |
 | USB Power Delivery   |             | ❌    |
-| Charging             |             | ❌    |
+| Charging             |             | ⚠️    |
 | WLAN                 |             | ❌    |
 | CPU                  |             | ✅    |
-| Touchscreen          |             | ❌    |
+| Touchscreen          |             | ✅    |
 | Bluetooth            |             | ❌    |
 | GPS                  |             | ✅    |
 | Speakers             |             | ❌    |
