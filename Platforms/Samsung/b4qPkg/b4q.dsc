@@ -88,6 +88,5 @@
 
 [Components]
   QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
-  #b4qPkg/Drivers/CoverScreenDxe/CoverScreenDxe.inf
 
 !include PalimaPkg/PalimaPkg.dsc.inc

@@ -88,7 +88,6 @@
 !endif
 
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-  #INF b4qPkg/Drivers/CoverScreenDxe/CoverScreenDxe.inf
 
   INF Binaries/b4q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf

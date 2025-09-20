@@ -86,7 +86,6 @@ APRIORI DXE {
 !endif
 
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-  #INF b4qPkg/Drivers/CoverScreenDxe/CoverScreenDxe.inf
 
   INF Binaries/b4q/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
