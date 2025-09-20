@@ -29,9 +29,14 @@
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferOffset
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferWidth
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferHeight
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferColorDepth
 
 [Protocols]
   gEfiGraphicsOutputProtocolGuid
+  gEfiCoverScreenProtocolGuid
   gEfiDevicePathProtocolGuid
 
 [Depex]

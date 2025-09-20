@@ -18,6 +18,17 @@
   }
 
 //
+// Secondary Display GUID
+//
+#define EFI_SECONDARY_DISPLAY_GUID                                             \
+  {                                                                            \
+    0xFD79358A, 0x07C5, 0x42B9,                                                \
+    {                                                                          \
+      0x89, 0x78, 0x6A, 0xAB, 0xC8, 0x49, 0x84, 0xD3                           \
+    }                                                                          \
+  }
+
+//
 // Generic Device Path
 //
 typedef struct {
@@ -59,9 +70,9 @@ EFI_GENERIC_DEVICE_PATH KeypadDevicePath = {
 };
 
 //
-// Display Controller Device Path
+// Primary Display Device Path
 //
-EFI_GENERIC_DEVICE_PATH DisplayDevicePath = {
+EFI_GENERIC_DEVICE_PATH PrimaryDisplayDevicePath = {
   {
     {
       HARDWARE_DEVICE_PATH,
@@ -72,6 +83,31 @@ EFI_GENERIC_DEVICE_PATH DisplayDevicePath = {
       }
     },
     EFI_GRAPHICS_OUTPUT_PROTOCOL_GUID
+  },
+  {
+    END_DEVICE_PATH_TYPE,
+    END_ENTIRE_DEVICE_PATH_SUBTYPE,
+    {
+      (UINT8)(END_DEVICE_PATH_LENGTH),
+      (UINT8)((END_DEVICE_PATH_LENGTH) >> 8)
+    }
+  }
+};
+
+//
+// Secondary Display Device Path
+//
+EFI_GENERIC_DEVICE_PATH SecondaryDisplayDevicePath = {
+  {
+    {
+      HARDWARE_DEVICE_PATH,
+      HW_VENDOR_DP,
+      {
+        (UINT8)(sizeof (VENDOR_DEVICE_PATH)),
+        (UINT8)((sizeof (VENDOR_DEVICE_PATH)) >> 8)
+      }
+    },
+    EFI_SECONDARY_DISPLAY_GUID
   },
   {
     END_DEVICE_PATH_TYPE,

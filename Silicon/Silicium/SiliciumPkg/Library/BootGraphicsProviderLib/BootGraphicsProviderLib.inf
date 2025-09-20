@@ -22,7 +22,6 @@
 
 [LibraryClasses]
   PcdLib
-  DebugLib
   DxeServicesLib
 
 [FixedPcd]
@@ -31,9 +30,11 @@
   gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile
   gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile
   gSiliciumPkgTokenSpaceGuid.PcdMsdUnknownStateFile
+  gSiliciumPkgTokenSpaceGuid.PcdCoverBootLogoFile
+  gSiliciumPkgTokenSpaceGuid.PcdCoverNoBootOSFile
+  gSiliciumPkgTokenSpaceGuid.PcdCoverMassStorageFile
 
 [Pcd]
   gOemPkgTokenSpaceGuid.PcdLogoFile
   gOemPkgTokenSpaceGuid.PcdLowBatteryFile
   gOemPkgTokenSpaceGuid.PcdThermalFile
-  gOemPkgTokenSpaceGuid.PcdPostBackgroundColor

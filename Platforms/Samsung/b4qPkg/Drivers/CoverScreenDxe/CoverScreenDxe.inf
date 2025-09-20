@@ -1,0 +1,45 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = CoverScreenDxe
+  FILE_GUID                      = 9E34DE5A-5171-4359-9F95-E7474B4C278F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitCoverScreen
+
+[Sources]
+  CoverScreenDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MsGraphicsPkg/MsGraphicsPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  FrameBufferBltLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryAllocationLib
+  MemoryMapHelperLib
+  DxeServicesLib
+  BaseMemoryLib
+  BmpSupportLib
+  PcdLib
+
+[Protocols]
+  gEfiCoverScreenProtocolGuid
+  gEfiDisplayPowerStateExProtocolGuid
+
+[FixedPcd]
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferOffset
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferWidth
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferHeight
+  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferColorDepth
+  gSiliciumPkgTokenSpaceGuid.PcdCoverBootLogoFile
+  gSiliciumPkgTokenSpaceGuid.PcdCoverNoBootOSFile
+  gSiliciumPkgTokenSpaceGuid.PcdCoverMassStorageFile
+
+[Depex]
+  TRUE

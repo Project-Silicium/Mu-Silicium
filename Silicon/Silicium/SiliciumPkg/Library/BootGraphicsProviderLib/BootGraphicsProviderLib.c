@@ -4,17 +4,16 @@
 **/
 
 #include <Library/PcdLib.h>
-#include <Library/DebugLib.h>
-#include <Library/BootGraphicsProviderLib.h>
 #include <Library/BootGraphics.h>
+#include <Library/BootGraphicsProviderLib.h>
 #include <Library/DxeServicesLib.h>
 
 EFI_STATUS
 EFIAPI
 GetBootGraphic (
-  BOOT_GRAPHIC   Graphic,
-  OUT UINTN     *ImageSize,
-  OUT UINT8    **ImageData)
+  IN  BOOT_GRAPHIC   Graphic,
+  OUT UINTN         *ImageSize,
+  OUT UINT8        **ImageData)
 {
   EFI_GUID *GraphicGuid;
 
@@ -52,7 +51,39 @@ GetBootGraphic (
       break;
 
     default:
-      DEBUG ((EFI_D_ERROR, "%a: Unsupported Boot Graphic Type! Got %u\n", __FUNCTION__, Graphic));
+      return EFI_UNSUPPORTED;
+  }
+
+  // Get the Specified Image from FV
+  return GetSectionFromAnyFv (GraphicGuid, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
+}
+
+EFI_STATUS
+EFIAPI
+GetCoverBootGraphic (
+  IN  BOOT_GRAPHIC   Graphic,
+  OUT UINTN         *ImageSize,
+  OUT UINT8        **ImageData)
+{
+  EFI_GUID *GraphicGuid;
+
+  switch (Graphic) {
+    case BG_SYSTEM_LOGO:
+      GraphicGuid = PcdGetPtr (PcdCoverBootLogoFile);
+      break;
+
+    case BG_NO_BOOT_OS:
+      GraphicGuid = FixedPcdGetPtr (PcdCoverNoBootOSFile);
+      break;
+    
+    case BG_MSD_SELECT_LUN:
+    case BG_MSD_CONNECTED:
+    case BG_MSD_DISCONNECTED:
+    case BG_MSD_UNKNOWN_STATE:
+      GraphicGuid = FixedPcdGetPtr (PcdCoverMassStorageFile);
+      break;
+
+    default:
       return EFI_UNSUPPORTED;
   }
 
@@ -64,5 +95,5 @@ UINT32
 EFIAPI
 GetBackgroundColor ()
 {
-  return PcdGet32 (PcdPostBackgroundColor);
+  return 0;
 }

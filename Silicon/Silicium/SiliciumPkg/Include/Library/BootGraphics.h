@@ -13,4 +13,11 @@
 #define BG_MSD_DISCONNECTED  7
 #define BG_MSD_UNKNOWN_STATE 8
 
+EFI_STATUS
+EFIAPI
+GetCoverBootGraphic (
+  IN  UINT8   Graphic,
+  OUT UINTN  *ImageSize,
+  OUT UINT8 **ImageData);
+
 #endif /* _BOOT_GRAPHICS_H_ */

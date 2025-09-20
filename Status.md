@@ -1135,7 +1135,7 @@
 | Feature            | Description                                          | State |
 |:-------------------|:-----------------------------------------------------|:-----:|
 | Main Display       |                                                      | ✅    |
-| Cover Display      | No actual Driver to Handle it & Wrong Orientation    | ⚠️    |
+| Cover Display      | Remains Active when Booting a OS                     | ✅    |
 | Internal Storage   |                                                      | ✅    |
 | Side Buttons       |                                                      | ✅    |
 | USB Host Mode      |                                                      | ❌    |
