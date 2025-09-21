@@ -2141,6 +2141,68 @@
 </details>
 
 <details>
+<summary><b><strong>Samsung Devics</strong></b></summary>
+
+## Samsung Galaxy S20 FE
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE.png" width="432" alt="Preview">
+
+**State: Active** <br>
+**Codename: r8q** <br>
+**Maintainer: [Violet](https://github.com/ghatt-o/)** <br>
+**Contributors: [Violet](https://github.com/ghatt-o/)** <br>
+**Tester: [objectfigure_](https://github.com/techyguyperplexable/)** <br>
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       | Only volume keys  | ⚠️    |
+| USB Host Mode      |                   | ❓    |
+| USB Device Mode    |                   | ❓    |
+| USB Power Delivery |                   | ❓    |
+| Mass Storage       | Unknown issue     | ❌    |
+| SD Card            |                   | ✅    |
+| Windows Boot       |                   | ❓    |
+| Linux Boot         |                   | ✅    |
+
+### OS Status
+
+<table>
+<tr><th>Linux</th></tr>
+<tr><td>
+
+| Feature              | Description                       | State |
+|:---------------------|:----------------------------------|:-----:|
+| Internal Storage     |                                   | ✅    |
+| Side Buttons         |                                   | ✅    |
+| Accelerometer Sensor |                                   | ❌    |
+| Gyroscope Sensor     |                                   | ❌    |
+| Hall Sensor          |                                   | ❌    |
+| Temperature Sensor   |                                   | ❌    |
+| Battery              |                                   | ✅    |
+| USB Host Mode        |                                   | ❌    |
+| USB Device Mode      |                                   | ✅    |
+| USB Power Delivery   |                                   | ❌    |
+| Charging             |  Slow charging only               | ⚠️    |
+| WLAN                 |                                   | ❌    |
+| CPU                  |                                   | ✅    |
+| Touchscreen          |  Driver available                 | ❓    |
+| Bluetooth            |                                   | ❌    |
+| Speakers             |                                   | ❌    |
+| Microphone           |                                   | ❌    |
+| GPU                  |                                   | ❌    |
+| Camera               |                                   | ❌    |
+| Display              |                                   | ✅    |
+
+</td></tr>
+</table>
+
+</details>
+
+<details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
 ## Xiaomi Pad 6
