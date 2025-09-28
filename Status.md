@@ -1249,7 +1249,7 @@
 </td></tr>
 </table>
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-S22-5G.jpg" width="400" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S22-5G.jpg" width="300" alt="Preview">
 
 **State: Active** <br>
 **Codename: r0q** <br>
