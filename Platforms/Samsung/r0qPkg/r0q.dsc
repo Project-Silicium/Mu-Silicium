@@ -15,7 +15,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = r0q
-  PLATFORM_GUID                  = 63FCD61B-FF5D-46BC-B64A-687E367363AE
+  PLATFORM_GUID                  = 1F8B6A9C-41F2-4C2C-8A91-B8C03F8ED7E6
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/r0qPkg
