@@ -1249,12 +1249,13 @@
 </td></tr>
 </table>
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-S22-5G.jpg" width="300" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S22-5G.jpg" width="400" alt="Preview">
 
 **State: Active** <br>
 **Codename: r0q** <br>
 **Maintainer: [Violet](https://github.com/ghatt-o/)** <br>
 **Contributors: [Violet](https://github.com/ghatt-o/) [Robotix](https://github.com/Robotix22/)** <br>
+**Testers: [Violet](https://github.com/ghatt-o/)** <br>
 
 ### UEFI Status
 
