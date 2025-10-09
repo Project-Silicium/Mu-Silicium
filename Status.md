@@ -3451,10 +3451,10 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-X3-NFC.png" width="500" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: surya** <br>
-**Maintainer: None** <br>
-**Contributors: [Nikroks](https://github.com/N1kroks/), [remtrik](https://github.com/remtrik)** <br>
+**Maintainer: [remtrik](https://github.com/remtrik)** <br>
+**Contributors: [Nikroks](https://github.com/N1kroks)** <br>
 **Tester: None**
 
 ### UEFI Status
@@ -3467,7 +3467,7 @@
 | USB Host Mode      |                   | ❌    |
 | USB Device Mode    |                   | ✅    |
 | USB Power Delivery |                   | ❌    |
-| Mass Storage       | Broken.           | ❌    |
+| Mass Storage       |                   | ✅    |
 | SD Card            |                   | ✅    |
 | Windows Boot       |                   | ✅    |
 | Linux Boot         |                   | ✅    |
@@ -3495,23 +3495,23 @@
 | Fingerprint Sensor   |             | ❌    |
 | Hall Sensor          |             | ❌    |
 | Gravity Sensor       |             | ❌    |
-| NFC Sensor           |             | ❌    |
+| NFC Sensor           |             | ⚠️    |
 | Temperature Sensor   |             | ✅    |
 | Battery              |             | ✅    |
 | USB Host Mode        |             | ✅    |
 | USB Device Mode      |             | ✅    |
 | USB Power Delivery   |             | ❌    |
-| Charging             |             | ❌    |
-| WLAN                 |             | ❌    |
+| Charging             |             | ⚠️    |
+| WLAN                 |             | ✅    |
 | CPU                  |             | ✅    |
-| Touchscreen          |             | ❌    |
-| Bluetooth            |             | ❌    |
+| Touchscreen          |             | ✅    |
+| Bluetooth            |             | ✅    |
 | GPS                  |             | ✅    |
 | Speakers             |             | ❌    |
 | Microphone           |             | ❌    |
 | GPU                  |             | ❌    |
 | Camera               |             | ❌    |
-| Mobile Data          |             | ❌    |
+| Mobile Data          |             | ✅    |
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
 
