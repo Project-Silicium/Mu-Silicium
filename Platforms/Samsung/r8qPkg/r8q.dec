@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = r8q
+  PACKAGE_GUID                        = 18B9BF87-E548-4B68-8150-25B0ACD6897A
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gr8qTokenSpaceGuid                  = { 0x87BFB918, 0x48E5, 0x684B, { 0x81, 0x50, 0x25, 0xB0, 0xAC, 0xD6, 0x89, 0x7A } }
