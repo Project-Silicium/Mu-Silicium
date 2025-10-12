@@ -1,0 +1,21 @@
+#FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+#  SECTION RAW = Kona/APIC.aml
+#  SECTION RAW = Kona/BERT.aml
+#  SECTION RAW = Kona/BGRT.aml
+#  SECTION RAW = Kona/CSRT.aml
+!if $(TARGET) == DEBUG
+#  SECTION RAW = Kona/DBG2.aml
+!endif
+#  SECTION RAW = r8q/DSDT.aml
+#  SECTION RAW = Kona/FACP.aml
+#  SECTION RAW = Kona/FPDT.aml
+#  SECTION RAW = Kona/GTDT.aml
+#  SECTION RAW = Kona/IORT.aml
+#  SECTION RAW = Kona/MCFG.aml
+#  SECTION RAW = Kona/MSDM.aml
+#  SECTION RAW = Kona/PPTT.aml
+#  SECTION RAW = Kona/SPCR.aml
+#  SECTION RAW = Kona/TPM2.aml
+#  SECTION RAW = Kona/XSDT.aml
+#  SECTION UI = "AcpiTables"
+#}

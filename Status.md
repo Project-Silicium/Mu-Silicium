@@ -2216,6 +2216,36 @@
 </details>
 
 <details>
+<summary><b><strong>Samsung Devices</strong></b></summary>
+
+## Samsung Galaxy S20 FE
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE-r8q.png" width="390" alt="Preview">
+
+**State: Active** <br>
+**Codename: r8q** <br>
+**Maintainer: [olegos2](https://github.com/olegos2)** <br>
+**Contributors: [olegos2](https://github.com/olegos2), [Robotix](https://github.com/Robotix22/)** <br>
+**Testers: [olegos2](https://github.com/olegos2)** <br>
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       | Only volume keys  | ⚠️    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ✅    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |                   | ✅    |
+| SD Card            |                   | ❌    |
+| Windows Boot       |                   | ❌    |
+| Linux Boot         |                   | ❌    |
+
+</details>
+
+<details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
 ## Xiaomi Pad 6
