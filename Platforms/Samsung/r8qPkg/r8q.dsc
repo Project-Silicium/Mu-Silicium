@@ -41,7 +41,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # Device Maintainer
-  #gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"olegos2"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
@@ -76,6 +76,6 @@
   DeviceMemoryMapLib|r8qPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
   DeviceConfigurationMapLib|r8qPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
   DeviceGuidLib|r8qPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
-  AcpiDeviceUpdateLib|r8qPkg/Library/AcpiDeviceUpdateLib/AcpiDeviceUpdateLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include KonaPkg/KonaPkg.dsc.inc

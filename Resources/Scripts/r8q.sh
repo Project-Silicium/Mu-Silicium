@@ -9,11 +9,12 @@ cat "./Build/r8qPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/R8Q_UEFI.fd-bootshim.gz" ./
 python3 ./Resources/Scripts/mkbootimg.py \
   --kernel ./Resources/bootpayload.bin \
   --ramdisk ./Resources/ramdisk \
-  --kernel_offset 0x00000000 \
-  --ramdisk_offset 0x00000000 \
-  --tags_offset 0x00000000 \
   --os_version 13.0.0 \
   --os_patch_level "$(date '+%Y-%m')" \
   --header_version 1 \
-  -o Mu-r8q.img \
+  -o boot.img \
   ||_error "\nFailed to create Android Boot Image!\n"
+
+# Compress UEFI Boot Image
+tar -c boot.img -f Mu-r8q.tar||exit 1
+mv boot.img Mu-r8q.img||exit 1

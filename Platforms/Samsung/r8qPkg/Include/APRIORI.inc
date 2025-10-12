@@ -68,10 +68,8 @@ APRIORI DXE {
   INF Binaries/r8q/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
-  # INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
-  # INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/r8q/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

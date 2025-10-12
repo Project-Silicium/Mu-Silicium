@@ -2225,7 +2225,7 @@
 **State: Active** <br>
 **Codename: r8q** <br>
 **Maintainer: [olegos2](https://github.com/olegos2)** <br>
-**Contributors: [olegos2](https://github.com/olegos2), [Robotix](https://github.com/Robotix22/) ** <br>
+**Contributors: [olegos2](https://github.com/olegos2), [Robotix](https://github.com/Robotix22/)** <br>
 **Testers: [olegos2](https://github.com/olegos2)** <br>
 
 ### UEFI Status
