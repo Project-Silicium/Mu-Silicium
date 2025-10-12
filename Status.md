@@ -2220,7 +2220,7 @@
 
 ## Samsung Galaxy S20 FE
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE.png" width="432" alt="Preview">
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE-r8q.png" width="390" alt="Preview">
 
 **State: Active** <br>
 **Codename: r8q** <br>
