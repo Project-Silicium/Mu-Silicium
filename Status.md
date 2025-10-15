@@ -4631,7 +4631,7 @@
 | Side Buttons       |                                | ✅    |
 | USB Host Mode      |                                | ❌    |
 | USB Device Mode    |                                | ✅    |
-| USB Power Delivery | Unstable if fastboot boot used | ⚠️    |
+| USB Power Delivery |                                | ❌    |
 | Mass Storage       |                                | ✅    |
 | SD Card            |                                | ✅    |
 | Windows Boot       |                                | ⚠️    |
@@ -4723,7 +4723,7 @@
 | Side Buttons       |             | ✅    |
 | USB Host Mode      |             | ❌    |
 | USB Device Mode    |             | ✅    |
-| USB Power Delivery |             | ✅    |
+| USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
 | SD Card            |             | ✅    |
 | Windows Boot       |             | ✅    |
@@ -4752,9 +4752,9 @@
 | Hall Sensor          |                                            | ❌    |
 | Temperature Sensor   |                                            | ❌    |
 | Battery              |                                            | ❌    |
-| USB Host Mode        | Depends What Mode it was in UEFI, unstable | ⚠️    |
-| USB Device Mode      | Depends What Mode it was in UEFI.          | ✅    |
-| USB Power Delivery   | Depends What Mode it was in UEFI.          | ✅    |
+| USB Host Mode        |                                            | ❌    |
+| USB Device Mode      |                                            | ❔     |
+| USB Power Delivery   |                                            | ❌    |
 | Charging             |                                            | ❌    |
 | WLAN                 |                                            | ❌    |
 | CPU                  |                                            | ✅    |
@@ -4787,8 +4787,8 @@
 | Temperature Sensor   |                                   | ❌    |
 | Battery              |                                   | ❌    |
 | USB Host Mode        |                                   | ❌    |
-| USB Device Mode      | Depends What Mode it was in UEFI. | ✅    |
-| USB Power Delivery   | Depends What Mode it was in UEFI. | ✅    |
+| USB Device Mode      |                                   | ❔     |
+| USB Power Delivery   |                                   | ❌    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
