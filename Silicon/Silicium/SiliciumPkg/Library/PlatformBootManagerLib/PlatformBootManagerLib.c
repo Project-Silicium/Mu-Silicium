@@ -320,14 +320,14 @@ PlatformBootManagerPriorityBoot (OUT UINT16 **BootNext)
   EFI_BOOT_MANAGER_LOAD_OPTION BootManagerMenu;
 
   // Get Special Boot Option
-  BOOLEAN XenonGUI   = MsBootPolicyLibIsSettingsBoot ();
+  BOOLEAN FfuMode    = MsBootPolicyLibIsSettingsBoot ();
   BOOLEAN SpecialApp = MsBootPolicyLibIsAltBoot ();
 
   // Clear Boot Requests
   MsBootPolicyLibClearBootRequests ();
 
   // Get Special Boot Option
-  if (XenonGUI) {
+  if (FfuMode) {
     // Get UEFI Menu Boot Option
     Status = MsBootOptionsLibGetBootManagerMenu (&BootOption, "VOL+");
     if (EFI_ERROR (Status)) {
@@ -415,9 +415,9 @@ PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
   if (ComboMessage == NULL) {
     if (FixedPcdGetPtr (PcdSpecialApp) == "NULL") {
 #if HAS_BUILD_IN_KEYBOARD == 1
-      ComboMessage = L"[Escape] UEFI Menu";
+      ComboMessage = L"[Escape] FFU Mode";
 #else
-      ComboMessage = L"[Volume Up] UEFI Menu";
+      ComboMessage = L"[Volume Up] FFU Mode";
 #endif
     } else {
       // Allocate Memory
@@ -428,9 +428,9 @@ PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
       }
 
 #if HAS_BUILD_IN_KEYBOARD == 1
-      UnicodeSPrint (ComboMessage, 150, L"[Escape] UEFI Menu - [Delete] %a", FixedPcdGetPtr (PcdSpecialAppName));
+      UnicodeSPrint (ComboMessage, 150, L"[Escape] FFU Mode - [Delete] %a", FixedPcdGetPtr (PcdSpecialAppName));
 #else
-      UnicodeSPrint (ComboMessage, 150, L"[Volume Up] UEFI Menu - [Volume Down] %a", FixedPcdGetPtr (PcdSpecialAppName));
+      UnicodeSPrint (ComboMessage, 150, L"[Volume Up] FFU Mode - [Volume Down] %a", FixedPcdGetPtr (PcdSpecialAppName));
 #endif
     }
 
