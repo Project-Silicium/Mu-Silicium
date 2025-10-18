@@ -64,7 +64,7 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC35658
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB0000000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
