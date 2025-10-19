@@ -2222,11 +2222,11 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-FE-r8q.png" width="390" alt="Preview">
 
-**State: Active** <br>
+**State: Inactive** <br>
 **Codename: r8q** <br>
-**Maintainer: [olegos2](https://github.com/olegos2)** <br>
+**Maintainer: None** <br>
 **Contributors: [olegos2](https://github.com/olegos2), [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [olegos2](https://github.com/olegos2)** <br>
+**Testers: None** <br>
 
 ### UEFI Status
 
@@ -2234,7 +2234,7 @@
 |:-------------------|:------------------|:-----:|
 | Display            |                   | ✅    |
 | Internal Storage   |                   | ✅    |
-| Side Buttons       | Only volume keys  | ⚠️    |
+| Side Buttons       |                   | ✅    |
 | USB Host Mode      |                   | ❌    |
 | USB Device Mode    |                   | ✅    |
 | USB Power Delivery |                   | ❌    |
