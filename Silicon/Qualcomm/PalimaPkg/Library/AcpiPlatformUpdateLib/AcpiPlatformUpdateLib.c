@@ -149,7 +149,7 @@ GetSmemInfos (OUT UINT64 *Address)
   UINT32     SmemSize;
 
   // Get Address
-  Status = mSmemProtocol->GetFunc (137, &SmemSize, (VOID *)&Address);
+  Status = mSmemProtocol->GetFunc (137, &SmemSize, (VOID *)Address);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to get Address from SMEM! Status = %r\n", __FUNCTION__, Status));
     return Status;
