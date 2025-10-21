@@ -1132,8 +1132,8 @@
 | USB Device Mode    |              | ✅    |
 | USB Power Delivery |              | ❌    |
 | Mass Storage       |              | ✅    |
-| Windows Boot       |              | ❔    |
-| Linux Boot         |              | ❔    |
+| Windows Boot       |              | ❌    |
+| Linux Boot         |              | ❌    |
 
 </details>
 
