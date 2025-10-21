@@ -513,7 +513,7 @@
 
 <img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="400" alt="Preview">
 
-**State: Inactive** <br>
+**State: Active** <br>
 **Codename: bale** <br>
 **Maintainers: [InternalHellhound](https://github.com/InternalHellhound)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/), [InternalHellhound](https://github.com/InternalHellhound), [index986](https://github.com/index986/), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)** <br>
@@ -521,26 +521,23 @@
 
 ### UEFI Status
 
-| Feature            | Description | State |
-|:-------------------|:-------------|:-----:|
-| Display            |              | ✅    |
-| Internal Storage   |              | ✅    |
-| Side Buttons       |              | ✅    |
-| USB Host Mode      |              | ❌    |
-| USB Device Mode    |              | ✅    |
-| USB Power Delivery |              | ❌    |
-| Mass Storage       |              | ✅    |
-| Windows Boot       |              | ✅    |
-| Linux Boot         | Mainline WIP | ⚠️    |
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       |                          | ✅    |
+| USB Host Mode      |                          | ❌    |
+| USB Device Mode    |                          | ✅    |
+| USB Power Delivery |                          | ❌    |
+| Mass Storage       |                          | ✅    |
+| Windows Boot       | Tested with WinPE only.  | ⚠️    |
+| Linux Boot         | Untested.                | ❔    |
 
 ### OS Status
 
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
-
-> [!IMPORTANT]
-> Only Windows PE boots.
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
