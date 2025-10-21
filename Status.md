@@ -541,7 +541,7 @@
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
-| Internal Storage     |               | ❔    |
+| Internal Storage     |               | ❌    |
 | Side Buttons         |               | ❌    |
 | Proximity Sensor     |               | ❌    |
 | Light Sensor         |               | ❌    |
