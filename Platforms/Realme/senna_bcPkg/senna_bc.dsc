@@ -57,10 +57,24 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"realme"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo5/GT3"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_bc"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT_Neo5/GT3_senna_bc"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT Neo5/GT3"
+!if $(DEVICE_MODEL) == 0
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo5 150W"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_b"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT_Neo5_150W_senna_b"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT Neo5 150W"
+!elseif $(DEVICE_MODEL) == 1
+    gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo5 240W"
+    gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_c"
+    gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT_Neo5_240W_senna_c"
+    gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT Neo5 240W"
+!elseif $(DEVICE_MODEL) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_c"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT3_senna_c"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT3"
+!else
+!error "Invalid Model! specify "0" for GT Neo5 150W or "1" for GT Neo5 240W or "2" for GT3"
+!endif
 
   # Simple FrameBuffer
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1240
