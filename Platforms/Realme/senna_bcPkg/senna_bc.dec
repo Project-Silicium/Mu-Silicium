@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = senna_bc
+  PACKAGE_GUID                        = BD3BCA2B-A77C-41CA-9A19-52CBFAFABD82
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gsenna_bcTokenSpaceGuid                 = { 0x2BCA3BBD, 0x7CA7, 0xCA41, { 0x9A, 0x19, 0x52, 0xCB, 0xFA, 0xFA, 0xBD, 0x82 } }
