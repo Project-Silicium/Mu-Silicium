@@ -1113,7 +1113,7 @@
 <img align="right" src="Resources/Pictures/Realme-GT-Neo5.png" width="400" alt="Preview">
 
 **State: Active** <br>
-**Codename: senna-b/senna-c** <br>
+**Codename: senna_bc** <br>
 **Maintainers: [artempeshkov](https://github.com/artempeshkov)** <br>
 **Contributors: [artempeshkov](https://github.com/artempeshkov/),[Rostislav Lastochkin](https://github.com/remtrik),[Robotix](https://github.com/Robotix22/)** <br>
 **Testers: [artempeshkov](https://github.com/artempeshkov)**
