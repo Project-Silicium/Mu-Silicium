@@ -1106,6 +1106,35 @@
 </details>
 
 <details>
+<summary><b><strong>Realme Devices</strong></b></summary>
+
+## Realme GT Neo5 150W/240W/GT3
+
+<img align="right" src="Resources/Pictures/Realme-GT-Neo5.png" width="400" alt="Preview">
+
+**State: Active** <br>
+**Codename: senna-b/senna-c** <br>
+**Maintainers: [artempeshkov](https://github.com/artempeshkov)** <br>
+**Contributors: [artempeshkov](https://github.com/artempeshkov/),[Rostislav Lastochkin](https://github.com/remtrik),[Robotix](https://github.com/Robotix22/)** <br>
+**Testers: [artempeshkov](https://github.com/artempeshkov)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       |              | ❌    |
+| Linux Boot         |              | ❌    |
+
+</details>
+
+<details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
 ## Samsung Galaxy Z Flip 4
