@@ -1118,7 +1118,7 @@
 **State: Active** <br>
 **Codename: senna-b/senna-c** <br>
 **Maintainers: [artempeshkov](https://github.com/artempeshkov)** <br>
-**Contributors: [artempeshkov](https://github.com/artempeshkov/),[Robotix](https://github.com/Robotix22/)** <br>
+**Contributors: [artempeshkov](https://github.com/artempeshkov/),[Rostislav Lastochkin](https://github.com/remtrik),[Robotix](https://github.com/Robotix22/)** <br>
 **Testers: [artempeshkov](https://github.com/artempeshkov)**
 
 ### UEFI Status
@@ -1127,7 +1127,7 @@
 |:-------------------|:-------------|:-----:|
 | Display            |              | ✅    |
 | Internal Storage   |              | ✅    |
-| Side Buttons       |VOL+/- swapped| ⚠️    |
+| Side Buttons       |              | ✅    |
 | USB Host Mode      |              | ❌    |
 | USB Device Mode    |              | ✅    |
 | USB Power Delivery |              | ❌    |
