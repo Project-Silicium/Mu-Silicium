@@ -23,7 +23,7 @@ PlatformInitialize ()
 {
   //
   // Windows Requires Cache Coherency for the UFS to Work at its Best.
-  // The UFS Device is Currently Attached to the Main IOMMU on Context Bank 1.
+  // The UFS Device is Currently Attached to the Main IOMMU on Context Bank 2.
   // Configure Cache Coherency for Best UFS Performance.
   //
   ConfigureIOMMUContextBankCacheSetting (UFS_CTX_BANK);
