@@ -6,12 +6,10 @@
 #ifndef _BOOT_GRAPHICS_H_
 #define _BOOT_GRAPHICS_H_
 
-#define BG_NO_BOOT_OS        4
-
-#define BG_MSD_SELECT_LUN    5
-#define BG_MSD_CONNECTED     6
-#define BG_MSD_DISCONNECTED  7
-#define BG_MSD_UNKNOWN_STATE 8
+#define BG_NO_BOOT_OS       4
+#define BG_MSD_DEFAULT      5
+#define BG_MSD_CONNECTED    6
+#define BG_MSD_DISCONNECTED 7
 
 EFI_STATUS
 EFIAPI

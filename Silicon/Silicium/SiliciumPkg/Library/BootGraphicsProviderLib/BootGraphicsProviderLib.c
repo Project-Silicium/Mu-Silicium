@@ -34,8 +34,8 @@ GetBootGraphic (
       GraphicGuid = FixedPcdGetPtr (PcdNoBootOSFile);
       break;
     
-    case BG_MSD_SELECT_LUN:
-      GraphicGuid = FixedPcdGetPtr (PcdMsdSelectLunFile);
+    case BG_MSD_DEFAULT:
+      GraphicGuid = FixedPcdGetPtr (PcdMsdDefaultFile);
       break;
     
     case BG_MSD_CONNECTED:
@@ -44,10 +44,6 @@ GetBootGraphic (
     
     case BG_MSD_DISCONNECTED:
       GraphicGuid = FixedPcdGetPtr (PcdMsdDisconnectedFile);
-      break;
-
-    case BG_MSD_UNKNOWN_STATE:
-      GraphicGuid = FixedPcdGetPtr (PcdMsdUnknownStateFile);
       break;
 
     default:
@@ -76,10 +72,9 @@ GetCoverBootGraphic (
       GraphicGuid = FixedPcdGetPtr (PcdCoverNoBootOSFile);
       break;
     
-    case BG_MSD_SELECT_LUN:
+    case BG_MSD_DEFAULT:
     case BG_MSD_CONNECTED:
     case BG_MSD_DISCONNECTED:
-    case BG_MSD_UNKNOWN_STATE:
       GraphicGuid = FixedPcdGetPtr (PcdCoverMassStorageFile);
       break;
 

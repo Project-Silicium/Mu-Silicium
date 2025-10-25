@@ -16,19 +16,18 @@
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  PcdLib
   DebugLib
+  BaseMemoryLib
   UefiBootServicesTableLib
   UefiApplicationEntryPoint
   UefiRuntimeServicesTableLib
   BootGraphicsLib
+  DevicePathLib
   UefiLib
 
-[FixedPcd]
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
-  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc
-
 [Protocols]
-  gEfiBlockIoProtocolGuid
-  gChargerExProtocolGuid
   gEfiUsbMsdProtocolGuid
+  gChargerExProtocolGuid
+  gEfiChgProtocolGuid
+  gEfiBlockIoProtocolGuid
+  gEfiGraphicsOutputProtocolGuid

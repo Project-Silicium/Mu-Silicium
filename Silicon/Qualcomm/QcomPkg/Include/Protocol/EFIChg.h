@@ -103,7 +103,7 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_CHARGER_STATUS) (
-  OUT UINT32 *ConnectionType
+  OUT BOOLEAN *ConnectionType
   );
 
 /**
@@ -226,7 +226,7 @@ struct _EFI_CHG_PROTOCOL {
   EFI_SET_CHARGER_WATCHDOG_TIMER   SetChargerWatchdogTimer;
   EFI_SET_CHARGER_WATCHDOG_KICK    SetChargerWatchdogKick;
   EFI_GET_FACTORY_MODE             GetFactoryMode;
-  EFI_GET_FACTORY_SISO:MODE        GetFactorySisoMode;
+  EFI_GET_FACTORY_SISO_MODE        GetFactorySisoMode;
   EFI_INIT_DEV_CHARGING            InitDevCharging;
   EFI_READ_FUEL_GAUGE_VCELL        ReadFuelGaugeVCell;
   VOID                            *UnknownFunction14;
