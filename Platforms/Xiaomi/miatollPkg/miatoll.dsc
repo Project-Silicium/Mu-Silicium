@@ -41,37 +41,37 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000 
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
 !if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9S"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9S_curtana"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 9S"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6A1G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6A1G"
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro India"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9_Pro_India_curtana"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 9 Pro India"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6A1I"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6A1I"
 !elseif $(DEVICE_MODEL) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 10 Lite"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_10_Lite_curtana"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 10 Lite"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2002F4LG"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"F4LG"
 !elseif $(DEVICE_MODEL) == 3
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro Global"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"joyeuse"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9_Pro_Global_joyeuse"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 9 Pro Global"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6B2G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6B2G"
 !elseif $(DEVICE_MODEL) == 4
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro Max India"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro Max"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"excalibur"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_9_Pro_India_excalibur"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 9 Pro Max India"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6B1I"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6B1I"
 !elseif $(DEVICE_MODEL) == 5
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco M2 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"POCO M2 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gram"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_M2_Pro_gram"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco M2 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6CI"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6CI"
 !else
 !error "Invalid Model Type! 0, 1, 2, 3, 4 or 5 are Valid Model Types."
 !endif
