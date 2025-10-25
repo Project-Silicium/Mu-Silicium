@@ -144,13 +144,32 @@ BIOSInfoUpdateSmbiosType0 ()
 VOID
 SysInfoUpdateSmbiosType1 ()
 {
-  EFI_GUID DeviceGuid;
+  EFI_STATUS             Status;
+  EFI_CHIPINFO_PROTOCOL *mChipInfoProtocol;
+  EFI_GUID               DeviceGuid;
 
   // Get Device GUID
   DeviceGuid = GetDeviceGuid ();
 
   // Update Device UUID
   mSysInfoType1.Uuid = DeviceGuid;
+
+  // Locate Chip Info Protocol
+  Status = gBS->LocateProtocol (&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mChipInfoProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Chip Info Protocol! Status = %r\n", Status));
+  } else {
+    CHAR8 ChipIdString[16];
+
+    // Get Chip ID String
+    Status = mChipInfoProtocol->GetChipIdString (mChipInfoProtocol, ChipIdString, 16);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Get Chip ID String! Status = %r\n", Status));
+    } else {
+      // Update Family String
+      mSysInfoType1Strings[5] = ChipIdString;
+    }
+  }
 
   // Update String Table
   mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
