@@ -48,20 +48,20 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"alioth"
 !if $(DEVICE_MODEL) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F3"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F3_alioth"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"POCO F3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2012K11AG"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"K11AG"
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi K40"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_K40_alioth"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi K40"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2012K11AC"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"K11AC"
 !elseif $(DEVICE_MODEL) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11X"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11X_alioth"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11X"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2012K11AI"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"K11AI"
 !else
 !error "Invalid Model Type! 0, 1 or 2 are Valid Model Types."
 !endif
