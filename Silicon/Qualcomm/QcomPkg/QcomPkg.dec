@@ -124,4 +124,3 @@
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE|BOOLEAN|0x0000C700
-  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|FALSE|BOOLEAN|0x0000C701

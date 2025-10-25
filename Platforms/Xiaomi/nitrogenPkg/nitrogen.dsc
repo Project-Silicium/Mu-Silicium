@@ -60,7 +60,6 @@
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-  gQcomPkgTokenSpaceGuid.PcdDeviceHasEmmc|TRUE
   
   # USB Controller
   gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
