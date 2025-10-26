@@ -35,6 +35,17 @@
   # FV Decompress Address
   gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7049F78
 
+  # Memory
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiACPIReclaimMemory|0
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiACPIMemoryNVS|0
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiReservedMemoryType|0
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiRuntimeServicesData|80
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiRuntimeServicesCode|40
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiBootServicesCode|400
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiBootServicesData|800
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderCode|10
+  gEmbeddedTokenSpaceGuid.PcdMemoryTypeEfiLoaderData|0
+
   # CPU
 !if $(SOC_TYPE) == 1
   gArmPlatformTokenSpaceGuid.PcdCoreCount|7
