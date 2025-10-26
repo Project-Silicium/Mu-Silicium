@@ -47,7 +47,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nuwa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"13_Pro_nuwa"

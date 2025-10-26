@@ -41,7 +41,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"LG Electronics Inc."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"LG"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Velvet"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"caymanslm"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Velvet_caymanslm"

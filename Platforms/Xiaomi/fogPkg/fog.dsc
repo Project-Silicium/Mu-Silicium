@@ -47,7 +47,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 10C"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"fog"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_10C_fog"

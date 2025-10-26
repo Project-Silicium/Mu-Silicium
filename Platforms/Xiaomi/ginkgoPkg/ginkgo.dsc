@@ -41,7 +41,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"ginkgo"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_8_ginkgo"

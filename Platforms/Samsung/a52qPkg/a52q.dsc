@@ -41,7 +41,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000 
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung Electronics Co., Ltd."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy A52"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"a52q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A52_a52q"

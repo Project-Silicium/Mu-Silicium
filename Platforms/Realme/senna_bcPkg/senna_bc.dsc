@@ -56,7 +56,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"realme"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Realme"
 !if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo5 150W"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_b"

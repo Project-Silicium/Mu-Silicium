@@ -48,7 +48,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"venus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_venus"

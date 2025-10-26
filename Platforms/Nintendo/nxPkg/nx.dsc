@@ -60,7 +60,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo K.K."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nx"
 !if $(DEVICE_MODEL) == 0

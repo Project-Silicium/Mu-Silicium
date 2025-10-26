@@ -47,7 +47,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi Inc"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"11 Lite 5G NE"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lisa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"11_Lite_5G_NE_lisa"

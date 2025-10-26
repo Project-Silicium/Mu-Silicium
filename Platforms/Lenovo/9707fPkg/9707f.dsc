@@ -48,7 +48,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Lenovo Limited"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Lenovo"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Legion Tab Y700"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"9707f"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Legion_Tab_Y700_9707f"

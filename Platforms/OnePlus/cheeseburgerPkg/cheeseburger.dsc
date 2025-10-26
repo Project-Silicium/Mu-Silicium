@@ -41,7 +41,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus Technology Co., Ltd."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"5"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"cheeseburger"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"5_cheeseburger"
