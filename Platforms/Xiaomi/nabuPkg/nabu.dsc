@@ -53,8 +53,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 5"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nabu"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Pad_nabu"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Pad 5"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"21051182G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"K82"
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1600
