@@ -35,7 +35,7 @@ gDeviceConfigurationDescriptorEx[] = {
   {"EnableDisplayThread", 0},
   {"EnableUefiSecAppDebugLogDump", 0x0},
   {"AllowNonPersistentVarsInRetail", 0x1},
-  {"EnableDisplayImageFv", 0x0},
+  {"EnableDisplayImageFv", 0x1},
 
   // Terminator
   {"Terminator", 0xFFFFFFFF}
