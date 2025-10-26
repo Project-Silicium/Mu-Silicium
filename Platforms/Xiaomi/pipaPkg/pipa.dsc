@@ -48,7 +48,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pipa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Pad_pipa"

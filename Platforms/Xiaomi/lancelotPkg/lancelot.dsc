@@ -47,7 +47,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 9"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lancelot"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_9_lancelot"

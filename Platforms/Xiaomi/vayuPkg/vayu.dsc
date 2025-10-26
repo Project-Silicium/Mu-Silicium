@@ -48,7 +48,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00020000
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco X3 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vayu"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_X3_Pro_vayu"

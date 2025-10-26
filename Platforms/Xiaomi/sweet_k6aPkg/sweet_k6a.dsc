@@ -48,7 +48,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000 
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xioami"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 12 Pro 4G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"sweet_k6a"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_12_Pro_4G_sweet_k6a"
