@@ -197,11 +197,6 @@ BIOSInfoUpdateSmbiosType0 ()
   AsciiSPrintUnicodeFormat (FirmwareVendor,  sizeof (FirmwareVendor),  FixedPcdGetPtr (PcdFirmwareVendor));
   AsciiSPrintUnicodeFormat (FirmwareVersion, sizeof (FirmwareVersion), FixedPcdGetPtr (PcdFirmwareVersionString));
 
-  // Append Device Maintainer
-  if (FixedPcdGetPtr (PcdDeviceMaintainer) != "Not Specified") {
-    AsciiSPrint (FirmwareVendor, sizeof (FirmwareVendor), "%a & %a", FirmwareVendor, FixedPcdGetPtr (PcdDeviceMaintainer));
-  }
-
   // Update String Table
   mBIOSInfoType0Strings[0] = FirmwareVendor;
   mBIOSInfoType0Strings[1] = FirmwareVersion;

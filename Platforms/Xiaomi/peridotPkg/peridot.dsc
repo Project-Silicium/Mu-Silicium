@@ -41,9 +41,6 @@
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"PugzAreCute"
-
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000

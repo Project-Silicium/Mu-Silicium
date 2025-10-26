@@ -40,9 +40,6 @@
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"olegos2"
-
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000

@@ -36,7 +36,6 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel

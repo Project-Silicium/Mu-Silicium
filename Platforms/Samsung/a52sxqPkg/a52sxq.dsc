@@ -37,10 +37,8 @@
   *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) -DUSE_CUSTOM_DISPLAY_DRIVER=$(USE_CUSTOM_DISPLAY_DRIVER)
 
 [PcdsFixedAtBuild]
+  # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
-
-  # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"arminask"
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000

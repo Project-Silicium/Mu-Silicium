@@ -37,10 +37,7 @@
 
 [PcdsFixedAtBuild]
   # DDR Start Address
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000  
-
-  # Device Maintainer
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Shandorman"
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000

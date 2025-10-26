@@ -33,9 +33,6 @@
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
-  # Device Maintainer
-  #gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"No Maintainer"
-
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000

@@ -36,7 +36,6 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel

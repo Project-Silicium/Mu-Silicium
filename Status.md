@@ -30,9 +30,7 @@
 
 **State: Inactive** <br>
 **Codename: e1s** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [halal-beef](https://github.com/halal-beef/)** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [halal-beef](https://github.com/halal-beef/)**
 
 ### UEFI Status
 
@@ -68,9 +66,7 @@
 
 **State: Inactive** <br>
 **Codename: c1s** <br>
-**Maintainer: None** <br>
-**Contributors: [halal-beef](https://github.com/halal-beef/), [BotchedRPR](https://github.com/BotchedRPR/)** <br>
-**Tester: None**
+**Contributors: [halal-beef](https://github.com/halal-beef/), [BotchedRPR](https://github.com/BotchedRPR/)**
 
 ### UEFI Status
 
@@ -101,9 +97,7 @@
 
 **State: Inactive** <br>
 **Codename: x1s** <br>
-**Maintainer: [halal-beef](https://github.com/halal-beef/)** <br>
-**Contributors: [halal-beef](https://github.com/halal-beef/)** <br>
-**Tester: [halal-beef](https://github.com/halal-beef/)**
+**Contributors: [halal-beef](https://github.com/halal-beef/)**
 
 ### UEFI Status
 
@@ -134,9 +128,7 @@
 
 **State: Inactive** <br>
 **Codename: r8s** <br>
-**Maintainer: None** <br>
-**Contributors: [halal-beef](https://github.com/halal-beef/), [Sota4Ever](https://github.com/Sota4Ever/)** <br>
-**Tester: None**
+**Contributors: [halal-beef](https://github.com/halal-beef/), [Sota4Ever](https://github.com/Sota4Ever/)**
 
 ### UEFI Status
 
@@ -172,9 +164,7 @@
 
 **State: Inactive** <br>
 **Codename: beyond1lte** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -210,9 +200,7 @@
 
 **State: Inactive** <br>
 **Codename: starlte** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -257,9 +245,7 @@
 
 **State: Inactive** <br>
 **Codename: a10** <br>
-**Maintainer: None** <br>
-**Contributors: [snaccy](https://github.com/sonic011gamer/)** <br>
-**Tester: None**
+**Contributors: [snaccy](https://github.com/sonic011gamer/)**
 
 ### UEFI Status
 
@@ -290,9 +276,7 @@
 
 **State: Inactive** <br>
 **Codename: a7** <br>
-**Maintainer: None**<br>
-**Contributors: [Icesito](https://github.com/Icesito68/)** <br>
-**Tester: None**
+**Contributors: [Icesito](https://github.com/Icesito68/)**
 
 ### UEFI Status
 
@@ -337,9 +321,7 @@
 
 **State: Inactive** <br>
 **Codename: gtaxllte** <br>
-**Maintainer: [AistopGit](https://github.com/AistopGit)** <br>
-**Contributors: [Glitchythedev](https://github.com/Glitchythedev/), [AistopGit](https://github.com/AistopGit)** <br>
-**Tester: [Glitchythedev](https://github.com/Glitchythedev/), [AistopGit](https://github.com/AistopGit)**
+**Contributors: [Glitchythedev](https://github.com/Glitchythedev/), [AistopGit](https://github.com/AistopGit)**
 
 ### UEFI Status
 
@@ -380,9 +362,7 @@
 
 **State: Inactive** <br>
 **Codename: lancelot** <br>
-**Maintainer: [Nikroks](https://github.com/N1kroks/)** <br>
-**Contributors: [Nikroks](https://github.com/N1kroks/)** <br>
-**Tester: [Nikroks](https://github.com/N1kroks/)**
+**Contributors: [Nikroks](https://github.com/N1kroks/)**
 
 ### UEFI Status
 
@@ -424,9 +404,7 @@
 
 **State: Active** <br>
 **Codename: dodge** <br>
-**Maintainers: [index986](https://github.com/index986)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)** <br>
-**Testers: [index986](https://github.com/index986)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)**
 
 ### UEFI Status
 
@@ -515,9 +493,7 @@
 
 **State: Active** <br>
 **Codename: bale** <br>
-**Maintainers: [InternalHellhound](https://github.com/InternalHellhound)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/), [InternalHellhound](https://github.com/InternalHellhound), [index986](https://github.com/index986/), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)** <br>
-**Testers: [InternalHellhound](https://github.com/InternalHellhound), @slyqfs (Telegram)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/), [InternalHellhound](https://github.com/InternalHellhound), [index986](https://github.com/index986/), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)**
 
 ### UEFI Status
 
@@ -619,9 +595,7 @@
 
 **State: Inactive** <br>
 **Codename: peridot** <br>
-**Maintainers: [PugzAreCute](https://github.com/PugzAreCute)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [PugzAreCute](https://github.com/PugzAreCute), [InternalHellhound](https://github.com/InternalHellhound), [iNUCi](https://github.com/iNUCi), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)** <br>
-**Testers: [PugzAreCute](https://github.com/PugzAreCute)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [PugzAreCute](https://github.com/PugzAreCute), [InternalHellhound](https://github.com/InternalHellhound), [iNUCi](https://github.com/iNUCi), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)**
 
 ### UEFI Status
 
@@ -745,9 +719,7 @@
 
 **State: Inactive** <br>
 **Codename: aston** <br>
-**Maintainers: [Shandorman](https://github.com/jiganomegsdfdf/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/)** <br>
-**Testers: [Shandorman](https://github.com/jiganomegsdfdf/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/)**
 
 ### UEFI Status
 
@@ -852,9 +824,7 @@
 
 **State: Active** <br>
 **Codename: nuwa** <br>
-**Maintainers: [Alfa](https://github.com/alfaonyt/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)** <br>
-**Testers: [Alfa](https://github.com/alfaonyt/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)**
 
 ### UEFI Status
 
@@ -923,9 +893,7 @@
 
 **State: Active** <br>
 **Codename: nx729j** <br>
-**Maintainers: [Nikka](https://github.com/NikkaGames/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Nikka](https://github.com/NikkaGames/)** <br>
-**Testers: [Nikka](https://github.com/NikkaGames/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Nikka](https://github.com/NikkaGames/)**
 
 ### UEFI Status
 
@@ -1010,9 +978,7 @@
 
 **State: Inactive** <br>
 **Codename: pong** <br>
-**Maintainers: [index986](https://github.com/index986/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)** <br>
-**Testers: [index986](https://github.com/index986/), People from tg/discord nothing group**
+**Contributors: [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)**
 
 ### UEFI Status
 
@@ -1114,9 +1080,7 @@
 
 **State: Active** <br>
 **Codename: senna_bc** <br>
-**Maintainers: [artempeshkov](https://github.com/artempeshkov)** <br>
-**Contributors: [artempeshkov](https://github.com/artempeshkov/),[Rostislav Lastochkin](https://github.com/remtrik),[Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [artempeshkov](https://github.com/artempeshkov)**
+**Contributors: [artempeshkov](https://github.com/artempeshkov/), [Rostislav Lastochkin](https://github.com/remtrik), [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1152,9 +1116,7 @@
 
 **State: Inactive** <br>
 **Codename: b4q** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1223,9 +1185,7 @@
 
 **State: Active** <br>
 **Codename: marble** <br>
-**Maintainers: [Yuzuru10](https://github.com/Yuzuru10/)** <br>
-**Contributors: [Yuzuru10](https://github.com/Yuzuru10/), [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [Yuzuru10](https://github.com/Yuzuru10/)**
+**Contributors: [Yuzuru10](https://github.com/Yuzuru10/), [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1279,9 +1239,7 @@
 
 **State: Active** <br>
 **Codename: r0q** <br>
-**Maintainer: [Violet](https://github.com/ghatt-o/)** <br>
-**Contributors: [Violet](https://github.com/ghatt-o/) [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [Violet](https://github.com/ghatt-o/)** <br>
+**Contributors: [Violet](https://github.com/ghatt-o/) [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1354,9 +1312,7 @@
 
 **State: Active** <br>
 **Codename: gts8p** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1429,9 +1385,7 @@
 
 **State: Inactive** <br>
 **Codename: gts8** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1500,9 +1454,7 @@
 
 **State: Inactive** <br>
 **Codename: zeus** <br>
-**Maintainers: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [2petro](https://github.com/2Petro/)** <br>
-**Testers: None**
+**Contributors: [Robotix](https://github.com/Robotix22/), [2petro](https://github.com/2Petro/)**
 
 ### UEFI Status
 
@@ -1524,9 +1476,7 @@
 
 **State: Inactive** <br>
 **Codename: ingres** <br>
-**Maintainers: [Nikka](https://github.com/NikkaGames/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Nikka](https://github.com/NikkaGames/)** <br>
-**Testers: [Nikka](https://github.com/NikkaGames/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Nikka](https://github.com/NikkaGames/)**
 
 ### UEFI Status
 
@@ -1608,9 +1558,7 @@
 
 **State: Active** <br>
 **Codename: i005d** <br>
-**Maintainer: [Alfa](https://github.com/alfaonyt/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)** <br>
-**Tester: [Alfa](https://github.com/alfaonyt/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)**
 
 ### UEFI Status
 
@@ -1637,9 +1585,7 @@
 
 **State: Inactive** <br>
 **Codename: lemonade** <br>
-**Maintainer: [arminask](https://github.com/arminask/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: [arminask](https://github.com/arminask/)**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1718,9 +1664,7 @@
 
 **State: Inactive** <br>
 **Codename: r9qb2** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Nikroks](https://github.com/N1kroks/), [Icesito68](https://github.com/Icesito68/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Nikroks](https://github.com/N1kroks/), [Icesito68](https://github.com/Icesito68/)**
 
 ### UEFI Status
 
@@ -1789,9 +1733,7 @@
 
 **State: Inactive** <br>
 **Codename: q2q** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Azkali](https://github.com/Azkali/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Azkali](https://github.com/Azkali/)**
 
 ### UEFI Status
 
@@ -1862,9 +1804,7 @@
 
 **State: Inactive** <br>
 **Codename: venus** <br>
-**Maintainer: [Daniel224455](https://github.com/Daniel224455/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Daniel224455](https://github.com/Daniel224455/)** <br>
-**Tester: [Daniel224455](https://github.com/Daniel224455/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Daniel224455](https://github.com/Daniel224455/)**
 
 ### UEFI Status
 
@@ -1929,9 +1869,7 @@
 
 **State: Active** <br>
 **Codename: vili** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -2010,9 +1948,7 @@
 
 **State: Inactive** <br>
 **Codename: kebab** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite/)**
 
 ### UEFI Status
 
@@ -2079,9 +2015,7 @@
 
 **State: Inactive** <br>
 **Codename: 9707f** <br>
-**Maintainer: None** <br>
-**Contributors: [hyusang](https://github.com/cloudsweets/)** <br>
-**Tester: None**
+**Contributors: [hyusang](https://github.com/cloudsweets/)**
 
 ### UEFI Status
 
@@ -2150,9 +2084,7 @@
 
 **State: Inactive** <br>
 **Codename: bitra** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [kubawis128](https://github.com/kubawis128/)** <br>
-**Testers: None**
+**Contributors: [Robotix](https://github.com/Robotix22/), [kubawis128](https://github.com/kubawis128/)**
 
 ### UEFI Status
 
@@ -2250,9 +2182,7 @@
 
 **State: Inactive** <br>
 **Codename: r8q** <br>
-**Maintainer: None** <br>
-**Contributors: [olegos2](https://github.com/olegos2), [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: None** <br>
+**Contributors: [olegos2](https://github.com/olegos2), [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -2280,9 +2210,7 @@
 
 **State: Inactive** <br>
 **Codename: pipa** <br>
-**Maintainer: None** <br>
-**Contributors: [Statzar](https://github.com/Statzar), [N1kroks](https://github.com/N1kroks), [Robotix](https://github.com/Robotix22/), [6adp](https://github.com/6adp)** <br>
-**Tester: None**
+**Contributors: [Statzar](https://github.com/Statzar), [N1kroks](https://github.com/N1kroks), [Robotix](https://github.com/Robotix22/), [6adp](https://github.com/6adp)**
 
 ### UEFI Status
 
@@ -2365,9 +2293,7 @@
 
 **State: Active** <br>
 **Codename: alioth** <br>
-**Maintainers: [N1kroks](https://github.com/N1kroks/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite/), [hyusang](https://github.com/cloudsweets/), [AdrianoA3](https://github.com/AdrianoA3/), [N1kroks](https://github.com/N1kroks/)** <br>
-**Testers: [N1kroks](https://github.com/N1kroks/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [SwedMlite](https://github.com/SwedMlite/), [hyusang](https://github.com/cloudsweets/), [AdrianoA3](https://github.com/AdrianoA3/), [N1kroks](https://github.com/N1kroks/)**
 
 ### UEFI Status
 
@@ -2475,9 +2401,7 @@
 
 **State: Inactive** <br>
 **Codename: betalm** <br>
-**Maintainers: None** <br>
-**Contributors: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69), [Icesito68](https://github.com/Icesito68)** <br>
-**Testers: None**
+**Contributors: [Daniel224455](https://github.com/Daniel224455), [n00b69](https://github.com/n00b69), [Icesito68](https://github.com/Icesito68)**
 
 ### UEFI Status
 
@@ -2547,9 +2471,7 @@
 
 **State: Inactive** <br>
 **Codename: hotdog** <br>
-**Maintainer: None** <br>
-**Contributors: None** <br>
-**Tester: None**
+**Contributors: [mat-777](https://github.com/mat-777/)** <br>
 
 ### UEFI Status
 
@@ -2616,9 +2538,7 @@
 
 **State: Active** <br>
 **Codename: nabu** <br>
-**Maintainers: [iNUCi](https://github.com/iNUCi)** <br>
-**Contributors: [iNUCi](https://github.com/iNUCi), [Robotix](https://github.com/Robotix22/)** <br>
-**Testers: [iNUCi](https://github.com/iNUCi)**
+**Contributors: [iNUCi](https://github.com/iNUCi), [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -2711,9 +2631,7 @@
 
 **State: Inactive** <br>
 **Codename: cepheus** <br>
-**Maintainers: None** <br>
-**Contributors: [Daniel224455](https://github.com/Daniel224455)** <br>
-**Testers: None**
+**Contributors: [Daniel224455](https://github.com/Daniel224455)**
 
 ### UEFI Status
 
@@ -2776,9 +2694,7 @@
 
 **State: Inactive** <br>
 **Codename: vayu** <br>
-**Maintainers: [Daniel224455](https://github.com/Daniel224455), [remtrik](https://github.com/remtrik)** <br>
-**Contributors: [Daniel224455](https://github.com/Daniel224455), [remtrik](https://github.com/remtrik), [Nikroks](https://github.com/N1kroks)** <br>
-**Testers: [Daniel224455](https://github.com/Daniel224455)**
+**Contributors: [Daniel224455](https://github.com/Daniel224455), [remtrik](https://github.com/remtrik), [Nikroks](https://github.com/N1kroks)**
 
 ### UEFI Status
 
@@ -2857,9 +2773,7 @@
 
 **State: Inactive** <br>
 **Codename: caymanslm** <br>
-**Maintainer: None** <br>
-**Contributors: [CodeLindro](https://github.com/leandrofriedrich/)** <br>
-**Tester: None**
+**Contributors: [CodeLindro](https://github.com/leandrofriedrich/)**
 
 ### UEFI Status
 
@@ -2931,9 +2845,7 @@
 
 **State: Inactive** <br>
 **Codename: equuleus** <br>
-**Maintainer: None** <br>
-**Contributors: [index986](https://github.com/index986/)** <br>
-**Tester: None**
+**Contributors: [index986](https://github.com/index986/)**
 
 ### UEFI Status
 
@@ -2955,9 +2867,7 @@
 
 **State: Inactive** <br>
 **Codename: polaris** <br>
-**Maintainers: None** <br>
-**Contributors: [Daniel224455](https://github.com/Daniel224455/), [TrustedFloppa](https://github.com/TrustedFloppa/)** <br>
-**Testers: None**
+**Contributors: [Daniel224455](https://github.com/Daniel224455/), [TrustedFloppa](https://github.com/TrustedFloppa/)**
 
 ### UEFI Status
 
@@ -3044,9 +2954,7 @@
 
 **State: Inactive** <br>
 **Codename: poplar** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -3155,9 +3063,7 @@
 
 **State: Active** <br>
 **Codename: cheeseburger** <br>
-**Maintainer: [index986](https://github.com/index986/)** <br>
-**Contributors: [index986](https://github.com/index986/)** <br>
-**Tester: [index986](https://github.com/index986/)**
+**Contributors: [index986](https://github.com/index986/)**
 
 ### UEFI Status
 
@@ -3246,9 +3152,7 @@
 
 **State: Inactive** <br>
 **Codename: spacewar** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [index986](https://github.com/index986/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/), [index986](https://github.com/index986/)**
 
 ### UEFI Status
 
@@ -3284,9 +3188,7 @@
 
 **State: Active** <br>
 **Codename: a52sxq** <br>
-**Maintainer: [arminask](https://github.com/arminask/)** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [arminask](https://github.com/arminask/), People from Group** <br>
-**Testers: [arminask](https://github.com/arminask/)**
 
 ### UEFI Status
 
@@ -3357,9 +3259,7 @@
 
 **State: Active** <br>
 **Codename: lisa** <br>
-**Maintainer: [Aistop](https://github.com/AistopGit/)** <br>
-**Contributors: [ETCHDEV](https://github.com/ETCHDEV/), [Nikroks](https://github.com/N1kroks/), [Aistop](https://github.com/AistopGit/)** <br>
-**Tester: [Aistop](https://github.com/AistopGit/)**
+**Contributors: [ETCHDEV](https://github.com/ETCHDEV/), [Nikroks](https://github.com/N1kroks/), [Aistop](https://github.com/AistopGit/)**
 
 ### UEFI Status
 
@@ -3439,9 +3339,7 @@
 
 **State: Inactive** <br>
 **Codename: j706f** <br>
-**Maintainer: None** <br>
-**Contributors: [hyusang](https://github.com/cloudsweets/)** <br>
-**Tester: None**
+**Contributors: [hyusang](https://github.com/cloudsweets/)**
 
 ### UEFI Status
 
@@ -3509,9 +3407,7 @@
 
 **State: Active** <br>
 **Codename: surya** <br>
-**Maintainer: [remtrik](https://github.com/remtrik)** <br>
-**Contributors: [Nikroks](https://github.com/N1kroks)** <br>
-**Tester: None**
+**Contributors: [remtrik](https://github.com/remtrik), [Nikroks](https://github.com/N1kroks)**
 
 ### UEFI Status
 
@@ -3580,9 +3476,7 @@
 
 **State: Inactive** <br>
 **Codename: sweet_k6a** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -3619,9 +3513,7 @@
 
 **State: Active** <br>
 **Codename: miatoll** <br>
-**Maintainer: [N1kroks](https://github.com/N1kroks/)** <br>
-**Contributors: [N1kroks](https://github.com/N1kroks/)** <br>
-**Tester: [N1kroks](https://github.com/N1kroks/)**
+**Contributors: [N1kroks](https://github.com/N1kroks/)**
 
 ### UEFI Status
 
@@ -3739,9 +3631,7 @@
 
 **State: Active** <br>
 **Codename: a52q** <br>
-**Maintainer: [arminask](https://github.com/arminask/)** <br>
-**Contributors: [N1kroks](https://github.com/N1kroks/)** <br>
-**Tester: [arminask](https://github.com/arminask/)**
+**Contributors: [arminask](https://github.com/arminask/), [N1kroks](https://github.com/N1kroks/)**
 
 ### UEFI Status
 
@@ -3855,9 +3745,7 @@
 
 **State: Inactive** <br>
 **Codename: veux** <br>
-**Maintainers: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [index986](https://github.com/index986/)** <br>
-**Testers: None**
+**Contributors: [Robotix](https://github.com/Robotix22/), [index986](https://github.com/index986/)**
 
 ### UEFI Status
 
@@ -3897,9 +3785,7 @@
 
 **State: Inactive** <br>
 **Codename: fog** <br>
-**Maintainer: None** <br>
-**Contributors: [Statzar](https://github.com/Statzar/)** <br>
-**Tester: None**
+**Contributors: [Statzar](https://github.com/Statzar/)**
 
 ### UEFI Status
 
@@ -3995,9 +3881,7 @@
 
 **State: Inactive** <br>
 **Codename: spes** <br>
-**Maintainer: None** <br>
-**Contributors: [Statzar](https://github.com/Statzar/)** <br>
-**Tester: None**
+**Contributors: [Statzar](https://github.com/Statzar/)**
 
 ### UEFI Status
 
@@ -4095,9 +3979,7 @@
 
 **State: Inactive** <br>
 **Codename: tapas** <br>
-**Maintainer: None** <br>
-**Contributors: [Statzar](https://github.com/Statzar/), [6adp](https://github.com/6adp/)** <br>
-**Tester: None**
+**Contributors: [Statzar](https://github.com/Statzar/), [6adp](https://github.com/6adp/)**
 
 ### UEFI Status
 
@@ -4216,9 +4098,7 @@
 
 **State: Inactive** <br>
 **Codename: laurel_sprout** <br>
-**Maintainer: None** <br>
-**Contributors: [Kernel357](https://github.com/Kernel357/)** <br>
-**Tester: None**
+**Contributors: [Kernel357](https://github.com/Kernel357/)**
 
 ### UEFI Status
 
@@ -4241,9 +4121,7 @@
 
 **State: Inactive** <br>
 **Codename: willow** <br>
-**Maintainer: None** <br>
-**Contributors: [SwedMlite](https://github.com/SwedMlite), [Robotix](https://github.com/Robotix22/), [Vicente Cortes](https://github.com/vicenteicc2008/)** <br>
-**Testers: None**
+**Contributors: [SwedMlite](https://github.com/SwedMlite), [Robotix](https://github.com/Robotix22/), [Vicente Cortes](https://github.com/vicenteicc2008/)**
 
 ### UEFI Status
 
@@ -4304,9 +4182,7 @@
 
 **State: Inactive** <br>
 **Codename: ginkgo** <br>
-**Maintainer: None** <br>
-**Contributors: [index986](https://github.com/index986/)** <br>
-**Testers: None**
+**Contributors: [index986](https://github.com/index986/)**
 
 ### UEFI Status
 
@@ -4352,9 +4228,7 @@
 
 **State: Inactive** <br>
 **Codename: caprip** <br>
-**Maintainer: None** <br>
-**Contributors: [Vicente Cortes](https://github.com/vicenteicc2008/)** <br>
-**Tester: None**
+**Contributors: [Vicente Cortes](https://github.com/vicenteicc2008/)**
 
 ### UEFI Status
 
@@ -4417,9 +4291,7 @@
 
 **State: Inactive** <br>
 **Codename: cebu** <br>
-**Maintainers: None** <br>
-**Contributors: [remtrik](https://github.com/remtrik/), [hiprivsid](https://github.com/hiprivsid/)** <br>
-**Tester: None**
+**Contributors: [remtrik](https://github.com/remtrik/), [hiprivsid](https://github.com/hiprivsid/)**
 
 ### UEFI Status
 
@@ -4456,9 +4328,7 @@
 
 **State: Inactive** <br>
 **Codename: gta4l** <br>
-**Maintainer: None** <br>
-**Contributors: [V6lhost](https://github.com/V6lhost/)** <br>
-**Tester: None**
+**Contributors: [V6lhost](https://github.com/V6lhost/)**
 
 ### UEFI Status
 
@@ -4486,9 +4356,7 @@
 
 **State: Inactive** <br>
 **Codename: lime** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -4555,9 +4423,7 @@
 
 **State: Inactive** <br>
 **Codename: citrus** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22), [9.8.7.6](https://github.com/Daniel224455), [NUC](https://github.com/iNUCi), [Aistop](https://github.com/AistopGit), [All_One1](https://github.com/Ost268), [Heyylucazzz](https://github.com/heyylucazzz)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22), [9.8.7.6](https://github.com/Daniel224455), [NUC](https://github.com/iNUCi), [Aistop](https://github.com/AistopGit), [All_One1](https://github.com/Ost268), [Heyylucazzz](https://github.com/heyylucazzz)**
 
 ### UEFI Status
 
@@ -4644,9 +4510,7 @@
 
 **State: Inactive** <br>
 **Codename: lavender** <br>
-**Maintainer: None** <br>
-**Contributors: [index986](https://github.com/index986)** <br>
-**Tester: None**
+**Contributors: [index986](https://github.com/index986)**
 
 ### UEFI Status
 
@@ -4736,9 +4600,7 @@
 
 **State: Inactive** <br>
 **Codename: nitrogen** <br>
-**Maintainer: [Aistop](https://github.com/AistopGit/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/), [Aistop](https://github.com/AistopGit/)** <br>
-**Tester: [Aistop](https://github.com/AistopGit/)**
+**Contributors: [Robotix](https://github.com/Robotix22/), [Aistop](https://github.com/AistopGit/)**
 
 ### UEFI Status
 
@@ -4870,9 +4732,7 @@
 **State: Inactive** <br>
 **Codename: nx** <br>
 **Model: 0** <br>
-**Maintainer: [Robotix](https://github.com/Robotix22/)** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: [Robotix](https://github.com/Robotix22/)**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -4919,9 +4779,7 @@
 **State: Inactive** <br>
 **Codename: nx** <br>
 **Model: 1** <br>
-**Maintainer: None** <br>
-**Contributors: [Robotix](https://github.com/Robotix22/)** <br>
-**Tester: None**
+**Contributors: [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
