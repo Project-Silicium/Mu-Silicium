@@ -51,8 +51,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"venus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_11_venus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 11"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2011K2G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"K2G"
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1440
