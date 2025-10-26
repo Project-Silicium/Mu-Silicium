@@ -53,12 +53,12 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"RMX3852"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23622"
 !elseif $(DEVICE_MODEL) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT 6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"RMX3851"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23718"
 !else
-!error "Invalid Model! specify "0" for GT Neo6 or "1" for GT6."
+!error "Invalid Model! specify "0" for GT Neo6 or "1" for GT 6."
 !endif
 
   # Simple Frame Buffer
