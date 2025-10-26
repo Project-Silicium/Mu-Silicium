@@ -51,8 +51,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"dodge"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"13_dodge"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"13"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2649"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23893"
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1440

@@ -51,13 +51,13 @@
 !if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Ace 3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Ace 3"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Ace 3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"PJE110"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23801"
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"12R"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"12R"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"12R"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2585"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23861"
 !else
 !error "Invalid Model Type! 0 or 1 are Valid Model Types."
 !endif
