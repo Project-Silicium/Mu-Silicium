@@ -487,7 +487,7 @@
 <details>
 <summary><b><strong>Realme Devices</strong></b></summary>
 
-## Realme GT Neo6 / GT6
+## Realme GT Neo6 / GT 6
 
 <img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="400" alt="Preview">
 
