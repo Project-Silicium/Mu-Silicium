@@ -43,8 +43,8 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF91000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00020000
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
@@ -62,7 +62,7 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xC0300000
+  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA3C00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
