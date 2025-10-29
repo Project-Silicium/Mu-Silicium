@@ -48,8 +48,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nothing"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Phone 1"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"spacewar"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Phone_1_spacewar"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Phone 1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"A063"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Phone 1" # Unknown
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080

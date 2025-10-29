@@ -48,8 +48,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nothing"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Phone 2"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pong"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Phone_2_pong"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Phone 2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"A065"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Phone 2" # Unknown
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
