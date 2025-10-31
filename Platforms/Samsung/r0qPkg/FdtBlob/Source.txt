@@ -1,0 +1,2 @@
+Device tree blob taken from Linux kernel: https://github.com/torvalds/linux
+Other features like GPU, Display, Battery were enabled locally
