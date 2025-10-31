@@ -6,7 +6,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 !if $(TARGET) == DEBUG
   SECTION RAW = Waipio/DBG2.aml
 !endif
-  SECTION RAW = Waipio/DSDT_minimal.aml
+  SECTION RAW = r0q/DSDT.aml
   SECTION RAW = Waipio/FACP.aml
 # SECTION RAW = Waipio/FPDT.aml
   SECTION RAW = Waipio/GTDT.aml
