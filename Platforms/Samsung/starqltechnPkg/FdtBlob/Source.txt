@@ -1,0 +1,1 @@
+Device tree blob taken from Linux kernel: https://github.com/torvalds/linux

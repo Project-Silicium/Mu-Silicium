@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = starqltechn
-  PLATFORM_GUID                  = A57E38D0-2566-11F0-AD15-B3CBF13A983A
+  PLATFORM_GUID                  = 9B23E0A4-2F17-46C9-9D45-8FA8E6CB7F14
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/starqltechnPkg
