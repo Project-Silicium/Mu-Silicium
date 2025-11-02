@@ -32,9 +32,6 @@ APRIORI DXE {
   INF Binaries/sweet_k6a/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/sweet_k6a/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 

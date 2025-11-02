@@ -36,9 +36,6 @@ APRIORI DXE {
   INF Binaries/starqltechn/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-  
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/starqltechn/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
@@ -90,9 +87,7 @@ APRIORI DXE {
   INF Binaries/starqltechn/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-  
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
-  
+
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/starqltechn/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else

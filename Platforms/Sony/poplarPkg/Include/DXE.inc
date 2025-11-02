@@ -46,9 +46,6 @@
 
   INF Binaries/poplar/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/poplar/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

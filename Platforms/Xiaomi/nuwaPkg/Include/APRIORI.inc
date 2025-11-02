@@ -2,7 +2,6 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
   INF Binaries/nuwa/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -37,9 +36,6 @@ APRIORI DXE {
   INF Binaries/nuwa/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/nuwa/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/nuwa/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
@@ -65,7 +61,6 @@ APRIORI DXE {
   INF Binaries/nuwa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/nuwa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 

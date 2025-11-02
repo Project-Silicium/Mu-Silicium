@@ -35,9 +35,6 @@ APRIORI DXE {
   INF Binaries/poplar/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 

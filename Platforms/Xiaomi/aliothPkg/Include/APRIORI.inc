@@ -34,9 +34,6 @@ APRIORI DXE {
   INF Binaries/alioth/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/alioth/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/alioth/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -61,7 +58,6 @@ APRIORI DXE {
   INF Binaries/alioth/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/alioth/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/I2CDxe/I2CDxe.inf

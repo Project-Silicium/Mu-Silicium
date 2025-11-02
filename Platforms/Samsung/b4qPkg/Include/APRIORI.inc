@@ -4,7 +4,6 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
   INF Binaries/b4q/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -38,10 +37,6 @@ APRIORI DXE {
   INF Binaries/b4q/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  # Overheat incoming with this.
-  #INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/b4q/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/b4q/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -65,10 +60,6 @@ APRIORI DXE {
   INF Binaries/b4q/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF Binaries/b4q/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-  # Overheat incoming with this.
-  #INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
-
   INF Binaries/b4q/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf

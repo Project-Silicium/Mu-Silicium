@@ -51,9 +51,6 @@
   INF Binaries/tapas/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/tapas/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -80,7 +77,6 @@
   INF Binaries/tapas/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/tapas/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/tapas/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

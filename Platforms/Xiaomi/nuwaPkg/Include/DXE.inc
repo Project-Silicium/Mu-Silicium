@@ -57,9 +57,6 @@
   INF Binaries/nuwa/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/nuwa/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -100,7 +97,6 @@
   INF Binaries/nuwa/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/nuwa/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

@@ -50,9 +50,6 @@
 
   INF Binaries/caymanslm/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/caymanslm/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -78,7 +75,6 @@
   INF Binaries/caymanslm/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/caymanslm/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

@@ -55,9 +55,6 @@
 
   INF Binaries/pipa/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/pipa/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -88,7 +85,6 @@
   INF Binaries/pipa/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/pipa/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

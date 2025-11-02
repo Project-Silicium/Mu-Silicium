@@ -77,7 +77,4 @@
   DeviceGuidLib|peridotPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-[Components]
-  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
-
 !include PalawanPkg/PalawanPkg.dsc.inc

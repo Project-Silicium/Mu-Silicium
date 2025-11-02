@@ -48,9 +48,6 @@
 
   INF Binaries/willow/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/willow/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/willow/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -76,7 +73,6 @@
   INF Binaries/willow/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/willow/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/willow/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

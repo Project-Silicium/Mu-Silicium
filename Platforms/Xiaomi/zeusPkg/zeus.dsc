@@ -76,7 +76,4 @@
   DeviceGuidLib|zeusPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-[Components]
-  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
-
 !include WaipioPkg/WaipioPkg.dsc.inc

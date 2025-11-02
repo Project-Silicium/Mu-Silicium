@@ -57,10 +57,6 @@
   INF Binaries/b4q/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  # Overheat incoming with this.
-  #INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/b4q/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -93,10 +89,6 @@
   INF Binaries/b4q/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-  # Overheat incoming with this.
-  #INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
-
   INF Binaries/b4q/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/XhciDxe/XhciDxe.inf

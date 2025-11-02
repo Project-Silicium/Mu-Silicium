@@ -54,9 +54,6 @@
 
   INF Binaries/alioth/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/alioth/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -87,7 +84,6 @@
   INF Binaries/alioth/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/alioth/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

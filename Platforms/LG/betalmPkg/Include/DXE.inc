@@ -54,8 +54,7 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/betalm/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
-  INF Binaries/betalm/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  INF Binaries/betalm/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
+  INF Binaries/betalm/QcomPkg/Drivers/ClockDxe/ClockDxe.inf  INF Binaries/betalm/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
@@ -63,8 +62,6 @@
   INF Binaries/betalm/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/betalm/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -83,7 +80,6 @@
   INF Binaries/betalm/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/betalm/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

@@ -30,9 +30,6 @@ APRIORI DXE {
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
@@ -98,7 +95,6 @@ APRIORI DXE {
   INF Binaries/laurel_sprout/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

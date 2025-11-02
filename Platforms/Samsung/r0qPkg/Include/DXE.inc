@@ -55,9 +55,6 @@
   INF Binaries/r0q/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/r0q/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/r0q/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/r0q/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/r0q/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/r0q/QcomPkg/Drivers/SmemDxe/SmemDxe.inf

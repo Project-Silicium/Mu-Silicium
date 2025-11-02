@@ -99,13 +99,6 @@ READ_LOCK_STATUS   = TRUE
   #  SECTION UI = "Device Tree"
   #}
 
-  # Modded XBL Device Tree
-  INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
-  FILE FREEFORM = PCD (gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile) {
-    SECTION RAW = gts8pPkg/XBL-FdtBlob/xbl-sm8450-samsung-gts8p.dtb
-    SECTION UI = "XBL Device Tree"
-  }
-
   !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]

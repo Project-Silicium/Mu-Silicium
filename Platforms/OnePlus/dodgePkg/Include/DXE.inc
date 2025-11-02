@@ -58,9 +58,6 @@
   #INF Binaries/dodge/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  #INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/dodge/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -108,7 +105,6 @@
   INF Binaries/dodge/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/dodge/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

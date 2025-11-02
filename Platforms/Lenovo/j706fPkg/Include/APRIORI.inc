@@ -31,8 +31,7 @@ APRIORI DXE {
   INF Binaries/j706f/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
-  INF Binaries/j706f/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  INF Binaries/j706f/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
+  INF Binaries/j706f/QcomPkg/Drivers/ClockDxe/ClockDxe.inf  INF Binaries/j706f/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/j706f/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf

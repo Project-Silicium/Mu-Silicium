@@ -53,9 +53,6 @@
   INF Binaries/senna_bc/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/senna_bc/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -100,7 +97,6 @@
   INF Binaries/senna_bc/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/senna_bc/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

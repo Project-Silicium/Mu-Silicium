@@ -48,9 +48,6 @@
   INF Binaries/q2q/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/q2q/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
@@ -89,7 +86,6 @@
   INF Binaries/q2q/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/q2q/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

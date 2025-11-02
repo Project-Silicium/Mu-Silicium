@@ -2,7 +2,6 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
   INF Binaries/nx729j/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -36,9 +35,6 @@ APRIORI DXE {
   INF Binaries/nx729j/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-  
   INF Binaries/nx729j/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/nx729j/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
@@ -66,7 +62,6 @@ APRIORI DXE {
   INF Binaries/nx729j/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/nx729j/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf

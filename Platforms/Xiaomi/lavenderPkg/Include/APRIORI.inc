@@ -33,7 +33,6 @@ APRIORI DXE {
   INF Binaries/lavender/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 

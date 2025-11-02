@@ -46,9 +46,6 @@
 
   INF Binaries/cheeseburger/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/cheeseburger/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

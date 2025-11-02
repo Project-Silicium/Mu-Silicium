@@ -33,9 +33,6 @@ APRIORI DXE {
   INF Binaries/r9qb2/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf 
   INF Binaries/r9qb2/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/r9qb2/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -61,7 +58,6 @@ APRIORI DXE {
   INF Binaries/r9qb2/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf

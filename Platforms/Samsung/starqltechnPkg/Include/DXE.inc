@@ -50,9 +50,6 @@
   
   INF Binaries/starqltechn/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-  
   INF Binaries/starqltechn/QcomPkg/Drivers/HALIOMMU/HALIOMMU.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -76,7 +73,6 @@
   INF Binaries/starqltechn/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   
   INF Binaries/starqltechn/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   

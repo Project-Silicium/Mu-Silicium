@@ -53,9 +53,6 @@
   INF Binaries/peridot/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/peridot/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -101,7 +98,6 @@
   INF Binaries/peridot/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/peridot/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

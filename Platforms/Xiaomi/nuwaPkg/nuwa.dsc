@@ -75,7 +75,4 @@
   DeviceGuidLib|nuwaPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-[Components]
-  QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
-
 !include KailuaPkg/KailuaPkg.dsc.inc

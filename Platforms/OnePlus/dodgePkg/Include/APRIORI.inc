@@ -2,7 +2,6 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
   INF Binaries/dodge/QcomPkg/Drivers/EnvDxe/EnvDxeEnhanced.inf
 
@@ -40,9 +39,6 @@ APRIORI DXE {
   INF Binaries/dodge/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/dodge/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/dodge/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
@@ -71,7 +67,6 @@ APRIORI DXE {
 
   INF Binaries/dodge/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/dodge/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/dodge/QcomPkg/Drivers/OplusS4ResetDxe/OplusS4ResetDxe.inf

@@ -49,9 +49,6 @@
   INF Binaries/lime/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/lime/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/lime/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -78,7 +75,6 @@
   INF Binaries/lime/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/lime/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/lime/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

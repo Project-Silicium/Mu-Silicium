@@ -50,9 +50,6 @@
 
   INF Binaries/polaris/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/polaris/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
@@ -79,7 +76,6 @@
   INF Binaries/polaris/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/polaris/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

@@ -33,9 +33,6 @@ APRIORI DXE {
   INF Binaries/cheeseburger/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 

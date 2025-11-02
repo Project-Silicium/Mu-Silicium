@@ -4,7 +4,6 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -38,9 +37,6 @@ APRIORI DXE {
   INF Binaries/gts8/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/gts8/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/gts8/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
@@ -65,7 +61,6 @@ APRIORI DXE {
   INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
   INF Binaries/gts8/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/gts8/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
 

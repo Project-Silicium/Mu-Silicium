@@ -2,7 +2,6 @@ APRIORI DXE {
   # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  INF QcomPkg/Drivers/XblDeviceTreeDxe/XblDeviceTreeDxe.inf
 
   INF Binaries/peridot/QcomPkg/Drivers/EnvDxe/EnvDxeEnhanced.inf
 
@@ -36,9 +35,6 @@ APRIORI DXE {
   INF Binaries/peridot/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-
   INF Binaries/peridot/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/peridot/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
@@ -64,7 +60,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
   INF Binaries/peridot/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1

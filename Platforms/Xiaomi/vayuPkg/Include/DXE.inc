@@ -54,8 +54,7 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/vayu/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
-  INF Binaries/vayu/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  INF Binaries/vayu/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
+  INF Binaries/vayu/QcomPkg/Drivers/ClockDxe/ClockDxe.inf  INF Binaries/vayu/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
@@ -63,8 +62,6 @@
   INF Binaries/vayu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/vayu/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -83,7 +80,6 @@
   INF Binaries/vayu/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/vayu/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
 
   INF Binaries/vayu/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 

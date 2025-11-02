@@ -32,9 +32,6 @@ APRIORI DXE {
   INF Binaries/cepheus/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-	
-  INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-	
   INF Binaries/cepheus/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/cepheus/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
@@ -56,7 +53,6 @@ APRIORI DXE {
   INF Binaries/cepheus/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
-  INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/cepheus/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
