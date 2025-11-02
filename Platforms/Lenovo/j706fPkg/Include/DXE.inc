@@ -57,7 +57,8 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/j706f/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
-  INF Binaries/j706f/QcomPkg/Drivers/ClockDxe/ClockDxe.inf  INF Binaries/j706f/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
+  INF Binaries/j706f/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
+  INF Binaries/j706f/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/j706f/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
