@@ -1310,7 +1310,7 @@
 > Only Windows PE can Boot.
 
 > [!IMPORTANT]
-> Needs Windows Drivers.
+> Needs [Windows Drivers](https://github.com/Robotix22/windows_silicon_qcom_waipio/).
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -1383,11 +1383,14 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
+> [!IMPORTANT]
+> Needs [Windows Drivers](https://github.com/Robotix22/windows_silicon_qcom_waipio/).
+
 | Feature              | Description                                                                                                       | State |
 |:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
 | Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
 | SD Card              |                                                                                                                   | ❌    |
-| Side Buttons         |                                                                                                                   | ❌    |
+| Side Buttons         |                                                                                                                   | ✅    |
 | Proximity Sensor     |                                                                                                                   | ❌    |
 | Light Sensor         |                                                                                                                   | ❌    |
 | Accelerometer Sensor |                                                                                                                   | ❌    |
