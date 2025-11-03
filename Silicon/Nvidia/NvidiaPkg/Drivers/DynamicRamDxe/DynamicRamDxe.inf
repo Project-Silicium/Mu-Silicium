@@ -25,7 +25,7 @@
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
-  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase
 
 [Protocols]
   gArmPageTableMemoryAllocationProtocolGuid

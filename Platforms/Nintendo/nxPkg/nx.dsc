@@ -69,7 +69,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Dynamic RAM
-  gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000
 
 [LibraryClasses]
   DeviceMemoryMapLib|nxPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
