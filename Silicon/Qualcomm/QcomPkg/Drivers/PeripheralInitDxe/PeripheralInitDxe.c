@@ -18,7 +18,7 @@ InitPeripherals (
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS Status;
-  EFI_EVENT   InitEvent;
+  EFI_EVENT  InitEvent;
 
   // Start the USB Port Controller
   Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &InitEvent);
