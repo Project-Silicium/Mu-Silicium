@@ -60,8 +60,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
   INF Binaries/senna_bc/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/senna_bc/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
@@ -89,7 +87,6 @@ APRIORI DXE {
   INF Binaries/senna_bc/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-
   INF Binaries/senna_bc/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 

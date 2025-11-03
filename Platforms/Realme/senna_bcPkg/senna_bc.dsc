@@ -56,10 +56,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT_Neo5_150W_senna_b"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT Neo5 150W"
 !elseif $(DEVICE_MODEL) == 1
-    gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo5 240W"
-    gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_c"
-    gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT_Neo5_240W_senna_c"
-    gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT Neo5 240W"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo5 240W"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_c"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT_Neo5_240W_senna_c"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT Neo5 240W"
 !elseif $(DEVICE_MODEL) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_c"

@@ -29,8 +29,6 @@
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/senna_bc/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
-  #INF Binaries/senna_bc/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
-  #INF Binaries/senna_bc/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
@@ -67,20 +65,20 @@
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
-    INF Binaries/senna_bc/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-  !endif
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  INF Binaries/senna_bc/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+!endif
 
   INF Binaries/senna_bc/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
-    INF Binaries/senna_bc/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-  !else
-    INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-  !endif
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  INF Binaries/senna_bc/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
+!else
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!endif
 
   INF Binaries/senna_bc/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
@@ -91,15 +89,11 @@
   INF Binaries/senna_bc/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  #INF Binaries/senna_bc/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/senna_bc/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-
   INF Binaries/senna_bc/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
