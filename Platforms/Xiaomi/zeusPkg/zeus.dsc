@@ -62,13 +62,10 @@
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703B0C8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFC500000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFC500000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|zeusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

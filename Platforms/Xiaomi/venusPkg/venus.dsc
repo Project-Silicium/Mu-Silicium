@@ -61,13 +61,10 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37980
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE4E00000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xE4E00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|venusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

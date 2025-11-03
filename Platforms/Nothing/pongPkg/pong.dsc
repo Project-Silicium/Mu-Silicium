@@ -62,13 +62,10 @@
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0C8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|pongPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

@@ -53,13 +53,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA7400000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA7400000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|veuxPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

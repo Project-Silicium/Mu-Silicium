@@ -60,13 +60,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xC4800000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xC4800000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|FALSE

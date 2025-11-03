@@ -53,13 +53,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x68900000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x68900000
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|capripPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

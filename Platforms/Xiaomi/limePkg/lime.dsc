@@ -53,13 +53,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x66F00000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x66F00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|limePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

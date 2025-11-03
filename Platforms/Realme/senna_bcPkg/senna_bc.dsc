@@ -84,12 +84,9 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C928
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 !include PalimaPkg/PalimaPkg.dsc.inc

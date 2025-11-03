@@ -61,13 +61,10 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC37998
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE7100000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xE7100000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|lemonadePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

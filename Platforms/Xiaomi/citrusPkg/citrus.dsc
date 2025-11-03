@@ -55,13 +55,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|citrusPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

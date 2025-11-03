@@ -29,7 +29,7 @@
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase
 
 [Protocols]
   gArmPageTableMemoryAllocationProtocolGuid

@@ -54,13 +54,10 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC36588
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA7570000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA7570000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|a52qPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

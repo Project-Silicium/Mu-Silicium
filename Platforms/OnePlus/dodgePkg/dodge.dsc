@@ -62,13 +62,10 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703CE58
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xFF300000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFF300000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|dodgePkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

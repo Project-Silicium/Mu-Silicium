@@ -72,13 +72,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|aliothPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

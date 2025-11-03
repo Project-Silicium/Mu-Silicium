@@ -107,20 +107,11 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0|UINT64|0x0000C101
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0|UINT64|0x0000C102
 
-  # XBL Device Tree
-  gQcomPkgTokenSpaceGuid.PcdModdedXblDeviceTreeFile|{ 0x0D, 0x57, 0xFD, 0x9D, 0xE2, 0xA9, 0x49, 0xEA, 0xB7, 0x9B, 0x21, 0xEB, 0xC7, 0xB4, 0xD8, 0xA5 }|VOID*|0x0000C200
-
-  # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000C300
-
   # Memory Speed
-  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000C400
-
-  # Start USB Controllee
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|FALSE|BOOLEAN|0x0000C500
+  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000C200
 
   # SD Card Init
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000C600
+  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE|BOOLEAN|0x0000C300
 
   # Storage
-  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE|BOOLEAN|0x0000C700
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE|BOOLEAN|0x0000C400

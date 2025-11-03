@@ -63,13 +63,10 @@
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703F0E8
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE6440000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xE6440000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|peridotPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

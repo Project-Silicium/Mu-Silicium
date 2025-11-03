@@ -55,13 +55,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0x71D00000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x71D00000
 
   # Storage
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|gta4lPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

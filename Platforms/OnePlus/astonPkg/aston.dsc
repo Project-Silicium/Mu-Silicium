@@ -70,13 +70,10 @@
   gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703A950
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xE1200000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xE1200000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|astonPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

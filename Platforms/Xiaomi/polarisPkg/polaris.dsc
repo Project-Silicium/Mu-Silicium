@@ -53,13 +53,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xB9400000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xB9400000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-  
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|polarisPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf

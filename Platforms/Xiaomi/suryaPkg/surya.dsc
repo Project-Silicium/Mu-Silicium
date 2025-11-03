@@ -60,13 +60,10 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"
 
   # Dynamic RAM Start Address
-  gQcomPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-
-  # USB Controller
-  gQcomPkgTokenSpaceGuid.PcdStartUsbController|TRUE
 
 [LibraryClasses]
   DeviceMemoryMapLib|suryaPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
