@@ -22,7 +22,7 @@
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-  
+
   INF Binaries/starqltechn/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -42,12 +42,12 @@
   INF Binaries/starqltechn/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
   INF Binaries/starqltechn/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
-  
+
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  
+
   INF Binaries/starqltechn/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/HALIOMMU/HALIOMMU.inf
@@ -57,7 +57,7 @@
   INF Binaries/starqltechn/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  
+
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/starqltechn/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
@@ -72,10 +72,8 @@
   INF Binaries/starqltechn/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-  
   INF Binaries/starqltechn/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-  
+
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
@@ -86,9 +84,9 @@
   INF Binaries/starqltechn/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  
+
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf

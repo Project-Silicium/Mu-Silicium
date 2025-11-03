@@ -97,8 +97,8 @@ READ_LOCK_STATUS   = TRUE
   # Device Tree
   INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
   FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
-     SECTION RAW = starqltechnPkg/FdtBlob/sdm845-samsung-starqltechn.dtb
-     SECTION UI = "Device Tree"
+    SECTION RAW = starqltechnPkg/FdtBlob/sdm845-samsung-starqltechn.dtb
+    SECTION UI = "Device Tree"
   }
 
   !include QcomPkg/Extra.fdf.inc
