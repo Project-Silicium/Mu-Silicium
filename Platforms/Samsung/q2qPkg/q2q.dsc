@@ -34,7 +34,7 @@
   SOC_TYPE                       = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) -DUSE_CUSTOM_DISPLAY_DRIVER=$(USE_CUSTOM_DISPLAY_DRIVER)
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -52,9 +52,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Fold 3"
 
   # Simple Frame Buffer
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|2208
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1768
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|2208
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|1768
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

@@ -34,7 +34,7 @@
   SOC_TYPE                       = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) -DUSE_CUSTOM_DISPLAY_DRIVER=$(USE_CUSTOM_DISPLAY_DRIVER)
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -51,17 +51,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Flip_4_b4q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Flip 4"
 
-  # Simple Frame Buffer (Main Screen)
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2640
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
-
-  # Simple Frame Buffer (Cover Screen)
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferOffset|0x00AE0600
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferWidth|260
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferHeight|512
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferColorDepth|32
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferDebug|FALSE
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2640
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

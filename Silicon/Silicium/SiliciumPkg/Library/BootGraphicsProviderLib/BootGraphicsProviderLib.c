@@ -54,38 +54,6 @@ GetBootGraphic (
   return GetSectionFromAnyFv (GraphicGuid, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
 }
 
-EFI_STATUS
-EFIAPI
-GetCoverBootGraphic (
-  IN  BOOT_GRAPHIC   Graphic,
-  OUT UINTN         *ImageSize,
-  OUT UINT8        **ImageData)
-{
-  EFI_GUID *GraphicGuid;
-
-  switch (Graphic) {
-    case BG_SYSTEM_LOGO:
-      GraphicGuid = PcdGetPtr (PcdCoverBootLogoFile);
-      break;
-
-    case BG_NO_BOOT_OS:
-      GraphicGuid = FixedPcdGetPtr (PcdCoverNoBootOSFile);
-      break;
-    
-    case BG_MSD_DEFAULT:
-    case BG_MSD_CONNECTED:
-    case BG_MSD_DISCONNECTED:
-      GraphicGuid = FixedPcdGetPtr (PcdCoverMassStorageFile);
-      break;
-
-    default:
-      return EFI_UNSUPPORTED;
-  }
-
-  // Get the Specified Image from FV
-  return GetSectionFromAnyFv (GraphicGuid, EFI_SECTION_RAW, 0, (VOID **)ImageData, ImageSize);
-}
-
 UINT32
 EFIAPI
 GetBackgroundColor ()

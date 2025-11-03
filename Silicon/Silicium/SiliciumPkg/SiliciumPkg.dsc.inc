@@ -87,7 +87,7 @@
   #
   # Graphics
   #
-  gSiliciumPkgTokenSpaceGuid.PcdDebugFrameBufferDelay|10000          # In Microseconds
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferDelay|10000          # In Microseconds
 
   #
   # Input
@@ -260,7 +260,7 @@
   #
   # Mu Libraries (TODO: Replace some!)
   #
-  BootGraphicsLib|SiliciumPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
+  BootGraphicsLib|MsGraphicsPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
   BootGraphicsProviderLib|SiliciumPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf
   DisplayDeviceStateLib|MsGraphicsPkg/Library/ColorBarDisplayDeviceStateLib/ColorBarDisplayDeviceStateLib.inf
   UiRectangleLib|MsGraphicsPkg/Library/BaseUiRectangleLib/BaseUiRectangleLib.inf
@@ -370,7 +370,9 @@
   EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
 
   # Graphics Driver
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!endif
 
   # BDS
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf {

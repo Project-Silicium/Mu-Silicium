@@ -39,11 +39,7 @@ BDS_CONSOLE_CONNECT_ENTRY gPlatformConsoles[] = {
     CONSOLE_IN
   },
   {
-    (EFI_DEVICE_PATH_PROTOCOL *)&PrimaryDisplayDevicePath,
-    CONSOLE_OUT | STD_ERROR
-  },
-  {
-    (EFI_DEVICE_PATH_PROTOCOL *)&SecondaryDisplayDevicePath,
+    (EFI_DEVICE_PATH_PROTOCOL *)&DisplayDevicePath,
     CONSOLE_OUT | STD_ERROR
   },
   {
@@ -117,11 +113,11 @@ VOID
 EFIAPI
 PlatformBootManagerBeforeConsole ()
 {
-  EFI_STATUS                 Status            = EFI_SUCCESS;
-  EFI_HANDLE                 Handle            = NULL;
-  EFI_DEVICE_PATH_PROTOCOL  *ConsoleOut        = NULL;
-  EFI_DEVICE_PATH_PROTOCOL  *DisplayDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&PrimaryDisplayDevicePath;
-  BDS_CONSOLE_CONNECT_ENTRY *PlatformConsoles  = (BDS_CONSOLE_CONNECT_ENTRY *)&gPlatformConsoles;
+  EFI_STATUS                 Status           = EFI_SUCCESS;
+  EFI_HANDLE                 Handle           = NULL;
+  EFI_DEVICE_PATH_PROTOCOL  *ConsoleOut       = NULL;
+  EFI_DEVICE_PATH_PROTOCOL  *GopDevicePath    = (EFI_DEVICE_PATH_PROTOCOL *)&DisplayDevicePath;
+  BDS_CONSOLE_CONNECT_ENTRY *PlatformConsoles = (BDS_CONSOLE_CONNECT_ENTRY *)&gPlatformConsoles;
 
   // Add USB Keyboard to Console In
   EfiBootManagerUpdateConsoleVariable (ConIn, (EFI_DEVICE_PATH_PROTOCOL *)&mUsbKeyboardDevicePath, NULL);
@@ -130,8 +126,8 @@ PlatformBootManagerBeforeConsole ()
   MsBootOptionsLibRegisterDefaultBootOptions ();
 
   // Locate GOP Device Path
-  Status = gBS->LocateDevicePath (&gEfiGraphicsOutputProtocolGuid, &DisplayDevicePath, &Handle);
-  if (EFI_ERROR (Status) && !IsDevicePathEnd (DisplayDevicePath)) {
+  Status = gBS->LocateDevicePath (&gEfiGraphicsOutputProtocolGuid, &GopDevicePath, &Handle);
+  if (EFI_ERROR (Status) && !IsDevicePathEnd (GopDevicePath)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Device Path! Status = %r\n", __FUNCTION__, Status));
   }
 
@@ -141,7 +137,7 @@ PlatformBootManagerBeforeConsole ()
     gBS->ConnectController (Handle, NULL, NULL, TRUE);
 
     // Get the GOP Device Path
-    DisplayDevicePath = EfiBootManagerGetGopDevicePath (Handle);
+    GopDevicePath = EfiBootManagerGetGopDevicePath (Handle);
   }
 
   // Get ConOut Variable
@@ -150,12 +146,12 @@ PlatformBootManagerBeforeConsole ()
   // Check Handle
   if (Handle != NULL) {
     // Check Device Path
-    if (DisplayDevicePath != NULL) {
+    if (GopDevicePath != NULL) {
       // Get Updated Console Out Device Path
-      ConsoleOut = UpdateGopDevicePath (ConsoleOut, DisplayDevicePath);
+      ConsoleOut = UpdateGopDevicePath (ConsoleOut, GopDevicePath);
 
       // Free Buffer
-      FreePool (DisplayDevicePath);
+      FreePool (GopDevicePath);
 
       // Check Console Out Device Path
       if (ConsoleOut != NULL) {

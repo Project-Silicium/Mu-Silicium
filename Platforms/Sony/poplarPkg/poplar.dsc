@@ -27,7 +27,7 @@
   HAS_BUILD_IN_KEYBOARD          = 0
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) -DUSE_CUSTOM_DISPLAY_DRIVER=$(USE_CUSTOM_DISPLAY_DRIVER)
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -45,9 +45,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Xperia XZ1"
 
   # Simple Frame Buffer
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1920
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|24
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|1920
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|24
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

@@ -34,7 +34,7 @@
   SOC_TYPE                       = 2
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) -DUSE_CUSTOM_DISPLAY_DRIVER=$(USE_CUSTOM_DISPLAY_DRIVER)
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -52,9 +52,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Pad 6"
 
   # Simple Frame Buffer
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1800
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2880
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1800
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2880
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

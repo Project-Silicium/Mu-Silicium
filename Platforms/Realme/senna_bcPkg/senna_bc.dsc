@@ -74,9 +74,9 @@
 !endif
 
   # Simple FrameBuffer
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1240
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2772
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1240
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2772
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"

@@ -46,7 +46,7 @@
 !endif
 
 [BuildOptions]
-  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD) -DUSE_CUSTOM_DISPLAY_DRIVER=$(USE_CUSTOM_DISPLAY_DRIVER)
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
 
 [PcdsFixedAtBuild]
   # DDR Start Address
@@ -68,9 +68,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch"
 
   # Simple Frame Buffer (TODO: Rotate Screen Somehow)
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|720
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|1280
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|720
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|1280
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
   # Dynamic RAM
   gNvidiaPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000

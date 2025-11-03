@@ -29,9 +29,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdMsdDefaultFile
   gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile
   gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile
-  gSiliciumPkgTokenSpaceGuid.PcdCoverBootLogoFile
-  gSiliciumPkgTokenSpaceGuid.PcdCoverNoBootOSFile
-  gSiliciumPkgTokenSpaceGuid.PcdCoverMassStorageFile
 
 [Pcd]
   gOemPkgTokenSpaceGuid.PcdLogoFile

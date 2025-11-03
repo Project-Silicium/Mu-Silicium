@@ -15,58 +15,44 @@
   gEfiCoverScreenProtocolGuid         = { 0x4C7366E4, 0x089F, 0x4A8F, { 0xA5, 0xCD, 0x39, 0xF0, 0xA7, 0x5E, 0x39, 0xA0 } }
 
 [PcdsFixedAtBuild]
-  # Simple Frame Buffer (Primary)
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|0|UINT32|0x0000A000
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|0|UINT32|0x0000A001
-  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|0|UINT8|0x0000A002
-
-  # Simple Frame Buffer (Secondary)
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferOffset|0|UINT64|0x0000A100
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferWidth|0|UINT32|0x0000A101
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferHeight|0|UINT32|0x0000A102
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferColorDepth|0|UINT8|0x0000A103
-  gSiliciumPkgTokenSpaceGuid.PcdSecondaryFrameBufferDebug|FALSE|BOOLEAN|0x0000A104
-
-  # Simple Frame Buffer (Extras)
-  gSiliciumPkgTokenSpaceGuid.PcdDebugFrameBufferDelay|0|UINT32|0x0000A200
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|0|UINT32|0x0000A000
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|0|UINT32|0x0000A001
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|0|UINT8|0x0000A002
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferDelay|0|UINT32|0x0000A003
 
   # Timer Freq Overwrite
-  gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|0|UINT64|0x0000A300
+  gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|0|UINT64|0x0000A100
 
   # Dynamic RAM
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000A400
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000A200
 
   # SmBios
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Not Specified"|VOID*|0x0000A500
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Not Specified"|VOID*|0x0000A501
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Not Specified"|VOID*|0x0000A502
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Not Specified"|VOID*|0x0000A503
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"Not Specified"|VOID*|0x0000A504
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Not Specified"|VOID*|0x0000A505
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Not Specified"|VOID*|0x0000A506
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Not Specified"|VOID*|0x0000A507
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Not Specified"|VOID*|0x0000A508
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Not Specified"|VOID*|0x0000A300
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Not Specified"|VOID*|0x0000A301
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Not Specified"|VOID*|0x0000A302
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Not Specified"|VOID*|0x0000A303
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"Not Specified"|VOID*|0x0000A304
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Not Specified"|VOID*|0x0000A305
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Not Specified"|VOID*|0x0000A306
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Not Specified"|VOID*|0x0000A307
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Not Specified"|VOID*|0x0000A308
 
   # SmBios Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|0|UINT32|0x0000A600
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|0|UINT32|0x0000A601
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|0|UINT32|0x0000A602
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0|UINT32|0x0000A603
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0|UINT32|0x0000A604
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0|UINT32|0x0000A605
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0|UINT32|0x0000A606
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|0|UINT32|0x0000A400
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|0|UINT32|0x0000A401
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|0|UINT32|0x0000A402
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0|UINT32|0x0000A403
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0|UINT32|0x0000A404
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0|UINT32|0x0000A405
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0|UINT32|0x0000A406
 
-  # BMP File (Main Screen)
-  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile|       { 0xBE, 0xFB, 0x54, 0x15, 0xE6, 0xA3, 0x40, 0x7C, 0x97, 0xB3, 0x9D, 0xAF, 0x60, 0x3A, 0x02, 0x50 }|VOID*|0x0000A700
-  gSiliciumPkgTokenSpaceGuid.PcdMsdDefaultFile|     { 0x64, 0xF9, 0x01, 0x12, 0xD0, 0xE3, 0x40, 0xC8, 0xAE, 0xD1, 0xC4, 0x6C, 0x33, 0x91, 0xDC, 0x43 }|VOID*|0x0000A701
-  gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile|   { 0xE2, 0xF8, 0x1D, 0x57, 0xBB, 0x7E, 0x4F, 0xC6, 0x98, 0x66, 0xB1, 0xF7, 0x63, 0x4C, 0x4C, 0xA2 }|VOID*|0x0000A702
-  gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile|{ 0x4E, 0xC6, 0x92, 0xE9, 0x12, 0x43, 0x4F, 0x1A, 0xBA, 0xEE, 0x64, 0x7C, 0x06, 0xC0, 0x07, 0x99 }|VOID*|0x0000A703
-
-  # BMP Files (Cover Screen)
-  gSiliciumPkgTokenSpaceGuid.PcdCoverBootLogoFile|   { 0x67, 0xD7, 0xF1, 0xA8, 0x9F, 0x63, 0x4F, 0xE2, 0x98, 0x04, 0x92, 0x4E, 0xE5, 0x18, 0xD3, 0x70 }|VOID*|0x0000A800
-  gSiliciumPkgTokenSpaceGuid.PcdCoverNoBootOSFile|   { 0x78, 0x5F, 0x8C, 0xF5, 0x16, 0x8A, 0x41, 0x68, 0xBE, 0x25, 0x89, 0xD4, 0x06, 0x26, 0xD0, 0xF6 }|VOID*|0x0000A801
-  gSiliciumPkgTokenSpaceGuid.PcdCoverMassStorageFile|{ 0x15, 0x86, 0x52, 0xB4, 0x9B, 0x19, 0x4D, 0xA1, 0x8A, 0xEB, 0x8F, 0x62, 0x16, 0x46, 0x79, 0xC5 }|VOID*|0x0000A802
+  # Pictures
+  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile|       { 0xBE, 0xFB, 0x54, 0x15, 0xE6, 0xA3, 0x40, 0x7C, 0x97, 0xB3, 0x9D, 0xAF, 0x60, 0x3A, 0x02, 0x50 }|VOID*|0x0000A500
+  gSiliciumPkgTokenSpaceGuid.PcdMsdDefaultFile|     { 0x64, 0xF9, 0x01, 0x12, 0xD0, 0xE3, 0x40, 0xC8, 0xAE, 0xD1, 0xC4, 0x6C, 0x33, 0x91, 0xDC, 0x43 }|VOID*|0x0000A501
+  gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile|   { 0xE2, 0xF8, 0x1D, 0x57, 0xBB, 0x7E, 0x4F, 0xC6, 0x98, 0x66, 0xB1, 0xF7, 0x63, 0x4C, 0x4C, 0xA2 }|VOID*|0x0000A502
+  gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile|{ 0x4E, 0xC6, 0x92, 0xE9, 0x12, 0x43, 0x4F, 0x1A, 0xBA, 0xEE, 0x64, 0x7C, 0x06, 0xC0, 0x07, 0x99 }|VOID*|0x0000A503
 
   # Special App
-  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp|{ NULL }|VOID*|0x0000A900
-  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName|""|VOID*|0x0000A901
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp|{ NULL }|VOID*|0x0000A600
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName|""|VOID*|0x0000A601

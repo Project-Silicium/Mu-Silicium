@@ -1123,7 +1123,7 @@
 | Feature            | Description                                          | State |
 |:-------------------|:-----------------------------------------------------|:-----:|
 | Main Display       |                                                      | ✅    |
-| Cover Display      | Remains Active when Booting a OS                     | ✅    |
+| Cover Display      |                                                      | ❌    |
 | Internal Storage   |                                                      | ✅    |
 | Side Buttons       |                                                      | ✅    |
 | USB Host Mode      |                                                      | ❌    |
@@ -4758,7 +4758,7 @@
 | Temperature Sensor   |                                   | ❌    |
 | Battery              |                                   | ❌    |
 | USB Host Mode        |                                   | ❌    |
-| USB Device Mode      |                                   | ❔     |
+| USB Device Mode      |                                   | ❔    |
 | USB Power Delivery   |                                   | ❌    |
 | Charging             |                                   | ❌    |
 | WLAN                 |                                   | ❌    |

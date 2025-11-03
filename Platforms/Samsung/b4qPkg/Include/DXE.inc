@@ -81,9 +81,9 @@
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/b4q/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-!endif
-
+!else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!endif
 
   INF Binaries/b4q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/b4q/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
