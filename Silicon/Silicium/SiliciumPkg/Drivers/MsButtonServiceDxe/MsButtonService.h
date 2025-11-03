@@ -9,19 +9,11 @@
 //
 // Button States
 //
-#if HAS_BUILD_IN_KEYBOARD == 1
-typedef enum {
-  NoButtons  = SCAN_NULL,
-  EscButton  = SCAN_ESC,
-  EntfButton = SCAN_DELETE
-} BUTTON_STATE;
-#else
 typedef enum {
   NoButtons     = SCAN_NULL,
   VolUpButton   = SCAN_UP,
   VolDownButton = SCAN_DOWN
 } BUTTON_STATE;
-#endif
 
 //
 // Ms Button Service

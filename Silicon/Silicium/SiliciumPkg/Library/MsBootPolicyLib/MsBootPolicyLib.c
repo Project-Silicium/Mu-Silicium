@@ -70,11 +70,7 @@ MsBootPolicyLibIsSettingsBoot ()
   // Check if Volume Up / ESC was Pressed
   Status = mMsButtonProtocol->PreBootVolumeUpButtonThenPowerButtonCheck (mMsButtonProtocol, &Pressed);
   if (EFI_ERROR (Status)) {
-#if HAS_BUILD_IN_KEYBOARD == 1
-    DEBUG ((EFI_D_WARN, "%a: Failed to Get ESC Key State! Status = %r\n", __FUNCTION__, Status));
-#else
     DEBUG ((EFI_D_WARN, "%a: Failed to Get Volume Up State! Status = %r\n", __FUNCTION__, Status));
-#endif
     Pressed = FALSE;
   }
 
@@ -97,11 +93,7 @@ MsBootPolicyLibIsAltBoot ()
   // Check if Volume Down / ENTF was Pressed
   Status = mMsButtonProtocol->PreBootVolumeDownButtonThenPowerButtonCheck (mMsButtonProtocol, &Pressed);
   if (EFI_ERROR (Status)) {
-#if HAS_BUILD_IN_KEYBOARD == 1
-    DEBUG ((EFI_D_WARN, "%a: Failed to Get ENTF Key State! Status = %r\n", __FUNCTION__, Status));
-#else
     DEBUG ((EFI_D_WARN, "%a: Failed to Get Volume Down State! Status = %r\n", __FUNCTION__, Status));
-#endif
     Pressed = FALSE;
   }
 

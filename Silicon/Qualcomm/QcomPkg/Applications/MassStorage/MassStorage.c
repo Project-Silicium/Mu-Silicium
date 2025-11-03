@@ -258,17 +258,9 @@ StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
 
         // Print Input Options
         if (BlockIo != EmmcBlockIoProtocol) {
-#if HAS_BUILD_IN_KEYBOARD == 1
-          PrintUI (L"[Escape] Return - [Delete] Shutdown", -1);
-#else
           PrintUI (L"[Volume Up] Return - [Volume Down] Shutdown", -1);
-#endif
         } else {
-#if HAS_BUILD_IN_KEYBOARD == 1
-          PrintUI (L"[Delete] Shutdown", -1);
-#else
           PrintUI (L"[Volume Down] Shutdown", -1);
-#endif
         }
 
         // Set Current Splash

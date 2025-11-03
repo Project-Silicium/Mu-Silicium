@@ -30,11 +30,7 @@ UefiMenuButtonCheck (
   MS_BUTTON_SERVICES *ButtonService = MS_BSP_FROM_BSP (This);
 
   // Get Button Press State
-#if HAS_BUILD_IN_KEYBOARD == 1
-  *ButtonPressed = (ButtonService->ButtonState == EscButton);
-#else
   *ButtonPressed = (ButtonService->ButtonState == VolUpButton);
-#endif
 
   return EFI_SUCCESS;
 }
@@ -49,11 +45,7 @@ SpecialAppButtonCheck (
   MS_BUTTON_SERVICES *ButtonService = MS_BSP_FROM_BSP (This);
 
   // Get Button Press State
-#if HAS_BUILD_IN_KEYBOARD == 1
-  *ButtonPressed = (ButtonService->ButtonState == EntfButton);
-#else
   *ButtonPressed = (ButtonService->ButtonState == VolDownButton);
-#endif
 
   return EFI_SUCCESS;
 }
@@ -76,19 +68,11 @@ EFIAPI
 KeyNotify (IN EFI_KEY_DATA *KeyData)
 {
   // Check for Key Press
-#if HAS_BUILD_IN_KEYBOARD == 1
-  if (KeyData->Key.ScanCode == SCAN_ESC) {
-    gButtonService->ButtonState = EscButton;
-  } else if (KeyData->Key.ScanCode == SCAN_DELETE) {
-    gButtonService->ButtonState = EntfButton;
-  }
-#else
   if (KeyData->Key.ScanCode == SCAN_UP) {
     gButtonService->ButtonState = VolUpButton;
   } else if (KeyData->Key.ScanCode == SCAN_DOWN) {
     gButtonService->ButtonState = VolDownButton;
   }
-#endif
 
   return EFI_SUCCESS;
 }
@@ -124,11 +108,7 @@ GetButtonStates ()
   KeyData.KeyState.KeyToggleState = 0;
   KeyData.KeyState.KeyShiftState  = 0;
   KeyData.Key.UnicodeChar         = 0;
-#if HAS_BUILD_IN_KEYBOARD == 1
-  KeyData.Key.ScanCode            = SCAN_ESC;
-#else
   KeyData.Key.ScanCode            = SCAN_UP;
-#endif
 
   // Register Key Notify for UEFI Menu Button
   Status = mSimpleExProtocol->RegisterKeyNotify (mSimpleExProtocol, &KeyData, &KeyNotify, &NotifyHandle);
@@ -138,11 +118,7 @@ GetButtonStates ()
   }
 
   // Set Dummy Special App Button State
-#if HAS_BUILD_IN_KEYBOARD == 1
-  KeyData.Key.ScanCode = SCAN_DELETE;
-#else
   KeyData.Key.ScanCode = SCAN_DOWN;
-#endif
 
   // Register Key Notify for Special App Button
   Status = mSimpleExProtocol->RegisterKeyNotify (mSimpleExProtocol, &KeyData, &KeyNotify, &NotifyHandle);

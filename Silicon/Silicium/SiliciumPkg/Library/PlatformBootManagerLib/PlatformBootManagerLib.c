@@ -410,11 +410,7 @@ PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
   // Set Combo Message
   if (ComboMessage == NULL) {
     if (FixedPcdGetPtr (PcdSpecialApp) == "NULL") {
-#if HAS_BUILD_IN_KEYBOARD == 1
-      ComboMessage = L"[Escape] FFU Mode";
-#else
       ComboMessage = L"[Volume Up] FFU Mode";
-#endif
     } else {
       // Allocate Memory
       ComboMessage = AllocateZeroPool (150);
@@ -423,11 +419,7 @@ PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
         goto Form;
       }
 
-#if HAS_BUILD_IN_KEYBOARD == 1
-      UnicodeSPrint (ComboMessage, 150, L"[Escape] FFU Mode - [Delete] %a", FixedPcdGetPtr (PcdSpecialAppName));
-#else
       UnicodeSPrint (ComboMessage, 150, L"[Volume Up] FFU Mode - [Volume Down] %a", FixedPcdGetPtr (PcdSpecialAppName));
-#endif
     }
 
     // Set Combo Message Position
