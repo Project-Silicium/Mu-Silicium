@@ -1239,7 +1239,7 @@
 
 **State: Active** <br>
 **Codename: r0q** <br>
-**Contributors: [Violet](https://github.com/ghatt-o/) [Robotix](https://github.com/Robotix22/)**
+**Contributors: [Violet](https://github.com/ghatt-o/), [Robotix](https://github.com/Robotix22/)**
 
 ### UEFI Status
 
@@ -1309,10 +1309,13 @@
 > [!IMPORTANT]
 > Only Windows PE can Boot.
 
+> [!IMPORTANT]
+> Needs Windows Drivers.
+
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
 | Internal Storage     |               | ❌    |
-| Side Buttons         |               | ❌    |
+| Side Buttons         |               | ✅    |
 | Proximity Sensor     |               | ❌    |
 | Light Sensor         |               | ❌    |
 | Accelerometer Sensor |               | ❌    |
