@@ -206,7 +206,7 @@ RegisterDisplays (
   mDisplay.Mode->Mode            = 0;
   mDisplay.Mode->SizeOfInfo      = sizeof (EFI_GRAPHICS_OUTPUT_MODE_INFORMATION);
   mDisplay.Mode->FrameBufferBase = DisplayDetails.MemoryRegion.Address;
-  mDisplay.Mode->FrameBufferSize = DisplayDetails.MemoryRegion.Length;
+  mDisplay.Mode->FrameBufferSize = DisplayDetails.Width * DisplayDetails.Height * (DisplayDetails.ColorDepth / 8);
 
   // Set Display Infos
   mDisplay.Mode->Info->Version              = 0;

@@ -247,6 +247,9 @@ SerialPortInitialize ()
   FrameBufferData.Height        = FixedPcdGet32 (PcdFrameBufferHeight);
   FrameBufferData.BytesPerPixel = FixedPcdGet8  (PcdFrameBufferColorDepth) / 8;
 
+  // Update Display Reserved Length
+  FrameBufferData.MemoryRegion.Length = FrameBufferData.Width * FrameBufferData.Height * FrameBufferData.BytesPerPixel;
+
   // Set Default Print Delay
   FrameBufferData.PrintDelay = FixedPcdGet32 (PcdFrameBufferDelay);
 
