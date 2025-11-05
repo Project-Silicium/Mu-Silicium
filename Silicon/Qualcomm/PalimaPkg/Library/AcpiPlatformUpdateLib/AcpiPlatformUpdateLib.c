@@ -170,9 +170,9 @@ GetMemoryRegionInfos (
   OUT UINT32 *TgcmLength)
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX MpssEfsRegion;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX AdspEfsRegion;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX TgcmRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX MpssEfsRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX AdspEfsRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX TgcmRegion;
 
   // Set Default Values
   *MpssEfsAddress = 0;

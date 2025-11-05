@@ -34,7 +34,7 @@
 
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
-#include <Library/DeviceMemoryMapLib.h>
+#include <Library/MemoryMapLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/DxeServicesTableLib.h>
@@ -138,11 +138,11 @@ GetMemoryNodes (
 
 VOID
 GetReversedMemoryMap (
-  OUT ARM_MEMORY_REGION_DESCRIPTOR_EX *ReversedMemoryMap,
+  OUT EFI_MEMORY_REGION_DESCRIPTOR_EX *ReversedMemoryMap,
   IN  UINTN                            ItemCount)
 {
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryMap = GetDeviceMemoryMap ();
-  ARM_MEMORY_REGION_DESCRIPTOR_EX  Temp      = {0};
+  EFI_MEMORY_REGION_DESCRIPTOR_EX *MemoryMap = GetMemoryMap ();
+  EFI_MEMORY_REGION_DESCRIPTOR_EX  Temp      = {0};
   UINTN                            Start     = 0;
   UINTN                            End       = ItemCount - 1;
 
@@ -204,7 +204,7 @@ AddRamPartitions (
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS                       Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX  FdtPointerRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX  FdtPointerRegion;
   MEMORY_NODE                     *Nodes;
   UINTN                            NodeCount;
 
@@ -234,7 +234,7 @@ AddRamPartitions (
 
   // Add all RAM Partitions
   for (UINTN i = 0; i < NodeCount; i++) {
-    PARM_MEMORY_REGION_DESCRIPTOR_EX  MemoryDescriptorEx  = GetDeviceMemoryMap ();
+    EFI_PMEMORY_REGION_DESCRIPTOR_EX  MemoryDescriptorEx  = GetMemoryMap ();
     CHAR8                            *FirstMappedItemName = MemoryDescriptorEx[0].Name;
     BOOLEAN                           IsMapped            = FALSE;
 
@@ -250,7 +250,7 @@ AddRamPartitions (
 
     // Map RAM Partition
     if (!IsMapped) {
-      ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryMap    = GetDeviceMemoryMap ();
+      EFI_MEMORY_REGION_DESCRIPTOR_EX *MemoryMap    = GetMemoryMap ();
       UINTN                            MemMapLength = 1;
 
       // Skip Mapped Memory
@@ -260,8 +260,8 @@ AddRamPartitions (
       }
 
       // Get Last RAM Partition
-      ARM_MEMORY_REGION_DESCRIPTOR_EX LastRAMPartition;
-      ARM_MEMORY_REGION_DESCRIPTOR_EX ReversedMemoryMap[MemMapLength];
+      EFI_MEMORY_REGION_DESCRIPTOR_EX LastRAMPartition;
+      EFI_MEMORY_REGION_DESCRIPTOR_EX ReversedMemoryMap[MemMapLength];
 
       // Get Reserved Memory Map
       GetReversedMemoryMap (ReversedMemoryMap, MemMapLength);

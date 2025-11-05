@@ -39,6 +39,9 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000  
 
+  # Device GUID
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xC8, 0x12, 0xD9, 0x73, 0x8D, 0xFB, 0xE2, 0x49, 0x91, 0x34, 0x57, 0x21, 0x19, 0xF9, 0x6A, 0x3D }
+
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13 Pro"
@@ -63,9 +66,8 @@
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
-  DeviceMemoryMapLib|nuwaPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceConfigurationMapLib|nuwaPkg/Library/DeviceConfigurationMapLib/DeviceConfigurationMapLib.inf
-  DeviceGuidLib|nuwaPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
+  MemoryMapLib|nuwaPkg/Library/MemoryMapLib/MemoryMapLib.inf
+  ConfigurationMapLib|nuwaPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include KailuaPkg/KailuaPkg.dsc.inc

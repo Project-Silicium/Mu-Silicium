@@ -123,8 +123,8 @@ AddRamPartitions (
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_RAM_PARTITION_TABLE          *RamPartitionTable   = NULL;
-  PARM_MEMORY_REGION_DESCRIPTOR_EX  MemoryDescriptor    = gExtendedMemoryDescriptor;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX   HypReservedRegion   = {0};
+  EFI_PMEMORY_REGION_DESCRIPTOR_EX  MemoryDescriptor    = gExtendedMemoryDescriptor;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX   HypReservedRegion   = {0};
   UINT32                            PartitionVersion    = 0;
   UINTN                             Index               = 1;
 

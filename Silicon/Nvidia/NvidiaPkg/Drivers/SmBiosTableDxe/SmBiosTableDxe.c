@@ -17,7 +17,6 @@
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/DynamicRamLib.h>
-#include <Library/DeviceGuidLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/UefiLib.h>
@@ -136,13 +135,8 @@ BIOSInfoUpdateSmbiosType0 ()
 VOID
 SysInfoUpdateSmbiosType1 ()
 {
-  EFI_GUID DeviceGuid;
-
-  // Get Device GUID
-  DeviceGuid = GetDeviceGuid ();
-
   // Update Device UUID
-  mSysInfoType1.Uuid = DeviceGuid;
+  mSysInfoType1.Uuid = *(GUID *)FixedPcdGetPtr (PcdDeviceGuid);
 
   // Update String Table
   mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);

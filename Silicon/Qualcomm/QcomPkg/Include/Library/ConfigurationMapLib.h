@@ -1,0 +1,25 @@
+#ifndef _CONFIGURATION_MAP_LIB_H_
+#define _CONFIGURATION_MAP_LIB_H_
+
+#include <PiPei.h>
+
+//
+// Limits
+//
+#define CONFIGURATION_NAME_MAX_LENGTH 64
+
+//
+// Configuration Entry
+//
+typedef struct {
+  CHAR8  Name[CONFIGURATION_NAME_MAX_LENGTH];
+  UINT64 Value;
+} EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX, *EFI_PCONFIGURATION_ENTRY_DESCRIPTOR_EX;
+
+//
+// Functions
+//
+EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX*
+GetConfigurationMap ();
+
+#endif /* _CONFIGURATION_MAP_LIB_H_ */

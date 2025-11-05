@@ -26,7 +26,7 @@
   PcdLib
   DebugLib
   PlatformHobLib
-  DeviceConfigurationMapLib
+  ConfigurationMapLib
   ConfigurationMapHelperLib
   MemoryMapHelperLib
   SerialPortLib

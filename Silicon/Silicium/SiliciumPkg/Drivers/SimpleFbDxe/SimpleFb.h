@@ -5,7 +5,7 @@
 // Display Details
 //
 typedef struct {
-  ARM_MEMORY_REGION_DESCRIPTOR_EX MemoryRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX MemoryRegion;
   UINT32                          Width;
   UINT32                          Height;
   UINT32                          ColorDepth;

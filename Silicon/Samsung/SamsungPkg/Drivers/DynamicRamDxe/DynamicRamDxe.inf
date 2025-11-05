@@ -20,7 +20,7 @@
 [LibraryClasses]
   PcdLib
   DebugLib
-  DeviceMemoryMapLib
+  MemoryMapLib
   MemoryAllocationLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint

@@ -10,7 +10,7 @@
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
 #include <Library/PlatformHobLib.h>
-#include <Library/DeviceConfigurationMapLib.h>
+#include <Library/ConfigurationMapLib.h>
 #include <Library/ConfigurationMapHelperLib.h>
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/SerialPortLib.h>
@@ -23,7 +23,7 @@ STATIC
 EFI_STATUS
 CfgGetMemInfoByName (
   IN  CHAR8                           *RegionName,
-  OUT ARM_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
+  OUT EFI_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
 {
   // Get Memory Region by Name
   return LocateMemoryMapAreaByName (RegionName, MemRegions);
@@ -33,7 +33,7 @@ STATIC
 EFI_STATUS
 CfgGetMemInfoByAddress (
   IN  UINT64                           RegionBaseAddress,
-  OUT ARM_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
+  OUT EFI_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
 {
   // Get Memory Region by Base Address
   return LocateMemoryMapAreaByAddress (RegionBaseAddress, MemRegions);
@@ -182,7 +182,7 @@ VOID
 BuildPlatformHobs ()
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlkRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX InfoBlkRegion;
 
   // Get XBL HOB Addresses
   UINT64 SchedAddress        = FixedPcdGet64 (PcdScheduleInterfaceAddr);

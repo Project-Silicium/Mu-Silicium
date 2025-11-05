@@ -27,14 +27,14 @@ typedef
 EFI_STATUS
 (*GET_MEM_INFO_BY_NAME) (
   CHAR8                           *RegionName,
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemRegions
+  EFI_MEMORY_REGION_DESCRIPTOR_EX *MemRegions
   );
 
 typedef
 EFI_STATUS
 (*GET_MEM_INFO_BY_ADDRESS) (
   UINT64                           RegionBaseAddress,
-  ARM_MEMORY_REGION_DESCRIPTOR_EX *MemRegions
+  EFI_MEMORY_REGION_DESCRIPTOR_EX *MemRegions
   );
 
 typedef struct {

@@ -1,14 +1,14 @@
 #include <Library/MemoryMapHelperLib.h>
-#include <Library/DeviceMemoryMapLib.h>
+#include <Library/MemoryMapLib.h>
 
 EFI_STATUS
 EFIAPI
 LocateMemoryMapAreaByName (
   IN  CHAR8                           *MemoryMapAreaName,
-  OUT ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor)
+  OUT EFI_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor)
 {
   // Get Memory Map
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetDeviceMemoryMap ();
+  EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetMemoryMap ();
 
   while (MemoryDescriptorEx->Length != 0) {
     // Compare Memory Region Names
@@ -28,10 +28,10 @@ EFI_STATUS
 EFIAPI
 LocateMemoryMapAreaByAddress (
   IN  EFI_PHYSICAL_ADDRESS             MemoryMapAreaAddress,
-  OUT ARM_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor)
+  OUT EFI_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor)
 {
   // Get Memory Map
-  PARM_MEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetDeviceMemoryMap ();
+  EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx = GetMemoryMap ();
 
   while (MemoryDescriptorEx->Length != 0) {
     // Compare Memory Region Addresses

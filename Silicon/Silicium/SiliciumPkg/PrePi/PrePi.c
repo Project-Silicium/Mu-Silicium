@@ -25,7 +25,7 @@
 //
 // Global Variables
 //
-STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX UefiFdRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX UefiFdRegion;
 
 EFI_STATUS
 PrePeiCoreGetMpCoreInfo (
@@ -75,8 +75,8 @@ PrePiMain (IN UINT64 StartTimeStamp)
 {
   EFI_STATUS                      Status;
   EFI_HOB_HANDOFF_INFO_TABLE     *HobList;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX DxeHeapRegion;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX UefiStackRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX DxeHeapRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX UefiStackRegion;
   FIRMWARE_SEC_PERFORMANCE        Performance;
 
   // Locate "DXE Heap" Memory Region
@@ -200,8 +200,8 @@ VOID
 CEntryPoint ()
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX DisplayRegion;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX CpuVectorsRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX DisplayRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX CpuVectorsRegion;
   UINT64                          StartTimeStamp;
 
   // Locate "CPU Vectors" Memory Region

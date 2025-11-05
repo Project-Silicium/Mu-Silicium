@@ -22,7 +22,6 @@
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
-  DeviceGuidLib
   BaseMemoryLib
   DebugLib
   UefiLib
@@ -36,6 +35,7 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel

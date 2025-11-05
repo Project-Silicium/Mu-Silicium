@@ -14,7 +14,7 @@
 //
 // Global Variables
 //
-STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX ClockControllerMemoryRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX ClockControllerMemoryRegion;
 STATIC UINT32                          PllRate[CLOCK_ID_COUNT];
 
 STATIC UINT32 OscFreq[CLOCK_OSC_FREQ_COUNT] = {

@@ -209,6 +209,9 @@ BIOSInfoUpdateSmbiosType0 ()
 VOID
 SysInfoUpdateSmbiosType1 ()
 {
+  // Update Device UUID
+  mSysInfoType1.Uuid = *(GUID *)FixedPcdGetPtr (PcdDeviceGuid);
+
   // Update String Table
   mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
   mSysInfoType1Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemModel);
@@ -444,7 +447,7 @@ RegisterSmBiosTables (
     // Get RAM Size
     MemorySize = mDdrInfoProtocol->GetRamSize ();
   } else {
-    ARM_MEMORY_REGION_DESCRIPTOR_EX FdtPointerRegion;
+    EFI_MEMORY_REGION_DESCRIPTOR_EX FdtPointerRegion;
 
     // Print Error
     DEBUG ((EFI_D_ERROR, "Failed to Locate DDR Info Protocol! Status = %r\n", Status));

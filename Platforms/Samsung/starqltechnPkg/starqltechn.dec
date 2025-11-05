@@ -1,8 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = starqltechn
-  PACKAGE_GUID                        = 9B23E0A4-2F17-46C9-9D45-8FA8E6CB7F14
-  PACKAGE_VERSION                     = 0.1
-
-[Guids]
-  gstarqltechnTokenSpaceGuid          = { 0xA4E0239B, 0x172F, 0xC946, { 0x9D, 0x45, 0x8F, 0xA8, 0xE6, 0xCB, 0x7F, 0x14 } }

@@ -14,7 +14,7 @@
 #define PIN_MODE_OFFSET(pin) (((pin) / 8) * 0x10)
 #define PIN_MODE_BIT(pin) (((pin) % 8) * 4)
 
-STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX mPinctrlRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX mPinctrlRegion;
 
 UINT32
 GpioRead(

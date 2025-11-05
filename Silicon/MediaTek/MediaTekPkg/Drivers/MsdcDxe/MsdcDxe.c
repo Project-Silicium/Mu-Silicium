@@ -1375,7 +1375,7 @@ InitMsdc (
   MSDC_PRIVATE_DATA* Private;
   MSDC_DEVICE_PATH* DevicePath;
   CARD_DETECT_ROUTINE *Routine;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX Region;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX Region;
   CHAR8 MsdcName[11];
 
   for (UINTN i = 0; i < PlatformInfo.NumberOfHosts; i++) {

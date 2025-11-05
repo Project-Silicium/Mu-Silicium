@@ -100,7 +100,7 @@ EFI_STATUS
 EFIAPI
 RFSLocateAndProtectSharedArea ()
 {
-  ARM_MEMORY_REGION_DESCRIPTOR_EX MpssEfs;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX MpssEfs;
 
   if (!EFI_ERROR (LocateMemoryMapAreaByName ("MPSS_EFS", &MpssEfs))) {
     return RFSProtectSharedArea(MpssEfs.Address, MpssEfs.Length);

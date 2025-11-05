@@ -14,7 +14,7 @@ EFI_STATUS
 GetMemorySize (OUT UINT64 *MemorySize)
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX MemoryControllerRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX MemoryControllerRegion;
   UINT64                          RamSize;
   UINT32                          EMemConfiguration;
 

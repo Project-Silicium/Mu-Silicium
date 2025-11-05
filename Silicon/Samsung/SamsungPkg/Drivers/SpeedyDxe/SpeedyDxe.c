@@ -318,7 +318,7 @@ InitSpeedy (
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX SpeedyRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX SpeedyRegion;
 
   // Locate Speedy Memory Region
   Status = LocateMemoryMapAreaByName ("Speedy", &SpeedyRegion);

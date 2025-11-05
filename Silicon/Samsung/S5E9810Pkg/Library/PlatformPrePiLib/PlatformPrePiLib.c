@@ -8,7 +8,7 @@ VOID
 PlatformInitialize ()
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX DeconFRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX DeconFRegion;
 
   // Locate Decon-F Memory Region
   Status = LocateMemoryMapAreaByName ("Decon-F", &DeconFRegion);

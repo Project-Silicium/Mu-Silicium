@@ -6,7 +6,7 @@
 #include <Library/PcdLib.h>
 #include <Library/ArmMmuLib.h>
 #include <Library/MemoryAllocationLib.h>
-#include <Library/DeviceMemoryMapLib.h>
+#include <Library/MemoryMapLib.h>
 #include <Library/DebugLib.h>
 #include <Library/HobLib.h>
 
@@ -21,7 +21,7 @@ MemoryPeim (
 {
   EFI_STATUS                        Status                                              = EFI_SUCCESS;
   ARM_MEMORY_REGION_DESCRIPTOR      MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT] = {0};
-  PARM_MEMORY_REGION_DESCRIPTOR_EX  MemoryDescriptorEx                                  = GetDeviceMemoryMap ();
+  EFI_PMEMORY_REGION_DESCRIPTOR_EX  MemoryDescriptorEx                                  = GetMemoryMap ();
   VOID                             *TranslationTableBase                                = NULL;
   UINTN                             TranslationTableSize                                = 0;
   UINTN                             Index                                               = 0;

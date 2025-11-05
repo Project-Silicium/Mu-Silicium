@@ -1,5 +1,5 @@
 #include <Library/ConfigurationMapHelperLib.h>
-#include <Library/DeviceConfigurationMapLib.h>
+#include <Library/ConfigurationMapLib.h>
 
 EFI_STATUS
 EFIAPI
@@ -7,8 +7,8 @@ LocateConfigurationMapUINT32ByName (
   IN  CHAR8  *Key,
   OUT UINT32 *Value)
 {
-  // Get Device Config Map
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
+  // Get Configuratio Map
+  EFI_PCONFIGURATION_ENTRY_DESCRIPTOR_EX ConfigurationDescriptorEx = GetConfigurationMap ();
 
   // Run through each Configuration Descriptor
   while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
@@ -29,8 +29,8 @@ LocateConfigurationMapUINT64ByName (
   IN  CHAR8  *Key,
   OUT UINT64 *Value)
 {
-  // Get Device Config Map
-  PCONFIGURATION_DESCRIPTOR_EX ConfigurationDescriptorEx = GetDeviceConfigurationMap ();
+  // Get Configuratio Map
+  EFI_PCONFIGURATION_ENTRY_DESCRIPTOR_EX ConfigurationDescriptorEx = GetConfigurationMap ();
 
   // Run through each Configuration Descriptor
   while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {

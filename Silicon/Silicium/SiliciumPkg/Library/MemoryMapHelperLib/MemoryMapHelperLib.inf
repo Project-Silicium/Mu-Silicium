@@ -15,4 +15,4 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  DeviceMemoryMapLib
+  MemoryMapLib

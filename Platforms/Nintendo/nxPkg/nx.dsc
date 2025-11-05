@@ -52,6 +52,9 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x80201000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
+  # Device GUID
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x9E, 0x72, 0xA9, 0x2F, 0xED, 0x6B, 0x30, 0x4F, 0xAC, 0xDD, 0x8E, 0xB3, 0xC1, 0xB4, 0xAC, 0xA5 }
+
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
@@ -72,8 +75,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000
 
 [LibraryClasses]
-  DeviceMemoryMapLib|nxPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
-  DeviceGuidLib|nxPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
+  MemoryMapLib|nxPkg/Library/MemoryMapLib/MemoryMapLib.inf
   KeypadDeviceLib|nxPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 

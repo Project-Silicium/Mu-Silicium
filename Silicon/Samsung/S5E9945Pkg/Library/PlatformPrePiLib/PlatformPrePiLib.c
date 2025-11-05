@@ -11,7 +11,7 @@ VOID
 EnableFrameBufferWrites ()
 {
   EFI_STATUS                      Status           = EFI_SUCCESS;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX DrmDeconFRegion  = {0};
+  EFI_MEMORY_REGION_DESCRIPTOR_EX DrmDeconFRegion  = {0};
   CHAR8                           DrmDeconName[12] = "";
 
   // Clear Message
@@ -38,7 +38,7 @@ VOID
 DisableWatchdogTimer ()
 {
   EFI_STATUS                      Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX WatchdogTimerFRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX WatchdogTimerFRegion;
   UINT32                          Value;
 
   // Locate Watchdog Timner Memory Region

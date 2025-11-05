@@ -1,7 +1,7 @@
-#include <Library/DeviceMemoryMapLib.h>
+#include <Library/MemoryMapLib.h>
 
 STATIC
-ARM_MEMORY_REGION_DESCRIPTOR_EX
+EFI_MEMORY_REGION_DESCRIPTOR_EX
 gExtendedMemoryDescriptor[] = {
   // Name, Address, Length, HobOption, ResourceType, ResourceAttribute, MemoryType, ArmAttribute
 

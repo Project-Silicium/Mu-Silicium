@@ -10,8 +10,8 @@ VOID
 PlatformUpdateAcpiTables ()
 {
   EFI_STATUS                          Status;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX     MPSSEFSRegion;
-  ARM_MEMORY_REGION_DESCRIPTOR_EX     ADSPEFSRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX     MPSSEFSRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX     ADSPEFSRegion;
   EFI_CHIPINFO_PROTOCOL              *mChipInfoProtocol;
   EFI_PLATFORMINFO_PROTOCOL          *mPlatformInfoProtocol;
   EFI_SMEM_PROTOCOL                  *mSmemProtocol;

@@ -672,7 +672,7 @@ MshcEntryPoint (
   IN EFI_HANDLE         ImageHandle,
   IN EFI_SYSTEM_TABLE   *SystemTable)
 {
-  ARM_MEMORY_REGION_DESCRIPTOR_EX MemRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX MemRegion;
   EFI_STATUS                      Status;
 
   Status = LocateMemoryMapAreaByName ("MSHC", &MemRegion);

@@ -19,7 +19,7 @@
 //
 // Global Variables
 //
-STATIC ARM_MEMORY_REGION_DESCRIPTOR_EX DdrInfoRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX DdrInfoRegion;
 STATIC UINT32                          InfoOffset;
 STATIC UINT32                          SizeInfoOffset;
 

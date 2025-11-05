@@ -17,7 +17,6 @@
 #include <Library/RamPartitionTableLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
-#include <Library/DeviceGuidLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/UefiLib.h>
@@ -141,13 +140,9 @@ SysInfoUpdateSmbiosType1 ()
 {
   EFI_STATUS             Status;
   EFI_CHIPINFO_PROTOCOL *mChipInfoProtocol;
-  EFI_GUID               DeviceGuid;
-
-  // Get Device GUID
-  DeviceGuid = GetDeviceGuid ();
 
   // Update Device UUID
-  mSysInfoType1.Uuid = DeviceGuid;
+  mSysInfoType1.Uuid = *(GUID *)FixedPcdGetPtr (PcdDeviceGuid);
 
   // Locate Chip Info Protocol
   Status = gBS->LocateProtocol (&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mChipInfoProtocol);

@@ -25,7 +25,7 @@
 //
 // Global Variables
 //
-ARM_MEMORY_REGION_DESCRIPTOR_EX GpioRegion;
+EFI_MEMORY_REGION_DESCRIPTOR_EX GpioRegion;
 
 EFI_STATUS
 ConfigurePin (

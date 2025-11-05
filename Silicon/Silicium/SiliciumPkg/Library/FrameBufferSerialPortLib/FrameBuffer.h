@@ -40,7 +40,7 @@ typedef struct {
 // Frame Buffer Data
 //
 typedef struct {
-  ARM_MEMORY_REGION_DESCRIPTOR_EX  MemoryRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX  MemoryRegion;
   EFI_FRAME_BUFFER_POSITION       *CurrentPosition;
   EFI_FRAME_BUFFER_POSITION        MaxPosition;
   UINT32                           PrintDelay;

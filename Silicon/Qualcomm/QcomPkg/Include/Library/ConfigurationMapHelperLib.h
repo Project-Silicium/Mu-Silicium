@@ -1,7 +1,7 @@
 #ifndef _CONFIGURATION_MAP_HELPER_LIB_H_
 #define _CONFIGURATION_MAP_HELPER_LIB_H_
 
-#include <Library/DeviceConfigurationMapLib.h>
+#include <Library/ConfigurationMapLib.h>
 
 EFI_STATUS
 EFIAPI
