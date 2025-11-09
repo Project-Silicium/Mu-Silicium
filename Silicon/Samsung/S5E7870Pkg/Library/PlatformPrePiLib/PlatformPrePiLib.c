@@ -2,18 +2,18 @@
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/IoLib.h>
 
-#define HW_SW_TRIG_CONTROL 0x70
+#include "PlatformRegisters.h"
 
 VOID
 PlatformInitialize ()
 {
   EFI_STATUS                      Status;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX DeconFRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX DeconRegion;
 
   // Locate Decon-F Memory Region
-  Status = LocateMemoryMapAreaByName ("Decon-F", &DeconFRegion);
+  Status = LocateMemoryMapAreaByName ("Decon", &DeconRegion);
   if (!EFI_ERROR (Status)) {
     // Enable Frame Buffer Writes
-    MmioWrite32 (DeconFRegion.Address + HW_SW_TRIG_CONTROL, 0x1281);
+    MmioWrite32 (DeconRegion.Address + HW_SW_TRIG_CONTROL, 0x1281);
   }
 }

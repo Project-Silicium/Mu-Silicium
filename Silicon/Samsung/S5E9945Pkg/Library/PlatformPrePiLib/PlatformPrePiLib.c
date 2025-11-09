@@ -4,33 +4,19 @@
 #include <Library/PrintLib.h>
 #include <Library/IoLib.h>
 
-#define HW_SW_TRIG_CONTROL 0x30
-#define WATCHDOG_ENABLE    ((1 << 5) | 1)
+#include "PlatformRegisters.h"
 
 VOID
 EnableFrameBufferWrites ()
 {
-  EFI_STATUS                      Status           = EFI_SUCCESS;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX DrmDeconFRegion  = {0};
-  CHAR8                           DrmDeconName[12] = "";
+  EFI_STATUS                      Status;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX DrmDeconRegion;
 
-  // Clear Message
-  ZeroMem (DrmDeconName, 12);
-
-  // Enable Frame Buffer Writes
-  for (UINT8 i = 0; i < 11; i++) {
-    // Append Number
-    AsciiSPrint (DrmDeconName, sizeof (DrmDeconName), "DRM-Decon-%u", i);
-
-    // Locate DRM Decon Memory Region
-    Status = LocateMemoryMapAreaByName (DrmDeconName, &DrmDeconFRegion);
-    if (EFI_ERROR (Status)) {
-      // Exit Loop
-      continue;
-    }
-
+  // Locate DRM Decon Memory Region
+  Status = LocateMemoryMapAreaByName ("DRM Decon", &DrmDeconRegion);
+  if (!EFI_ERROR (Status)) {
     // Configure DRM Decon
-    MmioWrite32 (DrmDeconFRegion.Address + HW_SW_TRIG_CONTROL, 0x1281);
+    MmioWrite32 (DrmDeconRegion.Address + HW_SW_TRIG_CONTROL, 0x1281);
   }
 }
 

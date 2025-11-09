@@ -30,7 +30,7 @@
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x80001000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xF4B00000
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # Device GUID
