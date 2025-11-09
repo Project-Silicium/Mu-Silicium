@@ -13,7 +13,7 @@ PlatformInitialize ()
   // Locate Decon-F Memory Region
   Status = LocateMemoryMapAreaByName ("Decon", &DeconRegion);
   if (!EFI_ERROR (Status)) {
-    // Enable Frame Buffer Writes
+    // Configure Decon
     MmioWrite32 (DeconRegion.Address + HW_SW_TRIG_CONTROL, 0x1281);
   }
 }
