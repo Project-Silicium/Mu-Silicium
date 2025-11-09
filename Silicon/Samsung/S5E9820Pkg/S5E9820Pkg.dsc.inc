@@ -76,8 +76,8 @@
 [LibraryClasses]
   PlatformPrePiLib|S5E9820Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  HwResetSystemLib|S5E9820Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+  ResetSystemLib|S5E9820Pkg/Library/ResetSystemLib/ResetSystemLib.inf
   SoCPlatformLib|S5E9820Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components]

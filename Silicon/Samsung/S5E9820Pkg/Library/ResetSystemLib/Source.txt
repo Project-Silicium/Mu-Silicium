@@ -1,0 +1,4 @@
+REPO:   https://github.com/CruelKernel/samsung-exynos9820
+BRANCH: cruel-HVJ5-v5.3
+FILE:   drivers/samsung/sec_reboot.c
+        drivers/soc/samsung/exynos-reboot.c
