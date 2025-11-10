@@ -3589,6 +3589,29 @@
 </td></tr>
 </table>
 
+## Xiaomi Poco X2 / Redmi K30
+
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-X2.png" width="500" alt="Preview">
+
+**State: Active** <br>
+**Codename: phoenix** <br>
+**Contributors: [remtrik](https://github.com/remtrik)**
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ✅    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |                   | ✅    |
+| SD Card            |                   | ❌    |
+| Windows Boot       |                   | ❌    |
+| Linux Boot         |                   | ❌    |
+
 ## Xiaomi Redmi Note 12 Pro 4G
 
 <img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-12-Pro-4G.png" width="500" alt="Preview">
