@@ -464,6 +464,36 @@
 </td></tr>
 </table>
 
+## OnePlus 13s
+<img align="right" src="Resources/Pictures/OnePlus-13s.png" width="550" alt="Preview">
+
+**State: Active** <br>
+**Codename: pagani** <br>
+**Contributors: [renhiyama](https://github.com/renhiyama), [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/)**
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      | Untested     | ❔    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       | WIP          | 🏗    |
+| Linux Boot         | WIP          | 🏗    |
+
+<table>
+<tr><th>Linux</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Linux Requires: [Mainline Kernel](https://github.com/renhiyama/pagani-kernel) (WIP).
+
+</td></tr>
+</table>
 </details>
 
 ---
