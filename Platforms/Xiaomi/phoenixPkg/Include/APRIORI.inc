@@ -79,13 +79,12 @@ APRIORI DXE {
   INF Binaries/phoenix/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
-  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
-
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/phoenix/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/phoenix/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
@@ -102,7 +101,6 @@ APRIORI DXE {
   INF Binaries/phoenix/QcomPkg/Drivers/CipherDxe/CipherDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

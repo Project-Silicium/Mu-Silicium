@@ -59,7 +59,6 @@
   INF Binaries/phoenix/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-
   INF Binaries/phoenix/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/AW8624Dxe/AW8624Dxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
@@ -82,12 +81,7 @@
   INF Binaries/phoenix/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/phoenix/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
