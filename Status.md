@@ -619,6 +619,30 @@
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
+## Xiaomi Pad 7 Pro
+
+<img align="right" src="Resources/Pictures/Xiaomi-Pad-7-Pro.png" width="400" alt="Preview">
+
+**State: Active** <br>
+**Codename: muyu** <br>
+**Contributors: [Sinetek (mail)](mailto:philmb3487@proton.me), [Sinetek (gitlab)](https://gitlab.com/philmb3487/)**
+
+### UEFI Status
+
+| Feature            | Description  | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       |              | ❌    |
+| Linux Boot         | Mainline WIP | ⚠️     |
+
+More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8635) - Mainlining](http://muyuwiki.ca).
+
 ## POCO F6
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F6.png" width="400" alt="Preview">
