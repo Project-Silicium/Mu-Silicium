@@ -14,6 +14,7 @@
   MdeModulePkg/MdeModulePkg.dec
   MdePkg/MdePkg.dec
   NvidiaPkg/NvidiaPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   DxeServicesTableLib
