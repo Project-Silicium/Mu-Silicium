@@ -13,7 +13,7 @@
 <br>
 
 <details>
-<summary><b><strong>Exynos 2400 Devices</strong></b></summary>
+<summary><b><strong>Exynos 2400/2400e Devices</strong></b></summary>
 
 ## Samsung Galaxy S24
 
