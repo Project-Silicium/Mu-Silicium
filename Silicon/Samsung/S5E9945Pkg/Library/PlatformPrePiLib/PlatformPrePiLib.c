@@ -1,7 +1,5 @@
-#include <Library/BaseMemoryLib.h>
 #include <Library/PlatformPrePiLib.h>
 #include <Library/MemoryMapHelperLib.h>
-#include <Library/PrintLib.h>
 #include <Library/IoLib.h>
 
 #include "PlatformRegisters.h"
@@ -16,7 +14,9 @@ EnableFrameBufferWrites ()
   Status = LocateMemoryMapAreaByName ("DRM Decon", &DrmDeconRegion);
   if (!EFI_ERROR (Status)) {
     // Configure DRM Decon
-    MmioWrite32 (DrmDeconRegion.Address + HW_SW_TRIG_CONTROL, 0x1281);
+    for (UINT64 Length = 0; Length < DrmDeconRegion.Length; Length += 0x1000) {
+      MmioWrite32 (DrmDeconRegion.Address + Length + HW_SW_TRIG_CONTROL, 0x1281);
+    }
   }
 }
 
@@ -24,23 +24,23 @@ VOID
 DisableWatchdogTimer ()
 {
   EFI_STATUS                      Status;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX WatchdogTimerFRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX WatchdogTimerRegion;
   UINT32                          Value;
 
   // Locate Watchdog Timner Memory Region
-  Status = LocateMemoryMapAreaByName ("Watchdog Timer", &WatchdogTimerFRegion);
+  Status = LocateMemoryMapAreaByName ("Watchdog Timer", &WatchdogTimerRegion);
   if (EFI_ERROR (Status)) {
     return;
   }
 
   // Get current Config
-  Value = MmioRead32 (WatchdogTimerFRegion.Address);
+  Value = MmioRead32 (WatchdogTimerRegion.Address);
 
   // Update Config
   Value &= ~WATCHDOG_ENABLE;
 
   // Write new Config
-  MmioWrite32 (WatchdogTimerFRegion.Address, Value);
+  MmioWrite32 (WatchdogTimerRegion.Address, Value);
 }
 
 VOID

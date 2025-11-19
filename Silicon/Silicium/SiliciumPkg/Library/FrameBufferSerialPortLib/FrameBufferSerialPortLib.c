@@ -254,7 +254,7 @@ SerialPortInitialize ()
   FrameBufferData.PrintDelay = FixedPcdGet32 (PcdFrameBufferDelay);
 
   // Set Font Scale (TODO: Add Dynamic Scale Method)
-  FrameBufferData.FontScale = 1;
+  FrameBufferData.FontScale = 2;
 
   // Set Total Position
   FrameBufferData.CurrentPosition = (EFI_FRAME_BUFFER_POSITION *)(FrameBufferData.MemoryRegion.Address + FrameBufferData.MemoryRegion.Length);

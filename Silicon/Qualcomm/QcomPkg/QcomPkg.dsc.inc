@@ -20,26 +20,39 @@
   gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName|"Mass Storage"
 
 [LibraryClasses]
+  #
+  # ARM Libraries
+  #
+  ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
+
+  #
+  # Silicium Libraries
+  #
+  PlatformHobLib|QcomPkg/Library/PlatformHobLib/PlatformHobLib.inf
+  MemoryProtectionLib|QcomPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
+
+  #
   # Custom Libraries
+  #
   RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
   ConfigurationMapHelperLib|QcomPkg/Library/ConfigurationMapHelperLib/ConfigurationMapHelperLib.inf
 
-  # HOB Library
-  PlatformHobLib|QcomPkg/Library/PlatformHobLib/PlatformHobLib.inf
-
-  # Memory Protection Library
-  MemoryProtectionLib|QcomPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
-
 [Components]
+  #
   # SmBios
+  #
   QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # Custom Snapdragon Drivers
+  #
+  # Custom Drivers
+  #
   QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
   QcomPkg/Drivers/PeripheralInitDxe/PeripheralInitDxe.inf
 
-  # Custom Snapdragon Apps
+  #
+  # Custom Apps
+  #
   QcomPkg/Applications/MassStorage/MassStorage.inf
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc

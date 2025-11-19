@@ -125,7 +125,6 @@
   CacheMaintenanceLib|ArmPkg/Library/ArmCacheMaintenanceLib/ArmCacheMaintenanceLib.inf
   DefaultExceptionHandlerLib|ArmPkg/Library/DefaultExceptionHandlerLib/DefaultExceptionHandlerLib.inf
   CpuExceptionHandlerLib|ArmPkg/Library/ArmExceptionLib/ArmExceptionLib.inf
-  ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
 !if $(USE_CUSTOM_TIMER) == 0
 !if $(USE_PHYSICAL_TIMER) == 1
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.inf

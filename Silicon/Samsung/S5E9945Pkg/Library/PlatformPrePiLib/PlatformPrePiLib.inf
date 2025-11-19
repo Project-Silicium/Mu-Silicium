@@ -18,7 +18,5 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  BaseMemoryLib
   MemoryMapHelperLib
-  PrintLib
   IoLib

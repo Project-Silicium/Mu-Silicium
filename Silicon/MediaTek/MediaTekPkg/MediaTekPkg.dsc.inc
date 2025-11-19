@@ -16,17 +16,26 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"MediaTek Inc."
 
 [LibraryClasses]
-  # HOB Library
-  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
+  #
+  # ARM Libraries
+  #
+  ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
 
-  # Memory Pritection Library
+  #
+  # Silicium Libraries
+  #
+  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
   MemoryProtectionLib|MediaTekPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
 
 [Components]
+  #
   # SmBios
+  #
   MediaTekPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # Custom MediaTek Drivers
+  #
+  # Custom Drivers
+  #
   MediaTekPkg/Drivers/GpioDxe/GpioDxe.inf
   MediaTekPkg/Drivers/PmicWrapperDxe/PmicWrapperDxe.inf
   MediaTekPkg/Drivers/MT6358PmicDxe/MT6358PmicDxe.inf

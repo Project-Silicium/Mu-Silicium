@@ -18,22 +18,29 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"NVIDIA Corporation"
 
 [LibraryClasses]
-  # Custom Tegra Libraries
+  #
+  # ARM Libraries
+  #
+  ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
 !if $(USE_CUSTOM_TIMER) == 1
   TimerLib|NvidiaPkg/GPLLibrary/TegraTimerLib/TegraTimerLib.inf
 !endif
 
-  # HOB Library
+  #
+  # Silicium Libraries
+  #
   PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
-
-  # Memory Protection Library
   MemoryProtectionLib|NvidiaPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
 
 [Components]
+  #
   # SmBios
+  #
   NvidiaPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
-  # Custom Tegra Drivers
+  #
+  # Custom Drivers
+  #
   NvidiaPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 !if $(USE_CUSTOM_TIMER) == 1

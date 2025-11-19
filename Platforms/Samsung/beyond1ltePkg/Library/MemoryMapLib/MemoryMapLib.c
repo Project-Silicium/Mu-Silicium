@@ -17,7 +17,7 @@ gMemoryRegionDescriptorEx[] = {
   {"FDT Pointer",        0x96E00000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"RAM Partition",      0x96E01000, 0x23CFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
-  // Memory Hole: 0xBAB00000 -> 0xC0000000 (0x05500000)
+  // Memory Hole: 0xBAB00000 -> 0xC0000000 (0x05500000) [Secure DRAM]
 
   {"SEC Log",            0xC0000000, 0x00080000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
   {"RAM Partition",      0xC0080000, 0x09F80000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
@@ -29,7 +29,7 @@ gMemoryRegionDescriptorEx[] = {
   {"Display Reserved",   0xCA000000, 0x01400000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH},
   {"RAM Partition",      0xCC166000, 0x13E9A000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
-  // Memory Hole: 0xE0000000 -> 0xE1900000 (0x01900000)
+  // Memory Hole: 0xE0000000 -> 0xE1900000 (0x01900000) [Secure PGTBL]
 
   {"RAM Partition",      0xE1900000, 0x1BF00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"EL2 Earlymem",       0xFD800000, 0x02800000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
