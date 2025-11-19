@@ -56,11 +56,19 @@
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
 
   # SmBios
+!if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 2400 @ 3.21 GHz"
+!elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 2400e @ 3.11 GHz"
+!endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E9945"
 
   # SmBios CPU Extras
+!if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3210
+!elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3110
+!endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400

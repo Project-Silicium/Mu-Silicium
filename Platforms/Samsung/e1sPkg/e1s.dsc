@@ -25,6 +25,12 @@
   FLASH_DEFINITION               = e1sPkg/e1s.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+  #
+  # 0 = Exynos 2400
+  # 1 = Exynos 2400e
+  #
+  SOC_TYPE                       = 0
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
