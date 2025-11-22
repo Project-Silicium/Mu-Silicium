@@ -48,6 +48,7 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x104E2000
 
   # Timer
+  gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
