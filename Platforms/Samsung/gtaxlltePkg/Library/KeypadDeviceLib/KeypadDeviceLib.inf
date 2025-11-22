@@ -22,4 +22,4 @@
   DebugLib
 
 [Protocols]
-  gEfiGpioProtocolGuid
+  gEfiExynosGpioProtocolGuid

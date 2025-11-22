@@ -75,11 +75,23 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
-  PlatformPrePiLib|S5E9830Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
+  #
+  # UEFI Libraries
+  #
   HwResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
   ResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+
+  #
+  # Silicium Libraries
+  #
+  PlatformPrePiLib|S5E9830Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
   SoCPlatformLib|S5E9830Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+
+  #
+  # Custom Libraries
+  #
+  GpioBankLib|S5E9830Pkg/Library/GpioBankLib/GpioBankLib.inf
 
 [Components]
   SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf

@@ -31,4 +31,17 @@
 #define RATE_MASK(x)     (0x1 << (x + 16))
 #define RATE_SET(x)      (0x1 << (x + 16))
 
+//
+// GPIO Bank
+//
+typedef struct {
+  UINT32 Con;
+  UINT32 Dat;
+  UINT32 Pull;
+  UINT32 Drv;
+  UINT32 PdnCon;
+  UINT32 PdnPull;
+  UINT8  Reserved[8];
+} EFI_GPIO_BANK;
+
 #endif /* _GPIO_H_ */

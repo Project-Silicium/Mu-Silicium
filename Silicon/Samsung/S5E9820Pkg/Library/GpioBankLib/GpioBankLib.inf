@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = GpioBankLib
+  FILE_GUID                      = 5E84C6B3-D42A-4603-AFCF-65F5E068751E
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = GpioBankLib|DXE_DRIVER
+
+[Sources]
+  GpioBankLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec

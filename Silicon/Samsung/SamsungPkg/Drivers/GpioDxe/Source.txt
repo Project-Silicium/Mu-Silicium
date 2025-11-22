@@ -1,3 +1,3 @@
-REPO:   https://github.com/halal-beef/lk_linaro/
-TAG:    Leon-TP1A-2A03V1-2A06R1
+REPO:   https://github.com/exynos990-mainline/lk3rd/
+BRANCH: dev
 FILE:   platform/exynos/gpio.c

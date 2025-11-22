@@ -79,10 +79,22 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
-  PlatformPrePiLib|S5E9945Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
+  #
+  # UEFI Libraries
+  #
   HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+
+  #
+  # Silicium Libraries
+  #
+  PlatformPrePiLib|S5E9945Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
   SoCPlatformLib|S5E9945Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+
+  #
+  # Custom Libraries
+  #
+  GpioBankLib|S5E9945Pkg/Library/GpioBankLib/GpioBankLib.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc

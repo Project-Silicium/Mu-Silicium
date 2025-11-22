@@ -12,8 +12,8 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  SiliciumPkg/SiliciumPkg.dec
   SamsungPkg/SamsungPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   BaseMemoryLib
@@ -22,4 +22,4 @@
   DebugLib
 
 [Protocols]
-  gEfiGpioProtocolGuid
+  gEfiExynosGpioProtocolGuid

@@ -1,0 +1,12 @@
+#ifndef _PINCTRL_H_
+#define _PINCTRL_H_
+
+//
+// Pinctrl Addresses
+//
+#define EFI_PINCTRL_ALIVE_ADDRESS   0x11CB0000
+#define EFI_PINCTRL_FSYS_ADDRESS    0x13430000
+#define EFI_PINCTRL_TOP_ADDRESS     0x139B0000
+#define EFI_PINCTRL_DISPAUD_ADDRESS 0x148F0000
+
+#endif /* _PINCTRL_H_ */

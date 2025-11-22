@@ -43,6 +43,7 @@ gMemoryRegionDescriptorEx[] = {
   {"Pinctrl EsE",        0x139E0000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Pinctrl ALIVE",      0x139F0000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Decon",              0x14830000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"Pinctrl DISPAUD",    0x148C0000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
 
   // Terminator for MMU
   {"Terminator", 0, 0, 0, 0, 0, 0, 0}

@@ -16,186 +16,182 @@
 #ifndef _EFI_GPIO_H_
 #define _EFI_GPIO_H_
 
-// GPA Pull Modes
-#define GPA_PULL_NONE   0
-#define GPA_PULL_DOWN   1
-#define GPA_PULL_UP     3
+#include <Library/GpioBankLib.h>
 
-// GPA DRV Speed Values
-#define GPA_DRV_FAST    0
-#define GPA_DRV_SLOW    1
+// GPIO Pull Modes
+#define GPIO_PULL_NONE 0
+#define GPIO_PULL_DOWN 1
+#define GPIO_PULL_UP   3
 
-// GPA Directions
-#define GPA_INPUT       0
-#define GPA_OUTPUT      1
+// GPIO DRV Speed Values
+#define GPIO_DRV_FAST 0
+#define GPIO_DRV_SLOW 1
 
-//
-// Global GUID for the GPIO Protocol
-//
-#define EFI_GPIO_PROTOCOL_GUID { 0x1C592EB4, 0x22F9, 0x4174, { 0x81, 0xB7, 0x66, 0x11, 0xB6, 0xCA, 0x4F, 0xC9 } }
+// GPIO Directions
+#define GPIO_INPUT  0
+#define GPIO_OUTPUT 1
 
 //
-// Declare forward Reference to the GPIO Protocol
+// Global GUID for the Exynos GPIO Protocol
 //
-typedef struct _EFI_GPIO_PROTOCOL EFI_GPIO_PROTOCOL;
+#define EFI_EXYNOS_GPIO_PROTOCOL_GUID { 0x1C592EB4, 0x22F9, 0x4174, { 0x81, 0xB7, 0x66, 0x11, 0xB6, 0xCA, 0x4F, 0xC9 } }
 
 //
-// GPIO Bank Structure
+// Declare forward Reference to the Exynos GPIO Protocol
 //
-typedef struct gpio_bank {
-  UINT32 Con;
-  UINT32 Dat;
-  UINT32 Pull;
-  UINT32 Drv;
-  UINT32 PdnCon;
-  UINT32 PdnPull;
-  UINT8  Reserved[8];
-} GpioBank;
+typedef struct _EFI_EXYNOS_GPIO_PROTOCOL EFI_EXYNOS_GPIO_PROTOCOL;
 
 /**
-  This Function Configure the Defined Pin.
+  This Function Configures the Defined GPIO Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
-  @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
-  @param[in] Config                        - The Configuration.
+  @param[in] BankNumber                    - The Bank Number.
+  @param[in] BankId                        - The Bank ID.
+  @param[in] Pin                           - The GPIO Pin.
+  @param[in] Config                        - The new Configuration.
 
   @return EFI_SUCCESS                      - Successfully Configured defined Pin.
-  @return EFI_NOT_FOUND                    - The GPIO Base Address is not Mapped.
+  @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NO_MAPPING                   - The Specified Pinctrl isn't Mapped in Memory.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_CONFIGURE_PIN) (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN INT32     Config
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin,
+  IN UINT8 Config
   );
 
 /**
-  This Function Sets the Direction to Output on the defined Pin.
+  This Function Sets the Direction to Output of the defined GPIO Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
-  @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
-  @param[in] Enable                        - Enable Output
+  @param[in] BankNumber                    - The Bank Number.
+  @param[in] BankId                        - The Bank ID.
+  @param[in] Pin                           - The GPIO Pin.
+  @param[in] Enable                        - Enable/Disable GPIO Pin.
 
-  @return EFI_SUCCESS                      - Successfully set Pin Out Direction.
-  @return EFI_NOT_FOUND                    - The GPIO Base Address is not Mapped.
+  @return EFI_SUCCESS                      - Successfully Configured defined Pin.
+  @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NO_MAPPING                   - The Specified Pinctrl isn't Mapped in Memory.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_DIRECTION_OUTPUT) (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN BOOLEAN   Enable
+  IN UINT8   BankNumber,
+  IN UINT8   BankId,
+  IN UINT8   Pin,
+  IN BOOLEAN Enable
   );
 
 /**
-  This Function Sets the Direction to Input on the defined Pin.
+  This Function Sets the Direction to Input of the defined GPIO Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
-  @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
+  @param[in] BankNumber                    - The Bank Number.
+  @param[in] BankId                        - The Bank ID.
+  @param[in] Pin                           - The GPIO Pin.
 
-  @return EFI_SUCCESS                      - Successfully set Pin In Direction.
-  @return EFI_NOT_FOUND                    - The GPIO Base Address is not Mapped.
+  @return EFI_SUCCESS                      - Successfully Configured defined Pin.
+  @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NO_MAPPING                   - The Specified Pinctrl isn't Mapped in Memory.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_DIRECTION_INPUT) (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin
   );
 
 /**
-  This Function Gets the Current State of the defined Pin.
+  This Function Gets the Current State of the defined GPIO Pin.
 
-  @param[in]  Bank                         - The Exynos Gpa Bank.
-  @param[in]  Offset                       - The Bank Offset.
-  @param[in]  Pin                          - The Gpa Pin.
-  @param[out] State                        - The State of the Pin.
+  @param[in]  BankNumber                   - The Bank Number.
+  @param[in]  BankId                       - The Bank ID.
+  @param[in]  Pin                          - The GPIO Pin.
+  @param[out] State                        - The current State of the GPIO Pin.
 
-  @return EFI_SUCCESS                      - Successfully got the Pin State.
-  @return EFI_NOT_FOUND                    - The GPIO Base Address is not Mapped.
+  @return EFI_SUCCESS                      - Successfully Configured defined Pin.
+  @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NO_MAPPING                   - The Specified Pinctrl isn't Mapped in Memory.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_GET_PIN) (
-  IN  GpioBank *Bank,
-  IN  UINT32    Offset,
-  IN  INT32     Pin,
-  OUT UINT32   *State
+  IN  UINT8  BankNumber,
+  IN  UINT8  BankId,
+  IN  UINT8  Pin,
+  OUT UINT8 *State
   );
 
 /**
-  This Function Sets the Pull Mode to the defined Pin.
+  This Function Sets the Pull of the defined GPIO Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
-  @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
-  @param[in] Mode                          - The Mode.
+  @param[in] BankNumber                    - The Bank Number.
+  @param[in] BankId                        - The Bank ID.
+  @param[in] Pin                           - The GPIO Pin.
+  @param[in] Mode                          - The new Mode.
 
-  @return EFI_SUCCESS                      - Successfully Set defined Pull Mode.
-  @return EFI_INVALID_PARAMETER            - The Pull Mode Parameter is Invalid.
-  @return EFI_NOT_FOUND                    - The GPIO Base Address is not Mapped.
+  @return EFI_SUCCESS                      - Successfully Configured defined Pin.
+  @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NO_MAPPING                   - The Specified Pinctrl isn't Mapped in Memory.
+  @return EFI_INVALID_PARAMETER            - The Specified Mode is Invalid.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_PULL) (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN INT32     Mode
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin,
+  IN UINT8 Mode
   );
 
 /**
-  This Function Sets the DRV Mode to the defined Pin.
+  This Function Sets the DRV of the defined GPIO Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
-  @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
-  @param[in] Mode                          - The Mode.
+  @param[in] BankNumber                    - The Bank Number.
+  @param[in] BankId                        - The Bank ID.
+  @param[in] Pin                           - The GPIO Pin.
+  @param[in] Mode                          - The new Mode.
 
-  @return EFI_SUCCESS                      - Successfully set DRV Mode.
-  @return EFI_NOT_FOUND                    - The GPIO Base Address is not Mapped.
+  @return EFI_SUCCESS                      - Successfully Configured defined Pin.
+  @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NO_MAPPING                   - The Specified Pinctrl isn't Mapped in Memory.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_DRV) (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN INT32     Mode
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin,
+  IN UINT8 Mode
   );
 
 /**
-  This Function Sets the Speed of the defined Pin.
+  This Function Sets the Rate of the defined GPIO Pin.
 
-  @param[in] Bank                          - The Exynos Gpa Bank.
-  @param[in] Offset                        - The Bank Offset.
-  @param[in] Pin                           - The Gpa Pin.
-  @param[in] Mode                          - The Mode.
+  @param[in] BankNumber                    - The Bank Number.
+  @param[in] BankId                        - The Bank ID.
+  @param[in] Pin                           - The GPIO Pin.
+  @param[in] Mode                          - The new Mode.
 
-  @return EFI_SUCCESS                      - Successfully Set defined Speed Mode.
-  @return EFI_INVALID_PARAMETER            - The Speed Mode Parameter is Invalid.
-  @return EFI_NOT_FOUND                    - The GPIO Base Address is not Mapped.
+  @return EFI_SUCCESS                      - Successfully Configured defined Pin.
+  @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NO_MAPPING                   - The Specified Pinctrl isn't Mapped in Memory.
+  @return EFI_INVALID_PARAMETER            - The Specified Mode is Invalid.
 **/
 typedef
 EFI_STATUS
 (EFIAPI *EFI_SET_RATE) (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN INT32     Mode
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin,
+  IN UINT8 Mode
   );
 
 //
 // Define Protocol Functions
 //
-struct _EFI_GPIO_PROTOCOL {
+struct _EFI_EXYNOS_GPIO_PROTOCOL {
   EFI_CONFIGURE_PIN        ConfigurePin;
   EFI_SET_DIRECTION_OUTPUT SetDirectionOutput;
   EFI_SET_DIRECTION_INPUT  SetDirectionInput;
@@ -205,6 +201,6 @@ struct _EFI_GPIO_PROTOCOL {
   EFI_SET_RATE             SetRate;
 };
 
-extern EFI_GUID gEfiGpioProtocolGuid;
+extern EFI_GUID gEfiExynosGpioProtocolGuid;
 
 #endif /* _EFI_GPIO_H_ */

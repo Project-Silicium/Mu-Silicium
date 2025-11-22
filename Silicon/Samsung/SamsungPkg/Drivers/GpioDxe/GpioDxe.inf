@@ -19,11 +19,12 @@
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryMapHelperLib
+  GpioBankLib
   DebugLib
   IoLib
 
 [Protocols]
-  gEfiGpioProtocolGuid
+  gEfiExynosGpioProtocolGuid
 
 [Depex]
   TRUE

@@ -16,6 +16,7 @@
 #include <Library/DebugLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryMapHelperLib.h>
+#include <Library/GpioBankLib.h>
 #include <Library/IoLib.h>
 
 #include <Protocol/EfiGpio.h>
@@ -25,26 +26,73 @@
 //
 // Global Variables
 //
-EFI_MEMORY_REGION_DESCRIPTOR_EX GpioRegion;
+EFI_MEMORY_REGION_DESCRIPTOR_EX PinctrlRegion;
+
+EFI_STATUS
+GetBankData (
+  IN  UINT8                 Number,
+  IN  UINT8                 Id,
+  OUT EFI_PHYSICAL_ADDRESS *Address,
+  OUT UINT16               *Offset)
+{
+  EFI_STATUS Status;
+
+  // Get GPIO Bank Data
+  EFI_GPIO_BANK_DATA *BankData = GetPlatformBankData ();
+
+  // Loop thru each Bank ID
+  for (UINT8 i = 0; i < sizeof (BankData); i++) {
+    // Compare Bank IDs
+    if (BankData[i].Id != Id) {
+      continue;
+    }
+
+    // Loop thru each Bank
+    for (UINT8 j = 0; j < sizeof (BankData[i].Bank); j++) {
+      // Compare Bank Numbers
+      if (BankData[i].Bank[j].Number != Number) {
+        continue;
+      }
+
+      // Verify Pinctrl Address
+      Status = LocateMemoryMapAreaByAddress (BankData[i].Bank[j].Address, &PinctrlRegion);
+      if (EFI_ERROR (Status)) {
+        return EFI_NO_MAPPING;
+      }
+
+      // Pass Address & Offset
+      *Address = BankData[i].Bank[j].Address;
+      *Offset  = BankData[i].Bank[j].Offset;
+
+      return EFI_SUCCESS;
+    }
+  }
+
+  return EFI_NOT_FOUND;
+}
 
 EFI_STATUS
 ConfigurePin (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN INT32     Config)
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin,
+  IN UINT8 Config)
 {
-  EFI_STATUS Status;
-  UINT32     Value;
+  EFI_STATUS           Status;
+  EFI_PHYSICAL_ADDRESS Address;
+  UINT32               Value;
+  UINT16               Offset;
 
-  // Check GPIO Address
-  Status = LocateMemoryMapAreaByAddress ((EFI_PHYSICAL_ADDRESS)Bank, &GpioRegion);
+  // Get GPIO Bank Data
+  Status = GetBankData (BankNumber, BankId, &Address, &Offset);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: This GPIO Base Address is not Mapped!\n", __FUNCTION__));
     return Status;
   }
 
-  // Set Configuration Value
+  // Populate GPIO Bank Structure
+  EFI_GPIO_BANK *Bank = (EFI_GPIO_BANK *)Address;
+
+  // Set New Configuration
   Value  = MmioRead32 ((UINTN)&Bank->Con + Offset);
   Value &= ~CON_MASK(Pin);
   Value |= CON_SFR(Pin, Config);
@@ -57,29 +105,36 @@ ConfigurePin (
 
 EFI_STATUS
 SetDirectionOutput (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN BOOLEAN   Enable)
+  IN UINT8   BankNumber,
+  IN UINT8   BankId,
+  IN UINT8   Pin,
+  IN BOOLEAN Enable)
 {
-  EFI_STATUS Status;
-  UINT32     Value;
+  EFI_STATUS           Status;
+  EFI_PHYSICAL_ADDRESS Address;
+  UINT32               Value;
+  UINT16               Offset;
 
-  // Check GPIO Address
-  Status = LocateMemoryMapAreaByAddress ((EFI_PHYSICAL_ADDRESS)Bank, &GpioRegion);
+  // Configure GPIO Pin
+  Status = ConfigurePin (BankNumber, BankId, Pin, GPIO_OUTPUT);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: This GPIO Base Address is not Mapped!\n", __FUNCTION__));
     return Status;
   }
 
-  // Configure Pin
-  ConfigurePin (Bank, Offset, Pin, GPA_OUTPUT);
+  // Get GPIO Bank Data
+  Status = GetBankData (BankNumber, BankId, &Address, &Offset);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
 
-  // Set Direction Value
+  // Populate GPIO Bank Structure
+  EFI_GPIO_BANK *Bank = (EFI_GPIO_BANK *)Address;
+
+  // Set new Direction
   Value  = MmioRead32 ((UINTN)&Bank->Dat + Offset);
   Value &= ~DAT_MASK(Pin);
 
-  // Enable Pin
+  // Enable GPIO Pin
   if (Enable) {
     Value |= DAT_SET(Pin);
   }
@@ -92,75 +147,82 @@ SetDirectionOutput (
 
 EFI_STATUS
 SetDirectionInput (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin)
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin)
 {
   // Configure Pin
-  return ConfigurePin (Bank, Offset, Pin, GPA_INPUT);
+  return ConfigurePin (BankNumber, BankId, Pin, GPIO_INPUT);
 }
 
 EFI_STATUS
 GetPin (
-  IN  GpioBank *Bank,
-  IN  UINT32    Offset,
-  IN  INT32     Pin,
-  OUT UINT32   *State)
+  IN  UINT8  BankNumber,
+  IN  UINT8  BankId,
+  IN  UINT8  Pin,
+  OUT UINT8 *State)
 {
-  EFI_STATUS Status;
-  UINT32     Value;
+  EFI_STATUS           Status;
+  EFI_PHYSICAL_ADDRESS Address;
+  UINT32               Value;
+  UINT16               Offset;
 
-  // Check GPIO Address
-  Status = LocateMemoryMapAreaByAddress ((EFI_PHYSICAL_ADDRESS)Bank, &GpioRegion);
+  // Get GPIO Bank Data
+  Status = GetBankData (BankNumber, BankId, &Address, &Offset);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: This GPIO Base Address is not Mapped!\n", __FUNCTION__));
     return Status;
   }
 
-  // Get current Pin State
+  // Populate GPIO Bank Structure
+  EFI_GPIO_BANK *Bank = (EFI_GPIO_BANK *)Address;
+
+  // Get current GPIO Pin State
   Value = MmioRead32 ((UINTN)&Bank->Dat + Offset);
 
-  // Return Pin State
-  *State =  (Value & DAT_MASK(Pin));
+  // Pass GPIO Pin State
+  *State = (Value & DAT_MASK(Pin));
 
   return EFI_SUCCESS;
 }
 
 EFI_STATUS
 SetPull (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN INT32     Mode)
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin,
+  IN UINT8 Mode)
 {
-  EFI_STATUS Status;
-  UINT32     Value;
+  EFI_STATUS           Status;
+  EFI_PHYSICAL_ADDRESS Address;
+  UINT32               Value;
+  UINT16               Offset;
 
-  // Check GPIO Address
-  Status = LocateMemoryMapAreaByAddress ((EFI_PHYSICAL_ADDRESS)Bank, &GpioRegion);
+  // Get GPIO Bank Data
+  Status = GetBankData (BankNumber, BankId, &Address, &Offset);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: This GPIO Base Address is not Mapped!\n", __FUNCTION__));
     return Status;
   }
+
+  // Populate GPIO Bank Structure
+  EFI_GPIO_BANK *Bank = (EFI_GPIO_BANK *)Address;
 
   // Set Pull Mask Value
   Value  = MmioRead32 ((UINTN)&Bank->Pull + Offset);
   Value &= ~PULL_MASK(Pin);
 
-  // Set Pull Mode
+  // Set new Pull
   switch (Mode) {
-    case GPA_PULL_NONE:
-    case GPA_PULL_DOWN:
-    case GPA_PULL_UP:
+    case GPIO_PULL_NONE:
+    case GPIO_PULL_DOWN:
+    case GPIO_PULL_UP:
       Value |= PULL_MODE(Pin, Mode);
       break;
-    
+
     default:
-      DEBUG ((EFI_D_ERROR, "%a: Invalid Pull Mode! Got %d\n", __FUNCTION__, Mode));
       return EFI_INVALID_PARAMETER;
   }
 
-  // Write new Pull Configuration
+  // Write new Pull
   MmioWrite32 ((UINTN)&Bank->Pull + Offset, Value);
 
   return EFI_SUCCESS;
@@ -168,22 +230,26 @@ SetPull (
 
 EFI_STATUS
 SetDrv (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN INT32     Mode)
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin,
+  IN UINT8 Mode)
 {
-  EFI_STATUS Status;
-  UINT32     Value;
+  EFI_STATUS           Status;
+  EFI_PHYSICAL_ADDRESS Address;
+  UINT32               Value;
+  UINT16               Offset;
 
-  // Check GPIO Address
-  Status = LocateMemoryMapAreaByAddress ((EFI_PHYSICAL_ADDRESS)Bank, &GpioRegion);
+  // Get GPIO Bank Data
+  Status = GetBankData (BankNumber, BankId, &Address, &Offset);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: This GPIO Base Address is not Mapped!\n", __FUNCTION__));
     return Status;
   }
 
-  // Set DRV Configuration
+  // Populate GPIO Bank Structure
+  EFI_GPIO_BANK *Bank = (EFI_GPIO_BANK *)Address;
+
+  // Set new DRV Configuration
   Value  = MmioRead32 ((UINTN)&Bank->Drv + Offset);
   Value &= ~DRV_MASK(Pin);
   Value |= DRV_SET(Pin, Mode);
@@ -196,44 +262,47 @@ SetDrv (
 
 EFI_STATUS
 SetRate (
-  IN GpioBank *Bank,
-  IN UINT32    Offset,
-  IN INT32     Pin,
-  IN INT32     Mode)
+  IN UINT8 BankNumber,
+  IN UINT8 BankId,
+  IN UINT8 Pin,
+  IN UINT8 Mode)
 {
-  EFI_STATUS Status;
-  UINT32     Value;
+  EFI_STATUS           Status;
+  EFI_PHYSICAL_ADDRESS Address;
+  UINT32               Value;
+  UINT16               Offset;
 
-  // Check GPIO Address
-  Status = LocateMemoryMapAreaByAddress ((EFI_PHYSICAL_ADDRESS)Bank, &GpioRegion);
+  // Get GPIO Bank Data
+  Status = GetBankData (BankNumber, BankId, &Address, &Offset);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: This GPIO Base Address is not Mapped!\n", __FUNCTION__));
     return Status;
   }
+
+  // Populate GPIO Bank Structure
+  EFI_GPIO_BANK *Bank = (EFI_GPIO_BANK *)Address;
 
   // Set Rate Mask
   Value  = MmioRead32 ((UINTN)&Bank->Drv + Offset);
   Value &= ~RATE_MASK(Pin);
 
-  // Set Rate Speed
+  // Set new Rate
   switch (Mode) {
-    case GPA_DRV_FAST:
-    case GPA_DRV_SLOW:
+    case GPIO_DRV_FAST:
+    case GPIO_DRV_SLOW:
       Value |= RATE_SET(Pin);
       break;
-    
+
     default:
-    DEBUG ((EFI_D_ERROR, "%a: Invalid Speed Mode! Got %d\n", __FUNCTION__, Mode));
-    return EFI_INVALID_PARAMETER;
+      return EFI_INVALID_PARAMETER;
   }
 
-  // Write new Rate Configuration
+  // Write new Rate
   MmioWrite32 ((UINTN)&Bank->Drv + Offset, Value);
 
   return EFI_SUCCESS;
 }
 
-STATIC EFI_GPIO_PROTOCOL mGpio = {
+STATIC EFI_EXYNOS_GPIO_PROTOCOL mGpio = {
   ConfigurePin,
   SetDirectionOutput,
   SetDirectionInput,
@@ -252,7 +321,7 @@ InitGpioDriver (
   EFI_STATUS Status;
 
   // Register GPIO Protocol
-  Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gEfiGpioProtocolGuid, &mGpio, NULL);
+  Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gEfiExynosGpioProtocolGuid, &mGpio, NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register GPIO Protocol!\n"));
     ASSERT_EFI_ERROR (Status);
