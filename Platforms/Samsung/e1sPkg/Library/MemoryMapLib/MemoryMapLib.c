@@ -14,7 +14,7 @@ gMemoryRegionDescriptorEx[] = {
   {"RAM Partition",      0x93ED1000, 0x22A2F000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
   // Memory Hole: 0xB6900000 -> 0xC0000000 (0x09700000) [Secure DRAM]
-  // Memory Hole: 0xC0000000 -> 0xC0400000 (0x00400000) [H-ARX]
+  // Memory Hole: 0xC0000000 -> 0xC0400000 (0x00400000) [H-Arx]
 
   {"RAM Partition",      0xC0400000, 0x01000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"EL2 Code",           0xC1400000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsCode, WRITE_BACK},

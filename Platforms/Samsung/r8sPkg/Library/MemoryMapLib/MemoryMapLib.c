@@ -11,7 +11,8 @@ gMemoryRegionDescriptorEx[] = {
   {"FDT Pointer",        0x95E00000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"RAM Partition",      0x95E01000, 0x24CFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
-  // Memory Hole: 0xBAB00000 -> 0xC1200000 (0x6700000)
+  // Memory Hole: 0xBAB00000 -> 0xC0000000 (0x05500000) [Secure DRAM]
+  // Memory Hole: 0xC0000000 -> 0xC1200000 (0x01200000) [H-Arx]
 
   {"RAM Partition",      0xC1200000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"EL2 Code",           0xC1400000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsCode, WRITE_BACK},
@@ -19,7 +20,7 @@ gMemoryRegionDescriptorEx[] = {
   {"SEC Log",            0xC3000000, 0x00080000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
   {"RAM Partition",      0xC3080000, 0x1CF80000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
-  // Memory Hole: 0xE0000000 -> 0xE1900000 (0x01900000)
+  // Memory Hole: 0xE0000000 -> 0xE1900000 (0x01900000) [Secure PGTBL]
 
   {"RAM Partition",      0xE1900000, 0x0F700000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"UEFI FD",            0xE8000000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK}, // S-BOOT: 0xE8000000 -> 0xE9800000 (0x01800000)
