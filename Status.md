@@ -3903,6 +3903,37 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <br>
 
 <details>
+<summary><b><strong>Samsung Devices</strong></b></summary>
+
+## Samsung Galaxy Tab A9+
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A9+.png" width="550" alt="Preview">
+
+**State: Active** <br>
+**Codename: gta9p** <br>
+**Contributors: [Violet](https://github.com/ghatt-o/)**
+
+### UEFI Status
+
+| Feature            | Description     | State |
+|:-------------------|:---------------------|:-----:|
+| Display            |                      | ✅    |
+| Internal Storage   |                      | ✅    |
+| Side Buttons       |                      | ✅    |
+| USB Host Mode      |                      | ❌    |
+| USB Device Mode    |                      | ✅    |
+| USB Power Delivery |                      | ❌    |
+| Mass Storage       |                      | ✅    |
+| SD Card            |                      | ❔    |
+| Windows Boot       |                      | ❔    |
+| Linux Boot         |                      | ❔    |
+
+</td></tr>
+</table>
+
+</details>
+
+<details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
 ## Redmi Note 11 Pro 5G
