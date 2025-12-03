@@ -517,12 +517,12 @@
 <details>
 <summary><b><strong>Realme Devices</strong></b></summary>
 
-## Realme GT Neo6 / GT 6
+## Realme GT Neo6
 
 <img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="400" alt="Preview">
 
 **State: Active** <br>
-**Codename: bale** <br>
+**Codename: bale_b** <br>
 **Contributors: [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/), [InternalHellhound](https://github.com/InternalHellhound), [index986](https://github.com/index986/), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)**
 
 ### UEFI Status
