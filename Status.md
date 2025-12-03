@@ -501,7 +501,7 @@
 </details>
 
 <details>
-<summary><b><strong>Snapdragon 8s Gen 3 Devices</strong></b></summary>
+<summary><b><strong>Snapdragon 8s Gen 3 / 7+ Gen 3 Devices</strong></b></summary>
 
 <br>
 
