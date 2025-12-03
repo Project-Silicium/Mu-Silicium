@@ -16,15 +16,15 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = bale
+  PLATFORM_NAME                  = bale_b
   PLATFORM_GUID                  = 6F021B78-8DAE-474D-9B43-5E2412A76E32
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/balePkg
+  OUTPUT_DIRECTORY               = Build/bale_bPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = balePkg/bale.fdf
+  FLASH_DEFINITION               = bale_bPkg/bale_b.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
   #
@@ -46,19 +46,10 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Realme"
-!if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo6"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale_b"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"RMX3852"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23622"
-!elseif $(DEVICE_MODEL) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT 6"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"RMX3851"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23718"
-!else
-!error "Invalid Model! specify "0" for GT Neo6 or "1" for GT 6."
-!endif
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1264
@@ -77,8 +68,8 @@
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
-  MemoryMapLib|balePkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|balePkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+  MemoryMapLib|bale_bPkg/Library/MemoryMapLib/MemoryMapLib.inf
+  ConfigurationMapLib|bale_bPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include PalawanPkg/PalawanPkg.dsc.inc
