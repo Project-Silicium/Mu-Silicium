@@ -3925,8 +3925,8 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery |                      | ❌    |
 | Mass Storage       |                      | ✅    |
 | SD Card            |                      | ❔    |
-| Windows Boot       |                      | ❔    |
-| Linux Boot         |                      | ❔    |
+| Windows Boot       |                      | ❌    |
+| Linux Boot         |                      | ❌    |
 
 </td></tr>
 </table>
