@@ -1,4 +1,4 @@
-# Project Silicium UEFI for ARM-Based Devices
+# Project Silicium UEFI for ARM64-Based Devices
 
 <!-- ![Banner](https://github.com/Project-Silicium/Mu-Silicium/blob/main/Resources/Pictures/Banner.png) -->
 
