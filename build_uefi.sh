@@ -4,7 +4,7 @@
 function _help(){
 	echo "Usage: ./build_uefi.sh -d <Codename> [-r <Build Mode>] [-m <Device Model>]"
 	echo
-	echo "Build Project Silicium UEFI for defined ARM-Based Devices."
+	echo "Build Project Silicium UEFI for defined ARM64-Based Devices."
 	echo
 	echo "Options:"
 	echo "	--device <Codename>, -d <Codename>:         Builds defined Device."
