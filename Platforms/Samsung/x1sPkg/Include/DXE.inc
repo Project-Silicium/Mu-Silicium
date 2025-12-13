@@ -22,7 +22,6 @@
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-  INF SamsungPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   INF SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
   INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
