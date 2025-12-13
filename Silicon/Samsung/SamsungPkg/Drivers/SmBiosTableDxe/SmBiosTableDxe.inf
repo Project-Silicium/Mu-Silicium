@@ -27,7 +27,6 @@
   PrintLib
   DebugLib
   UefiLib
-  FdtLib
   IoLib
 
 [FixedPcd]

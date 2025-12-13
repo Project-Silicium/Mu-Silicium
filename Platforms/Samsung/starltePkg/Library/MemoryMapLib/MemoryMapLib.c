@@ -17,8 +17,7 @@ gMemoryRegionDescriptorEx[] = {
   {"SEC Log",            0xC0000000, 0x00080000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
   {"UEFI FD",            0xC0080000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"DXE Heap",           0xC0280000, 0x03C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"FDT Pointer",        0xC3E80000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
-  {"RAM Partition",      0xC3E81000, 0x0817F000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"RAM Partition",      0xC3E80000, 0x08180000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"Display Reserved",   0xCC000000, 0x02085000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH},
   {"RAM Partition",      0xCE085000, 0x11F7B000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 

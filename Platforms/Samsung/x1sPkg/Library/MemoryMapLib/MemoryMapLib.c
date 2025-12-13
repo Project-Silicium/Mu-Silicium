@@ -7,9 +7,7 @@ gMemoryRegionDescriptorEx[] = {
 
   // DDR Regions
   {"SEC Debug",          0x80000000, 0x00001000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED},
-  {"RAM Partition",      0x80001000, 0x15DFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"FDT Pointer",        0x95E00000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
-  {"RAM Partition",      0x95E01000, 0x24CFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"RAM Partition",      0x80001000, 0x3AAFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
   // Memory Hole: 0xBAB00000 -> 0xC0000000 (0x05500000) [Secure DRAM]
   // Memory Hole: 0xC0000000 -> 0xC1200000 (0x01200000) [H-Arx]

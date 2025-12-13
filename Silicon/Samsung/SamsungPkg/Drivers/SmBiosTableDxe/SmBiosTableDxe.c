@@ -14,8 +14,6 @@
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 
-#include <libfdt.h>
-
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/MemoryMapHelperLib.h>
@@ -31,76 +29,6 @@
 #include <Protocol/EfiDdrInfo.h>
 
 #include "DataDefinitions.h"
-
-EFI_STATUS
-GetMemorySize (
-  IN  CONST VOID *Fdt,
-  OUT UINT64     *MemorySize)
-{
-  CONST UINT32 *Reg         = NULL;
-  UINTN         CurrentSize = 0;
-  INT32         Node        = 0;
-  INT32         AddrCells   = 0;
-  INT32         SizeCells   = 0;
-  INT32         Len         = 0;
-
-  // Set Default Size
-  *MemorySize = 0;
-
-  // Get Root Node
-  Node = fdt_path_offset (Fdt, "/");
-  if (Node < 0) {
-    DEBUG ((EFI_D_ERROR, "Failed to Find Root Node! FdtStatus: %a\n", fdt_strerror (Node)));
-    return EFI_NOT_READY;
-  }
-
-  // Get Address & Size Cells
-  AddrCells = fdt_address_cells (Fdt, Node);
-  SizeCells = fdt_size_cells    (Fdt, Node);
-  if (AddrCells < 0 || SizeCells < 0) {
-    DEBUG ((EFI_D_ERROR, "Failed to Get Address & Size Cells!\n"));
-    return EFI_INVALID_PARAMETER;
-  }
-
-  // Cycle thru Subnodes
-  fdt_for_each_subnode (Node, Fdt, Node) {
-    // Get Current Node
-    CONST CHAR8 *DeviceType = fdt_getprop (Fdt, Node, "device_type", NULL);
-
-    // Check for "memory" Node
-    if (DeviceType && AsciiStrCmp (DeviceType, "memory") == 0) {
-      // Get "reg" Value
-      Reg = fdt_getprop (Fdt, Node, "reg", &Len);
-      if (!Reg) {
-        DEBUG ((EFI_D_ERROR, "Failed to Read 'reg' Value! FdtStatus: %a\n", fdt_strerror (Len)));
-        return EFI_ABORTED;
-      }
-
-      // Calculate New Values
-      INT32 RegSize = (AddrCells + SizeCells) * sizeof(UINT32);
-      INT32 NumRegs = Len / RegSize;
-      UINTN NewSize = NumRegs * 16;
-
-      // Update Size
-      CurrentSize = NewSize;
-
-      // Get Memory Size
-      for (INT32 i = 0; i < NumRegs; i++) {
-        UINT64 Size  = 0;
-
-        // Calculate Memory Size
-        for (INT32 j = 0; j < SizeCells; j++) {
-          Size = (Size << 32) | fdt32_to_cpu (Reg[i * (AddrCells + SizeCells) + AddrCells + j]);
-        }
-
-        // Save Memory Size
-        *MemorySize += Size;
-      }
-    }
-  }
-
-  return EFI_SUCCESS;
-}
 
 EFI_STATUS
 EFIAPI
@@ -437,9 +365,9 @@ RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS             Status           = EFI_SUCCESS;
-  EFI_DDR_INFO_PROTOCOL *mDdrInfoProtocol = NULL;
-  UINT64                 MemorySize       = 0;
+  EFI_STATUS             Status;
+  EFI_DDR_INFO_PROTOCOL *mDdrInfoProtocol;
+  UINT64                 MemorySize;
 
   // Locate DDR Info Protocol
   Status = gBS->LocateProtocol (&gEfiDdrInfoProtocolGuid, NULL, (VOID *)&mDdrInfoProtocol);
@@ -447,37 +375,6 @@ RegisterSmBiosTables (
     // Get RAM Size
     MemorySize = mDdrInfoProtocol->GetRamSize ();
   } else {
-    EFI_MEMORY_REGION_DESCRIPTOR_EX FdtPointerRegion;
-
-    // Print Error
-    DEBUG ((EFI_D_ERROR, "Failed to Locate DDR Info Protocol! Status = %r\n", Status));
-
-    // Locate FDT Pointer Memory Region
-    Status = LocateMemoryMapAreaByName ("FDT Pointer", &FdtPointerRegion);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Locate FDT Pointer Memory Region! Status = %r\n", Status));
-    } else {
-      UINT64 NewMemorySize = 0;
-
-      // Get FDT Location Address
-      CONST VOID *Fdt = (CONST VOID *)(UINTN)MmioRead32 (FdtPointerRegion.Address);
-
-      // Get Memory Nodes
-      Status = GetMemorySize (Fdt, &MemorySize);
-      if (!EFI_ERROR (Status)) {
-        // Fix Up Memory Size
-        while (MemorySize >= NewMemorySize) {
-          NewMemorySize += 0x40000000;
-        }
-
-        // Set New Memory Size
-        MemorySize = NewMemorySize;
-      }
-    }
-  }
-
-  // Use PCD Overwrite
-  if (!MemorySize) {
     MemorySize = FixedPcdGet64 (PcdSystemMemorySize);
   }
 

@@ -33,24 +33,15 @@ do case "${1}" in
 done
 
 # Parse Active Devices from Status.md
-DEVICES=$(awk '/**State: Active**/,/**Codename:/ {if ($0 ~ /**Codename:/) print substr($2, 1, length($2)-2)}' Status.md)
+ACTIVE_DEVICES=$(awk '/**Codename:**/ { if (DEVICE_STATE == "A" ) { sub (/<br>$/, "", $2); print $2} DEVICE_STATE = ""; next} /**State:**/ { DEVICE_STATE = ($2 == "Active" ? "A" : ""); next} {DEVICE_STATE = ""}' Status.md)
 
 # Build UEFI Images
-for Device in $DEVICES; do
-	# Parse Device Config File
-	if [ -f "Resources/Configs/${Device}.conf" ]
-	then source "Resources/Configs/${Device}.conf"
-	else _error "\nDevice configuration not found from ${Device}!\nCheck if your .conf File is in the 'configs' Folder\n"
-	fi
+for TARGET_DEVICE in $ACTIVE_DEVICES; do
+	# Get Number of Models
+	TARGET_NUMBER_OF_MODELS=$(awk -v TARGET="$TARGET_DEVICE" '/**Codename:**/ {if ($2 ~ TARGET) {FOUND = 1} else {FOUND = 0} next} FOUND && /**Models:**/ {COUNT = $2; sub(/<br>$/, "", COUNT); print COUNT; exit} /**State:**/ {FOUND = 0} END {if (!FOUND || !COUNT) {print 1}}' Status.md)
 
-	# Check Device Models
-	if [ ${TARGET_MULTIPLE_MODELS} == 1 ]; then
-		# Build each Device Model
-		for ((Model = 0; Model < $TARGET_NUMBER_OF_MODELS; Model++)); do
-			bash ./build_uefi.sh -d $Device -r $TARGET_BUILD_MODE -c -m $Model || exit $?
-		done
-	else
-		# Build Main Device
-		bash ./build_uefi.sh -d $Device -r $TARGET_BUILD_MODE -c || exit $?
-	fi
+	# Build each Device Model
+	for ((TARGET_MODEL = 0; TARGET_MODEL < $TARGET_NUMBER_OF_MODELS; TARGET_MODEL++)); do
+		bash ./build_uefi.sh -d $TARGET_DEVICE -r $TARGET_BUILD_MODE -c -m $TARGET_MODEL || exit $?
+	done
 done

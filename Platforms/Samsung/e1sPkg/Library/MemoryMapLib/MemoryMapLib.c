@@ -9,9 +9,7 @@ gMemoryRegionDescriptorEx[] = {
   {"RAM Partition",      0x80000000, 0x0FFFF000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"Kaslr",              0x8FFFF000, 0x00001000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
   {"ECT",                0x90000000, 0x000C4000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
-  {"RAM Partition",      0x93EC4000, 0x0000C000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
-  {"FDT Pointer",        0x93ED0000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
-  {"RAM Partition",      0x93ED1000, 0x22A2F000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
+  {"RAM Partition",      0x93EC4000, 0x22A3C000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
 
   // Memory Hole: 0xB6900000 -> 0xC0000000 (0x09700000) [Secure DRAM]
   // Memory Hole: 0xC0000000 -> 0xC0400000 (0x00400000) [H-Arx]
