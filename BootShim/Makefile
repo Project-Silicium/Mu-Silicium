@@ -10,6 +10,6 @@ BootShim.bin: BootShim.elf
 	$(OBJCOPY) -O binary $< $@
 
 BootShim.elf: BootShim.S
-	$(CC) ${CFLAGS} -c $< -o $@ -DUEFI_BASE=$(UEFI_BASE) -DUEFI_SIZE=$(UEFI_SIZE)
+	$(CC) ${CFLAGS} -c $< -o $@ -DREQUIRES_KERNEL_HEADER=$(REQUIRES_KERNEL_HEADER) -DFD_BASE=$(FD_BASE) -DFD_SIZE=$(FD_SIZE)
 
 BootShim.S:

@@ -28,9 +28,9 @@ eval set -- "${OPTS}"
 # Parse Parameters
 while true
 do case "${1}" in
-		-d|--device) TARGET_DEVICE="${2}";shift 2;;
+		-d|--device) TARGET="${2}";shift 2;;
 		-r|--release) TARGET_BUILD_MODE="${2}";shift 2;;
-		-m|--model) TARGET_DEVICE_MODEL="${2}";shift 2;;
+		-m|--model) TARGET_MODEL="${2}";shift 2;;
 		-c|--clean) DO_CLEAN_BUILD=1;shift;;
 		-h|--help) _help 0;shift;;
 		--) shift;break;;
@@ -39,21 +39,27 @@ do case "${1}" in
 done
 
 # Check Device Parameter
-if [ -z "$TARGET_DEVICE" ]
+if [ -z "$TARGET" ]
 then _help
 fi
 
 # Check Device Model Parameter
-if [ -z "$TARGET_DEVICE_MODEL" ]
-then TARGET_DEVICE_MODEL=0
+if [ -z "$TARGET_MODEL" ]
+then TARGET_MODEL=0
 fi
 
 # Find Device Folder
-TARGET_DEVICE_PATH=$(find ./Platforms -type d -name "${TARGET_DEVICE}Pkg" -print -quit)
+TARGET_PATH=$(find ./Platforms -type d -name "${TARGET}Pkg" -print -quit)
 
 # Verify Device Path
-if [ -z "$TARGET_DEVICE_PATH" ]
-then _error "\nThere are no Build Files for $TARGET_DEVICE!\n"
+if [ -z "$TARGET_PATH" ]
+then _error "\nThere are no Build Files for $TARGET!\n"
+fi
+
+# Parse Device Config File
+if [ -f "Resources/Configs/$TARGET.conf" ]
+then source "Resources/Configs/$TARGET.conf"
+else _error "\nDevice Configuration not found for $TARGET!\nCheck if your .conf File is in the \"Resources/Configs\" Folder.\n"
 fi
 
 # Delete Old Build Files
@@ -66,7 +72,7 @@ rm -r Conf &> /dev/null
 rm ./BootShim/BootShim.bin &> /dev/null
 rm ./BootShim/BootShim.elf &> /dev/null
 rm ./Resources/bootpayload.bin &> /dev/null
-rm Mu-$TARGET_DEVICE.* &> /dev/null
+rm Mu-$TARGET.* &> /dev/null
 
 # Remove Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
@@ -90,37 +96,17 @@ do case "${TARGET_BUILD_MODE^^}" in
 	esac
 done
 
-# Find Device Memory Map
-while IFS= read -r -d '' FILE; do
-	# Get "UEFI FD" Values
-	TARGET_UEFI_FD=$(awk -F',' '/UEFI FD/ { gsub(/[ \t]/, "", $2); gsub(/[ \t]/, "", $3); print $2, $3 }' $FILE)
-
-	# Verify FD Values
-	if [ -z "$TARGET_UEFI_FD" ]; then
-		# Use "UEFI_FD" instead
-		TARGET_UEFI_FD=$(awk -F',' '/UEFI_FD/ { gsub(/[ \t]/, "", $2); gsub(/[ \t]/, "", $3); print $2, $3 }' $FILE)
-
-		# Verify again
-		if [ -z "$TARGET_UEFI_FD" ]
-		then _error "\n$TARGET_DEVICE does not have a Valid 'UEFI FD' Memory Region!\n"
-		fi
-	fi
-
-	# Seperate FD Values
-	read -r TARGET_FD_BASE TARGET_FD_SIZE <<< "$TARGET_UEFI_FD"
-
-	# Calculate FD Block Size
-	TARGET_FD_BLOCKS="$(printf "0x%x" $(($TARGET_FD_SIZE / 0x1000)))"
-done < <(find "$TARGET_DEVICE_PATH" -type f -name "MemoryMapLib.c" -print0)
+# Calculate FD Block Size
+TARGET_FD_BLOCKS="$(printf "0x%x" $(($TARGET_FD_SIZE / 0x1000)))"
 
 # Compile BootShim
 pushd BootShim  &> /dev/null || exit 1
-make UEFI_BASE=${TARGET_FD_BASE} UEFI_SIZE=${TARGET_FD_SIZE} || _error "\nFailed to Compile BootShim!\n"
+make REQUIRES_KERNEL_HEADER=$TARGET_REQUIRES_KERNEL_HEADER FD_BASE=$TARGET_FD_BASE FD_SIZE=$TARGET_FD_SIZE || _error "\nFailed to Compile BootShim!\n"
 popd &> /dev/null
 
 # Setup & Update UEFI Enviroment
-python3 "$TARGET_DEVICE_PATH/DeviceBuild.py" --setup -t ${TARGET_BUILD_MODE} || _error "\nFailed to Setup UEFI Env!\n"
-python3 "$TARGET_DEVICE_PATH/DeviceBuild.py" --update -t ${TARGET_BUILD_MODE} || _error "\nFailed to Update UEFI Env!\n"
+python3 "$TARGET_PATH/DeviceBuild.py" --setup -t $TARGET_BUILD_MODE || _error "\nFailed to Setup UEFI Env!\n"
+python3 "$TARGET_PATH/DeviceBuild.py" --update -t $TARGET_BUILD_MODE || _error "\nFailed to Update UEFI Env!\n"
 
 # Copy Mu Patches to the Right Location
 cp Resources/MuPatches/BdsWait.patch Resources/MuPatches/UsbBus.patch Mu_Basecore/ || exit 1
@@ -138,17 +124,17 @@ git apply Timer.patch &> /dev/null
 popd &> /dev/null
 
 # Start the Real UEFI Build
-python3 "$TARGET_DEVICE_PATH/DeviceBuild.py" "TARGET=${TARGET_BUILD_MODE}" "FD_BASE=${TARGET_FD_BASE}" "FD_SIZE=${TARGET_FD_SIZE}" "FD_BLOCKS=${TARGET_FD_BLOCKS}" "DEVICE_MODEL=${TARGET_DEVICE_MODEL}" || _error "\nFailed to Compile UEFI!\n"
+python3 "$TARGET_PATH/DeviceBuild.py" "TARGET=$TARGET_BUILD_MODE" "FD_BASE=$TARGET_FD_BASE" "FD_SIZE=$TARGET_FD_SIZE" "FD_BLOCKS=$TARGET_FD_BLOCKS" "DEVICE_MODEL=$TARGET_MODEL" || _error "\nFailed to Compile UEFI!\n"
 
 # Run Device Specific Image Creation
-if [ -f "Resources/Scripts/$TARGET_DEVICE.sh" ]
-then source Resources/Scripts/$TARGET_DEVICE.sh
-else _warn "\nImage Creation Script of $TARGET_DEVICE was not Found!\nNo Output Image Was Generated.\n"
+if [ -f "Resources/Scripts/$TARGET.sh" ]
+then source Resources/Scripts/$TARGET.sh
+else _warn "\nImage Creation Script of $TARGET was not Found!\nNo Output Image Was Generated.\n"
 fi
 
 # Check for Updates
 git fetch &> /dev/null
 UPDATE_CHECK=$(git status)
 if [[ ${UPDATE_CHECK} == *"git pull"* ]];
-then _warn "\nYou are using an old Version of Mu-Silicium.\nPlease Update to use newest Fixes and Features.\nUse 'git pull' to Update your Local Repo.\n"
+then _warn "\nYou are using an old Version of Mu-Silicium.\nPlease Update to use newest Fixes and Features.\nUse \"git pull\" to Update your Local Repo.\n"
 fi

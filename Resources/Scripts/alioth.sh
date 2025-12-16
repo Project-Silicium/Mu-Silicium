@@ -15,5 +15,5 @@ python3 ./Resources/Scripts/mkbootimg.py \
   --os_version 13.0.0 \
   --os_patch_level "$(date '+%Y-%m')" \
   --header_version 1 \
-  -o Mu-alioth-${TARGET_DEVICE_MODEL}.img \
+  -o Mu-alioth-$TARGET_MODEL.img \
   ||_error "\nFailed to create Android Boot Image!\n"
