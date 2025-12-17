@@ -51,6 +51,7 @@ PlatformUpdateAcpiTables ()
   UINT32 SKUV                            = 1;
   UINT32 SDDR                            = 4;
   UINT32 SmemSize                        = 0;
+  UINT32 UAON                            = 0;
 
   // Locate Chip Info Protocol
   Status  = gBS->LocateProtocol (&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mChipInfoProtocol);
@@ -138,4 +139,5 @@ PlatformUpdateAcpiTables ()
   UpdateNameAslCode (SIGNATURE_32('P', 'R', 'P', '0'), &PRP0, 4);
   UpdateNameAslCode (SIGNATURE_32('P', 'R', 'P', '1'), &PRP1, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'S'), &SIDS, EFICHIPINFO_MAX_ID_LENGTH);
+  UpdateNameAslCode (SIGNATURE_32('U', 'A', 'O', 'N'), &UAON, 4);
 }
