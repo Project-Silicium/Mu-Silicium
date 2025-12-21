@@ -181,25 +181,21 @@ PrepareRng (
     EFI_HANDLE *HandleBuffer;
     UINTN       HandleCount;
 
-    while (TRUE) {
-      // Locate RNG Protocol Handle
-      Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, mRngRegistration, &HandleCount, &HandleBuffer);
-      if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Protocol Handle! Status = %r\n", __FUNCTION__, Status));
-        return;
-      }
+    // Locate RNG Protocol Handle
+    Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, mRngRegistration, &HandleCount, &HandleBuffer);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Protocol Handle! Status = %r\n", __FUNCTION__, Status));
+      return;
+    }
 
-      // Verify Handle Count
-      ASSERT (HandleCount == 1);
+    // Verify Handle Count
+    ASSERT (HandleCount == 1);
 
-      // Get RNG Protocol from Handle
-      Status = gBS->HandleProtocol (HandleBuffer[0], &gEfiRngProtocolGuid, (VOID *)&mRngProtocol);
-      if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "%a: Failed to get RNG Protocol from Handle! Status = %r\n", __FUNCTION__, Status));
-        return;
-      }
-
-      break;
+    // Get RNG Protocol from Handle
+    Status = gBS->HandleProtocol (HandleBuffer[0], &gEfiRngProtocolGuid, (VOID *)&mRngProtocol);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to get RNG Protocol from Handle! Status = %r\n", __FUNCTION__, Status));
+      return;
     }
   }
 

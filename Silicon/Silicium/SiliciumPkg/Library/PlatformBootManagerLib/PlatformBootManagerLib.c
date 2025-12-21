@@ -526,7 +526,6 @@ PlatformBootManagerUnableToBoot ()
   CpuDeadLoop ();
 }
 
-#if DISABLE_SECUREBOOT == 0
 STATIC VOID *mSimpleFileSystemRegistration;
 
 VOID
@@ -576,6 +575,7 @@ ManageSiPolicy (IN EFI_HANDLE SfsHandle)
     return;
   }
 
+#if DISABLE_SECUREBOOT == 0
   // Create SiPolicy.p7b
   if (Status == EFI_NOT_FOUND) {
     Status = FatVolume->Open (FatVolume, &File, L"\\EFI\\Microsoft\\Boot\\SiPolicy.p7b", EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE | EFI_FILE_MODE_CREATE, 0);
@@ -597,7 +597,17 @@ ManageSiPolicy (IN EFI_HANDLE SfsHandle)
   // Close SiPolicy.p7b
   FatVolume->Close (File);
 
-  DEBUG ((EFI_D_WARN, "Successfully Wrote Custom SiPolicy\n"));
+  DEBUG ((EFI_D_WARN, "%a: Successfully Wrote Custom SiPolicy\n", __FUNCTION__));
+#else
+  // Delete SiPolicy.p7b
+  Status = FatVolume->Delete (File);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Delete SiPolicy.p7b! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  DEBUG ((EFI_D_WARN, "%a: Successfully Deleted SiPolicy.p7b\n", __FUNCTION__));
+#endif
 }
 
 VOID
@@ -627,7 +637,6 @@ VerifyFileSystem (
     FreePool (HandleBuffer);
   }
 }
-#endif
 
 STATIC
 VOID
@@ -636,12 +645,13 @@ PreReadyToBoot (
   IN EFI_EVENT  Event,
   IN VOID      *Context)
 {
-#if DISABLE_SECUREBOOT == 0
   EFI_STATUS Status;
   EFI_EVENT  FileSystemCallbackEvent;
 
+#if DISABLE_SECUREBOOT == 0
   // Set Secure Boot Config
   ASSERT_EFI_ERROR (SetSecureBootConfig (0));
+#endif
 
   // Create File System Callback Event
   Status = gBS->CreateEvent (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, VerifyFileSystem, NULL, &FileSystemCallbackEvent);
@@ -663,7 +673,6 @@ PreReadyToBoot (
   VerifyFileSystem (NULL, NULL);
 
 exit:
-#endif
   gBS->CloseEvent (Event);
 }
 
