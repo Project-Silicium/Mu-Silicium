@@ -3457,7 +3457,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 **State:** Active <br>
 **Codename:** lisa
 
-**Contributors:** [ETCHDEV](https://github.com/ETCHDEV/), [Nikroks](https://github.com/N1kroks/), [Aistop](https://github.com/AistopGit/)
+**Contributors:** [ETCHDEV](https://github.com/ETCHDEV/), [Nikroks](https://github.com/N1kroks/), [Aistop](https://github.com/AistopGit/), [remtrik](https://github.com/remtrik), [Arminas](https://github.com/arminask)
 
 ### UEFI Status
 
@@ -3483,36 +3483,36 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 > [!IMPORTANT]
 > Needs [Windows Drivers](https://github.com/AistopGit/windows_oem_xiaomi_lisa).
 
-| Feature              | Description           | State |
-|:---------------------|:----------------------|:-----:|
-| Internal Storage     |                       | ✅    |
-| SD Card              | SDXC cards don't work | ⚠️    |
-| Side Buttons         |                       | ✅    |
-| Proximity Sensor     |                       | ❌    |
-| Light Sensor         |                       | ❌    |
-| Accelerometer Sensor |                       | ❌    |
-| Compass Sensor       |                       | ❌    |
-| Fingerprint Sensor   |                       | ❌    |
-| Hall Sensor          |                       | ❌    |
-| NFC Sensor           |                       | ❌    |
-| Temperature Sensor   |                       | ❌    |
-| Battery              |                       | ✅    |
-| USB Host Mode        |                       | ✅    |
-| USB Device Mode      |                       | ✅    |
-| USB Power Delivery   |                       | ✅    |
-| Charging             |                       | ✅    |
-| WLAN                 |                       | ✅    |
-| CPU                  |                       | ✅    |
-| Touchscreen          |                       | ✅    |
-| Bluetooth            |                       | ✅    |
-| GPS                  |                       | ✅    |
-| Speakers             |                       | ❌    |
-| Microphone           |                       | ❌    |
-| GPU                  |                       | ❌    |
-| Camera               |                       | ❌    |
-| Mobile Data          |                       | ✅    |
-| Display              |                       | ✅    |
-| Vibration            |                       | ✅    |
+| Feature              | Description                                       | State |
+|:---------------------|:--------------------------------------------------|:-----:|
+| Internal Storage     |                                                   | ✅    |
+| SD Card              | SDXC cards don't work                             | ⚠️    |
+| Side Buttons         |                                                   | ✅    |
+| Proximity Sensor     |                                                   | ❌    |
+| Light Sensor         |                                                   | ❌    |
+| Accelerometer Sensor |                                                   | ❌    |
+| Compass Sensor       |                                                   | ❌    |
+| Fingerprint Sensor   |                                                   | ❌    |
+| Hall Sensor          |                                                   | ❌    |
+| NFC Sensor           |                                                   | ❌    |
+| Temperature Sensor   | Some sensors don't work                           | ⚠️    |
+| Battery              |                                                   | ✅    |
+| USB Host Mode        |                                                   | ✅    |
+| USB Device Mode      |                                                   | ✅    |
+| USB Power Delivery   |                                                   | ✅    |
+| Charging             | Fast charging temporarily breaks host mode and PD | ✅    |
+| WLAN                 |                                                   | ✅    |
+| CPU                  |                                                   | ✅    |
+| Touchscreen          |                                                   | ✅    |
+| Bluetooth            |                                                   | ✅    |
+| GPS                  |                                                   | ✅    |
+| Speakers             |                                                   | ❌    |
+| Microphone           |                                                   | ❌    |
+| GPU                  | Has visual artifacts that cause slight lags       | ⚠️    |
+| Camera               |                                                   | ❌    |
+| Mobile Data          | SIM2 doesn't work                                 | ✅    |
+| Display              |                                                   | ✅    |
+| Vibration            |                                                   | ✅    |
 
 </td></tr>
 </table>
