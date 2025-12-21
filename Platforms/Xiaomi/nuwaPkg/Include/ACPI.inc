@@ -7,6 +7,7 @@
 #  SECTION RAW = Kailua/DBG2.aml
 !endif
 #  SECTION RAW = nuwa/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Kailua/FACP.aml
 #  SECTION RAW = Kailua/FPDT.aml
 #  SECTION RAW = Kailua/GTDT.aml

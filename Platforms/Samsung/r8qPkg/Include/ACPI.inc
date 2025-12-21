@@ -7,6 +7,7 @@
 #  SECTION RAW = Kona/DBG2.aml
 !endif
 #  SECTION RAW = r8q/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Kona/FACP.aml
 #  SECTION RAW = Kona/FPDT.aml
 #  SECTION RAW = Kona/GTDT.aml

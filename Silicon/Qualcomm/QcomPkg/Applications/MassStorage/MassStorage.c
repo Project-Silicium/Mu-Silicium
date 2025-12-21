@@ -185,7 +185,7 @@ StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
 {
   EFI_STATUS Status        = EFI_SUCCESS;
   UINT8      CurrentSplash = 0;
-  BOOLEAN    Connected     = FALSE;
+//BOOLEAN    Connected     = FALSE;
   BOOLEAN    Running       = FALSE;
 
   // Clear LUN Message
@@ -201,13 +201,15 @@ StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
   // Handle USB Events & Input
   while (TRUE) {
     // Get USB Connect State
+    /*
     if (mChargerExProtocol != NULL) {
       mChargerExProtocol->GetChargerPresence (&Connected);
     } else {
       mChgProtocol->GetChargerStatus (&Connected);
     }
+    */
 
-    if (Connected) {
+    //if (Connected) {
       if (!Running) {
         // Start USB Device
         Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
@@ -234,9 +236,10 @@ StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
 
       // Execute Event Handler
       mUsbMsdProtocol->EventHandler (mUsbMsdProtocol);
-    } else {
+    //} else {
       EFI_INPUT_KEY Key;
 
+      /*
       if (Running) {
         // Stop USB Device
         Status = mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
@@ -266,6 +269,7 @@ StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
         // Set Current Splash
         CurrentSplash = BG_MSD_DISCONNECTED;
       }
+      */
 
       // Get current Key
       gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
@@ -288,7 +292,7 @@ StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
       if (Key.ScanCode == SCAN_DOWN || Key.ScanCode == SCAN_DELETE) {
         gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
       }
-    }
+    //}
   }
 }
 

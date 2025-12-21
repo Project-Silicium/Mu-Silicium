@@ -8,6 +8,7 @@
 #  SECTION RAW = MT6768/DBG2.aml
 !endif
 #  SECTION RAW = lancelot/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = MT6768/FACP.aml
 #  SECTION RAW = MT6768/FPDT.aml
 #  SECTION RAW = MT6768/GTDT.aml

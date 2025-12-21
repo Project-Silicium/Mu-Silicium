@@ -1,0 +1,35 @@
+##
+#  Copyright (c) Microsoft Corporation. All rights reserved.
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                     = 0x00010005
+  BASE_NAME                       = DxeRngLib
+  FILE_GUID                       = FF9F84C5-A33E-44E3-9BB5-0D654B2D4149
+  MODULE_TYPE                     = DXE_DRIVER
+  VERSION_STRING                  = 1.0
+  LIBRARY_CLASS                   = RngLib|DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION UEFI_DRIVER
+  CONSTRUCTOR                     = DxeRngLibConstructor
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[Sources]
+  DxeRngLib.c
+
+[LibraryClasses]
+  DebugLib
+  BaseMemoryLib
+  UefiBootServicesTableLib
+  MemoryAllocationLib
+
+[Guids]
+  gEfiRngAlgorithmArmRndr
+  gEfiRngAlgorithmSp80090Ctr256Guid
+  gEfiRngAlgorithmSp80090Hash256Guid
+  gEfiRngAlgorithmSp80090Hmac256Guid
+  gEfiRngAlgorithmRaw
+
+[Protocols]
+  gEfiRngProtocolGuid

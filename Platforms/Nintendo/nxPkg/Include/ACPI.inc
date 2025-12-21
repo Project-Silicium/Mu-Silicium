@@ -8,6 +8,7 @@
 #  SECTION RAW = Erista/DBG2.aml
 !endif
 #  SECTION RAW = icosa/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Erista/FACP.aml
 #  SECTION RAW = Erista/FPDT.aml
 #  SECTION RAW = Erista/GTDT.aml
@@ -29,6 +30,7 @@
 !if $(DEVICE_MODEL) == 1
 #  SECTION RAW = iowa/DSDT.aml
 !endif
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Mariko/FACP.aml
 #  SECTION RAW = Mariko/FPDT.aml
 #  SECTION RAW = Mariko/GTDT.aml

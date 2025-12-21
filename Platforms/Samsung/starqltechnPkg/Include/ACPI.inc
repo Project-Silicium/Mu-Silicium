@@ -7,6 +7,7 @@
 #  SECTION RAW = Napali/DBG2.aml
 !endif
 #  SECTION RAW = starqltechn/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Napali/FACP.aml
 #  SECTION RAW = Napali/FPDT.aml
 #  SECTION RAW = Napali/GTDT.aml

@@ -7,6 +7,7 @@
 #  SECTION RAW = Nicobar/DBG2.aml
 !endif
 #  SECTION RAW = laurel_sprout/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Nicobar/FADT.aml
 #  SECTION RAW = Nicobar/FACP.aml
 #  SECTION RAW = Nicobar/GTDT.aml

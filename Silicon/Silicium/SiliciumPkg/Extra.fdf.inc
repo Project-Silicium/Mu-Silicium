@@ -7,6 +7,13 @@
 
   INF SiliciumPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf
 
+!if $(DISABLE_SECURITY) == 0
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdCustomSiPolicyGuid) {
+    SECTION RAW = SiliciumPkg/Include/Resources/SecureBoot/SiPolicy.p7b
+    SECTION UI = "SiPolicy.p7b"
+  }
+!endif
+
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
     SECTION RAW = SiliciumPkg/Include/Resources/BootLogo.bmp
     SECTION UI = "Boot Logo"

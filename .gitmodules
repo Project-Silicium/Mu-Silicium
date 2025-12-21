@@ -27,3 +27,7 @@
 	path = Silicon/Arm/Mu_Tiano
 	url = https://github.com/microsoft/mu_silicon_arm_tiano.git
 	branch = release/202502
+[submodule "Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl"]
+	path = Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl
+	url = https://github.com/openssl/openssl.git
+	branch = 830bf8e1e4749ad65c51b6a1d0d769ae689404ba

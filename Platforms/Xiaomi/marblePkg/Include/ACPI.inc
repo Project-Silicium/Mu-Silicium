@@ -7,6 +7,7 @@
 #  SECTION RAW = Palima/DBG2.aml
 !endif
 #  SECTION RAW = marble/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Palima/FACP.aml
 #  SECTION RAW = Palima/FPDT.aml
 #  SECTION RAW = Palima/GTDT.aml

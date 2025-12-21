@@ -6,8 +6,8 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 !if $(TARGET) == DEBUG
 # SECTION RAW = Kona/DBG2.aml
 !endif
-# SECTION RAW = Kona/DSDT_minimal.aml
   SECTION RAW = bitra/DSDT.aml
+  SECTION RAW = Common/SSDT.aml
   SECTION RAW = Kona/FACP.aml
 # SECTION RAW = Kona/FPDT.aml
   SECTION RAW = Kona/GTDT.aml

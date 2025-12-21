@@ -7,6 +7,7 @@
 #  SECTION RAW = Nazgul/DBG2.aml
 #!endif
 #  SECTION RAW = cheeseburger/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Nazgul/FACP.aml
 #  SECTION RAW = Nazgul/FPDT.aml
 #  SECTION RAW = Nazgul/GTDT.aml

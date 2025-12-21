@@ -7,6 +7,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Waipio/DBG2.aml
 !endif
   SECTION RAW = gts8p/DSDT.aml
+  SECTION RAW = Common/SSDT.aml
   SECTION RAW = Waipio/FACP.aml
 # SECTION RAW = Waipio/FPDT.aml
   SECTION RAW = Waipio/GTDT.aml

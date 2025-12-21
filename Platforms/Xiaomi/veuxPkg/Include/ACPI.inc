@@ -7,6 +7,7 @@
 #  SECTION RAW = Strait/DBG2.aml
 #!endif
 #  SECTION RAW = veux/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Strait/FADT.aml
 #  SECTION RAW = Strait/FACP.aml
 #  SECTION RAW = Strait/GTDT.aml

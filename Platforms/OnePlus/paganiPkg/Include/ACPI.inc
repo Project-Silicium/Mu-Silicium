@@ -7,6 +7,7 @@
 #  SECTION RAW = Pakala/DBG2.aml
 !endif
 #  SECTION RAW = pagani/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Pakala/FACP.aml
 #  SECTION RAW = Pakala/FPDT.aml
 #  SECTION RAW = Pakala/GTDT.aml

@@ -7,6 +7,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Rennell/DBG2.aml
 !endif
   SECTION RAW = miatoll/DSDT.aml
+  SECTION RAW = Common/SSDT.aml
   SECTION RAW = Rennell/FACP.aml
   SECTION RAW = Rennell/FACS.aml
 # SECTION RAW = Rennell/FPDT.aml

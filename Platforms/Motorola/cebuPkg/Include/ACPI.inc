@@ -7,6 +7,7 @@
 #  SECTION RAW = Kamorta/DBG2.aml
 !endif
 #  SECTION RAW = cebu/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Kamorta/FADT.aml
 #  SECTION RAW = Kamorta/FACP.aml
 #  SECTION RAW = Kamorta/GTDT.aml

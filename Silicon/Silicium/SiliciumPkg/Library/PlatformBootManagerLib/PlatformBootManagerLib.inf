@@ -27,11 +27,13 @@
 [LibraryClasses]
   DebugLib
   BaseMemoryLib
+  DxeServicesLib
   UefiBootServicesTableLib
   MemoryAllocationLib
   MsBootOptionsLib
   MsBootPolicyLib
   BootGraphicsLib
+  MuSecureBootKeySelectorLib
   UefiRuntimeServicesTableLib
   AcpiPlatformUpdateLib
   DxeServicesTableLib
@@ -50,6 +52,7 @@
 [FixedPcd]
   gSiliciumPkgTokenSpaceGuid.PcdSpecialApp
   gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName
+  gSiliciumPkgTokenSpaceGuid.PcdCustomSiPolicyGuid
 
 [Guids]
   gEfiEndOfDxeEventGroupGuid
@@ -63,3 +66,4 @@
   gEfiDxeSmmReadyToLockProtocolGuid
   gEfiAbsolutePointerProtocolGuid
   gEfiGraphicsOutputProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid

@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build UEFI for active devices
-        run: bash ./setup_env.sh -p apt && bash ./build_active_devices.sh
+        run: bash ./setup_env.sh -p apt && bash ./build_active_devices.sh -r DEBUG -i
 
       - name: Upload UEFI images
         uses: actions/upload-artifact@v4

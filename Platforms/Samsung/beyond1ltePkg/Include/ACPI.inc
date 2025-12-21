@@ -7,6 +7,7 @@
 #  SECTION RAW = S5E9820/DBG2.aml
 !endif
 #  SECTION RAW = beyond1lte/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = S5E9820/FACP.aml
 #  SECTION RAW = S5E9820/FPDT.aml
 #  SECTION RAW = S5E9820/GTDT.aml

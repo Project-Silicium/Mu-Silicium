@@ -8,6 +8,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Napali/DBG2.aml
 !endif
   SECTION RAW = caymanslm/DSDT.aml
+  SECTION RAW = Common/SSDT.aml
   SECTION RAW = Napali/FACP.aml
 # SECTION RAW = Napali/FPDT.aml
   SECTION RAW = Napali/GTDT.aml

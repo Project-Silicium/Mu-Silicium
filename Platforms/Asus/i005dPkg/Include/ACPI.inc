@@ -7,6 +7,7 @@
 #  SECTION RAW = Lahaina/DBG2.aml
 !endif
 #  SECTION RAW = i005d/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Lahaina/FACP.aml
 #  SECTION RAW = Lahaina/FPDT.aml
 #  SECTION RAW = Lahaina/GTDT.aml

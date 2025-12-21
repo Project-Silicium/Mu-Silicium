@@ -7,6 +7,7 @@
 #  SECTION RAW = S5E7870/DBG2.aml
 !endif
 #  SECTION RAW = gtaxllte/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = S5E7870/FACP.aml
 #  SECTION RAW = S5E7870/FPDT.aml
 #  SECTION RAW = S5E7870/GTDT.aml

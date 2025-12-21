@@ -7,6 +7,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 # SECTION RAW = Kailua/DBG2.aml
 !endif
   SECTION RAW = aston/DSDT.aml
+  SECTION RAW = Common/SSDT.aml
   SECTION RAW = Kailua/FACP.aml
 # SECTION RAW = Kailua/FPDT.aml
   SECTION RAW = Kailua/GTDT.aml

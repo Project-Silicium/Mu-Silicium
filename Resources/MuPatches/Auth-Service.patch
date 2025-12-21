@@ -1,0 +1,35 @@
+diff --git a/SecurityPkg/Library/AuthVariableLib/AuthService.c b/SecurityPkg/Library/AuthVariableLib/AuthService.c
+index ce44595b9c..bc6aaf87bc 100644
+--- a/SecurityPkg/Library/AuthVariableLib/AuthService.c
++++ b/SecurityPkg/Library/AuthVariableLib/AuthService.c
+@@ -28,6 +28,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
+ 
+ #include <Protocol/VariablePolicy.h>
+ #include <Library/VariablePolicyLib.h>
++#include <Library/UefiRuntimeLib.h>
+ 
+ #define SHA_DIGEST_SIZE_MAX  SHA512_DIGEST_SIZE
+ 
+@@ -2510,6 +2511,10 @@ VerifyTimeBasedPayloadAndUpdate (
+   AUTH_VARIABLE_INFO             OrgVariableInfo;
+   BOOLEAN                        IsDel;
+ 
++  if (EfiAtRuntime ()) {
++    return EFI_WRITE_PROTECTED;
++  }
++
+   ZeroMem (&OrgVariableInfo, sizeof (OrgVariableInfo));
+   FindStatus = mAuthVarLibContextIn->FindVariable (
+                                        VariableName,
+diff --git a/SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf b/SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
+index 0b0f0a9f96..0f605de9b5 100644
+--- a/SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
++++ b/SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
+@@ -43,6 +43,7 @@
+   BaseCryptLib
+   PlatformSecureLib
+   VariablePolicyLib
++  UefiRuntimeLib
+ 
+ # MU_CHANGE [BEGIN] - TCBZ2506
+ [FeaturePcd]

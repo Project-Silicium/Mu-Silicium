@@ -1,5 +1,7 @@
 /**
+  Copyright (C) DuoWoA authors. All rights reserved.
   Copyright (C) Microsoft Corporation. All rights reserved.
+
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
@@ -7,6 +9,7 @@
 
 #include <Library/DebugLib.h>
 #include <Library/BaseMemoryLib.h>
+#include <Library/DxeServicesLib.h>
 #include <Library/DeviceBootManagerLib.h>
 #include <Library/PlatformBootManagerLib.h>
 #include <Library/UefiBootServicesTableLib.h>
@@ -14,6 +17,7 @@
 #include <Library/MsBootOptionsLib.h>
 #include <Library/MsBootPolicyLib.h>
 #include <Library/BootGraphicsLib.h>
+#include <Library/MuSecureBootKeySelectorLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/DxeServicesTableLib.h>
 #include <Library/PerformanceLib.h>
@@ -27,6 +31,7 @@
 #include <Library/PcdLib.h>
 
 #include <Protocol/GraphicsOutput.h>
+#include <Protocol/SimpleFileSystem.h>
 
 #include <Configuration/BootDevices.h>
 
@@ -521,6 +526,109 @@ PlatformBootManagerUnableToBoot ()
   CpuDeadLoop ();
 }
 
+#if DISABLE_SECUREBOOT == 0
+STATIC VOID *mSimpleFileSystemRegistration;
+
+VOID
+ManageSiPolicy (IN EFI_HANDLE SfsHandle)
+{
+  EFI_STATUS                       Status;
+  EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *mSfsProtocol;
+  EFI_FILE_PROTOCOL               *FatVolume;
+  EFI_FILE_HANDLE                  File;
+  UINT8                           *CustomSiPolicy;
+  UINTN                            CustomSiPolicySize;
+
+  // Get Custom SiPolicy.p7b
+  Status = GetSectionFromAnyFv (FixedPcdGetPtr (PcdCustomSiPolicyGuid), EFI_SECTION_RAW, 0, (VOID *)&CustomSiPolicy, &CustomSiPolicySize);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Get Custom SiPolicy.p7b from FV! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  // Get SFS Protocol
+  Status = gBS->HandleProtocol (SfsHandle, &gEfiSimpleFileSystemProtocolGuid, (VOID *)&mSfsProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Get SFS Protocol from Handle! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  // Open FAT Volume
+  Status = mSfsProtocol->OpenVolume (mSfsProtocol, &FatVolume);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Open FAT Volume! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  // Open bootmgfw.efi
+  Status = FatVolume->Open (FatVolume, &File, L"\\EFI\\Microsoft\\Boot\\bootmgfw.efi", EFI_FILE_MODE_READ, EFI_FILE_READ_ONLY | EFI_FILE_HIDDEN | EFI_FILE_SYSTEM);
+  if (EFI_ERROR (Status)) {
+    return;
+  }
+
+  // Close bootmgfw.efi
+  FatVolume->Close (File);
+
+  // Open SiPolicy.p7b
+  Status = FatVolume->Open (FatVolume, &File, L"\\EFI\\Microsoft\\Boot\\SiPolicy.p7b", EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE, 0);
+  if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Open SiPolicy.p7b! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  // Create SiPolicy.p7b
+  if (Status == EFI_NOT_FOUND) {
+    Status = FatVolume->Open (FatVolume, &File, L"\\EFI\\Microsoft\\Boot\\SiPolicy.p7b", EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE | EFI_FILE_MODE_CREATE, 0);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Create SiPolicy.p7b! Status = %r\n", __FUNCTION__, Status));
+      return;
+    }
+  }
+
+  // Compare Hash
+  // TODO!
+
+  // Write new SiPolicy.p7b Data
+  Status = FatVolume->Write (File, &CustomSiPolicySize, CustomSiPolicy);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Write new SiPolicy.p7b Data! Status = %r\n", __FUNCTION__, Status));
+  }
+
+  // Close SiPolicy.p7b
+  FatVolume->Close (File);
+
+  DEBUG ((EFI_D_WARN, "Successfully Wrote Custom SiPolicy\n"));
+}
+
+VOID
+EFIAPI
+VerifyFileSystem (
+  IN EFI_EVENT  Event,
+  IN VOID      *Context)
+{
+  EFI_STATUS  Status;
+  EFI_HANDLE *HandleBuffer;
+  UINTN       HandleCount;
+
+  while (TRUE) {
+    // Locate Protocol Handle
+    Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, mSimpleFileSystemRegistration, &HandleCount, &HandleBuffer);
+    if (EFI_ERROR (Status)) {
+      break;
+    }
+
+    // Verify Handle Count
+    ASSERT (HandleCount == 1);
+
+    // Manage SiPolicy
+    ManageSiPolicy (HandleBuffer[0]);
+
+    // Free Buffer
+    FreePool (HandleBuffer);
+  }
+}
+#endif
+
 STATIC
 VOID
 EFIAPI
@@ -528,6 +636,34 @@ PreReadyToBoot (
   IN EFI_EVENT  Event,
   IN VOID      *Context)
 {
+#if DISABLE_SECUREBOOT == 0
+  EFI_STATUS Status;
+  EFI_EVENT  FileSystemCallbackEvent;
+
+  // Set Secure Boot Config
+  ASSERT_EFI_ERROR (SetSecureBootConfig (0));
+
+  // Create File System Callback Event
+  Status = gBS->CreateEvent (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, VerifyFileSystem, NULL, &FileSystemCallbackEvent);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Create File System Callback Event! Status = %r\n", __FUNCTION__, Status));
+    goto exit;
+  }
+
+  // Register Protocol Notify for SFS Protocol
+  Status = gBS->RegisterProtocolNotify (&gEfiSimpleFileSystemProtocolGuid, FileSystemCallbackEvent, &mSimpleFileSystemRegistration);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Register Protocol Notify for SFS Protocol! Status = %r\n", __FUNCTION__, Status));
+
+    // Close Event
+    gBS->CloseEvent (FileSystemCallbackEvent);
+  }
+
+  // Go thru all present FAT Partitions
+  VerifyFileSystem (NULL, NULL);
+
+exit:
+#endif
   gBS->CloseEvent (Event);
 }
 

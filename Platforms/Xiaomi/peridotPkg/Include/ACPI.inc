@@ -7,6 +7,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 # SECTION RAW = Palawan/DBG2.aml
 !endif
   SECTION RAW = Palawan/DSDT_minimal.aml
+  SECTION RAW = Common/SSDT.aml
   SECTION RAW = Palawan/FACP.aml
 # SECTION RAW = Palawan/FPDT.aml
   SECTION RAW = Palawan/GTDT.aml

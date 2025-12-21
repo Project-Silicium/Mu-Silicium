@@ -7,6 +7,7 @@
 #  SECTION RAW = Moorea/DBG2.aml
 !endif
 #  SECTION RAW = sweet_k6a/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Moorea/FACP.aml
 #  SECTION RAW = Moorea/FPDT.aml
 #  SECTION RAW = Moorea/GTDT.aml

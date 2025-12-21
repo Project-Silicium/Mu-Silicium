@@ -7,6 +7,7 @@
 #  SECTION RAW = Waipio/DBG2.aml
 !endif
 #  SECTION RAW = zeus/DSDT.aml
+#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Waipio/FACP.aml
 #  SECTION RAW = Waipio/FPDT.aml
 #  SECTION RAW = Waipio/GTDT.aml
