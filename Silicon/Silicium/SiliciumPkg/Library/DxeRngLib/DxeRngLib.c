@@ -198,6 +198,8 @@ PrepareRng (
         DEBUG ((EFI_D_ERROR, "%a: Failed to get RNG Protocol from Handle! Status = %r\n", __FUNCTION__, Status));
         return;
       }
+
+      break;
     }
   }
 
