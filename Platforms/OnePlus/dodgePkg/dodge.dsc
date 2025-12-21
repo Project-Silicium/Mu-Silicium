@@ -47,7 +47,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"dodge"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2649"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2653"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23893"
 
   # Simple Frame Buffer
@@ -57,8 +57,8 @@
 
   # Platform Pei
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0F0
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703CE58
+  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0E8
+  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703CE50
 
   # Dynamic RAM Start Address
   gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFF300000

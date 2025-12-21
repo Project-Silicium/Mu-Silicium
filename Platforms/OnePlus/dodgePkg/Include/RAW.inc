@@ -83,9 +83,69 @@
     SECTION RAW = Binaries/dodge/RawFiles/Panel_AA590_P_3_A0020_dsc_cmd.xml
   }
 
+  FILE FREEFORM = 8612D2FB-7FC7-479E-833F-91028F691E5C {
+    SECTION UI = "sprconfig_dsi_panel_AC140_S_3_A0014_dsc_cmd.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/sprconfig_dsi_panel_AC140_S_3_A0014_dsc_cmd.xml
+  }
+
   FILE FREEFORM = 32491FFD-9E7F-4736-9B57-242E360789F2 {
     SECTION UI = "Panel_AE035_P_3_A0020_dsc_cmd.xml"
     SECTION RAW = Binaries/dodge/RawFiles/Panel_AE035_P_3_A0020_dsc_cmd.xml
+  }
+
+  FILE FREEFORM = BE71899C-4836-480E-BD9D-A1371936774E {
+    SECTION UI = "Panel_csot_nt36532_2120_3000_dual_dsc_144hz_vid.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_csot_nt36532_2120_3000_dual_dsc_144hz_vid.xml
+  }
+
+  FILE FREEFORM = C39B63F5-22AD-4B93-B277-526E6110264A {
+    SECTION UI = "Panel_XN242_P_D_A0024_dsc_vid.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_XN242_P_D_A0024_dsc_vid.xml
+  }
+
+  FILE FREEFORM = 6810897B-B490-4695-8318-0A227B09EBEA {
+    SECTION UI = "Panel_AA594_P_7_A0020_dsc_cmd.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_AA594_P_7_A0020_dsc_cmd.xml
+  }
+
+  FILE FREEFORM = 8F8E5EB8-771F-46FC-8A64-D7BD497A6AA6 {
+    SECTION UI = "Panel_AC218_P_3_A0019_dsc_cmd.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_AC218_P_3_A0019_dsc_cmd.xml
+  }
+
+  FILE FREEFORM = F31BFCFC-7FB1-444B-86F2-8FB071B67037 {
+    SECTION UI = "sprconfig_dsi_panel_AC218_P_3_A0019_dsc_cmd.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/sprconfig_dsi_panel_AC218_P_3_A0019_dsc_cmd.xml
+  }
+
+  FILE FREEFORM = 8C7C8D37-5A54-46B3-A2E4-58E842F2DB9C {
+    SECTION UI = "sprconfig_dsi_panel_AA594_P_7_A0020_dsc_cmd.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/sprconfig_dsi_panel_AA594_P_7_A0020_dsc_cmd.xml
+  }
+
+  FILE FREEFORM = A912AC5F-B005-4179-BB5B-CBA564035E1B {
+    SECTION UI = "Panel_AA605_P_7_A0020_dsc_cmd.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_AA605_P_7_A0020_dsc_cmd.xml
+  }
+
+  FILE FREEFORM = 866963A5-44EA-4CD9-B962-A898DC591266 {
+    SECTION UI = "Panel_AE096_P_7_A0020_dsc_cmd.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_AE096_P_7_A0020_dsc_cmd.xml
+  }
+
+  FILE FREEFORM = 06EA4A94-C4C7-4FD5-B8FF-DBE312274AC3 {
+    SECTION UI = "Panel_AE096_P_3_A0033_dsc_cmd.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_AE096_P_3_A0033_dsc_cmd.xml
+  }
+
+  FILE FREEFORM = 6A88D9DA-93DF-42F1-972D-6D23D4B67002 {
+    SECTION UI = "Panel_AE096_P_3_A0033_dsc_cmd_dvt02.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_AE096_P_3_A0033_dsc_cmd_dvt02.xml
+  }
+
+  FILE FREEFORM = 7D36A875-1A33-4240-98B4-C292DE3FEB15 {
+    SECTION UI = "Panel_AE096_P_3_A0033_dsc_cmd_dvt03.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_AE096_P_3_A0033_dsc_cmd_dvt03.xml
   }
 
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
@@ -348,6 +408,7 @@
     SECTION RAW = Binaries/dodge/RawFiles/Panel_sec_nt37801_120hz_wqhd_plus_dsc_vid.xml
   }
 
+
   FILE FREEFORM = E4E05D69-1B86-4FF1-AAB4-F6C570CE0870 {
     SECTION UI = "Panel_nt37801_120hz_wqhd_plus_dsc_vid_spr.xml"
     SECTION RAW = Binaries/dodge/RawFiles/Panel_nt37801_120hz_wqhd_plus_dsc_vid_spr.xml
@@ -363,6 +424,16 @@
     SECTION RAW = Binaries/dodge/RawFiles/Panel_nt37801_120hz_wqhd_plus_dsc_vid_demura_nspr.xml
   }
 
+  FILE FREEFORM = 37444EDE-BFB1-408E-BB28-2547D983A35E {
+    SECTION UI = "Panel_sec_nt37801_120hz_wqhd_plus_dsc_cmd_nspr.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_sec_nt37801_120hz_wqhd_plus_dsc_cmd_nspr.xml
+  }
+
+  FILE FREEFORM = 94853D8D-4776-45D7-B7B2-11714B0763A0 {
+    SECTION UI = "Panel_sec_nt37801_120hz_wqhd_plus_dsc_vid_nspr.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_sec_nt37801_120hz_wqhd_plus_dsc_vid_nspr.xml
+  }
+
   FILE FREEFORM = 2556DAE8-93E4-4FDF-B00C-1D9B3ECBD0C1 {
     SECTION UI = "Panel_sec_vtdr6130_144hz_fhd_plus_dsc_vid_rfi.xml"
     SECTION RAW = Binaries/dodge/RawFiles/Panel_sec_vtdr6130_144hz_fhd_plus_dsc_vid_rfi.xml
@@ -371,6 +442,11 @@
   FILE FREEFORM = B037099A-8076-4240-869F-3C3FA45F22BD {
     SECTION UI = "Panel_sec_vtdr6130_144hz_fhd_plus_dsc_cmd_rfi.xml"
     SECTION RAW = Binaries/dodge/RawFiles/Panel_sec_vtdr6130_144hz_fhd_plus_dsc_cmd_rfi.xml
+  }
+
+  FILE FREEFORM = 81D00687-181B-4B23-A1CC-85FE6B9E25E6 {
+    SECTION UI = "Panel_sharp_120hz_qhdpipe_plus_dsc_vid.xml"
+    SECTION RAW = Binaries/dodge/RawFiles/Panel_sharp_120hz_qhdpipe_plus_dsc_vid.xml
   }
 
   FILE FREEFORM = 03E9256F-E621-48D8-8576-7E3B4FCF2D41 {
@@ -382,3 +458,4 @@
     SECTION UI = "uefipil.cfg"
     SECTION RAW = Binaries/dodge/RawFiles/uefipil.cfg
   }
+
