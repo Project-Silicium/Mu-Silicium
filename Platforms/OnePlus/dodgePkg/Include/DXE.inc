@@ -98,8 +98,8 @@
   INF Binaries/dodge/QcomPkg/Drivers/OplusS4ResetDxe/OplusS4ResetDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/dodge/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/Phoenix2_0Dxe/Phoenix2_0Dxe.inf
+  #INF Binaries/dodge/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
+  #INF Binaries/dodge/QcomPkg/Drivers/Phoenix2_0Dxe/Phoenix2_0Dxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
