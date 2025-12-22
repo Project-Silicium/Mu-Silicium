@@ -7,7 +7,7 @@ cat "./Build/senna_bcPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/SENNA_BC_UEFI.fd-boots
 
 # Check which model and type are building
 MODEL_NAME="-c"
-if [ $TARGET_DEVICE_MODEL == 0 ]
+if [ $TARGET_MODEL == 0 ]
 then MODEL_NAME="-b"
 fi
 

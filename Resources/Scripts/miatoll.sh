@@ -6,17 +6,17 @@ gzip -c < "./Build/miatollPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MIATOLL_UEFI.fd-b
 cat "./Build/miatollPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/MIATOLL_UEFI.fd-bootshim.gz" ./Resources/DTBs/miatoll.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Set correct Codename
-if [ $TARGET_DEVICE_MODEL == 0 ]
+if [ $TARGET_MODEL == 0 ]
 then TARGET_MODEL_CODENAME="curtana-0"
-elif [ $TARGET_DEVICE_MODEL == 1 ]
+elif [ $TARGET_MODEL == 1 ]
 then TARGET_MODEL_CODENAME="curtana-1"
-elif [ $TARGET_DEVICE_MODEL == 2 ]
+elif [ $TARGET_MODEL == 2 ]
 then TARGET_MODEL_CODENAME="curtana-2"
-elif [ $TARGET_DEVICE_MODEL == 3 ]
+elif [ $TARGET_MODEL == 3 ]
 then TARGET_MODEL_CODENAME="joyeuse"
-elif [ $TARGET_DEVICE_MODEL == 4 ]
+elif [ $TARGET_MODEL == 4 ]
 then TARGET_MODEL_CODENAME="excalibur"
-elif [ $TARGET_DEVICE_MODEL == 5 ]
+elif [ $TARGET_MODEL == 5 ]
 then TARGET_MODEL_CODENAME="gram"
 fi
 

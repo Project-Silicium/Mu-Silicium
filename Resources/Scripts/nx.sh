@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Set Device SKU
-if [ $TARGET_DEVICE_MODEL == 0 ]
+if [ $TARGET_MODEL == 0 ]
 then TARGET_MODEL_SKU="icosa"
-elif [ $TARGET_DEVICE_MODEL == 1 ]
+elif [ $TARGET_MODEL == 1 ]
 then TARGET_MODEL_SKU="iowa"
 fi
 

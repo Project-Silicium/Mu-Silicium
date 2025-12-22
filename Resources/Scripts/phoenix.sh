@@ -6,9 +6,9 @@ gzip -c < "./Build/phoenixPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PHOENIX_UEFI.fd-b
 cat "./Build/phoenixPkg/${TARGET_BUILD_MODE}_CLANGPDB/FV/PHOENIX_UEFI.fd-bootshim.gz" ./Resources/DTBs/phoenix.dtb > ./Resources/bootpayload.bin||exit 1
 
 # Set correct Codename
-if [ $TARGET_DEVICE_MODEL == 0 ]
+if [ $TARGET_MODEL == 0 ]
 then TARGET_MODEL_CODENAME="phoenix"
-elif [ $TARGET_DEVICE_MODEL == 1 ]
+elif [ $TARGET_MODEL == 1 ]
 then TARGET_MODEL_CODENAME="phoenixin"
 fi
 
