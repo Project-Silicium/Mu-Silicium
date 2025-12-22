@@ -599,14 +599,16 @@ ManageSiPolicy (IN EFI_HANDLE SfsHandle)
 
   DEBUG ((EFI_D_WARN, "%a: Successfully Wrote Custom SiPolicy\n", __FUNCTION__));
 #else
-  // Delete SiPolicy.p7b
-  Status = FatVolume->Delete (File);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Delete SiPolicy.p7b! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
+  if (Status != EFI_NOT_FOUND) {
+    // Delete SiPolicy.p7b
+    Status = FatVolume->Delete (File);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Delete SiPolicy.p7b! Status = %r\n", __FUNCTION__, Status));
+      return;
+    }
 
-  DEBUG ((EFI_D_WARN, "%a: Successfully Deleted SiPolicy.p7b\n", __FUNCTION__));
+    DEBUG ((EFI_D_WARN, "%a: Successfully Deleted SiPolicy.p7b\n", __FUNCTION__));
+  }
 #endif
 }
 
@@ -710,3 +712,4 @@ PlatformBootManagerEntry (
 
   return EFI_SUCCESS;
 }
+
