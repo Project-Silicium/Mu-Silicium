@@ -3486,14 +3486,14 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Feature              | Description                                       | State |
 |:---------------------|:--------------------------------------------------|:-----:|
 | Internal Storage     |                                                   | ✅    |
-| SD Card              | SDXC cards don't work                             | ⚠️    |
+| SD Card              |                                                   | ✅    |
 | Side Buttons         |                                                   | ✅    |
-| Proximity Sensor     |                                                   | ❌    |
+| Proximity Sensor     |                                                   | ❔    |
 | Light Sensor         |                                                   | ❌    |
-| Accelerometer Sensor |                                                   | ❌    |
-| Compass Sensor       |                                                   | ❌    |
+| Accelerometer Sensor |                                                   | ✅    |
+| Compass Sensor       |                                                   | ✅    |
 | Fingerprint Sensor   |                                                   | ❌    |
-| Hall Sensor          |                                                   | ❌    |
+| Hall Sensor          |                                                   | ❔    |
 | NFC Sensor           |                                                   | ❌    |
 | Temperature Sensor   | Some sensors don't work                           | ⚠️    |
 | Battery              |                                                   | ✅    |
