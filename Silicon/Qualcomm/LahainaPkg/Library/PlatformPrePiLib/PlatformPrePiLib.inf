@@ -19,9 +19,9 @@
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  PcdLib
   IoLib
   ConfigurationMapHelperLib
+  PcdLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdGicRedistributorsBase
