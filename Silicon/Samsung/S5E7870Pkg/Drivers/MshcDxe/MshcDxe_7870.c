@@ -494,7 +494,7 @@ MshcWriteDma (
   // The DMA Buffer has already been Copied in MshcPrepareTransfer, there is no Need to Write anything
   
   // Wait for the Write to Finish
-  while (!(MmioRead32 ((gMshcBaseAddr + MSHCI_RINTSTS) & INTMSK_DTO)));
+  while (!(MmioRead32 (gMshcBaseAddr + MSHCI_RINTSTS) & INTMSK_DTO));
   
   // Invalidate D-Cache and Wait for Data to be Synchronized
   InvalidateDataCacheRange ((VOID *)gMshcDmaBaseAddr + PHY_BUF_OFFSET, BlockCount * BLEN_512BYTES);
