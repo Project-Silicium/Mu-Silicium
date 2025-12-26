@@ -1391,35 +1391,35 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 > [!IMPORTANT]
 > Needs [Windows Drivers](https://github.com/Robotix22/windows_silicon_qcom_waipio/).
 
-| Feature              | Description   | State |
-|:---------------------|:--------------|:-----:|
-| Internal Storage     |               | ❌    |
-| Side Buttons         |               | ✅    |
-| Proximity Sensor     |               | ❌    |
-| Light Sensor         |               | ❌    |
-| Accelerometer Sensor |               | ❌    |
-| Compass Sensor       |               | ❌    | 
-| Gyroscope Sensor     |               | ❌    |
-| Fingerprint Sensor   |               | ❌    |
-| NFC Sensor           |               | ❌    |
-| Temperature Sensor   |               | ❌    |
-| Battery              |               | ❌    |
-| USB Host Mode        |               | ❌    |
-| USB Device Mode      |               | ❌    |
-| USB Power Delivery   |               | ❌    |
-| Charging             |               | ❌    |
-| WLAN                 |               | ❌    |
-| CPU                  | Only one core | ⚠️    |
-| Touchscreen          |               | ❌    |
-| Bluetooth            |               | ❌    |
-| GPS                  |               | ❌    |
-| Speakers             |               | ❌    |
-| Microphone           |               | ❌    |
-| GPU                  |               | ❌    |
-| Camera               |               | ❌    |
-| Mobile Data          |               | ❌    |
-| Display              |               | ✅    | 
-| Vibration            |               | ❌    |
+| Feature              | Description | State |
+|:---------------------|:------------|:-----:|
+| Internal Storage     |             | ❌    |
+| Side Buttons         |             | ✅    |
+| Proximity Sensor     |             | ❌    |
+| Light Sensor         |             | ❌    |
+| Accelerometer Sensor |             | ❌    |
+| Compass Sensor       |             | ❌    | 
+| Gyroscope Sensor     |             | ❌    |
+| Fingerprint Sensor   |             | ❌    |
+| NFC Sensor           |             | ❌    |
+| Temperature Sensor   |             | ❌    |
+| Battery              |             | ❌    |
+| USB Host Mode        |             | ❌    |
+| USB Device Mode      |             | ❌    |
+| USB Power Delivery   |             | ❌    |
+| Charging             |             | ❌    |
+| WLAN                 |             | ❌    |
+| CPU                  |             | ✅    |
+| Touchscreen          |             | ❌    |
+| Bluetooth            |             | ❌    |
+| GPS                  |             | ❌    |
+| Speakers             |             | ❌    |
+| Microphone           |             | ❌    |
+| GPU                  |             | ❌    |
+| Camera               |             | ❌    |
+| Mobile Data          |             | ❌    |
+| Display              |             | ✅    | 
+| Vibration            |             | ❌    |
 
 </td></tr>
 </table>
@@ -1559,7 +1559,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery   |                                                                                                                   | ❌    |
 | Charging             |                                                                                                                   | ❌    |
 | WLAN                 |                                                                                                                   | ❌    |
-| CPU                  | One Core Only                                                                                                     | ⚠️    |
+| CPU                  |                                                                                                                   | ✅    |
 | Touchscreen          |                                                                                                                   | ❌    |
 | Bluetooth            |                                                                                                                   | ❌    |
 | GPS                  |                                                                                                                   | ❌    |
@@ -2620,7 +2620,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 **State:** Inactive <br>
 **Codename:** hotdog
 
-**Contributors:** [mat-777](https://github.com/mat-777/)** <br>
+**Contributors:** [mat-777](https://github.com/mat-777/) <br>
 
 ### UEFI Status
 
@@ -3008,7 +3008,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 **State:** Active <br>
 **Codename:** starqltechn
 
-**Contributors:** [Violet](https://github.com/ghatt-o/) [Robotix](https://github.com/Robotix22/)**
+**Contributors:** [Violet](https://github.com/ghatt-o/) [Robotix](https://github.com/Robotix22/)
  
 ### UEFI Status
 
