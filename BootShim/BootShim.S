@@ -17,6 +17,9 @@ _StackSize:
 #endif
 
 _Start:
+#if REQUIRES_KERNEL_HEADER == 0
+  adr   x1, _Payload
+#endif
   mov   x4, x1
 #if REQUIRES_KERNEL_HEADER == 1
   ldr   x5, _StackBase
