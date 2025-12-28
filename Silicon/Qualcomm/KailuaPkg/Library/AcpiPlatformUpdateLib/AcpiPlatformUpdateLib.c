@@ -13,6 +13,7 @@ PlatformUpdateAcpiTables ()
   EFI_STATUS                          Status;
   EFI_MEMORY_REGION_DESCRIPTOR_EX     MPSSEFSRegion;
   EFI_MEMORY_REGION_DESCRIPTOR_EX     ADSPEFSRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR_EX     TGCMRegion;
   EFI_CHIPINFO_PROTOCOL              *mChipInfoProtocol;
   EFI_PLATFORMINFO_PROTOCOL          *mPlatformInfoProtocol;
   EFI_SMEM_PROTOCOL                  *mSmemProtocol;
@@ -24,8 +25,8 @@ PlatformUpdateAcpiTables ()
   UINT16 SDFE                            = 0;
   UINT16 SIDM                            = 0;
   UINT32 SUFS                            = 0xFFFFFFFF;
-  UINT32 PUS3                            = 0x1;
-  UINT32 SUS3                            = 0xFFFFFFFF;
+  UINT32 PUS4                            = 0x1;
+  UINT32 SUS4                            = 0xFFFFFFFF;
   UINT32 SOSN1                           = 0;
   UINT32 SOSN2                           = 0;
   UINT32 TPMA                            = 0x1;
@@ -89,6 +90,14 @@ PlatformUpdateAcpiTables ()
     RFAS = (UINT32)ADSPEFSRegion.Length / 2;
   }
 
+  if (!EFI_ERROR(LocateMemoryMapAreaByName("TGCM", &TGCMRegion))) {
+    TCMA = (UINT32)TGCMRegion.Address;
+    TCML = (UINT32)TGCMRegion.Length;
+  } else {
+    TCMA = 0xDEADBEEF;
+    TCML = 0xBEEFDEAD;
+  }
+
   UpdateNameAslCode (SIGNATURE_32('S', 'O', 'I', 'D'), &SOID, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'T', 'O', 'R'), &STOR, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'V'), &SIDV, 4);
@@ -97,8 +106,8 @@ PlatformUpdateAcpiTables ()
   UpdateNameAslCode (SIGNATURE_32('S', 'D', 'F', 'E'), &SDFE, 2);
   UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'M'), &SIDM, 2);
   UpdateNameAslCode (SIGNATURE_32('S', 'U', 'F', 'S'), &SUFS, 4);
-  UpdateNameAslCode (SIGNATURE_32('P', 'U', 'S', '3'), &PUS3, 4);
-  UpdateNameAslCode (SIGNATURE_32('S', 'U', 'S', '3'), &SUS3, 4);
+  UpdateNameAslCode (SIGNATURE_32('P', 'U', 'S', '4'), &PUS4, 4);
+  UpdateNameAslCode (SIGNATURE_32('S', 'U', 'S', '4'), &SUS4, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'O', 'S', 'N'), &SOSN, 8);
   UpdateNameAslCode (SIGNATURE_32('P', 'L', 'S', 'T'), &PLST, 4);
   UpdateNameAslCode (SIGNATURE_32('R', 'M', 'T', 'B'), &RMTB, 4);
