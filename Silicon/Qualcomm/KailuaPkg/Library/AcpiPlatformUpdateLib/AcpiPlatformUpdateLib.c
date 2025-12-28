@@ -106,8 +106,8 @@ PlatformUpdateAcpiTables ()
   UpdateNameAslCode (SIGNATURE_32('S', 'D', 'F', 'E'), &SDFE, 2);
   UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'M'), &SIDM, 2);
   UpdateNameAslCode (SIGNATURE_32('S', 'U', 'F', 'S'), &SUFS, 4);
-  UpdateNameAslCode (SIGNATURE_32('P', 'U', 'S', '3'), &PUS4, 4);
-  UpdateNameAslCode (SIGNATURE_32('S', 'U', 'S', '3'), &SUS4, 4);
+  UpdateNameAslCode (SIGNATURE_32('P', 'U', 'S', '4'), &PUS4, 4);
+  UpdateNameAslCode (SIGNATURE_32('S', 'U', 'S', '4'), &SUS4, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'O', 'S', 'N'), &SOSN, 8);
   UpdateNameAslCode (SIGNATURE_32('P', 'L', 'S', 'T'), &PLST, 4);
   UpdateNameAslCode (SIGNATURE_32('R', 'M', 'T', 'B'), &RMTB, 4);
