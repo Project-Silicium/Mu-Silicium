@@ -37,8 +37,10 @@ gMemoryRegionDescriptorEx[] = {
   {"RAM Partition",      0xFABA4000, 0x0385C000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"EL2 Earlymem",       0xFE400000, 0x01C00000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, WRITE_BACK},
 
-  // Register Regions
+  // Non-Secure iRAM Regions
   {"DDR Info",           0x02038000, 0x00050000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+
+  // Register Regions
   {"Chip Info",          0x10000000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Watchdog Timer",     0x10040000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Gic Distributor",    0x10200000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
