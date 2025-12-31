@@ -1,49 +1,39 @@
 /**
-  Patches NTOSKRNL to not cause a SError when reading/writing ACTLR_EL1
-  Patches NTOSKRNL to not cause a SError when reading/writing AMCNTENSET0_EL0
-  Patches NTOSKRNL to not cause a bugcheck when attempting to use PSCI_MEMPROTECT Due to an issue in QHEE
-
   Copyright (c) 2022-2023 DuoWoA authors
-
   SPDX-License-Identifier: MIT
 **/
+
 [Defines]
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = KernelErrataPatcherLib
   FILE_GUID                      = 964EFA94-9929-4EF8-9E68-8F6F6FA62E63
   MODULE_TYPE                    = DXE_DRIVER
-  LIBRARY_CLASS                  = KernelErrataPatcherLib|DXE_DRIVER
   VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = KernelErrataPatcherLib|DXE_DRIVER
   CONSTRUCTOR                    = KernelErrataPatcherLibConstructor
+
+[Sources.AARCH64]
+  AArch64/OsLoaderHelper.S | GCC
 
 [Sources]
   KernelErrataPatcherLib.c
-  Mmu.c
-  Utilities.c
-
-[Sources.AARCH64]
-  OsLoaderHelper.S | GCC
+  MemoryAttribute.c
+  Winload.c
 
 [Packages]
-  EmbeddedPkg/EmbeddedPkg.dec
   MdePkg/MdePkg.dec
-  MdeModulePkg/MdeModulePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
-  BaseMemoryLib
   DebugLib
-  DxeServicesTableLib
-  MemoryAllocationLib
-  PerformanceLib
   UefiBootServicesTableLib
-  UefiLib
+  ErrataPatchesLib
+  PerformanceLib
+  BaseMemoryLib
 
 [Protocols]
   gEfiMemoryAttributeProtocolGuid
 
 [Guids]
-  gEfiEventExitBootServicesGuid       ## CONSUMES
+  gEfiEventExitBootServicesGuid
   gEfiEventReadyToBootGuid
-
-[Depex]
-  gEfiMemoryAttributeProtocolGuid

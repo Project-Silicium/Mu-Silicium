@@ -26,6 +26,7 @@
   #
   PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
   MemoryProtectionLib|MediaTekPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
+  ErrataPatchesLib|MediaTekPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
 
 [Components]
   #

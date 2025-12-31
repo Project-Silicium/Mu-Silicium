@@ -31,6 +31,7 @@
   #
   PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
   MemoryProtectionLib|NvidiaPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
+  ErrataPatchesLib|NvidiaPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
 
 [Components]
   #

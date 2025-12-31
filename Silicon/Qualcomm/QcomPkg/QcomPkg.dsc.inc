@@ -7,6 +7,9 @@
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
+[BuildOptions]
+  *_CLANGPDB_AARCH64_CC_FLAGS = -D HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA=$(HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA) -D HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA=$(HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA) -D HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA=$(HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA) -D HAS_PSCI_MEMPROTECT_FAILING_ERRATA=$(HAS_PSCI_MEMPROTECT_FAILING_ERRATA)
+
 [PcdsFixedAtBuild]
   # RAM Size (512 MB)
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
@@ -30,6 +33,7 @@
   #
   PlatformHobLib|QcomPkg/Library/PlatformHobLib/PlatformHobLib.inf
   MemoryProtectionLib|QcomPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
+  ErrataPatchesLib|QcomPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
 
   #
   # Custom Libraries
