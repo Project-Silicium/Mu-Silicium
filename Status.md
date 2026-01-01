@@ -1552,7 +1552,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Device Mode    | Requires a Reconnect if it was Connected during Boot | ✅    |
 | USB Power Delivery |                                                      | ❌    |
 | Mass Storage       |                                                      | ✅    |
-| SD Card            | Always the Slowest Speed                             | ⚠️    |
+| SD Card            |                                                      | ✅    |
 | Windows Boot       |                                                      | ✅    |
 | Linux Boot         |                                                      | ❌    |
 
