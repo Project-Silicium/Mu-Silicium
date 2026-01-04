@@ -128,7 +128,7 @@
     SECTION UI = "Panel_virtual_dsc_video.xml"
     SECTION RAW = Binaries/gta9p/RawFiles/Panel_virtual_dsc_video.xml
   }
-!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"
