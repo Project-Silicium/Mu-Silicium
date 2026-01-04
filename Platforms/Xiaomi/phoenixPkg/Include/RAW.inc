@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 97CEB64B-29D5-42DF-9755-036D253C4B63 {
     SECTION UI = "Panel_G7B_37_02_0a_lcd_dsc_vid.xml"
     SECTION RAW = Binaries/phoenix/RawFiles/Panel_G7B_37_02_0a_lcd_dsc_vid.xml
@@ -12,6 +13,7 @@
     SECTION UI = "Panel_G7B_37_02_0b_lcd_dsc_vid.xml"
     SECTION RAW = Binaries/phoenix/RawFiles/Panel_G7B_37_02_0b_lcd_dsc_vid.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

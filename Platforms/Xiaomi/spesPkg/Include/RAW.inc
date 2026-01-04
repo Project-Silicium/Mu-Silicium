@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 037CC4C1-0EBE-4494-9803-DC5BF0824220 {
     SECTION UI = "Panel_k7_38_0c_0a_fhdp_video.xml"
     SECTION RAW = Binaries/spes/RawFiles/Panel_k7_38_0c_0a_fhdp_video.xml
@@ -27,6 +28,7 @@
     SECTION UI = "Panel_nt36672e_fhd_plus_90hz_vid.xml"
     SECTION RAW = Binaries/spes/RawFiles/Panel_nt36672e_fhd_plus_90hz_vid.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

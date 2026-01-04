@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 88CA5ABF-D0AC-4093-A68C-0CFAE1EF9635 {
     SECTION UI = "Panel_boe_amoled_wqhd_dsc_cmd.xml"
     SECTION RAW = Binaries/sweet_k6a/RawFiles/Panel_boe_amoled_wqhd_dsc_cmd.xml
@@ -92,6 +93,7 @@
     SECTION UI = "Panel_sharp_qsync_fhd_cmd.xml"
     SECTION RAW = Binaries/sweet_k6a/RawFiles/Panel_sharp_qsync_fhd_cmd.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

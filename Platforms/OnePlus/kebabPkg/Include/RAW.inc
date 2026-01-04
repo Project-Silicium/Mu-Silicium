@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
     SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
     SECTION RAW = Binaries/kebab/RawFiles/Panel_truly_wqxga_dsc_cmd.xml
@@ -122,6 +123,7 @@
     SECTION UI = "Panel_nt36860_wqhd_dsc_vid.xml"
     SECTION RAW = Binaries/kebab/RawFiles/Panel_nt36860_wqhd_dsc_vid.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

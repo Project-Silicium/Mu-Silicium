@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
     SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
     SECTION RAW = Binaries/pipa/RawFiles/Panel_truly_wqxga_dsc_cmd.xml
@@ -182,6 +183,7 @@
     SECTION UI = "Panel_J2_MP_42_02_0b_POST_amoled_dsc_cmd.xml"
     SECTION RAW = Binaries/pipa/RawFiles/Panel_J2_MP_42_02_0b_POST_amoled_dsc_cmd.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

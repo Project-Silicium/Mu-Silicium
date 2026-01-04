@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
     SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
     SECTION RAW = Binaries/betalm/RawFiles/Panel_truly_wqxga_dsc_cmd.xml
@@ -47,6 +48,7 @@
     SECTION UI = "Panel_boe_amoled_wqhd_dsc_cmd.xml"
     SECTION RAW = Binaries/betalm/RawFiles/Panel_boe_amoled_wqhd_dsc_cmd.xml
   }
+!endif
 
   FILE FREEFORM = A8913C67-C8BF-45BC-838B-06567B243C4B {
     SECTION UI = "LGD_SW43402_cmd_dsc_xmldata.xml"

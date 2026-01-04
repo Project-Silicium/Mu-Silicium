@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = A1ACFF5E-33C7-4B09-890B-3C181D93CB11 {
     SECTION UI = "Panel_rm69380_amoled_2k_cmd.xml"
     SECTION RAW = Binaries/j706f/RawFiles/Panel_rm69380_amoled_2k_cmd.xml
@@ -57,6 +58,7 @@
     SECTION UI = "Panel_sharp_qsync_fhd_cmd.xml"
     SECTION RAW = Binaries/j706f/RawFiles/Panel_sharp_qsync_fhd_cmd.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

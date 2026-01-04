@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 02E0AF91-5D44-424F-828F-211ADC520B0C {
     SECTION UI = "Panel_truly_td4330_fhd_cmd.xml"
     SECTION RAW = Binaries/tapas/RawFiles/Panel_truly_td4330_fhd_cmd.xml
@@ -32,6 +33,7 @@
     SECTION UI = "Panel_nt36672e_fhd_plus_120hz_vid.xml"
     SECTION RAW = Binaries/tapas/RawFiles/Panel_nt36672e_fhd_plus_120hz_vid.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

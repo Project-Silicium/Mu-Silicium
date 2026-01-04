@@ -3,6 +3,7 @@
     SECTION RAW = Binaries/nx729j/RawFiles/SecParti.cfg
   }
 
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = E17D8804-9D2A-4607-A840-517D03D9ECFA {
     SECTION UI = "Panel_zte_visionox_rm692e5_f20_dev1_dsc_cmd.xml"
     SECTION RAW = Binaries/nx729j/RawFiles/Panel_zte_visionox_rm692e5_f20_dev1_dsc_cmd.xml
@@ -232,6 +233,7 @@
     SECTION UI = "PanelSimConfig.csv"
     SECTION RAW = Binaries/nx729j/RawFiles/PanelSimConfig.csv
   }
+!endif
 
   FILE FREEFORM = 21E9BDD9-6C3F-4F10-84A5-BBEC322741F1 {
     SECTION UI = "uefipil.cfg"

@@ -3,6 +3,7 @@
     SECTION RAW = Binaries/pagani/RawFiles/SecParti.cfg
   }
 
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = B4FEDF4D-8A67-45AB-8131-FBCC321E146F {
     SECTION UI = "Panel_AA545_P_3_A0005_dsc_cmd.xml"
     SECTION RAW = Binaries/pagani/RawFiles/Panel_AA545_P_3_A0005_dsc_cmd.xml
@@ -447,6 +448,7 @@
     SECTION UI = "PanelSimConfig.csv"
     SECTION RAW = Binaries/pagani/RawFiles/PanelSimConfig.csv
   }
+!endif
 
   FILE FREEFORM = 21E9BDD9-6C3F-4F10-84A5-BBEC322741F1 {
     SECTION UI = "uefipil.cfg"

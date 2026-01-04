@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM =  D8076BF4-4C4E-480B-AEE8-47C1F5FEEA42{
     SECTION UI = "Panel_s6e8fco_samsung_hdp_video.xml"
     SECTION RAW = Binaries/laurel_sprout/RawFiles/Panel_s6e8fco_samsung_hdp_video.xml
@@ -12,6 +13,7 @@
     SECTION UI = "Panel_r692a9_gvo_hdp_video.xml"
     SECTION RAW = Binaries/laurel_sprout/RawFiles/Panel_r692a9_gvo_hdp_video.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

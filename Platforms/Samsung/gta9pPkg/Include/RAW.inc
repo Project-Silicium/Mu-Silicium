@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 02E0AF91-5D44-424F-828F-211ADC520B0C {
     SECTION UI = "Panel_rm69299_amoled_fhd_plus_cmd.xml"
     SECTION RAW = Binaries/gta9p/RawFiles/Panel_rm69299_amoled_fhd_plus_cmd.xml
@@ -127,6 +128,7 @@
     SECTION UI = "Panel_virtual_dsc_video.xml"
     SECTION RAW = Binaries/gta9p/RawFiles/Panel_virtual_dsc_video.xml
   }
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

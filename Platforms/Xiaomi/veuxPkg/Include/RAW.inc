@@ -1,3 +1,4 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 02E0AF91-5D44-424F-828F-211ADC520B0C {
     SECTION UI = "Panel_rm69299_amoled_fhd_plus_cmd.xml"
     SECTION RAW = Binaries/veux/RawFiles/Panel_rm69299_amoled_fhd_plus_cmd.xml
@@ -62,6 +63,7 @@
     SECTION UI = "Panel_k6s_38_0c_0a_fhdp_dsc_vid.xml"
     SECTION RAW = Binaries/veux/RawFiles/Panel_k6s_38_0c_0a_fhdp_dsc_vid.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"

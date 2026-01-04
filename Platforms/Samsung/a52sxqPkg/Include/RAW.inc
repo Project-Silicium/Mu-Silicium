@@ -8,6 +8,7 @@
     SECTION RAW = Binaries/a52sxq/RawFiles/uefipil.cfg
   }
 
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
     SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
     SECTION RAW = Binaries/a52sxq/RawFiles/Panel_truly_wqxga_dsc_cmd.xml
@@ -102,6 +103,7 @@
     SECTION UI = "Panel_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml"
     SECTION RAW = Binaries/a52sxq/RawFiles/Panel_r66451_120hz_fhd_plus_dsc_cmd_cphy.xml
   }
+!endif
 
   FILE FREEFORM = 45FE4B7C-150C-45DA-A021-4BEB2048EC6F {
     SECTION UI = "QcomChargerCfg.cfg"

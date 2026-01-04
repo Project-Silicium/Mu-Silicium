@@ -1,7 +1,9 @@
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 9BAE75D9-A217-4B31-9DCD-00D2609B6784 {
     SECTION UI = "Panel_truly_nt36525_hd_plus_vid.xml"
     SECTION RAW = Binaries/cebu/RawFiles/Panel_truly_nt36525_hd_plus_vid.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"
