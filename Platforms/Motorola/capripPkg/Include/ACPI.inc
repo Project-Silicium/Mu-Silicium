@@ -6,8 +6,8 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 !if $(TARGET) == DEBUG
 # SECTION RAW = Kamorta/DBG2.aml
 !endif
-  SECTION RAW = caprip/DSDT.aml
-  SECTION RAW = Common/SSDT.aml
+  SECTION RAW = Kamorta/DSDT.aml
+  SECTION RAW = caprip/SSDT.aml
 # SECTION RAW = Kamorta/FADT.aml
   SECTION RAW = Kamorta/FACP.aml
   SECTION RAW = Kamorta/GTDT.aml

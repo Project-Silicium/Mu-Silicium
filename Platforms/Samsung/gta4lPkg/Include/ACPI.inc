@@ -5,8 +5,8 @@
 !if $(TARGET) == DEBUG
 #  SECTION RAW = Kamorta/DBG2.aml
 !endif
-#  SECTION RAW = gta4l/DSDT.aml
-#  SECTION RAW = Common/SSDT.aml
+#  SECTION RAW = Kamorta/DSDT.aml
+#  SECTION RAW = gta4l/SSDT.aml
 #  SECTION RAW = Kamorta/FADT.aml
 #  SECTION RAW = Kamorta/FACP.aml
 #  SECTION RAW = Kamorta/GTDT.aml
