@@ -48,7 +48,6 @@
     SECTION UI = "Panel_boe_amoled_wqhd_dsc_cmd.xml"
     SECTION RAW = Binaries/betalm/RawFiles/Panel_boe_amoled_wqhd_dsc_cmd.xml
   }
-!endif
 
   FILE FREEFORM = A8913C67-C8BF-45BC-838B-06567B243C4B {
     SECTION UI = "LGD_SW43402_cmd_dsc_xmldata.xml"
@@ -174,6 +173,7 @@
     SECTION UI = "Panel_sdx55_sharp_4k_dsc_vid.xml"
     SECTION RAW = Binaries/betalm/RawFiles/Panel_sdx55_sharp_4k_dsc_vid.xml
   }
+!endif
 
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"
