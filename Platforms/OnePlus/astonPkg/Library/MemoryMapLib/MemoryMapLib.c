@@ -31,7 +31,7 @@ gMemoryRegionDescriptorEx[] = {
   {"Display Reserved",  0xB8000000, 0x02B00000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
   {"UEFI FD",           0xBAB00000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"DXE Heap",          0xBAE00000, 0x07C00000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
-  //{"RAM Partition",     0xC2A00000, 0x15600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
+//{"RAM Partition",     0xC2A00000, 0x15600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
 
   // Memory Hole: 0xD8000000 -> 0xD8140000 (0x00140000)
 

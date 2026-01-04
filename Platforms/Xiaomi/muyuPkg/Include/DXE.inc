@@ -77,7 +77,6 @@
   INF Binaries/muyu/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-
   #INF Binaries/muyu/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
@@ -97,13 +96,10 @@
   INF Binaries/muyu/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/muyu/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/muyu/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

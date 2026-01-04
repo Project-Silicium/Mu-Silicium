@@ -72,13 +72,10 @@
   INF Binaries/laurel_sprout/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/laurel_sprout/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/laurel_sprout/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

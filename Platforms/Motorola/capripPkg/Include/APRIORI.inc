@@ -1,5 +1,4 @@
 APRIORI DXE {
-  # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
@@ -12,11 +11,8 @@ APRIORI DXE {
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotUtagsDxe/MotUtagsDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotUtagsDictDxe/MotUtagsDictDxe.inf
 
-  # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
-
-  # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -38,16 +34,16 @@ APRIORI DXE {
   INF Binaries/caprip/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/caprip/QcomPkg/Drivers/TzDxe/ScmDxeLA.inf
 
-  INF Binaries/caprip/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
+
+  INF Binaries/caprip/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  INF Binaries/caprip/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF Binaries/caprip/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotHwIdDxe/MotHwIdDxe.inf
 
@@ -94,6 +90,8 @@ APRIORI DXE {
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/caprip/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/caprip/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
@@ -103,7 +101,6 @@ APRIORI DXE {
   INF Binaries/caprip/QcomPkg/Drivers/MacDxe/MacDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

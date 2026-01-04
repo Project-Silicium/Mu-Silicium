@@ -1,5 +1,4 @@
 APRIORI DXE {
-  # First, install the PCD driver and call DxeInit
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
@@ -8,12 +7,8 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
-
-  # Next, install cpu protocol and enable the interrupt controller
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
-
-  # Core Drivers
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -56,13 +51,9 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  # Only used for DisplayDxe for Qualcomm Demura
-  #INF Binaries/bitra/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-
+  INF Binaries/bitra/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/bitra/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
 
@@ -75,7 +66,6 @@ APRIORI DXE {
   INF Binaries/bitra/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/bitra/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
@@ -89,7 +79,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/bitra/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/bitra/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
@@ -106,6 +95,8 @@ APRIORI DXE {
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
+  INF Binaries/bitra/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
+  INF Binaries/bitra/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/TsensDxe/TsensDxe.inf

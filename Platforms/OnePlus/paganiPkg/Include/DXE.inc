@@ -24,7 +24,7 @@
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/pagani/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  # INF Binaries/pagani/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
+  #INF Binaries/pagani/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -41,9 +41,11 @@
   INF Binaries/pagani/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+
   INF Binaries/pagani/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF Binaries/pagani/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
-  INF Binaries/pagani/FatPkg/EnhancedFatDxe/Fat.inf
+
+  INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/pagani/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
@@ -58,7 +60,6 @@
   INF Binaries/pagani/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-
   INF Binaries/pagani/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
@@ -101,14 +102,12 @@
   INF Binaries/pagani/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
   INF Binaries/pagani/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/pagani/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf

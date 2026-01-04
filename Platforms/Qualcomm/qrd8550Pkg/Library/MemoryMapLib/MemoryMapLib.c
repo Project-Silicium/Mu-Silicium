@@ -5,10 +5,8 @@ EFI_MEMORY_REGION_DESCRIPTOR_EX
 gMemoryRegionDescriptorEx[] = {
   // Name, Address, Length, HobOption, ResourceType, ResourceAttribute, MemoryType, ArmAttribute
 
-  /* DDR Regions */
-  /* DDR Bank 0 Start */
-  // gunyah_hyp_region + cpusys_vm_region
-  {"NOMAP",             0x80000000, 0x01200000, NoHob,  MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  // DDR Regions
+  {"NOMAP",             0x80000000, 0x01200000, NoHob,  MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN}, // gunyah_hyp_region + cpusys_vm_region
   {"RSRV0",             0x81200000, 0x00800000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"XBL DT",            0x81A00000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"XBL Ramdump",       0x81A40000, 0x001C0000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
@@ -43,20 +41,18 @@ gMemoryRegionDescriptorEx[] = {
   {"DXE Heap",          0xBAB00000, 0x0D1C0000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"UEFI FD",           0xC7CC0000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
 
-  // Memory hole: 0xC7FC0000 - 0xC84C0000 Size: 0x00500000
+  // Memory Hole: 0xC7FC0000 -> 0xC84C0000 (0x00500000)
 
-  { "RAM Partition",     0xC84C0000, 0x0FCA0000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv,   WRITE_BACK_XN},
+  {"RAM Partition",     0xC84C0000, 0x0FCA0000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
 
-  /* Memory Hole */
-  // 0xD8160000 - 0xD8800000
-  // Size: 0x6A0000
+  // Memory Hole: 0xD8160000 -> 0xD8800000 (0x006A0000)
 
-  { "TZApps Reserved",   0xD8800000, 0x07400000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-  { "RAM Partition",     0xDFC00000, 0x05860000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"TZApps Reserved",   0xD8800000, 0x07400000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"RAM Partition",     0xDFC00000, 0x05860000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
 
-  // Memory hole: 0xE5460000 - 0xFF800000 Size: 0x1A3A0000
+  // Memory Hole: 0xE5460000 -> 0xFF800000 (0x1A3A0000)
 
-  { "NOMAP",             0xFF800000, 0x00800000, NoHob,  MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"NOMAP",             0xFF800000, 0x00800000, NoHob,  MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
 
   // Other Memory Regions
   {"IMEM Base",         0x14680000, 0x0002A000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
@@ -77,8 +73,8 @@ gMemoryRegionDescriptorEx[] = {
   {"APSS_HM",           0x17000000, 0x02000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"PCIE_0_AXI",        0x40000000, 0x20000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"PCIE_1_AXI",        0x60000000, 0x04000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
-  {"PCIE_0_AHB",        0x01c00000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
-  {"PCIE_1_AHB",        0x01c08000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"PCIE_0_AHB",        0x01C00000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"PCIE_1_AHB",        0x01C08000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
 
   // Terminator for MMU
   {"Terminator", 0, 0, 0, 0, 0, 0, 0}

@@ -9,7 +9,6 @@
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
-
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
@@ -75,8 +74,6 @@
   INF Binaries/citrus/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/citrus/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf

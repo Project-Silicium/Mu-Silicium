@@ -37,7 +37,7 @@
   INF Binaries/veux/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
   INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-  
+
   INF Binaries/veux/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 
@@ -75,13 +75,10 @@
   INF Binaries/veux/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/veux/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/veux/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

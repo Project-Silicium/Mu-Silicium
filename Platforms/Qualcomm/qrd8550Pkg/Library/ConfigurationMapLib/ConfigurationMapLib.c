@@ -3,6 +3,7 @@
 STATIC
 EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX
 gConfigurationEntryDescriptorEx[] = {
+  // Configuration Map
   {"AllowNonPersistentVarsInRetail", 0x1},
   {"DDRInfoNotifyFlag", 0x0},
   {"DRAM_CLK_PERIOD_ADDR", 0x240BA050},

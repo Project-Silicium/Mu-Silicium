@@ -42,9 +42,9 @@
   INF Binaries/qrd8550/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
-  INF Binaries/qrd8550/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-  INF Binaries/qrd8550/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF Binaries/qrd8550/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
@@ -56,13 +56,10 @@
   INF Binaries/qrd8550/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  
-  #INF QcomPkg/Drivers/CpuClockHandlerDxe/CpuClockHandlerDxe.inf
-  
   INF Binaries/qrd8550/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-  
+
   INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
@@ -98,16 +95,12 @@
   INF Binaries/qrd8550/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-  #INF QcomPkg/Drivers/DdrClockHandlerDxe/DdrClockHandlerDxe.inf
-
   INF Binaries/qrd8550/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/qrd8550/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

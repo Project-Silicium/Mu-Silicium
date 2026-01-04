@@ -31,7 +31,7 @@ gConfigurationEntryDescriptorEx[] = {
   {"TzAppsRegnSize", 0x02200000},
   {"EnableLogFsSyncInRetail", 0x0},
   {"EnableSecurityHoleForSplashPartition", 0x1},
- 
+
   // Terminator
   {"Terminator", 0xFFFFFFFF}
 };

@@ -73,7 +73,6 @@
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/lisa/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
-  INF QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
 !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
@@ -89,15 +88,12 @@
   INF Binaries/lisa/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/lisa/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/lisa/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
@@ -108,8 +104,6 @@
   INF Binaries/lisa/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/SecRSADxe/SecRSADxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/ASN1X509Dxe/ASN1X509Dxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

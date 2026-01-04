@@ -51,10 +51,7 @@
   INF Binaries/poplar/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-
-  # Disabled to Prevent UFS Wipe from the OSs
-  #INF Binaries/poplar/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-
+  #INF Binaries/poplar/QcomPkg/Drivers/UFSDxe/UFSDxe.inf      # Disabled to Prevent UFS Wipe from the OSs
   INF Binaries/poplar/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
@@ -73,13 +70,11 @@
   INF Binaries/poplar/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
   INF Binaries/poplar/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-
   INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/poplar/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

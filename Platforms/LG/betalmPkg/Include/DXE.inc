@@ -21,9 +21,7 @@
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
-
-  INF Binaries/betalm/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
-
+  INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/betalm/QcomPkg/Drivers/FontDxe/FontDxe.inf
@@ -42,7 +40,6 @@
   INF Binaries/betalm/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
-
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/betalm/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
@@ -80,13 +77,10 @@
   INF Binaries/betalm/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/betalm/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/betalm/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/betalm/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

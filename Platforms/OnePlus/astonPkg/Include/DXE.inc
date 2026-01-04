@@ -42,9 +42,11 @@
   INF Binaries/aston/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
-  INF Binaries/aston/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+  INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+
   INF Binaries/aston/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF Binaries/aston/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
@@ -91,7 +93,6 @@
   INF Binaries/aston/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  #INF Binaries/aston/QcomPkg/Drivers/Phoenix2_0Dxe/Phoenix2_0Dxe.inf
   INF Binaries/aston/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/aston/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
@@ -99,15 +100,12 @@
   INF Binaries/aston/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/aston/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/aston/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/aston/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

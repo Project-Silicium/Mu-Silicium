@@ -3,6 +3,7 @@
 STATIC
 EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX
 gConfigurationEntryDescriptorEx[] = {
+  // Configuration Map
   {"EnableShell", 0x1},
   {"SecPagePoolCount", 0x1800},
   {"EnableSecurityHoleForSplashPartition", 0x1},

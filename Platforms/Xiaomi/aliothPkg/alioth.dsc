@@ -38,7 +38,7 @@
 
   # UEFI Stack Addresses
   gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000        
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xAE, 0xCD, 0x67, 0x7F, 0x12, 0x83, 0xCC, 0x4E, 0xB9, 0x48, 0xD8, 0x6C, 0x87, 0x0D, 0x04, 0xD9 }

@@ -51,9 +51,7 @@
   INF Binaries/cheeseburger/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-
   INF Binaries/cheeseburger/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-
   INF Binaries/cheeseburger/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
@@ -75,7 +73,6 @@
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/cheeseburger/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

@@ -44,7 +44,7 @@ gConfigurationEntryDescriptorEx[] = {
   {"EnableMultiCoreFvDecompression", 1},
   {"EUDEnableAddr", 0x88E2000},
   {"MinidumpTALoadingCfg", 0x0},
-  
+
   // Terminator
   {"Terminator", 0xFFFFFFFF}
 };

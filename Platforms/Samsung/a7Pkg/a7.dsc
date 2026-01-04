@@ -39,8 +39,8 @@
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy A7"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"A7"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A7_A7"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"a7"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A7_a7"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy A7"
 
   # Simple Frame Buffer

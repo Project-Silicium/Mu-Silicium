@@ -58,6 +58,7 @@
   INF Binaries/marble/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
   INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
@@ -87,15 +88,12 @@
   INF Binaries/marble/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/marble/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/marble/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/marble/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

@@ -15,7 +15,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = phoenix
-  PLATFORM_GUID                  = D5A334DF-5B96-485A-BBE0-308EFA44E1C6
+  PLATFORM_GUID                  = E3EF5EAF-0F7D-4A44-A69E-DD709CF825BC
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/phoenixPkg
@@ -41,7 +41,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000 
 
   # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xDF, 0x34, 0xA3, 0xD5, 0x96, 0x5B, 0x5A, 0x48, 0xBB, 0xE0, 0x30, 0x8E, 0xFA, 0x44, 0xE1, 0xC6 }
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xAF, 0x5E, 0xEF, 0xE3, 0x7D, 0x0F, 0x44, 0x4A, 0xA6, 0x9E, 0xDD, 0x70, 0x9C, 0xF8, 0x25, 0xBC }
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"

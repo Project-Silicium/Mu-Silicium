@@ -1,7 +1,6 @@
 #FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 #  SECTION RAW = Palima/APIC.aml
 #  SECTION RAW = Palima/BERT.aml
-#  SECTION RAW = Palima/BGRT.aml
 #  SECTION RAW = Palima/CSRT.aml
 !if $(TARGET) == DEBUG
 #  SECTION RAW = Palima/DBG2.aml
@@ -16,7 +15,5 @@
 #  SECTION RAW = Palima/MSDM.aml
 #  SECTION RAW = Palima/PPTT.aml
 #  SECTION RAW = Palima/SPCR.aml
-#  SECTION RAW = Palima/TPM2.aml
-#  SECTION RAW = Palima/XSDT.aml
 #  SECTION UI = "AcpiTables"
 #}

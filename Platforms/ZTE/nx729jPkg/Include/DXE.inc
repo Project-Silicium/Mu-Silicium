@@ -42,9 +42,9 @@
   INF Binaries/nx729j/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
-  INF Binaries/nx729j/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-  INF Binaries/nx729j/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF Binaries/nx729j/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
@@ -95,15 +95,12 @@
   INF Binaries/nx729j/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-  
   INF Binaries/nx729j/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/nx729j/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

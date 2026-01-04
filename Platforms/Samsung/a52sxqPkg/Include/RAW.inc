@@ -43,7 +43,6 @@
     SECTION RAW = Binaries/a52sxq/RawFiles/Panel_sharp_4k_dsc_vid.xml
   }
 
-
   FILE FREEFORM = 0AE323D6-2EBE-11E8-8349-9BA636A0D80C {
     SECTION UI = "Panel_sharp_1080p_cmd.xml"
     SECTION RAW = Binaries/a52sxq/RawFiles/Panel_sharp_1080p_cmd.xml

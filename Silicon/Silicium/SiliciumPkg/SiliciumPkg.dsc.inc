@@ -377,14 +377,9 @@
   MdeModulePkg/Bus/Sd/SdDxe/SdDxe.inf
   FatPkg/EnhancedFatDxe/Fat.inf
 
-  # Pci
-  MdeModulePkg/Bus/Pci/XhciDxe/XhciDxe.inf   # USB 3.*
-  MdeModulePkg/Bus/Pci/EhciDxe/EhciDxe.inf   # USB 2.*
-
   # USB
   MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   # ACPI

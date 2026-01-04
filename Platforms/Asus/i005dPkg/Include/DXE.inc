@@ -61,12 +61,10 @@
   INF Binaries/i005d/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   INF Binaries/i005d/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
-
   INF Binaries/i005d/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
-  INF Binaries/vili/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
+  INF Binaries/i005d/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 !else
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
@@ -91,7 +89,6 @@
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
 
   INF Binaries/i005d/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf

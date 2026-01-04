@@ -244,8 +244,8 @@
   }
 
   FILE FREEFORM = AADFE0CF-06FA-4538-B78C-2D163BF85C70 {
-      SECTION UI = "Panel_bale_P_7_AB715_dsc_cmd_dvt.xml"
-      SECTION RAW = Binaries/bale_b/RawFiles/Panel_bale_P_7_AB715_dsc_cmd_dvt.xml
+    SECTION UI = "Panel_bale_P_7_AB715_dsc_cmd_dvt.xml"
+    SECTION RAW = Binaries/bale_b/RawFiles/Panel_bale_P_7_AB715_dsc_cmd_dvt.xml
   }
 
   FILE FREEFORM = AADFE0CF-06FA-4528-B78C-2D265BF85A91 {

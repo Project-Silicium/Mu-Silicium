@@ -173,7 +173,6 @@
     SECTION RAW = Binaries/r0q/RawFiles/BDS_Menu.cfg
   }
 
-
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION UI = "SecParti.cfg"
     SECTION RAW = Binaries/r0q/RawFiles/SecParti.cfg
