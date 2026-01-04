@@ -1,8 +1,3 @@
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
-    SECTION UI = "BDS_Menu.cfg"
-    SECTION RAW = Binaries/laurel_sprout/RawFiles/BDS_Menu.cfg
-  }
-
   FILE FREEFORM =  D8076BF4-4C4E-480B-AEE8-47C1F5FEEA42{
     SECTION UI = "Panel_s6e8fco_samsung_hdp_video.xml"
     SECTION RAW = Binaries/laurel_sprout/RawFiles/Panel_s6e8fco_samsung_hdp_video.xml

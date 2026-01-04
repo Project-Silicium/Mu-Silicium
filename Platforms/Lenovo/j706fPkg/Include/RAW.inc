@@ -1,8 +1,3 @@
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
-    SECTION UI = "BDS_Menu.cfg"
-    SECTION RAW = Binaries/j706f/RawFiles/BDS_Menu.cfg
-  }
-
   FILE FREEFORM = A1ACFF5E-33C7-4B09-890B-3C181D93CB11 {
     SECTION UI = "Panel_rm69380_amoled_2k_cmd.xml"
     SECTION RAW = Binaries/j706f/RawFiles/Panel_rm69380_amoled_2k_cmd.xml

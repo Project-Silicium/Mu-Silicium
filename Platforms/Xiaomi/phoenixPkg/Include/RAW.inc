@@ -1,8 +1,3 @@
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
-    SECTION UI = "BDS_Menu.cfg"
-    SECTION RAW = Binaries/phoenix/RawFiles/BDS_Menu.cfg
-  }
-
   FILE FREEFORM = 97CEB64B-29D5-42DF-9755-036D253C4B63 {
     SECTION UI = "Panel_G7B_37_02_0a_lcd_dsc_vid.xml"
     SECTION RAW = Binaries/phoenix/RawFiles/Panel_G7B_37_02_0a_lcd_dsc_vid.xml

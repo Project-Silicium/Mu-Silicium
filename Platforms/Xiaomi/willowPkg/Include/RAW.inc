@@ -1,8 +1,3 @@
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
-    SECTION UI = "BDS_Menu.cfg"
-    SECTION RAW = Binaries/willow/RawFiles/BDS_Menu.cfg
-  }
-
   FILE FREEFORM = 02E0AF91-5D44-424F-828F-211ADC520B0C {
     SECTION UI = "Panel_truly_td4330_fhd_cmd.xml"
     SECTION RAW = Binaries/willow/RawFiles/Panel_truly_td4330_fhd_cmd.xml

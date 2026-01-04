@@ -1,8 +1,3 @@
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
-    SECTION UI = "BDS_Menu.cfg"
-    SECTION RAW = Binaries/fog/RawFiles/BDS_Menu.cfg
-  }
-
   FILE FREEFORM = C0DECCE0-BD15-480F-BD18-5FF4C530176C {
     SECTION UI = "Panel_c3q_35_02_0a_fhdp_video.xml"
     SECTION RAW = Binaries/fog/RawFiles/Panel_c3q_35_02_0a_fhdp_video.xml

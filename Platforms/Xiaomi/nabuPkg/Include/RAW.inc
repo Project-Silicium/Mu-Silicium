@@ -1,8 +1,3 @@
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
-    SECTION UI = "BDS_Menu.cfg"
-    SECTION RAW = Binaries/nabu/RawFiles/BDS_Menu.cfg
-  }
-
   FILE FREEFORM = CEF84EDC-7DAD-4D33-A0DD-E79FDE2CC42C {
     SECTION UI = "Panel_K82_42_02_0a_dualdsi_cphy_lcd_vid.xml"
     SECTION RAW = Binaries/nabu/RawFiles/Panel_K82_42_02_0a_dualdsi_cphy_lcd_vid.xml

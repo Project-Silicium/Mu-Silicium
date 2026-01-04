@@ -1,8 +1,3 @@
-  FILE FREEFORM = A91D838E-A5FA-4138-825D-455E2303079E {
-    SECTION RAW = Binaries/lavender/RawFiles/BDS_Menu.cfg
-    SECTION UI = "BDS_Menu.cfg"
-  }
-
   FILE FREEFORM = A1E235DE-E825-4591-9623-C43175811826 {
     SECTION RAW = Binaries/lavender/RawFiles/SecParti.cfg
     SECTION UI = "SecParti.cfg"
