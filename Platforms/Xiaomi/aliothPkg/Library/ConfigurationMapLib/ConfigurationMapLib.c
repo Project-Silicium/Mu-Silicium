@@ -23,7 +23,7 @@ gConfigurationEntryDescriptorEx[] = {
   {"Sdc1GpioConfigOff", 0xA00},
   {"Sdc2GpioConfigOff", 0xA00},
   {"EnableSDHCSwitch", 0x1},
-  {"EnableUfsIOC", 0},
+  {"EnableUfsIOC", 1},
   {"UfsSmmuConfigForOtherBootDev", 1},
   {"SecurityFlag", 0xC4},
   {"EnableLogFsSyncInRetail", 0x1},
