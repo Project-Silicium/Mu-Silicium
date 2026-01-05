@@ -1,0 +1,35 @@
+##
+# Copyright (c) 2026 Mu-Silicium Project
+#
+# SPDX-License-Identifier: GPL-2.0
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TegraMax77620Dxe
+  FILE_GUID                      = 9F1C3B5D-4E2A-6C8F-B7D9-1E3A5C7F9B2D
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = TegraMax77620DxeInitialize
+
+[Sources]
+  TegraMax77620Dxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  NvidiaPkg/NvidiaPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  DebugLib
+  TimerLib
+
+[Protocols]
+  gEfiTegraI2cProtocolGuid                      ## CONSUMES
+  gEfiTegraMax77620ProtocolGuid                 ## PRODUCES
+
+[Depex]
+  gEfiTegraI2cProtocolGuid

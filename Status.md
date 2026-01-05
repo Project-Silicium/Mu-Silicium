@@ -5047,8 +5047,8 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Host Mode      |                   | ❌    |
 | USB Device Mode    |                   | ❌    |
 | USB Power Delivery |                   | ❌    |
-| SD Card            |                   | ❌    |
-| Windows Boot       |                   | ❌    |
+| SD Card            |                   | ✅    |
+| Windows Boot       | Tested PE Only    | ⚠️    |
 | Linux Boot         |                   | ❌    |
 
 </details>

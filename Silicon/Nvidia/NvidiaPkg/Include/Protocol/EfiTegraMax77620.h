@@ -1,0 +1,61 @@
+/**
+  EfiTegraMax77620.h - Tegra MAX77620 PMIC Protocol Definition
+
+  Copyright (c) 2026 Mu-Silicium Project
+
+  SPDX-License-Identifier: GPL-2.0
+**/
+
+#ifndef _EFI_TEGRA_MAX77620_H_
+#define _EFI_TEGRA_MAX77620_H_
+
+#include <Uefi.h>
+
+#define EFI_TEGRA_MAX77620_PROTOCOL_GUID \
+  { 0x4c2a8f5e, 0x7d3b, 0x4a9c, { 0x8e, 0x1f, 0x5b, 0x6c, 0x7d, 0x8e, 0x9f, 0xa0 } }
+
+extern EFI_GUID gEfiTegraMax77620ProtocolGuid;
+
+typedef struct _EFI_TEGRA_MAX77620_PROTOCOL EFI_TEGRA_MAX77620_PROTOCOL;
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_TEGRA_MAX77620_SET_VOLTAGE)(
+  IN UINT32 Id,
+  IN UINT32 Mv
+  );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_TEGRA_MAX77620_ENABLE)(
+  IN UINT32  Id,
+  IN BOOLEAN Enable
+  );
+
+typedef
+UINT32
+(EFIAPI *EFI_TEGRA_MAX77620_GET_STATUS)(
+  IN UINT32 Id
+  );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_TEGRA_MAX77620_ENABLE_SD_CARD_POWER)(
+  VOID
+  );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_TEGRA_MAX77620_ENABLE_TOUCH_POWER)(
+  VOID
+  );
+
+struct _EFI_TEGRA_MAX77620_PROTOCOL {
+  EFI_TEGRA_MAX77620_SET_VOLTAGE          SetVoltage;
+  EFI_TEGRA_MAX77620_ENABLE               Enable;
+  EFI_TEGRA_MAX77620_GET_STATUS           GetStatus;
+  EFI_TEGRA_MAX77620_ENABLE_SD_CARD_POWER EnableSdCardPower;
+  EFI_TEGRA_MAX77620_ENABLE_TOUCH_POWER   EnableTouchPower;
+};
+
+#endif

@@ -33,6 +33,11 @@
   MemoryProtectionLib|NvidiaPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
   ErrataPatchesLib|NvidiaPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
 
+  #
+  # Tegra Libraries
+  #
+  TegraPinmuxLib|NvidiaPkg/GPLLibrary/TegraPinmuxLib/TegraPinmuxLib.inf
+
 [Components]
   #
   # SmBios
@@ -48,5 +53,8 @@
   NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf
 !endif
   NvidiaPkg/GPLDrivers/TegraClockDxe/TegraClockDxe.inf
+  NvidiaPkg/GPLDrivers/TegraI2cDxe/TegraI2cDxe.inf
+  NvidiaPkg/GPLDrivers/TegraMax77620Dxe/TegraMax77620Dxe.inf
+  NvidiaPkg/GPLDrivers/TegraSdmmcDxe/TegraSdmmcDxe.inf
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc

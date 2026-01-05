@@ -1,0 +1,24 @@
+##
+# Copyright (c) 2026 Mu-Silicium Project
+#
+# SPDX-License-Identifier: GPL-2.0
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TegraPinmuxLib
+  FILE_GUID                      = 3B1A2C4D-5E6F-7890-1234-56789ABCDEFF
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = TegraPinmuxLib
+
+[Sources]
+  TegraPinmuxLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  NvidiaPkg/NvidiaPkg.dec
+
+[LibraryClasses]
+  IoLib

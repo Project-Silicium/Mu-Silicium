@@ -1,0 +1,42 @@
+##
+# Copyright (c) 2026 Mu-Silicium Project
+#
+# SPDX-License-Identifier: GPL-2.0
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = TegraSdmmcDxe
+  FILE_GUID                      = 2D4E6A8C-5F3B-7E9D-A1C3-8B6E4F2D9A5C
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = TegraSdmmcDxeInitialize
+
+[Sources]
+  TegraSdmmcDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  NvidiaPkg/NvidiaPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  DebugLib
+  IoLib
+  TimerLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  CacheMaintenanceLib
+  ArmSmcLib
+  TegraPinmuxLib
+
+[Protocols]
+  gEfiBlockIoProtocolGuid                       ## PRODUCES
+  gEfiDevicePathProtocolGuid                    ## PRODUCES
+  gEfiTegraMax77620ProtocolGuid                 ## CONSUMES
+
+[Depex]
+  gEfiTegraMax77620ProtocolGuid

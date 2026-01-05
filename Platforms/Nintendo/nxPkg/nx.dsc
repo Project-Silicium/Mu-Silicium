@@ -84,6 +84,11 @@
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
 
+  # ACPI Support
+  MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  nxPkg/AcpiTables/AcpiTables.inf
+
 !if $(DEVICE_MODEL) == 0
 !include EristaPkg/EristaPkg.dsc.inc
 !else

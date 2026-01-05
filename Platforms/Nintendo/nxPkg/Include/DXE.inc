@@ -25,11 +25,25 @@
   INF NvidiaPkg/GPLDrivers/TegraClockDxe/TegraClockDxe.inf
   INF NvidiaPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   INF NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
+  INF NvidiaPkg/GPLDrivers/TegraI2cDxe/TegraI2cDxe.inf
+  INF NvidiaPkg/GPLDrivers/TegraMax77620Dxe/TegraMax77620Dxe.inf
+  INF NvidiaPkg/GPLDrivers/TegraSdmmcDxe/TegraSdmmcDxe.inf
+
+  # Disk and Filesystem
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF FatPkg/EnhancedFatDxe/Fat.inf
+  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
   INF SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
   INF SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+
+  # ACPI (using original mew DSDT without SDMMC)
+  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  INF RuleOverride=ACPITABLE Platforms/Nintendo/nxPkg/AcpiTables/AcpiTables.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
