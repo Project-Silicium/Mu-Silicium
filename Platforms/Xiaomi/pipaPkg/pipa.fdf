@@ -99,9 +99,6 @@ READ_LOCK_STATUS   = TRUE
   #  SECTION UI = "DeviceTreeBlob"
   #}
 
-  # Usb Helper
-  INF KonaPkg/Drivers/UsbHelperDxe/UsbHelperDxe.inf
-
   !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]

@@ -19,9 +19,11 @@
   UefiBootServicesTableLib
   AslUpdateLib
   MemoryMapHelperLib
-  RFSProtectionLib
 
 [Protocols]
   gEfiChipInfoProtocolGuid
   gEfiSMEMProtocolGuid
   gEfiPlatformInfoProtocolGuid
+
+[FixedPcd]
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3

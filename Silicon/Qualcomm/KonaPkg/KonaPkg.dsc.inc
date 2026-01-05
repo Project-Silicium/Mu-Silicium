@@ -87,7 +87,6 @@
 
 [LibraryClasses]
   PlatformPrePiLib|KonaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  RFSProtectionLib|KonaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|KonaPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
