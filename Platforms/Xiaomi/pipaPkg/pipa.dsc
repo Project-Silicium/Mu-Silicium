@@ -47,8 +47,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pipa"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Pad_pipa"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Pad 6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"23043RP34G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"M82"
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1800
@@ -59,7 +59,7 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
   # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xB4500000
+  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
 
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
