@@ -1,16 +1,10 @@
-/** @file
-    Copyright (c) 2024-2025. Project Aloha Authors. All rights reserved.
-    Copyright (c) 2022-2025. DuoWoA Authors.
-    Copyright (c) 2023-2026. Project Silicium Authors.
-    SPDX-License-Identifier: MIT
+#ifndef _ARM_SMMU_DETACH_LIB_H_
+#define _ARM_SMMU_DETACH_LIB_H_
 
-    Portion of this code is written by referencing
-    linux/drivers/iommu/arm/arm-smmu/arm-smmu.c
-*/
-
-#include <Uefi.h>
-
-VOID ArmSmmuDetach(
+VOID
+ArmSmmuDetach (
   IN CONST UINT16 *SkipStreams,
-  IN UINTN SkipStreamCount
-);
+  IN UINT8         SkipStreamCount
+  );
+
+#endif /* _ARM_SMMU_DETACH_LIB_H_ */

@@ -8,6 +8,7 @@
 
 [Sources]
   ArmSmmuDetachLib.c
+  SmmuIo.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -16,4 +17,8 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
+  IoLib
+  BaseLib
   MemoryMapHelperLib
+  BaseMemoryLib
+  TimerLib
