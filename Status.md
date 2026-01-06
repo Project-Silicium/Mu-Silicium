@@ -1429,8 +1429,8 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Host Mode      |                                                      | ❌    |
 | USB Device Mode    | Requires a Reconnect if it was Connected during Boot | ✅    |
 | USB Power Delivery |                                                      | ❌    |
-| Mass Storage       | Needs patch to initialize without power button       | ✅    |
-| Windows Boot       | Windows PE only                                      | ⚠️    |
+| Mass Storage       |                                                      | ✅    |
+| Windows Boot       |                                                      | ✅    |
 | Linux Boot         |                                                      | ✅    |
 
 ### OS Status
@@ -1441,7 +1441,6 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 > [!IMPORTANT]
 > Linux Requires: [Mainline Kernel](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/).
-> Touchscreen and the display are still being upstreamed, check mailing lists
 
 > [!NOTE]
 > The PostmarketOS Site for this Device can be Found [here](https://wiki.postmarketos.org/wiki/Samsung_Galaxy_S22_5G_(samsung-r0q)).
@@ -1485,40 +1484,37 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!IMPORTANT]
-> Only Windows PE can Boot.
-
-> [!IMPORTANT]
 > Needs [Windows Drivers](https://github.com/Robotix22/windows_silicon_qcom_waipio/).
 
-| Feature              | Description | State |
-|:---------------------|:------------|:-----:|
-| Internal Storage     |             | ❌    |
-| Side Buttons         |             | ✅    |
-| Proximity Sensor     |             | ❌    |
-| Light Sensor         |             | ❌    |
-| Accelerometer Sensor |             | ❌    |
-| Compass Sensor       |             | ❌    | 
-| Gyroscope Sensor     |             | ❌    |
-| Fingerprint Sensor   |             | ❌    |
-| NFC Sensor           |             | ❌    |
-| Temperature Sensor   |             | ❌    |
-| Battery              |             | ❌    |
-| USB Host Mode        |             | ❌    |
-| USB Device Mode      |             | ❌    |
-| USB Power Delivery   |             | ❌    |
-| Charging             |             | ❌    |
-| WLAN                 |             | ❌    |
-| CPU                  |             | ✅    |
-| Touchscreen          |             | ❌    |
-| Bluetooth            |             | ❌    |
-| GPS                  |             | ❌    |
-| Speakers             |             | ❌    |
-| Microphone           |             | ❌    |
-| GPU                  |             | ❌    |
-| Camera               |             | ❌    |
-| Mobile Data          |             | ❌    |
-| Display              |             | ✅    | 
-| Vibration            |             | ❌    |
+| Feature              | Description                                                                                                       | State |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
+| Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
+| Side Buttons         |                                                                                                                   | ✅    |
+| Proximity Sensor     |                                                                                                                   | ❌    |
+| Light Sensor         |                                                                                                                   | ❌    |
+| Accelerometer Sensor |                                                                                                                   | ❌    |
+| Compass Sensor       |                                                                                                                   | ❌    |
+| Gyroscope Sensor     |                                                                                                                   | ❌    |
+| Fingerprint Sensor   |                                                                                                                   | ❌    |
+| NFC Sensor           |                                                                                                                   | ❌    |
+| Temperature Sensor   |                                                                                                                   | ❌    |
+| Battery              |                                                                                                                   | ❌    |
+| USB Host Mode        |                                                                                                                   | ❌    |
+| USB Device Mode      |                                                                                                                   | ❌    |
+| USB Power Delivery   |                                                                                                                   | ❌    |
+| Charging             |                                                                                                                   | ❌    |
+| WLAN                 |                                                                                                                   | ❌    |
+| CPU                  |                                                                                                                   | ✅    |
+| Touchscreen          |                                                                                                                   | ❌    |
+| Bluetooth            |                                                                                                                   | ❌    |
+| GPS                  |                                                                                                                   | ❌    |
+| Speakers             |                                                                                                                   | ❌    |
+| Microphone           |                                                                                                                   | ❌    |
+| GPU                  |                                                                                                                   | ❌    |
+| Camera               |                                                                                                                   | ❌    |
+| Mobile Data          |                                                                                                                   | ❌    |
+| Display              |                                                                                                                   | ✅    |
+| Vibration            |                                                                                                                   | ❌    |
 
 </td></tr>
 </table>
