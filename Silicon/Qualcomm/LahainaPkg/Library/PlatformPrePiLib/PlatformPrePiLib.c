@@ -25,7 +25,7 @@ WakeUpCores ()
 VOID
 PlatformInitialize ()
 {
-  CONST UINT16 MdpStreams[] = { 0x820, 0x402 };
+  CONST UINT16 MdpStreams[] = { 0x820, 0x821, 0xC21 };
 
   // Wake Up Cores
   WakeUpCores ();
