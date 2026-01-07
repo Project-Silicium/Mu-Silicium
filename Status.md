@@ -1742,7 +1742,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 **State:** Inactive <br>
 **Codename:** lemonade
 
-**Contributors:** [Robotix](https://github.com/Robotix22/)
+**Contributors:** [Arminas](https://github.com/arminask), [Robotix](https://github.com/Robotix22/)
 
 ### UEFI Status
 
@@ -1751,7 +1751,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Display            |                                     | ✅    |
 | Internal Storage   |                                     | ✅    |
 | Side Buttons       |                                     | ✅    |
-| USB Host Mode      |                                     | ✅    |
+| USB Host Mode      |                                     | ❌    |
 | USB Device Mode    |                                     | ✅    |
 | USB Power Delivery |                                     | ❌    |
 | Mass Storage       | Unstable, Breaks on Large Transfers | ⚠️    |
@@ -1844,37 +1844,38 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><th>Windows</th></tr>
 <tr><td>
 
-| Feature              | Description         | State |
-|:---------------------|:--------------------|:-----:|
-| Internal Storage     | Needs Special Setup | ✅    |
-| Side Buttons         |                     | ❌    |
-| Proximity Sensor     |                     | ❌    |
-| Light Sensor         |                     | ❌    |
-| Accelerometer Sensor |                     | ❌    |
-| Compass Sensor       |                     | ❌    |
-| Gyroscope Sensor     |                     | ❌    |
-| Fingerprint Sensor   |                     | ❌    |
-| Hall Sensor          |                     | ❌    |
-| Temperature Sensor   |                     | ❌    |
-| Battery              |                     | ❌    |
-| USB Host Mode        |                     | ❌    |
-| USB Device Mode      | Needs Special Setup | ✅    |
-| USB Power Delivery   |                     | ❌    |
-| Charging             |                     | ❌    |
-| WLAN                 |                     | ❌    |
-| CPU                  |                     | ✅    |
-| Touchscreen          |                     | ❌    |
-| Bluetooth            |                     | ❌    |
-| GPS                  |                     | ❌    |
-| Speakers             |                     | ❌    |
-| Microphone           |                     | ❌    |
-| GPU                  |                     | ❌    |
-| Camera               |                     | ❌    |
-| Mobile Data          |                     | ❌    |
-| Display              |                     | ✅    |
-| Vibration            |                     | ❌    |
+| Feature              | Description                                                                                                       | State |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
+| Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
+| Side Buttons         |                                                                                                                   | ❌    |
+| Proximity Sensor     |                                                                                                                   | ❌    |
+| Light Sensor         |                                                                                                                   | ❌    |
+| Accelerometer Sensor |                                                                                                                   | ❌    |
+| Compass Sensor       |                                                                                                                   | ❌    |
+| Gyroscope Sensor     |                                                                                                                   | ❌    |
+| Fingerprint Sensor   |                                                                                                                   | ❌    |
+| Hall Sensor          |                                                                                                                   | ❌    |
+| Temperature Sensor   |                                                                                                                   | ❌    |
+| Battery              |                                                                                                                   | ❌    |
+| USB Host Mode        |                                                                                                                   | ❌    |
+| USB Device Mode      |                                                                                                                   | ❌    |
+| USB Power Delivery   |                                                                                                                   | ❌    |
+| Charging             |                                                                                                                   | ❌    |
+| WLAN                 |                                                                                                                   | ❌    |
+| CPU                  |                                                                                                                   | ✅    |
+| Touchscreen          |                                                                                                                   | ❌    |
+| Bluetooth            |                                                                                                                   | ❌    |
+| GPS                  |                                                                                                                   | ❌    |
+| Speakers             |                                                                                                                   | ❌    |
+| Microphone           |                                                                                                                   | ❌    |
+| GPU                  |                                                                                                                   | ❌    |
+| Camera               |                                                                                                                   | ❌    |
+| Mobile Data          |                                                                                                                   | ❌    |
+| Display              |                                                                                                                   | ✅    |
+| Vibration            |                                                                                                                   | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Samsung Galaxy Z Fold 3 5G
 
