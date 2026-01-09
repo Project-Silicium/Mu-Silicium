@@ -5,7 +5,7 @@
 #!if $(TARGET) == DEBUG
 #  SECTION RAW = Strait/DBG2.aml
 #!endif
-#  SECTION RAW = gta9p/DSDT.aml
+#  SECTION RAW = gta9pwifi/DSDT.aml
 #  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Strait/FADT.aml
 #  SECTION RAW = Strait/FACP.aml

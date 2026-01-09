@@ -14,15 +14,15 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = gta9p
+  PLATFORM_NAME                  = gta9pwifi
   PLATFORM_GUID                  = EDCED809-DBA9-4B74-9881-0B3EDCF5075C
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/gta9pPkg
+  OUTPUT_DIRECTORY               = Build/gta9pwifiPkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = RELEASE|DEBUG
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = gta9pPkg/gta9p.fdf
+  FLASH_DEFINITION               = gta9pwifiPkg/gta9pwifi.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
 [PcdsFixedAtBuild]
@@ -38,10 +38,10 @@
 
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab A9+ 5G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gta9p"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy Tab A9+ 5G_gta9p"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab A9+ 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab A9+ Wi-Fi"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gta9pwifi"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_A9+_Wi-Fi_gta9pwifi"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab A9+ Wi-Fi"
 
   # Simple Frame Buffer
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1200
@@ -58,8 +58,8 @@
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
 [LibraryClasses]
-  MemoryMapLib|gta9pPkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|gta9pPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+  MemoryMapLib|gta9pwifiPkg/Library/MemoryMapLib/MemoryMapLib.inf
+  ConfigurationMapLib|gta9pwifiPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
   AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include StraitPkg/StraitPkg.dsc.inc

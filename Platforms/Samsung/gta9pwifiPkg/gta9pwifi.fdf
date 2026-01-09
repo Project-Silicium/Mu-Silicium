@@ -18,7 +18,7 @@
 #
 ################################################################################
 
-[FD.gta9p_UEFI]
+[FD.gta9pwifi_UEFI]
 BaseAddress   = $(FD_BASE)|gArmTokenSpaceGuid.PcdFdBaseAddress # The base address of the FLASH Device.
 Size          = $(FD_SIZE)|gArmTokenSpaceGuid.PcdFdSize        # The size in bytes of the FLASH Device
 ErasePolarity = 1
@@ -95,7 +95,7 @@ READ_LOCK_STATUS   = TRUE
   # Device Tree
   #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
   #FILE FREEFORM = 25462CDA-221F-47DF-AC1D-259CFAA4E326 {
-  #  SECTION RAW = gta9pPkg/FdtBlob/sm6375-samsung-gta9p.dtb
+  #  SECTION RAW = gta9pwifiPkg/FdtBlob/sm6375-samsung-gta9pwifi.dtb
   #  SECTION UI = "Device Tree"
   #}
 

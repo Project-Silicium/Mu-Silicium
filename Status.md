@@ -3991,18 +3991,18 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
-## Samsung Galaxy Tab A9+
+## Samsung Galaxy Tab A9+ Wi-Fi
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A9+.png" width="550" alt="Preview">
 
-**State:** Active <br>
-**Codename:** gta9p
+**State:** Inactive <br>
+**Codename:** gta9pwifi
 
 **Contributors:** [Violet](https://github.com/ghatt-o/)
 
 ### UEFI Status
 
-| Feature            | Description     | State |
+| Feature            | Description          | State |
 |:-------------------|:---------------------|:-----:|
 | Display            |                      | ✅    |
 | Internal Storage   |                      | ✅    |
