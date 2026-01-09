@@ -24,7 +24,7 @@ DisableWatchDogTimer ()
 VOID
 PlatformInitialize ()
 {
-  CONST UINT16 MdpStreams[] = { 0x400 };
+  CONST UINT16 MdpStreams[] = { 0x400, 0x401 };
 
   // Disable WatchDog Timer
   DisableWatchDogTimer ();
