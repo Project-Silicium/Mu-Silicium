@@ -64,7 +64,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x1000
 
   # SmBios Memory Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2750    # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2750    # Unofficial Value
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]

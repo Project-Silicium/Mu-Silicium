@@ -330,7 +330,7 @@ InitSpeedy (
     SWResetSpeedy (SpeedyRegion.Address);
     EnableSpeedy  (SpeedyRegion.Address);
 
-    DEBUG ((EFI_D_WARN, "Sucessfully Configured Speedy\n"));
+    DEBUG ((EFI_D_WARN, "Successfully Configured Speedy\n"));
   } else {
     CHAR8 SpeedyName[9] = "";
 
@@ -360,7 +360,7 @@ InitSpeedy (
       SWResetSpeedy (SpeedyRegion.Address);
       EnableSpeedy  (SpeedyRegion.Address);
 
-      DEBUG ((EFI_D_WARN, "Sucessfully Configured Speedy %u\n", i));
+      DEBUG ((EFI_D_WARN, "Successfully Configured Speedy %u\n", i));
     }
   }
 
