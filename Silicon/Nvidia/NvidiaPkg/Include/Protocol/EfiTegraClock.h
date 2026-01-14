@@ -14,7 +14,7 @@
 typedef struct _EFI_TEGRA_CLOCK_PROTOCOL EFI_TEGRA_CLOCK_PROTOCOL;
 
 /**
-  This Function Retuns the Rate of the Defined Clock.
+  This Function Returns the Rate of the Defined Clock.
 
   @param[in]  ClockID         - The ID of the Clock.
   @param[out] ClockRate       - The Rate of the Clock.

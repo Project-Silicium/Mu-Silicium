@@ -21,7 +21,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-9` Version is Required on this Phone!
+> `BIT-9` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -58,7 +58,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-17` Version is Required on this Phone!
+> `BIT-17` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -90,7 +90,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-23` Version is Required on this Phone!
+> `BIT-23` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -122,7 +122,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-23` Version is Required on this Phone!
+> `BIT-23` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -159,7 +159,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-16` Version is Required on this Phone!
+> `BIT-16` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -196,7 +196,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-17` Version is Required on this Phone!
+> `BIT-17` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -242,7 +242,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-9` Version is Required on this Phone!
+> `BIT-9` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -274,7 +274,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-5` Version is Required on this Phone!
+> `BIT-5` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -320,7 +320,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-7` Version is Required on this Phone!
+> `BIT-7` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1282,7 +1282,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-10` Version is Required on this Phone!
+> `BIT-10` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1407,7 +1407,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-12` Version is Required on this Phone!
+> `BIT-12` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1525,7 +1525,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-9` Version is Required on this Phone!
+> `BIT-9` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1812,7 +1812,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-18` Version is Required on this Phone!
+> `BIT-18` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1883,7 +1883,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-14` Version is Required on this Phone!
+> `BIT-14` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -3020,7 +3020,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-9` Version is Required on this Phone!
+> `BIT-9` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -3397,7 +3397,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-11` Version is Required on this Phone!
+> `BIT-11` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -3872,7 +3872,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-?` Version is Required on this Phone!
+> `BIT-?` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -4612,7 +4612,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-8` Version is Required on this Phone!
+> `BIT-8` Version is Required on this Device!
 
 </td></tr>
 </table>

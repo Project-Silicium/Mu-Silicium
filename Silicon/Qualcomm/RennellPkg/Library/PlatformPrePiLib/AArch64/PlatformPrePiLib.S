@@ -1,4 +1,4 @@
 #include <AsmMacroLib.h>
 
-ASM_FUNC (PlaformAssemblyInit)
+ASM_FUNC (PlatformAssemblyInit)
   ret

@@ -123,7 +123,7 @@ AllocateGopMemory ()
 {
   EFI_STATUS Status;
 
-  // Alocate Memory
+  // Allocate Memory
   Status = gBS->AllocatePool (EfiBootServicesData, sizeof (EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE), (VOID *)&mDisplay.Mode);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for GOP Mode! Status = %r\n", Status));
@@ -201,7 +201,7 @@ RegisterDisplays (
     goto cleanup;
   }
 
-  // Set Mode Informations
+  // Set Mode Information
   mDisplay.Mode->MaxMode         = 1;
   mDisplay.Mode->Mode            = 0;
   mDisplay.Mode->SizeOfInfo      = sizeof (EFI_GRAPHICS_OUTPUT_MODE_INFORMATION);

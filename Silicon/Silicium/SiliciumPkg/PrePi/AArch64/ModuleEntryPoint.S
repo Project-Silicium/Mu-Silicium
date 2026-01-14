@@ -13,7 +13,7 @@
 
 ASM_FUNC (_ModuleEntryPoint)
   // Run SoC Specific Code
-  bl   ASM_PFX (PlaformAssemblyInit)
+  bl   ASM_PFX (PlatformAssemblyInit)
 
   // Get MpId
   bl   ASM_PFX (ArmReadMpidr)
@@ -57,7 +57,7 @@ SetupCoreStack:
   ldr  x0, =FixedPcdGet32 (PcdPrePiStackBase)
   ldr  x1, =FixedPcdGet32 (PcdPrePiStackSize)
 
-  // Preapre Stack Clear
+  // Prepare Stack Clear
   add  x2, x0, x1
   mov  x3, x0
 
