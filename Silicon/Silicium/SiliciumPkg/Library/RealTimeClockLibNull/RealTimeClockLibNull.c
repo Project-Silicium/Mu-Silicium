@@ -12,13 +12,10 @@
   IMPLIED.
 **/
 
-#include <PiDxe.h>
-
 #include <Library/DebugLib.h>
-#include <Library/TimerLib.h>
-#include <Library/RealTimeClockLib.h>
 #include <Library/ArmGenericTimerCounterLib.h>
-#include <Library/PcdLib.h>
+#include <Library/RealTimeClockLib.h>
+#include <Library/TimerLib.h>
 
 EFI_STATUS
 EFIAPI
