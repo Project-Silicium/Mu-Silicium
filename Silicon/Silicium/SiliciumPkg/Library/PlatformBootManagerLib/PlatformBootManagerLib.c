@@ -266,6 +266,9 @@ PlatformBootManagerAfterConsole ()
 
   // Process Capsules
   ProcessCapsules ();
+
+  // Clear Boot Requests
+  MsBootPolicyLibClearBootRequests ();
 }
 
 VOID
