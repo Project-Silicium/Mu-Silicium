@@ -8,9 +8,7 @@
 ##
 
 [BuildOptions]
-!if $(TARGET) == DEBUG
-  *_CLANGPDB_*_CC_FLAGS = -D EFI_DEBUG
-!endif
+  DEBUG_CLANGPDB_*_CC_FLAGS = -D EFI_DEBUG
   *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG -D DISABLE_SECUREBOOT=$(DISABLE_SECUREBOOT)
   *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
 
