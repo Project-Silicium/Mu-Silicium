@@ -1601,29 +1601,6 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
-## Xiaomi 12 Pro
-
-<img align="right" src="Resources/Pictures/Xiaomi-12-Pro.png" width="500" alt="Preview">
-
-**State:** Inactive <br>
-**Codename:** zeus
-
-**Contributors:** [Robotix](https://github.com/Robotix22/), [2petro](https://github.com/2Petro/)
-
-### UEFI Status
-
-| Feature            | Description | State |
-|:-------------------|:------------|:-----:|
-| Display            |             | ✅    |
-| Internal Storage   |             | ✅    |
-| Side Buttons       |             | ✅    |
-| USB Host Mode      |             | ❌    |
-| USB Device Mode    |             | ✅    |
-| USB Power Delivery |             | ❌    |
-| Mass Storage       |             | ❔    |
-| Windows Boot       |             | ❌    |
-| Linux Boot         |             | ❌    |
-
 ## Xiaomi Poco F4 GT
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F4-GT.png" width="500" alt="Preview">
