@@ -79,6 +79,6 @@
 [LibraryClasses]
   MemoryMapLib|aliothPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|aliothPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|aliothPkg/Library/AcpiDeviceUpdateLib/AcpiDeviceUpdateLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 !include KonaPkg/KonaPkg.dsc.inc

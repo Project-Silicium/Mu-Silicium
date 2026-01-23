@@ -21,7 +21,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-9` Version is Required on this Phone!
+> `BIT-9` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -58,7 +58,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-17` Version is Required on this Phone!
+> `BIT-17` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -90,7 +90,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-23` Version is Required on this Phone!
+> `BIT-23` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -122,7 +122,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-23` Version is Required on this Phone!
+> `BIT-23` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -159,7 +159,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-16` Version is Required on this Phone!
+> `BIT-16` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -196,7 +196,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-17` Version is Required on this Phone!
+> `BIT-17` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -242,7 +242,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-9` Version is Required on this Phone!
+> `BIT-9` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -274,7 +274,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-5` Version is Required on this Phone!
+> `BIT-5` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -320,7 +320,7 @@
 <tr><td>
 
 > [!CAUTION]
-> `BIT-7` Version is Required on this Phone!
+> `BIT-7` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1282,7 +1282,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-10` Version is Required on this Phone!
+> `BIT-10` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1407,7 +1407,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-12` Version is Required on this Phone!
+> `BIT-12` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1525,7 +1525,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-9` Version is Required on this Phone!
+> `BIT-9` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1600,29 +1600,6 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
-
-## Xiaomi 12 Pro
-
-<img align="right" src="Resources/Pictures/Xiaomi-12-Pro.png" width="500" alt="Preview">
-
-**State:** Inactive <br>
-**Codename:** zeus
-
-**Contributors:** [Robotix](https://github.com/Robotix22/), [2petro](https://github.com/2Petro/)
-
-### UEFI Status
-
-| Feature            | Description | State |
-|:-------------------|:------------|:-----:|
-| Display            |             | ✅    |
-| Internal Storage   |             | ✅    |
-| Side Buttons       |             | ✅    |
-| USB Host Mode      |             | ❌    |
-| USB Device Mode    |             | ✅    |
-| USB Power Delivery |             | ❌    |
-| Mass Storage       |             | ❔    |
-| Windows Boot       |             | ❌    |
-| Linux Boot         |             | ❌    |
 
 ## Xiaomi Poco F4 GT
 
@@ -1742,7 +1719,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 **State:** Inactive <br>
 **Codename:** lemonade
 
-**Contributors:** [Robotix](https://github.com/Robotix22/)
+**Contributors:** [Arminas](https://github.com/arminask), [Robotix](https://github.com/Robotix22/)
 
 ### UEFI Status
 
@@ -1751,7 +1728,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Display            |                                     | ✅    |
 | Internal Storage   |                                     | ✅    |
 | Side Buttons       |                                     | ✅    |
-| USB Host Mode      |                                     | ✅    |
+| USB Host Mode      |                                     | ❌    |
 | USB Device Mode    |                                     | ✅    |
 | USB Power Delivery |                                     | ❌    |
 | Mass Storage       | Unstable, Breaks on Large Transfers | ⚠️    |
@@ -1812,7 +1789,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-18` Version is Required on this Phone!
+> `BIT-18` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -1844,37 +1821,38 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><th>Windows</th></tr>
 <tr><td>
 
-| Feature              | Description         | State |
-|:---------------------|:--------------------|:-----:|
-| Internal Storage     | Needs Special Setup | ✅    |
-| Side Buttons         |                     | ❌    |
-| Proximity Sensor     |                     | ❌    |
-| Light Sensor         |                     | ❌    |
-| Accelerometer Sensor |                     | ❌    |
-| Compass Sensor       |                     | ❌    |
-| Gyroscope Sensor     |                     | ❌    |
-| Fingerprint Sensor   |                     | ❌    |
-| Hall Sensor          |                     | ❌    |
-| Temperature Sensor   |                     | ❌    |
-| Battery              |                     | ❌    |
-| USB Host Mode        |                     | ❌    |
-| USB Device Mode      | Needs Special Setup | ✅    |
-| USB Power Delivery   |                     | ❌    |
-| Charging             |                     | ❌    |
-| WLAN                 |                     | ❌    |
-| CPU                  |                     | ✅    |
-| Touchscreen          |                     | ❌    |
-| Bluetooth            |                     | ❌    |
-| GPS                  |                     | ❌    |
-| Speakers             |                     | ❌    |
-| Microphone           |                     | ❌    |
-| GPU                  |                     | ❌    |
-| Camera               |                     | ❌    |
-| Mobile Data          |                     | ❌    |
-| Display              |                     | ✅    |
-| Vibration            |                     | ❌    |
+| Feature              | Description                                                                                                       | State |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
+| Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
+| Side Buttons         |                                                                                                                   | ❌    |
+| Proximity Sensor     |                                                                                                                   | ❌    |
+| Light Sensor         |                                                                                                                   | ❌    |
+| Accelerometer Sensor |                                                                                                                   | ❌    |
+| Compass Sensor       |                                                                                                                   | ❌    |
+| Gyroscope Sensor     |                                                                                                                   | ❌    |
+| Fingerprint Sensor   |                                                                                                                   | ❌    |
+| Hall Sensor          |                                                                                                                   | ❌    |
+| Temperature Sensor   |                                                                                                                   | ❌    |
+| Battery              |                                                                                                                   | ❌    |
+| USB Host Mode        |                                                                                                                   | ❌    |
+| USB Device Mode      |                                                                                                                   | ❌    |
+| USB Power Delivery   |                                                                                                                   | ❌    |
+| Charging             |                                                                                                                   | ❌    |
+| WLAN                 |                                                                                                                   | ❌    |
+| CPU                  |                                                                                                                   | ✅    |
+| Touchscreen          |                                                                                                                   | ❌    |
+| Bluetooth            |                                                                                                                   | ❌    |
+| GPS                  |                                                                                                                   | ❌    |
+| Speakers             |                                                                                                                   | ❌    |
+| Microphone           |                                                                                                                   | ❌    |
+| GPU                  |                                                                                                                   | ❌    |
+| Camera               |                                                                                                                   | ❌    |
+| Mobile Data          |                                                                                                                   | ❌    |
+| Display              |                                                                                                                   | ✅    |
+| Vibration            |                                                                                                                   | ❌    |
 
-</td></tr> </table>
+</td></tr>
+</table>
 
 ## Samsung Galaxy Z Fold 3 5G
 
@@ -1882,7 +1860,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-14` Version is Required on this Phone!
+> `BIT-14` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -2385,10 +2363,10 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Display            |                | ✅    |
 | Internal Storage   |                | ✅    |
 | Side Buttons       |                | ✅    |
-| USB Host Mode      |                | ✅    |
+| USB Host Mode      |                | ❌    |
 | USB Device Mode    |                | ✅    |
-| USB Power Delivery |                | ✅    |
-| Mass Storage       | Unknown Issues | ❌    |
+| USB Power Delivery |                | ❌    |
+| Mass Storage       |                | ✅    |
 | Windows Boot       |                | ✅    |
 | Linux Boot         |                | ✅    |
 
@@ -3019,7 +2997,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-9` Version is Required on this Phone!
+> `BIT-9` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -3396,7 +3374,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-11` Version is Required on this Phone!
+> `BIT-11` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -3871,7 +3849,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-?` Version is Required on this Phone!
+> `BIT-?` Version is Required on this Device!
 
 </td></tr>
 </table>
@@ -3990,18 +3968,18 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
-## Samsung Galaxy Tab A9+
+## Samsung Galaxy Tab A9+ Wi-Fi
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-A9+.png" width="550" alt="Preview">
 
-**State:** Active <br>
-**Codename:** gta9p
+**State:** Inactive <br>
+**Codename:** gta9pwifi
 
 **Contributors:** [Violet](https://github.com/ghatt-o/)
 
 ### UEFI Status
 
-| Feature            | Description     | State |
+| Feature            | Description          | State |
 |:-------------------|:---------------------|:-----:|
 | Display            |                      | ✅    |
 | Internal Storage   |                      | ✅    |
@@ -4611,7 +4589,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <tr><td>
 
 > [!CAUTION]
-> `BIT-8` Version is Required on this Phone!
+> `BIT-8` Version is Required on this Device!
 
 </td></tr>
 </table>

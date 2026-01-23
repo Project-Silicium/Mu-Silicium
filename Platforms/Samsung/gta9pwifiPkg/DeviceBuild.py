@@ -24,10 +24,10 @@ from edk2toollib.utility_functions import RunCmd
 #                                Common Configuration                                     #
 # ####################################################################################### #
 class CommonPlatform ():
-    PackagesSupported = ("gta9pPkg")
+    PackagesSupported = ("gta9pwifiPkg")
     ArchSupported = ("AARCH64")
     TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('gta9p', 'gcc_aarch64_linux', 'edk2-build')
+    Scopes = ('gta9pwifi', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Samsung",
@@ -104,10 +104,10 @@ class SettingsManager (UpdateSettingsManager, SetupSettingsManager, PrEvalSettin
         return build_these_packages
 
     def GetPlatformDscAndConfig (self) -> tuple:
-        return ("gta9pPkg/gta9p.dsc", {})
+        return ("gta9pwifiPkg/gta9pwifi.dsc", {})
 
     def GetName (self):
-        return "gta9p"
+        return "gta9pwifi"
 
     def GetPackagesPath (self):
         return CommonPlatform.PackagesPath
@@ -141,7 +141,7 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
         return CommonPlatform.Scopes
 
     def GetName (self):
-        return "gta9pPkg"
+        return "gta9pwifiPkg"
 
     def GetLoggingLevel (self, loggerType):
         return logging.INFO
@@ -150,8 +150,8 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
     def SetPlatformEnv (self):
         logging.debug ("PlatformBuilder SetPlatformEnv")
 
-        self.env.SetValue ("PRODUCT_NAME", "gta9p", "Platform Hardcoded")
-        self.env.SetValue ("ACTIVE_PLATFORM", "gta9pPkg/gta9p.dsc", "Platform Hardcoded")
+        self.env.SetValue ("PRODUCT_NAME", "gta9pwifi", "Platform Hardcoded")
+        self.env.SetValue ("ACTIVE_PLATFORM", "gta9pwifiPkg/gta9pwifi.dsc", "Platform Hardcoded")
         self.env.SetValue ("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
         self.env.SetValue ("TOOL_CHAIN_TAG", "CLANGPDB", "set default to clangpdb")
         self.env.SetValue ("EMPTY_DRIVE", "FALSE", "Default to false")

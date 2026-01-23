@@ -16,6 +16,9 @@
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   IoLib
+  MemoryMapHelperLib
+  ArmSmmuDetachLib

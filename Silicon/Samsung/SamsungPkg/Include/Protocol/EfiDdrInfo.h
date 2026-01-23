@@ -35,7 +35,7 @@ typedef struct ddr_details_table {
 } DDR_DETAILS_TABLE;
 
 /**
-  This Function retrurns the Details of the Memory Chip.
+  This Function returns the Details of the Memory Chip.
 
   @return Info                             - The Details of the Memory Chip.
 **/

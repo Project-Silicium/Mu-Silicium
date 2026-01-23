@@ -12,13 +12,10 @@
   IMPLIED.
 **/
 
-#include <PiDxe.h>
-
-#include <Library/ArmGenericTimerCounterLib.h>
-#include <Library/TimerLib.h>
-#include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
+#include <Library/ArmGenericTimerCounterLib.h>
 #include <Library/RealTimeClockLib.h>
+#include <Library/TimerLib.h>
 
 EFI_STATUS
 EFIAPI
@@ -39,13 +36,10 @@ LibGetTime (
 
   // Get Timer Freq
   Freq = ArmGenericTimerGetTimerFreq ();
-  if (!Freq) {
-    Freq = PcdGet64 (PcdTimerFreqOverwrite);
-    ASSERT (Freq);
-  }
+  ASSERT (Freq);
 
   // Set Capabilities
-  if (Capabilities) {
+  if (Capabilities != NULL) {
     Capabilities->Accuracy   = 0;
     Capabilities->Resolution = Freq;
     Capabilities->SetsToZero = FALSE;

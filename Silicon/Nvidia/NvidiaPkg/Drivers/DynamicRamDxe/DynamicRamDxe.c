@@ -78,7 +78,7 @@ AddRamPartition (
     return;
   }
 
-  DEBUG ((EFI_D_WARN, "Successfully Added RAM Parition: 0x%08llx 0x%08llx\n", Base, Length));
+  DEBUG ((EFI_D_WARN, "Successfully Added RAM Partition: 0x%08llx 0x%08llx\n", Base, Length));
 
   AnyRamPartitionAdded = TRUE;
 }
@@ -112,7 +112,7 @@ AddRamPartitions (
 
 exit:
   if (!AnyRamPartitionAdded) {
-    DEBUG ((EFI_D_ERROR, "No RAM Partitions were Added! Stoping UEFI now.\n"));
+    DEBUG ((EFI_D_ERROR, "No RAM Partitions were Added! Stopping UEFI now.\n"));
     ASSERT_EFI_ERROR (EFI_NOT_READY);
   }
 

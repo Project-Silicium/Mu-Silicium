@@ -5,6 +5,7 @@
 #include <Library/TimerLib.h>
 
 #include "FrameBuffer.h"
+#include "Font5x16.h"
 
 //
 // Global Variables
@@ -20,48 +21,46 @@ DrawDebugMessage (
   UINT32 Data;
   UINT32 Temp;
 
-  // Set Stride Value
-  UINTN Stride = FrameBufferData.Width - 5 * FrameBufferData.FontScale;
+  // Calculate Stride
+  UINTN Stride = FrameBufferData.Width - (FONT_WIDTH * FrameBufferData.FontScale);
 
   for (UINT8 i = 0; i < 2; i++) {
-    // Set Data Variable
+    // Save current Glyph
     Data = Glyph[i];
 
-    for (UINT8 j = 0; j < 12 / 2; j++) {
+    for (UINT8 j = 0; j < 6; j++) {
+      // Save current Data
       Temp = Data;
 
       for (UINT8 k = 0; k < FrameBufferData.FontScale; k++) {
+        // Restore Data
         Data = Temp;
 
-        for (UINT8 l = 0; l < 5; l++) {
-          if (Data & 1) {
-            for (UINT8 m = 0; m < FrameBufferData.FontScale; m++) {
-              // Set Text Color
-              Color = 0xFFFFFFFF;
+        for (UINT8 l = 0; l < FONT_WIDTH; l++) {
+          // Set Pixel Color
+          UINT32 PixelColor = (Data & 1) ? 0xFFFFFFFF : 0x00000000;
 
-              for (UINT8 n = 0; n < FrameBufferData.BytesPerPixel; n++) {
-                // Draw Text Char
-                *Pixels = (UINT8)Color;
+          for (UINT8 m = 0; m < FrameBufferData.FontScale; m++) {
+            // Save Color
+            Color = PixelColor;
 
-                // Shift Color
-                Color >>= 8;
+            for (UINT8 n = 0; n < FrameBufferData.BytesPerPixel; n++) {
+              // Draw Color
+              *Pixels = (UINT8)Color;
 
-                // Update Position
-                Pixels++;
-              }
-            }
-          } else {
-            for (UINT8 m = 0; m < FrameBufferData.FontScale; m++) {
-              // Update Position
-              Pixels += FrameBufferData.BytesPerPixel;
+              // Shift Color
+              Color >>= 8;
+
+              // Next Pixel
+              Pixels++;
             }
           }
 
-          // Shift Position
+          // Shift Data
           Data >>= 1;
         }
 
-        // Update Position
+        // Next Pixel
         Pixels += (Stride * FrameBufferData.BytesPerPixel);
       }
     }
@@ -81,9 +80,8 @@ Print:
 
   // Check Buffer Length
   if ((UINT8)Buffer < 32) {
-    // Check for "\n"
+    // Check for "\n" & Overflow X Position
     if (Buffer == '\n' || FrameBufferData.CurrentPosition->XPos >= FrameBufferData.MaxPosition.XPos - FrameBufferData.FontScale) {
-      // Create New Line
       goto NewLine;
     }
 
@@ -91,7 +89,6 @@ Print:
     if (Buffer == '\r') {
       // Reset X Position
       FrameBufferData.CurrentPosition->XPos = 0;
-      return;
     }
 
     return;
@@ -104,31 +101,35 @@ Print:
 
   // Set Debug Message Configuration
   Pixels  = (VOID *)FrameBufferData.MemoryRegion.Address;
-  Pixels += FrameBufferData.CurrentPosition->YPos * (FrameBufferData.BytesPerPixel * 12 * FrameBufferData.Width);
-  Pixels += FrameBufferData.CurrentPosition->XPos * FrameBufferData.FontScale * (FrameBufferData.BytesPerPixel * 6);
+  Pixels += (UINTN)FrameBufferData.CurrentPosition->YPos * ((FONT_HEIGHT - 4) * FrameBufferData.FontScale) * (FrameBufferData.Width * FrameBufferData.BytesPerPixel);
+  Pixels += (UINTN)FrameBufferData.CurrentPosition->XPos * ((FONT_WIDTH + 1) * FrameBufferData.FontScale) * FrameBufferData.BytesPerPixel;
 
   // Draw Debug Message
-  DrawDebugMessage (Pixels, Font + (Buffer - 32) * 2);
+  DrawDebugMessage (Pixels, Font5x16 + (Buffer - 32) * 2);
 
   // Increase X Position
   FrameBufferData.CurrentPosition->XPos++;
 
   // Check Max Position
-  if (FrameBufferData.CurrentPosition->XPos < FrameBufferData.MaxPosition.XPos / FrameBufferData.FontScale) {
+  if (FrameBufferData.CurrentPosition->XPos < FrameBufferData.MaxPosition.XPos) {
     return;
   }
 
 NewLine:
   // Wait
-  MicroSecondDelay (FrameBufferData.PrintDelay);
+  MicroSecondDelay (FixedPcdGet32 (PcdFrameBufferDelay));
 
   // Increase Y Position
-  FrameBufferData.CurrentPosition->YPos += FrameBufferData.FontScale;
+  FrameBufferData.CurrentPosition->YPos++;
 
   // Reset X Position
   FrameBufferData.CurrentPosition->XPos = 0;
 
-  if (FrameBufferData.CurrentPosition->YPos >= FrameBufferData.MaxPosition.YPos - FrameBufferData.FontScale) {
+  // Calculate next Line Position
+  UINT32 NextLine = (FrameBufferData.CurrentPosition->YPos + 1) * ((FONT_HEIGHT - 4) * FrameBufferData.FontScale);
+
+  // Verify Y Position
+  if (NextLine >= FrameBufferData.Height) {
     // Clear Screen
     ZeroMem ((VOID *)FrameBufferData.MemoryRegion.Address, FrameBufferData.MemoryRegion.Length);
 
@@ -238,7 +239,7 @@ SerialPortInitialize ()
   // Locate "Display Reserved" Memory Region
   Status  = LocateMemoryMapAreaByName ("Display Reserved", &FrameBufferData.MemoryRegion);
   Status |= LocateMemoryMapAreaByName ("Display_Reserved", &FrameBufferData.MemoryRegion);
-  if (EFI_ERROR (Status) && !FrameBufferData.MemoryRegion.Address) { 
+  if (EFI_ERROR (Status) && !FrameBufferData.MemoryRegion.Address) {
     return EFI_UNSUPPORTED;
   }
 
@@ -250,18 +251,24 @@ SerialPortInitialize ()
   // Update Display Reserved Length
   FrameBufferData.MemoryRegion.Length = FrameBufferData.Width * FrameBufferData.Height * FrameBufferData.BytesPerPixel;
 
-  // Set Default Print Delay
-  FrameBufferData.PrintDelay = FixedPcdGet32 (PcdFrameBufferDelay);
+  // Calculate Font Scales
+  UINT8 ScaleX = FrameBufferData.Width / 480;
+  UINT8 ScaleY = FrameBufferData.Height / 768;
 
-  // Set Font Scale (TODO: Add Dynamic Scale Method)
-  FrameBufferData.FontScale = 1;
+  // Set Font Scale
+  FrameBufferData.FontScale = (ScaleX < ScaleY) ? ScaleX : ScaleY;
+
+  // Verify Font Scale
+  if (!FrameBufferData.FontScale) {
+    FrameBufferData.FontScale = 1;
+  }
 
   // Set Total Position
   FrameBufferData.CurrentPosition = (EFI_FRAME_BUFFER_POSITION *)(FrameBufferData.MemoryRegion.Address + FrameBufferData.MemoryRegion.Length);
 
   // Calculate Max Position
-  FrameBufferData.MaxPosition.XPos = FrameBufferData.Width / 6;
-  FrameBufferData.MaxPosition.YPos = (FrameBufferData.Height - 1) / 12;
+  FrameBufferData.MaxPosition.XPos = FrameBufferData.Width / ((FONT_WIDTH + 1) * FrameBufferData.FontScale);
+  FrameBufferData.MaxPosition.YPos = FrameBufferData.Height / ((FONT_HEIGHT - 3) * FrameBufferData.FontScale);
 
   return EFI_SUCCESS;
 }

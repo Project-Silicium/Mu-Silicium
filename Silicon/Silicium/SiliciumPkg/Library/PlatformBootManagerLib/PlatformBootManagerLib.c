@@ -264,8 +264,11 @@ PlatformBootManagerAfterConsole ()
       ASSERT_EFI_ERROR (EFI_UNSUPPORTED);
   }
 
-  // Proccess Capsules
+  // Process Capsules
   ProcessCapsules ();
+
+  // Clear Boot Requests
+  MsBootPolicyLibClearBootRequests ();
 }
 
 VOID

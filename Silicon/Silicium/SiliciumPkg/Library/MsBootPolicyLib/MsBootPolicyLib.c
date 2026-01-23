@@ -162,7 +162,7 @@ MsBootPolicyLibGetBootSequence (
   OUT BOOT_SEQUENCE **BootSequence,
   IN  BOOLEAN         AltBootRequest)
 {
-  // Set Defaul Boot Chain
+  // Set Default Boot Chain
   BOOT_SEQUENCE DefaultBootSequence[] = { MsBootHDD, MsBootUSB, MsBootDone };
 
   // Check Parameters

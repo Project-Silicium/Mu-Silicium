@@ -21,6 +21,7 @@
 [LibraryClasses]
   IoLib
   ConfigurationMapHelperLib
+  ArmSmmuDetachLib
   PcdLib
 
 [FixedPcd]

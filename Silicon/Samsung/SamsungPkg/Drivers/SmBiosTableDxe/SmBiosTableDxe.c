@@ -35,7 +35,7 @@ EFIAPI
 LogSmbiosData (
   IN  EFI_SMBIOS_TABLE_HEADER  *Template,
   IN  CHAR8                   **StringPack,
-  OUT EFI_SMBIOS_HANDLE        *DataSmbiosHande)
+  OUT EFI_SMBIOS_HANDLE        *DataSmbiosHandle)
 {
   EFI_STATUS               Status;
   EFI_SMBIOS_PROTOCOL     *mSmbiosProtocol;
@@ -101,8 +101,8 @@ LogSmbiosData (
   ASSERT_EFI_ERROR (Status);
 
   // Save SmBios Handle
-  if (DataSmbiosHande != NULL) {
-    *DataSmbiosHande = SmbiosHandle;
+  if (DataSmbiosHandle != NULL) {
+    *DataSmbiosHandle = SmbiosHandle;
   }
 
   // Free Memory
@@ -269,16 +269,16 @@ BiosLanguageInfoUpdateSmBiosType13 ()
 VOID
 PhyMemArrayInfoUpdateSmbiosType16 (IN UINT64 SystemMemorySize)
 {
-  EFI_SMBIOS_HANDLE MemArraySmbiosHande;
+  EFI_SMBIOS_HANDLE MemArraySmbiosHandle;
 
   // Update Memory Size
   mPhyMemArrayInfoType16.ExtendedMaximumCapacity = SystemMemorySize;
 
   // Register SmBios Structure
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mPhyMemArrayInfoType16, mPhyMemArrayInfoType16Strings, &MemArraySmbiosHande);
+  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mPhyMemArrayInfoType16, mPhyMemArrayInfoType16Strings, &MemArraySmbiosHandle);
 
   // Append SmBios Handle
-  mMemDevInfoType17.MemoryArrayHandle = MemArraySmbiosHande;
+  mMemDevInfoType17.MemoryArrayHandle = MemArraySmbiosHandle;
 }
 
 VOID

@@ -4,36 +4,18 @@
 **/
 
 #include <Library/DebugLib.h>
-#include <Library/DevicePathLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/MemoryAllocationLib.h>
+#include <Library/DevicePathLib.h>
 
 #include <Protocol/ButtonServices.h>
 #include <Protocol/SimpleTextInEx.h>
 
 #include <Configuration/BootDevices.h>
 
-#include "MsButtonService.h"
-
 //
 // Global Variables
 //
-STATIC MS_BUTTON_SERVICES *gButtonService;
-
-EFI_STATUS
-EFIAPI
-UefiMenuButtonCheck (
-  IN  MS_BUTTON_SERVICES_PROTOCOL *This,
-  OUT BOOLEAN                     *ButtonPressed)
-{
-  // Get Button Service
-  MS_BUTTON_SERVICES *ButtonService = MS_BSP_FROM_BSP (This);
-
-  // Get Button Press State
-  *ButtonPressed = (ButtonService->ButtonState == VolUpButton);
-
-  return EFI_SUCCESS;
-}
+STATIC UINT16 CurrentButton;
 
 EFI_STATUS
 EFIAPI
@@ -41,11 +23,20 @@ SpecialAppButtonCheck (
   IN  MS_BUTTON_SERVICES_PROTOCOL *This,
   OUT BOOLEAN                     *ButtonPressed)
 {
-  // Get Button Service
-  MS_BUTTON_SERVICES *ButtonService = MS_BSP_FROM_BSP (This);
+  // Pass Button State
+  *ButtonPressed = (CurrentButton == SCAN_DOWN) || (CurrentButton == SCAN_DELETE);
 
-  // Get Button Press State
-  *ButtonPressed = (ButtonService->ButtonState == VolDownButton);
+  return EFI_SUCCESS;
+}
+
+EFI_STATUS
+EFIAPI
+UefiMenuButtonCheck (
+  IN  MS_BUTTON_SERVICES_PROTOCOL *This,
+  OUT BOOLEAN                     *ButtonPressed)
+{
+  // Pass Button State
+  *ButtonPressed = (CurrentButton == SCAN_UP) || (CurrentButton == SCAN_ESC);
 
   return EFI_SUCCESS;
 }
@@ -54,11 +45,8 @@ EFI_STATUS
 EFIAPI
 ClearButtonState (IN MS_BUTTON_SERVICES_PROTOCOL *This)
 {
-  // Get Button Service
-  MS_BUTTON_SERVICES *ButtonService = MS_BSP_FROM_BSP (This);
-
-  // Set Button Press State
-  ButtonService->ButtonState = NoButtons;
+  // Set Dummy Button State
+  CurrentButton = SCAN_NULL;
 
   return EFI_SUCCESS;
 }
@@ -67,68 +55,85 @@ EFI_STATUS
 EFIAPI
 KeyNotify (IN EFI_KEY_DATA *KeyData)
 {
-  // Check for Key Press
-  if (KeyData->Key.ScanCode == SCAN_UP) {
-    gButtonService->ButtonState = VolUpButton;
-  } else if (KeyData->Key.ScanCode == SCAN_DOWN) {
-    gButtonService->ButtonState = VolDownButton;
+  // Set Button State
+  switch (KeyData->Key.ScanCode) {
+    case SCAN_UP:
+    case SCAN_DOWN:
+    case SCAN_ESC:
+    case SCAN_DELETE:
+      CurrentButton = KeyData->Key.ScanCode;
+      break;
+
+    default:
+      break;
   }
 
   return EFI_SUCCESS;
 }
 
 EFI_STATUS
-GetButtonStates ()
+SetupKeyNotify (IN EFI_HANDLE ImageHandle)
 {
-  EFI_STATUS                         Status            = EFI_SUCCESS;
-  EFI_DEVICE_PATH_PROTOCOL          *ButtonsDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath;
-  EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *mSimpleExProtocol = NULL;
-  EFI_KEY_DATA                       KeyData           = {0};
-  EFI_HANDLE                         Handle            = NULL;
-  VOID                              *NotifyHandle      = NULL;
+  EFI_STATUS                         Status               = EFI_SUCCESS;
+  EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *mSimpleInExProtocol  = NULL;
+  EFI_DEVICE_PATH_PROTOCOL          *TempKeypadDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath;
+  EFI_HANDLE                         KeypadHandle         = NULL;
+  EFI_KEY_DATA                       KeyData              = {0};
+  VOID                              *NotifyHandle         = NULL;
 
-  // Locate Device Path of Buttons
-  Status = gBS->LocateDevicePath (&gEfiSimpleTextInputExProtocolGuid, &ButtonsDevicePath, &Handle);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate the Device Path of Buttons! Status = %r\n", Status));
-    return Status;
-  }
-
-  // Open the Protocol of the Buttons Driver
-  Status = gBS->OpenProtocol (Handle, &gEfiSimpleTextInputExProtocolGuid, (VOID *)&mSimpleExProtocol, gImageHandle, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Open Buttons Driver Protocol! Status = %r\n", Status));
-    return Status;
-  }
-
-  // Reset Button States
-  mSimpleExProtocol->Reset (mSimpleExProtocol, TRUE);
-
-  // Set Dummy UEFI Menu Button State
+  // Set General Key Data
   KeyData.KeyState.KeyToggleState = 0;
   KeyData.KeyState.KeyShiftState  = 0;
   KeyData.Key.UnicodeChar         = 0;
-  KeyData.Key.ScanCode            = SCAN_UP;
 
-  // Register Key Notify for UEFI Menu Button
-  Status = mSimpleExProtocol->RegisterKeyNotify (mSimpleExProtocol, &KeyData, &KeyNotify, &NotifyHandle);
+  // Locate Device Path of Keypad
+  Status = gBS->LocateDevicePath (&gEfiSimpleTextInputExProtocolGuid, &TempKeypadDevicePath, &KeypadHandle);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify for the UEFI Menu Button! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate the Device Path of Keypad! Status = %r\n", Status));
     return Status;
   }
 
-  // Set Dummy Special App Button State
+  // Get SimpleInEx Protocol
+  Status = gBS->OpenProtocol (KeypadHandle, &gEfiSimpleTextInputExProtocolGuid, (VOID *)&mSimpleInExProtocol, ImageHandle, NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to get SimpleInEx Protocol! Status = %r\n", Status));
+    return Status;
+  }
+
+  // Reset Keypad Device
+  Status = mSimpleInExProtocol->Reset (mSimpleInExProtocol, TRUE);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Reset Keypad Device! Status = %r\n", Status));
+  }
+
+  // Set Key Scan Code
+  KeyData.Key.ScanCode = SCAN_UP;
+
+  // Register Key Notify for UEFI Menu
+  Status = mSimpleInExProtocol->RegisterKeyNotify (mSimpleInExProtocol, &KeyData, &KeyNotify, &NotifyHandle);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify for the UEFI Menu! Status = %r\n", Status));
+    return Status;
+  }
+
+  // Set Key Scan Code
   KeyData.Key.ScanCode = SCAN_DOWN;
 
-  // Register Key Notify for Special App Button
-  Status = mSimpleExProtocol->RegisterKeyNotify (mSimpleExProtocol, &KeyData, &KeyNotify, &NotifyHandle);
+  // Register Key Notify for Special App
+  Status = mSimpleInExProtocol->RegisterKeyNotify (mSimpleInExProtocol, &KeyData, &KeyNotify, &NotifyHandle);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify for the Special App Button! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Register Key Notify for the Special App! Status = %r\n", Status));
     return Status;
   }
 
   return Status;
 }
+
+STATIC MS_BUTTON_SERVICES_PROTOCOL mButtonServicesProtocol = {
+  SpecialAppButtonCheck,
+  UefiMenuButtonCheck,
+  ClearButtonState
+};
 
 EFI_STATUS
 EFIAPI
@@ -140,19 +145,6 @@ InitButtonService (
   EFI_HANDLE *HandleBuffer;
   UINTN       HandleCount;
 
-  // Allocate Memory
-  gButtonService = AllocateZeroPool (sizeof (MS_BUTTON_SERVICES));
-  if (gButtonService == NULL) {
-    DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for Button Service Protocol!\n"));
-    return EFI_OUT_OF_RESOURCES;
-  }
-
-  // Set Protocol Functions
-  gButtonService->ButtonServicesProtocol.PreBootVolumeUpButtonThenPowerButtonCheck   = UefiMenuButtonCheck;
-  gButtonService->ButtonServicesProtocol.PreBootVolumeDownButtonThenPowerButtonCheck = SpecialAppButtonCheck;
-  gButtonService->ButtonServicesProtocol.PreBootClearVolumeButtonState               = ClearButtonState;
-  gButtonService->ButtonState                                                        = NoButtons;
-
   // Locate Keypad Controller Protocols
   Status = gBS->LocateHandleBuffer (ByProtocol, &gKeypadDeviceProtocolGuid, NULL, &HandleCount, &HandleBuffer);
   if (!EFI_ERROR (Status)) {
@@ -162,15 +154,14 @@ InitButtonService (
     }
   }
 
-  // Get Button States
-  Status = GetButtonStates ();
+  // Setup Key Notify
+  Status = SetupKeyNotify (ImageHandle);
   if (EFI_ERROR (Status)) {
-    FreePool (gButtonService);
     return Status;
   }
 
   // Register Button Service Protocol
-  Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gMsButtonServicesProtocolGuid, gButtonService, NULL);
+  Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gMsButtonServicesProtocolGuid, &mButtonServicesProtocol, NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register Button Service Protocol!\n"));
     ASSERT_EFI_ERROR (Status);

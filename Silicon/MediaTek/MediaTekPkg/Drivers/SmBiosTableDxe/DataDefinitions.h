@@ -310,7 +310,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1IC = {
     1, // Unknown
     0, // NonBurst
     0, // Burst
-    0, // PiplelineBurst
+    0, // PipelineBurst
     0, // Synchronous
     0, // Asynchronous
     0  // Reserved
@@ -320,7 +320,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1IC = {
     1, // Unknown
     0, // NonBurst
     0, // Burst
-    0, // PiplelineBurst
+    0, // PipelineBurst
     0, // Synchronous
     0, // Asynchronous
     0  // Reserved
@@ -344,7 +344,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1DC = {
     1, // Unknown
     0, // NonBurst
     0, // Burst
-    0, // PiplelineBurst
+    0, // PipelineBurst
     0, // Synchronous
     0, // Asynchronous
     0  // Reserved
@@ -354,7 +354,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1DC = {
     1, // Unknown
     0, // NonBurst
     0, // Burst
-    0, // PiplelineBurst
+    0, // PipelineBurst
     0, // Synchronous
     0, // Asynchronous
     0  // Reserved
@@ -378,7 +378,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
     1, // Unknown
     0, // NonBurst
     0, // Burst
-    0, // PiplelineBurst
+    0, // PipelineBurst
     0, // Synchronous
     0, // Asynchronous
     0  // Reserved
@@ -388,7 +388,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
     1, // Unknown
     0, // NonBurst
     0, // Burst
-    0, // PiplelineBurst
+    0, // PipelineBurst
     0, // Synchronous
     0, // Asynchronous
     0  // Reserved
@@ -412,7 +412,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L3C = {
     1, // Unknown
     0, // NonBurst
     0, // Burst
-    0, // PiplelineBurst
+    0, // PipelineBurst
     0, // Synchronous
     0, // Asynchronous
     0  // Reserved
@@ -422,7 +422,7 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L3C = {
     1, // Unknown
     0, // NonBurst
     0, // Burst
-    0, // PiplelineBurst
+    0, // PipelineBurst
     0, // Synchronous
     0, // Asynchronous
     0  // Reserved

@@ -1,7 +1,7 @@
 # Building
 
 > [!TIP]
-> It's recommended to use `Ubuntu 22.04.3 LTS` to Compile this.
+> It's recommended to use `Ubuntu 24.04.3 LTS` to Compile this.
 
 ## Preparing
 
@@ -28,8 +28,8 @@ Run the Build Script with these Params to Compile the UEFI for your Device:
 ./build_uefi.sh -d [Codename]
 ```
 
-It will tell you at the End if the Build was Successfull or not. <br>
-If it was Successfull, a Output Image will apear with this Name: `Mu-[Device-Codename]`.
+It will tell you at the End if the Build was Successful or not. <br>
+If it was Successful, a Output Image will appear with this Name: `Mu-[Device-Codename]`.
 
 # Troubleshooting
 

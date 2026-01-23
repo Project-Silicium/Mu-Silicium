@@ -1,0 +1,24 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ArmSmmuDetachLib
+  FILE_GUID                      = C9664820-5566-4843-8327-EF6E90B0DFA8
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = ArmSmmuDetachLib
+
+[Sources]
+  ArmSmmuDetachLib.c
+  SmmuIo.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  QcomPkg/QcomPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  IoLib
+  BaseLib
+  MemoryMapHelperLib
+  BaseMemoryLib
+  TimerLib

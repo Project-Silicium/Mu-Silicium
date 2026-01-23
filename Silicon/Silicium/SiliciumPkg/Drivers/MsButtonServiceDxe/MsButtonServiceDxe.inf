@@ -22,10 +22,9 @@
 
 [LibraryClasses]
   DebugLib
-  DevicePathLib
   UefiDriverEntryPoint
   UefiBootServicesTableLib
-  MemoryAllocationLib
+  DevicePathLib
 
 [Protocols]
   gMsButtonServicesProtocolGuid

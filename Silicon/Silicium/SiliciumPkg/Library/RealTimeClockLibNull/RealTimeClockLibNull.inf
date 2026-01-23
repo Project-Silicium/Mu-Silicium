@@ -15,9 +15,9 @@
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = RealTimeClockLibNull
   FILE_GUID                      = 1E27D461-78F3-4F7D-B1C2-F72384F13A6E
-  MODULE_TYPE                    = BASE
+  MODULE_TYPE                    = DXE_RUNTIME_DRIVER
   VERSION_STRING                 = 1.0
-  LIBRARY_CLASS                  = RealTimeClockLib
+  LIBRARY_CLASS                  = RealTimeClockLib|DXE_RUNTIME_DRIVER
 
 [Sources]
   RealTimeClockLibNull.c
@@ -25,14 +25,9 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
-  SiliciumPkg/SiliciumPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
 
 [LibraryClasses]
+  DebugLib
   ArmGenericTimerCounterLib
   TimerLib
-  PcdLib
-  DebugLib
-
-[FixedPcd]
-  gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite
