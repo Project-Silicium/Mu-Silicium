@@ -33,18 +33,11 @@ GetBootGraphic (
     case BG_NO_BOOT_OS:
       GraphicGuid = FixedPcdGetPtr (PcdNoBootOSFile);
       break;
-    
-    case BG_MSD_DEFAULT:
-      GraphicGuid = FixedPcdGetPtr (PcdMsdDefaultFile);
+
+    case BG_MASS_STORAGE:
+      GraphicGuid = FixedPcdGetPtr (PcdMassStorageFile);
       break;
-    
-    case BG_MSD_CONNECTED:
-      GraphicGuid = FixedPcdGetPtr (PcdMsdConnectedFile);
-      break;
-    
-    case BG_MSD_DISCONNECTED:
-      GraphicGuid = FixedPcdGetPtr (PcdMsdDisconnectedFile);
-      break;
+  
 
     default:
       return EFI_UNSUPPORTED;

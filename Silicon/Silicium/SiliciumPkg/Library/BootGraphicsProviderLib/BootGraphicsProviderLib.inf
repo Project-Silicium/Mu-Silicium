@@ -26,9 +26,7 @@
 
 [FixedPcd]
   gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdDefaultFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile
-  gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile
+  gSiliciumPkgTokenSpaceGuid.PcdMassStorageFile
 
 [Pcd]
   gOemPkgTokenSpaceGuid.PcdLogoFile

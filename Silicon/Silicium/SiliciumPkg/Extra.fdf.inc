@@ -24,17 +24,7 @@
     SECTION UI = "No Operating System"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdDefaultFile) {
-    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Default.bmp
-    SECTION UI = "Mass Storage Default"
-  }
-
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdConnectedFile) {
-    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Connected.bmp
-    SECTION UI = "Mass Storage Connected"
-  }
-
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMsdDisconnectedFile) {
-    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage_Disconnected.bmp
-    SECTION UI = "Mass Storage Disconnected"
+  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMassStorageFile) {
+    SECTION RAW = SiliciumPkg/Include/Resources/MassStorage.bmp
+    SECTION UI = "Mass Storage"
   }
