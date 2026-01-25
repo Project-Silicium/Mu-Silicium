@@ -69,6 +69,16 @@
     SECTION RAW = Binaries/lisa/RawFiles/Panel_L9_42_02_0a_amoled_dsc_cmd.xml
   }
 
+  FILE FREEFORM = 8397BAC4-FE69-11EC-9F40-23333AA31BF8 {
+    SECTION UI = "Panel_M20_36_02_0a_amoled_dsc_vid.xml"
+    SECTION RAW = Binaries/lisa/RawFiles/Panel_M20_36_02_0a_amoled_dsc_vid.xml
+  }
+
+  FILE FREEFORM = 6546055D-AD36-48A9-9F8D-B3CA2E895D4A {
+    SECTION UI = "Panel_M20_42_0d_0b_amoled_dsc_vid.xml"
+    SECTION RAW = Binaries/lisa/RawFiles/Panel_M20_42_0d_0b_amoled_dsc_vid.xml
+  }
+
   FILE FREEFORM = 76D0C92F-FF79-4800-919E-B6CE7695F269 {
     SECTION UI = "Panel_L9_36_02_0b_amoled_dsc_cmd.xml"
     SECTION RAW = Binaries/lisa/RawFiles/Panel_L9_36_02_0b_amoled_dsc_cmd.xml

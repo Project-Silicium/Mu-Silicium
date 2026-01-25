@@ -1,6 +1,8 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+
   INF Binaries/a52sxq/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
+
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
@@ -43,7 +45,6 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
@@ -68,6 +69,7 @@
 !endif
   INF Binaries/a52sxq/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
+  INF Binaries/a52sxq/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 

@@ -24,7 +24,7 @@ gConfigurationEntryDescriptorEx[] = {
   {"EnableSDHCSwitch", 0x1},
   {"EnableUfsIOC", 1},
   {"UfsSmmuConfigForOtherBootDev", 1},
-  {"UEFIExitUfsSSURequired", 1},
+  {"UEFIExitUfsSSURequired", 0},
   {"SecurityFlag", 0xC4},
   {"DetectRetailUserAttentionHotkey", 0x00},
   {"DetectRetailUserAttentionHotkeyCode", 0x17},

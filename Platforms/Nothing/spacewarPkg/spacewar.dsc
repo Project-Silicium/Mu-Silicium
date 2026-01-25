@@ -65,6 +65,9 @@
   # SD Card Slot
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
+  # Storage
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE
+
 [LibraryClasses]
   MemoryMapLib|spacewarPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|spacewarPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

@@ -14,11 +14,20 @@ WakeUpCores ()
 
   // Get Early Cores Count
   Status = LocateConfigurationMapUINT32ByName ("EarlyInitCoreCnt", &EarlyInitCoreCnt);
-  if (!EFI_ERROR (Status)) {
-    // Wake Up all Cores
-    for (UINTN i = 0; i < EarlyInitCoreCnt; i++) {
-      MmioWrite32 (GICR_WAKER_CPU (i), (MmioRead32 (GICR_WAKER_CPU (i)) & ~GIC_WAKER_PROCESSORSLEEP));
-    }
+  if (EFI_ERROR (Status)) {
+    return;
+  }
+
+  // Wake Up all Cores
+  for (UINTN i = 0; i < EarlyInitCoreCnt; i++) {
+    UINT32 Value;
+
+    // Modify current GIC Waker
+    Value  = MmioRead32 (GICR_WAKER_CPU (i));
+    Value &= ~GIC_WAKER_PROCESSORSLEEP;
+
+    // Write new GIC Waker
+    MmioWrite32 (GICR_WAKER_CPU (i), Value);
   }
 }
 

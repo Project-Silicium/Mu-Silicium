@@ -72,6 +72,9 @@ APRIORI DXE {
   INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  INF Binaries/a52sxq/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+!endif
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
@@ -102,9 +105,6 @@ APRIORI DXE {
   INF Binaries/a52sxq/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
-  INF Binaries/a52sxq/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-!endif
   INF Binaries/a52sxq/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/RNGDxe/RngDxe.inf

@@ -3426,22 +3426,22 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 **State:** Active <br>
 **Codename:** a52sxq
 
-**Contributors:** [Robotix](https://github.com/Robotix22/), [arminask](https://github.com/arminask/), People from Group** <br>
+**Contributors:** [Robotix](https://github.com/Robotix22/), [arminask](https://github.com/arminask/), People from Group <br>
 
 ### UEFI Status
 
-| Feature            | Description       | State |
-|:-------------------|:------------------|:-----:|
-| Display            |                   | ✅    |
-| Internal Storage   |                   | ✅    |
-| Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
-| USB Power Delivery |                   | ❌    |
-| Mass Storage       | Needs Device Mode | ❌    |
-| SD Card            |                   | ✅    |
-| Windows Boot       |                   | ✅    |
-| Linux Boot         |                   | ❌    |
+| Feature            | Description                         | State |
+|:-------------------|:------------------------------------|:-----:|
+| Display            |                                     | ✅    |
+| Internal Storage   |                                     | ✅    |
+| Side Buttons       |                                     | ✅    |
+| USB Host Mode      |                                     | ❌    |
+| USB Device Mode    |                                     | ✅    |
+| USB Power Delivery |                                     | ❌    |
+| Mass Storage       | Unstable, Breaks on Large Transfers | ⚠️    |
+| SD Card            |                                     | ✅    |
+| Windows Boot       |                                     | ✅    |
+| Linux Boot         |                                     | ❌    |
 
 ### OS Status
 
@@ -3498,7 +3498,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 **State:** Active <br>
 **Codename:** lisa
 
-**Contributors:** [ETCHDEV](https://github.com/ETCHDEV/), [Nikroks](https://github.com/N1kroks/), [Aistop](https://github.com/AistopGit/), [remtrik](https://github.com/remtrik), [Arminas](https://github.com/arminask)
+**Contributors:** [ETCHDEV](https://github.com/ETCHDEV/), [Nikroks](https://github.com/N1kroks/), [Aistop](https://github.com/AistopGit/), [remtrik](https://github.com/remtrik), [Arminas](https://github.com/arminask), [Robotix](https://github.com/Robotix22/)
 
 ### UEFI Status
 

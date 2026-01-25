@@ -68,6 +68,9 @@ APRIORI DXE {
   INF Binaries/lisa/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
+  INF Binaries/lisa/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
+!endif
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
@@ -101,9 +104,6 @@ APRIORI DXE {
   INF Binaries/lisa/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
-  INF Binaries/lisa/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-!endif
   INF Binaries/lisa/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/RNGDxe/RngDxe.inf
