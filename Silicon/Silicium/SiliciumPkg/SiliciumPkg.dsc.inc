@@ -108,6 +108,9 @@
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|TRUE
 
+[PcdsDynamicExDefault]
+  gMsGraphicsPkgTokenSpaceGuid.PcdPostBackgroundColoringSkipCount|0
+
 [PcdsDynamicDefault]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|0
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|0
