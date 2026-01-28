@@ -412,7 +412,7 @@
 
 <img align="right" src="Resources/Pictures/OnePlus-13.png" width="550" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** dodge
 
 **Contributors:** [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/), [index986](https://github.com/index986/)
@@ -428,7 +428,7 @@
 | USB Device Mode    |              | ✅    |
 | USB Power Delivery |              | ❌    |
 | Mass Storage       |              | ✅    |
-| Windows Boot       | Untested     | ❔    |
+| Windows Boot       |              | ❌    |
 | Linux Boot         |              | ✅    |
 
 <table>
@@ -491,7 +491,7 @@
 **State:** Active <br>
 **Codename:** pagani
 
-**Contributors:** [renhiyama](https://github.com/renhiyama), [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/)
+**Contributors:** [renhiyama](https://github.com/renhiyama/), [Robotix](https://github.com/Robotix22/), [N1kroks](https://github.com/N1kroks/)
 
 ### UEFI Status
 
@@ -500,19 +500,19 @@
 | Display            |              | ✅    |
 | Internal Storage   |              | ✅    |
 | Side Buttons       |              | ✅    |
-| USB Host Mode      | Untested     | ❔    |
+| USB Host Mode      |              | ❌    |
 | USB Device Mode    |              | ✅    |
 | USB Power Delivery |              | ❌    |
 | Mass Storage       |              | ✅    |
-| Windows Boot       | WIP          | 🏗    |
-| Linux Boot         | WIP          | 🏗    |
+| Windows Boot       |              | ❌    |
+| Linux Boot         |              | ❌    |
 
 <table>
 <tr><th>Linux</th></tr>
 <tr><td>
 
-> [!IMPORTANT]
-> Linux Requires: [Mainline Kernel](https://github.com/renhiyama/pagani-kernel) (WIP).
+> [!NOTE]
+> Work in Progress can be found [here](https://github.com/renhiyama/pagani-kernel).
 
 </td></tr>
 </table>
@@ -543,7 +543,7 @@
 
 <img align="right" src="Resources/Pictures/Realme-GT-Neo6.png" width="400" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** bale_b
 
 **Contributors:** [Robotix](https://github.com/Robotix22/), [Shandorman](https://github.com/jiganomegsdfdf/), [InternalHellhound](https://github.com/InternalHellhound), [index986](https://github.com/index986/), [Daniel224455](https://github.com/Daniel224455/), [Aistop](https://github.com/AistopGit/)
@@ -559,14 +559,17 @@
 | USB Device Mode    |                          | ✅    |
 | USB Power Delivery |                          | ❌    |
 | Mass Storage       |                          | ✅    |
-| Windows Boot       | Tested with WinPE only.  | ⚠️    |
-| Linux Boot         | Untested.                | ❔    |
+| Windows Boot       |                          | ✅    |
+| Linux Boot         |                          | ❌    |
 
 ### OS Status
 
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE boots.
 
 | Feature              | Description   | State |
 |:---------------------|:--------------|:-----:|
@@ -598,43 +601,7 @@
 | Display              |               | ✅    | 
 | Vibration            |               | ❌    |
 
-</td>
-<!--
-<td>
-
-| Feature              | Description   | State |
-|:---------------------|:--------------|:-----:|
-| Internal Storage     |               | ❔    |
-| Side Buttons         |               | ❔    |
-| Proximity Sensor     |               | ❔    |
-| Light Sensor         |               | ❔    |
-| Accelerometer Sensor |               | ❔    |
-| Compass Sensor       |               | ❔    | 
-| Gyroscope Sensor     |               | ❔    |
-| Fingerprint Sensor   |               | ❔    |
-| NFC Sensor           |               | ❔    |
-| Temperature Sensor   |               | ❔    |
-| Battery              |               | ❔    |
-| USB Host Mode        |               | ❔    |
-| USB Device Mode      |               | ❔    |
-| USB Power Delivery   |               | ❔    |
-| Charging             |               | ❔    |
-| WLAN                 |               | ❔    |
-| CPU                  |               | ❔    |
-| Touchscreen          |               | ❔    |
-| Bluetooth            |               | ❔    |
-| GPS                  |               | ❔    |
-| Speakers             |               | ❔    |
-| Microphone           |               | ❔    |
-| GPU                  |               | ❔    |
-| Camera               |               | ❔    |
-| Mobile Data          |               | ❔    |
-| Display              |               | ❔    | 
-| Vibration            |               | ❔    |
-
-</td>
--->
-</tr>
+</td></tr>
 </table>
 
 </details>
@@ -646,7 +613,7 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-Pad-7-Pro.png" width="400" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** muyu
 
 **Contributors:** [Sinetek (mail)](mailto:philmb3487@proton.me), [Sinetek (gitlab)](https://gitlab.com/philmb3487/)
@@ -663,9 +630,7 @@
 | USB Power Delivery |              | ❌    |
 | Mass Storage       |              | ✅    |
 | Windows Boot       |              | ❌    |
-| Linux Boot         | Mainline WIP | ⚠️     |
-
-More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8635) - Mainlining](http://muyuwiki.ca).
+| Linux Boot         |              | ❌    |
 
 ## POCO F6
 
@@ -688,12 +653,12 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery |              | ❌    |
 | Mass Storage       |              | ✅    |
 | Windows Boot       |              | ✅    |
-| Linux Boot         | Mainline WIP | ⚠️    |
+| Linux Boot         |              | ❌    |
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><!-- <th>Linux</th> -->
+<tr><th>Windows</th>
 </tr>
 <tr><td>
 
@@ -730,43 +695,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Display              |               | ✅    | 
 | Vibration            |               | ❌    |
 
-</td>
-<!--
-<td>
-
-| Feature              | Description   | State |
-|:---------------------|:--------------|:-----:|
-| Internal Storage     |               | ❔    |
-| Side Buttons         |               | ❔    |
-| Proximity Sensor     |               | ❔    |
-| Light Sensor         |               | ❔    |
-| Accelerometer Sensor |               | ❔    |
-| Compass Sensor       |               | ❔    | 
-| Gyroscope Sensor     |               | ❔    |
-| Fingerprint Sensor   |               | ❔    |
-| NFC Sensor           |               | ❔    |
-| Temperature Sensor   |               | ❔    |
-| Battery              |               | ❔    |
-| USB Host Mode        |               | ❔    |
-| USB Device Mode      |               | ❔    |
-| USB Power Delivery   |               | ❔    |
-| Charging             |               | ❔    |
-| WLAN                 |               | ❔    |
-| CPU                  |               | ❔    |
-| Touchscreen          |               | ❔    |
-| Bluetooth            |               | ❔    |
-| GPS                  |               | ❔    |
-| Speakers             |               | ❔    |
-| Microphone           |               | ❔    |
-| GPU                  |               | ❔    |
-| Camera               |               | ❔    |
-| Mobile Data          |               | ❔    |
-| Display              |               | ❔    | 
-| Vibration            |               | ❔    |
-
-</td>
--->
-</tr>
+</td></tr>
 </table>
 
 </details>
@@ -918,12 +847,12 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
 | Windows Boot       |             | ✅    |
-| Linux Boot         |             | ❔    |
+| Linux Boot         |             | ❌    |
 
 ### OS Status
 
 <table>
-<tr><th>Windows</th><th>Linux</th></tr>
+<tr><th>Windows</th>
 <tr><td>
 
 | Feature              | Description   | State |
@@ -956,40 +885,6 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Display              |               | ✅    | 
 | Vibration            |               | ❌    |
 
-</td>
-<td>
-
-| Feature              | Description   | State |
-|:---------------------|:--------------|:-----:|
-| Internal Storage     |               | ❌    |
-| Side Buttons         |               | ❌    |
-| Proximity Sensor     |               | ❌    |
-| Light Sensor         |               | ❌    |
-| Accelerometer Sensor |               | ❌    |
-| Compass Sensor       |               | ❌    | 
-| Gyroscope Sensor     |               | ❌    |
-| Fingerprint Sensor   |               | ❌    |
-| NFC Sensor           |               | ❌    |
-| Temperature Sensor   |               | ❌    |
-| Battery              |               | ❌    |
-| USB Host Mode        |               | ❌    |
-| USB Device Mode      |               | ❌    |
-| USB Power Delivery   |               | ❌    |
-| Charging             |               | ❌    |
-| WLAN                 |               | ❌    |
-| CPU                  |               | ❌    |
-| Touchscreen          |               | ❌    |
-| Flashlight           |               | ❌    |
-| Bluetooth            |               | ❌    |
-| GPS                  |               | ❌    |
-| Speakers             |               | ❌    |
-| Microphone           |               | ❌    |
-| GPU                  |               | ❌    |
-| Camera               |               | ❌    |
-| Mobile Data          |               | ❌    |
-| Display              |               | ❌    | 
-| Vibration            |               | ❌    |
-
 </td></tr>
 </table>
 
@@ -1002,7 +897,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 <img align="right" src="Resources/Pictures/Xiaomi-13-Pro.png" width="350" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** nuwa
 
 **Contributors:** [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)
@@ -1049,7 +944,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Charging             |                         | ✅    |
 | WLAN                 |                         | ✅    |
 | CPU                  |                         | ✅    |
-| Touchscreen          | WIP                     | ❌    |
+| Touchscreen          |                         | ❌    |
 | Bluetooth            |                         | ✅    |
 | GPS                  |                         | ❌    |
 | Speakers             |                         | ✅    |
@@ -1072,7 +967,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 <img align="right" src="Resources/Pictures/RedMagic-8-Pro.png" width="350" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** nx729j
 
 **Contributors:** [Robotix](https://github.com/Robotix22/), [Nikka](https://github.com/NikkaGames/)
@@ -1110,7 +1005,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | NFC Sensor           |               | ❌    |
 | Temperature Sensor   |               | ❌    |
 | Battery              |               | ❌    |
-| USB Host Mode        |               | ✅    |
+| USB Host Mode        |               | ❌    |
 | USB Device Mode      |               | ❔    |
 | USB Power Delivery   |               | ❌    |
 | Charging             |               | ❌    |
@@ -1369,7 +1264,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F5.png" width="500" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** marble
 
 **Contributors:** [Yuzuru10](https://github.com/Yuzuru10/), [Robotix](https://github.com/Robotix22/)
@@ -1385,8 +1280,8 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Device Mode    |                   | ✅    |
 | USB Power Delivery |                   | ❌    |
 | Mass Storage       |                   | ✅    |
-| Windows Boot       |                   | ❔    |
-| Linux Boot         |                   | WIP    |
+| Windows Boot       |                   | ❌    |
+| Linux Boot         |                   | ❌    |
 
 </details>
 
@@ -1698,7 +1593,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 <img align="right" src="Resources/Pictures/Asus-ROG-Phone-5.png" width="500" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** i005d
 
 **Contributors:** [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)
@@ -1715,7 +1610,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery |                                     | ❌    |
 | Mass Storage       | Unstable, Breaks on Large Transfers | ⚠️    |
 | Windows Boot       |                                     | ❌    |
-| Linux Boot         | WIP                                 | ❌    |
+| Linux Boot         |                                     | ❌    |
 
 </details>
 
@@ -2573,7 +2468,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Mass Storage       |             | ✅    |
 | SD Card            | Broken      | ❌    |
 | Windows Boot       |             | ✅    |
-| Linux Boot         | Untested    | ❔    |
+| Linux Boot         |             | ❌    |
 
 ### OS Status
 
@@ -2642,7 +2537,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Device Mode    |                 | ✅    |
 | USB Power Delivery |                 | ❌    |
 | Mass Storage       |                 | ❔    |
-| Windows Boot       | Windows PE only | ⚠️    |
+| Windows Boot       |                 | ✅    |
 | Linux Boot         |                 | ❌    |
 
 ### OS Status
@@ -2650,6 +2545,9 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE Boots.
 
 | Feature              | Description | State |
 |:---------------------|:------------|:-----:|
@@ -2806,7 +2704,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | SD Card            |             | ❌    |
 | Mass Storage       |             | ❌    |
 | Windows Boot       |             | ✅    |
-| Linux Boot         | Untested    | ❔    |
+| Linux Boot         |             | ❌    |
 
 ### OS Status
 
@@ -3014,7 +2912,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S9.png" width="500" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** starqltechn
 
 **Contributors:** [Violet](https://github.com/ghatt-o/) [Robotix](https://github.com/Robotix22/)
@@ -3213,7 +3111,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery | Dies on Disconnect       | ⚠️    |
 | Mass Storage       | Disabled to prevent Wipe | ❌    |
 | SD Card            |                          | ✅    |
-| Windows Boot       |                          | ⚠️    |
+| Windows Boot       |                          | ✅    |
 | Linux Boot         |                          | ✅    |
 
 ### OS Status
@@ -3306,7 +3204,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 <img align="right" src="Resources/Pictures/OnePlus-5.png" width="500" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** cheeseburger
 
 **Contributors:** [index986](https://github.com/index986/)
@@ -3726,7 +3624,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-X2.png" width="500" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** phoenix <br>
 **Models:** 2
 
@@ -4073,8 +3971,8 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery |                      | ❌    |
 | Mass Storage       | No unplug protection | ⚠️    |
 | SD Card            |                      | ❌    |
-| Windows Boot       |                      | ❔    |
-| Linux Boot         |                      | ❔    |
+| Windows Boot       |                      | ❌    |
+| Linux Boot         |                      | ❌    |
 
 </td></tr>
 </table>
@@ -4455,7 +4353,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Mass Storage       | Unstable with Device Mode | ⚠️    |
 | SD Card            |                           | ❌    |
 | Windows Boot       |                           | ✅    |
-| Linux Boot         |                           | ❔    |
+| Linux Boot         |                           | ❌    |
 
 ### OS Status
 
@@ -4665,7 +4563,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery |                          | ✅    |
 | Mass Storage       | Reboots                  | ❌    |
 | SD Card            |                          | ❌    |
-| Windows Boot       |                          | ❔    |
+| Windows Boot       |                          | ❌    |
 | Linux Boot         |                          | ❌    |
 
 </details>
@@ -4695,7 +4593,7 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | Mass Storage       |                                          | ✅    |
 | SD Card            | Tries to Init non-existent eMMC instead? | ❌    |
 | Windows Boot       |                                          | ✅    |
-| Linux Boot         |                                          | ❔    |
+| Linux Boot         |                                          | ❌    |
 
 ### OS Status
 
@@ -4850,8 +4748,8 @@ More information on this device available at [Muyu Wiki (Xiaomi Pad 7 Pro on SM8
 | USB Power Delivery |                                | ❌    |
 | Mass Storage       |                                | ✅    |
 | SD Card            |                                | ✅    |
-| Windows Boot       |                                | ⚠️    |
-| Linux Boot         |                                | ❔    |
+| Windows Boot       |                                | ✅    |
+| Linux Boot         |                                | ❌    |
 
 ### OS Status
 
