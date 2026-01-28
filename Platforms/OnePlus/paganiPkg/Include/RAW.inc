@@ -449,8 +449,3 @@
     SECTION RAW = Binaries/pagani/RawFiles/PanelSimConfig.csv
   }
 !endif
-
-  FILE FREEFORM = 21E9BDD9-6C3F-4F10-84A5-BBEC322741F1 {
-    SECTION UI = "uefipil.cfg"
-    SECTION RAW = Binaries/pagani/RawFiles/uefipil.cfg
-  }

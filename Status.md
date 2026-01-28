@@ -476,6 +476,10 @@
 </table>
 
 ## OnePlus 13s
+
+> [!CAUTION]
+> ARB Version 1 is Required on this Device!
+
 <img align="right" src="Resources/Pictures/OnePlus-13s.png" width="550" alt="Preview">
 
 **State:** Active <br>

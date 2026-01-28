@@ -24,7 +24,7 @@
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
   INF Binaries/pagani/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  #INF Binaries/pagani/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
+  INF Binaries/pagani/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -49,7 +49,6 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/pagani/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusStorageDxe/OplusStorageDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
@@ -79,7 +78,6 @@
   INF Binaries/pagani/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
   #INF Binaries/pagani/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusFpgaDxe/OplusFpga.inf
   INF Binaries/pagani/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
@@ -89,16 +87,13 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/pagani/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
   #INF Binaries/pagani/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusS4ResetDxe/OplusS4ResetDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
@@ -121,8 +116,5 @@
   INF Binaries/pagani/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
   INF Binaries/pagani/QcomPkg/Drivers/ParserDxe/ParserEnhancedDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusOrdumpDxe/OplusOrdump.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusSecurityDxe/OplusSecurityDxe.inf

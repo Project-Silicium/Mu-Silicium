@@ -53,7 +53,6 @@ APRIORI DXE {
 
   INF Binaries/pagani/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusStorageDxe/OplusStorageDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
@@ -63,9 +62,7 @@ APRIORI DXE {
 
   INF Binaries/pagani/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusS4ResetDxe/OplusS4ResetDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusFpgaDxe/OplusFpga.inf
   INF Binaries/pagani/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
@@ -88,8 +85,6 @@ APRIORI DXE {
   INF Binaries/pagani/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusSecurityDxe/OplusSecurityDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
@@ -124,7 +119,4 @@ APRIORI DXE {
 
   INF Binaries/pagani/QcomPkg/Drivers/RscDxe/RscDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OplusOrdumpDxe/OplusOrdump.inf
-  INF Binaries/pagani/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
 }
