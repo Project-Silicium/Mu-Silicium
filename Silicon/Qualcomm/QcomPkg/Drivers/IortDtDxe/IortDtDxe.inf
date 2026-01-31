@@ -1,0 +1,25 @@
+[Defines]
+  INF_VERSION                    = 0x0010005
+  BASE_NAME                      = IortDtDxe
+  FILE_GUID                      = 17F55A7F-DDB8-4152-A280-E3984B6EEA94
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = DiscoverDt
+
+[Sources]
+  IortDtDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  MemoryMapHelperLib
+  FdtLib
+
+[Depex]
+  TRUE

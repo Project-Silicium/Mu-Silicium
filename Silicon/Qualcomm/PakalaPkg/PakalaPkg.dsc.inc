@@ -83,4 +83,7 @@
   ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
   SoCPlatformLib|PakalaPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
+[Components]
+  QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf
+
 !include QcomPkg/QcomPkg.dsc.inc
