@@ -1,8 +1,8 @@
-#if REQUIRES_KERNEL_HEADER == 1
 _Head:
   adr   x1, _Payload    /* Set _Entry address */
   b     _Start          /* Jump to the real code */
 
+#if REQUIRES_KERNEL_HEADER == 1
 _StackBase:
   .quad FD_BASE         /* Text Offset */
 
@@ -17,9 +17,6 @@ _StackSize:
 #endif
 
 _Start:
-#if REQUIRES_KERNEL_HEADER == 0
-  adr   x1, _Payload
-#endif
   mov   x4, x1
 #if REQUIRES_KERNEL_HEADER == 1
   ldr   x5, _StackBase
