@@ -256,7 +256,11 @@ SerialPortInitialize ()
   UINT8 ScaleY = FrameBufferData.Height / 768;
 
   // Set Font Scale
-  FrameBufferData.FontScale = (ScaleX < ScaleY) ? ScaleX : ScaleY;
+  if (ScaleX == ScaleY) {
+    FrameBufferData.FontScale = FrameBufferData.Width / 768;
+  } else {
+    FrameBufferData.FontScale = (ScaleX < ScaleY) ? ScaleX : ScaleY;
+  }
 
   // Verify Font Scale
   if (!FrameBufferData.FontScale) {
