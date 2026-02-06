@@ -340,7 +340,7 @@ InitSpeedy (
     // Go thru each Register
     for (UINT8 i = 1; i < 9; i++) {
       // Append Number
-      AsciiSPrint (SpeedyName, sizeof (SpeedyName), "Speedy %u", i);
+      AsciiSPrint (SpeedyName, sizeof (SpeedyName), "Speedy_%u", i);
 
       // Locate Speedy Memory Region
       Status = LocateMemoryMapAreaByName ((CHAR8 *)SpeedyName, &SpeedyRegion);

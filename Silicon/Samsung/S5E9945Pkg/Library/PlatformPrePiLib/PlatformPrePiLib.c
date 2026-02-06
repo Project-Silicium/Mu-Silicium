@@ -10,8 +10,8 @@ EnableFrameBufferWrites ()
   EFI_STATUS                      Status;
   EFI_MEMORY_REGION_DESCRIPTOR_EX DrmDeconRegion;
 
-  // Locate DRM Decon Memory Region
-  Status = LocateMemoryMapAreaByName ("DRM Decon", &DrmDeconRegion);
+  // Locate "DRM_Decon" Memory Region
+  Status = LocateMemoryMapAreaByName ("DRM_Decon", &DrmDeconRegion);
   if (!EFI_ERROR (Status)) {
     // Configure DRM Decon
     for (UINT64 Length = 0; Length < DrmDeconRegion.Length; Length += 0x1000) {
@@ -27,8 +27,8 @@ DisableWatchdogTimer ()
   EFI_MEMORY_REGION_DESCRIPTOR_EX WatchdogTimerRegion;
   UINT32                          Value;
 
-  // Locate Watchdog Timner Memory Region
-  Status = LocateMemoryMapAreaByName ("Watchdog Timer", &WatchdogTimerRegion);
+  // Locate "Watchdog_Timer" Memory Region
+  Status = LocateMemoryMapAreaByName ("Watchdog_Timer", &WatchdogTimerRegion);
   if (EFI_ERROR (Status)) {
     return;
   }

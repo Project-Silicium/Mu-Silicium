@@ -18,10 +18,10 @@ GetMemorySize (OUT UINT64 *MemorySize)
   UINT64                          RamSize;
   UINT32                          EMemConfiguration;
 
-  // Locate Memory Controller Region
-  Status = LocateMemoryMapAreaByName ("Memory Controller", &MemoryControllerRegion);
+  // Locate "Memory_Controller" Region
+  Status = LocateMemoryMapAreaByName ("Memory_Controller", &MemoryControllerRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Memory Controller Region! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'Memory_Controller' Region! Status = %r\n", Status));
     return Status;
   }
 

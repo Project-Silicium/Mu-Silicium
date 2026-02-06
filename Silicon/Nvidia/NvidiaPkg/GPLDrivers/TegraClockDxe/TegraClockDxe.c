@@ -121,10 +121,10 @@ InitClocks (
 {
   EFI_STATUS Status;
 
-  // Get Clock Controller Region
-  Status = LocateMemoryMapAreaByName ("Clock Controller", &ClockControllerMemoryRegion);
+  // Locate "Clock_Controller" Memory Region
+  Status = LocateMemoryMapAreaByName ("Clock_Controller", &ClockControllerMemoryRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to get Clock Controller Memory Region! Status = %r\n\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'Clock_Controller' Memory Region! Status = %r\n\n", Status));
     return Status;
   }
 

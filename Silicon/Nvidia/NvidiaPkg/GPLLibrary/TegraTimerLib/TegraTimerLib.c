@@ -24,10 +24,10 @@ TimerConstructor ()
 {
   EFI_STATUS Status;
 
-  // Get Tegra Timer Memory Region
-  Status = LocateMemoryMapAreaByName ("Tegra Timer", &TegraTimerMemoryRegion);
+  // Locate "Tegra_Timer" Memory Region
+  Status = LocateMemoryMapAreaByName ("Tegra_Timer", &TegraTimerMemoryRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Get Tegra Timer Memory Region! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'Tegra_Timer' Memory Region! Status = %r\n", Status));
     return RETURN_UNSUPPORTED;
   }
 

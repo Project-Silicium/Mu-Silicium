@@ -6,7 +6,7 @@
 //
 // Global Variables
 //
-STATIC CHAR8 *XblDtMemoryName[] = {"DT BLOB", "XBL DT", "XBL_DT"};
+STATIC CHAR8 *XblDtMemoryName[] = { "DT_BLOB", "XBL_DT" };
 
 EFI_STATUS
 ModifyDtIort (IN CONST VOID *XblDt)

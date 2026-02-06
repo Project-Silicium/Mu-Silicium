@@ -143,8 +143,7 @@ AddRamPartitions (
   // Sort all RAM Partitions
   PerformQuickSort (RamPartitionTable->RamPartitionEntry, NumPartitions, sizeof (EFI_RAM_PARTITION_ENTRY), CompareBaseAddress);
 
-  // Get "HYP Reserved" Memory Region
-  LocateMemoryMapAreaByName ("HYP Reserved", &HypReservedRegion);
+  // Locate "HYP_Reserved" Memory Region
   LocateMemoryMapAreaByName ("HYP_Reserved", &HypReservedRegion);
 
   for (INT32 i = 0; i < NumPartitions; i++) {
