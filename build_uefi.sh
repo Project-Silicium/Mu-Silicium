@@ -88,15 +88,15 @@ popd &> /dev/null
 # Remove Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
 git apply -R BdsWait.patch &> /dev/null
+git apply -R UsbBus.patch &> /dev/null
 rm BdsWait.patch &> /dev/null
+rm UsbBus.patch &> /dev/null
 popd &> /dev/null
 
 # Remove Mu_Tiano Patches
 pushd Silicon/Arm/Mu_Tiano  &> /dev/null || exit 1
 git apply -R Timer.patch &> /dev/null
-git apply -R UsbBus.patch &> /dev/null
 rm Timer.patch &> /dev/null
-rm UsbBus.patch &> /dev/null
 popd &> /dev/null
 
 # Set Release Type of UEFI
