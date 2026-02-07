@@ -412,17 +412,17 @@ InitS2mps1922 (
     return Status;
   }
 
-  // Locate "Speedy_1" Memory Region
-  Status = LocateMemoryMapAreaByName ("Speedy_1", &Speedy1MemoryRegion);
+  // Locate "Speedy-1" Memory Region
+  Status = LocateMemoryMapAreaByName ("Speedy-1", &Speedy1MemoryRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to get 'Speedy_1' Memory Region! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to get 'Speedy-1' Memory Region! Status = %r\n", Status));
     return Status;
   }
 
-  // Locate "Speedy_2" Memory Region
-  Status = LocateMemoryMapAreaByName ("Speedy_2", &Speedy2MemoryRegion);
+  // Locate "Speedy-2" Memory Region
+  Status = LocateMemoryMapAreaByName ("Speedy-2", &Speedy2MemoryRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to get 'Speedy_2' Memory Region! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to get 'Speedy-2' Memory Region! Status = %r\n", Status));
     return Status;
   }
 

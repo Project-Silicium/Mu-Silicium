@@ -70,10 +70,10 @@ InitDdrInfoDriver (
 {
   EFI_STATUS Status;
 
-  // Locate "DDR_Info" Memory Region
-  Status = LocateMemoryMapAreaByName ("DDR_Info", &DdrInfoRegion);
+  // Locate DDR Info Memory Region
+  Status = LocateMemoryMapAreaByName ("DDR Info", &DdrInfoRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'DDR_Info' Memory Region! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'DDR Info' Memory Region! Status = %r\n", Status));
     return Status;
   }
 

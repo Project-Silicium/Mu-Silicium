@@ -1393,7 +1393,7 @@ InitMsdc (
     Private->Index = i;
 
     ZeroMem(MsdcName, sizeof(MsdcName));
-    AsciiSPrint(MsdcName, sizeof(MsdcName), "MSDC_%u", i);
+    AsciiSPrint(MsdcName, sizeof(MsdcName), "MSDC-%u", i);
 
     Status = LocateMemoryMapAreaByName (MsdcName, &Region);
     if (EFI_ERROR (Status)) {
@@ -1404,7 +1404,7 @@ InitMsdc (
     Private->MsdcMmioReg = Region.Address;
 
     ZeroMem(MsdcName, sizeof(MsdcName));
-    AsciiSPrint(MsdcName, sizeof(MsdcName), "MSDC_Top_%u", i);
+    AsciiSPrint(MsdcName, sizeof(MsdcName), "MSDC Top-%u", i);
 
     Status = LocateMemoryMapAreaByName (MsdcName, &Region);
     if (EFI_ERROR (Status)) {

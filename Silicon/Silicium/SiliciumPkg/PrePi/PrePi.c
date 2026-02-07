@@ -79,18 +79,26 @@ PrePiMain (IN UINT64 StartTimeStamp)
   EFI_MEMORY_REGION_DESCRIPTOR_EX UefiStackRegion;
   FIRMWARE_SEC_PERFORMANCE        Performance;
 
-  // Locate "DXE_Heap" Memory Region
-  Status = LocateMemoryMapAreaByName ("DXE_Heap", &DxeHeapRegion);
+  // Locate "DXE Heap" Memory Region
+  Status = LocateMemoryMapAreaByName ("DXE Heap", &DxeHeapRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'DXE_Heap' Memory Region!\n"));
-    ASSERT_EFI_ERROR (Status);
+    // Locate "DXE_Heap" Memory Region
+    Status = LocateMemoryMapAreaByName ("DXE_Heap", &DxeHeapRegion);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate 'DXE Heap' Memory Region!\n"));
+      ASSERT_EFI_ERROR (Status);
+    }
   }
 
-  // Locate "UEFI_Stack" Memory Region
-  Status = LocateMemoryMapAreaByName ("UEFI_Stack", &UefiStackRegion);
+  // Locate "UEFI Stack" Memory Region
+  Status = LocateMemoryMapAreaByName ("UEFI Stack", &UefiStackRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI_Stack' Memory Region!\n"));
-    ASSERT_EFI_ERROR (Status);
+    // Locate "UEFI_Stack" Memory Region
+    Status = LocateMemoryMapAreaByName ("UEFI_Stack", &UefiStackRegion);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI Stack' Memory Region!\n"));
+      ASSERT_EFI_ERROR (Status);
+    }
   }
 
   // Declare UEFI Regions
@@ -111,8 +119,6 @@ PrePiMain (IN UINT64 StartTimeStamp)
 
   // Set Debug Timer Interrupt
   SaveAndSetDebugTimerInterrupt (TRUE);
-
-  DEBUG ((EFI_D_WARN, "HOB In\r"));
 
   // Declare PI/UEFI Memory Region
   HobList = HobConstructor ((VOID *)UefiMemoryBase, UefiMemorySize, (VOID *)UefiMemoryBase, (VOID *)StacksBase);
@@ -197,6 +203,13 @@ ClearScreen ()
   EFI_STATUS                      Status;
   EFI_MEMORY_REGION_DESCRIPTOR_EX DisplayRegion;
 
+  // Locate 'Display Reserved' Memory Region
+  Status = LocateMemoryMapAreaByName ("Display Reserved", &DisplayRegion);
+  if (!EFI_ERROR (Status)) {
+    // Clear Display
+    ZeroMem ((VOID *)DisplayRegion.Address, DisplayRegion.Length);
+  }
+
   // Locate 'Display_Reserved' Memory Region
   Status = LocateMemoryMapAreaByName ("Display_Reserved", &DisplayRegion);
   if (!EFI_ERROR (Status)) {
@@ -209,10 +222,15 @@ ClearScreen ()
 VOID
 SetupVectorTable ()
 {
+  EFI_STATUS                      Status;
   EFI_MEMORY_REGION_DESCRIPTOR_EX CpuVectorsRegion;
 
   // Locate "CPU Vectors" Memory Region
-  ASSERT_EFI_ERROR (LocateMemoryMapAreaByName ("CPU_Vectors", &CpuVectorsRegion));
+  Status = LocateMemoryMapAreaByName ("CPU Vectors", &CpuVectorsRegion);
+  if (EFI_ERROR (Status)) {
+    // Locate "CPU_Vectors" Memory Region
+    ASSERT_EFI_ERROR (LocateMemoryMapAreaByName ("CPU_Vectors", &CpuVectorsRegion));
+  }
 
   // Write Vector Table Address
   ArmWriteVBar (CpuVectorsRegion.Address);
@@ -263,11 +281,15 @@ CEntryPoint ()
     }
   }
 
-  // Locate "UEFI_FD" Memory Region
-  Status = LocateMemoryMapAreaByName ("UEFI_FD", &UefiFdRegion);
+  // Locate "UEFI FD" Memory Region
+  Status = LocateMemoryMapAreaByName ("UEFI FD", &UefiFdRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI_FD' Memory Region!\n"));
-    ASSERT_EFI_ERROR (Status);
+    // Locate "UEFI_FD" Memory Region
+    Status = LocateMemoryMapAreaByName ("UEFI_FD", &UefiFdRegion);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI FD' Memory Region!\n"));
+      ASSERT_EFI_ERROR (Status);
+    }
   }
 
   // Invalidate Data Cache

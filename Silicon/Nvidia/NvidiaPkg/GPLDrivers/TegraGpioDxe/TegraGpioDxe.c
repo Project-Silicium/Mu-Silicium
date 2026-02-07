@@ -181,10 +181,10 @@ InitGpioDriver (
 {
   EFI_STATUS Status;
 
-  // Locate "GPIO_Controller" Memory Region
-  Status = LocateMemoryMapAreaByName ("GPIO_Controller", &GpioMemoryRegion);
+  // Get GPIO Controller Memory Region
+  Status = LocateMemoryMapAreaByName ("GPIO Controller", &GpioMemoryRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'GPIO_Controller' Memory Region!\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to get GPIO Controller Memory Region!\n"));
     return Status;
   }
 

@@ -61,10 +61,10 @@ InitChipDataDriver (
 {
   EFI_STATUS Status;
 
-  // Locate "Chip_Info" Memory Region
-  Status = LocateMemoryMapAreaByName ("Chip_Info", &ChipInfoRegion);
+  // Locate Chip Info Memory Region
+  Status = LocateMemoryMapAreaByName ("Chip Info", &ChipInfoRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'Chip_Info' Memory Region! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'Chip Info' Memory Region! Status = %r\n", Status));
     return Status;
   }
 

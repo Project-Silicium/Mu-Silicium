@@ -92,10 +92,10 @@ InitPmicWrapper (
   EFI_STATUS Status;
   UINT32     InitState;
 
-  // Locate "PMIC_Wrapper" Memory Region
-  Status = LocateMemoryMapAreaByName ("PMIC_Wrapper", &mPmicWrapperRegion);
+  // Locate PMIC Wrapper Memory Region
+  Status = LocateMemoryMapAreaByName ("PMIC Wrapper", &mPmicWrapperRegion);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'PMIC_Wrapper' Memory Region! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate PMIC Wrapper Memory Region! Status = %r\n", Status));
     return Status;
   }
 

@@ -94,10 +94,11 @@ GetDisplayDetails ()
   // Clear Display Details
   ZeroMem (&DisplayDetails, sizeof (EFI_DISPLAY_DETAILS));
 
-  // Locate "Display_Reserved" Memory Region
-  Status = LocateMemoryMapAreaByName ("Display_Reserved", &DisplayDetails.MemoryRegion);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate 'Display_Reserved' Memory Region! Status = %r\n", Status));
+  // Locate "Display Reserved" Memory Region
+  Status  = LocateMemoryMapAreaByName ("Display Reserved", &DisplayDetails.MemoryRegion);
+  Status |= LocateMemoryMapAreaByName ("Display_Reserved", &DisplayDetails.MemoryRegion);
+  if (EFI_ERROR (Status) && !DisplayDetails.MemoryRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate 'Display Reserved' Memory Region! Status = %r\n", Status));
     return Status;
   }
 

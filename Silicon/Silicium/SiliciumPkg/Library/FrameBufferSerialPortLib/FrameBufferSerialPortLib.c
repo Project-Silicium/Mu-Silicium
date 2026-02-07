@@ -236,8 +236,9 @@ SerialPortInitialize ()
 {
   EFI_STATUS Status;
 
-  // Locate "Display_Reserved" Memory Region
-  Status = LocateMemoryMapAreaByName ("Display_Reserved", &FrameBufferData.MemoryRegion);
+  // Locate "Display Reserved" Memory Region
+  Status  = LocateMemoryMapAreaByName ("Display Reserved", &FrameBufferData.MemoryRegion);
+  Status |= LocateMemoryMapAreaByName ("Display_Reserved", &FrameBufferData.MemoryRegion);
   if (EFI_ERROR (Status) && !FrameBufferData.MemoryRegion.Address) {
     return EFI_UNSUPPORTED;
   }

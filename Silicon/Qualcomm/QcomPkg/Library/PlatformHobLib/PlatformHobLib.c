@@ -19,34 +19,14 @@
 
 #include "PlatformHobs.h"
 
-VOID
-ReplaceMemoryRegionName (IN OUT CHAR8 *Name)
-{
-  // Go thru each Char
-  for (UINT8 i = 0; Name[i] != '\0'; i++) {
-    // Replace Char
-    if (Name[i] == ' ') {
-      Name[i] = '_';
-    }
-  }
-}
-
 STATIC
 EFI_STATUS
 CfgGetMemInfoByName (
   IN  CHAR8                           *RegionName,
   OUT EFI_MEMORY_REGION_DESCRIPTOR_EX *MemRegions)
 {
-  CHAR8 LocalRegionName[MAX_MEMORY_REGION_NAME_LENGTH];
-
-  // Copy Memory Region Name
-  AsciiStrCpyS (LocalRegionName, MAX_MEMORY_REGION_NAME_LENGTH, RegionName);
-
-  // Replace Spaces
-  ReplaceMemoryRegionName (LocalRegionName);
-
   // Get Memory Region by Name
-  return LocateMemoryMapAreaByName (LocalRegionName, MemRegions);
+  return LocateMemoryMapAreaByName (RegionName, MemRegions);
 }
 
 STATIC
@@ -209,10 +189,11 @@ BuildPlatformHobs ()
   UINT64 DtbExtAddress       = FixedPcdGet64 (PcdDtbExtensionAddr);
   UINT64 FvDecompressAddress = FixedPcdGet64 (PcdFvDecompressAddr);
 
-  // Locate "Info_Blk" Memory Region
-  Status = LocateMemoryMapAreaByName ("Info_Blk", &InfoBlkRegion);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'Info_Blk' Memory Region! Status = %r\n", __FUNCTION__, Status));
+  // Locate "Info Blk" Memory Region
+  Status  = LocateMemoryMapAreaByName ("Info Blk", &InfoBlkRegion);
+  Status |= LocateMemoryMapAreaByName ("Info_Blk", &InfoBlkRegion);
+  if (EFI_ERROR (Status) && !InfoBlkRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'Info Blk' Memory Region! Status = %r\n", __FUNCTION__, Status));
   } else if (FixedPcdGetBool (PcdEnableInfoBlkHob)) {
     // Set Info BLK Address
     UINTN InfoBlkAddress = InfoBlkRegion.Address;
