@@ -4,6 +4,7 @@
 **/
 
 #include <Library/PcdLib.h>
+#include <Library/SortLib.h>
 #include <Library/ArmMmuLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/MemoryMapLib.h>
@@ -12,6 +13,76 @@
 
 VOID
 BuildMemoryTypeInformationHob ();
+
+INTN
+EFIAPI
+CompareMemoryRegions (
+  IN CONST VOID *P1,
+  IN CONST VOID *P2)
+{
+  // Populate Memory Region Structure
+  CONST EFI_MEMORY_REGION_DESCRIPTOR_EX *Region1 = (EFI_MEMORY_REGION_DESCRIPTOR_EX *)P1;
+  CONST EFI_MEMORY_REGION_DESCRIPTOR_EX *Region2 = (EFI_MEMORY_REGION_DESCRIPTOR_EX *)P2;
+
+  // Compare Base Addresses
+  if (Region1->Address < Region2->Address) {
+    return -1;
+  }
+
+  // Compare Base Addresses
+  if (Region1->Address > Region2->Address) {
+    return 1;
+  }
+
+  return 0;
+}
+
+VOID
+ValidateMemoryMap (IN EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx)
+{
+  UINTN   RegionCount = 0;
+  BOOLEAN NoErrors    = TRUE;
+
+  // Count Memory Region
+  while (MemoryDescriptorEx[RegionCount].Length != 0) {
+    RegionCount++;
+  }
+
+  // Sort Memory Regions
+  PerformQuickSort (MemoryDescriptorEx, RegionCount, sizeof (EFI_MEMORY_REGION_DESCRIPTOR_EX), CompareMemoryRegions);
+
+  // Go thru each Memory Region
+  for (UINTN i = 0; i < RegionCount; i++) {
+    // Get Current Memory Region
+    EFI_MEMORY_REGION_DESCRIPTOR_EX *CurrentRegion = &MemoryDescriptorEx[i];
+
+    // Calculate End Address
+    EFI_PHYSICAL_ADDRESS EndAddress = CurrentRegion->Address + CurrentRegion->Length;
+
+    // Check for Memory Warparound
+    if (EndAddress < CurrentRegion->Address) {
+      DEBUG ((EFI_D_ERROR, "Memory Warparound Detected in \"%a\" (0x%llx)!\n", CurrentRegion->Name, CurrentRegion->Address));
+      NoErrors = FALSE;
+    }
+
+    // Verify Next Memory Region
+    if (i >= (RegionCount - 1)) {
+      continue;
+    }
+
+    // Get Next Memory Region
+    EFI_MEMORY_REGION_DESCRIPTOR_EX *NextRegion = &MemoryDescriptorEx[i + 1];
+
+    // Check for Overlap
+    if (EndAddress > NextRegion->Address) {
+      DEBUG ((EFI_D_ERROR, "Memory Region \"%a\" (0x%llx) and \"%a\" (0x%llx) Overlap!\n", CurrentRegion->Name, CurrentRegion->Address, NextRegion->Name, NextRegion->Address));
+      NoErrors = FALSE;
+    }
+  }
+
+  // Check for Errors
+  ASSERT (NoErrors);
+}
 
 EFI_STATUS
 EFIAPI
@@ -25,6 +96,9 @@ MemoryPeim (
   VOID                             *TranslationTableBase                                = NULL;
   UINTN                             TranslationTableSize                                = 0;
   UINTN                             Index                                               = 0;
+
+  // Validate Memory Map
+  ValidateMemoryMap (MemoryDescriptorEx);
 
   // Check Memory Size
   ASSERT (PcdGet64 (PcdSystemMemorySize) != 0);
