@@ -75,7 +75,7 @@ ValidateMemoryMap (IN EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx)
 
     // Check for Overlap
     if (EndAddress > NextRegion->Address) {
-      DEBUG ((EFI_D_ERROR, "Memory Region \"%a\" (0x%llx) and \"%a\" (0x%llx) Overlap!\n", CurrentRegion->Name, CurrentRegion->Address, NextRegion->Name, NextRegion->Address));
+      DEBUG ((EFI_D_ERROR, "\"%a\" (0x%llx) and \"%a\" (0x%llx) Overlap!\n", CurrentRegion->Name, CurrentRegion->Address, NextRegion->Name, NextRegion->Address));
       NoErrors = FALSE;
     }
   }
