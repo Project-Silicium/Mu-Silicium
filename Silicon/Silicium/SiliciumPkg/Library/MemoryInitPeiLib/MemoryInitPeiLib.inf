@@ -34,6 +34,7 @@
   gEmbeddedTokenSpaceGuid.PcdPrePiProduceMemoryTypeInformationHob
 
 [Pcd]
+  gArmTokenSpaceGuid.PcdSystemMemoryBase
   gArmTokenSpaceGuid.PcdSystemMemorySize
 
 [Depex]

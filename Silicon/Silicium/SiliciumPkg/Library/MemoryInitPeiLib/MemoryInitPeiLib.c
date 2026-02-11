@@ -59,6 +59,11 @@ ValidateMemoryMap (IN EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx)
     // Calculate End Address
     EFI_PHYSICAL_ADDRESS EndAddress = CurrentRegion->Address + CurrentRegion->Length;
 
+    // Skip Register Regions
+    if (CurrentRegion->Address < FixedPcdGet64 (PcdSystemMemoryBase)) {
+      continue;
+    }
+
     // Check for Memory Warparound
     if (EndAddress < CurrentRegion->Address) {
       DEBUG ((EFI_D_ERROR, "Memory Warparound Detected in \"%a\" (0x%llx)!\n", CurrentRegion->Name, CurrentRegion->Address));
