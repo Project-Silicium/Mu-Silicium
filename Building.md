@@ -14,7 +14,7 @@ cd Mu-Silicium
 
 Once you Cloned the GitHub Repo, You need to install the needed Packages for the Compile Process:
 ```bash
-# Example: Debian based OS: apt
+# We currently support apt, pacman and dnf
 ./setup_env.sh -p [Package Manager]
 ```
 
