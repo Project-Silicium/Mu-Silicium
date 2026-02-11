@@ -8,6 +8,7 @@
     SECTION RAW = Binaries/dm2q/RawFiles/SecParti.cfg
   }
 
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
     SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
     SECTION RAW = Binaries/dm2q/RawFiles/Panel_truly_wqxga_dsc_cmd.xml
@@ -182,6 +183,7 @@
     SECTION UI = "Panel_vtdr6130_144hz_fhd_plus_dsc_cmd_rfi.xml"
     SECTION RAW = Binaries/dm2q/RawFiles/Panel_vtdr6130_144hz_fhd_plus_dsc_cmd_rfi.xml
   }
+!endif
 
   FILE FREEFORM = 03E9256F-E621-48D8-8576-7E3B4FCF2D41 {
     SECTION UI = "PanelSimConfig.csv"
@@ -196,9 +198,4 @@
   FILE FREEFORM = 45FE4B7C-150C-45DA-A021-4BEB2048EC6F {
     SECTION UI = "QcomChargerCfg.cfg"
     SECTION RAW = Binaries/dm2q/RawFiles/QcomChargerCfg.cfg
-  }
-
-  FILE FREEFORM = 7A53216A-D205-42BA-A912-FBD40584578C {
-    SECTION UI = "logfs_ufs_8mb.bin"
-    SECTION RAW = Binaries/dm2q/RawFiles/logfs_ufs_8mb.bin
   }
