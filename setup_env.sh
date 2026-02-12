@@ -45,11 +45,9 @@ if [[ ${PAK} = apt ]]; then
     sudo apt install -y pip git mono-devel build-essential lld uuid-dev nasm gcc-aarch64-linux-gnu python3 python3-git python3-pip gettext locales gnupg ca-certificates python3-venv git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
 elif [[ ${PAK} = dnf ]]; then
     sudo dnf install -y git mono-devel nuget nasm make lld gcc automake gcc-aarch64-linux-gnu python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
-elif [[ ${PAK} = pacman ]] || [[ ${PAK} = yay ]]; then
-    if [[ ${PAK} = pacman ]]; then
-        sudo pacman -Syu --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -sic
-    fi
-    yay -Sy git mono base-devel nuget uuid lld nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv clang llvm curl lld||_error "\nFailed to install Packages!\n"
+elif [[ ${PAK} = pacman ]]; then
+    sudo pacman -Syu --needed git mono base-devel nuget lld nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv clang llvm curl lld||_error "\nFailed to install Packages!\n"
+    git clone https://aur.archlinux.org/uuid.git && cd uuid && makepkg -sic
 else
     _error "\nInvaild Package Manager!\nAvailbe Package Managers: apt, dnf, pacman and yay\n"
 fi
