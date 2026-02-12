@@ -60,6 +60,7 @@
   INF Binaries/nabu/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
+
   INF Binaries/nabu/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
