@@ -719,6 +719,83 @@
 </table>
 
 <details>
+<summary><b><strong>Samsung Devices</strong></b></summary>
+
+## Samsung Galaxy S23+
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-8` Version is Required on this Device!
+
+</td></tr>
+</table>
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S23+.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** dm2q
+
+**Contributors:** [Violet](https://github.com/ghatt-o/), [Robotix](https://github.com/Robotix22/)
+
+### UEFI Status
+
+| Feature            | Description                 | State |
+|:-------------------|:----------------------------|:-----:|
+| Display            |                             | ✅    |
+| Internal Storage   |                             | ✅    |
+| Side Buttons       | No power button             | ⚠️    |
+| USB Host Mode      |                             | ❌    |
+| USB Device Mode    |                             | ❔    |
+| USB Power Delivery |                             | ❌    |
+| Mass Storage       |                             | ❔    |
+| Windows Boot       |                             | ❌    |
+| Linux Boot         |                             | ✅    |
+
+### OS Status
+
+<table>
+<tr><th>Linux</th></tr>
+<tr><td>
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ✅    |
+| Side Buttons         |               | ✅    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB Host Mode        |               | ❔    |
+| USB Device Mode      |               | ✅    |
+| USB Power Delivery   |               | ❔    |
+| Charging             | Slow Charging | ✅    |
+| WLAN                 |               | ❌    |
+| CPU                  |               | ✅    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ✅    |
+| Camera               |               | ❌    |
+| Flashlight           |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td></tr>
+</table>
+
+</details>
+
+<details>
 <summary><b><strong>OnePlus Devices</strong></b></summary>
 
 ## OnePlus 12R / Ace 3
