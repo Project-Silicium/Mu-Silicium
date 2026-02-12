@@ -400,6 +400,44 @@
 <summary><b><strong>Snapdragon Devices</strong></b></summary>
 
 <br>
+
+<details>
+<summary><b><strong>Snapdragon 8 Elite Gen 5 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## OnePlus 15
+
+<img align="right" src="Resources/Pictures/OnePlus-15.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** infiniti
+
+**Contributors:** [Robotix](https://github.com/Robotix22/)
+
+### UEFI Status
+
+| Feature            | Description  | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       |              | ❌    |
+| Linux Boot         |              | ❌    |
+
+</details>
+
+---
+
+</details>
+
 <details>
 <summary><b><strong>Snapdragon 8 Elite Devices</strong></b></summary>
 
