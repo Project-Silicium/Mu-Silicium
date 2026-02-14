@@ -1,8 +1,7 @@
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/SecShareInfoDxe/SecShareInfoDxe.inf
-
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
+  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/SecShareInfoDxe/SecShareInfoDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
@@ -45,8 +44,10 @@
   INF Binaries/dm2q/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+
+  INF Binaries/dm2q/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF Binaries/dm2q/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
@@ -94,7 +95,6 @@
   INF Binaries/dm2q/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-
   INF Binaries/dm2q/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
@@ -107,7 +107,6 @@
   INF Binaries/dm2q/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
-  
   INF Binaries/dm2q/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/PILDxe/PILDxe.inf
