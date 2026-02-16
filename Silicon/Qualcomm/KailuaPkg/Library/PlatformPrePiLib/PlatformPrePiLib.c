@@ -1,12 +1,11 @@
-#include <Library/IoLib.h>
 #include <Library/PlatformPrePiLib.h>
-#include <Library/PcdLib.h>
-
-#include "PlatformRegisters.h"
+#include <Library/ArmSmmuDetachLib.h>
 
 VOID
 PlatformInitialize ()
 {
-  // Initialize GIC
-  MmioWrite32 (GICR_WAKER_CURRENT_CPU, (MmioRead32 (GICR_WAKER_CURRENT_CPU) & ~GIC_WAKER_PROCESSORSLEEP));
+  CONST UINT16 MdpStreams[] = { 0x1C00, 0x1C01, 0x1C03, 0x1C04, 0x2801, 0x2C01 };
+
+  // Detach IOMMU Domains
+  ArmSmmuDetach (MdpStreams, ARRAY_SIZE (MdpStreams));
 }

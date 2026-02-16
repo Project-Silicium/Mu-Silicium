@@ -945,7 +945,7 @@
 
 ## Qualcomm Technologies, Inc. QRD8550
 
-**State:** active <br>
+**State:** Active <br>
 **Codename:** qrd8550 <br>
 
 **Contributors:** [arminask](https://github.com/arminask/), [map220v](https://github.com/map220v/)
