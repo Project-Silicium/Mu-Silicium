@@ -39,7 +39,7 @@ gMemoryRegionDescriptorEx[] = {
   {"MPSS_EFS",          0xA0800000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, UNCACHED_UNBUFFERED_XN},
   {"RAM Partition",     0xA0B00000, 0x0F500000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"HYP RESERVED",      0xB0000000, 0x09700000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
-  {"Reserv",            0xC0000000, 0x01000000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
+  {"Reserv",            0xC0000000, 0x00100000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
   {"TAGS",              0xC0100000, 0x01200000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
   {"QTEE",              0xC1300000, 0x00500000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
   {"TZApps Reserved",   0xC1800000, 0x03900000, HobOnlyNoCacheSetting, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
