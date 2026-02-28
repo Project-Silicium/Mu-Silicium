@@ -31,7 +31,7 @@
   #
   # Vendor Stuff
   #
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.2"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.3"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
 
   #
