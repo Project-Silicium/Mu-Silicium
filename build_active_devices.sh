@@ -38,12 +38,15 @@ do case "${1}" in
 done
 
 # Parse Active Devices from Status.md
-ACTIVE_DEVICES=$(awk '/**Codename:**/ { if (DEVICE_STATE == "A" ) { sub (/<br>$/, "", $2); print $2} DEVICE_STATE = ""; next} /**State:**/ { DEVICE_STATE = ($2 == "Active" ? "A" : ""); next} {DEVICE_STATE = ""}' Status.md)
+ACTIVE_DEVICES=$(grep -A 2 "\*\*State:\*\* Active" Status.md | grep "\*\*Codename:\*\*" | sed 's/.*\*\*Codename:\*\* //; s/<[^>]*>//g')
 
 # Build UEFI Images
 for TARGET_DEVICE in $ACTIVE_DEVICES; do
 	# Get Number of Models
-	TARGET_NUMBER_OF_MODELS=$(awk -v TARGET="$TARGET_DEVICE" '/**Codename:**/ {if ($2 ~ TARGET) {FOUND = 1} else {FOUND = 0} next} FOUND && /**Models:**/ {COUNT = $2; sub(/<br>$/, "", COUNT); print COUNT; exit} /**State:**/ {FOUND = 0} END {if (!FOUND || !COUNT) {print 1}}' Status.md)
+	TARGET_NUMBER_OF_MODELS=$(grep -A 5 "\*\*Codename:\*\* $TARGET_DEVICE" Status.md | grep "\*\*Models:\*\*" | sed 's/.*\*\*Models:\*\* //; s/<[^>]*>//g')
+
+	# Verify Model
+	TARGET_NUMBER_OF_MODELS=${TARGET_NUMBER_OF_MODELS:-1}
 
 	# Build each Device Model
 	for ((TARGET_MODEL = 0; TARGET_MODEL < $TARGET_NUMBER_OF_MODELS; TARGET_MODEL++)); do
