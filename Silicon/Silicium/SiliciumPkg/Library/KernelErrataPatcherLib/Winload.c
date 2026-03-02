@@ -59,7 +59,7 @@ PatchOsLoaderArm64TransferToKernel (
   IN UINT8                *ShellCode,
   IN UINTN                 ShellCodeSize)
 {
-  for (UINT8 i = 0; i < sizeof (WinSemesterData); i++) {
+  for (UINT8 i = 0; i < ARRAY_SIZE (WinSemesterData); i++) {
     // Set Transfer To Kernel Address
     EFI_PHYSICAL_ADDRESS TransferToKernelAddr = Base + WinSemesterData[i].TransferToKernelOffset;
 
@@ -78,7 +78,7 @@ PatchOsLoaderArm64TransferToKernel (
       }
 
       // Print Windows Semester
-      DEBUG ((EFI_D_WARN, "%a: Detected Windows Semester: %a\n", __FUNCTION__, WinSemesterData[i].Name));
+      DEBUG ((EFI_D_WARN, "%a: Detected Windows Semester = %a\n", __FUNCTION__, WinSemesterData[i].Name));
 
       // Inject Jump Instruction
       *(UINT32 *)Current = ARM64_BRANCH_LOCATION_INSTRUCTION (Current, NewTransferToKernelAddr);
@@ -90,5 +90,5 @@ PatchOsLoaderArm64TransferToKernel (
     }
   }
 
-  DEBUG ((EFI_D_ERROR, "%a: No Suitable Transfer to Kernel Function Offset was Found!\n", __FUNCTION__));
+  DEBUG ((EFI_D_ERROR, "%a: Failed to Auto-Detect Windows Semester!\n", __FUNCTION__));
 }
