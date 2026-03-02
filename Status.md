@@ -2671,8 +2671,8 @@
 | Display            |             | ✅    |
 | Internal Storage   |             | ✅    |
 | Side Buttons       |             | ✅    |
-| USB Host Mode      |             | ✅    |
-| USB Device Mode    |             | ❌    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
 | SD Card            |             | ❌    |
 | Mass Storage       |             | ✅    |
