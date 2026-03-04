@@ -49,7 +49,7 @@ elif [[ ${PAK} = pacman ]]; then
     sudo pacman -Syu --needed git mono base-devel nuget lld nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv clang llvm curl lld||_error "\nFailed to install Packages!\n"
     git clone https://aur.archlinux.org/uuid.git && cd uuid && makepkg -sic
 else
-    _error "\nInvaild Package Manager!\nAvailbe Package Managers: apt, dnf, pacman and yay\n"
+    _error "\nInvaild Package Manager!\nAvailbe Package Managers: apt, dnf and pacman\n"
 fi
 
 # Install Needed Python Packages
