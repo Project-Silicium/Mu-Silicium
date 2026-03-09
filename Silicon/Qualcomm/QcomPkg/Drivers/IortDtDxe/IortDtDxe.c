@@ -26,7 +26,7 @@ ModifyDtIort (IN CONST VOID *XblDt)
   UINT32 UfsCacheCoherency = CpuToFdt32 (1);
 
   // Enable UFS Cache Coherency
-  FdtStatus = FdtSetProperty ((VOID *)XblDt, UfsIortNodeOffset, "CacheCoherency", &UfsCacheCoherency, sizeof (UfsCacheCoherency));
+  FdtStatus = FdtSetProp ((VOID *)XblDt, UfsIortNodeOffset, "CacheCoherency", &UfsCacheCoherency, sizeof (UfsCacheCoherency));
   if (FdtStatus < 0) {
     DEBUG ((EFI_D_ERROR, "Failed to Enable UFS Cache Coherency! FDT Status = %a\n", FdtStrerror (FdtStatus)));
     return EFI_ABORTED;
