@@ -250,7 +250,7 @@ PlatformUpdateAcpiTables ()
   }
 
   // Get needed Chip Infos
-  Status = GetChipInfos (&SIDV, &SOID, (EFIChipInfoFamilyType *)&SDFE, (EFIChipInfoModemType *)&SIDM, &SOSN1, &SOSN2);
+  Status = GetChipInfos ((EFIChipInfoVersionType *)&SIDV, (EFIChipInfoIdType *)&SOID, (EFIChipInfoFamilyType *)&SDFE, (EFIChipInfoModemType *)&SIDM, (EFIChipInfoSerialNumType *)&SOSN1, (EFIChipInfoQFPROMChipIdType *)&SOSN2);
   if (EFI_ERROR (Status)) {
     return;
   }
