@@ -9,9 +9,7 @@ VOID
 ArchInitialize ()
 {
   // Enable Floating Point
-  if (FixedPcdGet32 (PcdVFPEnabled)) {
-    ArmEnableVFP ();
-  }
+  ArmEnableVFP ();
 
   // Get current EL Level
   if (ArmReadCurrentEL () == AARCH64_EL2) {

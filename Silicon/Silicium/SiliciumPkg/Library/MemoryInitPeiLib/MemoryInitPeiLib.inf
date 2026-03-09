@@ -18,6 +18,7 @@
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 

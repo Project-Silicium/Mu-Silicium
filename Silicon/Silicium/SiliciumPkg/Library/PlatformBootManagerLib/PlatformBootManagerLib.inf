@@ -60,7 +60,7 @@
   gMsStartOfBdsNotifyGuid
   gMsBootMenuFormsetGuid
   gEfiEventPreReadyToBootGuid
-  gEfiEventPostReadyToBootGuid
+  gEfiEventAfterReadyToBootGuid
 
 [Protocols]
   gEfiDxeSmmReadyToLockProtocolGuid

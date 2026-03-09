@@ -1,8 +1,8 @@
 diff --git a/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.h b/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.h
-index 59d908d90d..bbc5b3280e 100644
+index 39668123c4..8405bc31c6 100644
 --- a/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.h
 +++ b/MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBus.h
-@@ -135,10 +135,10 @@ typedef struct _USB_HUB_API    USB_HUB_API;
+@@ -134,10 +134,10 @@ typedef struct _USB_HUB_API    USB_HUB_API;
  #define USB_CLEAR_FEATURE_REQUEST_TIMEOUT  10
  
  //

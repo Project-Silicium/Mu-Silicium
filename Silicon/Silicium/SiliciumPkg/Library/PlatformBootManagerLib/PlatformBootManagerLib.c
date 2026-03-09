@@ -708,7 +708,7 @@ PlatformBootManagerEntry (
   }
 
   // Register OnPostReadyToBoot Event
-  Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, PostReadyToBoot, NULL, &gEfiEventPostReadyToBootGuid, &mPostReadyToBootEvent);
+  Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, PostReadyToBoot, NULL, &gEfiEventAfterReadyToBootGuid, &mPostReadyToBootEvent);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Register OnPostReadyToBoot Event! Status = %r\n", Status));
   }

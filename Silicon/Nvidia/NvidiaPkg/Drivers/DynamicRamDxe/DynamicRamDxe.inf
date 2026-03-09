@@ -12,6 +12,7 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdeModulePkg/MdeModulePkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
   MdePkg/MdePkg.dec
   NvidiaPkg/NvidiaPkg.dec
   SiliciumPkg/SiliciumPkg.dec
@@ -27,9 +28,6 @@
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
   gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase
-
-[Protocols]
-  gArmPageTableMemoryAllocationProtocolGuid
 
 [Depex]
   TRUE

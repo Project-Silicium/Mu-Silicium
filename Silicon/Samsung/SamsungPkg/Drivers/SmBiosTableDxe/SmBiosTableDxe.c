@@ -199,10 +199,10 @@ CacheInfoUpdateSmbiosType7 ()
   EFI_SMBIOS_HANDLE SmbiosHandle;
 
   // Update Cache Size
-  mCacheInfoType7_L1IC.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel1InstCacheSize);
-  mCacheInfoType7_L1IC.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel1InstCacheSize);
-  mCacheInfoType7_L1DC.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel1DataCacheSize);
-  mCacheInfoType7_L1DC.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel1DataCacheSize);
+  mCacheInfoType7_L1IC.MaximumCacheSize.Size = FixedPcdGet32 (PcdSmbiosLevel1InstCacheSize);
+  mCacheInfoType7_L1IC.InstalledSize.Size    = FixedPcdGet32 (PcdSmbiosLevel1InstCacheSize);
+  mCacheInfoType7_L1DC.MaximumCacheSize.Size = FixedPcdGet32 (PcdSmbiosLevel1DataCacheSize);
+  mCacheInfoType7_L1DC.InstalledSize.Size    = FixedPcdGet32 (PcdSmbiosLevel1DataCacheSize);
 
   // Update String Table
   mCacheInfoType7_L1ICStrings[0] = "L1 Instruction Cache";
@@ -217,8 +217,8 @@ CacheInfoUpdateSmbiosType7 ()
 
   if (FixedPcdGet32 (PcdSmbiosLevel2CacheSize) != 0) {
     // Update Cache Size
-    mCacheInfoType7_L2C.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel2CacheSize);
-    mCacheInfoType7_L2C.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel2CacheSize);
+    mCacheInfoType7_L2C.MaximumCacheSize.Size = FixedPcdGet32 (PcdSmbiosLevel2CacheSize);
+    mCacheInfoType7_L2C.InstalledSize.Size    = FixedPcdGet32 (PcdSmbiosLevel2CacheSize);
 
     // Update String Table
     mCacheInfoType7_L2CStrings[0] = "L2 Unified Cache";
@@ -232,8 +232,8 @@ CacheInfoUpdateSmbiosType7 ()
 
   if (FixedPcdGet32 (PcdSmbiosLevel3CacheSize) != 0) {
     // Update Cache Size
-    mCacheInfoType7_L3C.MaximumCacheSize = FixedPcdGet32 (PcdSmbiosLevel3CacheSize);
-    mCacheInfoType7_L3C.InstalledSize    = FixedPcdGet32 (PcdSmbiosLevel3CacheSize);
+    mCacheInfoType7_L3C.MaximumCacheSize.Size = FixedPcdGet32 (PcdSmbiosLevel3CacheSize);
+    mCacheInfoType7_L3C.InstalledSize.Size    = FixedPcdGet32 (PcdSmbiosLevel3CacheSize);
 
     // Update String Table
     mCacheInfoType7_L3CStrings[0] = "L3 Unified Cache";

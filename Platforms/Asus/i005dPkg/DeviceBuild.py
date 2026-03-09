@@ -33,10 +33,8 @@ class CommonPlatform ():
         "Platforms/Asus",
         "Common/Mu",
         "Common/Mu_OEM_Sample",
-        "Common/Mu_Tiano_Plus",
         "Features/DFCI",
         "Mu_Basecore",
-        "Silicon/Arm/Mu_Tiano",
         "Silicon/Qualcomm",
         "Silicon/Silicium",
         "Silicium-ACPI",
@@ -63,10 +61,8 @@ class SettingsManager (UpdateSettingsManager, SetupSettingsManager, PrEvalSettin
             RequiredSubmodule ("Binaries", True),
             RequiredSubmodule ("Common/Mu", True),
             RequiredSubmodule ("Common/Mu_OEM_Sample", True),
-            RequiredSubmodule ("Common/Mu_Tiano_Plus", True),
             RequiredSubmodule ("Features/DFCI", True),
             RequiredSubmodule ("Mu_Basecore", True),
-            RequiredSubmodule ("Silicon/Arm/Mu_Tiano", True),
             RequiredSubmodule ("Silicium-ACPI", True),
             RequiredSubmodule ("Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl", True)
         ]

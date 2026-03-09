@@ -1,26 +1,16 @@
 diff --git a/ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.c b/ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.c
-index fbbecdc528..a129367ac0 100644
+index fbbecdc528..9378c27017 100644
 --- a/ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.c
 +++ b/ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.c
-@@ -9,6 +9,7 @@
- 
- #include <Library/ArmGenericTimerCounterLib.h>
- #include <Library/ArmLib.h>
-+#include <Library/PcdLib.h>
- 
- VOID
- EFIAPI
-@@ -59,7 +60,16 @@ ArmGenericTimerGetTimerFreq (
+@@ -59,7 +59,14 @@ ArmGenericTimerGetTimerFreq (
    VOID
    )
  {
 -  return ArmReadCntFrq ();
 +  UINTN Freq;
 +
-+  // Get Timer Freq from CNTFRQ
 +  Freq = ArmReadCntFrq ();
 +  if (!Freq) {
-+    // Use PCD Overwrite
 +    Freq = FixedPcdGet64 (PcdTimerFreqOverwrite);
 +  }
 +
@@ -46,28 +36,18 @@ index c37f2729b1..0462650680 100644
 +[FixedPcd]
 +  gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite
 diff --git a/ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.c b/ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.c
-index 893125a111..e2dfcdcdac 100644
+index 893125a111..4b1018b8dc 100644
 --- a/ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.c
 +++ b/ArmPkg/Library/ArmGenericTimerVirtCounterLib/ArmGenericTimerVirtCounterLib.c
-@@ -9,6 +9,7 @@
- 
- #include <Library/ArmGenericTimerCounterLib.h>
- #include <Library/ArmLib.h>
-+#include <Library/PcdLib.h>
- 
- VOID
- EFIAPI
-@@ -59,7 +60,16 @@ ArmGenericTimerGetTimerFreq (
+@@ -59,7 +59,14 @@ ArmGenericTimerGetTimerFreq (
    VOID
    )
  {
 -  return ArmReadCntFrq ();
 +  UINTN Freq;
 +
-+  // Get Timer Freq from CNTFRQ
 +  Freq = ArmReadCntFrq ();
 +  if (!Freq) {
-+    // Use PCD Overwrite
 +    Freq = FixedPcdGet64 (PcdTimerFreqOverwrite);
 +  }
 +

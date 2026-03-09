@@ -79,24 +79,16 @@ rm ./BootShim/BootShim.elf &> /dev/null
 rm ./Resources/bootpayload.bin &> /dev/null
 rm Mu-$TARGET.* &> /dev/null
 
-# Remove Mu_Tiano_Plus Patches
-pushd Common/Mu_Tiano_Plus  &> /dev/null || exit 1
-git apply -R Auth-Service.patch &> /dev/null
-rm Auth-Service.patch &> /dev/null
-popd &> /dev/null
-
 # Remove Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
-git apply -R BdsWait.patch &> /dev/null
-git apply -R UsbBus.patch &> /dev/null
-rm BdsWait.patch &> /dev/null
-rm UsbBus.patch &> /dev/null
-popd &> /dev/null
-
-# Remove Mu_Tiano Patches
-pushd Silicon/Arm/Mu_Tiano  &> /dev/null || exit 1
+git apply -R Auth-Service.patch &> /dev/null
+git apply -R Bds-Wait.patch &> /dev/null
 git apply -R Timer.patch &> /dev/null
+git apply -R Usb-Bus.patch &> /dev/null
+rm Auth-Service.patch &> /dev/null
+rm Bds-Wait.patch &> /dev/null
 rm Timer.patch &> /dev/null
+rm Usb-Bus.patch &> /dev/null
 popd &> /dev/null
 
 # Set Release Type of UEFI
@@ -120,24 +112,14 @@ python3 "$TARGET_PATH/DeviceBuild.py" --setup -t $TARGET_BUILD_MODE || _error "\
 python3 "$TARGET_PATH/DeviceBuild.py" --update -t $TARGET_BUILD_MODE || _error "\nFailed to Update UEFI Env!\n"
 
 # Copy Mu Patches to the Right Location
-cp Resources/MuPatches/Auth-Service.patch Common/Mu_Tiano_Plus/ || exit 1
-cp Resources/MuPatches/BdsWait.patch Resources/MuPatches/UsbBus.patch Mu_Basecore/ || exit 1
-cp Resources/MuPatches/Timer.patch Silicon/Arm/Mu_Tiano/ || exit 1
-
-# Apply Mu_Tiano_Plus Patches
-pushd Common/Mu_Tiano_Plus  &> /dev/null || exit 1
-git apply Auth-Service.patch &> /dev/null
-popd &> /dev/null
+cp Resources/MuPatches/* Mu_Basecore/ || exit 1
 
 # Apply Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
-git apply BdsWait.patch &> /dev/null
-git apply UsbBus.patch &> /dev/null
-popd &> /dev/null
-
-# Apply Mu_Tiano Patches
-pushd Silicon/Arm/Mu_Tiano  &> /dev/null || exit 1
-git apply Timer.patch &> /dev/null
+git apply Auth-Service.patch || exit 1
+git apply Bds-Wait.patch || exit 1
+git apply Timer.patch || exit 1
+git apply Usb-Bus.patch || exit 1
 popd &> /dev/null
 
 # Start the Real UEFI Build

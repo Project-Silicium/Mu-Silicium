@@ -61,7 +61,6 @@
   gArmTokenSpaceGuid.PcdSystemMemorySize
 
 [FixedPcd]
-  gArmTokenSpaceGuid.PcdVFPEnabled
   gArmTokenSpaceGuid.PcdFdBaseAddress
   gArmTokenSpaceGuid.PcdFdSize
 

@@ -1,8 +1,8 @@
 diff --git a/SecurityPkg/Library/AuthVariableLib/AuthService.c b/SecurityPkg/Library/AuthVariableLib/AuthService.c
-index ce44595b9c..bc6aaf87bc 100644
+index b6e3d08056..cf1dbb73ef 100644
 --- a/SecurityPkg/Library/AuthVariableLib/AuthService.c
 +++ b/SecurityPkg/Library/AuthVariableLib/AuthService.c
-@@ -28,6 +28,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
+@@ -29,6 +29,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
  
  #include <Protocol/VariablePolicy.h>
  #include <Library/VariablePolicyLib.h>
@@ -10,7 +10,7 @@ index ce44595b9c..bc6aaf87bc 100644
  
  #define SHA_DIGEST_SIZE_MAX  SHA512_DIGEST_SIZE
  
-@@ -2510,6 +2511,10 @@ VerifyTimeBasedPayloadAndUpdate (
+@@ -2506,6 +2507,10 @@ VerifyTimeBasedPayloadAndUpdate (
    AUTH_VARIABLE_INFO             OrgVariableInfo;
    BOOLEAN                        IsDel;
  

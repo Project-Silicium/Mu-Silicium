@@ -4,29 +4,21 @@
 [submodule "Common/Mu"]
 	path = Common/Mu
 	url = https://github.com/microsoft/mu_plus.git
-	branch = release/202502
+	branch = release/202511
 [submodule "Common/Mu_OEM_Sample"]
 	path = Common/Mu_OEM_Sample
 	url = https://github.com/microsoft/mu_oem_sample.git
-	branch = release/202502
-[submodule "Common/Mu_Tiano_Plus"]
-	path = Common/Mu_Tiano_Plus
-	url = https://github.com/microsoft/mu_tiano_plus.git
-	branch = release/202502
+	branch = release/202511
 [submodule "Features/DFCI"]
 	path = Features/DFCI
 	url = https://github.com/microsoft/mu_feature_dfci.git
 [submodule "Mu_Basecore"]
 	path = Mu_Basecore
 	url = https://github.com/microsoft/mu_basecore.git
-	branch = release/202502
+	branch = release/202511
 [submodule "Silicium-ACPI"]
 	path = Silicium-ACPI
 	url = https://github.com/Project-Silicium/Silicium-ACPI.git
-[submodule "Silicon/Arm/Mu_Tiano"]
-	path = Silicon/Arm/Mu_Tiano
-	url = https://github.com/microsoft/mu_silicon_arm_tiano.git
-	branch = release/202502
 [submodule "Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl"]
 	path = Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl
 	url = https://github.com/openssl/openssl.git

@@ -1,0 +1,13 @@
+diff --git a/MdeModulePkg/Universal/BdsDxe/BdsEntry.c b/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
+index 2badcbd25d..f71a269543 100644
+--- a/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
++++ b/MdeModulePkg/Universal/BdsDxe/BdsEntry.c
+@@ -337,8 +337,6 @@ BdsWait (
+       if (!EFI_ERROR (Status)) {
+         break;
+       }
+-    } else {
+-      gBS->Stall (1000000);
+     }
+ 
+     //
