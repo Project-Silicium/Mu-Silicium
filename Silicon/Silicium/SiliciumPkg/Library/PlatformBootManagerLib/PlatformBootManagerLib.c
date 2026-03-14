@@ -646,7 +646,7 @@ VerifyFileSystem (
 STATIC
 VOID
 EFIAPI
-PreReadyToBoot (
+PostReadyToBoot (
   IN EFI_EVENT  Event,
   IN VOID      *Context)
 {
@@ -681,16 +681,6 @@ exit:
   gBS->CloseEvent (Event);
 }
 
-STATIC
-VOID
-EFIAPI
-PostReadyToBoot (
-  IN EFI_EVENT  Event,
-  IN VOID      *Context)
-{
-  // Do Nothing
-}
-
 EFI_STATUS
 EFIAPI
 PlatformBootManagerEntry (
@@ -698,14 +688,7 @@ PlatformBootManagerEntry (
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS Status;
-  EFI_EVENT  mPreReadyToBootEvent;
   EFI_EVENT  mPostReadyToBootEvent;
-
-  // Register OnReadyToBoot Event
-  Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, PreReadyToBoot, NULL, &gEfiEventPreReadyToBootGuid, &mPreReadyToBootEvent);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Register OnReadyToBoot Event! Status = %r\n", __FUNCTION__, Status));
-  }
 
   // Register OnPostReadyToBoot Event
   Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, PostReadyToBoot, NULL, &gEfiEventAfterReadyToBootGuid, &mPostReadyToBootEvent);
