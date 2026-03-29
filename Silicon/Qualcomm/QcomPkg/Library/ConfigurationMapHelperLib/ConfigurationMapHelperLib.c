@@ -1,23 +1,28 @@
 #include <Library/ConfigurationMapHelperLib.h>
-#include <Library/ConfigurationMapLib.h>
 
 EFI_STATUS
 EFIAPI
-LocateConfigurationMapUINT32ByName (
-  IN  CHAR8  *Key,
-  OUT UINT32 *Value)
+LocateConfigurationEntry32 (
+  IN  CHAR8  *EntryName,
+  OUT UINT32 *EntryValue)
 {
-  // Get Configuratio Map
-  EFI_PCONFIGURATION_ENTRY_DESCRIPTOR_EX ConfigurationDescriptorEx = GetConfigurationMap ();
+  EFI_CONFIGURATION_ENTRY_DESCRIPTOR *ConfigurationDescriptor;
+  UINT8                               ConfigurationDescriptorCount;
 
-  // Run through each Configuration Descriptor
-  while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
-    if (AsciiStriCmp (Key, ConfigurationDescriptorEx->Name) == 0) {
-      *Value = (UINT32)(ConfigurationDescriptorEx->Value & 0xFFFFFFFF);
-      return EFI_SUCCESS;
+  // Get Configuratio Map
+  GetConfigurationMap (&ConfigurationDescriptor, &ConfigurationDescriptorCount);
+
+  // Go thru each Config Entry
+  for (UINT8 i = 0; i < ConfigurationDescriptorCount; i++) {
+    // Compare Entry Names
+    if (AsciiStriCmp (EntryName, ConfigurationDescriptor[i].Name)) {
+      continue;
     }
 
-    ConfigurationDescriptorEx++;
+    // Pass Entry Value
+    *EntryValue = (UINT32)(ConfigurationDescriptor[i].Value & 0xFFFFFFFF);
+
+    return EFI_SUCCESS;
   }
 
   return EFI_NOT_FOUND;
@@ -25,21 +30,27 @@ LocateConfigurationMapUINT32ByName (
 
 EFI_STATUS
 EFIAPI
-LocateConfigurationMapUINT64ByName (
-  IN  CHAR8  *Key,
-  OUT UINT64 *Value)
+LocateConfigurationEntry64 (
+  IN  CHAR8  *EntryName,
+  OUT UINT64 *EntryValue)
 {
-  // Get Configuratio Map
-  EFI_PCONFIGURATION_ENTRY_DESCRIPTOR_EX ConfigurationDescriptorEx = GetConfigurationMap ();
+  EFI_CONFIGURATION_ENTRY_DESCRIPTOR *ConfigurationDescriptor;
+  UINT8                               ConfigurationDescriptorCount;
 
-  // Run through each Configuration Descriptor
-  while (ConfigurationDescriptorEx->Value != 0xFFFFFFFF) {
-    if (AsciiStriCmp (Key, ConfigurationDescriptorEx->Name) == 0) {
-      *Value = ConfigurationDescriptorEx->Value;
-      return EFI_SUCCESS;
+  // Get Configuratio Map
+  GetConfigurationMap (&ConfigurationDescriptor, &ConfigurationDescriptorCount);
+
+  // Go thru each Config Entry
+  for (UINT8 i = 0; i < ConfigurationDescriptorCount; i++) {
+    // Compare Entry Names
+    if (AsciiStriCmp (EntryName, ConfigurationDescriptor[i].Name)) {
+      continue;
     }
 
-    ConfigurationDescriptorEx++;
+    // Pass Entry Value
+    *EntryValue = ConfigurationDescriptor[i].Value;
+
+    return EFI_SUCCESS;
   }
 
   return EFI_NOT_FOUND;

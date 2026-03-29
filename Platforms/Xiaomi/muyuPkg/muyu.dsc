@@ -33,13 +33,15 @@
   #
   SOC_TYPE                       = 0 
 
+!include PalawanPkg/PalawanPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x96, 0x9A, 0xE9, 0x1C, 0x60, 0x0D, 0xB7, 0x4C, 0xA8, 0x6F, 0x0F, 0x17, 0x02, 0x19, 0x84, 0x87 }
@@ -70,6 +72,3 @@
 [LibraryClasses]
   MemoryMapLib|muyuPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|muyuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include PalawanPkg/PalawanPkg.dsc.inc

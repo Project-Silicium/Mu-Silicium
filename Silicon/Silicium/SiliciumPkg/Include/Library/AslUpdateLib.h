@@ -44,9 +44,6 @@ LocateAcpiTableBySignature (
   );
 
 VOID
-DeviceUpdateAcpiTables ();
-
-VOID
 PlatformUpdateAcpiTables ();
 
 #endif /* _ASL_UPDATE_LIB_H_ */

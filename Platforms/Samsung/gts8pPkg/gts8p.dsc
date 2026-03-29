@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = gts8pPkg/gts8p.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 1
 
+!include WaipioPkg/WaipioPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x45, 0x9C, 0x4F, 0x54, 0x10, 0x60, 0xA3, 0x4A, 0x83, 0x55, 0x51, 0xFF, 0xC2, 0x40, 0xD2, 0xDB }
@@ -62,6 +64,3 @@
 [LibraryClasses]
   MemoryMapLib|gts8pPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|gts8pPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include WaipioPkg/WaipioPkg.dsc.inc

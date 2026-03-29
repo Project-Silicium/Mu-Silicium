@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = willowPkg/willow.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include NicobarPkg/NicobarPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x79, 0x13, 0x0D, 0x63, 0x3F, 0x7D, 0x11, 0x45, 0xA6, 0xF9, 0x57, 0x8A, 0xBB, 0xC0, 0x75, 0x18 }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|willowPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|willowPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include NicobarPkg/NicobarPkg.dsc.inc

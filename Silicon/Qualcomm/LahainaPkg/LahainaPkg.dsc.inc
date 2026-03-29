@@ -22,6 +22,8 @@
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 1
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
+!include QcomPkg/QcomPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8.4-a+crypto+rcpc
 
@@ -78,11 +80,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
-  PlatformPrePiLib|LahainaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
   RFSProtectionLib|LahainaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
   AcpiPlatformUpdateLib|LahainaPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|LahainaPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-
-!include QcomPkg/QcomPkg.dsc.inc
+  PlatformSecLib|LahainaPkg/Library/PlatformSecLib/PlatformSecLib.inf

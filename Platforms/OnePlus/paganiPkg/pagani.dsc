@@ -34,13 +34,15 @@
   #
   SOC_TYPE                       = 0
 
+!include PakalaPkg/PakalaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x2E, 0xAA, 0xAD, 0xE6, 0x93, 0xBB, 0x8C, 0x44, 0x80, 0x6C, 0x06, 0xF0, 0xF7, 0xB2, 0xD4, 0x4D }
@@ -71,6 +73,3 @@
 [LibraryClasses]
   MemoryMapLib|paganiPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|paganiPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include PakalaPkg/PakalaPkg.dsc.inc

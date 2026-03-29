@@ -48,7 +48,7 @@ typedef struct {
   EFI_RESOURCE_ATTRIBUTE_TYPE  ResourceAttribute;
   EFI_MEMORY_TYPE              MemoryType;
   ARM_MEMORY_REGION_ATTRIBUTES ArmAttributes;
-} EFI_MEMORY_REGION_DESCRIPTOR_EX, *EFI_PMEMORY_REGION_DESCRIPTOR_EX;
+} EFI_MEMORY_REGION_DESCRIPTOR;
 
 //
 // Resource Types
@@ -109,7 +109,9 @@ typedef struct {
 #define WRITE_THROUGH          ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH
 #define WRITE_THROUGH_XN       ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH
 
-EFI_MEMORY_REGION_DESCRIPTOR_EX*
-GetMemoryMap ();
+VOID
+GetMemoryMap (
+  OUT EFI_MEMORY_REGION_DESCRIPTOR **MemoryDescriptor,
+  OUT UINT8                         *MemoryDescriptorCount);
 
 #endif /* _MEMORY_MAP_LIB_H_ */

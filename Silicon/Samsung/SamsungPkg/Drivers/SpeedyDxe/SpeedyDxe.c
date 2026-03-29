@@ -317,11 +317,11 @@ InitSpeedy (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS                      Status;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX SpeedyRegion;
+  EFI_STATUS                   Status;
+  EFI_MEMORY_REGION_DESCRIPTOR SpeedyRegion;
 
   // Locate Speedy Memory Region
-  Status = LocateMemoryMapAreaByName ("Speedy", &SpeedyRegion);
+  Status = LocateMemoryRegionByName ("Speedy", &SpeedyRegion);
   if (!EFI_ERROR (Status)) {
     // Clear Speedy Interrupt States
     MmioWrite32 (SpeedyRegion.Address + SPEEDY_INT_STATUS, 0xFFFFFFFF);
@@ -343,7 +343,7 @@ InitSpeedy (
       AsciiSPrint (SpeedyName, sizeof (SpeedyName), "Speedy %u", i);
 
       // Locate Speedy Memory Region
-      Status = LocateMemoryMapAreaByName ((CHAR8 *)SpeedyName, &SpeedyRegion);
+      Status = LocateMemoryRegionByName ((CHAR8 *)SpeedyName, &SpeedyRegion);
       if (EFI_ERROR (Status)) {
         if (i == 1) {
           DEBUG ((EFI_D_WARN, "This Platform does not have Speedy\n"));

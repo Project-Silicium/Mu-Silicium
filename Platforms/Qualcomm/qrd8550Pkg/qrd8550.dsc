@@ -31,13 +31,15 @@
   #
   SOC_TYPE                       = 0
 
+!include KailuaPkg/KailuaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x6B, 0xA9, 0x3A, 0x40, 0x06, 0x81, 0x27, 0x47, 0xAF, 0xA6, 0x4B, 0x09, 0x53, 0x51, 0xDA, 0xD9 }
@@ -68,6 +70,3 @@
 [LibraryClasses]
   MemoryMapLib|qrd8550Pkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|qrd8550Pkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include KailuaPkg/KailuaPkg.dsc.inc

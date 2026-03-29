@@ -27,13 +27,15 @@
   FLASH_DEFINITION               = citrusPkg/citrus.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include KamortaPkg/KamortaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xFE, 0x22, 0x0B, 0xCE, 0xFD, 0x91, 0x7F, 0x4A, 0xBB, 0x8A, 0x97, 0xD0, 0xA2, 0x30, 0x74, 0x98 }
@@ -62,6 +64,3 @@
 [LibraryClasses]
   MemoryMapLib|citrusPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|citrusPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include KamortaPkg/KamortaPkg.dsc.inc

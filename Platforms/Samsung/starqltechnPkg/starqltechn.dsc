@@ -27,13 +27,15 @@
   FLASH_DEFINITION               = starqltechnPkg/starqltechn.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include NapaliPkg/NapaliPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xA4, 0xE0, 0x23, 0x9B, 0x17, 0x2F, 0xC9, 0x46, 0x9D, 0x45, 0x8F, 0xA8, 0xE6, 0xCB, 0x7F, 0x14 }
@@ -62,6 +64,3 @@
 [LibraryClasses]
   MemoryMapLib|starqltechnPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|starqltechnPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include NapaliPkg/NapaliPkg.dsc.inc

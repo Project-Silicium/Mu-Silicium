@@ -122,11 +122,11 @@ AddRamPartitions (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_RAM_PARTITION_TABLE          *RamPartitionTable   = NULL;
-  EFI_PMEMORY_REGION_DESCRIPTOR_EX  MemoryDescriptor    = gExtendedMemoryDescriptor;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX   HypReservedRegion   = {0};
-  UINT32                            PartitionVersion    = 0;
-  UINTN                             Index               = 1;
+  EFI_RAM_PARTITION_TABLE      *RamPartitionTable = NULL;
+  EFI_MEMORY_REGION_DESCRIPTOR *MemoryDescriptor  = gExtendedMemoryDescriptor;
+  EFI_MEMORY_REGION_DESCRIPTOR  HypReservedRegion = {0};
+  UINT32                        PartitionVersion  = 0;
+  UINTN                         Index             = 1;
 
   // Get RAM Partition Infos
   ASSERT_EFI_ERROR (GetRamPartitions (&RamPartitionTable, &PartitionVersion));
@@ -144,8 +144,8 @@ AddRamPartitions (
   PerformQuickSort (RamPartitionTable->RamPartitionEntry, NumPartitions, sizeof (EFI_RAM_PARTITION_ENTRY), CompareBaseAddress);
 
   // Get "HYP Reserved" Memory Region
-  LocateMemoryMapAreaByName ("HYP Reserved", &HypReservedRegion);
-  LocateMemoryMapAreaByName ("HYP_Reserved", &HypReservedRegion);
+  LocateMemoryRegionByName ("HYP Reserved", &HypReservedRegion);
+  LocateMemoryRegionByName ("HYP_Reserved", &HypReservedRegion);
 
   for (INT32 i = 0; i < NumPartitions; i++) {
     // Check if the RAM Partition is Valid

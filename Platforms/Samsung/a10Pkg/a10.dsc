@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = a10Pkg/a10.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include S5E7885Pkg/S5E7885Pkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x80005000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x80005000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x1F, 0x02, 0x4E, 0xF5, 0x08, 0x3F, 0x71, 0x49, 0x98, 0x60, 0x56, 0x89, 0x2E, 0x7E, 0x78, 0xCB }
@@ -51,11 +53,8 @@
 [LibraryClasses]
   MemoryMapLib|a10Pkg/Library/MemoryMapLib/MemoryMapLib.inf
   KeypadDeviceLib|a10Pkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [Components]
   # Keypad
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-
-!include S5E7885Pkg/S5E7885Pkg.dsc.inc

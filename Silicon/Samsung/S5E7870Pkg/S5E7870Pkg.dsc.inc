@@ -16,6 +16,8 @@
   USE_CUSTOM_TIMER                           = 0
   USE_PHYSICAL_TIMER                         = 0
 
+!include SamsungPkg/SamsungPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
@@ -54,17 +56,9 @@
 
 [LibraryClasses]
   #
-  # UEFI Libraries
-  #
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-
-  #
   # Silicium Libraries
   #
-  PlatformPrePiLib|S5E7870Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  SoCPlatformLib|S5E7870Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  PlatformSecLib|S5E7870Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
   # Custom Libraries
@@ -72,7 +66,4 @@
   GpioBankLib|S5E7870Pkg/Library/GpioBankLib/GpioBankLib.inf
 
 [Components]
-  SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
   S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
-
-!include SamsungPkg/SamsungPkg.dsc.inc

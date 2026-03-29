@@ -16,6 +16,8 @@
   USE_CUSTOM_TIMER                           = 0
   USE_PHYSICAL_TIMER                         = 1
 
+!include NvidiaPkg/NvidiaPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
@@ -80,12 +82,6 @@
   gNvidiaPkgTokenSpaceGuid.PcdIDCount|13
 
 [LibraryClasses]
-  PlatformPrePiLib|EristaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|EristaPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  PlatformSecLib|EristaPkg/Library/PlatformSecLib/PlatformSecLib.inf
   DynamicRamLib|EristaPkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
   TegraClockLib|EristaPkg/GPLLibrary/TegraClockLib/TegraClockLib.inf
-
-!include NvidiaPkg/NvidiaPkg.dsc.inc

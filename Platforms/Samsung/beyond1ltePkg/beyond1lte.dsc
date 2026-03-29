@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = beyond1ltePkg/beyond1lte.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include S5E9820Pkg/S5E9820Pkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xC9300000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xC9300000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x46, 0x04, 0x67, 0x4E, 0x7E, 0xC6, 0xEB, 0x4F, 0x8D, 0x15, 0xA0, 0xA0, 0x5C, 0x82, 0x4B, 0x80 }
@@ -51,11 +53,8 @@
 [LibraryClasses]
   MemoryMapLib|beyond1ltePkg/Library/MemoryMapLib/MemoryMapLib.inf
   KeypadDeviceLib|beyond1ltePkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [Components]
   # Keypad
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-
-!include S5E9820Pkg/S5E9820Pkg.dsc.inc

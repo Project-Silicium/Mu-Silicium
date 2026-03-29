@@ -1375,7 +1375,7 @@ InitMsdc (
   MSDC_PRIVATE_DATA* Private;
   MSDC_DEVICE_PATH* DevicePath;
   CARD_DETECT_ROUTINE *Routine;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX Region;
+  EFI_MEMORY_REGION_DESCRIPTOR Region;
   CHAR8 MsdcName[11];
 
   for (UINTN i = 0; i < PlatformInfo.NumberOfHosts; i++) {
@@ -1395,7 +1395,7 @@ InitMsdc (
     ZeroMem(MsdcName, sizeof(MsdcName));
     AsciiSPrint(MsdcName, sizeof(MsdcName), "MSDC-%u", i);
 
-    Status = LocateMemoryMapAreaByName (MsdcName, &Region);
+    Status = LocateMemoryRegionByName (MsdcName, &Region);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Locate %s Memory Region! Status = %r\n", MsdcName, Status));
       continue;
@@ -1406,7 +1406,7 @@ InitMsdc (
     ZeroMem(MsdcName, sizeof(MsdcName));
     AsciiSPrint(MsdcName, sizeof(MsdcName), "MSDC Top-%u", i);
 
-    Status = LocateMemoryMapAreaByName (MsdcName, &Region);
+    Status = LocateMemoryRegionByName (MsdcName, &Region);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Locate %s Memory Region! Status = %r\n", MsdcName, Status));
       continue;

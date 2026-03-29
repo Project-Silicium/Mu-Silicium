@@ -32,13 +32,15 @@
   #
   SOC_TYPE                       = 1
 
+!include KodiakPkg/KodiakPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x31, 0x8D, 0x2F, 0x85, 0x46, 0xE1, 0x21, 0x4C, 0x85, 0x5F, 0xBA, 0x93, 0xD1, 0xC4, 0xCD, 0x20 }
@@ -71,6 +73,3 @@
 [LibraryClasses]
   MemoryMapLib|spacewarPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|spacewarPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include KodiakPkg/KodiakPkg.dsc.inc

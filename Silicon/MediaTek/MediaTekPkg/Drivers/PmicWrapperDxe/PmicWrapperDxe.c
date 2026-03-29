@@ -11,7 +11,7 @@
 #define WACS_FSM_REQ      0x2
 #define WACS_FSM_WFVLDCLR 0x6
 
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX mPmicWrapperRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR mPmicWrapperRegion;
 
 UINT32
 PmicWrapperRead(
@@ -93,7 +93,7 @@ InitPmicWrapper (
   UINT32     InitState;
 
   // Locate PMIC Wrapper Memory Region
-  Status = LocateMemoryMapAreaByName ("PMIC Wrapper", &mPmicWrapperRegion);
+  Status = LocateMemoryRegionByName ("PMIC Wrapper", &mPmicWrapperRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate PMIC Wrapper Memory Region! Status = %r\n", Status));
     return Status;

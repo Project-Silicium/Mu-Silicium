@@ -16,6 +16,8 @@
   USE_CUSTOM_TIMER                           = 0
   USE_PHYSICAL_TIMER                         = 1
 
+!include SamsungPkg/SamsungPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv9.2-a+crypto+rcpc
 
@@ -62,21 +64,11 @@
 
 [LibraryClasses]
   #
-  # UEFI Libraries
-  #
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-
-  #
   # Silicium Libraries
   #
-  PlatformPrePiLib|S5E9945Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  SoCPlatformLib|S5E9945Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  PlatformSecLib|S5E9945Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
   # Custom Libraries
   #
   GpioBankLib|S5E9945Pkg/Library/GpioBankLib/GpioBankLib.inf
-
-!include SamsungPkg/SamsungPkg.dsc.inc

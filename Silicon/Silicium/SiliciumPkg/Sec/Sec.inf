@@ -1,0 +1,69 @@
+##
+#  Copyright (c) 2015 Hewlett-Packard Development Company, L.P.
+#  Copyright (c) 2011-2017, ARM Ltd. All rights reserved.
+#  Copyright (c) 2020, Arm Limited. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = Sec
+  FILE_GUID                      = 9AFFB503-E643-4141-8B90-17E8588B1D35
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+
+[Sources]
+  Sec.c
+
+[Sources.AArch64]
+  AArch64/ArchSec.c
+  AArch64/Exception.S
+  AArch64/Helper.S
+  AArch64/ModuleEntryPoint.S
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  ArmLib
+  PrePiLib
+  DebugLib
+  DebugAgentLib
+  BaseMemoryLib
+  PlatformSecLib
+  PrePiHobListPointerLib
+  CacheMaintenanceLib
+  MemoryInitPeiLib
+  PerformanceLib
+  PlatformPeiLib
+  SerialPortLib
+  PrintLib
+  TimerLib
+  HobLib
+
+[Ppis]
+  gArmMpCoreInfoPpiGuid
+
+[Guids]
+  gArmMpCoreInfoGuid
+  gEfiFirmwarePerformanceGuid
+
+  gDxeMemoryProtectionSettingsGuid
+
+[Pcd]
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
+
+[FixedPcd]
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize
+
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
+
+  gEmbeddedTokenSpaceGuid.PcdPrePiCpuIoSize

@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = laurel_sproutPkg/laurel_sprout.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include NicobarPkg/NicobarPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x0B, 0x3A, 0xFA, 0x30, 0xB1, 0x87, 0x91, 0x4B, 0xA7, 0x16, 0xCD, 0x28, 0x3A, 0x81, 0x3C, 0x72 }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|laurel_sproutPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|laurel_sproutPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include NicobarPkg/NicobarPkg.dsc.inc

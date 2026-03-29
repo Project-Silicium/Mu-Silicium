@@ -32,13 +32,15 @@
   #
   SOC_TYPE                       = 1
 
+!include PalimaPkg/PalimaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x78, 0x4F, 0x60, 0xB1, 0x37, 0xDF, 0x03, 0x48, 0x8B, 0xC0, 0xBE, 0xF3, 0x97, 0xB8, 0x82, 0xB9 }
@@ -69,6 +71,3 @@
 [LibraryClasses]
   MemoryMapLib|pongPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|pongPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include PalimaPkg/PalimaPkg.dsc.inc

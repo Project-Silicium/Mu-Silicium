@@ -16,6 +16,8 @@
   USE_CUSTOM_TIMER                           = 0
   USE_PHYSICAL_TIMER                         = 0
 
+!include SamsungPkg/SamsungPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
@@ -66,9 +68,7 @@
   #
   # Silicium Libraries
   #
-  PlatformPrePiLib|S5E9830Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  SoCPlatformLib|S5E9830Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  PlatformSecLib|S5E9830Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
   # Custom Libraries
@@ -77,5 +77,3 @@
 
 [Components]
   SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
-
-!include SamsungPkg/SamsungPkg.dsc.inc

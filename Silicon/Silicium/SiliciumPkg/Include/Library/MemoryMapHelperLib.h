@@ -5,16 +5,16 @@
 
 EFI_STATUS
 EFIAPI
-LocateMemoryMapAreaByName (
-  CHAR8                           *MemoryMapAreaName,
-  EFI_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor
+LocateMemoryRegionByName (
+  IN  CHAR8                        *RegionName,
+  OUT EFI_MEMORY_REGION_DESCRIPTOR *MemoryRegionDescriptor
   );
 
 EFI_STATUS
 EFIAPI
-LocateMemoryMapAreaByAddress (
-  EFI_PHYSICAL_ADDRESS             MemoryMapAreaAddress,
-  EFI_MEMORY_REGION_DESCRIPTOR_EX *MemoryDescriptor
+LocateMemoryRegionByAddress (
+  IN  EFI_PHYSICAL_ADDRESS          RegionAddress,
+  OUT EFI_MEMORY_REGION_DESCRIPTOR *MemoryRegionDescriptor
   );
 
 #endif /* _MEMORY_MAP_HELPER_LIB_H_ */

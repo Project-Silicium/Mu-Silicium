@@ -1,13 +1,13 @@
 ##
-#
 #  Copyright (c) 2011-2015, ARM Limited. All rights reserved.
 #  Copyright (c) 2014, Linaro Limited. All rights reserved.
 #  Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.
 #  Copyright (c) 2018 - 2019, Bingxing Wang. All rights reserved.
 #
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
-#
 ##
+
+!include SiliciumPkg/SiliciumPkg.dsc.inc
 
 [PcdsFixedAtBuild]
   # RAM Size (512 MB)
@@ -26,13 +26,6 @@
   TimerLib|NvidiaPkg/GPLLibrary/TegraTimerLib/TegraTimerLib.inf
 !endif
 
-  #
-  # Silicium Libraries
-  #
-  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
-  MemoryProtectionLib|NvidiaPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
-  ErrataPatchesLib|NvidiaPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
-
 [Components]
   #
   # SmBios
@@ -48,5 +41,3 @@
   NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf
 !endif
   NvidiaPkg/GPLDrivers/TegraClockDxe/TegraClockDxe.inf
-
-!include SiliciumPkg/SiliciumPkg.dsc.inc

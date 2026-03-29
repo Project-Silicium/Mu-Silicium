@@ -169,10 +169,10 @@ GetMemoryRegionInfos (
   OUT UINT32 *TgcmAddress,
   OUT UINT32 *TgcmLength)
 {
-  EFI_STATUS                      Status;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX MpssEfsRegion;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX AdspEfsRegion;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX TgcmRegion;
+  EFI_STATUS                   Status;
+  EFI_MEMORY_REGION_DESCRIPTOR MpssEfsRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR AdspEfsRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR TgcmRegion;
 
   // Set Default Values
   *MpssEfsAddress = 0;
@@ -185,7 +185,7 @@ GetMemoryRegionInfos (
   *TgcmLength     = 0xBEEFDEAD;
 
   // Locate "MPSS_EFS" Memory Region
-  Status = LocateMemoryMapAreaByName ("MPSS_EFS", &MpssEfsRegion);
+  Status = LocateMemoryRegionByName ("MPSS_EFS", &MpssEfsRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'MPSS_EFS' Memory Region! Status = %r\n", __FUNCTION__, Status));
   } else {
@@ -198,7 +198,7 @@ GetMemoryRegionInfos (
   }
 
   // Locate "ADSP_EFS" Memory Region
-  Status = LocateMemoryMapAreaByName ("ADSP_EFS", &AdspEfsRegion);
+  Status = LocateMemoryRegionByName ("ADSP_EFS", &AdspEfsRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'ADSP_EFS' Memory Region! Status = %r\n", __FUNCTION__, Status));
   } else {
@@ -210,7 +210,7 @@ GetMemoryRegionInfos (
   }
 
   // Locate "TGCM" Memory Region
-  Status = LocateMemoryMapAreaByName ("TGCM", &TgcmRegion);
+  Status = LocateMemoryRegionByName ("TGCM", &TgcmRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'TGCM' Memory Region! Status = %r\n", __FUNCTION__, Status));
   } else {

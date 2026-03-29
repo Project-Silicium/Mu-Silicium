@@ -16,6 +16,8 @@
   USE_CUSTOM_TIMER                           = 0
   USE_PHYSICAL_TIMER                         = 1
 
+!include NvidiaPkg/NvidiaPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc -mtune=cortex-a57
 
@@ -70,12 +72,6 @@
   gNvidiaPkgTokenSpaceGuid.PcdIDCount|13
 
 [LibraryClasses]
-  PlatformPrePiLib|MarikoPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|MarikoPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  PlatformSecLib|MarikoPkg/Library/PlatformSecLib/PlatformSecLib.inf
   DynamicRamLib|MarikoPkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
   TegraClockLib|MarikoPkg/GPLLibrary/TegraClockLib/TegraClockLib.inf
-
-!include NvidiaPkg/NvidiaPkg.dsc.inc

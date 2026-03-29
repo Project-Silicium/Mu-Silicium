@@ -11,8 +11,8 @@ VOID
 PlatformUpdateAcpiTables ()
 {
   EFI_STATUS                          Status;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX     MPSSEFSRegion;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX     ADSPEFSRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR        MPSSEFSRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR        ADSPEFSRegion;
   EFI_CHIPINFO_PROTOCOL              *mChipInfoProtocol;
   EFI_PLATFORMINFO_PROTOCOL          *mPlatformInfoProtocol;
   EFI_SMEM_PROTOCOL                  *mSmemProtocol;
@@ -74,7 +74,7 @@ PlatformUpdateAcpiTables ()
   UINT64 SOSN = ((UINT64)SOSN2 << 32) | SOSN1;
   UINT32 PLST = PlatformInfo.subtype;
 
-  if (!EFI_ERROR (LocateMemoryMapAreaByName ("MPSS_EFS", &MPSSEFSRegion))) {
+  if (!EFI_ERROR (LocateMemoryRegionByName ("MPSS_EFS", &MPSSEFSRegion))) {
     RMTB = MPSSEFSRegion.Address;
     RMTX = MPSSEFSRegion.Length;
 
@@ -82,7 +82,7 @@ PlatformUpdateAcpiTables ()
     RFSLocateAndProtectSharedArea ();
   }
 
-  if (!EFI_ERROR (LocateMemoryMapAreaByName ("ADSP_EFS", &ADSPEFSRegion))) {
+  if (!EFI_ERROR (LocateMemoryRegionByName ("ADSP_EFS", &ADSPEFSRegion))) {
     RFMB = (UINT32)ADSPEFSRegion.Address + (UINT32)ADSPEFSRegion.Length / 2;
     RFMS = (UINT32)ADSPEFSRegion.Length / 2;
     RFAB = (UINT32)ADSPEFSRegion.Address;

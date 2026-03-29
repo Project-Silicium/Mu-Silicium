@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = poplarPkg/poplar.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include NazgulPkg/NazgulPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x23, 0xC8, 0x79, 0xEF, 0x88, 0x79, 0xA1, 0x42, 0x87, 0x80, 0x74, 0x2F, 0x78, 0xA4, 0x73, 0x4C }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|poplarPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|poplarPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include NazgulPkg/NazgulPkg.dsc.inc

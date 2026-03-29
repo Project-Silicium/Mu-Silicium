@@ -5,16 +5,16 @@
 
 EFI_STATUS
 EFIAPI
-LocateConfigurationMapUINT32ByName (
-  IN  CHAR8  *ConfigurationMapUINT32Name,
-  OUT UINT32 *ConfigurationDescriptor
+LocateConfigurationEntry32 (
+  IN  CHAR8  *EntryName,
+  OUT UINT32 *EntryValue
   );
 
 EFI_STATUS
 EFIAPI
-LocateConfigurationMapUINT64ByName (
-  IN  CHAR8  *ConfigurationMapUINT64Name,
-  OUT UINT64 *ConfigurationDescriptor
+LocateConfigurationEntry64 (
+  IN  CHAR8  *EntryName,
+  OUT UINT64 *EntryValue
   );
 
 #endif /* _CONFIGURATION_MAP_HELPER_LIB_H_ */

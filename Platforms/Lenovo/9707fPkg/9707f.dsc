@@ -32,13 +32,15 @@
   #
   SOC_TYPE                       = 2
 
+!include KonaPkg/KonaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xDC, 0x36, 0x60, 0xCC, 0x51, 0xCA, 0x3F, 0x49, 0xB5, 0xDD, 0x1A, 0x47, 0x51, 0x03, 0xCB, 0xCE }
@@ -67,6 +69,3 @@
 [LibraryClasses]
   MemoryMapLib|9707fPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|9707fPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include KonaPkg/KonaPkg.dsc.inc

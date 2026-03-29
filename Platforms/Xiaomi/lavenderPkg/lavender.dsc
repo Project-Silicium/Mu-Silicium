@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = lavenderPkg/lavender.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 1
 
+!include StarlordPkg/StarlordPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x44, 0x85, 0xA0, 0xDA, 0x1F, 0x07, 0x77, 0x4A, 0xBD, 0x10, 0x2D, 0x2E, 0xC9, 0x46, 0xEA, 0x2A }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|lavenderPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|lavenderPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include StarlordPkg/StarlordPkg.dsc.inc

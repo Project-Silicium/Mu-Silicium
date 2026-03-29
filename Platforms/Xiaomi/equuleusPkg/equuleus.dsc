@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = equuleusPkg/equuleus.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 1
 
+!include NapaliPkg/NapaliPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x66, 0xB5, 0x28, 0x7B, 0xFF, 0xC3, 0x57, 0x44, 0xA0, 0xD2, 0xB3, 0xF4, 0x38, 0x49, 0xCB, 0x07 }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|equuleusPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|equuleusPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include NapaliPkg/NapaliPkg.dsc.inc

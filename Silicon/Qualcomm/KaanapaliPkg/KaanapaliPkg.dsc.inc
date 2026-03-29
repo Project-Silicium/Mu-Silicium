@@ -22,6 +22,8 @@
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
+!include QcomPkg/QcomPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv9.2-a+crypto+rcpc
 
@@ -63,13 +65,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
-  PlatformPrePiLib|KaanapaliPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|KaanapaliPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  PlatformSecLib|KaanapaliPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
 [Components]
   QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf
-
-!include QcomPkg/QcomPkg.dsc.inc

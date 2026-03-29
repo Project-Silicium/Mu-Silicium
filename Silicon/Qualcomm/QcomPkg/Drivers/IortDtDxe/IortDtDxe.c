@@ -43,11 +43,11 @@ DiscoverDt (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_MEMORY_REGION_DESCRIPTOR_EX XblDtRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR XblDtRegion;
 
   // Locate XBL DT Memory Region
   for (UINT8 i = 0; i < ARRAY_SIZE (XblDtMemoryName); i++) {
-    LocateMemoryMapAreaByName (XblDtMemoryName[i], &XblDtRegion);
+    LocateMemoryRegionByName (XblDtMemoryName[i], &XblDtRegion);
   }
 
   // Verify XBL DT Memory Region

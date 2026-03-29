@@ -26,7 +26,7 @@
 //
 // Global Variables
 //
-EFI_MEMORY_REGION_DESCRIPTOR_EX PinctrlRegion;
+EFI_MEMORY_REGION_DESCRIPTOR PinctrlRegion;
 
 EFI_STATUS
 GetBankData (
@@ -55,7 +55,7 @@ GetBankData (
       }
 
       // Verify Pinctrl Address
-      Status = LocateMemoryMapAreaByAddress (BankData[i].Bank[j].Address, &PinctrlRegion);
+      Status = LocateMemoryRegionByAddress (BankData[i].Bank[j].Address, &PinctrlRegion);
       if (EFI_ERROR (Status)) {
         return EFI_NO_MAPPING;
       }

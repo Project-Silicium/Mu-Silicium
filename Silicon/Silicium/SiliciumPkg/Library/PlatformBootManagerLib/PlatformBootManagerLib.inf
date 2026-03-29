@@ -37,7 +37,6 @@
   UefiRuntimeServicesTableLib
   AcpiPlatformUpdateLib
   DxeServicesTableLib
-  AcpiDeviceUpdateLib
   PerformanceLib
   DevicePathLib
   CapsuleLib

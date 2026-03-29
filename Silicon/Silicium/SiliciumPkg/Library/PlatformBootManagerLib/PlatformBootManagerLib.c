@@ -230,9 +230,6 @@ PlatformBootManagerAfterConsole ()
   // Platform DSDT Table Updates
   PlatformUpdateAcpiTables ();
 
-  // Device DSDT Table Updates
-  DeviceUpdateAcpiTables ();
-
   // Display Boot Logo on Screen
   Status = DisplayBootGraphic (BG_SYSTEM_LOGO);
   if (EFI_ERROR (Status)) {

@@ -10,7 +10,7 @@ VOID
 PlatformUpdateAcpiTables ()
 {
   EFI_STATUS                          Status;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX     TGCMRegion;
+  EFI_MEMORY_REGION_DESCRIPTOR        TGCMRegion;
   EFI_CHIPINFO_PROTOCOL              *mChipInfoProtocol;
   EFI_PLATFORMINFO_PROTOCOL          *mPlatformInfoProtocol;
   EFI_SMEM_PROTOCOL                  *mSmemProtocol;
@@ -69,7 +69,7 @@ PlatformUpdateAcpiTables ()
   UINT64 SOSN = ((UINT64)SOSN2 << 32) | SOSN1;
   UINT32 PLST = PlatformInfo.subtype;
 
-  if (!EFI_ERROR(LocateMemoryMapAreaByName("TGCM", &TGCMRegion))) {
+  if (!EFI_ERROR(LocateMemoryRegionByName("TGCM", &TGCMRegion))) {
     TCMA = (UINT32)TGCMRegion.Address;
     TCML = (UINT32)TGCMRegion.Length;
   } else {

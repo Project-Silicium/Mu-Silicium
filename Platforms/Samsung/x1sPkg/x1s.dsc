@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = x1sPkg/x1s.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include S5E9830Pkg/S5E9830Pkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xE8300000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xE8300000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xF8, 0x8A, 0xFA, 0xFF, 0x7A, 0x0C, 0x40, 0x42, 0xA6, 0x8F, 0x4F, 0x36, 0x11, 0xDB, 0x35, 0x47 }
@@ -51,11 +53,8 @@
 [LibraryClasses]
   MemoryMapLib|x1sPkg/Library/MemoryMapLib/MemoryMapLib.inf
   KeypadDeviceLib|x1sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [Components]
   # Keypad
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-
-!include S5E9830Pkg/S5E9830Pkg.dsc.inc

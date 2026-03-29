@@ -14,6 +14,7 @@
 VOID
 BuildMemoryTypeInformationHob ();
 
+STATIC
 INTN
 EFIAPI
 CompareMemoryRegions (
@@ -21,8 +22,8 @@ CompareMemoryRegions (
   IN CONST VOID *P2)
 {
   // Populate Memory Region Structure
-  CONST EFI_MEMORY_REGION_DESCRIPTOR_EX *Region1 = (EFI_MEMORY_REGION_DESCRIPTOR_EX *)P1;
-  CONST EFI_MEMORY_REGION_DESCRIPTOR_EX *Region2 = (EFI_MEMORY_REGION_DESCRIPTOR_EX *)P2;
+  CONST EFI_MEMORY_REGION_DESCRIPTOR *Region1 = (EFI_MEMORY_REGION_DESCRIPTOR *)P1;
+  CONST EFI_MEMORY_REGION_DESCRIPTOR *Region2 = (EFI_MEMORY_REGION_DESCRIPTOR *)P2;
 
   // Compare Base Addresses
   if (Region1->Address < Region2->Address) {
@@ -37,26 +38,27 @@ CompareMemoryRegions (
   return 0;
 }
 
+STATIC
 VOID
-ValidateMemoryMap (IN EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx)
+ValidateMemoryMap (
+  IN OUT EFI_MEMORY_REGION_DESCRIPTOR *MemoryDescriptor,
+  IN     UINT8                         MemoryDescriptorCount)
 {
-  UINTN   RegionCount = 0;
-  BOOLEAN NoErrors    = TRUE;
+  BOOLEAN IsInvalid = FALSE;
 
-  // Count Memory Region
-  while (MemoryDescriptorEx[RegionCount].Length != 0) {
-    RegionCount++;
-  }
+  // Verify Memory Region Count
+  ASSERT (MemoryDescriptorCount - 1 < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
 
   // Sort Memory Regions
-  PerformQuickSort (MemoryDescriptorEx, RegionCount, sizeof (EFI_MEMORY_REGION_DESCRIPTOR_EX), CompareMemoryRegions);
+  PerformQuickSort (MemoryDescriptor, MemoryDescriptorCount, sizeof (EFI_MEMORY_REGION_DESCRIPTOR), CompareMemoryRegions);
 
   // Go thru each Memory Region
-  for (UINTN i = 0; i < RegionCount; i++) {
-    // Get Current Memory Region
-    EFI_MEMORY_REGION_DESCRIPTOR_EX *CurrentRegion = &MemoryDescriptorEx[i];
+  for (UINT8 i = 0; i < MemoryDescriptorCount - 1; i++) {
+    // Get Current & Next Memory Region
+    EFI_MEMORY_REGION_DESCRIPTOR *CurrentRegion = &MemoryDescriptor[i];
+    EFI_MEMORY_REGION_DESCRIPTOR *NextRegion    = &MemoryDescriptor[i + 1];
 
-    // Calculate End Address
+    // Calculate Current End Address
     EFI_PHYSICAL_ADDRESS EndAddress = CurrentRegion->Address + CurrentRegion->Length;
 
     // Skip Register Regions
@@ -67,26 +69,44 @@ ValidateMemoryMap (IN EFI_PMEMORY_REGION_DESCRIPTOR_EX MemoryDescriptorEx)
     // Check for Memory Warparound
     if (EndAddress < CurrentRegion->Address) {
       DEBUG ((EFI_D_ERROR, "Memory Warparound Detected in \"%a\" (0x%llx)!\n", CurrentRegion->Name, CurrentRegion->Address));
-      NoErrors = FALSE;
-    }
 
-    // Verify Next Memory Region
-    if (i >= (RegionCount - 1)) {
+      // Set Memory Map State
+      IsInvalid = TRUE;
+
       continue;
     }
-
-    // Get Next Memory Region
-    EFI_MEMORY_REGION_DESCRIPTOR_EX *NextRegion = &MemoryDescriptorEx[i + 1];
 
     // Check for Overlap
     if (EndAddress > NextRegion->Address) {
       DEBUG ((EFI_D_ERROR, "\"%a\" (0x%llx) and \"%a\" (0x%llx) Overlap!\n", CurrentRegion->Name, CurrentRegion->Address, NextRegion->Name, NextRegion->Address));
-      NoErrors = FALSE;
+
+      // Set Memory Map State
+      IsInvalid = TRUE;
     }
   }
 
-  // Check for Errors
-  ASSERT (NoErrors);
+  // Check Memory Map State
+  if (IsInvalid) {
+    CpuDeadLoop ();
+  }
+}
+
+STATIC
+VOID
+AddHob (IN EFI_MEMORY_REGION_DESCRIPTOR MemoryRegion)
+{
+  // Save HOB Option
+  EFI_MEMORY_HOB_OPTION HobOption = MemoryRegion.HobOption;
+
+  // Build Resource Descriptor HOB
+  if (HobOption == AddMem || HobOption == AddDev || HobOption == HobOnlyNoCacheSetting) {
+    BuildResourceDescriptorHob (MemoryRegion.ResourceType, MemoryRegion.ResourceAttribute, MemoryRegion.Address, MemoryRegion.Length);
+  }
+
+  // Build Memory Allocation HOB
+  if (MemoryRegion.ResourceType == EFI_RESOURCE_SYSTEM_MEMORY || MemoryRegion.MemoryType == EfiRuntimeServicesData) {
+    BuildMemoryAllocationHob (MemoryRegion.Address, MemoryRegion.Length, MemoryRegion.MemoryType);
+  }
 }
 
 EFI_STATUS
@@ -95,63 +115,47 @@ MemoryPeim (
   IN EFI_PHYSICAL_ADDRESS UefiMemoryBase,
   IN UINT64               UefiMemorySize)
 {
-  EFI_STATUS                        Status                                              = EFI_SUCCESS;
-  ARM_MEMORY_REGION_DESCRIPTOR      MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT] = {0};
-  EFI_PMEMORY_REGION_DESCRIPTOR_EX  MemoryDescriptorEx                                  = GetMemoryMap ();
-  VOID                             *TranslationTableBase                                = NULL;
-  UINTN                             TranslationTableSize                                = 0;
-  UINTN                             Index                                               = 0;
+  EFI_STATUS                    Status                                              = EFI_SUCCESS;
+  ARM_MEMORY_REGION_DESCRIPTOR  MemoryTable[MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT] = {0};
+  EFI_MEMORY_REGION_DESCRIPTOR *MemoryDescriptor                                    = NULL;
+  VOID                         *TranslationTableBase                                = NULL;
+  UINTN                         TranslationTableSize                                = 0;
+  UINT8                         MemoryDescriptorCount                               = 0;
+  UINTN                         Index                                               = 0;
+
+  // Show Entry Message
+  DEBUG ((EFI_D_WARN, "MMU In\r"));
+
+  // Get Memory Map
+  GetMemoryMap (&MemoryDescriptor, &MemoryDescriptorCount);
 
   // Validate Memory Map
-  ValidateMemoryMap (MemoryDescriptorEx);
+  ValidateMemoryMap (MemoryDescriptor, MemoryDescriptorCount);
 
-  // Check Memory Size
-  ASSERT (PcdGet64 (PcdSystemMemorySize) != 0);
+  // Go thru each Memory Region
+  for (UINT8 i = 0; i < MemoryDescriptorCount; i++) {
+    // Add HOB
+    AddHob (MemoryDescriptor[i]);
 
-  while (MemoryDescriptorEx->Length != 0) {
-    switch (MemoryDescriptorEx->HobOption) {
-      case AddMem:
-      case AddDev:
-      case HobOnlyNoCacheSetting:
-        // Build Resource Descriptor HOB
-        BuildResourceDescriptorHob (MemoryDescriptorEx->ResourceType, MemoryDescriptorEx->ResourceAttribute, MemoryDescriptorEx->Address, MemoryDescriptorEx->Length);
-
-      case AllocOnly:
-        // Build Memory Allocation HOB
-        if (MemoryDescriptorEx->ResourceType == EFI_RESOURCE_SYSTEM_MEMORY || MemoryDescriptorEx->MemoryType == EfiRuntimeServicesData) {
-          BuildMemoryAllocationHob (MemoryDescriptorEx->Address, MemoryDescriptorEx->Length, MemoryDescriptorEx->MemoryType);
-        }
-
-        break;
-
-      case NoHob:
-      default:
-        goto update;
+    // Verify Memory Region HOB Option
+    if (MemoryDescriptor[i].HobOption == HobOnlyNoCacheSetting) {
+      continue;
     }
 
-    // Switch to Next Region
-    if (MemoryDescriptorEx->HobOption != HobOnlyNoCacheSetting) {
-update:
-      // Check Index
-      ASSERT (Index < MAX_ARM_MEMORY_REGION_DESCRIPTOR_COUNT);
+    // Save Attributes
+    MemoryTable[Index].PhysicalBase = MemoryDescriptor[i].Address;
+    MemoryTable[Index].VirtualBase  = MemoryDescriptor[i].Address;
+    MemoryTable[Index].Length       = MemoryDescriptor[i].Length;
+    MemoryTable[Index].Attributes   = MemoryDescriptor[i].ArmAttributes;
 
-      // Save Attributes
-      MemoryTable[Index].PhysicalBase = MemoryDescriptorEx->Address;
-      MemoryTable[Index].VirtualBase  = MemoryDescriptorEx->Address;
-      MemoryTable[Index].Length       = MemoryDescriptorEx->Length;
-      MemoryTable[Index].Attributes   = MemoryDescriptorEx->ArmAttributes;
-
-      // Increase Index
-      Index++;
-    }
-
-    // Switch to next Region
-    MemoryDescriptorEx++;
+    // Increase Memory Table Index
+    Index++;
   }
 
-  // Build Memory Allocation HOB
+  // Configure MMU
   Status = ArmConfigureMmu (MemoryTable, &TranslationTableBase, &TranslationTableSize);
   if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Configure MMU! Status = %r\n", Status));
     return Status;
   }
 

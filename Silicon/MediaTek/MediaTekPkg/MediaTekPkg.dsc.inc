@@ -7,10 +7,9 @@
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
-[PcdsFixedAtBuild]
-  # RAM Size (512 MB)
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
+!include SiliciumPkg/SiliciumPkg.dsc.inc
 
+[PcdsFixedAtBuild]
   # SmBios
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"MediaTek"
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"MediaTek Inc."
@@ -20,13 +19,6 @@
   # ARM Libraries
   #
   ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
-
-  #
-  # Silicium Libraries
-  #
-  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
-  MemoryProtectionLib|MediaTekPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
-  ErrataPatchesLib|MediaTekPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
 
 [Components]
   #
@@ -41,5 +33,3 @@
   MediaTekPkg/Drivers/PmicWrapperDxe/PmicWrapperDxe.inf
   MediaTekPkg/Drivers/MT6358PmicDxe/MT6358PmicDxe.inf
   MediaTekPkg/Drivers/MsdcDxe/MsdcDxe.inf
-
-!include SiliciumPkg/SiliciumPkg.dsc.inc

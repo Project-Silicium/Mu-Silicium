@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = nitrogenPkg/nitrogen.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 1
 
+!include BlackboltPkg/BlackboltPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x02, 0x1E, 0xCA, 0x15, 0xDF, 0xEF, 0xA5, 0x4A, 0x8A, 0x57, 0x94, 0x76, 0x41, 0xE3, 0xBE, 0x4F }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|nitrogenPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|nitrogenPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include BlackboltPkg/BlackboltPkg.dsc.inc

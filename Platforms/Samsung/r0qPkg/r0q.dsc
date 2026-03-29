@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = r0qPkg/r0q.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include WaipioPkg/WaipioPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x9C, 0x6A, 0x8B, 0x1F, 0xF2, 0x41, 0x2C, 0x4C, 0x8A, 0x91, 0xB8, 0xC0, 0x3F, 0x8E, 0xD7, 0xE6 }
@@ -62,6 +64,3 @@
 [LibraryClasses]
   MemoryMapLib|r0qPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|r0qPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include WaipioPkg/WaipioPkg.dsc.inc

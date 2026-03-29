@@ -31,13 +31,15 @@
   #
   SOC_TYPE                       = 1
 
+!include DivarPkg/DivarPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xC4, 0xF6, 0x65, 0xB3, 0xF6, 0x95, 0x2A, 0x4B, 0x80, 0x14, 0x24, 0x07, 0xFC, 0xEC, 0x1E, 0xBF }
@@ -66,6 +68,3 @@
 [LibraryClasses]
   MemoryMapLib|tapasPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|tapasPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include DivarPkg/DivarPkg.dsc.inc

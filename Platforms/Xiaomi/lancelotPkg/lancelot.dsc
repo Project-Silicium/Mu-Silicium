@@ -31,13 +31,15 @@
   #
   SOC_TYPE                       = 1
 
+!include MT6768Pkg/MT6768Pkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x40001000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x40001000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x40, 0x05, 0x13, 0x02, 0x41, 0x56, 0xDE, 0x43, 0xA3, 0xC3, 0x5D, 0xFE, 0x24, 0xCB, 0x47, 0x14 }
@@ -57,11 +59,8 @@
 [LibraryClasses]
   MemoryMapLib|lancelotPkg/Library/MemoryMapLib/MemoryMapLib.inf
   KeypadDeviceLib|lancelotPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [Components]
   # Keypad
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-
-!include MT6768Pkg/MT6768Pkg.dsc.inc

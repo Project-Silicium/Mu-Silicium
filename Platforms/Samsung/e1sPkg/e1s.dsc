@@ -31,13 +31,15 @@
   #
   SOC_TYPE                       = 0
 
+!include S5E9945Pkg/S5E9945Pkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xF4B00000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xF4B00000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x63, 0xBB, 0x46, 0x91, 0x16, 0xEE, 0x38, 0x42, 0xA6, 0xC6, 0x36, 0x47, 0x2B, 0x92, 0x56, 0x99 }
@@ -57,11 +59,8 @@
 [LibraryClasses]
   MemoryMapLib|e1sPkg/Library/MemoryMapLib/MemoryMapLib.inf
   KeypadDeviceLib|e1sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [Components]
   # Keypad
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-
-!include S5E9945Pkg/S5E9945Pkg.dsc.inc

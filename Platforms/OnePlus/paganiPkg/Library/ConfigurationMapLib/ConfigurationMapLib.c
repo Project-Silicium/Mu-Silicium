@@ -1,8 +1,8 @@
 #include <Library/ConfigurationMapLib.h>
 
 STATIC
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX
-gConfigurationEntryDescriptorEx[] = {
+EFI_CONFIGURATION_ENTRY_DESCRIPTOR
+gConfigurationDescriptor[] = {
   // Configuration Map
   {"EnableShell", 0x1},
   {"SecPagePoolCount", 0x1800},
@@ -44,14 +44,15 @@ gConfigurationEntryDescriptorEx[] = {
   {"EnableMultiCoreFvDecompression", 0x1},
   {"EnableVariablePolicyEngine", 0x0},
   {"EnableACPIFallback", 0x0},
-  {"DRAM_CLK_PERIOD_ADDR", 0x240BA050},
-
-  // Terminator
-  {"Terminator", 0xFFFFFFFF}
+  {"DRAM_CLK_PERIOD_ADDR", 0x240BA050}
 };
 
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX*
-GetConfigurationMap ()
+VOID
+GetConfigurationMap (
+  OUT EFI_CONFIGURATION_ENTRY_DESCRIPTOR **ConfigurationDescriptor,
+  OUT UINT8                               *ConfigurationDescriptorCount)
 {
-  return gConfigurationEntryDescriptorEx;
+  // Pass Data
+  *ConfigurationDescriptor      = gConfigurationDescriptor;
+  *ConfigurationDescriptorCount = ARRAY_SIZE (gConfigurationDescriptor);
 }

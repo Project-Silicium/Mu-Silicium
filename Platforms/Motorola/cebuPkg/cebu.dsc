@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = cebuPkg/cebu.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include KamortaPkg/KamortaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000 
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xCC, 0xC9, 0x21, 0xE1, 0x2F, 0x0F, 0xAC, 0x4E, 0xAF, 0xEA, 0x5D, 0xF7, 0x72, 0xC8, 0x06, 0xEF }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|cebuPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|cebuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include KamortaPkg/KamortaPkg.dsc.inc

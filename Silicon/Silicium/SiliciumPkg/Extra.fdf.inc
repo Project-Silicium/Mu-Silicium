@@ -2,7 +2,6 @@
   INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
 
-  INF SiliciumPkg/Applications/XenonGUI/XenonGUI.inf
   INF SiliciumPkg/UFP/ufpdevicefw.inf
 
   INF SiliciumPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf

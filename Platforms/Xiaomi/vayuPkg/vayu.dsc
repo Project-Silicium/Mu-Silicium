@@ -32,13 +32,15 @@
   #
   SOC_TYPE                       = 2
 
+!include HanaPkg/HanaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FFB0000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00020000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FFB0000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x20000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x05, 0x6D, 0x39, 0x00, 0x87, 0xA5, 0xE8, 0x4A, 0x88, 0x66, 0x3F, 0x08, 0x28, 0x3D, 0x5A, 0x16 }
@@ -67,6 +69,3 @@
 [LibraryClasses]
   MemoryMapLib|vayuPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|vayuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include HanaPkg/HanaPkg.dsc.inc

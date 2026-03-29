@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = capripPkg/caprip.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include KamortaPkg/KamortaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000 
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x23, 0x23, 0x13, 0x01, 0xEB, 0x0E, 0xB1, 0x46, 0xA8, 0x47, 0x68, 0x05, 0x94, 0x92, 0x0C, 0x62 }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|capripPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|capripPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include KamortaPkg/KamortaPkg.dsc.inc

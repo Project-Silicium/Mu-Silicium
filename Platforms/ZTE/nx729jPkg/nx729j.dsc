@@ -31,13 +31,15 @@
   #
   SOC_TYPE                       = 0
 
+!include KailuaPkg/KailuaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xB0, 0xB1, 0x09, 0xDF, 0xB7, 0x68, 0xC8, 0x4C, 0xD5, 0x98, 0x5A, 0xFF, 0xEF, 0xF0, 0xBF, 0x2B }
@@ -68,6 +70,3 @@
 [LibraryClasses]
   MemoryMapLib|nx729jPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|nx729jPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include KailuaPkg/KailuaPkg.dsc.inc

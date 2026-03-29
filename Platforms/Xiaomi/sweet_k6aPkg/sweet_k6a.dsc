@@ -32,13 +32,15 @@
   #
   SOC_TYPE                       = 2
 
+!include MooreaPkg/MooreaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xDF, 0x51, 0xD6, 0x13, 0x7E, 0x5D, 0x16, 0x45, 0xAB, 0x02, 0x37, 0x1A, 0x56, 0x5A, 0xB5, 0x94 }
@@ -67,6 +69,3 @@
 [LibraryClasses]
   MemoryMapLib|sweet_k6aPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|sweet_k6aPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include MooreaPkg/MooreaPkg.dsc.inc

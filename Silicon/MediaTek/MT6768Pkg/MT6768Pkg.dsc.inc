@@ -16,6 +16,8 @@
   USE_CUSTOM_TIMER                           = 0
   USE_PHYSICAL_TIMER                         = 1
 
+!include MediaTekPkg/MediaTekPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
@@ -56,13 +58,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
-  PlatformPrePiLib|MT6768Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|MT6768Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  PlatformSecLib|MT6768Pkg/Library/PlatformSecLib/PlatformSecLib.inf
   GpioImplLib|MT6768Pkg/Library/GpioImplLib/GpioImplLib.inf
   PmicWrapperImplLib|MT6768Pkg/Library/PmicWrapperImplLib/PmicWrapperImplLib.inf
   MsdcImplLib|MT6768Pkg/Library/MsdcImplLib/MsdcImplLib.inf
-
-!include MediaTekPkg/MediaTekPkg.dsc.inc

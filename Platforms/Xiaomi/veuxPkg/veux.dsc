@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = veuxPkg/veux.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include StraitPkg/StraitPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x62, 0x1F, 0xAE, 0x3F, 0xF6, 0xE8, 0xA8, 0x45, 0xBF, 0xF8, 0xB9, 0xF7, 0xFD, 0x31, 0x21, 0xD4 }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|veuxPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|veuxPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include StraitPkg/StraitPkg.dsc.inc

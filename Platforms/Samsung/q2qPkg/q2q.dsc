@@ -32,13 +32,15 @@
   #
   SOC_TYPE                       = 0
 
+!include LahainaPkg/LahainaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xF8, 0xE3, 0xD8, 0xD6, 0x15, 0x5A, 0x49, 0x4B, 0x84, 0x4B, 0x35, 0xEF, 0xCE, 0x9B, 0x94, 0x7B }
@@ -68,6 +70,3 @@
 [LibraryClasses]
   MemoryMapLib|q2qPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|q2qPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include LahainaPkg/LahainaPkg.dsc.inc

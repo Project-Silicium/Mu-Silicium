@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = gta9pwifiPkg/gta9pwifi.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include StraitPkg/StraitPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x09, 0xD8, 0xCE, 0xED, 0xA9, 0xDB, 0x74, 0x4B, 0x98, 0x81, 0x0B, 0x3E, 0xDC, 0xF5, 0x07, 0x5C }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|gta9pwifiPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|gta9pwifiPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include StraitPkg/StraitPkg.dsc.inc

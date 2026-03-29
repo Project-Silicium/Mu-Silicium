@@ -25,13 +25,15 @@
   FLASH_DEFINITION               = ginkgoPkg/ginkgo.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include NicobarPkg/NicobarPkg.dsc.inc
+
 [PcdsFixedAtBuild]
   # DDR Start Address
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
   # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   # Device GUID
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x54, 0xAA, 0x1B, 0xE5, 0x10, 0x91, 0x92, 0x47, 0x95, 0x9D, 0x96, 0xCE, 0x8A, 0xF2, 0x2D, 0x63 }
@@ -60,6 +62,3 @@
 [LibraryClasses]
   MemoryMapLib|ginkgoPkg/Library/MemoryMapLib/MemoryMapLib.inf
   ConfigurationMapLib|ginkgoPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
-
-!include NicobarPkg/NicobarPkg.dsc.inc
