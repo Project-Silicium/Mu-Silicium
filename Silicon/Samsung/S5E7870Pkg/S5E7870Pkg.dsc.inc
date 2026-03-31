@@ -65,5 +65,10 @@
   #
   GpioBankLib|S5E7870Pkg/Library/GpioBankLib/GpioBankLib.inf
 
+  #
+  # Memory Libraries
+  #
+  IoMmuLib|MdeModulePkg/Library/IoMmuLibNull/IoMmuLibNull.inf
+
 [Components]
   S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
