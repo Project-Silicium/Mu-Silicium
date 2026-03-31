@@ -21,7 +21,6 @@
 
 #include "Sec.h"
 
-#ifndef MDEPKG_NDEBUG
 STATIC
 VOID
 ClearFrameBuffer ()
@@ -40,16 +39,13 @@ ClearFrameBuffer ()
   // Clear Memory Region
   ZeroMem ((VOID *)FrameBufferRegion.Address, FrameBufferRegion.Length);
 }
-#endif
 
 STATIC
 VOID
 PrintFirmwareVersion ()
 {
   // Clear Frame Buffer
-#ifndef MDEPKG_NDEBUG
   ClearFrameBuffer ();
-#endif
 
   // Initialize Serial Port
   SerialPortInitialize ();
