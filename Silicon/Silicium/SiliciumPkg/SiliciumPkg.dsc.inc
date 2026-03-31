@@ -11,8 +11,6 @@
   *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG -D DISABLE_SECUREBOOT=$(DISABLE_SECUREBOOT)
   *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
 
-  RELEASE_CLANGPDB_*_CC_FLAGS  = -DMDEPKG_NDEBUG
-
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
   *_CLANGPDB_*_DLINK_FLAGS = /ALIGN:0x1000 /FILEALIGN:0x1000
 
