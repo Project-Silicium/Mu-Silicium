@@ -85,7 +85,7 @@
   #
   # Graphics
   #
-  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferDelay|100000          # In Microseconds
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferDelay|10000          # In Microseconds
 
   #
   # Input
