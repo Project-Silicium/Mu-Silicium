@@ -34,33 +34,52 @@
 !include MT6768Pkg/MT6768Pkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
-  # UEFI Stack Addresses
+  #
+  # UEFI Stack
+  #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x40001000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
+  #
   # Device GUID
+  #
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x40, 0x05, 0x13, 0x02, 0x41, 0x56, 0xDE, 0x43, 0xA3, 0xC3, 0x5D, 0xFE, 0x24, 0xCB, 0x47, 0x14 }
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 9"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lancelot"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_9_lancelot"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi 9"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1088
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2340
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|lancelotPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # Input Libraries
+  #
   KeypadDeviceLib|lancelotPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
 
 [Components]
-  # Keypad
+  #
+  # Input
+  #
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf

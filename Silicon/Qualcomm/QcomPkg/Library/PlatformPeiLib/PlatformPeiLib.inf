@@ -35,18 +35,15 @@
   gArmTokenSpaceGuid.PcdFvBaseAddress
   gArmTokenSpaceGuid.PcdFvSize
 
-  gQcomPkgTokenSpaceGuid.PcdPlatformType
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob
   gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr
+  gQcomPkgTokenSpaceGuid.PcdPlatformType
 
 [Guids]
   gEfiInfoBlkHobGuid
   gEfiShimLibraryHobGuid
   gFvDecompressHobGuid
   gEfiProdmodeHobGuid
-  gEfiScheduleInterfaceHobGuid
-  gEfiDTBExtnHobGuid
+  gEfiSchedulerInterfaceHobGuid
+  gEfiDtbExtnHobGuid

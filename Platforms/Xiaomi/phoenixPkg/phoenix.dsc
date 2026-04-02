@@ -35,17 +35,25 @@
 !include MooreaPkg/MooreaPkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
+  #
+  # UEFI Stack
+  #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000 
 
+  #
   # Device GUID
+  #
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xAF, 0x5E, 0xEF, 0xE3, 0x7D, 0x0F, 0x44, 0x4A, 0xA6, 0x9E, 0xDD, 0x70, 0x9C, 0xF8, 0x25, 0xBC }
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
 !if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi K30"
@@ -59,20 +67,30 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"MZB9011IN"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"G7B"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
-  gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"                  # It's "LA" actually
+  #
+  # Platform PEI
+  #
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|phoenixPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # QCOM Libraries
+  #
   ConfigurationMapLib|phoenixPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

@@ -31,9 +31,6 @@
 
   INF Binaries/polaris/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/polaris/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/polaris/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf

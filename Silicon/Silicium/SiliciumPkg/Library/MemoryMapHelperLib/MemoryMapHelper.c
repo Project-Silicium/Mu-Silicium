@@ -9,6 +9,11 @@ LocateMemoryRegionByName (
   EFI_MEMORY_REGION_DESCRIPTOR *MemoryDescriptor;
   UINT8                         MemoryDescriptorCount;
 
+  // Verify Parameters
+  if (RegionName == NULL || MemoryRegionDescriptor == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
+
   // Get Memory Map
   GetMemoryMap (&MemoryDescriptor, &MemoryDescriptorCount);
 
@@ -36,6 +41,11 @@ LocateMemoryRegionByAddress (
 {
   EFI_MEMORY_REGION_DESCRIPTOR *MemoryDescriptor;
   UINT8                         MemoryDescriptorCount;
+
+  // Verify Parameters
+  if (MemoryRegionDescriptor == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
 
   // Get Memory Map
   GetMemoryMap (&MemoryDescriptor, &MemoryDescriptorCount);

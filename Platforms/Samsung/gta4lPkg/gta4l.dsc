@@ -30,37 +30,55 @@
 !include KamortaPkg/KamortaPkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
-  # UEFI Stack Addresses
+  #
+  # UEFI Stack
+  #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
+  #
   # Device GUID
+  #
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x3E, 0x8C, 0x2E, 0xA2, 0xBE, 0xB0, 0x0E, 0x4C, 0x81, 0x92, 0x57, 0xEE, 0x0D, 0x99, 0x80, 0xEC }
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab A7 LTE"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gta4l"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_A7_LTE_gta4l"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab A7 LTE"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1200
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2000
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x71D00000
-
+  #
   # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|gta4lPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # QCOM Libraries
+  #
   ConfigurationMapLib|gta4lPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

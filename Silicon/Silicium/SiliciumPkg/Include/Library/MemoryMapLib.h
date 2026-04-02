@@ -109,6 +109,12 @@ typedef struct {
 #define WRITE_THROUGH          ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH
 #define WRITE_THROUGH_XN       ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH
 
+/**
+  This Function returns the Memory Map Data.
+
+  @param[out] MemoryDescriptor             - The Memory Map.
+  @param[out] MemoryDescriptorCount        - The Number of Entries in the Memory Map.
+**/
 VOID
 GetMemoryMap (
   OUT EFI_MEMORY_REGION_DESCRIPTOR **MemoryDescriptor,

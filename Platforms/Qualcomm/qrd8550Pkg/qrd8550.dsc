@@ -34,39 +34,57 @@
 !include KailuaPkg/KailuaPkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
+  #
+  # UEFI Stack
+  #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
+  #
   # Device GUID
+  #
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x6B, 0xA9, 0x3A, 0x40, 0x06, 0x81, 0x27, 0x47, 0xAF, 0xA6, 0x4B, 0x09, 0x53, 0x51, 0xDA, 0xD9 }
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Qualcomm"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"QRD8550"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"qrd8550"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"QRD8550"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"QRD8550"
 
-  # Simple FrameBuffer
+  #
+  # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703A0C8
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703A948
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703A948
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x880000000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|qrd8550Pkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # QCOM Libraries
+  #
   ConfigurationMapLib|qrd8550Pkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

@@ -7,7 +7,7 @@
   LIBRARY_CLASS                  = MemoryMapHelperLib
 
 [Sources]
-  MemoryMapHelperLib.c
+  MemoryMapHelper.c
 
 [Packages]
   ArmPkg/ArmPkg.dec

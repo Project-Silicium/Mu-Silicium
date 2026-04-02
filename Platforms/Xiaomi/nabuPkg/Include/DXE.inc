@@ -33,9 +33,6 @@
 
   INF Binaries/nabu/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/nabu/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/nabu/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf

@@ -36,39 +36,57 @@
 !include PalawanPkg/PalawanPkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
+  #
+  # UEFI Stack
+  #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
+  #
   # Device GUID
+  #
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x78, 0x1B, 0x02, 0x6F, 0xAE, 0x8D, 0x4D, 0x47, 0x9B, 0x43, 0x5E, 0x24, 0x12, 0xA7, 0x6E, 0x32 }
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Realme"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale_b"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"RMX3852"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23622"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1264
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2780
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703FD40
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703FD40
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703F0E8
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xE6740000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|bale_bPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # QCOM Libraries
+  #
   ConfigurationMapLib|bale_bPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

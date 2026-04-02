@@ -8,15 +8,28 @@
 
 #include <Ppi/ArmMpCoreInfo.h>
 
+/**
+  This Function Executes Platform Specific Assembly Code.
+**/
 VOID
 PlatformAssemblyInitialize ();
 
+/**
+  This Function Executes Platform Specific C Code.
+**/
 VOID
 PlatformInitialize ();
 
+/**
+  This Function returns the Core Table Data.
+
+  @param[out] ArmCoreTable                 - The Core Table.
+  @param[out] CoreCount                    - The Number of Entries in the Core Table.
+**/
 VOID
 GetPlatformCoreTable (
   OUT ARM_CORE_INFO **ArmCoreTable,
-  OUT UINTN          *CoreCount);
+  OUT UINTN          *CoreCount
+  );
 
 #endif /* _PLATFORM_SEC_LIB_H_ */

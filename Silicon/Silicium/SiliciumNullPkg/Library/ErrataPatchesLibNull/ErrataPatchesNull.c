@@ -13,11 +13,12 @@ ApplyPlatformErrataPatches (
   return EFI_UNSUPPORTED;
 }
 
-UINT8*
-GetPlatformTransferToKernelShellCode (OUT UINTN *ShellCodeSize)
+VOID
+GetPlatformTransferToKernelShellCode (
+  OUT UINT8 **ShellCode,
+  OUT UINTN  *ShellCodeSize)
 {
-  // Pass Size
+  // Pass Shell Code Data
+  *ShellCode     = NULL;
   *ShellCodeSize = 0;
-
-  return NULL;
 }

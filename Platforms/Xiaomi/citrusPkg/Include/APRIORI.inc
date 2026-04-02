@@ -4,18 +4,17 @@ APRIORI DXE {
 
   INF Binaries/citrus/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
-  INF Binaries/citrus/MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/RscRtDxe.inf
-  INF Binaries/citrus/MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/SCHandlerRtDxe.inf
+  INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
+  INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
+  INF QcomPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
+
   INF Binaries/citrus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/citrus/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

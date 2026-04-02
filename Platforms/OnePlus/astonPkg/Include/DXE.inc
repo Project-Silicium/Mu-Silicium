@@ -61,8 +61,6 @@
   INF Binaries/aston/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-  
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 

@@ -28,38 +28,56 @@
 !include RennellPkg/RennellPkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
+  #
+  # UEFI Stack
+  #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000 
 
+  #
   # Device GUID
+  #
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x12, 0xFD, 0xBB, 0x30, 0xF0, 0x6F, 0x5E, 0x4D, 0xA7, 0xF6, 0x39, 0x69, 0xD8, 0x70, 0xAD, 0xE6 }
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy A52"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"a52q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A52_a52q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy A52"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
-  gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"       # Actually its "LA".
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC36588
+  #
+  # Platform PEI
+  #
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0x9FC36588
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA7570000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|a52qPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # QCOM Libraries
+  #
   ConfigurationMapLib|a52qPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

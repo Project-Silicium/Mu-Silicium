@@ -5,8 +5,6 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
-#include <PiPei.h>
-
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
 #include <Library/ConfigurationMapLib.h>
@@ -15,41 +13,33 @@
 #include <Library/SerialPortLib.h>
 #include <Library/HobLib.h>
 
-#include <Protocol/EFIKernelInterface.h>
-
-#include "PlatformHobs.h"
-
-STATIC
-EFI_STATUS
-CfgGetMemInfoByName (
-  IN  CHAR8                           *RegionName,
-  OUT EFI_MEMORY_REGION_DESCRIPTOR *MemRegions)
-{
-  // Get Memory Region by Name
-  return LocateMemoryRegionByName (RegionName, MemRegions);
-}
+#include "EFIUefiConfig.h"
+#include "EFISerialPort.h"
+#include "EFIShim.h"
 
 STATIC
 EFI_STATUS
-CfgGetMemInfoByAddress (
-  IN  UINT64                           RegionBaseAddress,
-  OUT EFI_MEMORY_REGION_DESCRIPTOR *MemRegions)
+LocateConfigurationEntryString (
+  IN  CHAR8 *EntryName,
+  OUT CHAR8 *EntryValue,
+  IN  UINTN *EntryValueLength)
 {
-  // Get Memory Region by Base Address
-  return LocateMemoryRegionByAddress (RegionBaseAddress, MemRegions);
-}
+  // Verify Parameters
+  if (EntryName == NULL || EntryValue == NULL || EntryValueLength == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
 
-STATIC
-EFI_STATUS
-CfgGetCfgInfoString (
-  IN  CHAR8 *Key,
-  OUT CHAR8 *Value,
-  IN  UINTN *ValBuffSize)
-{
-  // Compare Names
-  if (AsciiStriCmp (Key, "OsTypeString") == 0) {
-    // Convert Name to String
-    AsciiStrCpyS (Value, *ValBuffSize, FixedPcdGetPtr (PcdPlatformType));
+  // Get Platform Type
+  CHAR8 *PlatformType = FixedPcdGetPtr (PcdPlatformType);
+
+  // Verify Platform Type
+  ASSERT (PlatformType != "NULL");
+
+  // Compare Entry Names
+  if (!AsciiStriCmp (EntryName, "OsTypeString")) {
+    // Convert Entry Value to String
+    AsciiStrCpyS (EntryValue, *EntryValueLength, PlatformType);
+
     return EFI_SUCCESS;
   }
 
@@ -57,35 +47,15 @@ CfgGetCfgInfoString (
 }
 
 STATIC
-EFI_STATUS
-CfgGetCfgInfoVal (
-  IN  CHAR8  *Key,
-  OUT UINT32 *Value)
-{
-  // Get Configuration Value by Name (32)
-  return LocateConfigurationEntry32 (Key, Value);
-}
-
-STATIC
-EFI_STATUS
-CfgGetCfgInfoVal64 (
-  IN  CHAR8  *Key,
-  OUT UINT64 *Value)
-{
-  // Get Configuration Value by Name (64)
-  return LocateConfigurationEntry64 (Key, Value);
-}
-
-STATIC
 UINTN
-SFlush ()
+SerialPortFlush ()
 {
   return EFI_SUCCESS;
 }
 
 STATIC
 UINTN
-SControl (
+SerialPortControl (
   IN UINTN Arg,
   IN UINTN Param)
 {
@@ -93,76 +63,79 @@ SControl (
 }
 
 STATIC
-BOOLEAN
-SPoll ()
-{
-  return TRUE;
-}
-
-STATIC
 UINTN
-SDrain ()
+SerialPortDrain ()
 {
   return EFI_SUCCESS;
 }
 
 //
-// Config Lib Structure
+// UEFI Config Library
 //
-UefiCfgLibType ConfigLib = {
+EFI_UEFI_CONFIG_LIBRARY
+ConfigLib = {
   0x10002,
-  CfgGetMemInfoByName,
-  CfgGetCfgInfoString,
-  CfgGetCfgInfoVal,
-  CfgGetCfgInfoVal64, 
-  CfgGetMemInfoByAddress
+  LocateMemoryRegionByName,
+  LocateConfigurationEntryString,
+  LocateConfigurationEntry32,
+  LocateConfigurationEntry64, 
+  LocateMemoryRegionByAddress
 };
 
 //
-// SerialPort Lib Structure
+// Serial Port Library
 //
-SioPortLibType SioLib = {
+EFI_SERIAL_PORT_LIBRARY
+SioLib = {
   0x10001,
   SerialPortRead,
   SerialPortWrite,
-  SPoll,
-  SDrain,
-  SFlush,
-  SControl,
+  SerialPortPoll,
+  SerialPortDrain,
+  SerialPortFlush,
+  SerialPortControl,
   SerialPortSetAttributes
 };
 
 STATIC
 EFI_STATUS
-ShInstallLib (
+ShimInstallLib (
   IN CHAR8  *LibName,
-  IN UINT32 LibVersion,
+  IN UINT32  LibVersion,
   IN VOID   *LibIntf)
 {
   return EFI_SUCCESS;
 }
 
+EFI_SHIM_LIBRARY_INSTANCE_DATA
+gShimLibraryInstanceData[] = {
+  // Library Instance Name, Library Instance Pointer
+  {"UEFI Config Lib", &ConfigLib},
+  {"SerialPort Lib",  &SioLib}
+};
+
 STATIC
 EFI_STATUS
-ShLoadLib (
+ShimLoadLib (
   IN  CHAR8   *LibName,
   IN  UINT32   LibVersion,
   OUT VOID   **LibIntf)
 {
-  // Check Parameter
-  if (LibIntf == NULL) {
-    return EFI_NOT_FOUND;
+  // Very Parameters
+  if (LibName == NULL || LibIntf == NULL) {
+    return EFI_INVALID_PARAMETER;
   }
 
-  // Compare Library Name
-  if (AsciiStriCmp (LibName, "UEFI Config Lib") == 0) {
-    *LibIntf = &ConfigLib;
-    return EFI_SUCCESS;
-  }
+  // Go thru each Shim Library Instance
+  for (UINT8 i = 0; i < ARRAY_SIZE (gShimLibraryInstanceData); i++) {
+    // Compare Library Instance Names
+    if (AsciiStriCmp (LibName, gShimLibraryInstanceData[i].LibName)) {
+      continue;
+    }
 
-  // Compare Library Name
-  if (AsciiStriCmp (LibName, "SerialPort Lib") == 0) {
-    *LibIntf = &SioLib;
+    // Pass Library Instance
+    *LibIntf = gShimLibraryInstanceData[i].LibIntf;
+
     return EFI_SUCCESS;
   }
 
@@ -170,82 +143,73 @@ ShLoadLib (
 }
 
 //
-// Sh Library Type Structure
+// Shim Library Loader
 //
-ShLibLoaderType ShLib = {
+EFI_SHIM_LIBRARY_LOADER
+ShLibraryLoader = {
   0x00010001,
-  ShInstallLib,
-  ShLoadLib
+  ShimInstallLib,
+  ShimLoadLib
 };
+
+VOID
+BuildXblHobs (
+  IN EFI_PHYSICAL_ADDRESS FvDecompressAddr,
+  IN EFI_PHYSICAL_ADDRESS SchedulerInterfaceAddr,
+  IN EFI_PHYSICAL_ADDRESS DtbExtensionAddr)
+{
+  EFI_MEMORY_REGION_DESCRIPTOR InfoBlkRegion        = {0};
+  UINTN                        ShimLibLoaderAddress = (UINTN)&ShLibraryLoader;
+  BOOLEAN                      Prodmode             = FALSE;
+
+  // Locate "Info Blk" Memory Region
+  LocateMemoryRegionByName ("Info Blk", &InfoBlkRegion);
+  LocateMemoryRegionByName ("Info_Blk", &InfoBlkRegion);
+
+  // Verify Memory Region
+  if (!InfoBlkRegion.Address) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate \"Info Blk\" Memory Region!\n"));
+  } else {
+    // Build Info Blk HOB
+    BuildGuidDataHob (&gEfiInfoBlkHobGuid, &InfoBlkRegion.Address, sizeof (InfoBlkRegion.Address));
+  }
+
+  // Build Shim HOB
+  BuildGuidDataHob (&gEfiShimLibraryHobGuid, &ShimLibLoaderAddress, sizeof (ShimLibLoaderAddress));
+
+  // Build Prodmode HOB
+  BuildGuidDataHob (&gEfiProdmodeHobGuid, &Prodmode, sizeof (Prodmode));
+
+  // Build FV Decompress HOB
+  if (FvDecompressAddr) {
+    BuildGuidDataHob (&gFvDecompressHobGuid, &FvDecompressAddr, sizeof (FvDecompressAddr));
+  }
+
+  // Build Scheduler Interface HOB
+  if (SchedulerInterfaceAddr) {
+    BuildGuidDataHob (&gEfiSchedulerInterfaceHobGuid, &SchedulerInterfaceAddr, sizeof (SchedulerInterfaceAddr));
+  }
+
+  // Build DTB Extension HOB
+  if (DtbExtensionAddr) {
+    BuildGuidDataHob (&gEfiDtbExtnHobGuid, &DtbExtensionAddr, sizeof (DtbExtensionAddr));
+  }
+}
 
 EFI_STATUS
 EFIAPI
 PlatformPeim ()
 {
-  EFI_STATUS                   Status;
-  EFI_MEMORY_REGION_DESCRIPTOR InfoBlkRegion;
-
+  // Build FV HOB
   BuildFvHob (PcdGet64 (PcdFvBaseAddress), PcdGet32 (PcdFvSize));
 
   // Get XBL HOB Addresses
-  UINT64 SchedAddress        = FixedPcdGet64 (PcdScheduleInterfaceAddr);
-  UINT64 DtbExtAddress       = FixedPcdGet64 (PcdDtbExtensionAddr);
-  UINT64 FvDecompressAddress = FixedPcdGet64 (PcdFvDecompressAddr);
+  EFI_PHYSICAL_ADDRESS FvDecompressAddr       = FixedPcdGet64 (PcdFvDecompressAddr);
+  EFI_PHYSICAL_ADDRESS SchedulerInterfaceAddr = FixedPcdGet64 (PcdSchedulerInterfaceAddr);
+  EFI_PHYSICAL_ADDRESS DtbExtensionAddr       = FixedPcdGet64 (PcdDtbExtensionAddr);
 
-  // Locate "Info Blk" Memory Region
-  Status  = LocateMemoryRegionByName ("Info Blk", &InfoBlkRegion);
-  Status |= LocateMemoryRegionByName ("Info_Blk", &InfoBlkRegion);
-  if (EFI_ERROR (Status) && !InfoBlkRegion.Address) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'Info Blk' Memory Region! Status = %r\n", __FUNCTION__, Status));
-  } else if (FixedPcdGetBool (PcdEnableInfoBlkHob)) {
-    // Set Info BLK Address
-    UINTN InfoBlkAddress = InfoBlkRegion.Address;
-
-    // Build Info Blk HOB
-    BuildGuidDataHob (&gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof (InfoBlkAddress));
-  }
-
-  // Check PCD Value
-  if (FixedPcdGetBool (PcdEnableShimHob)) {
-    // Set Sh Lib Address
-    UINTN ShLibAddress = (UINTN)&ShLib;
-
-    // Build Shim HOB
-    BuildGuidDataHob (&gEfiShimLibraryHobGuid, &ShLibAddress, sizeof (ShLibAddress));
-  }
-
-  // Check PCD Value
-  if (FixedPcdGetBool (PcdEnableProdmodeHob)) {
-    // Set Prodmode Value
-    BOOLEAN Prodmode = FALSE;
-
-    // Build Prodmode HOB
-    BuildGuidDataHob (&gEfiProdmodeHobGuid, &Prodmode, sizeof (Prodmode));
-  }
-
-  // Check FV Decompress Address
-  if (FvDecompressAddress) {
-    // Build FV Decompress HOB
-    BuildGuidDataHob (&gFvDecompressHobGuid, &FvDecompressAddress, sizeof (FvDecompressAddress));
-  }
-
-  // Check Schedule Interface Address
-  if (SchedAddress) {
-    // Populate Schedule Interface Protocol
-    EFI_KERNEL_PROTOCOL *SchedIntfProtocol = (VOID *)SchedAddress;
-
-    // Build Schedule Interface HOB
-    BuildGuidDataHob (&gEfiScheduleInterfaceHobGuid, &SchedIntfProtocol, sizeof (SchedIntfProtocol));
-  }
-
-  // Check DTB Extension Address
-  if (DtbExtAddress) {
-    // Populate DTB Extension Protocol
-    EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)DtbExtAddress;
-
-    // Build DTB Extension HOB
-    BuildGuidDataHob (&gEfiDTBExtnHobGuid, &DTBExtnProtocol, sizeof (DTBExtnProtocol));
-  }
+  // Build XBL HOBs
+  BuildXblHobs (FvDecompressAddr, SchedulerInterfaceAddr, DtbExtensionAddr);
 
   return EFI_SUCCESS;
 }

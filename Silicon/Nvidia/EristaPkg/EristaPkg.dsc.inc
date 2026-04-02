@@ -83,5 +83,4 @@
 
 [LibraryClasses]
   PlatformSecLib|EristaPkg/Library/PlatformSecLib/PlatformSecLib.inf
-  DynamicRamLib|EristaPkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
   TegraClockLib|EristaPkg/GPLLibrary/TegraClockLib/TegraClockLib.inf

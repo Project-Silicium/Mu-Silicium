@@ -35,9 +35,6 @@
   INF Binaries/citrus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/citrus/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 

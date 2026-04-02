@@ -62,9 +62,6 @@
   INF Binaries/dm2q/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/dm2q/QcomPkg/Drivers/RscDxe/RscDxe.inf

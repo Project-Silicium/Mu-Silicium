@@ -35,7 +35,6 @@
   #
   # Custom Libraries
   #
-  RamPartitionTableLib|QcomPkg/Library/RamPartitionTableLib/RamPartitionTableLib.inf
   ConfigurationMapHelperLib|QcomPkg/Library/ConfigurationMapHelperLib/ConfigurationMapHelperLib.inf
   ArmSmmuDetachLib|QcomPkg/Library/ArmSmmuDetachLib/ArmSmmuDetachLib.inf
 
@@ -48,7 +47,7 @@
   #
   # Custom Drivers
   #
-  QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+  QcomPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
   QcomPkg/Drivers/PeripheralInitDxe/PeripheralInitDxe.inf
 

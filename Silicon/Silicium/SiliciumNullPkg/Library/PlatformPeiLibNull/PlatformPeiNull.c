@@ -5,8 +5,6 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
-//#include <PiPei.h>
-
 #include <Library/PcdLib.h>
 #include <Library/HobLib.h>
 

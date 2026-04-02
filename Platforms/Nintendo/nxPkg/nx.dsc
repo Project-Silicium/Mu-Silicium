@@ -49,17 +49,25 @@
 !endif
 
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
+  #
+  # UEFI Stack
+  #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x80201000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
+  #
   # Device GUID
+  #
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x9E, 0x72, 0xA9, 0x2F, 0xED, 0x6B, 0x30, 0x4F, 0xAC, 0xDD, 0x8E, 0xB3, 0xC1, 0xB4, 0xAC, 0xA5 }
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nx"
@@ -70,19 +78,27 @@
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch"
 
+  #
   # Simple Frame Buffer (TODO: Rotate Screen Somehow)
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|720
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|1280
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Dynamic RAM
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xF5D85000
-
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|nxPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # Input Libraries
+  #
   KeypadDeviceLib|nxPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
 
 [Components]
-  # Keypad
+  #
+  # Input
+  #
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf

@@ -30,39 +30,57 @@
 !include KaanapaliPkg/KaanapaliPkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
+  #
+  # UEFI Stack
+  #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xC6E0D000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
+  #
   # Device GUID
+  #
   gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x81, 0x1A, 0x30, 0x49, 0xFB, 0x23, 0xDB, 0x4E, 0x85, 0x1D, 0x1B, 0x4F, 0xBE, 0x64, 0x3D, 0x04 }
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"15"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"infiniti"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2747"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"24831"
 
-  # Simple FrameBuffer
+  #
+  # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1272
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2772
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xC683F118
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xC683FE98
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xC683FE98
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFF300000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|infinitiPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # QCOM Libraries
+  #
   ConfigurationMapLib|infinitiPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

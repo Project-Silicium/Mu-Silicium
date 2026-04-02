@@ -1,3 +1,5 @@
+#include <PiPei.h>
+
 #include <Library/ConfigurationMapHelperLib.h>
 
 EFI_STATUS
@@ -8,6 +10,11 @@ LocateConfigurationEntry32 (
 {
   EFI_CONFIGURATION_ENTRY_DESCRIPTOR *ConfigurationDescriptor;
   UINT8                               ConfigurationDescriptorCount;
+
+  // Verify Parameter
+  if (EntryName == NULL || EntryValue == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
 
   // Get Configuratio Map
   GetConfigurationMap (&ConfigurationDescriptor, &ConfigurationDescriptorCount);
@@ -36,6 +43,11 @@ LocateConfigurationEntry64 (
 {
   EFI_CONFIGURATION_ENTRY_DESCRIPTOR *ConfigurationDescriptor;
   UINT8                               ConfigurationDescriptorCount;
+
+  // Verify Parameter
+  if (EntryName == NULL || EntryValue == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
 
   // Get Configuratio Map
   GetConfigurationMap (&ConfigurationDescriptor, &ConfigurationDescriptorCount);

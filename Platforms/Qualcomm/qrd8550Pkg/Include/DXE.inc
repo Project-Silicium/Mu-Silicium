@@ -59,9 +59,6 @@
   INF Binaries/qrd8550/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/qrd8550/QcomPkg/Drivers/RscDxe/RscDxe.inf

@@ -35,7 +35,6 @@
   #
   # Custom Drivers
   #
-  NvidiaPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
   NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
 !if $(USE_CUSTOM_TIMER) == 1
   NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf

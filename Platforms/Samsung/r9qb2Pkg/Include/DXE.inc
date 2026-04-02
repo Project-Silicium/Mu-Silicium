@@ -50,9 +50,6 @@
   INF Binaries/r9qb2/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf

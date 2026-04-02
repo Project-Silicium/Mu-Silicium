@@ -73,5 +73,4 @@
 
 [LibraryClasses]
   PlatformSecLib|MarikoPkg/Library/PlatformSecLib/PlatformSecLib.inf
-  DynamicRamLib|MarikoPkg/GPLLibrary/DynamicRamLib/DynamicRamLib.inf
   TegraClockLib|MarikoPkg/GPLLibrary/TegraClockLib/TegraClockLib.inf

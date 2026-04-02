@@ -60,9 +60,6 @@
   INF Binaries/nuwa/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/nuwa/QcomPkg/Drivers/RscDxe/RscDxe.inf

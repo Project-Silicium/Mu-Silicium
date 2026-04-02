@@ -26,10 +26,11 @@ KernelErrataPatcherExitBootServices (
   IN UINTN                MapKey,
   IN EFI_PHYSICAL_ADDRESS fwpKernelSetupPhase1)
 {
-  EFI_STATUS           Status;
-  EFI_PHYSICAL_ADDRESS WinloadBase;
-  UINTN                WinloadLength;
-  UINTN                TransferToKernelShellCodeSize;
+  EFI_STATUS            Status;
+  EFI_PHYSICAL_ADDRESS  WinloadBase;
+  UINTN                 WinloadLength;
+  UINT8                *TransferToKernelShellCode;
+  UINTN                 TransferToKernelShellCodeSize;
 
   // Restore Original EBS
   gBS->ExitBootServices = mOriginalEfiExitBootServices;
@@ -57,7 +58,7 @@ KernelErrataPatcherExitBootServices (
   }
 
   // Get Platform Shell Code
-  UINT8 *TransferToKernelShellCode = GetPlatformTransferToKernelShellCode (&TransferToKernelShellCodeSize);
+  GetPlatformTransferToKernelShellCode (&TransferToKernelShellCode, &TransferToKernelShellCodeSize);
 
   // Apply Platform Shell Code
   if (TransferToKernelShellCode != NULL && TransferToKernelShellCodeSize) {

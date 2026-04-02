@@ -31,9 +31,6 @@
 
   INF Binaries/equuleus/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/equuleus/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/equuleus/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf

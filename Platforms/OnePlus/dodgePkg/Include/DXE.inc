@@ -61,9 +61,6 @@
   INF Binaries/dodge/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/dodge/QcomPkg/Drivers/RscDxe/RscDxe.inf

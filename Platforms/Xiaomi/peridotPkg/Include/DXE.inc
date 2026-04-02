@@ -56,9 +56,6 @@
   INF Binaries/peridot/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   #INF Binaries/peridot/QcomPkg/Drivers/RscDxe/RscDxe.inf

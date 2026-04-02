@@ -33,9 +33,6 @@
 
   INF Binaries/alioth/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/alioth/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/alioth/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf

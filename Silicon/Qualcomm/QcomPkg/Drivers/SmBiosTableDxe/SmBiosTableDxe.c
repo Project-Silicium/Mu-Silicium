@@ -14,7 +14,6 @@
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 
-#include <Library/RamPartitionTableLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/BaseMemoryLib.h>
@@ -512,34 +511,8 @@ RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS               Status            = EFI_SUCCESS;
-  EFI_RAM_PARTITION_TABLE *RamPartitionTable = NULL;
-  UINT32                   NumPartitions     = 0;
-  UINT32                   PartitionVersion  = 0;
-  UINT64                   SystemMemorySize  = 0;
-
-  // Get RAM Partitions
-  Status = GetRamPartitions (&RamPartitionTable, &PartitionVersion);
-  NumPartitions = RamPartitionTable->NumPartitions;
-  if (EFI_ERROR (Status) || (NumPartitions < 1) || (PartitionVersion == 1)) {
-    FreePool (RamPartitionTable);
-
-    SystemMemorySize = FixedPcdGet64 (PcdSystemMemorySize);
-  } else {
-    for (UINTN i = 0; i < NumPartitions; i++) {
-      if (RamPartitionTable->RamPartitionEntry[i].Type != RAM_PART_SYS_MEMORY || RamPartitionTable->RamPartitionEntry[i].Category != RAM_PART_SDRAM) { continue; }
-
-      SystemMemorySize += RamPartitionTable->RamPartitionEntry[i].AvailableLength;
-    }
-
-    UINTN DesignMemorySize = 0;
-
-    while (SystemMemorySize >= DesignMemorySize) {
-      DesignMemorySize += 0x40000000; // 1GB
-    }
-
-    SystemMemorySize = DesignMemorySize;
-  }
+  // Default to 3 GB for now
+  UINT64 SystemMemorySize = 0xC0000000;
 
   // Update SmBios Structures
   BIOSInfoUpdateSmbiosType0          ();

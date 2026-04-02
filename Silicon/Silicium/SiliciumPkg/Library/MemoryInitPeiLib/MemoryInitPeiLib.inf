@@ -12,7 +12,7 @@
   LIBRARY_CLASS                  = MemoryInitPeiLib|SEC PEIM
 
 [Sources]
-  MemoryInitPeiLib.c
+  MemoryInitPei.c
 
 [Packages]
   ArmPkg/ArmPkg.dec

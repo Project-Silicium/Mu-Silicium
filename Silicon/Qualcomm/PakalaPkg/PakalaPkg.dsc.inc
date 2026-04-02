@@ -29,11 +29,6 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc -DSOC_TYPE=$(SOC_TYPE)
 
 [PcdsFixedAtBuild]
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
-
   # FV Decompress Address
   gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7049F78
 

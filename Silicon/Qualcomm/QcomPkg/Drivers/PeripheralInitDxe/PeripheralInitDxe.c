@@ -31,7 +31,7 @@ InitPeripherals (
 
   // Init SD Card Slot
   if (FixedPcdGetBool (PcdInitCardSlot)) {
-    Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSDCardInitGuid, &InitEvent);
+    Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gSdCardInitGuid, &InitEvent);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "Failed to Create SD Card Init Event! Status = %r\n", Status));
     } else {

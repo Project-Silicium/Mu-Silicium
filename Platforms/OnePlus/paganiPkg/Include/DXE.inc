@@ -1,8 +1,8 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
-  
+
   INF Binaries/pagani/QcomPkg/Drivers/EnvDxe/EnvDxeEnhanced.inf
-  
+
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
@@ -62,9 +62,6 @@
   INF Binaries/pagani/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/pagani/QcomPkg/Drivers/RscDxe/RscDxe.inf

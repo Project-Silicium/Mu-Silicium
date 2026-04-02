@@ -12,10 +12,9 @@ APRIORI DXE {
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-  INF Binaries/veux/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-  
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
+  INF QcomPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
+  INF Binaries/veux/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/veux/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

@@ -18,7 +18,6 @@
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  RamPartitionTableLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib

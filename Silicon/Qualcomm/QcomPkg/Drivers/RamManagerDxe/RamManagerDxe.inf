@@ -1,33 +1,35 @@
 [Defines]
   INF_VERSION                    = 0x0010005
-  BASE_NAME                      = DynamicRamDxe
-  FILE_GUID                      = 16FF5D68-B234-429A-8517-6D09DF626B27
+  BASE_NAME                      = RamManagerDxe
+  FILE_GUID                      = F4C010C0-96F1-4B49-BFDA-E982B807F44E
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = AddRamPartitions
+  ENTRY_POINT                    = ManageRam
 
 [Sources]
-  DynamicRamDxe.c
+  RamManager.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
-  MdeModulePkg/MdeModulePkg.dec
-  UefiCpuPkg/UefiCpuPkg.dec
   MdePkg/MdePkg.dec
-  NvidiaPkg/NvidiaPkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
   SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  DxeServicesTableLib
-  UefiDriverEntryPoint
   DebugLib
-  PcdLib
+  MemoryAllocationLib
+  DxeServicesTableLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapLib
   ArmMmuLib
-  DynamicRamLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase
+
+[Protocols]
+  gEfiRamPartitionProtocolGuid
 
 [Depex]
   TRUE
