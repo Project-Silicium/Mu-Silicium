@@ -71,7 +71,7 @@ MapRamPartition (
   }
 
   // Show Progress
-  DEBUG ((EFI_D_WARN, "Successfully Added RAM Parition: 0x%016llx - 0x%016llx\n", Base, Length));
+  DEBUG ((EFI_D_WARN, "Successfully Added RAM Partition: 0x%016llx - 0x%016llx\n", Base, Length));
 }
 
 VOID
