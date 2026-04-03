@@ -282,6 +282,7 @@
   #
   OpensslLib|OpensslPkg/Library/OpensslLib/OpensslLib.inf
   IntrinsicLib|OpensslPkg/Library/IntrinsicLib/IntrinsicLib.inf
+  FltUsedLib|MsCorePkg/Library/FltUsedLib/FltUsedLib.inf
 
   #
   # RNG Libraries
