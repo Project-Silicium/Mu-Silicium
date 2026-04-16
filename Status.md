@@ -1053,9 +1053,9 @@
 | NFC Sensor           |                         | ❌    |
 | Temperature Sensor   |                         | ❌    |
 | Battery              |                         | ✅    |
-| USB Host Mode        | Untested. Should work   | ❔    |
+| USB Host Mode        |                         | ✅    |
 | USB Device Mode      |                         | ✅    |
-| USB Power Delivery   | Untested                | ❔    |
+| USB Power Delivery   |                         | ✅    |
 | Charging             |                         | ✅    |
 | WLAN                 |                         | ✅    |
 | CPU                  |                         | ✅    |
