@@ -61,11 +61,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x9E, 0x72, 0xA9, 0x2F, 0xED, 0x6B, 0x30, 0x4F, 0xAC, 0xDD, 0x8E, 0xB3, 0xC1, 0xB4, 0xAC, 0xA5 }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo"

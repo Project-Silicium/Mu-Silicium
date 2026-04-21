@@ -37,12 +37,7 @@
   # UEFI Stack
   #
   gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
-  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000 
-
-  #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x12, 0xFD, 0xBB, 0x30, 0xF0, 0x6F, 0x5E, 0x4D, 0xA7, 0xF6, 0x39, 0x69, 0xD8, 0x70, 0xAD, 0xE6 }
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
   # SMBIOS

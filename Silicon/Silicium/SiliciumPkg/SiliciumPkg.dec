@@ -28,39 +28,34 @@
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|0|UINT64|0x0000A100
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|NULL|VOID*|0x0000A200
-
-  #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Not Specified"|VOID*|0x0000A300
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Not Specified"|VOID*|0x0000A301
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Not Specified"|VOID*|0x0000A302
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Not Specified"|VOID*|0x0000A303
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"Not Specified"|VOID*|0x0000A304
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Not Specified"|VOID*|0x0000A305
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Not Specified"|VOID*|0x0000A306
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Not Specified"|VOID*|0x0000A307
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Not Specified"|VOID*|0x0000A308
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|0|UINT32|0x0000A309
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|0|UINT32|0x0000A30A
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|0|UINT32|0x0000A30B
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0|UINT32|0x0000A30C
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0|UINT32|0x0000A30D
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0|UINT32|0x0000A30E
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0|UINT32|0x0000A30F
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Not Specified"|VOID*|0x0000A200
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Not Specified"|VOID*|0x0000A201
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Not Specified"|VOID*|0x0000A202
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Not Specified"|VOID*|0x0000A203
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"Not Specified"|VOID*|0x0000A204
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Not Specified"|VOID*|0x0000A205
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Not Specified"|VOID*|0x0000A206
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Not Specified"|VOID*|0x0000A207
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Not Specified"|VOID*|0x0000A208
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|0|UINT32|0x0000A209
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|0|UINT32|0x0000A20A
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|0|UINT32|0x0000A20B
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0|UINT32|0x0000A20C
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0|UINT32|0x0000A20D
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0|UINT32|0x0000A20E
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0|UINT32|0x0000A20F
 
   #
   # Special App
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp|{ NULL }|VOID*|0x0000A400
-  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName|"Not Specified"|VOID*|0x0000A401
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp|{ NULL }|VOID*|0x0000A300
+  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName|"Not Specified"|VOID*|0x0000A301
 
   #
   # RAW Files
   #
-  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile|      { 0xBE, 0xFB, 0x54, 0x15, 0xE6, 0xA3, 0x40, 0x7C, 0x97, 0xB3, 0x9D, 0xAF, 0x60, 0x3A, 0x02, 0x50 }|VOID*|0x0000A500
-  gSiliciumPkgTokenSpaceGuid.PcdMassStorageFile|   { 0x64, 0xF9, 0x01, 0x12, 0xD0, 0xE3, 0x40, 0xC8, 0xAE, 0xD1, 0xC4, 0x6C, 0x33, 0x91, 0xDC, 0x43 }|VOID*|0x0000A501
-  gSiliciumPkgTokenSpaceGuid.PcdCustomSiPolicyGuid|{ 0x3E, 0x10, 0x7F, 0xD2, 0x39, 0xE9, 0x4A, 0xEB, 0x80, 0x60, 0x87, 0x12, 0x09, 0xFF, 0x77, 0x07 }|VOID*|0x0000A502
+  gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile|      { 0xBE, 0xFB, 0x54, 0x15, 0xE6, 0xA3, 0x40, 0x7C, 0x97, 0xB3, 0x9D, 0xAF, 0x60, 0x3A, 0x02, 0x50 }|VOID*|0x0000A400
+  gSiliciumPkgTokenSpaceGuid.PcdMassStorageFile|   { 0x64, 0xF9, 0x01, 0x12, 0xD0, 0xE3, 0x40, 0xC8, 0xAE, 0xD1, 0xC4, 0x6C, 0x33, 0x91, 0xDC, 0x43 }|VOID*|0x0000A401
+  gSiliciumPkgTokenSpaceGuid.PcdCustomSiPolicyGuid|{ 0x3E, 0x10, 0x7F, 0xD2, 0x39, 0xE9, 0x4A, 0xEB, 0x80, 0x60, 0x87, 0x12, 0x09, 0xFF, 0x77, 0x07 }|VOID*|0x0000A402

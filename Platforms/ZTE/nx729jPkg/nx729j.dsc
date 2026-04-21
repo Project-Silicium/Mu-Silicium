@@ -46,11 +46,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xB0, 0xB1, 0x09, 0xDF, 0xB7, 0x68, 0xC8, 0x4C, 0xD5, 0x98, 0x5A, 0xFF, 0xEF, 0xF0, 0xBF, 0x2B }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"ZTE"

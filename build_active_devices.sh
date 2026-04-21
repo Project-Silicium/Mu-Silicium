@@ -8,7 +8,7 @@ function _help(){
 	echo
 	echo "Options:"
 	echo "	--release <Build Mode>, -r <Build Mode>:    Defines the Release Type of the Build."
-	echo "	--disable-secureboot, -i:                   Disables Secure Boot."
+	echo "	--enable-secureboot, -s:                    Enables Secure Boot."
 	echo "	--help, -h:                                 Shows this Help."
 	echo
 	echo "MainPage: https://github.com/Project-Silicium/Mu-Silicium"
@@ -20,17 +20,17 @@ function _error(){ echo -e "\033[1;31m${@}\033[0m" >&2;exit 1; }
 function _warn(){ echo -e "\033[0;33m${@}\033[0m" >&2; }
 
 # Check for Parameters
-OPTS="$(getopt -o r:ih -l release:,disable-secureboot,help -n 'build_active_devices.sh' -- "$@")"||exit 1
+OPTS="$(getopt -o r:sh -l release:,enable-secureboot,help -n 'build_active_devices.sh' -- "$@")"||exit 1
 eval set -- "${OPTS}"
 
 # Set Default Security Argument
-TARGET_DISABLE_SECUREBOOT=0
+TARGET_ENABLE_SECUREBOOT=0
 
 # Parse Parameters
 while true
 do case "${1}" in
 		-r|--release) TARGET_BUILD_MODE="${2}";shift 2;;
-		-i|--disable-secureboot) TARGET_DISABLE_SECUREBOOT=1;shift;;
+		-s|--enable-secureboot) TARGET_ENABLE_SECUREBOOT=1;shift;;
 		-h|--help) _help 0;shift;;
 		--) shift;break;;
 		*) _help 1;;
@@ -50,8 +50,8 @@ for TARGET_DEVICE in $ACTIVE_DEVICES; do
 
 	# Build each Device Model
 	for ((TARGET_MODEL = 0; TARGET_MODEL < $TARGET_NUMBER_OF_MODELS; TARGET_MODEL++)); do
-		if [[ $TARGET_DISABLE_SECUREBOOT == 1 ]]
-		then bash ./build_uefi.sh -d $TARGET_DEVICE -r $TARGET_BUILD_MODE -c -i -m $TARGET_MODEL || exit $?
+		if [[ $TARGET_ENABLE_SECUREBOOT == 1 ]]
+		then bash ./build_uefi.sh -d $TARGET_DEVICE -r $TARGET_BUILD_MODE -c -s -m $TARGET_MODEL || exit $?
 		else bash ./build_uefi.sh -d $TARGET_DEVICE -r $TARGET_BUILD_MODE -c -m $TARGET_MODEL || exit $?
 		fi
 	done

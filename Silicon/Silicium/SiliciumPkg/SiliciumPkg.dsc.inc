@@ -8,7 +8,8 @@
 ##
 
 [BuildOptions]
-  *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype -D CLANG -D DISABLE_SECUREBOOT=$(DISABLE_SECUREBOOT)
+  *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype
+  *_CLANGPDB_*_CC_FLAGS = -D CLANG -D ENABLE_SECUREBOOT=$(ENABLE_SECUREBOOT)
   *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
@@ -248,14 +249,14 @@
   #
   # Security Libraries
   #
-!if $(DISABLE_SECUREBOOT) == 0
+!if $(ENABLE_SECUREBOOT) == 1
   AuthVariableLib|SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
 !else
   AuthVariableLib|MdeModulePkg/Library/AuthVariableLibNull/AuthVariableLibNull.inf
 !endif
   PasswordPolicyLib|OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
   SecurityLockAuditLib|MdeModulePkg/Library/SecurityLockAuditDebugMessageLib/SecurityLockAuditDebugMessageLib.inf
-!if $(DISABLE_SECUREBOOT) == 0
+!if $(ENABLE_SECUREBOOT) == 1
   PlatformSecureLib|SecurityPkg/Library/PlatformSecureLibNull/PlatformSecureLibNull.inf
 !endif
 
@@ -263,7 +264,7 @@
   # Secure Boot Libraries
   #
   SecureBootVariableLib|SecurityPkg/Library/SecureBootVariableLib/SecureBootVariableLib.inf
-!if $(DISABLE_SECUREBOOT) == 0
+!if $(ENABLE_SECUREBOOT) == 1
   SecureBootKeyStoreLib|MsCorePkg/Library/BaseSecureBootKeyStoreLib/BaseSecureBootKeyStoreLib.inf
 !else
   SecureBootKeyStoreLib|MsCorePkg/Library/SecureBootKeyStoreLibNull/SecureBootKeyStoreLibNull.inf
@@ -276,13 +277,12 @@
   #
   TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
 
-!if $(DISABLE_SECUREBOOT) == 0
+!if $(ENABLE_SECUREBOOT) == 1
   #
   # Crypto Libraries
   #
   OpensslLib|OpensslPkg/Library/OpensslLib/OpensslLib.inf
   IntrinsicLib|OpensslPkg/Library/IntrinsicLib/IntrinsicLib.inf
-  FltUsedLib|MsCorePkg/Library/FltUsedLib/FltUsedLib.inf
 
   #
   # RNG Libraries
@@ -344,7 +344,7 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
 
 [LibraryClasses.common.DXE_RUNTIME_DRIVER]
-!if $(DISABLE_SECUREBOOT) == 0
+!if $(ENABLE_SECUREBOOT) == 1
   BaseCryptLib|OpensslPkg/Library/BaseCryptLib/RuntimeCryptLib.inf
 !endif
   MemoryAllocationLib|MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf

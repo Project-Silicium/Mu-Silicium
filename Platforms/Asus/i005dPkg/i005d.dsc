@@ -47,11 +47,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xD5, 0x11, 0x9B, 0xDD, 0xA2, 0xD3, 0xA7, 0x45, 0xAD, 0xA2, 0x6E, 0xF6, 0xEB, 0xB9, 0xCC, 0xC8 }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Asus"

@@ -47,11 +47,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x78, 0x4F, 0x60, 0xB1, 0x37, 0xDF, 0x03, 0x48, 0x8B, 0xC0, 0xBE, 0xF3, 0x97, 0xB8, 0x82, 0xB9 }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nothing"

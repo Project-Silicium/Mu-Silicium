@@ -14,12 +14,12 @@
   WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 
+#include <Library/DebugLib.h>
+#include <Library/BaseMemoryLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
-#include <Library/BaseMemoryLib.h>
-#include <Library/DebugLib.h>
-#include <Library/UefiLib.h>
 #include <Library/PrintLib.h>
+#include <Library/UefiLib.h>
 
 #include <IndustryStandard/SmBios.h>
 
@@ -28,7 +28,15 @@
 #include <Protocol/EFIClock.h>
 #include <Protocol/EFIDDRGetConfig.h>
 
-#include "DataDefinitions.h"
+#include "Tables/Type0.h"
+#include "Tables/Type1.h"
+#include "Tables/Type2.h"
+#include "Tables/Type3.h"
+#include "Tables/Type4.h"
+#include "Tables/Type7.h"
+#include "Tables/Type16.h"
+#include "Tables/Type17.h"
+#include "Tables/Type19.h"
 
 EFI_STATUS
 EFIAPI
@@ -140,8 +148,8 @@ SysInfoUpdateSmbiosType1 ()
   EFI_STATUS             Status;
   EFI_CHIPINFO_PROTOCOL *mChipInfoProtocol;
 
-  // Update Device UUID
-  mSysInfoType1.Uuid = *(GUID *)FixedPcdGetPtr (PcdDeviceGuid);
+  // Update UUID
+  mSysInfoType1.Uuid = gSiliciumPkgTokenSpaceGuid;
 
   // Locate Chip Info Protocol
   Status = gBS->LocateProtocol (&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mChipInfoProtocol);
@@ -356,26 +364,6 @@ CacheInfoUpdateSmbiosType7 ()
 }
 
 VOID
-OemStringsInfoUpdateSmBiosType11 ()
-{
-  // Update String Table
-  mOemStringsInfoType11Strings[0] = "https://github.com/Project-Silicium/Mu-Silicium";
-
-  // Register SmBios Structure
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mOemStringsInfoType11, mOemStringsInfoType11Strings, NULL);
-}
-
-VOID
-BiosLanguageInfoUpdateSmBiosType13 ()
-{
-  // Update String Table
-  mBiosLanguageInfoType13Strings[0] = "English";
-
-  // Register SmBios Structure
-  LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mBiosLanguageInfoType13, mBiosLanguageInfoType13Strings, NULL);
-}
-
-VOID
 PhyMemArrayInfoUpdateSmbiosType16 (IN UINT64 SystemMemorySize)
 {
   EFI_SMBIOS_HANDLE MemArraySmbiosHandle;
@@ -495,14 +483,67 @@ MemDevInfoUpdateSmbiosType17 (IN UINT64 SystemMemorySize)
 }
 
 VOID
-MemArrMapInfoUpdateSmbiosType19 (IN UINT64 SystemMemorySize)
+MemArrMapInfoUpdateSmbiosType19 (
+  IN EFI_PHYSICAL_ADDRESS SystemMemoryBase,
+  IN UINT64               SystemMemorySize)
 {
   // Update Memory Start & End Address
-  mMemArrMapInfoType19.StartingAddress = FixedPcdGet64 (PcdSystemMemoryBase) / 1024;
-  mMemArrMapInfoType19.EndingAddress   = (SystemMemorySize + FixedPcdGet64 (PcdSystemMemoryBase) - 1) / 1024;
+  mMemArrMapInfoType19.StartingAddress = SystemMemoryBase / 1024;
+  mMemArrMapInfoType19.EndingAddress   = (SystemMemorySize + SystemMemoryBase - 1) / 1024;
 
   // Register SmBios Structure
   LogSmbiosData ((EFI_SMBIOS_TABLE_HEADER *)&mMemArrMapInfoType19, mMemArrMapInfoType19Strings, NULL);
+}
+
+EFI_STATUS
+GetSystemMemorySize (
+  IN  EFI_PHYSICAL_ADDRESS  SystemMemoryBase,
+  OUT UINT64               *SystemMemorySize)
+{
+  EFI_STATUS             Status           = EFI_SUCCESS;
+  EFI_MEMORY_DESCRIPTOR *EfiMemoryMap     = NULL;
+  UINTN                  EfiMemoryMapSize = 0;
+  UINTN                  DescriptorSize   = 0;
+  UINT64                 MemorySize       = 0;
+
+  // Get EFI Memory Map Size
+  gBS->GetMemoryMap (&EfiMemoryMapSize, EfiMemoryMap, NULL, NULL, NULL);
+
+  // Allocate Memory
+  EfiMemoryMap = AllocateZeroPool (EfiMemoryMapSize);
+  if (EfiMemoryMap == NULL) {
+    DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for EFI Memory Map!\n"));
+    return EFI_OUT_OF_RESOURCES;
+  }
+
+  // Get EFI Memory Map
+  Status = gBS->GetMemoryMap (&EfiMemoryMapSize, EfiMemoryMap, NULL, &DescriptorSize, NULL);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to get EFI Memory Map! Status = %r\n", Status));
+    return Status;
+  }
+
+  // Go thru each Memory Descriptor
+  for (UINT16 i = 0; i < EfiMemoryMapSize / DescriptorSize; i++) {
+    // Get new Memory Descriptor
+    EFI_MEMORY_DESCRIPTOR *Descriptor = (EFI_MEMORY_DESCRIPTOR *)((UINT8 *)EfiMemoryMap + (i * DescriptorSize));
+
+    // Skip Non-DDR Memory
+    if (Descriptor->PhysicalStart < SystemMemoryBase) {
+      continue;
+    }
+
+    // Add Memory Size
+    MemorySize += EFI_PAGES_TO_SIZE (Descriptor->NumberOfPages);
+  }
+
+  // Free Buffer
+  FreePool (EfiMemoryMap);
+
+  // Pass System Memory Size
+  *SystemMemorySize = ((MemorySize + (SIZE_1GB - 1)) / SIZE_1GB) * SIZE_1GB;
+
+  return EFI_SUCCESS;
 }
 
 EFI_STATUS
@@ -511,21 +552,24 @@ RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  // Default to 3 GB for now
-  UINT64 SystemMemorySize = 0xC0000000;
+  UINT64 SystemMemorySize;
+
+  // Get System Memory Base
+  EFI_PHYSICAL_ADDRESS SystemMemoryBase = FixedPcdGet64 (PcdSystemMemoryBase);
+
+  // Get System Memory Size
+  ASSERT_EFI_ERROR (GetSystemMemorySize (SystemMemoryBase, &SystemMemorySize));
 
   // Update SmBios Structures
-  BIOSInfoUpdateSmbiosType0          ();
-  SysInfoUpdateSmbiosType1           ();
-  BoardInfoUpdateSmbiosType2         ();
-  EnclosureInfoUpdateSmbiosType3     ();
-  ProcessorInfoUpdateSmbiosType4     ();
-  CacheInfoUpdateSmbiosType7         ();
-  OemStringsInfoUpdateSmBiosType11   ();
-  BiosLanguageInfoUpdateSmBiosType13 ();
-  PhyMemArrayInfoUpdateSmbiosType16  (SystemMemorySize);
-  MemDevInfoUpdateSmbiosType17       (SystemMemorySize);
-  MemArrMapInfoUpdateSmbiosType19    (SystemMemorySize);
+  BIOSInfoUpdateSmbiosType0         ();
+  SysInfoUpdateSmbiosType1          ();
+  BoardInfoUpdateSmbiosType2        ();
+  EnclosureInfoUpdateSmbiosType3    ();
+  ProcessorInfoUpdateSmbiosType4    ();
+  CacheInfoUpdateSmbiosType7        ();
+  PhyMemArrayInfoUpdateSmbiosType16 (SystemMemorySize);
+  MemDevInfoUpdateSmbiosType17      (SystemMemorySize);
+  MemArrMapInfoUpdateSmbiosType19   (SystemMemoryBase, SystemMemorySize);
 
   return EFI_SUCCESS;
 }

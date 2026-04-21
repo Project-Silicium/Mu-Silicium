@@ -47,11 +47,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xBA, 0x4A, 0x1C, 0xEC, 0x5E, 0xC3, 0x4F, 0x40, 0xB5, 0x15, 0xE6, 0x16, 0xD5, 0xAA, 0x9B, 0xFF }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Lenovo"

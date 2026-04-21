@@ -46,11 +46,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x6B, 0xA9, 0x3A, 0x40, 0x06, 0x81, 0x27, 0x47, 0xAF, 0xA6, 0x4B, 0x09, 0x53, 0x51, 0xDA, 0xD9 }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Qualcomm"

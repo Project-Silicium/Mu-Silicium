@@ -47,11 +47,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xDF, 0x51, 0xD6, 0x13, 0x7E, 0x5D, 0x16, 0x45, 0xAB, 0x02, 0x37, 0x1A, 0x56, 0x5A, 0xB5, 0x94 }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"

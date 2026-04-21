@@ -54,8 +54,6 @@
   gArmMpCoreInfoGuid
   gEfiFirmwarePerformanceGuid
 
-  gDxeMemoryProtectionSettingsGuid
-
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
 

@@ -49,11 +49,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x2E, 0xAA, 0xAD, 0xE6, 0x93, 0xBB, 0x8C, 0x44, 0x80, 0x6C, 0x06, 0xF0, 0xF7, 0xB2, 0xD4, 0x4D }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"

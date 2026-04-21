@@ -47,9 +47,6 @@ PrintFirmwareVersion ()
   // Clear Frame Buffer
   ClearFrameBuffer ();
 
-  // Initialize Serial Port
-  SerialPortInitialize ();
-
   // Print UEFI Version Message
   DEBUG ((EFI_D_WARN, "\n"));
   DEBUG ((EFI_D_WARN, "Project Silicium for %a %a\n",            FixedPcdGetPtr (PcdSmbiosSystemManufacturer), FixedPcdGetPtr (PcdSmbiosSystemModel)));
@@ -58,7 +55,7 @@ PrintFirmwareVersion ()
 }
 
 STATIC
-VOID
+EFI_STATUS
 InitializeMemory (
   IN UINTN StackBase,
   IN UINTN StackSize)
@@ -78,7 +75,7 @@ InitializeMemory (
   // Verify UEFI Memory Base
   if (!UefiMemoryBase) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate \"DXE Heap\" Memory Region!\n"));
-    CpuDeadLoop ();
+    return EFI_NOT_FOUND;
   }
 
   // Initialize HOB List
@@ -88,99 +85,70 @@ InitializeMemory (
   // Initialize MMU & Memory HOBs
   Status = MemoryPeim (UefiMemoryBase, UefiMemorySize);
   if (EFI_ERROR (Status)) {
-    CpuDeadLoop ();
+    return Status;
   }
 
   // Build Stack HOB
   BuildStackHob (StackBase, StackSize);
-}
-
-EFI_STATUS
-SecCoreGetMpCoreInfo (
-  OUT UINTN          *CoreCount,
-  OUT ARM_CORE_INFO **ArmCoreTable)
-{
-  // Get Core Table Data
-  GetPlatformCoreTable (ArmCoreTable, CoreCount);
 
   return EFI_SUCCESS;
 }
 
-ARM_MP_CORE_INFO_PPI mMpCoreInfoPpi = {
-  SecCoreGetMpCoreInfo
-};
+STATIC
+EFI_STATUS
+InitializeMpCoreInfo ()
+{
+  ARM_CORE_INFO *ArmCoreInfoTable;
+  UINTN          ArmCoreCount;
 
-EFI_PEI_PPI_DESCRIPTOR gPlatformPpiTable[] = {
-  {
-    EFI_PEI_PPI_DESCRIPTOR_PPI,
-    &gArmMpCoreInfoPpiGuid,
-    &mMpCoreInfoPpi
+  // Get Core Table Data
+  GetPlatformCoreTable (&ArmCoreInfoTable, &ArmCoreCount);
+
+  // Verify ARM Core Info Table
+  if (ArmCoreInfoTable == NULL) {
+    DEBUG ((EFI_D_ERROR, "ARM Core Info Table is NULL!\n"));
+    return EFI_UNSUPPORTED;
   }
-};
+
+  // Build MPCore Info HOB
+  BuildGuidDataHob (&gArmMpCoreInfoGuid, ArmCoreInfoTable, sizeof (ARM_CORE_INFO) * ArmCoreCount);
+
+  return EFI_SUCCESS;
+}
 
 STATIC
 EFI_STATUS
-GetPlatformPpi (
-  IN  EFI_GUID  *PpiGuid,
-  OUT VOID     **Ppi)
-{
-  // Go thru each PPI List Entry
-  for (UINTN i = 0; i < ARRAY_SIZE (gPlatformPpiTable); i++) {
-    // Compare PPI GUID
-    if (CompareGuid (gPlatformPpiTable[i].Guid, PpiGuid)) {
-      // Pass PPI
-      *Ppi = gPlatformPpiTable[i].Ppi;
-
-      return EFI_SUCCESS;
-    }
-  }
-
-  return EFI_NOT_FOUND;
-}
-
-STATIC
-VOID
-InitializePpi ()
-{
-  EFI_STATUS            Status;
-  ARM_MP_CORE_INFO_PPI *ArmMpCoreInfoPpi;
-  ARM_CORE_INFO        *ArmCoreInfoTable;
-  UINTN                 ArmCoreCount;
-
-  // Get Platform PPI
-  Status = GetPlatformPpi (&gArmMpCoreInfoPpiGuid, (VOID **)&ArmMpCoreInfoPpi);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to get Platform PPI!\n"));
-    CpuDeadLoop ();
-  }
-
-  // Get MPCore Infos
-  Status = ArmMpCoreInfoPpi->GetMpCoreInfo (&ArmCoreCount, &ArmCoreInfoTable);
-  if (!EFI_ERROR (Status) && ArmCoreCount > 0) {
-    // Build MPCore Info HOB
-    BuildGuidDataHob (&gArmMpCoreInfoGuid, ArmCoreInfoTable, sizeof (ARM_CORE_INFO) * ArmCoreCount);
-  }
-}
-
-STATIC
-VOID
 DecompressFvs ()
 {
-  EFI_PEI_FILE_HANDLE FileHandle;
-  EFI_PEI_FV_HANDLE   VolumeHandle;
-  UINTN               Instance;
+  EFI_PEI_FV_HANDLE VolumeHandle = NULL;
+  BOOLEAN           FvsExist     = FALSE;
 
   // Go thru each FFS Volume
-  for (Instance = 0; !EFI_ERROR (FfsFindNextVolume (Instance, &VolumeHandle)); Instance++) {
-    // Reset File Handle
-    FileHandle = NULL;
+  for (UINTN Instance = 0; !EFI_ERROR (FfsFindNextVolume (Instance, &VolumeHandle)); Instance++) {
+    EFI_PEI_FILE_HANDLE FileHandle;
 
     // Go thru all FFS Volume Files
     while (!EFI_ERROR (FfsFindNextFile (EFI_FV_FILETYPE_FIRMWARE_VOLUME_IMAGE, VolumeHandle, &FileHandle))) {
+      EFI_STATUS Status;
+
       // Process FV File
-      FfsProcessFvFile (FileHandle, VolumeHandle);
+      Status = FfsProcessFvFile (FileHandle, VolumeHandle);
+      if (EFI_ERROR (Status)) {
+        return Status;
+      }
+
+      // Set FV Bool
+      FvsExist = TRUE;
     }
   }
+
+  // Verify Amount of Instances
+  if (!FvsExist) {
+    DEBUG ((EFI_D_ERROR, "No FV was Found!\n"));
+    return EFI_NOT_FOUND;
+  }
+
+  return EFI_SUCCESS;
 }
 
 STATIC
@@ -193,6 +161,12 @@ SecMain (
   EFI_STATUS               Status;
   FIRMWARE_SEC_PERFORMANCE Performance;
 
+  // Initialize Serial Port
+  Status = SerialPortInitialize ();
+  if (EFI_ERROR (Status)) {
+    return;
+  }
+
   // Print Firmware Version
   PrintFirmwareVersion ();
 
@@ -201,14 +175,20 @@ SecMain (
   SaveAndSetDebugTimerInterrupt (TRUE);
 
   // Initialize Memory
-  InitializeMemory (StackBase, StackSize);
+  Status = InitializeMemory (StackBase, StackSize);
+  if (EFI_ERROR (Status)) {
+    return;
+  }
 
   // Build CPU HOB
   BuildCpuHob (ArmGetPhysicalAddressBits (), PcdGet8 (PcdPrePiCpuIoSize));
 
   // Initialize PPI
   if (ArmIsMpCore ()) {
-    InitializePpi ();
+    Status = InitializeMpCoreInfo ();
+    if (EFI_ERROR (Status)) {
+      return;
+    }
   }
 
   // Store Timer Value
@@ -223,7 +203,7 @@ SecMain (
   // Initialize Platform HOBs (CpuHob and FvHob)
   Status = PlatformPeim ();
   if (EFI_ERROR (Status)) {
-    CpuDeadLoop ();
+    return;
   }
 
   // Register Performance Information
@@ -233,12 +213,15 @@ SecMain (
   ProcessLibraryConstructorList ();
 
   // Decompress all FVs
-  DecompressFvs ();
+  Status = DecompressFvs ();
+  if (EFI_ERROR (Status)) {
+    return;
+  }
 
   // Load DXE Core
   Status = LoadDxeCoreFromFv (NULL, 0);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Load DXE Core!\n"));
+    DEBUG ((EFI_D_ERROR, "Failed to Load DXE Core! Status = %r\n", Status));
   }
 }
 
@@ -271,6 +254,6 @@ CEntryPoint (
   // Enter SEC Main Function
   SecMain (StartTimeStamp, StackBase, StackSize);
 
-  // Should not get Here
+  // Something went Wrong
   CpuDeadLoop ();
 }

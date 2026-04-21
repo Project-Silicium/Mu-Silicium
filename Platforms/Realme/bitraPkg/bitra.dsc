@@ -47,11 +47,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xE2, 0x72, 0x48, 0x4F, 0x54, 0xA4, 0xFA, 0x4F, 0x91, 0x45, 0x8C, 0x6F, 0x47, 0x3A, 0x5D, 0x9E }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Realme"

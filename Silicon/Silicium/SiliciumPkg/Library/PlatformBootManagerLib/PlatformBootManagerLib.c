@@ -575,7 +575,7 @@ ManageSiPolicy (IN EFI_HANDLE SfsHandle)
     return;
   }
 
-#if DISABLE_SECUREBOOT == 0
+#if ENABLE_SECUREBOOT == 1
   // Create SiPolicy.p7b
   if (Status == EFI_NOT_FOUND) {
     Status = FatVolume->Open (FatVolume, &File, L"\\EFI\\Microsoft\\Boot\\SiPolicy.p7b", EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE | EFI_FILE_MODE_CREATE, 0);
@@ -650,7 +650,7 @@ PostReadyToBoot (
   EFI_STATUS Status;
   EFI_EVENT  FileSystemCallbackEvent;
 
-#if DISABLE_SECUREBOOT == 0
+#if ENABLE_SECUREBOOT == 1
   // Set Secure Boot Config
   ASSERT_EFI_ERROR (SetSecureBootConfig (0));
 #endif

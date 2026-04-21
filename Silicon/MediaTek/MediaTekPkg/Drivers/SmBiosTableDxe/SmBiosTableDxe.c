@@ -134,8 +134,8 @@ BIOSInfoUpdateSmbiosType0 ()
 VOID
 SysInfoUpdateSmbiosType1 ()
 {
-  // Update Device UUID
-  mSysInfoType1.Uuid = *(GUID *)FixedPcdGetPtr (PcdDeviceGuid);
+  // Update UUID
+  mSysInfoType1.Uuid = gSiliciumPkgTokenSpaceGuid;
 
   // Update String Table
   mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);

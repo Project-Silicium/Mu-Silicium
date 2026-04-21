@@ -40,11 +40,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x23, 0x23, 0x13, 0x01, 0xEB, 0x0E, 0xB1, 0x46, 0xA8, 0x47, 0x68, 0x05, 0x94, 0x92, 0x0C, 0x62 }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Motorola"

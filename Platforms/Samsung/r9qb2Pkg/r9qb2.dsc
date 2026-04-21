@@ -47,11 +47,6 @@
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
-  # Device GUID
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x4A, 0xFB, 0x8A, 0x1A, 0xF1, 0xE0, 0xE5, 0x46, 0xB8, 0x7A, 0xCD, 0xDE, 0x16, 0x21, 0x98, 0xFC }
-
-  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
