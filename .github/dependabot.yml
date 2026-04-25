@@ -24,6 +24,17 @@ updates:
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+    labels:
+      - "dependence"
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      all-pip-dependencies:
+        patterns:
+          - "*"
     labels:
       - "dependence"
