@@ -9,6 +9,13 @@
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc
 
+[PcdsFixedAtBuild]
+  #
+  # SMBIOS
+  #
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Samsung"
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Samsung Electronics Co., Ltd."
+
 [LibraryClasses]
   #
   # ARM Libraries
@@ -17,7 +24,7 @@
 
 [Components]
   #
-  # SmBios
+  # SMBIOS
   #
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 

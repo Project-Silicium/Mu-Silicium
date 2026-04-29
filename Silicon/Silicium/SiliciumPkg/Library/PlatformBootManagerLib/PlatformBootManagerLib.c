@@ -5,8 +5,6 @@
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
-// TODO: Implement Settings Handler & Silicium Graphics here!
-
 #include <Library/DebugLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DxeServicesLib.h>
@@ -19,6 +17,7 @@
 #include <Library/BootGraphicsLib.h>
 #include <Library/MuSecureBootKeySelectorLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
+#include <Library/SecureBootHandlerLib.h>
 #include <Library/DxeServicesTableLib.h>
 #include <Library/PerformanceLib.h>
 #include <Library/DevicePathLib.h>
@@ -31,7 +30,6 @@
 #include <Library/PcdLib.h>
 
 #include <Protocol/GraphicsOutput.h>
-#include <Protocol/SimpleFileSystem.h>
 
 #include <Configuration/BootDevices.h>
 
@@ -52,6 +50,14 @@ BDS_CONSOLE_CONNECT_ENTRY gPlatformConsoles[] = {
     0
   }
 };
+
+//
+// Global Variables
+//
+STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGopProtocol   = NULL;
+STATIC CHAR16                       *ComboMessage   = NULL;
+STATIC UINTN                         XPos           = 0;
+STATIC UINTN                         YPos           = 0;
 
 BOOLEAN
 IsGopDevicePath (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
@@ -123,9 +129,6 @@ PlatformBootManagerBeforeConsole ()
   EFI_DEVICE_PATH_PROTOCOL  *ConsoleOut       = NULL;
   EFI_DEVICE_PATH_PROTOCOL  *GopDevicePath    = (EFI_DEVICE_PATH_PROTOCOL *)&DisplayDevicePath;
   BDS_CONSOLE_CONNECT_ENTRY *PlatformConsoles = (BDS_CONSOLE_CONNECT_ENTRY *)&gPlatformConsoles;
-
-  // Add USB Keyboard to Console In
-  EfiBootManagerUpdateConsoleVariable (ConIn, (EFI_DEVICE_PATH_PROTOCOL *)&mUsbKeyboardDevicePath, NULL);
 
   // Register Boot Options
   MsBootOptionsLibRegisterDefaultBootOptions ();
@@ -221,6 +224,41 @@ PlatformBootManagerBeforeConsole ()
 }
 
 VOID
+CreateComboMessage ()
+{
+  EFI_STATUS Status;
+
+  // Locate GOP Protocol
+  Status = gBS->LocateProtocol (&gEfiGraphicsOutputProtocolGuid, NULL, (VOID *)&mGopProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Protocol of Primary Display! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  // Get Screen Resolution
+  UINT32 ScreenWidth  = mGopProtocol->Mode->Info->HorizontalResolution;
+  UINT32 ScreenHeight = mGopProtocol->Mode->Info->VerticalResolution;
+
+  // Alocate Memory
+  ComboMessage = AllocateZeroPool (150);
+  if (ComboMessage == NULL) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Allocate Memory for Combo Message!\n", __FUNCTION__));
+    return;
+  }
+
+  // Set Combo Message
+  if (FixedPcdGetPtr (PcdAlternativeAppFile) == "NULL") {
+    ComboMessage = L"[Volume Up] FFU Mode";
+  } else {
+    UnicodeSPrint (ComboMessage, 150, L"[Volume Up] FFU Mode - [Volume Down] %a", FixedPcdGetPtr (PcdAlternativeAppFileName));
+  }
+
+  // Set Combo Message Position
+  XPos = (ScreenWidth - StrLen (ComboMessage) * EFI_GLYPH_WIDTH) / 2;
+  YPos = (ScreenHeight - EFI_GLYPH_HEIGHT) * 48 / 50;
+}
+
+VOID
 EFIAPI
 PlatformBootManagerAfterConsole ()
 {
@@ -266,6 +304,9 @@ PlatformBootManagerAfterConsole ()
 
   // Clear Boot Requests
   MsBootPolicyLibClearBootRequests ();
+
+  // Create Combo Message
+  CreateComboMessage ();
 }
 
 VOID
@@ -292,6 +333,9 @@ PlatformBootManagerBdsEntry ()
 {
   // Signal that BDS Started
   EfiEventGroupSignal (&gMsStartOfBdsNotifyGuid);
+
+  // Setup Secure Boot
+  ASSERT_EFI_ERROR (SetupSecureBoot ());
 }
 
 VOID
@@ -369,137 +413,36 @@ PlatformBootManagerPriorityBoot (OUT UINT16 **BootNext)
   }
 }
 
-//
-// Static Global Variables
-//
-STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGopProtocol   = NULL;
-STATIC CHAR16                       *ComboMessage   = NULL;
-STATIC UINTN                         FormXPos       = 0;
-STATIC UINTN                         FormYPos       = 0;
-STATIC UINTN                         TextXPos       = 0;
-STATIC UINTN                         TextYPos       = 0;
-
 VOID
 EFIAPI
 PlatformBootManagerWaitCallback (UINT16 TimeoutRemain)
 {
-  EFI_STATUS                    Status;
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
+
+  // Verify Combo Message
+  if (ComboMessage == NULL) {
+    return;
+  }
 
   // Get Timeout Time
   UINT16 Timeout = PcdGet16 (PcdPlatformBootTimeOut);
 
-  // Locate GOP Protocol
-  if (!mGopProtocol) {
-    Status = gBS->LocateProtocol (&gEfiGraphicsOutputProtocolGuid, NULL, (VOID *)&mGopProtocol);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Protocol of Primary Display! Status = %r\n", Status));
-      return;
-    }
-  }
-
-  // Get Screen Resolution
-  UINT32 ScreenWidth  = mGopProtocol->Mode->Info->HorizontalResolution;
-  UINT32 ScreenHeight = mGopProtocol->Mode->Info->VerticalResolution;
-
-  // Set Timeout Bar Size
-  UINTN Width  = ScreenWidth * 40 / 100 - 200;
-  UINTN Height = Width * 10 / 100;
-
-  // Set Timeout Bar Position
-  if ((!FormXPos && !FormYPos) || !TimeoutRemain) {
-    FormXPos = (ScreenWidth - Width) / 2;
-    FormYPos = (ScreenHeight + Width + 200) / 2;
-  }
-
-  // Set Combo Message
-  if (ComboMessage == NULL) {
-    if (FixedPcdGetPtr (PcdSpecialApp) == "NULL") {
-      ComboMessage = L"[Volume Up] FFU Mode";
-    } else {
-      // Allocate Memory
-      ComboMessage = AllocateZeroPool (150);
-      if (ComboMessage == NULL) {
-        DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for Combo Message!\n"));
-        goto Form;
-      }
-
-      UnicodeSPrint (ComboMessage, 150, L"[Volume Up] FFU Mode - [Volume Down] %a", FixedPcdGetPtr (PcdSpecialAppName));
-    }
-
-    // Set Combo Message Position
-    TextXPos = (ScreenWidth - StrLen (ComboMessage) * EFI_GLYPH_WIDTH) / 2;
-    TextYPos = (mGopProtocol->Mode->Info->VerticalResolution - EFI_GLYPH_HEIGHT) * 48 / 50;
-
-    // Animate Combo Message
-    for (UINT8 i = 0; i < 255; i++) {
-      // Set New Foreground Color
-      Color.Blue = Color.Green = Color.Red = i;
-      Color.Reserved = 0xFF;
-
-      // Print Combo Message
-      PrintXY (TextXPos, TextYPos, &Color, NULL, ComboMessage);
-
-      // Wait a Bit
-      gBS->Stall (2500);
-    }
-  }
-
-Form:
-  // Draw Background
+  // Check Remaining Time
   if (TimeoutRemain == Timeout) {
-    for (UINT8 i = 0; i < 34; i++) {
-      // Set New Background Color
-      Color.Blue = Color.Green = Color.Red = i;
-      Color.Reserved = 0xFF;
+    // Set Text Color
+    Color.Red = Color.Green = Color.Blue = 0xFF;
 
-      // Draw New Color
-      mGopProtocol->Blt (mGopProtocol, &Color, EfiBltVideoFill, 0, 0, FormXPos, FormYPos, Width, Height, 0);
+    // Print Combo Message
+    PrintXY (XPos, YPos, &Color, NULL, ComboMessage);
+  } else if (!TimeoutRemain) {
+    // Set Text Color
+    Color.Red = Color.Green = Color.Blue = 0x00;
 
-      // Wait a Bit
-      gBS->Stall (23000);
-    }
-  }
+    // Clear Combo Message
+    PrintXY (XPos, YPos, &Color, NULL, ComboMessage);
 
-  // Clear Timeout Bar
-  if (!TimeoutRemain) {
-    for (UINT8 i = 255; i > 0; i--) {
-      // Set New Foreground Color
-      Color.Blue = Color.Green = Color.Red = i;
-      Color.Reserved = 0xFF;
-
-      // Print Combo Message
-      if (ComboMessage != NULL) {
-        PrintXY (TextXPos, TextYPos, &Color, NULL, ComboMessage);
-      }
-
-      // Draw New Color
-      mGopProtocol->Blt (mGopProtocol, &Color, EfiBltVideoFill, 0, 0, FormXPos, FormYPos, Width, Height, 0);
-
-      // Wait a Bit
-      gBS->Stall (3000);
-    }
-
-    if (FixedPcdGetPtr (PcdSpecialApp) != "NULL") {
-      if (ComboMessage != NULL) {
-        FreePool (ComboMessage);
-      }
-    }
-
-    return;
-  }
-
-  // Set Foreground Color
-  Color.Blue = Color.Green = Color.Red = Color.Reserved = 0xFF;
-
-  // Draw Foreground
-  for (UINTN i = 0; i < Width / Timeout; i++) {
-    mGopProtocol->Blt (mGopProtocol, &Color, EfiBltVideoFill, 0, 0, FormXPos, FormYPos, 1, Height, 0);
-
-    FormXPos++;
-
-    // Wait
-    gBS->Stall (Timeout * 1000000 / Width);
+    // Free Buffer
+    FreePool (ComboMessage);
   }
 }
 
@@ -525,174 +468,3 @@ PlatformBootManagerUnableToBoot ()
   // Do Cpu Dead Loop
   CpuDeadLoop ();
 }
-
-STATIC VOID *mSimpleFileSystemRegistration;
-
-VOID
-ManageSiPolicy (IN EFI_HANDLE SfsHandle)
-{
-  EFI_STATUS                       Status;
-  EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *mSfsProtocol;
-  EFI_FILE_PROTOCOL               *FatVolume;
-  EFI_FILE_HANDLE                  File;
-  UINT8                           *CustomSiPolicy;
-  UINTN                            CustomSiPolicySize;
-
-  // Get Custom SiPolicy.p7b
-  Status = GetSectionFromAnyFv (FixedPcdGetPtr (PcdCustomSiPolicyGuid), EFI_SECTION_RAW, 0, (VOID *)&CustomSiPolicy, &CustomSiPolicySize);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Get Custom SiPolicy.p7b from FV! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
-
-  // Get SFS Protocol
-  Status = gBS->HandleProtocol (SfsHandle, &gEfiSimpleFileSystemProtocolGuid, (VOID *)&mSfsProtocol);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Get SFS Protocol from Handle! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
-
-  // Open FAT Volume
-  Status = mSfsProtocol->OpenVolume (mSfsProtocol, &FatVolume);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Open FAT Volume! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
-
-  // Open bootmgfw.efi
-  Status = FatVolume->Open (FatVolume, &File, L"\\EFI\\Microsoft\\Boot\\bootmgfw.efi", EFI_FILE_MODE_READ, EFI_FILE_READ_ONLY | EFI_FILE_HIDDEN | EFI_FILE_SYSTEM);
-  if (EFI_ERROR (Status)) {
-    return;
-  }
-
-  // Close bootmgfw.efi
-  FatVolume->Close (File);
-
-  // Open SiPolicy.p7b
-  Status = FatVolume->Open (FatVolume, &File, L"\\EFI\\Microsoft\\Boot\\SiPolicy.p7b", EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE, 0);
-  if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Open SiPolicy.p7b! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
-
-#if ENABLE_SECUREBOOT == 1
-  // Create SiPolicy.p7b
-  if (Status == EFI_NOT_FOUND) {
-    Status = FatVolume->Open (FatVolume, &File, L"\\EFI\\Microsoft\\Boot\\SiPolicy.p7b", EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE | EFI_FILE_MODE_CREATE, 0);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Create SiPolicy.p7b! Status = %r\n", __FUNCTION__, Status));
-      return;
-    }
-  }
-
-  // Compare Hash
-  // TODO!
-
-  // Write new SiPolicy.p7b Data
-  Status = FatVolume->Write (File, &CustomSiPolicySize, CustomSiPolicy);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Write new SiPolicy.p7b Data! Status = %r\n", __FUNCTION__, Status));
-  }
-
-  // Close SiPolicy.p7b
-  FatVolume->Close (File);
-
-  DEBUG ((EFI_D_WARN, "%a: Successfully Wrote Custom SiPolicy\n", __FUNCTION__));
-#else
-  if (Status != EFI_NOT_FOUND) {
-    // Delete SiPolicy.p7b
-    Status = FatVolume->Delete (File);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Delete SiPolicy.p7b! Status = %r\n", __FUNCTION__, Status));
-      return;
-    }
-
-    DEBUG ((EFI_D_WARN, "%a: Successfully Deleted SiPolicy.p7b\n", __FUNCTION__));
-  }
-#endif
-}
-
-VOID
-EFIAPI
-VerifyFileSystem (
-  IN EFI_EVENT  Event,
-  IN VOID      *Context)
-{
-  EFI_STATUS  Status;
-  EFI_HANDLE *HandleBuffer;
-  UINTN       HandleCount;
-
-  while (TRUE) {
-    // Locate Protocol Handle
-    Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, mSimpleFileSystemRegistration, &HandleCount, &HandleBuffer);
-    if (EFI_ERROR (Status)) {
-      break;
-    }
-
-    // Verify Handle Count
-    ASSERT (HandleCount == 1);
-
-    // Manage SiPolicy
-    ManageSiPolicy (HandleBuffer[0]);
-
-    // Free Buffer
-    FreePool (HandleBuffer);
-  }
-}
-
-STATIC
-VOID
-EFIAPI
-PostReadyToBoot (
-  IN EFI_EVENT  Event,
-  IN VOID      *Context)
-{
-  EFI_STATUS Status;
-  EFI_EVENT  FileSystemCallbackEvent;
-
-#if ENABLE_SECUREBOOT == 1
-  // Set Secure Boot Config
-  ASSERT_EFI_ERROR (SetSecureBootConfig (0));
-#endif
-
-  // Create File System Callback Event
-  Status = gBS->CreateEvent (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, VerifyFileSystem, NULL, &FileSystemCallbackEvent);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Create File System Callback Event! Status = %r\n", __FUNCTION__, Status));
-    goto exit;
-  }
-
-  // Register Protocol Notify for SFS Protocol
-  Status = gBS->RegisterProtocolNotify (&gEfiSimpleFileSystemProtocolGuid, FileSystemCallbackEvent, &mSimpleFileSystemRegistration);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Register Protocol Notify for SFS Protocol! Status = %r\n", __FUNCTION__, Status));
-
-    // Close Event
-    gBS->CloseEvent (FileSystemCallbackEvent);
-  }
-
-  // Go thru all present FAT Partitions
-  VerifyFileSystem (NULL, NULL);
-
-exit:
-  gBS->CloseEvent (Event);
-}
-
-EFI_STATUS
-EFIAPI
-PlatformBootManagerEntry (
-  IN EFI_HANDLE        ImageHandle,
-  IN EFI_SYSTEM_TABLE *SystemTable)
-{
-  EFI_STATUS Status;
-  EFI_EVENT  mPostReadyToBootEvent;
-
-  // Register OnPostReadyToBoot Event
-  Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, PostReadyToBoot, NULL, &gEfiEventAfterReadyToBootGuid, &mPostReadyToBootEvent);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Register OnPostReadyToBoot Event! Status = %r\n", Status));
-  }
-
-  return EFI_SUCCESS;
-}
-

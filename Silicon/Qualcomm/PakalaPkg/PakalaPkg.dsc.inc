@@ -9,14 +9,14 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 0
 
+  #
   # KEP
+  #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
   HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
@@ -29,10 +29,14 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc -DSOC_TYPE=$(SOC_TYPE)
 
 [PcdsFixedAtBuild]
-  # FV Decompress Address
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7049F78
 
+  #
   # CPU
+  #
 !if $(SOC_TYPE) == 1
   gArmPlatformTokenSpaceGuid.PcdCoreCount|7
 !else
@@ -40,16 +44,16 @@
 !endif
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x16000000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x16080000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x16080000
 
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite"
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8750-AB"
@@ -58,8 +62,6 @@
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8750-AC"
 !endif
-
-  # SmBios CPU Extras
 !if $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|4470
 !else
@@ -68,14 +70,18 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000          # Unoffical Value
-
-  # SmBios Memory Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000                         # Unoffical Value
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|5300
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
+  #
+  # SEC Libraries
+  #
   PlatformSecLib|PakalaPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
 [Components]
+  #
+  # Custom Drivers
+  #
   QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf

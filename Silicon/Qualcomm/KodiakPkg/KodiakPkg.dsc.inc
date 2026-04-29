@@ -9,14 +9,14 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 0
 
+  #
   # KEP
+  #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 1
   HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 1
@@ -28,23 +28,27 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8.4-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # FV Decompress Address
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0x9FC403C8
 
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
 
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-
-  # SmBios
+  #
+  # SMBIOS
+  #
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 778G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7325"
@@ -55,8 +59,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 782G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7325-AF"
 !endif
-
-  # SmBios CPU Extras
 !if $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2500
 !elseif $(SOC_TYPE) == 2
@@ -68,12 +70,21 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x80
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
-
-  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
+  #
+  # SEC Libraries
+  #
   PlatformSecLib|KodiakPkg/Library/PlatformSecLib/PlatformSecLib.inf
-  RFSProtectionLib|KodiakPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+
+  #
+  # ACPI Libraries
+  #
   AcpiPlatformUpdateLib|KodiakPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
+
+  #
+  # Custom Libraries
+  #
+  RFSProtectionLib|KodiakPkg/Library/RFSProtectionLib/RFSProtectionLib.inf

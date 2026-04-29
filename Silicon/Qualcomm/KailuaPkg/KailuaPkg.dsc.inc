@@ -9,14 +9,14 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 0
 
+  #
   # KEP
+  #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 1
   HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 1
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 1
@@ -28,31 +28,33 @@
   *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # FV Decompress Address
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7043418
 
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17100000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17180000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17140000
 
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 2"
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8550-AB"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8550-AC"
 !endif
-
-  # SmBios CPU Extras
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3190
 !elseif $(SOC_TYPE) == 1
@@ -61,16 +63,28 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000         # Unofficial Value
-
-  # SmBios Memory Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000                         # Unofficial Value
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4200
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
+  #
+  # SEC Libraries
+  #
   PlatformSecLib|KailuaPkg/Library/PlatformSecLib/PlatformSecLib.inf
-  RFSProtectionLib|KailuaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+
+  #
+  # ACPI Libraries
+  #
   AcpiPlatformUpdateLib|KailuaPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
 
+  #
+  # Custom Libraries
+  #
+  RFSProtectionLib|KailuaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+
 [Components]
+  #
+  # Custom Drivers
+  #
   QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf

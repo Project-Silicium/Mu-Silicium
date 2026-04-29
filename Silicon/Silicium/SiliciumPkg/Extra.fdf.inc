@@ -6,24 +6,24 @@
 
   INF SiliciumPkg/Drivers/MsButtonServiceDxe/MsButtonServiceDxe.inf
 
-!if $(DISABLE_SECURITY) == 0
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdCustomSiPolicyGuid) {
+!if $(ENABLE_SECUREBOOT) == 1
+  FILE FREEFORM = PCD (gSiliciumPkgTokenSpaceGuid.PcdSiPolicyFile) {
     SECTION RAW = SiliciumPkg/Include/Resources/SecureBoot/SiPolicy.p7b
     SECTION UI = "SiPolicy.p7b"
   }
 !endif
 
-  FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
+  FILE FREEFORM = PCD (gOemPkgTokenSpaceGuid.PcdLogoFile) {
     SECTION RAW = SiliciumPkg/Include/Resources/BootLogo.bmp
     SECTION UI = "Boot Logo"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile) {
+  FILE FREEFORM = PCD (gSiliciumPkgTokenSpaceGuid.PcdNoBootOSFile) {
     SECTION RAW = SiliciumPkg/Include/Resources/NoBootOS.bmp
     SECTION UI = "No Operating System"
   }
 
-  FILE FREEFORM = PCD(gSiliciumPkgTokenSpaceGuid.PcdMassStorageFile) {
+  FILE FREEFORM = PCD (gSiliciumPkgTokenSpaceGuid.PcdMassStorageFile) {
     SECTION RAW = SiliciumPkg/Include/Resources/MassStorage.bmp
     SECTION UI = "Mass Storage"
   }

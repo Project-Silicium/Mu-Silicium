@@ -13,13 +13,17 @@
   *_CLANGPDB_AARCH64_CC_FLAGS = -D HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA=$(HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA) -D HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA=$(HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA) -D HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA=$(HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA) -D HAS_PSCI_MEMPROTECT_FAILING_ERRATA=$(HAS_PSCI_MEMPROTECT_FAILING_ERRATA)
 
 [PcdsFixedAtBuild]
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Qualcomm"
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Qualcomm Technologies, Inc."
 
-  # Mass Storage App
-  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp|{ 0xD8, 0xEC, 0x14, 0xFB, 0x32, 0x94, 0xB8, 0x48, 0xA6, 0x92, 0xAE, 0x4B, 0xC1, 0x9D, 0x56, 0x8B }
-  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName|"Mass Storage"
+  #
+  # Mass Storage
+  #
+  gSiliciumPkgTokenSpaceGuid.PcdAlternativeAppFile|{ 0xD8, 0xEC, 0x14, 0xFB, 0x32, 0x94, 0xB8, 0x48, 0xA6, 0x92, 0xAE, 0x4B, 0xC1, 0x9D, 0x56, 0x8B }
+  gSiliciumPkgTokenSpaceGuid.PcdAlternativeAppFileName|"Mass Storage"
 
 [LibraryClasses]
   #
@@ -40,7 +44,7 @@
 
 [Components]
   #
-  # SmBios
+  # SMBIOS
   #
   QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 

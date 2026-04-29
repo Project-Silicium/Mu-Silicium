@@ -9,14 +9,14 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 0
 
+  #
   # KEP
+  #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
   HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
@@ -28,39 +28,45 @@
   *_*_AARCH64_CC_FLAGS = -march=armv9.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # FV Decompress Address
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xC6851038
 
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17000000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17080000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17080000
 
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite Gen 5"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8850-AC"
-
-  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|4600
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200           # 2nd Cluster has 0x600
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000          # Unoffical Value
-
-  # SmBios Memory Extras
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200                                # 2nd Cluster has 0x600
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000                               # Unoffical Value
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|5300
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
+  #
+  # SEC Libraries
+  #
   PlatformSecLib|KaanapaliPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
 [Components]
+  #
+  # Custom Drivers
+  #
   QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf

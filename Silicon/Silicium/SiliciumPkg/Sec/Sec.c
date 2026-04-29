@@ -125,7 +125,7 @@ DecompressFvs ()
 
   // Go thru each FFS Volume
   for (UINTN Instance = 0; !EFI_ERROR (FfsFindNextVolume (Instance, &VolumeHandle)); Instance++) {
-    EFI_PEI_FILE_HANDLE FileHandle;
+    EFI_PEI_FILE_HANDLE FileHandle = NULL;
 
     // Go thru all FFS Volume Files
     while (!EFI_ERROR (FfsFindNextFile (EFI_FV_FILETYPE_FIRMWARE_VOLUME_IMAGE, VolumeHandle, &FileHandle))) {
@@ -134,7 +134,8 @@ DecompressFvs ()
       // Process FV File
       Status = FfsProcessFvFile (FileHandle, VolumeHandle);
       if (EFI_ERROR (Status)) {
-        return Status;
+        DEBUG ((EFI_D_ERROR, "Failed to Process FV Instance %u! Status = %r\n", Instance, Status));
+        continue;
       }
 
       // Set FV Bool
@@ -144,7 +145,7 @@ DecompressFvs ()
 
   // Verify Amount of Instances
   if (!FvsExist) {
-    DEBUG ((EFI_D_ERROR, "No FV was Found!\n"));
+    DEBUG ((EFI_D_ERROR, "No FVs were Found!\n"));
     return EFI_NOT_FOUND;
   }
 

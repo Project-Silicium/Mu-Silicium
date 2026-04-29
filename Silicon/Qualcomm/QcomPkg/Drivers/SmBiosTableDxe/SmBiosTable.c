@@ -500,31 +500,38 @@ GetSystemMemorySize (
   IN  EFI_PHYSICAL_ADDRESS  SystemMemoryBase,
   OUT UINT64               *SystemMemorySize)
 {
-  EFI_STATUS             Status           = EFI_SUCCESS;
+  EFI_STATUS             Status           = EFI_OUT_OF_RESOURCES;
   EFI_MEMORY_DESCRIPTOR *EfiMemoryMap     = NULL;
   UINTN                  EfiMemoryMapSize = 0;
   UINTN                  DescriptorSize   = 0;
   UINT64                 MemorySize       = 0;
 
   // Get EFI Memory Map Size
-  gBS->GetMemoryMap (&EfiMemoryMapSize, EfiMemoryMap, NULL, NULL, NULL);
+  Status = gBS->GetMemoryMap (&EfiMemoryMapSize, EfiMemoryMap, NULL, NULL, NULL);
+  if (EFI_ERROR (Status) && Status != EFI_BUFFER_TOO_SMALL) {
+    DEBUG ((EFI_D_ERROR, "Failed to get EFI Memory Map Size!\n"));
+    goto cleanup;
+  }
+
+  // Add 1 KiB
+  EfiMemoryMapSize += SIZE_1KB;
 
   // Allocate Memory
   EfiMemoryMap = AllocateZeroPool (EfiMemoryMapSize);
   if (EfiMemoryMap == NULL) {
     DEBUG ((EFI_D_ERROR, "Failed to Allocate Memory for EFI Memory Map!\n"));
-    return EFI_OUT_OF_RESOURCES;
+    goto cleanup;
   }
 
   // Get EFI Memory Map
   Status = gBS->GetMemoryMap (&EfiMemoryMapSize, EfiMemoryMap, NULL, &DescriptorSize, NULL);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to get EFI Memory Map! Status = %r\n", Status));
-    return Status;
+    DEBUG ((EFI_D_ERROR, "Failed to get EFI Memory Map!\n"));
+    goto cleanup;
   }
 
   // Go thru each Memory Descriptor
-  for (UINT16 i = 0; i < EfiMemoryMapSize / DescriptorSize; i++) {
+  for (UINT16 i = 0; i < EfiMemoryMapSize / DescriptorSize - 1; i++) {
     // Get new Memory Descriptor
     EFI_MEMORY_DESCRIPTOR *Descriptor = (EFI_MEMORY_DESCRIPTOR *)((UINT8 *)EfiMemoryMap + (i * DescriptorSize));
 
@@ -537,13 +544,16 @@ GetSystemMemorySize (
     MemorySize += EFI_PAGES_TO_SIZE (Descriptor->NumberOfPages);
   }
 
-  // Free Buffer
-  FreePool (EfiMemoryMap);
-
   // Pass System Memory Size
   *SystemMemorySize = ((MemorySize + (SIZE_1GB - 1)) / SIZE_1GB) * SIZE_1GB;
 
-  return EFI_SUCCESS;
+cleanup:
+  // Free Buffer
+  if (EfiMemoryMap != NULL) {
+    FreePool (EfiMemoryMap);
+  }
+
+  return Status;
 }
 
 EFI_STATUS

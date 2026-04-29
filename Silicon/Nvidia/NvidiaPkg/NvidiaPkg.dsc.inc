@@ -10,10 +10,9 @@
 !include SiliciumPkg/SiliciumPkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # RAM Size (512 MB)
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"NVIDIA"
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"NVIDIA Corporation"
 
@@ -22,13 +21,10 @@
   # ARM Libraries
   #
   ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
-!if $(USE_CUSTOM_TIMER) == 1
-  TimerLib|NvidiaPkg/GPLLibrary/TegraTimerLib/TegraTimerLib.inf
-!endif
 
 [Components]
   #
-  # SmBios
+  # SMBIOS
   #
   NvidiaPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
@@ -36,7 +32,4 @@
   # Custom Drivers
   #
   NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
-!if $(USE_CUSTOM_TIMER) == 1
-  NvidiaPkg/GPLDrivers/TegraTimerDxe/TegraTimerDxe.inf
-!endif
   NvidiaPkg/GPLDrivers/TegraClockDxe/TegraClockDxe.inf

@@ -79,7 +79,7 @@ EnableFrameBufferWrites ()
   }
 
   // Configure DRM Decon
-  for (UINT16 Length = 0; i < DrmDeconRegion.Length; Length += 0x1000) {
+  for (UINT16 Length = 0; Length < DrmDeconRegion.Length; Length += 0x1000) {
     MmioWrite32 (DrmDeconRegion.Address + Length + HW_SW_TRIG_CONTROL, 0x1281);
   }
 }

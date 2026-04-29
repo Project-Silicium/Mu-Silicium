@@ -16,7 +16,6 @@
 
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
-#include <Library/DynamicRamLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/UefiLib.h>
@@ -335,14 +334,10 @@ RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS Status;
-  UINT64     MemorySize;
+  UINT64 MemorySize;
 
   // Get Max RAM Size
-  Status = GetMemorySize (&MemorySize);
-  if (EFI_ERROR (Status)) {
-    MemorySize = FixedPcdGet64 (PcdSystemMemorySize);
-  }
+  MemorySize = FixedPcdGet64 (PcdSystemMemorySize);
 
   // Update SmBios Structures
   BIOSInfoUpdateSmbiosType0          ();

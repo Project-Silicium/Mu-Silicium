@@ -9,11 +9,9 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 1
 
 !include SamsungPkg/SamsungPkg.dsc.inc
@@ -22,32 +20,34 @@
   *_*_AARCH64_CC_FLAGS = -march=armv9.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|10
   gArmPlatformTokenSpaceGuid.PcdClusterCount|4
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x10200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x10240000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10240000
 
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-
+  #
   # DDR Info
+  #
   gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x4F000
   gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
 
-  # SmBios
+  #
+  # SMBIOS
+  #
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 2400 @ 3.21 GHz"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 2400e @ 3.11 GHz"
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E9945"
-
-  # SmBios CPU Extras
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3210
 !elseif $(SOC_TYPE) == 1
@@ -56,15 +56,13 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000       # Unofficial Value
-
-  # SmBios Memory Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4200             # Unofficial Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000                              # Unofficial Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4200                                    # Unofficial Value
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #
-  # Silicium Libraries
+  # SEC Libraries
   #
   PlatformSecLib|S5E9945Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 

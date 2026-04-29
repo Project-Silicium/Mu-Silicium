@@ -68,25 +68,24 @@ else _error "\nDevice Configuration not found for $TARGET!\nCheck if your .conf 
 fi
 
 # Delete Old Build Files
-if [[ ${DO_CLEAN_BUILD} == 1 ]];
-then rm -r Build &> /dev/null
+if [[ ${DO_CLEAN_BUILD} == 1 ]] then
+	rm -r Build/${TARGET}Pkg &> /dev/null
+	rm Build/BUILDLOG_${TARGET}Pkg.txt &> /dev/null
 fi
 
 # Delete left over Output Files
 rm -r Conf &> /dev/null
-rm ./BootShim/BootShim.bin &> /dev/null
-rm ./BootShim/BootShim.elf &> /dev/null
-rm ./Resources/bootpayload.bin &> /dev/null
+rm BootShim/BootShim.bin &> /dev/null
+rm BootShim/BootShim.elf &> /dev/null
+rm Resources/bootpayload.bin &> /dev/null
 rm Mu-$TARGET.* &> /dev/null
 
 # Remove Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
 git apply -R Auth-Service.patch &> /dev/null
-git apply -R Bds-Wait.patch &> /dev/null
 git apply -R Timer.patch &> /dev/null
 git apply -R Usb-Bus.patch &> /dev/null
 rm Auth-Service.patch &> /dev/null
-rm Bds-Wait.patch &> /dev/null
 rm Timer.patch &> /dev/null
 rm Usb-Bus.patch &> /dev/null
 popd &> /dev/null
@@ -117,7 +116,6 @@ cp Resources/MuPatches/* Mu_Basecore/ || exit 1
 # Apply Mu_Basecore Patches
 pushd Mu_Basecore  &> /dev/null || exit 1
 git apply Auth-Service.patch || exit 1
-git apply Bds-Wait.patch || exit 1
 git apply Timer.patch || exit 1
 git apply Usb-Bus.patch || exit 1
 popd &> /dev/null

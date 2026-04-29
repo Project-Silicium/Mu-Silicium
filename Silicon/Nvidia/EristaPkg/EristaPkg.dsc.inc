@@ -9,11 +9,9 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 1
 
 !include NvidiaPkg/NvidiaPkg.dsc.inc
@@ -22,26 +20,27 @@
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x50041000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x50042000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x50042000
 
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-
-  # SmBios
+  #
+  # SMBIOS
+  #
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"
 !elseif $(SOC_TYPE) == 4
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 1.42 GHz"
 !endif
-
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"ODNX02-A2"
 !elseif $(SOC_TYPE) == 1
@@ -53,18 +52,16 @@
 !elseif $(SOC_TYPE) == 4
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM660M-A2"
 !endif
-
-  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2100
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x30
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1600                            # Incorrect?
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30                               # LPDDR3 Variants do Exist
 
-  # SmBios Memory Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1600    # Incorrect?
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30       # LPDDR3 Variants do Exist
-
+  #
   # Clock
+  #
   gNvidiaPkgTokenSpaceGuid.PcdCGeneralID|0
   gNvidiaPkgTokenSpaceGuid.PcdMemoryID|1
   gNvidiaPkgTokenSpaceGuid.PcdPeriphID|2
@@ -82,5 +79,12 @@
   gNvidiaPkgTokenSpaceGuid.PcdIDCount|13
 
 [LibraryClasses]
+  #
+  # SEC Libraries
+  #
   PlatformSecLib|EristaPkg/Library/PlatformSecLib/PlatformSecLib.inf
+
+  #
+  # Custom Libraries
+  #
   TegraClockLib|EristaPkg/GPLLibrary/TegraClockLib/TegraClockLib.inf

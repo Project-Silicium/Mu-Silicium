@@ -21,7 +21,6 @@
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
-  DynamicRamLib
   BaseMemoryLib
   DebugLib
   UefiLib

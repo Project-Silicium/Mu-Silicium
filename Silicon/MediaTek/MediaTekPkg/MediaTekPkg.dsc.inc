@@ -10,7 +10,9 @@
 !include SiliciumPkg/SiliciumPkg.dsc.inc
 
 [PcdsFixedAtBuild]
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"MediaTek"
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"MediaTek Inc."
 
