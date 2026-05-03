@@ -416,7 +416,7 @@
 **State:** Active <br>
 **Codename:** infiniti
 
-**Contributors:** [Robotix](https://github.com/Robotix22/), [FantomTchi7]()
+**Contributors:** [Robotix](https://github.com/Robotix22/), [FantomTchi7](https://github.com/FantomTchi7)
 
 ### UEFI Status
 
