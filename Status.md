@@ -416,7 +416,7 @@
 **State:** Active <br>
 **Codename:** infiniti
 
-**Contributors:** [Robotix](https://github.com/Robotix22/)
+**Contributors:** [Robotix](https://github.com/Robotix22/), [FantomTchi7]()
 
 ### UEFI Status
 
@@ -430,7 +430,51 @@
 | USB Power Delivery |              | ❌    |
 | Mass Storage       |              | ✅    |
 | Windows Boot       |              | ❌    |
-| Linux Boot         |              | ❌    |
+| Linux Boot         |              | ✅    |
+
+<table>
+<tr><th>Linux</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Linux Requires: [Mainline Kernel](https://github.com/FantomTchi7/kaanapali-mainline-linux).
+
+> [!NOTE]
+> The PostmarketOS Site for this Device can be Found [here](https://wiki.postmarketos.org/wiki/OnePlus_15_(oneplus-infiniti)).
+
+| Feature              | Description      | State |
+|:---------------------|:-----------------|:-----:|
+| Internal Storage     |                  | ✅    |
+| Side Buttons         |                  | ❔    |
+| Proximity Sensor     |                  | ❌    |
+| Light Sensor         |                  | ❌    |
+| Accelerometer Sensor |                  | ❌    |
+| Compass Sensor       |                  | ❌    | 
+| Gyroscope Sensor     |                  | ❌    |
+| Fingerprint Sensor   |                  | ❌    |
+| NFC Sensor           |                  | ❌    |
+| Temperature Sensor   |                  | ❌    |
+| Battery              |                  | ❔    |
+| USB Host Mode        |                  | ❌    |
+| USB Device Mode      |                  | ✅    |
+| USB Power Delivery   |                  | ❌    |
+| Charging             |                  | ❔    |
+| WLAN                 |                  | ❌    |
+| CPU                  |                  | ✅    |
+| Touchscreen          |                  | ❌    |
+| Bluetooth            |                  | ❌    |
+| GPS                  |                  | ❌    |
+| Speakers             |                  | ❌    |
+| Microphone           |                  | ❌    |
+| GPU                  |                  | ❌    |
+| Camera               |                  | ❌    |
+| Flashlight           |                  | ❌    |
+| Mobile Data          |                  | ❌    |
+| Display              | Only framebuffer | ⚠️    | 
+| Vibration            |                  | ❌    |
+
+</td></tr>
+</table>
 
 </details>
 
