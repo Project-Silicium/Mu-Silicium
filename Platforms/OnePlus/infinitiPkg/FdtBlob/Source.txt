@@ -1,0 +1,2 @@
+REPO: https://github.com/FantomTchi7/kaanapali-mainline-linux
+COMMIT: 32514fcf0d6f24e2c40a8996b459d7c2726162d5
