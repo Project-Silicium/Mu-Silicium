@@ -209,49 +209,10 @@ SMBIOS_TABLE_TYPE4 mProcessorInfoType4 = {
   ProcessorFamilyOther, // ProcessorFamily
   2,                    // ProcessorManufacturer String
   {
-   {
-     0, // ProcessorSteppingId
-     0, // ProcessorModel
-     0, // ProcessorFamily
-     0, // ProcessorType
-     0, // ProcessorReserved1
-     0, // ProcessorXModel
-     0, // ProcessorXFamily
-     0, // ProcessorReserved2
-   },
-   {
-     0, // ProcessorFpu
-     0, // ProcessorVme
-     0, // ProcessorDe
-     0, // ProcessorPse
-     0, // ProcessorTsc
-     0, // ProcessorMsr
-     0, // ProcessorPae
-     0, // ProcessorMce
-     0, // ProcessorCx8
-     0, // ProcessorApic
-     0, // ProcessorReserved1
-     0, // ProcessorSep
-     0, // ProcessorMtrr
-     0, // ProcessorPge
-     0, // ProcessorMca
-     0, // ProcessorCmov
-     0, // ProcessorPat
-     0, // ProcessorPse36
-     0, // ProcessorPsn
-     0, // ProcessorClfsh
-     0, // ProcessorReserved2
-     0, // ProcessorDs
-     0, // ProcessorAcpi
-     0, // ProcessorMmx
-     0, // ProcessorFxsr
-     0, // ProcessorSse
-     0, // ProcessorSse2
-     0, // ProcessorSs
-     0, // ProcessorReserved3
-     0, // ProcessorTm
-     0, // ProcessorReserved4
-    }
+    0, // SocId
+    0, // SipId
+    0, // SipBankIndex
+    0  // SocRevision
   },
   3, // ProcessorVersion String
   {
@@ -303,8 +264,14 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1IC = {
   {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
   1,      // SocketDesignation String
   0x0280, // CacheConfiguration
-  0,      // MaximumCacheSize
-  0,      // InstalledSize
+  {
+    0, // Size
+    0  // Granularity64K
+  },
+  {
+    0, // Size
+    0  // Granularity64K
+  },
   {
     0, // Other
     1, // Unknown
@@ -329,16 +296,28 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1IC = {
   CacheErrorParity,        // ErrorCorrectionType
   CacheTypeInstruction,    // SystemCacheType
   CacheAssociativity16Way, // Associativity
-  0,                       // MaximumCacheSize2
-  0                        // InstalledSize2
+  {
+    0, // Size
+    0  // Granularity64K
+  },
+  {
+    0, // Size
+    0  // Granularity64K
+  }
 };
 
 SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1DC = {
   {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
   1,      // SocketDesignation String
   0x0280, // CacheConfiguration
-  0,      // MaximumCacheSize
-  0,      // InstalledSize
+  {
+    0, // Size
+    0  // Granularity64K
+  },
+  {
+    0, // Size
+    0  // Granularity64K
+  },
   {
     0, // Other
     1, // Unknown
@@ -363,16 +342,28 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L1DC = {
   CacheErrorParity,        // ErrorCorrectionType
   CacheTypeData,           // SystemCacheType
   CacheAssociativity16Way, // Associativity
-  0,                       // MaximumCacheSize2
-  0                        // InstalledSize2
+  {
+    0, // Size
+    0  // Granularity64K
+  },
+  {
+    0, // Size
+    0  // Granularity64K
+  }
 };
 
 SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
   {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
   1,      // SocketDesignation String
   0x0281, // CacheConfiguration
-  0,      // MaximumCacheSize
-  0,      // InstalledSize
+  {
+    0, // Size
+    0  // Granularity64K
+  },
+  {
+    0, // Size
+    0  // Granularity64K
+  },
   {
     0, // Other
     1, // Unknown
@@ -397,16 +388,28 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L2C = {
   CacheErrorParity,       // ErrorCorrectionType
   CacheTypeUnified,       // SystemCacheType
   CacheAssociativity8Way, // Associativity
-  0,                      // MaximumCacheSize2
-  0                       // InstalledSize2
+  {
+    0, // Size
+    0  // Granularity64K
+  },
+  {
+    0, // Size
+    0  // Granularity64K
+  }
 };
 
 SMBIOS_TABLE_TYPE7 mCacheInfoType7_L3C = {
   {EFI_SMBIOS_TYPE_CACHE_INFORMATION, sizeof(SMBIOS_TABLE_TYPE7), 0},
   1,      // SocketDesignation String
   0x0282, // CacheConfiguration
-  0,      // MaximumCacheSize
-  0,      // InstalledSize
+  {
+    0, // Size
+    0  // Granularity64K
+  },
+  {
+    0, // Size
+    0  // Granularity64K
+  },
   {
     0, // Other
     1, // Unknown
@@ -431,8 +434,14 @@ SMBIOS_TABLE_TYPE7 mCacheInfoType7_L3C = {
   CacheErrorParity,       // ErrorCorrectionType
   CacheTypeUnified,       // SystemCacheType
   CacheAssociativity8Way, // Associativity
-  0,                      // MaximumCacheSize2
-  0                       // InstalledSize2
+  {
+    0, // Size
+    0  // Granularity64K
+  },
+  {
+    0, // Size
+    0  // Granularity64K
+  }
 };
 
 CHAR8 *mCacheInfoType7_L1ICStrings[] = {

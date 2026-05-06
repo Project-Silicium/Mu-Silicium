@@ -2,7 +2,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Blackbolt/APIC.aml
 # SECTION RAW = Blackbolt/BERT.aml
 # SECTION RAW = Blackbolt/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
   SECTION RAW = Blackbolt/DBG2.aml
 !endif
   SECTION RAW = Blackbolt/DSDT.aml

@@ -2,7 +2,7 @@
 #  SECTION RAW = Palima/APIC.aml
 #  SECTION RAW = Palima/BERT.aml
 #  SECTION RAW = Palima/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Palima/DBG2.aml
 !endif
 !if ($(DEVICE_MODEL) == 0) || ($(DEVICE_MODEL) == 1)

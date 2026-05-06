@@ -3,7 +3,7 @@
 #  SECTION RAW = Kailua/BERT.aml
 #  SECTION RAW = Kailua/BGRT.aml
 #  SECTION RAW = Kailua/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Kailua/DBG2.aml
 !endif
 #  SECTION RAW = dm2q/DSDT.aml

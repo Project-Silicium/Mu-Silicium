@@ -2,7 +2,6 @@
 #define _EFI_USB_MSD_H_
 
 #include <Protocol/BlockIo.h>
-#include <Protocol/EFIUsbfnIo.h>
 
 //
 // Global GUID for the USB Mass Storage Device Protocol
@@ -98,22 +97,6 @@ EFI_STATUS
   IN EFI_USB_MSD_PROTOCOL *This
   );
 
-/**
-  This Function gets the USB Device Speed.
-
-  @param[in]  This                         - Pointer to this Protocol.
-  @param[out] Speed                        - The USB Device Speed.
-
-  @return EFI_SUCCESS                      - Successfully got USB Device Speed.
-  @return EFI_INVALID_PARAMETER            - One or more Arguments are NULL.
-**/
-typedef
-EFI_STATUS
-(EFIAPI *EFI_GET_DEVICE_SPEED) (
-  IN  EFI_USB_MSD_PROTOCOL *This,
-  OUT EFI_USB_BUS_SPEED    *Speed
-  );
-
 //
 // Define Protocol Functions
 //
@@ -124,7 +107,7 @@ struct _EFI_USB_MSD_PROTOCOL {
   EFI_EVENT_HANDLER         EventHandler;
   EFI_START_DEVICE          StartDevice;
   EFI_STOP_DEVICE           StopDevice;
-  EFI_GET_DEVICE_SPEED      GetDeviceSpeed;
+  VOID                     *GetDeviceSpeed;
   VOID                     *UnmountHandle;
   VOID                     *MountHandle;
   VOID                     *FindPartitions;

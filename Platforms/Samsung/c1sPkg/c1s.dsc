@@ -25,37 +25,50 @@
   FLASH_DEFINITION               = c1sPkg/c1s.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include S5E9830Pkg/S5E9830Pkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xE8300000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xE8300000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x54, 0x22, 0xAC, 0x79, 0x52, 0x73, 0xCD, 0x41, 0xBE, 0xC7, 0xDF, 0xD3, 0x27, 0xEE, 0x6F, 0x79 }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Note 20 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"c1s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Note_20_5G_c1s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Note 20 5G"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|c1sPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+  #
+  # Input Libraries
+  #
   KeypadDeviceLib|c1sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
 [Components]
-  # Keypad
+  #
+  # Input
+  #
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-
-!include S5E9830Pkg/S5E9830Pkg.dsc.inc

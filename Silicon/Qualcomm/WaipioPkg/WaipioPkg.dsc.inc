@@ -9,68 +9,74 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 0
 
+  #
   # KEP
+  #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 1
   HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 1
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 1
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
+!include QcomPkg/QcomPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
-
-  # FV Decompress Address
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7044830
 
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|3
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17100000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17180000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17180000
 
-  # Timer
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 1"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8450"
-
-  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2995
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x1800
-
-  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
-  PlatformPrePiLib|WaipioPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  #
+  # SEC Libraries
+  #
+  PlatformSecLib|WaipioPkg/Library/PlatformSecLib/PlatformSecLib.inf
+
+  #
+  # ACPI Libraries
+  #
+  AcpiTableUpdateLib|WaipioPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
+
+  #
+  # Custom Libraries
+  #
   RFSProtectionLib|WaipioPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
-  AcpiPlatformUpdateLib|WaipioPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|WaipioPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
 
 [Components]
+  #
+  # Custom Drivers
+  #
   QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf
-
-!include QcomPkg/QcomPkg.dsc.inc

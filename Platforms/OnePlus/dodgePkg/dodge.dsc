@@ -32,43 +32,55 @@
   #
   SOC_TYPE                       = 0
 
+!include PakalaPkg/PakalaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x2A, 0x7E, 0x3B, 0xFA, 0x73, 0x4F, 0x78, 0x4C, 0xBB, 0xF2, 0x1D, 0x8E, 0x29, 0x2F, 0xFB, 0xD7 }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"dodge"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2653"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23893"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1440
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|3168
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0E8
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703CE50
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703CE50
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFF300000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|dodgePkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|dodgePkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include PakalaPkg/PakalaPkg.dsc.inc
+  #
+  # QCOM Libraries
+  #
+  ConfigurationMapLib|dodgePkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

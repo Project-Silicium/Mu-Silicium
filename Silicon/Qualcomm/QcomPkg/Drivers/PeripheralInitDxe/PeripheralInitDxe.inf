@@ -24,7 +24,7 @@
 
 [Guids]
   gUsbControllerInitGuid
-  gSDCardInitGuid
+  gSdCardInitGuid
 
 [Depex]
   TRUE

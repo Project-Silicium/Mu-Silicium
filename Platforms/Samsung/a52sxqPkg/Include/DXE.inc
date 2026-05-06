@@ -54,9 +54,6 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf

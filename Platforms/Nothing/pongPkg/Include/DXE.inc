@@ -56,9 +56,6 @@
   INF Binaries/pong/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/pong/QcomPkg/Drivers/NT_DeviceInfoDxe/NT_DeviceInfoDxe.inf

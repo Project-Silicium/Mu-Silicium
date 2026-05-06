@@ -76,7 +76,7 @@ MsBootOptionsLibGetDefaultBootApp (
   IN     CHAR8                        *Parameter)
 {
   // Return Special App Boot Ooption
-  return BuildFwLoadOption (BootOption, FixedPcdGetPtr (PcdSpecialApp), Parameter);
+  return BuildFwLoadOption (BootOption, FixedPcdGetPtr (PcdAlternativeAppFile), Parameter);
 }
 
 EFI_STATUS

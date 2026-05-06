@@ -16,7 +16,7 @@
 #define MULT_U64_X_N MultU64x64
 #endif
 
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX TegraTimerMemoryRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR TegraTimerMemoryRegion;
 
 RETURN_STATUS
 EFIAPI
@@ -25,7 +25,7 @@ TimerConstructor ()
   EFI_STATUS Status;
 
   // Get Tegra Timer Memory Region
-  Status = LocateMemoryMapAreaByName ("Tegra Timer", &TegraTimerMemoryRegion);
+  Status = LocateMemoryRegionByName ("Tegra Timer", &TegraTimerMemoryRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Get Tegra Timer Memory Region! Status = %r\n", Status));
     return RETURN_UNSUPPORTED;

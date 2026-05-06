@@ -33,7 +33,6 @@ class CommonPlatform ():
         "Platforms/Xiaomi",
         "Common/Mu",
         "Common/Mu_OEM_Sample",
-        "Features/DFCI",
         "Mu_Basecore",
         "Silicon/Qualcomm",
         "Silicon/Silicium",
@@ -61,7 +60,6 @@ class SettingsManager (UpdateSettingsManager, SetupSettingsManager, PrEvalSettin
             RequiredSubmodule ("Binaries", True),
             RequiredSubmodule ("Common/Mu", True),
             RequiredSubmodule ("Common/Mu_OEM_Sample", True),
-            RequiredSubmodule ("Features/DFCI", True),
             RequiredSubmodule ("Mu_Basecore", True),
             RequiredSubmodule ("Silicium-ACPI", True),
             RequiredSubmodule ("Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl", True)
@@ -159,7 +157,7 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
         self.env.SetValue ("BLD_*_MEMORY_PROTECTION", "TRUE", "Default")
         self.env.SetValue ("BLD_*_SHIP_MODE", "FALSE", "Default")
         self.env.SetValue ("BLD_*_DEVICE_MODEL", self.env.GetValue("DEVICE_MODEL"), "Default")
-        self.env.SetValue ("BLD_*_DISABLE_SECUREBOOT", self.env.GetValue("DISABLE_SECUREBOOT"), "Default")
+        self.env.SetValue ("BLD_*_ENABLE_SECUREBOOT", self.env.GetValue("ENABLE_SECUREBOOT"), "Default")
         self.env.SetValue ("BLD_*_FD_BASE", self.env.GetValue("FD_BASE"), "Default")
         self.env.SetValue ("BLD_*_FD_SIZE", self.env.GetValue("FD_SIZE"), "Default")
         self.env.SetValue ("BLD_*_FD_BLOCKS", self.env.GetValue("FD_BLOCKS"), "Default")

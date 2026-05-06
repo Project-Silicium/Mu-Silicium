@@ -56,9 +56,6 @@
   INF Binaries/senna_bc/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/senna_bc/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf

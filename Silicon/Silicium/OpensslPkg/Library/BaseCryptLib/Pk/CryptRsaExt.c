@@ -8,6 +8,7 @@
   4) RsaPkcs1Sign
 
 Copyright (c) 2009 - 2020, Intel Corporation. All rights reserved.<BR>
+Copyright (c) Microsoft Corporation.  // MU_CHANGE
 SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
@@ -17,7 +18,45 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <openssl/bn.h>
 #include <openssl/rsa.h>
 #include <openssl/err.h>
-#include <openssl/objects.h>
+// MU_CHANGE [BEGIN]
+#include <openssl/evp.h>
+#include <openssl/param_build.h>
+#include <openssl/core_names.h>
+
+#include "CryptRsaPkeyCtx.h"
+
+/**
+  Retrieve a pointer to EVP message digest object.
+
+  @param[in]  HashSize  Size of the message digest in bytes.
+
+  @return  Pointer to EVP_MD, or NULL if unsupported size.
+
+**/
+STATIC
+CONST
+EVP_MD *
+GetEvpMdFromHashSize (
+  IN  UINTN  HashSize
+  )
+{
+  switch (HashSize) {
+    case MD5_DIGEST_SIZE:
+      return EVP_md5 ();
+    case SHA1_DIGEST_SIZE:
+      return EVP_sha1 ();
+    case SHA256_DIGEST_SIZE:
+      return EVP_sha256 ();
+    case SHA384_DIGEST_SIZE:
+      return EVP_sha384 ();
+    case SHA512_DIGEST_SIZE:
+      return EVP_sha512 ();
+    default:
+      return NULL;
+  }
+}
+
+// MU_CHANGE [END]
 
 /**
   Gets the tag-designated RSA key component from the established RSA context.
@@ -32,7 +71,10 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
   If RsaContext is NULL, then return FALSE.
   If BnSize is NULL, then return FALSE.
-  If BnSize is large enough but BigNumber is NULL, then return FALSE.
+  // MU_CHANGE [BEGIN]
+  If BnSize is large enough but BigNumber is NULL, then return TRUE with BnSize set to
+  the required size.
+  // MU_CHANGE [END]
 
   @param[in, out]  RsaContext  Pointer to RSA context being set.
   @param[in]       KeyTag      Tag of RSA key component being set.
@@ -54,9 +96,12 @@ RsaGetKey (
   IN OUT  UINTN        *BnSize
   )
 {
-  RSA     *RsaKey;
-  BIGNUM  *BnKey;
-  UINTN   Size;
+  // MU_CHANGE [BEGIN]
+  RSA_PKEY_CTX  *RsaPkeyCtx;
+  BIGNUM        *BnKey;
+  UINTN         Size;
+
+  // MU_CHANGE [END]
 
   //
   // Check input parameters.
@@ -65,66 +110,68 @@ RsaGetKey (
     return FALSE;
   }
 
-  RsaKey  = (RSA *)RsaContext;
-  Size    = *BnSize;
-  *BnSize = 0;
-  BnKey   = NULL;
+  // MU_CHANGE [BEGIN]
+  RsaPkeyCtx = (RSA_PKEY_CTX *)RsaContext;
+  Size       = *BnSize;
+  *BnSize    = 0;
+  BnKey      = NULL;
+  // MU_CHANGE [END]
 
   switch (KeyTag) {
     //
     // RSA Public Modulus (N)
     //
     case RsaKeyN:
-      RSA_get0_key (RsaKey, (const BIGNUM **)&BnKey, NULL, NULL);
+      BnKey = RsaPkeyCtx->N;  // MU_CHANGE
       break;
 
     //
     // RSA Public Exponent (e)
     //
     case RsaKeyE:
-      RSA_get0_key (RsaKey, NULL, (const BIGNUM **)&BnKey, NULL);
+      BnKey = RsaPkeyCtx->E;  // MU_CHANGE
       break;
 
     //
     // RSA Private Exponent (d)
     //
     case RsaKeyD:
-      RSA_get0_key (RsaKey, NULL, NULL, (const BIGNUM **)&BnKey);
+      BnKey = RsaPkeyCtx->D;  // MU_CHANGE
       break;
 
     //
     // RSA Secret Prime Factor of Modulus (p)
     //
     case RsaKeyP:
-      RSA_get0_factors (RsaKey, (const BIGNUM **)&BnKey, NULL);
+      BnKey = RsaPkeyCtx->P;  // MU_CHANGE
       break;
 
     //
     // RSA Secret Prime Factor of Modules (q)
     //
     case RsaKeyQ:
-      RSA_get0_factors (RsaKey, NULL, (const BIGNUM **)&BnKey);
+      BnKey = RsaPkeyCtx->Q;  // MU_CHANGE
       break;
 
     //
     // p's CRT Exponent (== d mod (p - 1))
     //
     case RsaKeyDp:
-      RSA_get0_crt_params (RsaKey, (const BIGNUM **)&BnKey, NULL, NULL);
+      BnKey = RsaPkeyCtx->Dp;  // MU_CHANGE
       break;
 
     //
     // q's CRT Exponent (== d mod (q - 1))
     //
     case RsaKeyDq:
-      RSA_get0_crt_params (RsaKey, NULL, (const BIGNUM **)&BnKey, NULL);
+      BnKey = RsaPkeyCtx->Dq;  // MU_CHANGE
       break;
 
     //
     // The CRT Coefficient (== 1/q mod p)
     //
     case RsaKeyQInv:
-      RSA_get0_crt_params (RsaKey, NULL, NULL, (const BIGNUM **)&BnKey);
+      BnKey = RsaPkeyCtx->QInv;  // MU_CHANGE
       break;
 
     default:
@@ -132,7 +179,10 @@ RsaGetKey (
   }
 
   if (BnKey == NULL) {
-    return FALSE;
+    // MU_CHANGE [BEGIN]
+    *BnSize = 0;
+    return TRUE;
+    // MU_CHANGE [END]
   }
 
   *BnSize = Size;
@@ -183,8 +233,14 @@ RsaGenerateKey (
   IN      UINTN        PublicExponentSize
   )
 {
-  BIGNUM   *KeyE;
-  BOOLEAN  RetVal;
+  // MU_CHANGE [BEGIN]
+  RSA_PKEY_CTX  *RsaPkeyCtx;
+  EVP_PKEY_CTX  *KeyGenCtx;
+  EVP_PKEY      *Pkey;
+  BIGNUM        *KeyE;
+  BOOLEAN       RetVal;
+
+  // MU_CHANGE [END]
 
   //
   // Check input parameters.
@@ -193,29 +249,77 @@ RsaGenerateKey (
     return FALSE;
   }
 
-  KeyE = BN_new ();
-  if (KeyE == NULL) {
+  // MU_CHANGE [BEGIN]
+  RsaPkeyCtx = (RSA_PKEY_CTX *)RsaContext;
+  KeyGenCtx  = NULL;
+  Pkey       = NULL;
+  KeyE       = NULL;
+  RetVal     = FALSE;
+
+  //
+  // Invalidate any cached key since we are generating a new one.
+  //
+  RsaInvalidatePkey (RsaPkeyCtx);
+
+  KeyGenCtx = EVP_PKEY_CTX_new_from_name (NULL, "RSA", NULL);
+  if (KeyGenCtx == NULL) {
     return FALSE;
   }
 
-  RetVal = FALSE;
+  if (EVP_PKEY_keygen_init (KeyGenCtx) != 1) {
+    goto _Exit;
+  }
 
-  if (PublicExponent == NULL) {
-    if (BN_set_word (KeyE, 0x10001) == 0) {
+  if (EVP_PKEY_CTX_set_rsa_keygen_bits (KeyGenCtx, (INT32)ModulusLength) != 1) {
+    goto _Exit;
+  }
+
+  //
+  // Set public exponent if provided, otherwise OpenSSL defaults to 0x10001.
+  //
+  if (PublicExponent != NULL) {
+    KeyE = BN_new ();
+    if (KeyE == NULL) {
       goto _Exit;
     }
-  } else {
+
     if (BN_bin2bn (PublicExponent, (UINT32)PublicExponentSize, KeyE) == NULL) {
       goto _Exit;
     }
+
+    if (EVP_PKEY_CTX_set1_rsa_keygen_pubexp (KeyGenCtx, KeyE) != 1) {
+      goto _Exit;
+    }
   }
 
-  if (RSA_generate_key_ex ((RSA *)RsaContext, (UINT32)ModulusLength, KeyE, NULL) == 1) {
-    RetVal = TRUE;
+  if (EVP_PKEY_keygen (KeyGenCtx, &Pkey) != 1) {
+    goto _Exit;
   }
+
+  //
+  // Extract all key components from the generated EVP_PKEY.
+  //
+  if (!RsaExtractBigNums (RsaPkeyCtx, Pkey)) {
+    EVP_PKEY_free (Pkey);
+    goto _Exit;
+  }
+
+  //
+  // Cache the generated EVP_PKEY.
+  //
+  RsaPkeyCtx->Pkey = Pkey;
+  RetVal           = TRUE;
 
 _Exit:
-  BN_free (KeyE);
+  if (KeyE != NULL) {
+    BN_free (KeyE);
+  }
+
+  if (KeyGenCtx != NULL) {
+    EVP_PKEY_CTX_free (KeyGenCtx);
+  }
+
+  // MU_CHANGE [END]
   return RetVal;
 }
 
@@ -244,7 +348,13 @@ RsaCheckKey (
   IN  VOID  *RsaContext
   )
 {
-  UINTN  Reason;
+  // MU_CHANGE [BEGIN]
+  RSA_PKEY_CTX  *RsaPkeyCtx;
+  EVP_PKEY      *Pkey;
+  EVP_PKEY_CTX  *PkeyCtx;
+  INT32         Result;
+
+  // MU_CHANGE [END]
 
   //
   // Check input parameters.
@@ -253,15 +363,30 @@ RsaCheckKey (
     return FALSE;
   }
 
-  if (RSA_check_key ((RSA *)RsaContext) != 1) {
-    Reason = ERR_GET_REASON (ERR_peek_last_error ());
-    if ((Reason == RSA_R_P_NOT_PRIME) ||
-        (Reason == RSA_R_Q_NOT_PRIME) ||
-        (Reason == RSA_R_N_DOES_NOT_EQUAL_P_Q) ||
-        (Reason == RSA_R_D_E_NOT_CONGRUENT_TO_1))
-    {
-      return FALSE;
-    }
+  // MU_CHANGE [BEGIN]
+  RsaPkeyCtx = (RSA_PKEY_CTX *)RsaContext;
+  PkeyCtx    = NULL;
+
+  //
+  // Build EVP_PKEY from stored key components.
+  //
+  Pkey = RsaBuildEvpPkey (RsaPkeyCtx);
+  if (Pkey == NULL) {
+    return FALSE;
+  }
+
+  PkeyCtx = EVP_PKEY_CTX_new_from_pkey (NULL, Pkey, NULL);
+  if (PkeyCtx == NULL) {
+    return FALSE;
+  }
+
+  Result = EVP_PKEY_check (PkeyCtx);
+
+  EVP_PKEY_CTX_free (PkeyCtx);
+
+  if (Result != 1) {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
   return TRUE;
@@ -302,9 +427,15 @@ RsaPkcs1Sign (
   IN OUT  UINTN        *SigSize
   )
 {
-  RSA    *Rsa;
-  UINTN  Size;
-  INT32  DigestType;
+  // MU_CHANGE [BEGIN]
+  RSA_PKEY_CTX  *RsaPkeyCtx;
+  EVP_PKEY      *Pkey;
+  EVP_PKEY_CTX  *PkeyCtx;
+  CONST EVP_MD  *Md;
+  UINTN         RequiredSize;
+  BOOLEAN       Result;
+
+  // MU_CHANGE [END]
 
   //
   // Check input parameters.
@@ -313,11 +444,33 @@ RsaPkcs1Sign (
     return FALSE;
   }
 
-  Rsa  = (RSA *)RsaContext;
-  Size = RSA_size (Rsa);
+  // MU_CHANGE [BEGIN]
+  //
+  // Determine the message digest algorithm according to digest size.
+  //
+  Md = GetEvpMdFromHashSize (HashSize);
+  if (Md == NULL) {
+    return FALSE;
+  }
 
-  if (*SigSize < Size) {
-    *SigSize = Size;
+  RsaPkeyCtx = (RSA_PKEY_CTX *)RsaContext;
+  PkeyCtx    = NULL;
+  Result     = FALSE;
+
+  //
+  // Build EVP_PKEY from stored key components.
+  //
+  Pkey = RsaBuildEvpPkey (RsaPkeyCtx);
+  if (Pkey == NULL) {
+    return FALSE;
+  }
+
+  //
+  // Check if the signature buffer is large enough.
+  //
+  RequiredSize = (UINTN)EVP_PKEY_get_size (Pkey);
+  if (*SigSize < RequiredSize) {
+    *SigSize = RequiredSize;
     return FALSE;
   }
 
@@ -325,41 +478,33 @@ RsaPkcs1Sign (
     return FALSE;
   }
 
-  //
-  // Determine the message digest algorithm according to digest size.
-  //   Only MD5, SHA-1, SHA-256, SHA-384 or SHA-512 algorithm is supported.
-  //
-  switch (HashSize) {
-    case MD5_DIGEST_SIZE:
-      DigestType = NID_md5;
-      break;
-
-    case SHA1_DIGEST_SIZE:
-      DigestType = NID_sha1;
-      break;
-
-    case SHA256_DIGEST_SIZE:
-      DigestType = NID_sha256;
-      break;
-
-    case SHA384_DIGEST_SIZE:
-      DigestType = NID_sha384;
-      break;
-
-    case SHA512_DIGEST_SIZE:
-      DigestType = NID_sha512;
-      break;
-
-    default:
-      return FALSE;
+  PkeyCtx = EVP_PKEY_CTX_new_from_pkey (NULL, Pkey, NULL);
+  if (PkeyCtx == NULL) {
+    goto _Exit;
   }
 
-  return (BOOLEAN)RSA_sign (
-                    DigestType,
-                    MessageHash,
-                    (UINT32)HashSize,
-                    Signature,
-                    (UINT32 *)SigSize,
-                    (RSA *)RsaContext
-                    );
+  if (EVP_PKEY_sign_init (PkeyCtx) != 1) {
+    goto _Exit;
+  }
+
+  if (EVP_PKEY_CTX_set_rsa_padding (PkeyCtx, RSA_PKCS1_PADDING) <= 0) {
+    goto _Exit;
+  }
+
+  if (EVP_PKEY_CTX_set_signature_md (PkeyCtx, Md) <= 0) {
+    goto _Exit;
+  }
+
+  *SigSize = RequiredSize;
+  if (EVP_PKEY_sign (PkeyCtx, Signature, SigSize, MessageHash, HashSize) == 1) {
+    Result = TRUE;
+  }
+
+_Exit:
+  if (PkeyCtx != NULL) {
+    EVP_PKEY_CTX_free (PkeyCtx);
+  }
+
+  return Result;
+  // MU_CHANGE [END]
 }

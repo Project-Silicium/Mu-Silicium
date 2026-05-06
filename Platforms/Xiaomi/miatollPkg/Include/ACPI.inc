@@ -2,7 +2,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Rennell/APIC.aml
 # SECTION RAW = Rennell/BERT.aml
   SECTION RAW = Rennell/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
   SECTION RAW = Rennell/DBG2.aml
 !endif
   SECTION RAW = miatoll/DSDT.aml

@@ -2,7 +2,7 @@
 #  SECTION RAW = Kamorta/APIC.aml
 #  SECTION RAW = Kamorta/BERT.aml
 #  SECTION RAW = Kamorta/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Kamorta/DBG2.aml
 !endif
 #  SECTION RAW = Kamorta/DSDT.aml

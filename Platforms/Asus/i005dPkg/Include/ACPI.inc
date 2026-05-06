@@ -2,7 +2,7 @@
 #  SECTION RAW = Lahaina/APIC.aml
 #  SECTION RAW = Lahaina/BERT.aml
 #  SECTION RAW = Lahaina/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Lahaina/DBG2.aml
 !endif
 #  SECTION RAW = i005d/DSDT.aml

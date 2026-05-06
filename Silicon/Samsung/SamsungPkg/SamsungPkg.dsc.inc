@@ -7,9 +7,14 @@
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
+!include SiliciumPkg/SiliciumPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # RAM Size (512 MB)
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x20000000
+  #
+  # SMBIOS
+  #
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Samsung"
+  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Samsung Electronics Co., Ltd."
 
 [LibraryClasses]
   #
@@ -17,16 +22,9 @@
   #
   ArmSmcLib|SamsungPkg/Library/ArmSmcLib/ArmSmcLib.inf
 
-  #
-  # Silicium Libraries
-  #
-  PlatformHobLib|SiliciumPkg/Library/PlatformHobLibNull/PlatformHobLibNull.inf
-  MemoryProtectionLib|SamsungPkg/Library/MemoryProtectionLib/MemoryProtectionLib.inf
-  ErrataPatchesLib|SamsungPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
-
 [Components]
   #
-  # SmBios
+  # SMBIOS
   #
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
@@ -37,5 +35,3 @@
   SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
-
-!include SiliciumPkg/SiliciumPkg.dsc.inc

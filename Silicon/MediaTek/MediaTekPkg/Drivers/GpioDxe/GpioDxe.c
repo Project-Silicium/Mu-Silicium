@@ -14,7 +14,7 @@
 #define PIN_MODE_OFFSET(pin) (((pin) / 8) * 0x10)
 #define PIN_MODE_BIT(pin) (((pin) % 8) * 4)
 
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX mPinctrlRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR mPinctrlRegion;
 
 UINT32
 GpioRead(
@@ -143,7 +143,7 @@ InitGpioDriver (
   EFI_STATUS Status;
 
   // Locate Pinctrl Memory Region
-  Status = LocateMemoryMapAreaByName ("Pinctrl", &mPinctrlRegion);
+  Status = LocateMemoryRegionByName ("Pinctrl", &mPinctrlRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate Pinctrl Memory Region! Status = %r\n", Status));
     return Status;

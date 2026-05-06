@@ -56,9 +56,6 @@
   INF Binaries/muyu/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   #INF Binaries/muyu/QcomPkg/Drivers/RscDxe/RscDxe.inf

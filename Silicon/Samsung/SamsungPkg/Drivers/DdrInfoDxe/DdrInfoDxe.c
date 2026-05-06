@@ -19,9 +19,9 @@
 //
 // Global Variables
 //
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX DdrInfoRegion;
-STATIC UINT32                          InfoOffset;
-STATIC UINT32                          SizeInfoOffset;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR DdrInfoRegion;
+STATIC UINT32                       InfoOffset;
+STATIC UINT32                       SizeInfoOffset;
 
 DDR_DETAILS_TABLE
 GetDetails ()
@@ -71,7 +71,7 @@ InitDdrInfoDriver (
   EFI_STATUS Status;
 
   // Locate DDR Info Memory Region
-  Status = LocateMemoryMapAreaByName ("DDR Info", &DdrInfoRegion);
+  Status = LocateMemoryRegionByName ("DDR Info", &DdrInfoRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate 'DDR Info' Memory Region! Status = %r\n", Status));
     return Status;

@@ -465,6 +465,7 @@ Pkcs7GetCertificatesList (
 {
   BOOLEAN         Status;
   UINT8           *NewP7Data;
+  CONST UINT8     *Temp;        // MU_CHANGE
   UINTN           NewP7Length;
   BOOLEAN         Wrapped;
   UINT8           Index;
@@ -528,7 +529,10 @@ Pkcs7GetCertificatesList (
   //
   // Decodes PKCS#7 SignedData
   //
-  Pkcs7 = d2i_PKCS7 (NULL, (const unsigned char **)&NewP7Data, (int)NewP7Length);
+  // MU_CHANGE [BEGIN]
+  Temp  = NewP7Data;
+  Pkcs7 = d2i_PKCS7 (NULL, (const unsigned char **)&Temp, (int)NewP7Length);
+  // MU_CHANGE [END]
   if ((Pkcs7 == NULL) || (!PKCS7_type_is_signed (Pkcs7))) {
     goto _Error;
   }

@@ -2,7 +2,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Lahaina/APIC.aml
 # SECTION RAW = Lahaina/BERT.aml
 # SECTION RAW = Lahaina/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
   SECTION RAW = Lahaina/DBG2.aml
 !endif
   SECTION RAW = vili/DSDT.aml

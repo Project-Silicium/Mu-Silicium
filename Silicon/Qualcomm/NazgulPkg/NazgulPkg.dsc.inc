@@ -9,60 +9,63 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 1
 
+  #
   # KEP
+  #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
   HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 1
 
+!include QcomPkg/QcomPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
-
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17B00000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17B00000
 
+  #
   # Timer
+  #
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
 
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 835"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"MSM8998"
-
-  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2450
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
-
-  # SmBios Memory Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866       # Unoffical Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866                           # Unoffical Value
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
-  PlatformPrePiLib|NazgulPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|NazgulPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|NazgulPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  #
+  # SEC Libraries
+  #
+  PlatformSecLib|NazgulPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
-!include QcomPkg/QcomPkg.dsc.inc
+  #
+  # ACPI Libraries
+  #
+  AcpiTableUpdateLib|NazgulPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf

@@ -40,9 +40,6 @@
   INF Binaries/caprip/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/caprip/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
 

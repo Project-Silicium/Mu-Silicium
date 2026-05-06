@@ -20,7 +20,7 @@
 //
 // Global Variables
 //
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX ChipInfoRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR ChipInfoRegion;
 
 VOID
 GetId (OUT UINT64 *Id)
@@ -62,7 +62,7 @@ InitChipDataDriver (
   EFI_STATUS Status;
 
   // Locate Chip Info Memory Region
-  Status = LocateMemoryMapAreaByName ("Chip Info", &ChipInfoRegion);
+  Status = LocateMemoryRegionByName ("Chip Info", &ChipInfoRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate 'Chip Info' Memory Region! Status = %r\n", Status));
     return Status;

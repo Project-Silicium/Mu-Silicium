@@ -14,8 +14,8 @@
 //
 // Global Variables
 //
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX ClockControllerMemoryRegion;
-STATIC UINT32                          PllRate[CLOCK_ID_COUNT];
+STATIC EFI_MEMORY_REGION_DESCRIPTOR ClockControllerMemoryRegion;
+STATIC UINT32                       PllRate[CLOCK_ID_COUNT];
 
 STATIC UINT32 OscFreq[CLOCK_OSC_FREQ_COUNT] = {
 	13000000,
@@ -122,7 +122,7 @@ InitClocks (
   EFI_STATUS Status;
 
   // Get Clock Controller Region
-  Status = LocateMemoryMapAreaByName ("Clock Controller", &ClockControllerMemoryRegion);
+  Status = LocateMemoryRegionByName ("Clock Controller", &ClockControllerMemoryRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to get Clock Controller Memory Region! Status = %r\n\n", Status));
     return Status;

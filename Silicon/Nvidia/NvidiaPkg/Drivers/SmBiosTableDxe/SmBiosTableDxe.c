@@ -16,7 +16,6 @@
 
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
-#include <Library/DynamicRamLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/UefiLib.h>
@@ -135,8 +134,8 @@ BIOSInfoUpdateSmbiosType0 ()
 VOID
 SysInfoUpdateSmbiosType1 ()
 {
-  // Update Device UUID
-  mSysInfoType1.Uuid = *(GUID *)FixedPcdGetPtr (PcdDeviceGuid);
+  // Update UUID
+  mSysInfoType1.Uuid = gSiliciumPkgTokenSpaceGuid;
 
   // Update String Table
   mSysInfoType1Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
@@ -335,14 +334,10 @@ RegisterSmBiosTables (
   IN EFI_HANDLE        ImageHandle, 
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
-  EFI_STATUS Status;
-  UINT64     MemorySize;
+  UINT64 MemorySize;
 
   // Get Max RAM Size
-  Status = GetMemorySize (&MemorySize);
-  if (EFI_ERROR (Status)) {
-    MemorySize = FixedPcdGet64 (PcdSystemMemorySize);
-  }
+  MemorySize = FixedPcdGet64 (PcdSystemMemorySize);
 
   // Update SmBios Structures
   BIOSInfoUpdateSmbiosType0          ();

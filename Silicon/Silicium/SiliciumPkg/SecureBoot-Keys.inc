@@ -1,5 +1,5 @@
 [PcdsFixedAtBuild]
-!if $(DISABLE_SECUREBOOT) == 0
+!if $(ENABLE_SECUREBOOT) == 1
   #
   # Secure Boot Keys
   #

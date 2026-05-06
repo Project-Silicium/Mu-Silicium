@@ -1,8 +1,8 @@
 #include <Library/ConfigurationMapLib.h>
 
 STATIC
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX
-gConfigurationEntryDescriptorEx[] = {
+EFI_CONFIGURATION_ENTRY_DESCRIPTOR
+gConfigurationDescriptor[] = {
   // Configuration Map
   {"AbnormalResetOccurredOffset", 0x24},
   {"DetectRetailUserAttentionHotkey", 0x00},
@@ -46,14 +46,15 @@ gConfigurationEntryDescriptorEx[] = {
   {"USBHS1_Config", 0x0},
   {"UefiMemUseThreshold", 0x94},
   {"ImageFVFlashed", 0x0},
-  {"EnableLogFsSyncInRetail", 0x0},
-
-  // Terminator
-  {"Terminator", 0xFFFFFFFF}
+  {"EnableLogFsSyncInRetail", 0x0}
 };
 
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX*
-GetConfigurationMap ()
+VOID
+GetConfigurationMap (
+  OUT EFI_CONFIGURATION_ENTRY_DESCRIPTOR **ConfigurationDescriptor,
+  OUT UINT8                               *ConfigurationDescriptorCount)
 {
-  return gConfigurationEntryDescriptorEx;
+  // Pass Data
+  *ConfigurationDescriptor      = gConfigurationDescriptor;
+  *ConfigurationDescriptorCount = ARRAY_SIZE (gConfigurationDescriptor);
 }

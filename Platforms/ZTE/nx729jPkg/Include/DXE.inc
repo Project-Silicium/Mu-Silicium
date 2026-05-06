@@ -59,8 +59,6 @@
   INF Binaries/nx729j/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-  
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 

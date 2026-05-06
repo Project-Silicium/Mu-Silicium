@@ -25,41 +25,53 @@
   FLASH_DEFINITION               = willowPkg/willow.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include NicobarPkg/NicobarPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x79, 0x13, 0x0D, 0x63, 0x3F, 0x7D, 0x11, 0x45, 0xA6, 0xF9, 0x57, 0x8A, 0xBB, 0xC0, 0x75, 0x18 }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8T"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"willow"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_8T_willow"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 8T"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2340
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x60000000
-
+  #
   # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|willowPkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|willowPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include NicobarPkg/NicobarPkg.dsc.inc
+  #
+  # QCOM Libraries
+  #
+  ConfigurationMapLib|willowPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

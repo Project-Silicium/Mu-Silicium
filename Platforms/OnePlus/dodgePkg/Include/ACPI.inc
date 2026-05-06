@@ -2,7 +2,7 @@
 #  SECTION RAW = Pakala/APIC.aml
 #  SECTION RAW = Pakala/BERT.aml
 #  SECTION RAW = Pakala/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Pakala/DBG2.aml
 !endif
 #  SECTION RAW = dodge/DSDT.aml

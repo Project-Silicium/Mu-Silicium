@@ -27,7 +27,5 @@
 
 [Protocols]
   gEfiUsbMsdProtocolGuid
-  gChargerExProtocolGuid
-  gEfiChgProtocolGuid
   gEfiBlockIoProtocolGuid
   gEfiGraphicsOutputProtocolGuid

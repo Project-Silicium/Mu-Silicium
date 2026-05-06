@@ -1,6 +1,8 @@
 ## @file
-#  Cryptographic Library Package for UEFI Security Implementation.
-#  PEIM, DXE Driver, and SMM Driver with all crypto services enabled.
+#  Package for OpenSSL-based cryptographic library implementation.
+#
+#  This package provides the OpenSSL-based implementation of BaseCryptLib,
+#  TlsLib, and supporting libraries for UEFI cryptographic operations.
 #
 #  Copyright (c) 2009 - 2021, Intel Corporation. All rights reserved.<BR>
 #  Copyright (c) 2020, Hewlett Packard Enterprise Development LP. All rights reserved.<BR>
@@ -8,27 +10,41 @@
 #
 ##
 
-################################################################################
-#
-# Defines Section - statements that will be processed to create a Makefile.
-#
-################################################################################
 [Defines]
   DEC_SPECIFICATION              = 0x00010005
   PACKAGE_NAME                   = OpensslPkg
   PACKAGE_GUID                   = 8823c3fc-32ca-4275-990a-8485f87e3c8c
   PACKAGE_VERSION                = 1.0
 
-[Includes.common.Private]
+[Includes.Common.Private]
   Private
   Library/Include
+  Library/OpensslLib/openssl
   Library/OpensslLib/openssl/include
+  Library/OpensslLib/openssl/providers/common/include
+  Library/OpensslLib/openssl/providers/fips/include
+  Library/OpensslLib/openssl/providers/implementations/include
+  Library/OpensslLib/OpensslGen/include
+  Library/OpensslLib/OpensslGen/providers/common/include
 
-[LibraryClasses.common.Private]
+[LibraryClasses.Common.Private]
   ##  @libraryclass  Provides library functions from the openssl project.
   #
   OpensslLib|Private/Library/OpensslLib.h
-  
-  ##  @libraryclass  Provides compiler intrinsic functions required to link openssl project.
-  #
-  InstrinsicLib|Private/Library/IntrinsicLib.h
+
+[Guids]
+  ## CryptoPkg token space GUID - referenced for PCD declarations.
+  gEfiCryptoPkgTokenSpaceGuid      = { 0x6bd7de60, 0x9ef7, 0x4899, { 0x97, 0xd0, 0xab, 0xff, 0xfd, 0xe9, 0x70, 0xf2 } }
+
+[PcdsFeatureFlag]
+  ## Indicates whether the OpenSSL assembly source files use NASM syntax.
+  #  TRUE  - Use NASM-style assembly (.nasm) for MSFT/CLANGPDB tool chains.
+  #  FALSE - Use GNU-style assembly (.S) for GCC tool chains.
+  gEfiCryptoPkgTokenSpaceGuid.PcdOpensslLibAssemblySourceStyleNasm|FALSE|BOOLEAN|0x00001000
+
+  ## Indicates whether the OpenSSL assembly source files use PE/COFF style for AARCH64.
+  #  TRUE  - Use PE/COFF-style assembly for MSFT/CLANGPDB tool chains.
+  #  FALSE - Use ELF-style assembly for GCC tool chains.
+  gEfiCryptoPkgTokenSpaceGuid.PcdOpensslLibAssemblySourceStylePe|FALSE|BOOLEAN|0x00001001
+
+

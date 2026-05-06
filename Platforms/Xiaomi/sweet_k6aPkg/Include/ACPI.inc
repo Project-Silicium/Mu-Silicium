@@ -2,7 +2,7 @@
 #  SECTION RAW = Moorea/APIC.aml
 #  SECTION RAW = Moorea/BERT.aml
 #  SECTION RAW = Moorea/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Moorea/DBG2.aml
 !endif
 #  SECTION RAW = sweet_k6a/DSDT.aml

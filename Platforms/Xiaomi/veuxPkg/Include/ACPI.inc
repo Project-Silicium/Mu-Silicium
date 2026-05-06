@@ -2,9 +2,9 @@
 #  SECTION RAW = Strait/APIC.aml
 #  SECTION RAW = Strait/BERT.aml
 #  SECTION RAW = Strait/CSRT.aml
-#!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Strait/DBG2.aml
-#!endif
+!endif
 #  SECTION RAW = veux/DSDT.aml
 #  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Strait/FADT.aml

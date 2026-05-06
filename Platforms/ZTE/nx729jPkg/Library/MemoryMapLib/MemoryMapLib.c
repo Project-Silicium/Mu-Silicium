@@ -1,8 +1,8 @@
 #include <Library/MemoryMapLib.h>
 
 STATIC
-EFI_MEMORY_REGION_DESCRIPTOR_EX
-gMemoryRegionDescriptorEx[] = {
+EFI_MEMORY_REGION_DESCRIPTOR
+gMemoryDescriptor[] = {
   // Name, Address, Length, HobOption, ResourceType, ResourceAttribute, MemoryType, ArmAttribute
 
   // DDR Regions
@@ -16,7 +16,6 @@ gMemoryRegionDescriptorEx[] = {
   {"Display Demura",    0xA2A80000, 0x02B00000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
   {"DBI Dump",          0xA6100000, 0x00F00000, NoHob,  MMAP_IO, INITIALIZED, Reserv, UNCACHED_UNBUFFERED_XN},
   {"FD Reserved",       0xA7000000, 0x00600000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
-  {"CPU Vectors",       0xA7600000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"Info Blk",          0xA7601000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
   {"MMU PageTables",    0xA7602000, 0x00003000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"Log Buffer",        0xA7605000, 0x00008000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN},
@@ -31,8 +30,6 @@ gMemoryRegionDescriptorEx[] = {
   {"UEFI FD",           0xC7CC0000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"TZApps Reserved",   0xD8800000, 0x07400000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"HW Fence",          0xE6440000, 0x002DD000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-
-  {"HYP Reserved",      0xFF800000, 0x00800000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN}, // Not the Actual Name, Original: "NOMAP"
 
   // Other Memory Regions
   {"AOP_SS_MSG_RAM",    0x0C300000, 0x00100000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},
@@ -50,14 +47,15 @@ gMemoryRegionDescriptorEx[] = {
   {"AOSS",              0x0B000000, 0x04000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"TLMM",              0x0F000000, 0x01000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"SMMU",              0x15000000, 0x00200000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
-  {"APSS_HM",           0x17000000, 0x02000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
-
-  // Terminator for MMU
-  {"Terminator", 0, 0, 0, 0, 0, 0, 0}
+  {"APSS_HM",           0x17000000, 0x02000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE}
 };
 
-EFI_MEMORY_REGION_DESCRIPTOR_EX*
-GetMemoryMap()
+VOID
+GetMemoryMap (
+  OUT EFI_MEMORY_REGION_DESCRIPTOR **MemoryDescriptor,
+  OUT UINT8                         *MemoryDescriptorCount)
 {
-  return gMemoryRegionDescriptorEx;
+  // Pass Data
+  *MemoryDescriptor      = gMemoryDescriptor;
+  *MemoryDescriptorCount = ARRAY_SIZE (gMemoryDescriptor);
 }

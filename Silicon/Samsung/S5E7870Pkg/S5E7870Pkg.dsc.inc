@@ -9,62 +9,57 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 0
+
+!include SamsungPkg/SamsungPkg.dsc.inc
 
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x104E0000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x104E2000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x104E2000
 
+  #
   # Timer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
-  gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|29
-  gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|30
 
-  # DDR Info (Unknown)
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x0
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x0
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7870 @ 1.60 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E7870"
-
-  # SmBios CPU Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|1600
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x100    # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x100    # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200        # Unofficial Value
-
-  # SmBios Memory Extras
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|933              # Unofficial Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x100                       # Unofficial Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x100                       # Unofficial Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200                           # Unofficial Value
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|933                                 # Unofficial Value
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|29
 
 [LibraryClasses]
   #
-  # UEFI Libraries
+  # SEC Libraries
   #
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
+  PlatformSecLib|S5E7870Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Silicium Libraries
+  # Memory Libraries
   #
-  PlatformPrePiLib|S5E7870Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|SiliciumPkg/Library/AcpiPlatformUpdateLibNull/AcpiPlatformUpdateLibNull.inf
-  SoCPlatformLib|S5E7870Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  IoMmuLib|MdeModulePkg/Library/IoMmuLibNull/IoMmuLibNull.inf
 
   #
   # Custom Libraries
@@ -72,7 +67,7 @@
   GpioBankLib|S5E7870Pkg/Library/GpioBankLib/GpioBankLib.inf
 
 [Components]
-  SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  #
+  # Custom Drivers
+  #
   S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
-
-!include SamsungPkg/SamsungPkg.dsc.inc

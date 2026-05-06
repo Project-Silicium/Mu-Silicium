@@ -2,7 +2,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Napali/APIC.aml
 # SECTION RAW = Napali/BERT.aml
 # SECTION RAW = Napali/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
   SECTION RAW = Napali/DBG2.aml
 !endif
   SECTION RAW = caymanslm/DSDT.aml

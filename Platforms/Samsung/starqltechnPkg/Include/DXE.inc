@@ -31,9 +31,6 @@
 
   INF Binaries/starqltechn/QcomPkg/Drivers/ChipInfo/ChipInfo.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/starqltechn/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf

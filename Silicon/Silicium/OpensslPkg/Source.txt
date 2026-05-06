@@ -1,0 +1,2 @@
+REPO:   https://github.com/microsoft/mu_crypto_release
+COMMIT: 6e2bb3c4790b82cb8581dbd4f11a9159fc1b94b8

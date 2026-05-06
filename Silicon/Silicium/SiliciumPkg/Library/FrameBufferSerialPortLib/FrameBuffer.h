@@ -13,13 +13,13 @@ typedef struct {
 // Frame Buffer Data
 //
 typedef struct {
-  EFI_MEMORY_REGION_DESCRIPTOR_EX  MemoryRegion;
-  EFI_FRAME_BUFFER_POSITION       *CurrentPosition;
-  EFI_FRAME_BUFFER_POSITION        MaxPosition;
-  UINT32                           Width;
-  UINT32                           Height;
-  UINT8                            BytesPerPixel;
-  UINT8                            FontScale;
+  EFI_MEMORY_REGION_DESCRIPTOR  MemoryRegion;
+  EFI_FRAME_BUFFER_POSITION    *CurrentPosition;
+  EFI_FRAME_BUFFER_POSITION     MaxPosition;
+  UINT32                        Width;
+  UINT32                        Height;
+  UINT8                         BytesPerPixel;
+  UINT8                         FontScale;
 } EFI_FRAME_BUFFER_DATA;
 
 #endif /* _FRAME_BUFFER_H_ */

@@ -58,9 +58,6 @@
   INF Binaries/spacewar/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   
   INF Binaries/spacewar/QcomPkg/Drivers/DeviceInfoDxe/DeviceInfoDxe.inf

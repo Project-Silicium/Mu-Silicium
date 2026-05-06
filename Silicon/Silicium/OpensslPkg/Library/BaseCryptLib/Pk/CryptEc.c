@@ -10,6 +10,13 @@
 #include <openssl/objects.h>
 #include <openssl/bn.h>
 #include <openssl/ec.h>
+// MU_CHANGE [BEGIN]
+#include <openssl/evp.h>
+#include <openssl/ecdsa.h>
+#include <openssl/param_build.h>
+#include <openssl/core_names.h>
+#include "CryptEcPkeyCtx.h"
+// MU_CHANGE [END]
 
 // =====================================================================================
 //    Basic Elliptic Curve Primitives
@@ -41,6 +48,9 @@ CryptoNidToOpensslNid (
       break;
     case CRYPTO_NID_SECP521R1:
       Nid = NID_secp521r1;
+      break;
+    case CRYPTO_NID_BRAINPOOLP512R1:
+      Nid = NID_brainpoolP512r1;
       break;
     default:
       return -1;
@@ -402,6 +412,52 @@ EcPointSetCompressedCoordinates (
 //    Elliptic Curve Diffie Hellman Primitives
 // =====================================================================================
 
+// MU_CHANGE [BEGIN]
+
+/**
+  Map an OpenSSL NID to the curve name string used by EVP_PKEY_Q_keygen / OSSL_PARAM.
+
+  @param[in]  Nid  OpenSSL NID for the EC curve.
+
+  @return  ASCII curve name string, or NULL if not supported.
+**/
+STATIC CONST CHAR8 *
+OpenSslNidToCurveName (
+  INT32  Nid
+  )
+{
+  switch (Nid) {
+    case NID_X9_62_prime256v1: return "prime256v1";
+    case NID_secp384r1:        return "secp384r1";
+    case NID_secp521r1:        return "secp521r1";
+    case NID_brainpoolP512r1:  return "brainpoolP512r1";
+    default:                   return NULL;
+  }
+}
+
+/**
+  Return the coordinate half-size (in bytes) for a given OpenSSL NID.
+
+  @param[in]  Nid  OpenSSL NID for the EC curve.
+
+  @return  Byte length of one coordinate, or 0 if not supported.
+**/
+STATIC UINTN
+GetHalfSizeFromNid (
+  INT32  Nid
+  )
+{
+  switch (Nid) {
+    case NID_X9_62_prime256v1: return 32;
+    case NID_secp384r1:        return 48;
+    case NID_secp521r1:        return 66;
+    case NID_brainpoolP512r1:  return 64;
+    default:                   return 0;
+  }
+}
+
+// MU_CHANGE [END]
+
 /**
   Allocates and Initializes one Elliptic Curve Context for subsequent use
   with the NID.
@@ -417,14 +473,27 @@ EcNewByNid (
   IN UINTN  Nid
   )
 {
-  INT32  OpenSslNid;
+  // MU_CHANGE [BEGIN]
+  EC_PKEY_CTX  *EcPkeyCtx;
+  INT32        OpenSslNid;
+
+  // MU_CHANGE [END]
 
   OpenSslNid = CryptoNidToOpensslNid (Nid);
   if (OpenSslNid < 0) {
     return NULL;
   }
 
-  return (VOID *)EC_KEY_new_by_curve_name (OpenSslNid);
+  // MU_CHANGE [BEGIN]
+  EcPkeyCtx = AllocateZeroPool (sizeof (EC_PKEY_CTX));
+  if (EcPkeyCtx == NULL) {
+    return NULL;
+  }
+
+  EcPkeyCtx->Nid  = OpenSslNid;
+  EcPkeyCtx->Pkey = NULL;
+  return (VOID *)EcPkeyCtx;
+  // MU_CHANGE [END]
 }
 
 /**
@@ -438,7 +507,20 @@ EcFree (
   IN  VOID  *EcContext
   )
 {
-  EC_KEY_free ((EC_KEY *)EcContext);
+  // MU_CHANGE [BEGIN]
+  EC_PKEY_CTX  *EcPkeyCtx;
+
+  if (EcContext == NULL) {
+    return;
+  }
+
+  EcPkeyCtx = (EC_PKEY_CTX *)EcContext;
+  if (EcPkeyCtx->Pkey != NULL) {
+    EVP_PKEY_free (EcPkeyCtx->Pkey);
+  }
+
+  FreePool (EcPkeyCtx);
+  // MU_CHANGE [END]
 }
 
 /**
@@ -475,15 +557,15 @@ EcGenerateKey (
   IN OUT  UINTN  *PublicKeySize
   )
 {
-  EC_KEY          *EcKey;
-  CONST EC_GROUP  *Group;
-  CONST EC_POINT  *EcPoint;
-  BOOLEAN         RetVal;
-  BIGNUM          *BnX;
-  BIGNUM          *BnY;
-  UINTN           HalfSize;
-  INTN            XSize;
-  INTN            YSize;
+  // MU_CHANGE [BEGIN]
+  EC_PKEY_CTX  *EcPkeyCtx;
+  CONST CHAR8  *CurveName;
+  UINTN        HalfSize;
+  EVP_PKEY     *Pkey;
+  UINT8        PubKeyBuf[133];
+  UINTN        PubKeyBufLen;
+
+  // MU_CHANGE [END]
 
   if ((EcContext == NULL) || (PublicKeySize == NULL)) {
     return FALSE;
@@ -493,12 +575,11 @@ EcGenerateKey (
     return FALSE;
   }
 
-  EcKey    = (EC_KEY *)EcContext;
-  Group    = EC_KEY_get0_group (EcKey);
-  HalfSize = (EC_GROUP_get_degree (Group) + 7) / 8;
-
-  // Assume RAND_seed was called
-  if (EC_KEY_generate_key (EcKey) != 1) {
+  // MU_CHANGE [BEGIN]
+  EcPkeyCtx = (EC_PKEY_CTX *)EcContext;
+  HalfSize  = GetHalfSizeFromNid (EcPkeyCtx->Nid);
+  if (HalfSize == 0) {
+    // MU_CHANGE [END]
     return FALSE;
   }
 
@@ -509,40 +590,55 @@ EcGenerateKey (
 
   *PublicKeySize = HalfSize * 2;
 
-  EcPoint = EC_KEY_get0_public_key (EcKey);
-  if (EcPoint == NULL) {
+  // MU_CHANGE [BEGIN]
+  CurveName = OpenSslNidToCurveName (EcPkeyCtx->Nid);
+  if (CurveName == NULL) {
+    // MU_CHANGE [END]
     return FALSE;
   }
 
-  RetVal = FALSE;
-  BnX    = BN_new ();
-  BnY    = BN_new ();
-  if ((BnX == NULL) || (BnY == NULL)) {
-    goto fail;
+  // MU_CHANGE [BEGIN]
+  if (EcPkeyCtx->Pkey != NULL) {
+    EVP_PKEY_free (EcPkeyCtx->Pkey);
+    EcPkeyCtx->Pkey = NULL;
+    // MU_CHANGE [END]
   }
 
-  if (EC_POINT_get_affine_coordinates (Group, EcPoint, BnX, BnY, NULL) != 1) {
-    goto fail;
+  // MU_CHANGE [BEGIN]
+  Pkey = EVP_PKEY_Q_keygen (NULL, NULL, "EC", CurveName);
+  if (Pkey == NULL) {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
-  XSize = BN_num_bytes (BnX);
-  YSize = BN_num_bytes (BnY);
-  if ((XSize <= 0) || (YSize <= 0)) {
-    goto fail;
+  // MU_CHANGE [BEGIN]
+  EcPkeyCtx->Pkey = Pkey;
+
+  PubKeyBufLen = sizeof (PubKeyBuf);
+  if (EVP_PKEY_get_octet_string_param (
+        Pkey,
+        OSSL_PKEY_PARAM_PUB_KEY,
+        PubKeyBuf,
+        sizeof (PubKeyBuf),
+        &PubKeyBufLen
+        ) != 1)
+  {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
-  ASSERT ((UINTN)XSize <= HalfSize && (UINTN)YSize <= HalfSize);
+  // MU_CHANGE [BEGIN]
+  // PubKeyBuf is 0x04 || X || Y; skip the leading uncompressed-point prefix
+  if (PubKeyBufLen != 1 + HalfSize * 2) {
+    return FALSE;
+  }
+
+  // MU_CHANGE [END]
 
   ZeroMem (PublicKey, *PublicKeySize);
-  BN_bn2bin (BnX, &PublicKey[0 + HalfSize - XSize]);
-  BN_bn2bin (BnY, &PublicKey[HalfSize + HalfSize - YSize]);
+  CopyMem (PublicKey, PubKeyBuf + 1, HalfSize * 2);  // MU_CHANGE
 
-  RetVal = TRUE;
-
-fail:
-  BN_free (BnX);
-  BN_free (BnY);
-  return RetVal;
+  return TRUE;  // MU_CHANGE
 }
 
 /**
@@ -567,15 +663,13 @@ EcGetPubKey (
   IN OUT  UINTN  *PublicKeySize
   )
 {
-  EC_KEY          *EcKey;
-  CONST EC_GROUP  *Group;
-  CONST EC_POINT  *EcPoint;
-  BIGNUM          *BnX;
-  BIGNUM          *BnY;
-  UINTN           HalfSize;
-  INTN            XSize;
-  INTN            YSize;
-  BOOLEAN         RetVal;
+  // MU_CHANGE [BEGIN]
+  EC_PKEY_CTX  *EcPkeyCtx;
+  UINTN        HalfSize;
+  UINT8        PubKeyBuf[133];
+  UINTN        PubKeyBufLen;
+
+  // MU_CHANGE [END]
 
   if ((EcContext == NULL) || (PublicKeySize == NULL)) {
     return FALSE;
@@ -585,14 +679,20 @@ EcGetPubKey (
     return FALSE;
   }
 
-  // MU_CHANGE [BEGIN] - CodeQL change
-  BnX = NULL;
-  BnY = NULL;
-  // MU_CHANGE [END] - CodeQL change
+  // MU_CHANGE [BEGIN]
+  EcPkeyCtx = (EC_PKEY_CTX *)EcContext;
+  HalfSize  = GetHalfSizeFromNid (EcPkeyCtx->Nid);
+  if (HalfSize == 0) {
+    return FALSE;
+  }
 
-  EcKey    = (EC_KEY *)EcContext;
-  Group    = EC_KEY_get0_group (EcKey);
-  HalfSize = (EC_GROUP_get_degree (Group) + 7) / 8;
+  // MU_CHANGE [END]
+
+  // MU_CHANGE [BEGIN]
+  // EcKey    = (EC_KEY *)EcContext;
+  // Group    = EC_KEY_get0_group (EcKey);
+  // HalfSize = (EC_GROUP_get_degree (Group) + 7) / 8;
+  // MU_CHANGE [END]
   if (*PublicKeySize < HalfSize * 2) {
     *PublicKeySize = HalfSize * 2;
     return FALSE;
@@ -600,50 +700,39 @@ EcGetPubKey (
 
   *PublicKeySize = HalfSize * 2;
 
-  EcPoint = EC_KEY_get0_public_key (EcKey);
-  if (EcPoint == NULL) {
+  if (EcPkeyCtx->Pkey == NULL) {
+    // MU_CHANGE
     return FALSE;
   }
 
-  RetVal = FALSE;
-  BnX    = BN_new ();
-  BnY    = BN_new ();
-  if ((BnX == NULL) || (BnY == NULL)) {
-    goto fail;
+  // MU_CHANGE [BEGIN]
+  PubKeyBufLen = sizeof (PubKeyBuf);
+  if (EVP_PKEY_get_octet_string_param (
+        EcPkeyCtx->Pkey,
+        OSSL_PKEY_PARAM_PUB_KEY,
+        PubKeyBuf,
+        sizeof (PubKeyBuf),
+        &PubKeyBufLen
+        ) != 1)
+  {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
-  if (EC_POINT_get_affine_coordinates (Group, EcPoint, BnX, BnY, NULL) != 1) {
-    goto fail;
+  // MU_CHANGE [BEGIN]
+  // PubKeyBuf is 0x04 || X || Y; skip the leading uncompressed-point prefix
+  if (PubKeyBufLen != 1 + HalfSize * 2) {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
-  XSize = BN_num_bytes (BnX);
-  YSize = BN_num_bytes (BnY);
-  if ((XSize <= 0) || (YSize <= 0)) {
-    goto fail;
-  }
-
-  ASSERT ((UINTN)XSize <= HalfSize && (UINTN)YSize <= HalfSize);
-
+  // MU_CHANGE - ASSERT ((UINTN)XSize <= HalfSize && (UINTN)YSize <= HalfSize);
   if (PublicKey != NULL) {
     ZeroMem (PublicKey, *PublicKeySize);
-    BN_bn2bin (BnX, &PublicKey[0 + HalfSize - XSize]);
-    BN_bn2bin (BnY, &PublicKey[HalfSize + HalfSize - YSize]);
+    CopyMem (PublicKey, PubKeyBuf + 1, HalfSize * 2);  // MU_CHANGE
   }
 
-  RetVal = TRUE;
-
-fail:
-  // MU_CHANGE [BEGIN] - CodeQL change
-  if (BnX != NULL) {
-    BN_free (BnX);
-  }
-
-  if (BnY != NULL) {
-    BN_free (BnY);
-  }
-
-  // MU_CHANGE [END] - CodeQL change
-  return RetVal;
+  return TRUE;  // MU_CHANGE
 }
 
 /**
@@ -683,15 +772,23 @@ EcDhComputeKey (
   IN OUT  UINTN        *KeySize
   )
 {
-  EC_KEY          *EcKey;
-  EC_KEY          *PeerEcKey;
-  CONST EC_GROUP  *Group;
+  // MU_CHANGE [BEGIN]
+  EC_PKEY_CTX  *EcPkeyCtx;
+  CONST CHAR8  *CurveName;
+  // MU_CHANGE [END]
+  UINTN  HalfSize;
+  // MU_CHANGE [BEGIN]
   BOOLEAN         RetVal;
-  BIGNUM          *BnX;
-  BIGNUM          *BnY;
-  EC_POINT        *Point;
-  INT32           OpenSslNid;
-  UINTN           HalfSize;
+  UINT8           PubKeyBuf[133];
+  UINTN           PubKeyLen;
+  OSSL_PARAM_BLD  *Bld;
+  OSSL_PARAM      *Params;
+  EVP_PKEY_CTX    *FromdataCtx;
+  EVP_PKEY        *PeerPkey;
+  EVP_PKEY_CTX    *DeriveCtx;
+  UINTN           DerivedLen;
+
+  // MU_CHANGE [END]
 
   if ((EcContext == NULL) || (PeerPublic == NULL) || (KeySize == NULL)) {
     return FALSE;
@@ -705,9 +802,14 @@ EcDhComputeKey (
     return FALSE;
   }
 
-  EcKey    = (EC_KEY *)EcContext;
-  Group    = EC_KEY_get0_group (EcKey);
-  HalfSize = (EC_GROUP_get_degree (Group) + 7) / 8;
+  // MU_CHANGE [BEGIN]
+  EcPkeyCtx = (EC_PKEY_CTX *)EcContext;
+  HalfSize  = GetHalfSizeFromNid (EcPkeyCtx->Nid);
+  if (HalfSize == 0) {
+    return FALSE;
+  }
+
+  // MU_CHANGE [END]
   if ((CompressFlag == NULL) && (PeerPublicSize != HalfSize * 2)) {
     return FALSE;
   }
@@ -723,57 +825,108 @@ EcDhComputeKey (
 
   *KeySize = HalfSize;
 
-  RetVal    = FALSE;
-  Point     = NULL;
-  BnX       = BN_bin2bn (PeerPublic, (INT32)HalfSize, NULL);
-  BnY       = NULL;
-  Point     = EC_POINT_new (Group);
-  PeerEcKey = NULL;
-  if ((BnX == NULL) || (Point == NULL)) {
-    goto fail;
+  // MU_CHANGE [BEGIN]
+  if (EcPkeyCtx->Pkey == NULL) {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
+  // MU_CHANGE [BEGIN]
+  CurveName = OpenSslNidToCurveName (EcPkeyCtx->Nid);
+  if (CurveName == NULL) {
+    return FALSE;
+  }
+
+  // Build uncompressed or compressed peer public key buffer
+  // MU_CHANGE [END]
   if (CompressFlag == NULL) {
-    BnY = BN_bin2bn (PeerPublic + HalfSize, (INT32)HalfSize, NULL);
-    if (BnY == NULL) {
-      goto fail;
-    }
-
-    if (EC_POINT_set_affine_coordinates (Group, Point, BnX, BnY, NULL) != 1) {
-      goto fail;
-    }
+    // MU_CHANGE [BEGIN]
+    PubKeyBuf[0] = 0x04;
+    CopyMem (PubKeyBuf + 1, PeerPublic, HalfSize * 2);
+    PubKeyLen = 1 + HalfSize * 2;
+    // MU_CHANGE [END]
   } else {
-    if (EC_POINT_set_compressed_coordinates (Group, Point, BnX, *CompressFlag, NULL) != 1) {
-      goto fail;
-    }
+    // MU_CHANGE [BEGIN]
+    PubKeyBuf[0] = (UINT8)((*CompressFlag & 1) ? 0x03 : 0x02);
+    CopyMem (PubKeyBuf + 1, PeerPublic, HalfSize);
+    PubKeyLen = 1 + HalfSize;
   }
 
-  // Validate NIST ECDH public key
-  OpenSslNid = EC_GROUP_get_curve_name (Group);
-  PeerEcKey  = EC_KEY_new_by_curve_name (OpenSslNid);
-  if (PeerEcKey == NULL) {
+  RetVal      = FALSE;
+  Bld         = NULL;
+  Params      = NULL;
+  FromdataCtx = NULL;
+  PeerPkey    = NULL;
+  DeriveCtx   = NULL;
+
+  Bld = OSSL_PARAM_BLD_new ();
+  if (Bld == NULL) {
     goto fail;
   }
 
-  if (EC_KEY_set_public_key (PeerEcKey, Point) != 1) {
+  if (OSSL_PARAM_BLD_push_utf8_string (Bld, OSSL_PKEY_PARAM_GROUP_NAME, CurveName, 0) != 1) {
     goto fail;
   }
 
-  if (EC_KEY_check_key (PeerEcKey) != 1) {
+  if (OSSL_PARAM_BLD_push_octet_string (Bld, OSSL_PKEY_PARAM_PUB_KEY, PubKeyBuf, PubKeyLen) != 1) {
     goto fail;
   }
 
-  if (ECDH_compute_key (Key, *KeySize, Point, EcKey, NULL) <= 0) {
+  Params = OSSL_PARAM_BLD_to_param (Bld);
+  if (Params == NULL) {
+    goto fail;
+    // MU_CHANGE [END]
+  }
+
+  // MU_CHANGE [BEGIN]
+  FromdataCtx = EVP_PKEY_CTX_new_from_name (NULL, "EC", NULL);
+  if (FromdataCtx == NULL) {
+    // MU_CHANGE [END]
+    goto fail;
+  }
+
+  if (EVP_PKEY_fromdata_init (FromdataCtx) != 1) {
+    // MU_CHANGE
+    goto fail;
+  }
+
+  if (EVP_PKEY_fromdata (FromdataCtx, &PeerPkey, EVP_PKEY_PUBLIC_KEY, Params) != 1) {
+    // MU_CHANGE
+    goto fail;
+  }
+
+  // MU_CHANGE [BEGIN]
+  DeriveCtx = EVP_PKEY_CTX_new (EcPkeyCtx->Pkey, NULL);
+  if (DeriveCtx == NULL) {
+    goto fail;
+  }
+
+  if (EVP_PKEY_derive_init (DeriveCtx) != 1) {
+    goto fail;
+  }
+
+  // EVP_PKEY_derive_set_peer also validates the peer key
+  if (EVP_PKEY_derive_set_peer (DeriveCtx, PeerPkey) != 1) {
+    goto fail;
+  }
+
+  DerivedLen = *KeySize;
+  // Use <= 0 (not != 1) to match OpenSSL convention: 1 = success, 0 or negative = error
+  if (EVP_PKEY_derive (DeriveCtx, Key, &DerivedLen) <= 0) {
+    // MU_CHANGE [END]
     goto fail;
   }
 
   RetVal = TRUE;
 
 fail:
-  BN_free (BnX);
-  BN_free (BnY);
-  EC_POINT_free (Point);
-  EC_KEY_free (PeerEcKey);
+  // MU_CHANGE [BEGIN]
+  OSSL_PARAM_BLD_free (Bld);
+  OSSL_PARAM_free (Params);
+  EVP_PKEY_CTX_free (FromdataCtx);
+  EVP_PKEY_free (PeerPkey);
+  EVP_PKEY_CTX_free (DeriveCtx);
+  // MU_CHANGE [END]
   return RetVal;
 }
 
@@ -817,14 +970,20 @@ EcDsaSign (
   IN OUT  UINTN        *SigSize
   )
 {
-  EC_KEY     *EcKey;
-  ECDSA_SIG  *EcDsaSig;
-  INT32      OpenSslNid;
-  UINT8      HalfSize;
-  BIGNUM     *R;
-  BIGNUM     *S;
-  INTN       RSize;
-  INTN       SSize;
+  // MU_CHANGE [BEGIN]
+  EC_PKEY_CTX   *EcPkeyCtx;
+  UINTN         HalfSize;
+  EVP_PKEY_CTX  *PkeyCtx;
+  ECDSA_SIG     *EcDsaSig;
+  UINT8         DerSig[150];
+  UINTN         DerSigLen;
+  CONST UINT8   *DerSigPtr;
+  BIGNUM        *R;
+  BIGNUM        *S;
+  INTN          RSize;
+  INTN          SSize;
+
+  // MU_CHANGE [END]
 
   if ((EcContext == NULL) || (MessageHash == NULL)) {
     return FALSE;
@@ -834,20 +993,12 @@ EcDsaSign (
     return FALSE;
   }
 
-  EcKey      = (EC_KEY *)EcContext;
-  OpenSslNid = EC_GROUP_get_curve_name (EC_KEY_get0_group (EcKey));
-  switch (OpenSslNid) {
-    case NID_X9_62_prime256v1:
-      HalfSize = 32;
-      break;
-    case NID_secp384r1:
-      HalfSize = 48;
-      break;
-    case NID_secp521r1:
-      HalfSize = 66;
-      break;
-    default:
-      return FALSE;
+  // MU_CHANGE [BEGIN]
+  EcPkeyCtx = (EC_PKEY_CTX *)EcContext;
+  HalfSize  = GetHalfSizeFromNid (EcPkeyCtx->Nid);
+  if (HalfSize == 0) {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
   if (*SigSize < (UINTN)(HalfSize * 2)) {
@@ -884,11 +1035,33 @@ EcDsaSign (
       return FALSE;
   }
 
-  EcDsaSig = ECDSA_do_sign (
-               MessageHash,
-               (UINT32)HashSize,
-               (EC_KEY *)EcContext
-               );
+  // MU_CHANGE [BEGIN]
+  if (EcPkeyCtx->Pkey == NULL) {
+    return FALSE;
+  }
+
+  PkeyCtx = EVP_PKEY_CTX_new (EcPkeyCtx->Pkey, NULL);
+  if (PkeyCtx == NULL) {
+    return FALSE;
+  }
+
+  if (EVP_PKEY_sign_init (PkeyCtx) != 1) {
+    EVP_PKEY_CTX_free (PkeyCtx);
+    return FALSE;
+  }
+
+  DerSigLen = sizeof (DerSig);
+  if (EVP_PKEY_sign (PkeyCtx, DerSig, &DerSigLen, MessageHash, HashSize) != 1) {
+    EVP_PKEY_CTX_free (PkeyCtx);
+    return FALSE;
+  }
+
+  EVP_PKEY_CTX_free (PkeyCtx);
+
+  // Parse DER-encoded ECDSA signature into R and S bignums
+  DerSigPtr = DerSig;
+  EcDsaSig  = d2i_ECDSA_SIG (NULL, &DerSigPtr, (long)DerSigLen);
+  // MU_CHANGE [END]
   if (EcDsaSig == NULL) {
     return FALSE;
   }
@@ -946,13 +1119,19 @@ EcDsaVerify (
   IN  UINTN        SigSize
   )
 {
-  INT32      Result;
-  EC_KEY     *EcKey;
-  ECDSA_SIG  *EcDsaSig;
-  INT32      OpenSslNid;
-  UINT8      HalfSize;
-  BIGNUM     *R;
-  BIGNUM     *S;
+  // MU_CHANGE [BEGIN]
+  INT32         Result;
+  EC_PKEY_CTX   *EcPkeyCtx;
+  ECDSA_SIG     *EcDsaSig;
+  UINTN         HalfSize;
+  BIGNUM        *R;
+  BIGNUM        *S;
+  UINT8         DerSig[150];
+  UINT8         *DerSigPtr;
+  INT32         DerSigLen;
+  EVP_PKEY_CTX  *PkeyCtx;
+
+  // MU_CHANGE [END]
 
   if ((EcContext == NULL) || (MessageHash == NULL) || (Signature == NULL)) {
     return FALSE;
@@ -962,20 +1141,12 @@ EcDsaVerify (
     return FALSE;
   }
 
-  EcKey      = (EC_KEY *)EcContext;
-  OpenSslNid = EC_GROUP_get_curve_name (EC_KEY_get0_group (EcKey));
-  switch (OpenSslNid) {
-    case NID_X9_62_prime256v1:
-      HalfSize = 32;
-      break;
-    case NID_secp384r1:
-      HalfSize = 48;
-      break;
-    case NID_secp521r1:
-      HalfSize = 66;
-      break;
-    default:
-      return FALSE;
+  // MU_CHANGE [BEGIN]
+  EcPkeyCtx = (EC_PKEY_CTX *)EcContext;
+  HalfSize  = GetHalfSizeFromNid (EcPkeyCtx->Nid);
+  if (HalfSize == 0) {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
   if (SigSize != (UINTN)(HalfSize * 2)) {
@@ -1008,29 +1179,53 @@ EcDsaVerify (
       return FALSE;
   }
 
+  // Build ECDSA_SIG from raw R || S, then DER-encode for EVP_PKEY_verify  // MU_CHANGE
   EcDsaSig = ECDSA_SIG_new ();
   if (EcDsaSig == NULL) {
-    ECDSA_SIG_free (EcDsaSig);
+    // MU_CHANGE - ECDSA_SIG_free (EcDsaSig);
     return FALSE;
   }
 
   R = BN_bin2bn (Signature, (UINT32)HalfSize, NULL);
   S = BN_bin2bn (Signature + HalfSize, (UINT32)HalfSize, NULL);
   if ((R == NULL) || (S == NULL)) {
+    // MU_CHANGE [BEGIN]
+    BN_free (R);
+    BN_free (S);
+    // MU_CHANGE [END]
     ECDSA_SIG_free (EcDsaSig);
     return FALSE;
   }
 
+  // ECDSA_SIG_set0 takes ownership of R and S  // MU_CHANGE
   ECDSA_SIG_set0 (EcDsaSig, R, S);
 
-  Result = ECDSA_do_verify (
-             MessageHash,
-             (UINT32)HashSize,
-             EcDsaSig,
-             (EC_KEY *)EcContext
-             );
-
+  // MU_CHANGE [BEGIN]
+  DerSigPtr = DerSig;
+  DerSigLen = i2d_ECDSA_SIG (EcDsaSig, &DerSigPtr);
   ECDSA_SIG_free (EcDsaSig);
+  if (DerSigLen <= 0) {
+    return FALSE;
+  }
+
+  if (EcPkeyCtx->Pkey == NULL) {
+    return FALSE;
+  }
+
+  PkeyCtx = EVP_PKEY_CTX_new (EcPkeyCtx->Pkey, NULL);
+  if (PkeyCtx == NULL) {
+    return FALSE;
+  }
+
+  if (EVP_PKEY_verify_init (PkeyCtx) != 1) {
+    EVP_PKEY_CTX_free (PkeyCtx);
+    return FALSE;
+  }
+
+  Result = EVP_PKEY_verify (PkeyCtx, DerSig, (UINTN)DerSigLen, MessageHash, HashSize);
+
+  EVP_PKEY_CTX_free (PkeyCtx);
+  // MU_CHANGE [END]
 
   return (Result == 1);
 }

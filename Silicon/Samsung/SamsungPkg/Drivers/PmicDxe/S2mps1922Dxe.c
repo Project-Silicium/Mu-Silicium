@@ -20,9 +20,9 @@
 //
 // Global Variables
 //
-STATIC EFI_SPEEDY_PROTOCOL             *mSpeedyProtocol;
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX  Speedy1MemoryRegion;
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX  Speedy2MemoryRegion;
+STATIC EFI_SPEEDY_PROTOCOL          *mSpeedyProtocol;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR  Speedy1MemoryRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR  Speedy2MemoryRegion;
 
 EFI_STATUS
 DisableWtsr ()
@@ -413,21 +413,22 @@ InitS2mps1922 (
   }
 
   // Locate "Speedy-1" Memory Region
-  Status = LocateMemoryMapAreaByName ("Speedy-1", &Speedy1MemoryRegion);
+  Status = LocateMemoryRegionByName ("Speedy-1", &Speedy1MemoryRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to get 'Speedy-1' Memory Region! Status = %r\n", Status));
     return Status;
   }
 
   // Locate "Speedy-2" Memory Region
-  Status = LocateMemoryMapAreaByName ("Speedy-2", &Speedy2MemoryRegion);
+  Status = LocateMemoryRegionByName ("Speedy-2", &Speedy2MemoryRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to get 'Speedy-2' Memory Region! Status = %r\n", Status));
     return Status;
   }
 
   // Init PMIC
-  ASSERT_EFI_ERROR (InitPmic ());
+  Status = InitPmic ();
+  ASSERT_EFI_ERROR (Status);
 
   // Display PMIC Infos
   DisplayPmicInfos ();

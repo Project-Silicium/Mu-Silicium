@@ -18,29 +18,17 @@ _StackSize:
 
 _Start:
   mov   x4, x1
-#if REQUIRES_KERNEL_HEADER == 1
-  ldr   x5, _StackBase
-#else
   ldr   x5, =FD_BASE
-#endif
   cmp   x4, x5
   beq   _Entry
-#if REQUIRES_KERNEL_HEADER == 1
-  ldr   x6,  _StackSize
-#else
   ldr   x6,  =FD_SIZE
-#endif
 
 _CopyLoop:
   ldp   x2, x3, [x4], #16
   stp   x2, x3, [x5], #16
   subs  x6, x6, #16
   b.ne  _CopyLoop
-#if REQUIRES_KERNEL_HEADER == 1
-  ldr   x5, _StackBase
-#else
   ldr   x5, =FD_BASE
-#endif
 
 _Entry:
   br    x5

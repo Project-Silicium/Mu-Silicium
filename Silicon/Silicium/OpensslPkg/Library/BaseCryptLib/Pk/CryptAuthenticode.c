@@ -110,12 +110,10 @@ AuthenticodeVerify (
   //       PKCS#7 ContentInfo here.
   //
   SpcIndirectDataOid = OBJ_get0_data (Pkcs7->d.sign->contents->type);
-  // MU_CHANGE [BEGIN] - CodeQL change
   if (SpcIndirectDataOid == NULL) {
     goto _Exit;
   }
 
-  // MU_CHANGE [END] - CodeQL change
   if ((OBJ_length (Pkcs7->d.sign->contents->type) != sizeof (mSpcIndirectOidValue)) ||
       (CompareMem (
          SpcIndirectDataOid,

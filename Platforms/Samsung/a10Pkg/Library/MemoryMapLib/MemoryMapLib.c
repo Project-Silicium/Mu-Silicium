@@ -1,15 +1,15 @@
 #include <Library/MemoryMapLib.h>
 
 STATIC
-EFI_MEMORY_REGION_DESCRIPTOR_EX
-gMemoryRegionDescriptorEx[] = {
+EFI_MEMORY_REGION_DESCRIPTOR
+gMemoryDescriptor[] = {
   // Name, Address, Length, HobOption, ResourceType, ResourceAttribute, MemoryType, ArmAttribute
 
   // DDR Regions
   {"SEC Debug",          0x80000000, 0x00001000, AddMem, SYS_MEM, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED},
   {"RAM Partition",      0x80001000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"DRAM Test",          0x80002000, 0x00002000, AddMem, SYS_MEM, SYS_MEM_CAP, BsCode, WRITE_BACK},
-  {"CPU Vectors",        0x80004000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+  {"RAM Partition",      0x80004000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"UEFI Stack",         0x80005000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"RAM Partition",      0x80045000, 0x113BB000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"UEFI FD",            0x91400000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
@@ -36,14 +36,15 @@ gMemoryRegionDescriptorEx[] = {
   {"Pinctrl FSYS",       0x13430000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Pinctrl TOP",        0x139B0000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Decon",              0x14860000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
-  {"Pinctrl DISPAUD",    0x148F0000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
-
-  // Terminator for MMU
-  {"Terminator", 0, 0, 0, 0, 0, 0, 0}
+  {"Pinctrl DISPAUD",    0x148F0000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE}
 };
 
-EFI_MEMORY_REGION_DESCRIPTOR_EX*
-GetMemoryMap ()
+VOID
+GetMemoryMap (
+  OUT EFI_MEMORY_REGION_DESCRIPTOR **MemoryDescriptor,
+  OUT UINT8                         *MemoryDescriptorCount)
 {
-  return gMemoryRegionDescriptorEx;
+  // Pass Data
+  *MemoryDescriptor      = gMemoryDescriptor;
+  *MemoryDescriptorCount = ARRAY_SIZE (gMemoryDescriptor);
 }

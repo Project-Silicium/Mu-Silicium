@@ -25,41 +25,53 @@
   FLASH_DEFINITION               = caymanslmPkg/caymanslm.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include NapaliPkg/NapaliPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x23, 0xC8, 0x79, 0xEF, 0x88, 0x79, 0xA1, 0x42, 0x80, 0x87, 0x74, 0x2F, 0x78, 0xA4, 0x73, 0x4D }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"LG"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Velvet"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"caymanslm"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Velvet_caymanslm"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Velvet"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2460
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|caymanslmPkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|caymanslmPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include NapaliPkg/NapaliPkg.dsc.inc
+  #
+  # QCOM Libraries
+  #
+  ConfigurationMapLib|caymanslmPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

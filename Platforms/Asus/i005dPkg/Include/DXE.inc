@@ -50,9 +50,6 @@
   INF Binaries/i005d/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/i005d/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/i005d/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf

@@ -2,7 +2,7 @@
 #  SECTION RAW = Nicobar/APIC.aml
 #  SECTION RAW = Nicobar/BERT.aml
 #  SECTION RAW = Nicobar/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Nicobar/DBG2.aml
 !endif
 #  SECTION RAW = Nicobar/DSDT.aml

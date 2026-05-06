@@ -33,43 +33,55 @@
   #
   SOC_TYPE                       = 0 
 
+!include PalawanPkg/PalawanPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x96, 0x9A, 0xE9, 0x1C, 0x60, 0x0D, 0xB7, 0x4C, 0xA8, 0x6F, 0x0F, 0x17, 0x02, 0x19, 0x84, 0x87 }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 7 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"muyu"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Pad_7_Pro_muyu"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Pad 7 Pro"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|3200
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2136
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703FD38
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703FD38
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703F0E8
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xE6440000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|muyuPkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|muyuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include PalawanPkg/PalawanPkg.dsc.inc
+  #
+  # QCOM Libraries
+  #
+  ConfigurationMapLib|muyuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

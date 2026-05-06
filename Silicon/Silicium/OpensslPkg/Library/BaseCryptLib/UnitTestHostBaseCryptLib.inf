@@ -11,9 +11,9 @@
   INF_VERSION                    = 0x00010005
   BASE_NAME                      = BaseCryptLib
   FILE_GUID                      = c97d34aa-caf8-42cd-8261-8705f46304b3
-  MODULE_TYPE                    = DXE_DRIVER
+  MODULE_TYPE                    = HOST_APPLICATION
   VERSION_STRING                 = 1.0
-  LIBRARY_CLASS                  = BaseCryptLib|HOST_APPLICATION
+  LIBRARY_CLASS                  = BaseCryptLib
 
 #
 # The following information is for reference only and not required by the build tools.
@@ -38,6 +38,7 @@
   Pk/CryptPkcs1Oaep.c
   Pk/CryptPkcs5Pbkdf2.c
   Pk/CryptPkcs7Sign.c
+  Pk/CryptPkcs7Encrypt.c # MU_CHANGE
   Pk/CryptPkcs7VerifyCommon.c
   Pk/CryptPkcs7VerifyBase.c
   Pk/CryptPkcs7VerifyEku.c
@@ -62,7 +63,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   CryptoPkg/CryptoPkg.dec
-  OpensslPkg/OpensslPkg.dec
+  OpensslPkg/OpensslPkg.dec # MU_CHANGE
 
 [LibraryClasses]
   BaseLib
@@ -79,8 +80,7 @@
   #
   # suppress the following warnings so we do not break the build with warnings-as-errors:
   #
-  GCC:*_CLANG35_*_CC_FLAGS = -std=c99
-  GCC:*_CLANG38_*_CC_FLAGS = -std=c99
+  GCC:*_CLANGDWARF_*_CC_FLAGS = -std=c99 -Wno-error=incompatible-pointer-types
   GCC:*_CLANGPDB_*_CC_FLAGS = -std=c99 -Wno-error=incompatible-pointer-types
 
   XCODE:*_*_*_CC_FLAGS = -std=c99

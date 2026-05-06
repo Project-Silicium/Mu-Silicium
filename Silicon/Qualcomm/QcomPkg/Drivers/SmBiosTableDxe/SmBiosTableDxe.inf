@@ -7,7 +7,7 @@
   ENTRY_POINT                    = RegisterSmBiosTables
 
 [Sources]
-  SmBiosTableDxe.c
+  SmBiosTable.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -18,7 +18,6 @@
   QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  RamPartitionTableLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
@@ -35,7 +34,6 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
   gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel

@@ -208,11 +208,11 @@ ArmSmmuDetach (
   IN CONST UINT16 *SkipStreams,
   IN UINT8         SkipStreamCount)
 {
-  EFI_STATUS                      Status;
-  EFI_MEMORY_REGION_DESCRIPTOR_EX SmmuRegion;
+  EFI_STATUS                   Status;
+  EFI_MEMORY_REGION_DESCRIPTOR SmmuRegion;
 
   // Locate "SMMU" Memory Region
-  Status = LocateMemoryMapAreaByName ("SMMU", &SmmuRegion);
+  Status = LocateMemoryRegionByName ("SMMU", &SmmuRegion);
   if (EFI_ERROR (Status)) {
     return;
   }

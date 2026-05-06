@@ -31,9 +31,6 @@
 
   INF Binaries/caymanslm/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/caymanslm/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf

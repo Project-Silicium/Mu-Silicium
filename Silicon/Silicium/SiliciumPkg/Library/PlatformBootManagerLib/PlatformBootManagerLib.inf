@@ -11,10 +11,10 @@
   MODULE_TYPE                    = DXE_DRIVER
   UEFI_SPECIFICATION_VERSION     = 2.7
   LIBRARY_CLASS                  = PlatformBootManagerLib|DXE_DRIVER
-  CONSTRUCTOR                    = PlatformBootManagerEntry
 
 [Sources]
-  PlatformBootManagerLib.c
+  PlatformBootManager.c
+  KeyCallback.c
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -25,45 +25,30 @@
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
+  PcdLib
   DebugLib
-  BaseMemoryLib
-  DxeServicesLib
+  AcpiTableUpdateLib
+  PlatformBootManagerLib
+  UefiRuntimeServicesTableLib
   UefiBootServicesTableLib
+  SecureBootHandlerLib
   MemoryAllocationLib
   MsBootOptionsLib
-  MsBootPolicyLib
   BootGraphicsLib
-  MuSecureBootKeySelectorLib
-  UefiRuntimeServicesTableLib
-  AcpiPlatformUpdateLib
-  DxeServicesTableLib
-  AcpiDeviceUpdateLib
-  PerformanceLib
   DevicePathLib
-  CapsuleLib
   PrintLib
-  UefiLib
-  HobLib
-  PcdLib
 
 [Pcd]
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut
 
 [FixedPcd]
-  gSiliciumPkgTokenSpaceGuid.PcdSpecialApp
-  gSiliciumPkgTokenSpaceGuid.PcdSpecialAppName
-  gSiliciumPkgTokenSpaceGuid.PcdCustomSiPolicyGuid
+  gSiliciumPkgTokenSpaceGuid.PcdAlternativeAppFile
+  gSiliciumPkgTokenSpaceGuid.PcdAlternativeAppFileName
 
 [Guids]
   gEfiEndOfDxeEventGroupGuid
-  gEfiGlobalVariableGuid
-  gMsStartOfBdsNotifyGuid
-  gMsBootMenuFormsetGuid
-  gEfiEventPreReadyToBootGuid
-  gEfiEventAfterReadyToBootGuid
 
 [Protocols]
-  gEfiDxeSmmReadyToLockProtocolGuid
-  gEfiAbsolutePointerProtocolGuid
+  gKeypadDeviceProtocolGuid
+  gEfiSimpleTextInputExProtocolGuid
   gEfiGraphicsOutputProtocolGuid
-  gEfiSimpleFileSystemProtocolGuid

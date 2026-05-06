@@ -1,5 +1,5 @@
 /**
-  Copyright (c) 2020 Intel Corporation. All rights reserved. <BR>
+  Copyright (c) 2020 Intel Corporation. All rights reserved.
   SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
@@ -42,11 +42,5 @@ LocateAcpiTableBySignature (
   IN OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
   IN OUT UINTN                        *Handle
   );
-
-VOID
-DeviceUpdateAcpiTables ();
-
-VOID
-PlatformUpdateAcpiTables ();
 
 #endif /* _ASL_UPDATE_LIB_H_ */

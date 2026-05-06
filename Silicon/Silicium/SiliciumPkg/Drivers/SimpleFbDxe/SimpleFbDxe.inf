@@ -4,10 +4,10 @@
   FILE_GUID                      = DCFD1E6D-788D-4FFC-8E1B-CA2F75651A92
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = RegisterDisplays
+  ENTRY_POINT                    = RegisterFrameBuffer
 
 [Sources]
-  SimpleFbDxe.c
+  SimpleFb.c
 
 [Packages]
   ArmPkg/ArmPkg.dec

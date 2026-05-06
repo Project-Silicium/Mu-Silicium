@@ -34,18 +34,23 @@
   #
   SOC_TYPE                       = 1
 
+!include PalimaPkg/PalimaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0xA760D000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xA760D000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x2B, 0xCA, 0x3B, 0xBD, 0x7C, 0xA7, 0xCA, 0x41, 0x9A, 0x19, 0x52, 0xCB, 0xFA, 0xFA, 0xBD, 0x82 }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Realme"
 !if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo5 150W"
@@ -66,25 +71,32 @@
 !error "Invalid Model! specify "0" for GT Neo5 150W or "1" for GT Neo5 240W or "2" for GT3"
 !endif
 
-  # Simple FrameBuffer
+  #
+  # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1240
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2772
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0C8
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0xA703C928
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703C928
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xFFC00000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|senna_bcPkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|senna_bcPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include PalimaPkg/PalimaPkg.dsc.inc
+  #
+  # QCOM Libraries
+  #
+  ConfigurationMapLib|senna_bcPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

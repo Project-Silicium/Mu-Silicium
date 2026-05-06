@@ -9,42 +9,47 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 1
 
+  #
   # KEP
+  #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
   HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 1
 
+!include QcomPkg/QcomPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|TRUE
-
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17A00000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17A60000
 
+  #
   # Timer
+  #
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
 
-  # SmBios
+  #
+  # SMBIOS
+  #
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AA"
@@ -55,8 +60,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AC"
 !endif
-
-  # SmBios CPU Extras
 !if $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2300
 !else
@@ -66,17 +69,21 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
-
-  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
-  PlatformPrePiLib|MooreaPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  RFSProtectionLib|MooreaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
-  AcpiPlatformUpdateLib|MooreaPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|MooreaPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  #
+  # SEC Libraries
+  #
+  PlatformSecLib|MooreaPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
-!include QcomPkg/QcomPkg.dsc.inc
+  #
+  # ACPI Libraries
+  #
+  AcpiTableUpdateLib|MooreaPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
+
+  #
+  # Custom Libraries
+  #
+  RFSProtectionLib|MooreaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf

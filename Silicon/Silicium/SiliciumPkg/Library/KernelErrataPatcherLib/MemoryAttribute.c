@@ -67,7 +67,7 @@ ReProtectWinload (
   }
 
   // Verify Read-Only Memory Attribute
-  if (!(MemoryAttributes & EFI_MEMORY_RO)) {
+  if (MemoryAttributes & EFI_MEMORY_RO) {
     return EFI_SUCCESS;
   }
 

@@ -2,7 +2,7 @@
 #  SECTION RAW = Kaanapali/APIC.aml
 #  SECTION RAW = Kaanapali/BERT.aml
 #  SECTION RAW = Kaanapali/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Kaanapali/DBG2.aml
 !endif
 #  SECTION RAW = Kaanapali/DSDT.aml

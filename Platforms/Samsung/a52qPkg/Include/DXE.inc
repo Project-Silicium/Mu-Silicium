@@ -33,9 +33,6 @@
 
   INF Binaries/a52q/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF Binaries/a52q/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf

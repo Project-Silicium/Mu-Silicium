@@ -11,6 +11,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <openssl/objects.h>
 #include <openssl/x509.h>
 #include <openssl/pkcs7.h>
+#include <openssl/pem.h>  // MU_CHANGE
 
 /**
   Creates a PKCS#7 signedData as described in "PKCS #7: Cryptographic Message
@@ -56,42 +57,58 @@ Pkcs7Sign (
   X509      *Cert;      // MU_CHANGE [TCBZ3925] - Pkcs7Sign is broken
   EVP_PKEY  *Key;
   BIO       *DataBio;
+  BIO       *PemBio;  // MU_CHANGE
   PKCS7     *Pkcs7;
-  UINT8     *RsaContext;
-  UINT8     *P7Data;
-  UINTN     P7DataSize;
-  UINT8     *Tmp;
+  // MU_CHANGE - UINT8     *RsaContext;
+  UINT8  *P7Data;
+  UINTN  P7DataSize;
+  UINT8  *Tmp;
 
   //
   // Check input parameters.
   //
   if ((PrivateKey == NULL) || (KeyPassword == NULL) || (InData == NULL) ||
-      (SignCert == NULL) || (SignedData == NULL) || (SignedDataSize == NULL) || (InDataSize > INT_MAX))
+      // MU_CHANGE [BEGIN]
+      (SignCert == NULL) || (SignedData == NULL) || (SignedDataSize == NULL) ||
+      (PrivateKeySize > INT_MAX) || (InDataSize > INT_MAX))
+  // MU_CHANGE [END]
   {
     return FALSE;
   }
 
-  RsaContext = NULL;
-  Cert       = NULL;    // MU_CHANGE [TCBZ3925] - Pkcs7Sign is broken
-  Key        = NULL;
-  Pkcs7      = NULL;
-  DataBio    = NULL;
-  Status     = FALSE;
+  Cert    = NULL;    // MU_CHANGE [TCBZ3925] - Pkcs7Sign is broken
+  Key     = NULL;
+  Pkcs7   = NULL;
+  DataBio = NULL;
+  PemBio  = NULL;
+  Status  = FALSE;
 
   //
-  // Retrieve RSA private key from PEM data.
+  // Retrieve RSA private key from PEM data as EVP_PKEY directly.  // MU_CHANGE
   //
-  Status = RsaGetPrivateKeyFromPem (
-             PrivateKey,
-             PrivateKeySize,
-             (CONST CHAR8 *)KeyPassword,
-             (VOID **)&RsaContext
-             );
-  if (!Status) {
-    return Status;
+  // MU_CHANGE [BEGIN]
+  PemBio = BIO_new_mem_buf (PrivateKey, (int)PrivateKeySize);
+  if (PemBio == NULL) {
+    goto _Exit;
   }
 
-  Status = FALSE;
+  Key = PEM_read_bio_PrivateKey (PemBio, NULL, NULL, (void *)KeyPassword);
+  if (Key == NULL) {
+    goto _Exit;
+    // MU_CHANGE [END]
+  }
+
+  // MU_CHANGE [BEGIN]
+  //
+  // Pkcs7Sign currently supports RSA private keys only.
+  // Additional key types (for example, MLDSA or composite keys) require
+  // extending this flow with algorithm-specific signing support.
+  //
+  if (EVP_PKEY_id (Key) != EVP_PKEY_RSA) {
+    goto _Exit;
+  }
+
+  // MU_CHANGE [END]
 
   //
   // Register & Initialize necessary digest algorithms and PRNG for PKCS#7 Handling
@@ -121,18 +138,18 @@ Pkcs7Sign (
 
   // MU_CHANGE [TCBZ3925] [END] - Pkcs7Sign is broken
 
-  //
-  // Construct OpenSSL EVP_PKEY for private key.
-  //
-  Key = EVP_PKEY_new ();
-  if (Key == NULL) {
-    goto _Exit;
-  }
-
-  if (EVP_PKEY_assign_RSA (Key, (RSA *)RsaContext) == 0) {
-    goto _Exit;
-  }
-
+  // MU_CHANGE [BEGIN]
+  // //
+  // // Construct OpenSSL EVP_PKEY for private key.
+  // //
+  // Key = EVP_PKEY_new ();
+  // if (Key == NULL) {
+  // goto _Exit;
+  // }
+  // if (EVP_PKEY_assign_RSA (Key, (RSA *)RsaContext) == 0) {
+  // goto _Exit;
+  // }
+  // MU_CHANGE [END]
   //
   // Convert the data to be signed to BIO format.
   //
@@ -212,6 +229,12 @@ _Exit:
     BIO_free (DataBio);
   }
 
+  // MU_CHANGE [BEGIN]
+  if (PemBio != NULL) {
+    BIO_free (PemBio);
+  }
+
+  // MU_CHANGE [END]
   if (Pkcs7 != NULL) {
     PKCS7_free (Pkcs7);
   }

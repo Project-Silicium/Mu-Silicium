@@ -26,10 +26,11 @@ KernelErrataPatcherExitBootServices (
   IN UINTN                MapKey,
   IN EFI_PHYSICAL_ADDRESS fwpKernelSetupPhase1)
 {
-  EFI_STATUS           Status;
-  EFI_PHYSICAL_ADDRESS WinloadBase;
-  UINTN                WinloadLength;
-  UINTN                TransferToKernelShellCodeSize;
+  EFI_STATUS            Status;
+  EFI_PHYSICAL_ADDRESS  WinloadBase;
+  UINTN                 WinloadLength;
+  UINT8                *TransferToKernelShellCode;
+  UINTN                 TransferToKernelShellCodeSize;
 
   // Restore Original EBS
   gBS->ExitBootServices = mOriginalEfiExitBootServices;
@@ -53,22 +54,21 @@ KernelErrataPatcherExitBootServices (
   // Apply Platform Errata Patches
   Status = ApplyPlatformErrataPatches (WinloadBase, SCAN_MAX);
   if (EFI_ERROR (Status)) {
-    goto reprotect;
+    goto exit;
   }
 
   // Get Platform Shell Code
-  UINT8 *TransferToKernelShellCode = GetPlatformTransferToKernelShellCode (&TransferToKernelShellCodeSize);
+  GetPlatformTransferToKernelShellCode (&TransferToKernelShellCode, &TransferToKernelShellCodeSize);
 
   // Apply Platform Shell Code
   if (TransferToKernelShellCode != NULL && TransferToKernelShellCodeSize) {
     PatchOsLoaderArm64TransferToKernel (WinloadBase + 0xC00, TransferToKernelShellCode, TransferToKernelShellCodeSize);
   }
 
-reprotect:
+exit:
   // Re-Protect winload.efi
   ReProtectWinload (WinloadBase + EFI_PAGE_SIZE, WinloadLength);
 
-exit:
   // Call Original EBS
   return gBS->ExitBootServices (ImageHandle, MapKey);
 }
@@ -79,8 +79,6 @@ ReadyToBootHandler (
   IN EFI_EVENT  Event,
   IN VOID      *Context)
 {
-  PERF_CALLBACK_BEGIN (&gEfiEventReadyToBootGuid);
-
   // Save Original EBS
   mOriginalEfiExitBootServices = gBS->ExitBootServices;
 
@@ -93,8 +91,6 @@ ReadyToBootHandler (
 
   // Close Event
   gBS->CloseEvent (Event);
-
-  PERF_CALLBACK_END (&gEfiEventReadyToBootGuid);
 }
 
 EFI_STATUS

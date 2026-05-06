@@ -2,7 +2,7 @@
 #  SECTION RAW = Kona/APIC.aml
 #  SECTION RAW = Kona/BERT.aml
 #  SECTION RAW = Kona/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Kona/DBG2.aml
 !endif
 #  SECTION RAW = r8q/DSDT.aml

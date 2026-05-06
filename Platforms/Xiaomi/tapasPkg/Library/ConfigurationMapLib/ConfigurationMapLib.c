@@ -1,8 +1,8 @@
 #include <Library/ConfigurationMapLib.h>
 
 STATIC
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX
-gConfigurationEntryDescriptorEx[] = {
+EFI_CONFIGURATION_ENTRY_DESCRIPTOR
+gConfigurationDescriptor[] = {
   // Configuration Map
   {"NumCpusFuseAddr", 0x5C04C},
   {"EnableShell", 0x1},
@@ -35,14 +35,15 @@ gConfigurationEntryDescriptorEx[] = {
   {"EnableDisplayThread", 1},
   {"EnableUefiSecAppDebugLogDump", 0x1},
   {"AllowNonPersistentVarsInRetail", 0x1},
-  {"MinidumpTALoadingCfg", 0x0},
-
-  // Terminator
-  {"Terminator", 0xFFFFFFFF}
+  {"MinidumpTALoadingCfg", 0x0}
 };
 
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX*
-GetConfigurationMap ()
+VOID
+GetConfigurationMap (
+  OUT EFI_CONFIGURATION_ENTRY_DESCRIPTOR **ConfigurationDescriptor,
+  OUT UINT8                               *ConfigurationDescriptorCount)
 {
-  return gConfigurationEntryDescriptorEx;
+  // Pass Data
+  *ConfigurationDescriptor      = gConfigurationDescriptor;
+  *ConfigurationDescriptorCount = ARRAY_SIZE (gConfigurationDescriptor);
 }

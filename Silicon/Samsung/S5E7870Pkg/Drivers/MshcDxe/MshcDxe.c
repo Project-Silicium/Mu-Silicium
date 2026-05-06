@@ -672,10 +672,10 @@ MshcEntryPoint (
   IN EFI_HANDLE         ImageHandle,
   IN EFI_SYSTEM_TABLE   *SystemTable)
 {
-  EFI_MEMORY_REGION_DESCRIPTOR_EX MemRegion;
-  EFI_STATUS                      Status;
+  EFI_MEMORY_REGION_DESCRIPTOR MemRegion;
+  EFI_STATUS                   Status;
 
-  Status = LocateMemoryMapAreaByName ("MSHC", &MemRegion);
+  Status = LocateMemoryRegionByName ("MSHC", &MemRegion);
   if (EFI_ERROR (Status) && !MemRegion.Address) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate the MSHC Memory Region!\n"));
     return Status;

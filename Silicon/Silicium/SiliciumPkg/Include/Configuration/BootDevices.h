@@ -26,14 +26,6 @@ typedef struct {
 } EFI_GENERIC_DEVICE_PATH;
 
 //
-// USB Keyboard Device Path
-//
-typedef struct {
-  USB_CLASS_DEVICE_PATH    UsbClassDevicePath;
-  EFI_DEVICE_PATH_PROTOCOL EndDevicePath;
-} EFI_USB_KEYBOARD_DEVICE_PATH;
-
-//
 // Keypad Controller Device Path
 //
 EFI_GENERIC_DEVICE_PATH KeypadDevicePath = {
@@ -72,35 +64,6 @@ EFI_GENERIC_DEVICE_PATH DisplayDevicePath = {
       }
     },
     EFI_GRAPHICS_OUTPUT_PROTOCOL_GUID
-  },
-  {
-    END_DEVICE_PATH_TYPE,
-    END_ENTIRE_DEVICE_PATH_SUBTYPE,
-    {
-      (UINT8)(END_DEVICE_PATH_LENGTH),
-      (UINT8)((END_DEVICE_PATH_LENGTH) >> 8)
-    }
-  }
-};
-
-//
-// USB Keyboard Controller Device Path
-//
-EFI_USB_KEYBOARD_DEVICE_PATH mUsbKeyboardDevicePath = {
-  {
-    {
-      MESSAGING_DEVICE_PATH,
-      MSG_USB_CLASS_DP,
-      {
-        (UINT8)(sizeof (USB_CLASS_DEVICE_PATH)),
-        (UINT8)((sizeof (USB_CLASS_DEVICE_PATH)) >> 8)
-      }
-    },
-    0xFFFF,
-    0xFFFF,
-    0x0003,
-    0x0001,
-    0x0001
   },
   {
     END_DEVICE_PATH_TYPE,

@@ -3,7 +3,7 @@
 #  SECTION RAW = Erista/APIC.aml
 #  SECTION RAW = Erista/BERT.aml
 #  SECTION RAW = Erista/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Erista/DBG2.aml
 !endif
 #  SECTION RAW = icosa/DSDT.aml
@@ -20,7 +20,7 @@
 #  SECTION RAW = Mariko/APIC.aml
 #  SECTION RAW = Mariko/BERT.aml
 #  SECTION RAW = Mariko/CSRT.aml
-!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Mariko/DBG2.aml
 !endif
 !if $(DEVICE_MODEL) == 1

@@ -1,8 +1,8 @@
 #include <Library/ConfigurationMapLib.h>
 
 STATIC
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX
-gConfigurationEntryDescriptorEx[] = {
+EFI_CONFIGURATION_ENTRY_DESCRIPTOR
+gConfigurationDescriptor[] = {
   // Configuration Map
   {"AllowNonPersistentVarsInRetail", 0x1},
   {"DDRInfoNotifyFlag", 0x0},
@@ -51,8 +51,12 @@ gConfigurationEntryDescriptorEx[] = {
   {"Terminator", 0xFFFFFFFF}
 };
 
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX*
-GetConfigurationMap ()
+VOID
+GetConfigurationMap (
+  OUT EFI_CONFIGURATION_ENTRY_DESCRIPTOR **ConfigurationDescriptor,
+  OUT UINT8                               *ConfigurationDescriptorCount)
 {
-  return gConfigurationEntryDescriptorEx;
+  // Pass Data
+  *ConfigurationDescriptor      = gConfigurationDescriptor;
+  *ConfigurationDescriptorCount = ARRAY_SIZE (gConfigurationDescriptor);
 }

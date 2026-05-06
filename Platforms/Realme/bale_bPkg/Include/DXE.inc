@@ -57,9 +57,6 @@
   INF Binaries/bale_b/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
-  INF QcomPkg/Drivers/DynamicRamDxe/DynamicRamDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/bale_b/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf

@@ -32,18 +32,23 @@
   #
   SOC_TYPE                       = 2
 
+!include KonaPkg/KonaPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0xAE, 0xCD, 0x67, 0x7F, 0x12, 0x83, 0xCC, 0x4E, 0xB9, 0x48, 0xD8, 0x6C, 0x87, 0x0D, 0x04, 0xD9 }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"alioth"
 !if $(DEVICE_MODEL) == 0
@@ -62,23 +67,30 @@
 !error "Invalid Model Type! 0, 1 or 2 are Valid Model Types."
 !endif
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|aliothPkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|aliothPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include KonaPkg/KonaPkg.dsc.inc
+  #
+  # QCOM Libraries
+  #
+  ConfigurationMapLib|aliothPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

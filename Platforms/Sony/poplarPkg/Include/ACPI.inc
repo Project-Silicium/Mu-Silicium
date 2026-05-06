@@ -2,8 +2,8 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
   SECTION RAW = Nazgul/APIC.aml
 # SECTION RAW = Nazgul/BERT.aml
 # SECTION RAW = Nazgul/CSRT.aml
-!if $(TARGET) == DEBUG
-  SECTION RAW = Nazgul/DBG2.aml
+!if $(ENABLE_SECUREBOOT) == 0
+# SECTION RAW = Nazgul/DBG2.aml
 !endif
   SECTION RAW = Nazgul/DSDT_minimal.aml
   SECTION RAW = Common/SSDT.aml

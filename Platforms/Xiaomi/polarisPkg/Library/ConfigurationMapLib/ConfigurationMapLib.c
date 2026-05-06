@@ -1,8 +1,8 @@
 #include <Library/ConfigurationMapLib.h>
 
 STATIC
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX
-gConfigurationEntryDescriptorEx[] = {
+EFI_CONFIGURATION_ENTRY_DESCRIPTOR
+gConfigurationDescriptor[] = {
   // Configuration Map
   {"NumCpusFuseAddr", 0x5C04C},
   {"EnableShell", 0x1},
@@ -26,14 +26,15 @@ gConfigurationEntryDescriptorEx[] = {
   {"TzAppsRegnSize", 0x03C00000},
   {"ImageFVFlashed   ", 0x0},
   {"EnableLogFsSyncInRetail", 0x1},
-  {"EnableSecurityHoleForSplashPartition", 0x1},
-
-  // Terminator
-  {"Terminator", 0xFFFFFFFF}
+  {"EnableSecurityHoleForSplashPartition", 0x1}
 };
 
-EFI_CONFIGURATION_ENTRY_DESCRIPTOR_EX*
-GetConfigurationMap ()
+VOID
+GetConfigurationMap (
+  OUT EFI_CONFIGURATION_ENTRY_DESCRIPTOR **ConfigurationDescriptor,
+  OUT UINT8                               *ConfigurationDescriptorCount)
 {
-  return gConfigurationEntryDescriptorEx;
+  // Pass Data
+  *ConfigurationDescriptor      = gConfigurationDescriptor;
+  *ConfigurationDescriptorCount = ARRAY_SIZE (gConfigurationDescriptor);
 }

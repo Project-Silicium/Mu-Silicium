@@ -25,18 +25,23 @@
   FLASH_DEFINITION               = miatollPkg/miatoll.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 1
 
+!include RennellPkg/RennellPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x9FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x9FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x18, 0xEB, 0xFF, 0x3B, 0x48, 0x39, 0x22, 0x40, 0x88, 0x8F, 0x60, 0x85, 0x30, 0xC6, 0x1C, 0xDD }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
 !if $(DEVICE_MODEL) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9S"
@@ -72,24 +77,31 @@
 !error "Invalid Model Type! 0, 1, 2, 3, 4 or 5 are Valid Model Types."
 !endif
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2400
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
-  gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"       # Actually its "LA".
-  gQcomPkgTokenSpaceGuid.PcdScheduleInterfaceAddr|0x9FC36588
+  #
+  # Platform PEI
+  #
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"
+  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0x9FC36588
 
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0xA0000000
-
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|miatollPkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|miatollPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include RennellPkg/RennellPkg.dsc.inc
+  #
+  # QCOM Libraries
+  #
+  ConfigurationMapLib|miatollPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

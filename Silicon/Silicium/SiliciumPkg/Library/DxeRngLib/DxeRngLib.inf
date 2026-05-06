@@ -9,27 +9,19 @@
   FILE_GUID                       = FF9F84C5-A33E-44E3-9BB5-0D654B2D4149
   MODULE_TYPE                     = DXE_DRIVER
   VERSION_STRING                  = 1.0
-  LIBRARY_CLASS                   = RngLib|DXE_DRIVER DXE_RUNTIME_DRIVER UEFI_APPLICATION UEFI_DRIVER
-  CONSTRUCTOR                     = DxeRngLibConstructor
+  LIBRARY_CLASS                   = RngLib|DXE_DRIVER DXE_RUNTIME_DRIVER
+  CONSTRUCTOR                     = DxeRngConstructor
 
 [Packages]
   MdePkg/MdePkg.dec
 
 [Sources]
-  DxeRngLib.c
+  DxeRng.c
 
 [LibraryClasses]
   DebugLib
-  BaseMemoryLib
   UefiBootServicesTableLib
   MemoryAllocationLib
-
-[Guids]
-  gEfiRngAlgorithmArmRndr
-  gEfiRngAlgorithmSp80090Ctr256Guid
-  gEfiRngAlgorithmSp80090Hash256Guid
-  gEfiRngAlgorithmSp80090Hmac256Guid
-  gEfiRngAlgorithmRaw
 
 [Protocols]
   gEfiRngProtocolGuid

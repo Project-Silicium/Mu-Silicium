@@ -2,9 +2,9 @@
 #  SECTION RAW = Nazgul/APIC.aml
 #  SECTION RAW = Nazgul/BERT.aml
 #  SECTION RAW = Nazgul/CSRT.aml
-#!if $(TARGET) == DEBUG
+!if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Nazgul/DBG2.aml
-#!endif
+!endif
 #  SECTION RAW = cheeseburger/DSDT.aml
 #  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Nazgul/FACP.aml

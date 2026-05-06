@@ -25,41 +25,53 @@
   FLASH_DEFINITION               = ginkgoPkg/ginkgo.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
 
+!include NicobarPkg/NicobarPkg.dsc.inc
+
 [PcdsFixedAtBuild]
-  # DDR Start Address
+  #
+  # DDR Memory
+  #
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000
 
-  # UEFI Stack Addresses
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x5FF90000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+  #
+  # UEFI Stack
+  #
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x5FF90000
+  gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
-  # Device GUID
-  gSiliciumPkgTokenSpaceGuid.PcdDeviceGuid|{ 0x54, 0xAA, 0x1B, 0xE5, 0x10, 0x91, 0x92, 0x47, 0x95, 0x9D, 0x96, 0xCE, 0x8A, 0xF2, 0x2D, 0x63 }
-
-  # SmBios
+  #
+  # SMBIOS
+  #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Xiaomi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 8"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"ginkgo"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_8_ginkgo"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 8"
 
+  #
   # Simple Frame Buffer
+  #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2340
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
-  # Platform Pei
+  #
+  # Platform PEI
+  #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  
-  # Dynamic RAM Start Address
-  gSiliciumPkgTokenSpaceGuid.PcdRamPartitionBase|0x63C00000
 
-  # SD Card Slot
+  #
+  # Storage
+  #
   gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
 
 [LibraryClasses]
+  #
+  # Memory Libraries
+  #
   MemoryMapLib|ginkgoPkg/Library/MemoryMapLib/MemoryMapLib.inf
-  ConfigurationMapLib|ginkgoPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
-  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
 
-!include NicobarPkg/NicobarPkg.dsc.inc
+  #
+  # QCOM Libraries
+  #
+  ConfigurationMapLib|ginkgoPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf

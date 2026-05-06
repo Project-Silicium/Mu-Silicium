@@ -12,7 +12,7 @@
   LIBRARY_CLASS                  = BootGraphicsProviderLib|DXE_DRIVER UEFI_APPLICATION
 
 [Sources]
-  BootGraphicsProviderLib.c
+  BootGraphicsProvider.c
 
 [Packages]
   MdePkg/MdePkg.dec

@@ -21,7 +21,7 @@
 //
 // Global Variables
 //
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX PmuRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR PmuRegion;
 
 VOID
 SetRebootMagic (IN UINT8 Magic)
@@ -51,7 +51,7 @@ ResetCold ()
   EFI_STATUS Status;
 
   // Locate "PMU" Memory Region
-  Status = LocateMemoryMapAreaByName ("PMU", &PmuRegion);
+  Status = LocateMemoryRegionByName ("PMU", &PmuRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'PMU' Memory Region! Status = %r\n", __FUNCTION__, Status));
     goto Dead;
@@ -96,7 +96,7 @@ ResetShutdown ()
   UINT32                    Value;
 
   // Locate "PMU" Memory Region
-  Status = LocateMemoryMapAreaByName ("PMU", &PmuRegion);
+  Status = LocateMemoryRegionByName ("PMU", &PmuRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate 'PMU' Memory Region! Status = %r\n", __FUNCTION__, Status));
     goto Dead;

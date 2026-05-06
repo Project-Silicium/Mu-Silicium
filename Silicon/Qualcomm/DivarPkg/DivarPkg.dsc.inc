@@ -9,43 +9,48 @@
 ##
 
 [Defines]
-  # GIC
-  USE_CUSTOM_GIC                             = 0
-
+  #
   # Timer
-  USE_CUSTOM_TIMER                           = 0
+  #
   USE_PHYSICAL_TIMER                         = 1
 
+  #
   # KEP
+  #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
   HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 1
 
+!include QcomPkg/QcomPkg.dsc.inc
+
 [BuildOptions]
   *_*_AARCH64_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
-  # Platform Pei HOBs
-  gQcomPkgTokenSpaceGuid.PcdEnableInfoBlkHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableShimHob|TRUE
-  gQcomPkgTokenSpaceGuid.PcdEnableProdmodeHob|FALSE
-
+  #
   # CPU
+  #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
+  #
   # GIC
+  #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0xF200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0xF300000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0xF300000
 
+  #
   # Timer
+  #
   gArmTokenSpaceGuid.PcdArmArchTimerSecIntrNum|17
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|30
 
-  # SmBios
+  #
+  # SMBIOS
+  #
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6225"
@@ -53,8 +58,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6225-AD"
 !endif
-
-  # SmBios CPU Extras
 !if $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2800
 !else
@@ -63,16 +66,16 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200
-
-  # SmBios Memory Extras
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2133
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
-  PlatformPrePiLib|DivarPkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  AcpiPlatformUpdateLib|DivarPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
-  HwResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  ResetSystemLib|ArmPkg/Library/ArmPsciResetSystemLib/ArmPsciResetSystemLib.inf
-  SoCPlatformLib|DivarPkg/Library/SoCPlatformLib/SoCPlatformLib.inf
+  #
+  # SEC Libraries
+  #
+  PlatformSecLib|DivarPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
-!include QcomPkg/QcomPkg.dsc.inc
+  #
+  # ACPI Libraries
+  #
+  AcpiTableUpdateLib|DivarPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf

@@ -4,6 +4,10 @@
   This file implements following APIs which provide basic capabilities for RSA:
   1) RsaPssVerify
 
+  // MU_CHANGE [BEGIN]
+  Uses OpenSSL 3.x EVP_PKEY provider-based APIs instead of deprecated RSA APIs.
+
+  // MU_CHANGE [END]
 Copyright (c) 2021, Intel Corporation. All rights reserved.<BR>
 SPDX-License-Identifier: BSD-2-Clause-Patent
 
@@ -15,6 +19,11 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #include <openssl/rsa.h>
 #include <openssl/objects.h>
 #include <openssl/evp.h>
+
+// MU_CHANGE [BEGIN]
+#include "CryptRsaPkeyCtx.h"
+
+// MU_CHANGE [END]
 
 /**
   Retrieve a pointer to EVP message digest object.
@@ -75,13 +84,13 @@ RsaPssVerify (
   )
 {
   BOOLEAN       Result;
-  EVP_PKEY      *EvpRsaKey;
+  EVP_PKEY      *Pkey;  // MU_CHANGE
   EVP_MD_CTX    *EvpVerifyCtx;
   EVP_PKEY_CTX  *KeyCtx;
   CONST EVP_MD  *HashAlg;
 
   Result       = FALSE;
-  EvpRsaKey    = NULL;
+  Pkey         = NULL;  // MU_CHANGE
   EvpVerifyCtx = NULL;
   KeyCtx       = NULL;
   HashAlg      = NULL;
@@ -108,19 +117,22 @@ RsaPssVerify (
     return FALSE;
   }
 
-  EvpRsaKey = EVP_PKEY_new ();
-  if (EvpRsaKey == NULL) {
-    goto _Exit;
+  // MU_CHANGE [BEGIN]
+  //
+  // Build EVP_PKEY from the RSA_PKEY_CTX key components.
+  //
+  Pkey = RsaBuildEvpPkey ((RSA_PKEY_CTX *)RsaContext);
+  if (Pkey == NULL) {
+    return FALSE;
+    // MU_CHANGE [END]
   }
 
-  EVP_PKEY_set1_RSA (EvpRsaKey, RsaContext);
-
-  EvpVerifyCtx = EVP_MD_CTX_create ();
+  EvpVerifyCtx = EVP_MD_CTX_new ();  // MU_CHANGE
   if (EvpVerifyCtx == NULL) {
     goto _Exit;
   }
 
-  Result = EVP_DigestVerifyInit (EvpVerifyCtx, &KeyCtx, HashAlg, NULL, EvpRsaKey) > 0;
+  Result = EVP_DigestVerifyInit (EvpVerifyCtx, &KeyCtx, HashAlg, NULL, Pkey) > 0;  // MU_CHANGE
   if (KeyCtx == NULL) {
     goto _Exit;
   }
@@ -146,12 +158,8 @@ RsaPssVerify (
   }
 
 _Exit:
-  if (EvpRsaKey != NULL) {
-    EVP_PKEY_free (EvpRsaKey);
-  }
-
   if (EvpVerifyCtx != NULL) {
-    EVP_MD_CTX_destroy (EvpVerifyCtx);
+    EVP_MD_CTX_free (EvpVerifyCtx);  // MU_CHANGE
   }
 
   return Result;

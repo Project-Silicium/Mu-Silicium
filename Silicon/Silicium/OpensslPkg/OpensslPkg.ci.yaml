@@ -1,5 +1,5 @@
 ## @file
-# CI configuration for CryptoPkg
+# CI configuration for OpensslPkg
 #
 # Copyright (c) Microsoft Corporation
 # Copyright (c) 2020 - 2022, Intel Corporation. All rights reserved.<BR>
@@ -7,7 +7,7 @@
 ##
 {
     "PrEval": {
-        "DscPath": "CryptoPkg.dsc",
+        "DscPath": "OpensslPkg.dsc",
     },
     "LicenseCheck": {
         "IgnoreFiles": [
@@ -38,7 +38,7 @@
             # This has OpenSSL interfaces that aren't UEFI spec compliant
             "Library/BaseCryptLib/SysCall",
             # This has OpenSSL interfaces that aren't UEFI spec compliant
-            "Library/OpensslLib/rand_pool.c",
+            "Library/OpensslLib/OpensslStub/rand_pool.c",
             # This has OpenSSL interfaces that aren't UEFI spec compliant
             "Library/Include/CrtLibSupport.h",
             # This has OpenSSL interfaces that aren't UEFI spec compliant
@@ -46,12 +46,15 @@
             "Library/Include/fcntl.h",
             # These directories contain auto-generated OpenSSL content
             "Library/OpensslLib",
-            "Library/IntrinsicLib",
             "Library/BaseCryptLib/Pk/CryptPkcs7VerifyBase.c"
         ]
     },
     "CompilerPlugin": {
-        "DscPath": "CryptoPkg.dsc"
+        "DscPath": "OpensslPkg.dsc"
+    },
+    ## options defined .pytool/Plugin/HostUnitTestCompilerPlugin
+    "HostUnitTestCompilerPlugin": {
+        "DscPath": "Test/OpensslPkgHostUnitTest.dsc"
     },
     "CharEncodingCheck": {
         "IgnoreFiles": []
@@ -61,6 +64,7 @@
             "MdePkg/MdePkg.dec",
             "MdeModulePkg/MdeModulePkg.dec",
             "CryptoPkg/CryptoPkg.dec",
+            "IntrinsicPkg/IntrinsicPkg.dec",
             "OpensslPkg/OpensslPkg.dec",
         ],
         # For host based unit tests
@@ -70,17 +74,24 @@
         "IgnoreInf": []
     },
     "DscCompleteCheck": {
-        "DscPath": "CryptoPkg.dsc",
+        "DscPath": "OpensslPkg.dsc",
         "IgnoreInf": [
-            "CryptoPkg/Library/OpensslLib/OpensslLibAccel.inf",
-            "CryptoPkg/Library/OpensslLib/OpensslLibFull.inf",
-            "CryptoPkg/Library/OpensslLib/OpensslLibFullAccel.inf"
+            "OpensslPkg/Library/OpensslLib/OpensslLibAccel.inf",
+            "OpensslPkg/Library/OpensslLib/OpensslLibFull.inf",
+            "OpensslPkg/Library/OpensslLib/OpensslLibFullAccel.inf",
+            "OpensslPkg/Library/OpensslLib/OpensslLibSm3.inf",
+            "OpensslPkg/Library/BaseCryptLib/UnitTestHostBaseCryptLib.inf"
         ]
     },
     "GuidCheck": {
         "IgnoreGuidName": [],
-        "IgnoreGuidValue": [],
-        "IgnoreFoldersAndFiles": []
+        "IgnoreGuidValue": [
+            "63850097-3E97-4C4F-A52D-C811A0106105",  # MU_CHANGE
+            "6BD7DE60-9EF7-4899-97D0-ABFFFD-E970F2"  # gEfiCryptoPkgTokenSpaceGuid - shared with CryptoPkg
+        ],
+        "IgnoreFoldersAndFiles": [
+            "MU_BASECORE"  # MU_CHANGE
+        ]
     },
     "LibraryClassCheck": {
         "IgnoreHeaderFile": []
@@ -104,9 +115,14 @@
     # options defined in .pytool/Plugin/UncrustifyCheck
     "UncrustifyCheck": {
         "IgnoreFiles": [
-            "opensslconf.h",
-            "dso_conf.h",
-            "opensslconf_generated.h"
+            "Library/OpensslLib/openssl/**",       # MU_CHANGE
+            "Library/OpensslLib/OpensslGen/**",     # MU_CHANGE
+            "Library/OpensslLib/OpensslStub/**",    # MU_CHANGE
+            "Library/Include/openssl/**",           # MU_CHANGE
+            "Library/Include/crypto/**",            # MU_CHANGE
+            "**/opensslconf.h",                     # MU_CHANGE
+            "**/dso_conf.h",                        # MU_CHANGE
+            "**/opensslconf_generated.h"            # MU_CHANGE
         ]
     }
 }

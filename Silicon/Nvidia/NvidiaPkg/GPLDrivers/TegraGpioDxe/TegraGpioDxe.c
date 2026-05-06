@@ -17,7 +17,7 @@ STATIC CONST INT32 CONFIG_GPIO      = 1;
 STATIC CONST INT32 DIRECTION_INPUT  = 0;
 STATIC CONST INT32 DIRECTION_OUTPUT = 1;
 
-STATIC EFI_MEMORY_REGION_DESCRIPTOR_EX GpioMemoryRegion;
+STATIC EFI_MEMORY_REGION_DESCRIPTOR GpioMemoryRegion;
 
 STATIC
 INT32
@@ -182,7 +182,7 @@ InitGpioDriver (
   EFI_STATUS Status;
 
   // Get GPIO Controller Memory Region
-  Status = LocateMemoryMapAreaByName ("GPIO Controller", &GpioMemoryRegion);
+  Status = LocateMemoryRegionByName ("GPIO Controller", &GpioMemoryRegion);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to get GPIO Controller Memory Region!\n"));
     return Status;
