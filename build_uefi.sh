@@ -68,7 +68,7 @@ else _error "\nDevice Configuration not found for $TARGET!\nCheck if your .conf 
 fi
 
 # Delete Old Build Files
-if [[ ${DO_CLEAN_BUILD} == 1 ]] then
+if [[ ${DO_CLEAN_BUILD} == 1 ]]; then
 	rm -r Build/${TARGET}Pkg &> /dev/null
 	rm Build/BUILDLOG_${TARGET}Pkg.txt &> /dev/null
 fi
