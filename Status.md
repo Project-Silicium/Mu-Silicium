@@ -2914,6 +2914,76 @@
 </details>
 
 <details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## OnePlus 6
+
+<img align="right" src="Resources/Pictures/OnePlus-6.png" width="500" alt="Preview">
+
+**State:** Active <br>
+**Codename:** enchilada
+
+**Contributors:** [Daniel224455](https://github.com/Daniel224455/)
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ✅    |
+| USB Device Mode    |                   | ✅    |
+| USB Power Delivery |                   | ✅    |
+| Mass Storage       |                   | ✅    |
+| Windows Boot       |                   | ⚠️    |
+| Linux Boot         |                   | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE Boots. A DSDT is required for full Windows.
+
+| Feature              | Description | State |
+|:---------------------|:------------|:-----:|
+| Internal Storage     |             | ❌    |
+| Side Buttons         |             | ❌    |
+| Proximity Sensor     |             | ❌    |
+| Light Sensor         |             | ❌    |
+| Accelerometer Sensor |             | ❌    |
+| Compass Sensor       |             | ❌    |
+| Gyroscope Sensor     |             | ❌    |
+| Fingerprint Sensor   |             | ❌    |
+| NFC Sensor           |             | ❌    |
+| Temperature Sensor   |             | ❌    |
+| Battery              |             | ❌    |
+| USB Host Mode        |             | ❌    |
+| USB Device Mode      |             | ❌    |
+| USB Power Delivery   |             | ❌    |
+| Charging             |             | ❌    |
+| WLAN                 |             | ❌    |
+| CPU                  |             | ✅    |
+| Touchscreen          |             | ❌    |
+| Bluetooth            |             | ❌    |
+| GPS                  |             | ❌    |
+| Speakers             |             | ❌    |
+| Microphone           |             | ❌    |
+| GPU                  |             | ❌    |
+| Camera               |             | ❌    |
+| Mobile Data          |             | ❌    |
+| Display              |             | ✅    |
+| Vibration            |             | ❌    |
+
+</td></tr>
+</table>
+
+</details>
+
+<details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
 ## Samsung Galaxy S9
