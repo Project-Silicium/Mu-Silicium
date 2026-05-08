@@ -18,8 +18,6 @@
 #include <Library/BootGraphics.h>
 #include <Library/PrintLib.h>
 
-#include <Protocol/GraphicsOutput.h>
-
 #include <Configuration/BootDevices.h>
 
 #include "PlatformBootManager.h"
@@ -27,10 +25,9 @@
 //
 // Global Variables
 //
-STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGopProtocol   = NULL;
-STATIC CHAR16                       *ComboMessage   = NULL;
-STATIC UINTN                         XPos           = 0;
-STATIC UINTN                         YPos           = 0;
+STATIC CHAR16 *ComboMessage = NULL;
+STATIC UINTN   XPos         = 0;
+STATIC UINTN   YPos         = 0;
 
 VOID
 EFIAPI
@@ -61,38 +58,85 @@ PlatformBootManagerBeforeConsole ()
 }
 
 VOID
-CreateComboMessage ()
+CreateComboMessage (
+  IN UINT32 ScreenWidth,
+  IN UINT32 ScreenHeight)
 {
-  EFI_STATUS Status;
+  UINTN MessageLength;
 
-  // Locate GOP Protocol
-  Status = gBS->LocateProtocol (&gEfiGraphicsOutputProtocolGuid, NULL, (VOID *)&mGopProtocol);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Protocol of Primary Display! Status = %r\n", __FUNCTION__, Status));
-    return;
+  // Set Combo Message Parts
+  CHAR8 *InitalMessage = "[Volume Up] FFU Mode";
+  CHAR8 *AltAppName    = (CHAR8 *)FixedPcdGetPtr (PcdAlternativeAppFileName);
+
+  // Set Combo Message Length
+  MessageLength = AsciiStrLen (InitalMessage) + 1;
+  if (AltAppName != "NULL") {
+    MessageLength += AsciiStrLen (AltAppName) + 17;
   }
 
-  // Get Screen Resolution
-  UINT32 ScreenWidth  = mGopProtocol->Mode->Info->HorizontalResolution;
-  UINT32 ScreenHeight = mGopProtocol->Mode->Info->VerticalResolution;
+  // Fix Buffer Size
+  MessageLength *= sizeof (CHAR16);
 
   // Alocate Memory
-  ComboMessage = AllocateZeroPool (150);
+  ComboMessage = AllocateZeroPool (MessageLength);
   if (ComboMessage == NULL) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Allocate Memory for Combo Message!\n", __FUNCTION__));
     return;
   }
 
   // Set Combo Message
-  if (FixedPcdGetPtr (PcdAlternativeAppFile) == "NULL") {
-    ComboMessage = L"[Volume Up] FFU Mode";
+  if (AltAppName == "NULL") {
+    UnicodeSPrint (ComboMessage, MessageLength, L"%a", InitalMessage);
   } else {
-    UnicodeSPrint (ComboMessage, 150, L"[Volume Up] FFU Mode - [Volume Down] %a", FixedPcdGetPtr (PcdAlternativeAppFileName));
+    UnicodeSPrint (ComboMessage, MessageLength, L"%a - [Volume Down] %a", InitalMessage, AltAppName);
   }
 
   // Set Combo Message Position
   XPos = (ScreenWidth - StrLen (ComboMessage) * EFI_GLYPH_WIDTH) / 2;
-  YPos = (ScreenHeight - EFI_GLYPH_HEIGHT) * 48 / 50;
+  YPos = ScreenHeight * 48 / 50;
+}
+
+VOID
+SetMaxConsoleMode (
+  IN  EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *ConOut,
+  OUT UINT32                          *ScreenWidth,
+  OUT UINT32                          *ScreenHeight)
+{
+  EFI_STATUS Status    = EFI_SUCCESS;
+  UINTN      MaxMode   = 0;
+  UINTN      Colums[2] = {0};
+  UINTN      Rows[2]   = {0};
+
+  // Go thru each Console Mode
+  for (INT32 i = 0; i < ConOut->Mode->MaxMode; i++) {
+    // Get Specified Console Mode Details
+    Status = ConOut->QueryMode (ConOut, i, &Colums[0], &Rows[0]);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to get Console Resolution of Mode %d! Status = %r\n", __FUNCTION__, i, Status));
+      continue;
+    }
+
+    // Compare Console Resolutions
+    if ((Colums[0] > Colums[1]) && (Rows[0] > Rows[1])) {
+      // Save Console Mode
+      MaxMode = i;
+
+      // Save Console Resolution
+      Colums[1] = Colums[0];
+      Rows[1]   = Rows[0];
+    }
+  }
+
+  // Set Max Console Mode
+  Status = ConOut->SetMode (ConOut, MaxMode);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to set Max Console Mode! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  // Pass Screen Resolution
+  *ScreenWidth  = Colums[1] * EFI_GLYPH_WIDTH;
+  *ScreenHeight = Rows[1] * EFI_GLYPH_HEIGHT;
 }
 
 VOID
@@ -100,6 +144,11 @@ EFIAPI
 PlatformBootManagerAfterConsole ()
 {
   EFI_STATUS Status;
+  UINT32     ScreenWidth;
+  UINT32     ScreenHeight;
+
+  // Set Max Console Mode
+  SetMaxConsoleMode (gST->ConOut, &ScreenWidth, &ScreenHeight);
 
   // Display Boot Logo
   Status = DisplayBootGraphic (BG_SYSTEM_LOGO);
@@ -107,11 +156,16 @@ PlatformBootManagerAfterConsole ()
     DEBUG ((EFI_D_ERROR, "%a: Failed to Display Boot Logo! Status = %r\n", __FUNCTION__, Status));
   }
 
+  // Verify Screen Resolution
+  if (!ScreenWidth || !ScreenHeight) {
+    return;
+  }
+
   // Register Key Callback
   Status = RegisterKeyCallback ((EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath);
   if (!EFI_ERROR (Status)) {
     // Create Combo Message
-    CreateComboMessage ();
+    CreateComboMessage (ScreenWidth, ScreenHeight);
   }
 }
 
