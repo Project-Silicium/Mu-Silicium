@@ -4696,8 +4696,6 @@
 
 </details>
 
-</details>
-
 <details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
