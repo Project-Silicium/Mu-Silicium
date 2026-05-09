@@ -4651,7 +4651,7 @@
 | Mass Storage       | Reboots                  | ❌    |
 | SD Card            |                          | ❌    |
 | Windows Boot       |                          | ❌    |
-| Linux Boot         |                          | ✅    |
+| Linux Boot         | Only USB Boot            | ✅    |
 
 ### OS Status
 
@@ -4662,7 +4662,7 @@
 | Feature              | Description  | State |
 |:---------------------|:-------------|:-----:|
 | Internal Storage     |              | ❌    |
-| SD Card              |              | ✅    |
+| SD Card              |              | ❌    |
 | Side Buttons         |              | ❌    |
 | Proximity Sensor     |              | ❌    |
 | Light Sensor         |              | ❌    |
