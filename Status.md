@@ -4636,7 +4636,7 @@
 **State:** Inactive <br>
 **Codename:** gta4l
 
-**Contributors:** [V6lhost](https://github.com/V6lhost/)
+**Contributors:** [V6lhost](https://github.com/V6lhost/), [kdetechy-mp4](https://github.com/kdetechy-mp4)
 
 ### UEFI Status
 
