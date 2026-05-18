@@ -9,21 +9,28 @@ APRIORI DXE {
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-  INF SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
-  INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
-  INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
+  INF SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
+
+
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  INF S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
+
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
-  
-  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
-  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
+
+
+
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
+  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+!endif
+
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
+  INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
@@ -32,11 +39,13 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-!if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
-  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-!endif
-  INF SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-  INF SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+
+
+  INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
+  INF MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
+
+
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

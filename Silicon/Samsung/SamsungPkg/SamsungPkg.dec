@@ -18,9 +18,9 @@
   gEfiS2mps1922ProtocolGuid           = { 0x2831B104, 0x2942, 0x4CAF, { 0x9F, 0xB3, 0x30, 0x87, 0xAD, 0xBE, 0xD0, 0x18 } }
 
 [PcdsFixedAtBuild]
-  # S2mps22 PMIC
-  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|FALSE|BOOLEAN|0x0000D100
-
-  # DDR Info
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0|UINT32|0x0000D200
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0|UINT32|0x0000D201
+  #
+  # RAM Manager
+  #
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|FALSE|BOOLEAN|0x0000D100
+  gSamsungPkgTokenSpaceGuid.PcdHasHarx|FALSE|BOOLEAN|0x0000D101
+  gSamsungPkgTokenSpaceGuid.PcdHasDrmPlugin|FALSE|BOOLEAN|0x0000D102

@@ -36,7 +36,7 @@
   #
   # UEFI Stack
   #
-  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xE8300000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xE8200000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
@@ -60,15 +60,3 @@
   # Memory Libraries
   #
   MemoryMapLib|r8sPkg/Library/MemoryMapLib/MemoryMapLib.inf
-
-  #
-  # Input Libraries
-  #
-  KeypadDeviceLib|r8sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-
-[Components]
-  #
-  # Input
-  #
-  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
-  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf

@@ -16,7 +16,7 @@ APRIORI DXE {
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-  INF QcomPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
+  INF SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
   INF Binaries/infiniti/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf

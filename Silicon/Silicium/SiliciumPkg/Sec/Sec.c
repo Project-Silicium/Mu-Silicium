@@ -221,17 +221,27 @@ CEntryPoint (
   IN UINTN StackBase,
   IN UINTN StackSize)
 {
+  EFI_MEMORY_REGION_DESCRIPTOR UefiFdRegion;
+
   // Verify Exception Vector Table
   ASSERT (((UINTN)SecVectorTable & ARM_VECTOR_TABLE_ALIGNMENT) == 0);
 
   // Enable new Exception Vector Table
   ArmWriteVBar ((UINTN)SecVectorTable);
 
-  // Do Platform Specific Initialization
-  PlatformInitialize ();
-
   // Invalidate Stack D-Cache
   InvalidateDataCacheRange ((VOID *)StackBase, StackSize);
+
+  // Locate "UEFI FD" Memory Region
+  LocateMemoryRegionByName ("UEFI FD", &UefiFdRegion);
+  LocateMemoryRegionByName ("UEFI_FD", &UefiFdRegion);
+  if (UefiFdRegion.Address != 0) {
+    // Invalidate UEFI FD D-Cache
+    InvalidateDataCacheRange ((VOID *)UefiFdRegion.Address, UefiFdRegion.Length);
+  }
+
+  // Do Platform Specific Initialization
+  PlatformInitialize ();
 
   // Enter SEC Main Function
   SecMain (StackBase, StackSize);

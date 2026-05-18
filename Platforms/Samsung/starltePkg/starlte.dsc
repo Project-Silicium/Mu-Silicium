@@ -36,7 +36,7 @@
   #
   # UEFI Stack
   #
-  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x80002000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x8F200000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
@@ -60,15 +60,3 @@
   # Memory Libraries
   #
   MemoryMapLib|starltePkg/Library/MemoryMapLib/MemoryMapLib.inf
-
-  #
-  # Input Libraries
-  #
-  KeypadDeviceLib|starltePkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-
-[Components]
-  #
-  # Input
-  #
-  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
-  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf

@@ -13,7 +13,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
-  INF QcomPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
+  INF SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
   INF Binaries/caymanslm/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/caymanslm/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf

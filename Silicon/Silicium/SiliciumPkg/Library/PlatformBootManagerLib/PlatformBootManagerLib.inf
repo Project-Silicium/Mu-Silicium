@@ -49,5 +49,4 @@
   gEfiEndOfDxeEventGroupGuid
 
 [Protocols]
-  gKeypadDeviceProtocolGuid
   gEfiSimpleTextInputExProtocolGuid

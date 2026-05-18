@@ -34,10 +34,11 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10240000
 
   #
-  # DDR Info
+  # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x4F000
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
+  gSamsungPkgTokenSpaceGuid.PcdHasHarx|TRUE
+  gSamsungPkgTokenSpaceGuid.PcdHasDrmPlugin|TRUE
 
   #
   # SMBIOS
@@ -65,8 +66,3 @@
   # SEC Libraries
   #
   PlatformSecLib|S5E9945Pkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # Custom Libraries
-  #
-  GpioBankLib|S5E9945Pkg/Library/GpioBankLib/GpioBankLib.inf

@@ -7,31 +7,25 @@
   ENTRY_POINT                    = RegisterSmBiosTables
 
 [Sources]
-  SmBiosTableDxe.c
+  SmBiosTable.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  ArmPlatformPkg/ArmPlatformPkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
   SiliciumPkg/SiliciumPkg.dec
-  SamsungPkg/SamsungPkg.dec
 
 [LibraryClasses]
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
-  MemoryMapHelperLib
   BaseMemoryLib
-  PrintLib
   DebugLib
   UefiLib
-  IoLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
-  gArmTokenSpaceGuid.PcdSystemMemorySize
   gArmPlatformTokenSpaceGuid.PcdCoreCount
   gArmPlatformTokenSpaceGuid.PcdClusterCount
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
@@ -55,7 +49,6 @@
 
 [Protocols]
   gEfiSmbiosProtocolGuid
-  gEfiDdrInfoProtocolGuid
   
 [Depex]
   gEfiSmbiosProtocolGuid

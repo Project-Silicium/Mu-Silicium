@@ -40,22 +40,8 @@ KeyNotify (IN EFI_KEY_DATA *KeyData)
 EFI_STATUS
 SetupKeypad (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 {
-  EFI_STATUS  Status;
-  EFI_HANDLE  StiHandle;
-  EFI_HANDLE *KeypadBuffer;
-  UINTN       KeypadCount;
-
-  // Locate Keypad Controller Protocols
-  Status = gBS->LocateHandleBuffer (ByProtocol, &gKeypadDeviceProtocolGuid, NULL, &KeypadCount, &KeypadBuffer);
-  if (!EFI_ERROR (Status)) {
-    // Start all Keypad Controllers
-    for (UINTN i = 0; i < KeypadCount; i++) {
-      gBS->ConnectController (KeypadBuffer[i], NULL, NULL, TRUE);
-    }
-
-    // Free Buffer
-    FreePool (KeypadBuffer);
-  }
+  EFI_STATUS Status;
+  EFI_HANDLE StiHandle;
 
   // Locate STI Protocol Handle
   Status = gBS->LocateDevicePath (&gEfiSimpleTextInputExProtocolGuid, &DevicePath, &StiHandle);

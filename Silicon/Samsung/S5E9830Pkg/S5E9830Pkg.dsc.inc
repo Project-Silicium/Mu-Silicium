@@ -39,15 +39,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
 
   #
-  # DDR Info
+  # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
-
-  #
-  # PMIC
-  #
-  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|TRUE
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
+  gSamsungPkgTokenSpaceGuid.PcdHasHarx|TRUE
 
   #
   # SMBIOS
@@ -64,23 +59,6 @@
 
 [LibraryClasses]
   #
-  # UEFI Libraries
-  #
-  HwResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-  ResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-
-  #
   # SEC Libraries
   #
   PlatformSecLib|S5E9830Pkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # Custom Libraries
-  #
-  GpioBankLib|S5E9830Pkg/Library/GpioBankLib/GpioBankLib.inf
-
-[Components]
-  #
-  # Custom Drivers
-  #
-  SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf

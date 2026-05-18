@@ -59,15 +59,4 @@
   #
   # Memory Libraries
   #
-  IoMmuLib|MdeModulePkg/Library/IoMmuLibNull/IoMmuLibNull.inf
-
-  #
-  # Custom Libraries
-  #
-  GpioBankLib|S5E7870Pkg/Library/GpioBankLib/GpioBankLib.inf
-
-[Components]
-  #
-  # Custom Drivers
-  #
-  S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
+  RamManagerLib|SiliciumNullPkg/Library/RamManagerLibNull/RamManagerLibNull.inf

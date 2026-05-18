@@ -18,20 +18,12 @@
 
 [LibraryClasses]
   #
-  # ARM Libraries
+  # Memory Libraries
   #
-  ArmSmcLib|SamsungPkg/Library/ArmSmcLib/ArmSmcLib.inf
+  RamManagerLib|SamsungPkg/Library/RamManagerLib/RamManagerLib.inf
 
 [Components]
   #
   # SMBIOS
   #
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
-
-  #
-  # Custom Drivers
-  #
-  SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
-  SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
-  SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
-  SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf

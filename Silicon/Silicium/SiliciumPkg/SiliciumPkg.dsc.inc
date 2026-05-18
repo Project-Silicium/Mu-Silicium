@@ -129,6 +129,7 @@
   #
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
+  ArmHvcLib|ArmPkg/Library/ArmHvcLib/ArmHvcLib.inf
   ArmMonitorLib|ArmPkg/Library/ArmMonitorLib/ArmMonitorLib.inf
 !if $(USE_PHYSICAL_TIMER) == 1
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.inf
@@ -177,6 +178,7 @@
   IoMmuLib|MdeModulePkg/Library/IoMmuLib/IoMmuLib.inf
   DmaLib|EmbeddedPkg/Library/CoherentDmaLib/CoherentDmaLib.inf
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
+  RamManagerLib|SiliciumNullPkg/Library/RamManagerLibNull/RamManagerLibNull.inf
 
   #
   # SEC Libraries
@@ -385,6 +387,11 @@
   ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+
+  #
+  # RAM Manager
+  #
+  SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
   #
   # Runtime Services

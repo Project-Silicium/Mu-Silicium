@@ -52,6 +52,6 @@
   PlatformSecLib|S5E7885Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Custom Libraries
+  # Memory Libraries
   #
-  GpioBankLib|S5E7885Pkg/Library/GpioBankLib/GpioBankLib.inf
+  RamManagerLib|SiliciumNullPkg/Library/RamManagerLibNull/RamManagerLibNull.inf
