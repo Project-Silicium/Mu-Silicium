@@ -32,6 +32,11 @@
   PlatformPeiLib|QcomPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
 
   #
+  # Memory Libraries
+  #
+  RamManagerLib|QcomPkg/Library/RamManagerLib/RamManagerLib.inf
+
+  #
   # BDS Libraries
   #
   ErrataPatchesLib|QcomPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
@@ -51,7 +56,6 @@
   #
   # Custom Drivers
   #
-  QcomPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
   QcomPkg/Drivers/PeripheralInitDxe/PeripheralInitDxe.inf
 

@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = RamManagerLibNull
+  FILE_GUID                      = CC98DAC6-EAE7-40E7-AA6F-3CB86DA5B1DF
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = RamManagerLib|DXE_DRIVER
+
+[Sources]
+  RamManagerNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec

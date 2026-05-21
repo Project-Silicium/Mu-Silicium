@@ -531,7 +531,7 @@ GetSystemMemorySize (
   }
 
   // Go thru each Memory Descriptor
-  for (UINT16 i = 0; i < EfiMemoryMapSize / DescriptorSize - 1; i++) {
+  for (UINT16 i = 0; i < EfiMemoryMapSize / DescriptorSize; i++) {
     // Get new Memory Descriptor
     EFI_MEMORY_DESCRIPTOR *Descriptor = (EFI_MEMORY_DESCRIPTOR *)((UINT8 *)EfiMemoryMap + (i * DescriptorSize));
 

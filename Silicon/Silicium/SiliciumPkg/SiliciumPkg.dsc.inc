@@ -177,6 +177,7 @@
   IoMmuLib|MdeModulePkg/Library/IoMmuLib/IoMmuLib.inf
   DmaLib|EmbeddedPkg/Library/CoherentDmaLib/CoherentDmaLib.inf
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
+  RamManagerLib|SiliciumNullPkg/Library/RamManagerLibNull/RamManagerLibNull.inf
 
   #
   # SEC Libraries
@@ -459,6 +460,11 @@
   MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
   MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
+
+  #
+  # RAM Manager
+  #
+  SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
   #
   # ACPI

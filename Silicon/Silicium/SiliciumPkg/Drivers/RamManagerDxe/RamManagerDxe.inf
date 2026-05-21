@@ -12,24 +12,19 @@
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
   UefiCpuPkg/UefiCpuPkg.dec
   SiliciumPkg/SiliciumPkg.dec
-  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
   DebugLib
-  MemoryAllocationLib
   DxeServicesTableLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
-  MemoryMapLib
+  MemoryAllocationLib
+  RamManagerLib
   ArmMmuLib
-
-[FixedPcd]
-  gArmTokenSpaceGuid.PcdSystemMemoryBase
-
-[Protocols]
-  gEfiRamPartitionProtocolGuid
+  SortLib
 
 [Depex]
   TRUE
