@@ -74,7 +74,7 @@
   INF Binaries/muyu/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  #INF Binaries/muyu/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+  INF Binaries/muyu/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/muyu/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

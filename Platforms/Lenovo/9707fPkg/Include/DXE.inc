@@ -60,7 +60,7 @@
   INF Binaries/9707f/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  #INF Binaries/9707f/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+  INF Binaries/9707f/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/9707f/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

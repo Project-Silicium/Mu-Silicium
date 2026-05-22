@@ -69,7 +69,7 @@
   INF Binaries/marble/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  #INF Binaries/marble/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+  INF Binaries/marble/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/marble/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

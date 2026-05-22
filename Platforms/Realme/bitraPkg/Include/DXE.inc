@@ -60,6 +60,7 @@
   INF Binaries/bitra/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/bitra/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
+  INF Binaries/bitra/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/bitra/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
