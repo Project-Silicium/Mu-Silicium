@@ -605,6 +605,43 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 8s Gen 4 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi Poco F7
+
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-F7.png" width="400" alt="Preview">
+
+**State:** Inactive <br>
+**Codename:** onyx
+
+**Contributors:** [Robotix](https://github.com/Robotix22/)
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       |                          | ✅    |
+| USB Host Mode      |                          | ❌    |
+| USB Device Mode    |                          | ✅    |
+| USB Power Delivery |                          | ❌    |
+| Mass Storage       |                          | ✅    |
+| Windows Boot       |                          | ❌    |
+| Linux Boot         |                          | ❌    |
+
+</details>
+
+---
+
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 8s Gen 3 / 7+ Gen 3 Devices</strong></b></summary>
 
 <br>
@@ -714,7 +751,7 @@
 | Windows Boot       |              | ❌    |
 | Linux Boot         |              | ❌    |
 
-## POCO F6
+## Xiaomi Poco F6
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F6.png" width="400" alt="Preview">
 
