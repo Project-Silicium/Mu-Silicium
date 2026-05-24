@@ -21,7 +21,7 @@
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
-  #QcomPkg/QcomPkg.dec
+  QcomPkg/QcomPkg.dec
 
 [LibraryClasses]
-  #ArmSmmuDetachLib
+  ArmSmmuDetachLib

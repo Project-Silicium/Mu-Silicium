@@ -86,3 +86,9 @@
   # Custom Libraries
   #
   RFSProtectionLib|PalawanPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+
+[Components]
+  #
+  # Custom Drivers
+  #
+  QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf
