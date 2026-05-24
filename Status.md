@@ -605,6 +605,43 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 8s Gen 4 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi Poco F7
+
+<img align="right" src="Resources/Pictures/Xiaomi-Poco-F7.png" width="400" alt="Preview">
+
+**State:** Inactive <br>
+**Codename:** onyx
+
+**Contributors:** [Robotix](https://github.com/Robotix22/)
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       |                          | ✅    |
+| USB Host Mode      |                          | ❌    |
+| USB Device Mode    |                          | ✅    |
+| USB Power Delivery |                          | ❌    |
+| Mass Storage       |                          | ✅    |
+| Windows Boot       |                          | ❌    |
+| Linux Boot         |                          | ❌    |
+
+</details>
+
+---
+
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 8s Gen 3 / 7+ Gen 3 Devices</strong></b></summary>
 
 <br>
@@ -714,7 +751,7 @@
 | Windows Boot       |              | ❌    |
 | Linux Boot         |              | ❌    |
 
-## POCO F6
+## Xiaomi Poco F6
 
 <img align="right" src="Resources/Pictures/Xiaomi-Poco-F6.png" width="400" alt="Preview">
 
@@ -3173,116 +3210,6 @@
 
 </td></tr>
 </table>
-
-<details>
-<summary><b><strong>Sony Devices</strong></b></summary>
-
-## Sony Xperia XZ1
-
-<img align="right" src="Resources/Pictures/Sony-Xperia-XZ1.png" width="500" alt="Preview">
-
-**State:** Inactive <br>
-**Codename:** poplar
-
-**Contributors:** [Robotix](https://github.com/Robotix22/)
-
-### UEFI Status
-
-| Feature            | Description              | State |
-|:-------------------|:-------------------------|:-----:|
-| Display            |                          | ✅    |
-| Internal Storage   | Disabled to prevent Wipe | ✅    |
-| Side Buttons       |                          | ✅    |
-| USB Host Mode      |                          | ✅    |
-| USB Device Mode    |                          | ❌    |
-| USB Power Delivery | Dies on Disconnect       | ⚠️    |
-| Mass Storage       | Disabled to prevent Wipe | ❌    |
-| SD Card            |                          | ✅    |
-| Windows Boot       |                          | ✅    |
-| Linux Boot         |                          | ✅    |
-
-### OS Status
-
-<table>
-<tr><th>Windows</th><th>Linux</th></tr>
-<tr><td>
-
-> [!IMPORTANT]
-> Only Windows PE can Boot.
-
-| Feature              | Description               | State |
-|:---------------------|:--------------------------|:-----:|
-| Internal Storage     | Probably Works if Enabled | ❔    |
-| SD Card              |                           | ❌    |
-| Side Buttons         |                           | ❌    |
-| Proximity Sensor     |                           | ❌    |
-| Light Sensor         |                           | ❌    |
-| Accelerometer Sensor |                           | ❌    |
-| Compass Sensor       |                           | ❌    |
-| Fingerprint Sensor   |                           | ❌    |
-| Hall Sensor          |                           | ❌    |
-| NFC Sensor           |                           | ❌    |
-| Temperature Sensor   |                           | ❌    |
-| Battery              |                           | ❌    |
-| USB Host Mode        |                           | ✅    |
-| USB Device Mode      |                           | ❌    |
-| USB Power Delivery   | Dies on Disconnect        | ⚠️    |
-| Charging             |                           | ❌    |
-| WLAN                 |                           | ❌    |
-| CPU                  |                           | ✅    |
-| Touchscreen          |                           | ❌    |
-| Bluetooth            |                           | ❌    |
-| GPS                  |                           | ❌    |
-| Speakers             |                           | ❌    |
-| 3.5mm Audio Jack     |                           | ❌    |
-| Microphone           |                           | ❌    |
-| GPU                  |                           | ❌    |
-| Camera               |                           | ❌    |
-| Mobile Data          |                           | ❌    |
-| Display              |                           | ✅    |
-| Vibration            |                           | ❌    |
-
-</td><td>
-
-> [!NOTE]
-> Only Fedora Workstation and Arch Linux are Tested.
-
-| Feature              | Description               | State |
-|:---------------------|:--------------------------|:-----:|
-| Internal Storage     | Probably Works if Enabled | ❔    |
-| SD Card              |                           | ❌    |
-| Side Buttons         |                           | ❌    |
-| Proximity Sensor     |                           | ❌    |
-| Light Sensor         |                           | ❌    |
-| Accelerometer Sensor |                           | ❌    |
-| Compass Sensor       |                           | ❌    |
-| Fingerprint Sensor   |                           | ❌    |
-| Hall Sensor          |                           | ❌    |
-| NFC Sensor           |                           | ❌    |
-| Temperature Sensor   |                           | ❌    |
-| Battery              |                           | ❌    |
-| USB Host Mode        |                           | ✅    |
-| USB Device Mode      |                           | ❌    |
-| USB Power Delivery   | Dies on Disconnect        | ⚠️    |
-| Charging             |                           | ❌    |
-| WLAN                 |                           | ❌    |
-| CPU                  |                           | ✅    |
-| Touchscreen          |                           | ❌    |
-| Bluetooth            |                           | ❌    |
-| GPS                  |                           | ❌    |
-| Speakers             |                           | ❌    |
-| 3.5mm Audio Jack     |                           | ❌    |
-| Microphone           |                           | ❌    |
-| GPU                  |                           | ❌    |
-| Camera               |                           | ❌    |
-| Mobile Data          |                           | ❌    |
-| Display              |                           | ✅    |
-| Vibration            |                           | ❌    |
-
-</td></tr>
-</table>
-
-</details>
 
 <details>
 <summary><b><strong>OnePlus Devices</strong></b></summary>

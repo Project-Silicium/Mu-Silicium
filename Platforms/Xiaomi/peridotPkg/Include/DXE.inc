@@ -74,7 +74,7 @@
   INF Binaries/peridot/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
-  #INF Binaries/peridot/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+  INF Binaries/peridot/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/peridot/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

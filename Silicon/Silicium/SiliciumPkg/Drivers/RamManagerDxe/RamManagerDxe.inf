@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x0010005
+  BASE_NAME                      = RamManagerDxe
+  FILE_GUID                      = F4C010C0-96F1-4B49-BFDA-E982B807F44E
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = ManageRam
+
+[Sources]
+  RamManager.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  DxeServicesTableLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryAllocationLib
+  RamManagerLib
+  ArmMmuLib
+  SortLib
+
+[Depex]
+  TRUE

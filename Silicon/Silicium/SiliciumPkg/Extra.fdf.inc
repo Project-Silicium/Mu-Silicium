@@ -1,3 +1,5 @@
+  INF SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
+
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
   INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf

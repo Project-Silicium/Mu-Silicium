@@ -66,8 +66,3 @@
   # SEC Libraries
   #
   PlatformSecLib|KamortaPkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # ACPI Libraries
-  #
-  AcpiTableUpdateLib|KamortaPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf

@@ -8,8 +8,6 @@
 ##
 
 [BuildOptions]
-  RELEASE_CLANGPDB_*_CC_FLAGS = -D MDEPKG_NDEBUG
-
   *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype
   *_CLANGPDB_*_CC_FLAGS = -D CLANG -D ENABLE_SECUREBOOT=$(ENABLE_SECUREBOOT)
   *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
@@ -177,6 +175,7 @@
   IoMmuLib|MdeModulePkg/Library/IoMmuLib/IoMmuLib.inf
   DmaLib|EmbeddedPkg/Library/CoherentDmaLib/CoherentDmaLib.inf
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
+  RamManagerLib|SiliciumNullPkg/Library/RamManagerLibNull/RamManagerLibNull.inf
 
   #
   # SEC Libraries
@@ -459,6 +458,11 @@
   MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
   MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
+
+  #
+  # RAM Manager
+  #
+  SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
   #
   # ACPI

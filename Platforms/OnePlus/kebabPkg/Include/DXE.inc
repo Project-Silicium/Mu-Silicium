@@ -60,7 +60,7 @@
   INF Binaries/kebab/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  #INF Binaries/kebab/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
+  INF Binaries/kebab/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/kebab/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

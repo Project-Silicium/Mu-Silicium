@@ -65,8 +65,3 @@
   # SEC Libraries
   #
   PlatformSecLib|NicobarPkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # ACPI Libraries
-  #
-  AcpiTableUpdateLib|NicobarPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf

@@ -64,8 +64,3 @@
   # SEC Libraries
   #
   PlatformSecLib|NazgulPkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # ACPI Libraries
-  #
-  AcpiTableUpdateLib|NazgulPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf

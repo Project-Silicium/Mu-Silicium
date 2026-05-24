@@ -1,6 +1,7 @@
 APRIORI DXE {
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+  INF QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf
 
   INF Binaries/muyu/QcomPkg/Drivers/EnvDxe/EnvDxeEnhanced.inf
 
@@ -11,8 +12,6 @@ APRIORI DXE {
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
-
-  INF QcomPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
   INF Binaries/muyu/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
