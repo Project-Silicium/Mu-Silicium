@@ -77,16 +77,6 @@
   #
   PlatformSecLib|PalawanPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
-  #
-  # ACPI Libraries
-  #
-  AcpiTableUpdateLib|PalawanPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
-
-  #
-  # Custom Libraries
-  #
-  RFSProtectionLib|PalawanPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
-
 [Components]
   #
   # Custom Drivers

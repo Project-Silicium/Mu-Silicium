@@ -64,8 +64,3 @@
   # SEC Libraries
   #
   PlatformSecLib|StarlordPkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # ACPI Libraries
-  #
-  AcpiTableUpdateLib|StarlordPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf

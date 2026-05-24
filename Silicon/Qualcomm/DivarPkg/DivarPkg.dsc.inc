@@ -74,8 +74,3 @@
   # SEC Libraries
   #
   PlatformSecLib|DivarPkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # ACPI Libraries
-  #
-  AcpiTableUpdateLib|DivarPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
