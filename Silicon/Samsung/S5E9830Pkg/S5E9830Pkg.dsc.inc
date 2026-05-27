@@ -78,6 +78,7 @@
   # Custom Libraries
   #
   GpioBankLib|S5E9830Pkg/Library/GpioBankLib/GpioBankLib.inf
+  PlatformUfsLib|S5E9830Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
 
 [Components]
   #
