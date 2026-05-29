@@ -17,3 +17,4 @@ edk2-pytool-extensions~=0.30.2
 antlr4-python3-runtime==4.13.2
 regex==2026.5.9
 pefile~=2024.8.26
+coloredlogs
