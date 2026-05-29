@@ -20,18 +20,18 @@ At the End you should see a new Folder called `Mu-Silicium`.
 ## Requirements
 
   - [Python 3.11](https://www.python.org/downloads/) or higher
-  - [LLVM](https://releases.llvm.org/)
+  - [LLVM](https://github.com/llvm/llvm-project/releases/)
   - [VS Build Tools](https://aka.ms/vs/stable/vs_BuildTools.exe)
   - [GnuMake32](https://gnuwin32.sourceforge.net/packages/make.htm)
 
 ## Setting Up PATH
 
-Since LLVM and GnuMake32 don't add themself to PATH, you have to add it manually. <br>
+Since GnuMake32 don't add itself to PATH, you have to add it manually. <br>
 You can Update the PATH Variable using UI in Windows, Simply Enter "Path" in your Search Bar. <br>
 Once you Opend the Window, Go to System PATH and add two new Entries.
 
-Each Entry point to the Install `bin` Folder of LLVM and GnuMake32. <br>
-Their Install Location Depends on what Path you Specified during Install or where you Extracted it.
+The Entry should Point to the Install `bin` Folder of GnuMake32. <br>
+The Install Location Depends on in what Path you Extracted it.
 
 ## Installing pip Dependencies
 

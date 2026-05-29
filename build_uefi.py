@@ -184,24 +184,24 @@ def compile_uefi (ctx: BuildContext, fd_config: list, script_path: Path) -> bool
 
 def create_android_boot_img (image_config: list, ctx: BuildContext) -> bool:
     # Set Required Paths
-    boot_shim_payload_path        = BOOT_SHIM_PATH / "BootShim.bin"
-    device_fv_path                = BUILD_PATH / f"{ctx.device}Pkg" / f"{ctx.build_mode}_CLANGPDB" / "FV"
-    device_uefi_fd_path           = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd"
-    device_uefi_fd_boot_shim_path = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd-bootshim"
-    uefi_bootshim_gz_path         = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd-bootshim.gz"
-    device_dtb_path               = RESOURCE_DTBS_PATH / f"{ctx.device}.dtb"
-    android_kernel_path           = BUILD_PATH / f"kernel-{ctx.device}"
+    boot_shim_payload_path = BOOT_SHIM_PATH / "BootShim.bin"
+    device_fv_path         = BUILD_PATH / f"{ctx.device}Pkg" / f"{ctx.build_mode}_CLANGPDB" / "FV"
+    uefi_fd_path           = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd"
+    uefi_boot_shim_path    = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd-bootshim"
+    uefi_boot_shim_gz_path = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd-bootshim.gz"
+    device_dtb_path        = RESOURCE_DTBS_PATH / f"{ctx.device}.dtb"
+    android_kernel_path    = BUILD_PATH / f"kernel-{ctx.device}"
 
     # Append Boot Shim
     try:
         # Create Combined UEFI FD File
-        with open (device_uefi_fd_boot_shim_path, 'wb') as combined_fd_file:
+        with open (uefi_boot_shim_path, 'wb') as combined_fd_file:
             # Append Boot Shim Payload
             with open (boot_shim_payload_path, 'rb') as boot_shim_payload_file:
                 shutil.copyfileobj (boot_shim_payload_file, combined_fd_file)
 
             # Append Device UEFI FD
-            with open (device_uefi_fd_path, 'rb') as device_uefi_fd_file:
+            with open (uefi_fd_path, 'rb') as device_uefi_fd_file:
                 shutil.copyfileobj (device_uefi_fd_file, combined_fd_file)
     except Exception as e:
         logger.error (f"Failed to Create Combined UEFI FD File! Error = {e}")
@@ -215,9 +215,9 @@ def create_android_boot_img (image_config: list, ctx: BuildContext) -> bool:
         # Compress Kernel
         try:
             # Open Combined UEFI FD File
-            with open (device_uefi_fd_boot_shim_path, 'rb') as combined_fd_file:
+            with open (uefi_boot_shim_path, 'rb') as combined_fd_file:
                 # Compress Combined UEFI FD File
-                with gzip.open (uefi_bootshim_gz_path, 'wb') as compressed_fd_file:
+                with gzip.open (uefi_boot_shim_gz_path, 'wb') as compressed_fd_file:
                     shutil.copyfileobj (combined_fd_file, compressed_fd_file)
         except Exception as e:
             logger.error (f"Failed to Compress Combined UEFI FD File! Error = {e}")
@@ -238,8 +238,12 @@ def create_android_boot_img (image_config: list, ctx: BuildContext) -> bool:
             # Create Final Android Kernel
             with open (android_kernel_path, 'wb') as android_kernel_file:
                 # Open Combined UEFI FD File
-                with open (uefi_bootshim_gz_path, 'rb') as combined_fd_file:
-                    shutil.copyfileobj (combined_fd_file, android_kernel_file)
+                if kernel_compression == "none":
+                    with open (uefi_boot_shim_path, 'rb') as combined_fd_file:
+                        shutil.copyfileobj (combined_fd_file, android_kernel_file)
+                else:
+                    with open (uefi_boot_shim_gz_path, 'rb') as combined_fd_file:
+                        shutil.copyfileobj (combined_fd_file, android_kernel_file)
 
                 # Open Device DTB
                 with open (device_dtb_path, 'rb') as device_dtb_file:
@@ -252,8 +256,12 @@ def create_android_boot_img (image_config: list, ctx: BuildContext) -> bool:
             # Create Final Android Kernel
             with open (android_kernel_path, 'wb') as android_kernel_file:
                 # Open Combined UEFI FD File
-                with open (uefi_bootshim_gz_path, 'rb') as combined_fd_file:
-                    shutil.copyfileobj (combined_fd_file, android_kernel_file)
+                if kernel_compression == "none":
+                    with open (uefi_boot_shim_path, 'rb') as combined_fd_file:
+                        shutil.copyfileobj (combined_fd_file, android_kernel_file)
+                else:
+                    with open (uefi_boot_shim_gz_path, 'rb') as combined_fd_file:
+                        shutil.copyfileobj (combined_fd_file, android_kernel_file)
         except Exception as e:
             logger.error (f"Failed to Create Final Android Kernel! Error = {e}")
             return False
@@ -272,7 +280,8 @@ def create_android_boot_img (image_config: list, ctx: BuildContext) -> bool:
 
     # Append DTB Location
     if dtb_location == "outside":
-        cmd.append (["--dtb", device_dtb])
+        cmd.append ("--dtb")
+        cmd.append (device_dtb_path)
 
     # Execute mkbootimg Command
     return subprocess.run (cmd).returncode == 0
@@ -281,7 +290,7 @@ def create_payload_file (payload_config: list, ctx: BuildContext) -> bool:
     # Set Required Paths
     boot_shim_payload_path = BOOT_SHIM_PATH / "BootShim.bin"
     device_fv_path         = BUILD_PATH / f"{ctx.device}Pkg" / f"{ctx.build_mode}_CLANGPDB" / "FV"
-    device_uefi_fd_path    = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd"
+    uefi_fd_path           = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd"
     payload_file_output    = f"Mu-{ctx.device}-{ctx.device_model}.bin"
 
     # Get Payload Type
@@ -298,7 +307,7 @@ def create_payload_file (payload_config: list, ctx: BuildContext) -> bool:
                     shutil.copyfileobj (boot_shim_payload_file, combined_fd_file)
 
                 # Append Device UEFI FD
-                with open (device_uefi_fd_path, 'rb') as device_uefi_fd_file:
+                with open (uefi_fd_path, 'rb') as device_uefi_fd_file:
                     shutil.copyfileobj (device_uefi_fd_file, combined_fd_file)
         except Exception as e:
             logger.error (f"Failed to Create Combined UEFI FD File! Error = {e}")
