@@ -37,6 +37,14 @@ do case "${1}" in
 	esac
 done
 
+# Set Release Type of UEFI
+while true
+do case "${TARGET_BUILD_MODE^^}" in
+		DEBUG) TARGET_BUILD_MODE=DEBUG;break;;
+		*) TARGET_BUILD_MODE=RELEASE;break;;
+	esac
+done
+
 # Parse Active Devices from Status.md
 ACTIVE_DEVICES=$(grep -A 2 "\*\*State:\*\* Active" Status.md | grep "\*\*Codename:\*\*" | sed 's/.*\*\*Codename:\*\* //; s/<[^>]*>//g')
 
@@ -51,8 +59,8 @@ for TARGET_DEVICE in $ACTIVE_DEVICES; do
 	# Build each Device Model
 	for ((TARGET_MODEL = 0; TARGET_MODEL < $TARGET_NUMBER_OF_MODELS; TARGET_MODEL++)); do
 		if [[ $TARGET_ENABLE_SECUREBOOT == 1 ]]
-		then bash ./build_uefi.sh -d $TARGET_DEVICE -r $TARGET_BUILD_MODE -c -s -m $TARGET_MODEL || exit $?
-		else bash ./build_uefi.sh -d $TARGET_DEVICE -r $TARGET_BUILD_MODE -c -m $TARGET_MODEL || exit $?
+		then python3 build_uefi.py -d $TARGET_DEVICE -r $TARGET_BUILD_MODE -c -s -m $TARGET_MODEL || exit $?
+		else python3 build_uefi.py -d $TARGET_DEVICE -r $TARGET_BUILD_MODE -c -m $TARGET_MODEL || exit $?
 		fi
 	done
 done

@@ -1,39 +1,84 @@
 # Building
 
 > [!TIP]
-> It's recommended to use `Ubuntu 24.04.3 LTS` to Compile this.
+> For the Compilation is a Linux OS recommended.
 
-## Preparing
+## Cloning the Source Code
 
-Before you can even Begin to Compile a UEFI, You must clone the GitHub Repo:
-```bash
-# Install the "git" Package if the Command fails with "Not Found".
+To Compile this UEFI Project in the first Place, You have to Download the Source Code. <br>
+You can do this by using the `git` Command:
+```
 git clone https://github.com/Project-Silicium/Mu-Silicium.git --recursive
-cd Mu-Silicium
+```
+At the End you should see a new Folder called `Mu-Silicium`.
+
+## Platform Specific Steps
+
+<details>
+<summary>Windows</summary>
+
+## Requirements
+
+  - [Python 3.11](https://www.python.org/downloads/) or higher
+  - [LLVM](https://releases.llvm.org/)
+  - [VS Build Tools](https://aka.ms/vs/stable/vs_BuildTools.exe)
+  - [GnuMake32](https://gnuwin32.sourceforge.net/packages/make.htm)
+
+## Setting Up PATH
+
+Since LLVM and GnuMake32 don't add themself to PATH, you have to add it manually. <br>
+You can Update the PATH Variable using UI in Windows, Simply Enter "Path" in your Search Bar. <br>
+Once you Opend the Window, Go to System PATH and add two new Entries.
+
+Each Entry point to the Install `bin` Folder of LLVM and GnuMake32. <br>
+Their Install Location Depends on what Path you Specified during Install or where you Extracted it.
+
+## Installing pip Dependencies
+
+Before you can Start to Compile this UEFI Project, You have to Install the pip Dependencies. <br>
+Open a Command Prompt Window in the same Folder as the Source Code. <br>
+Once you did that, Run this Command to Install all pip Dependencies:
+```cmd
+pip install -r pip-requirements.txt
 ```
 
-Once you Cloned the GitHub Repo, You need to install the needed Packages for the Compile Process:
+---
+
+</details>
+
+<details>
+<summary>Linux</summary>
+
+## Installing Dependencies
+
+Before you can Start to Compile this UEFI Project, You have to Install the Dependencies. <br>
+Open a Terminal in the same Folder as the Source Code. <br>
+Once you did that, Run this Command to Install all Dependencies:
 ```bash
-# We currently support apt, pacman and dnf
-./setup_env.sh -p [Package Manager]
+./setup_env -p [PACKET_MANAGER_NAME]
 ```
+The `[PACKET_MANAGER_NAME]` Argument here is the Name of your Distro Packet Manager. <br>
+For Ubuntu Users for Example the Name would be `apt`.
 
-## Compiling
+</details>
 
-After you installed all the Packages you are Ready to Compile. <br>
-Run the Build Script with these Params to Compile the UEFI for your Device:
-```bash
-# Example: For Xiaomi 11T Pro, Use "vili", Check Status.md for other Devices.
-# Hint: If you want Debug Logs on your Phone, Add "-r DEBUG" to the Params.
-./build_uefi.sh -d [Codename]
+## Compiling UEFI
+
+> [!IMPORTANT]
+> Depending on your Python Install, You might have to use `python` instead of `python3`.
+
+After you have Done all the Steps from before, You're now ready to Compile UEFI with this Command:
 ```
+python3 build_uefi.py -d [DEVICE_CODENAME]
+```
+The `[DEVICE_CODENAME]` Argument here is the Codename of your Device. <br>
+You can Find the Codename of the Device in the [Status Page](Status.md).
 
-It will tell you at the End if the Build was Successful or not. <br>
-If it was Successful, a Output Image will appear with this Name: `Mu-[Device-Codename]`.
+# Updating
 
-# Troubleshooting
-
-## Python Requirements
-
-If you encounter a Problem while Installing the Python Packages saying something with "Couldn't satisfy", Update your Python Package. <br>
-Python 3.10+ is Required to Compile a UEFI Image.
+Since this is a Open Source Project, There will be some Updates from Time to Time. <br>
+To get these new Updates and Changes you can use `git` again to Update your Local Copy:
+```
+git pull
+git submodule update
+```
