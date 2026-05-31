@@ -16,5 +16,5 @@ fd_size = 0x300000
 #
 [boot_image]
 kernel_compression = "gzip"
-dtb_location       = "kernel"
+dtb_location       = "outside"
 header_version     = 2
