@@ -1,0 +1,20 @@
+#
+# Boot Shim Configs
+#
+[boot_shim]
+requires_kernel_header = true
+
+#
+# UEFI FD Configs
+#
+[uefi_fd]
+fd_base = 0xBAB00000
+fd_size = 0x300000
+
+#
+# Android Boot Image Configs
+#
+[boot_image]
+kernel_compression = "gzip"
+dtb_location       = "outside"
+header_version     = 2

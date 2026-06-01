@@ -22,6 +22,12 @@
   #
   ArmSmcLib|SamsungPkg/Library/ArmSmcLib/ArmSmcLib.inf
 
+  #
+  # Custom Libraries
+  #
+  PlatformUfsLib|SamsungPkg/Library/PlatformUfsLibNull/PlatformUfsLibNull.inf
+  UfsCalAdapterLib|SamsungPkg/Library/UfsCalAdapterLib/UfsCalAdapterLib.inf
+
 [Components]
   #
   # SMBIOS
@@ -35,3 +41,4 @@
   SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
   SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
+  SamsungPkg/Drivers/UfsDxe/UfsDxe.inf

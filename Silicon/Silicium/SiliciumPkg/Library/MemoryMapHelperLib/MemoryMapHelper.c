@@ -53,7 +53,7 @@ LocateMemoryRegionByAddress (
   // Go thru each Memory Region
   for (UINT8 i = 0; i < MemoryDescriptorCount; i++) {
     // Compare Memory Region Addresses
-    if (MemoryDescriptor->Address != RegionAddress) {
+    if (MemoryDescriptor[i].Address != RegionAddress) {
       continue;
     }
 
