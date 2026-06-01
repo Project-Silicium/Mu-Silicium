@@ -1,0 +1,32 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = S2mpu09Dxe
+  FILE_GUID                      = 1D41E21F-E099-4E95-90B6-4CA2F759D5f4
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitS2mpu09
+
+[Sources]
+  S2mpu09Dxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+
+[FixedPCD]
+  gSamsungPkgTokenSpaceGuid.PcdInitS2mpu09
+
+[Protocols]
+  gEfiSpeedyProtocolGuid
+  gEfiS2mpu09ProtocolGuid
+
+[Depex]
+  TRUE

@@ -225,6 +225,43 @@
 </details>
 
 <details>
+<summary><b><strong>Exynos 9610 Devices</strong></b></summary>
+
+## Samsung Galaxy A50
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-9` Version is Required on this Device!
+
+</td></tr>
+</table>
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-A50.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** a50
+
+**Contributors:** [Sota4Ever](https://github.com/Sota4Ever/)
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ❌    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ❌    |
+| USB Power Delivery |             | ❌    |
+| SD Card            |             | ❌    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
+
+</details>
+
+<details>
 <summary><b><strong>Exynos 7885 Devices</strong></b></summary>
 
 <table>
