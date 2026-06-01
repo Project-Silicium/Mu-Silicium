@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 from pathlib import Path
 from dataclasses import dataclass
 
@@ -119,6 +120,24 @@ def parse_device_config (device: str) -> dict | None:
     # Open Device Config File
     with open (config_path, "rb") as file:
         return tomllib.load (file)
+
+def cleanup_old_build (device: str, device_model: int, cleanup: bool):
+    # Delete Device Build File
+    if cleanup:
+        shutil.rmtree (BUILD_PATH / f"{device}Pkg", ignore_errors=True)
+
+    # Set Old Build Files
+    old_build_files = [
+        BOOT_SHIM_PATH / "BootShim.elf",
+        BOOT_SHIM_PATH / "BootShim.bin",
+        BUILD_PATH / f"kernel-{device}",
+        Path (f"Mu-{device}-{device_model}.img"),
+        Path (f"Mu-{device}-{device_model}.bin")
+    ]
+
+    # Delete Old Build Files
+    for old_build_file in old_build_files:
+        old_build_file.unlink (missing_ok=True)
 
 def handle_git_patch (submodule_path: Path, patch_name: str, remove: bool) -> bool:
     # Set Patch Path
@@ -348,7 +367,7 @@ def main ():
     # Parse Device Config File
     device_data = parse_device_config (ctx.device)
     if not device_data:
-        logger.error (f"There is no Config File in \"{resource_paths[0]}\" for \"{target_device}\"!")
+        logger.error (f"There is no Config File in \"{RESOURCE_CONFIGS_PATH}\" for \"{ctx.device}\"!")
         sys.exit (1)
 
     # Append FD Block Size
@@ -357,9 +376,8 @@ def main ():
     # Set Device Script Path
     device_script_path = device_package_path / "DeviceBuild.py"
 
-    # Delete Device Build Folder
-    if ctx.cleanup:
-        shutil.rmtree (BUILD_PATH / f"{ctx.device}Pkg", ignore_errors=True)
+    # Delete Old Build Files
+    cleanup_old_build (ctx.device, ctx.device_model, ctx.cleanup)
 
     # Remove Mu_Basecore Patches
     for patch_name in ["Auth-Service.patch", "Timer.patch", "Usb-Bus.patch"]:
