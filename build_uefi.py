@@ -192,7 +192,7 @@ def compile_uefi (ctx: BuildContext, fd_config: list, script_path: Path) -> bool
         sys.executable,
         script_path,
         f"TARGET={ctx.build_mode}",
-        f"ENABLE_SECUREBOOT={ctx.enable_secureboot}",
+        f"ENABLE_SECUREBOOT={int (ctx.enable_secureboot)}",
         f"FD_BASE={hex (fd_config["fd_base"])}",
         f"FD_SIZE={hex (fd_config["fd_size"])}",
         f"FD_BLOCKS={hex (fd_config["fd_blocks"])}",
