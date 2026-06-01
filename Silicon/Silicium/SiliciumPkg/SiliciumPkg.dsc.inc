@@ -28,7 +28,7 @@
   #
   # Firmware Details
   #
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.5"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.6"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
 
   #
