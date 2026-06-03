@@ -3288,6 +3288,52 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 780G Devices</strong></b></summary>
+
+<br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi Mi 11 Lite 5G
+
+<img align="right" src="Resources/Pictures/Xiaomi-Mi-11-Lite-5G.png" width="500" alt="Preview">
+
+**State:** Active <br>
+**Codename:** renoir
+
+**Contributors:** [Arminas](https://github.com/arminask/)
+
+### UEFI Status
+
+| Feature            | Description              | State |
+|:-------------------|:-------------------------|:-----:|
+| Display            |                          | ✅    |
+| Internal Storage   |                          | ✅    |
+| Side Buttons       |                          | ✅    |
+| USB Host Mode      |                          | ❌    |
+| USB Device Mode    |                          | ✅    |
+| USB Power Delivery |                          | ❌    |
+| Mass Storage       |                          | ✅    |
+| Windows Boot       |                          | ✅    |
+| Linux Boot         |                          | ❌    |
+
+</details>
+
+---
+
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 778G/778G+/782G Devices</strong></b></summary>
 
 <br>

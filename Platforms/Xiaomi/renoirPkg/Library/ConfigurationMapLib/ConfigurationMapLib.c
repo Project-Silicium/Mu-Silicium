@@ -8,14 +8,14 @@ gConfigurationDescriptor[] = {
   {"EnableShell", 0x1},
   {"InitialPagePoolCount", 0x700},
   {"SharedIMEMBaseAddr", 0x146AA000},
-  {"DloadCookieAddr", 0x01FD3000},
+  {"DloadCookieAddr", 0x1FD3000},
   {"DloadCookieValue", 0x10},
   {"NumCpus", 8},
   {"NumActiveCores", 8},
   {"MaxLogFileSize", 0x400000},
   {"UefiMemUseThreshold", 0xE1},
   {"USBHS1_Config", 0x0},
-  {"UsbFnIoRevNum", 0x00010001},
+  {"UsbFnIoRevNum", 0x10001},
   {"PwrBtnShutdownFlag", 0x0},
   {"Sdc1GpioConfigOn", 0x1E92},
   {"Sdc2GpioConfigOn", 0x1E92},
@@ -43,7 +43,7 @@ gConfigurationDescriptor[] = {
   {"EnableVariablePolicyEngine", 0},
   {"EnableACPIFallback", 0x0},
   {"EUDEnableAddr", 0x88E2000},
-  {"MinidumpTALoadingCfg", 0x0},
+  {"MinidumpTALoadingCfg", 0x0}
 };
 
 VOID

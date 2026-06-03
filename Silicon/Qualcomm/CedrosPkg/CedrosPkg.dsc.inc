@@ -25,7 +25,7 @@
 !include QcomPkg/QcomPkg.dsc.inc
 
 [BuildOptions]
-*_*_AARCH64_CC_FLAGS = -march=armv8.4-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8.4-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   #
@@ -51,9 +51,7 @@
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 780G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7350"
-
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2500
-
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x80
