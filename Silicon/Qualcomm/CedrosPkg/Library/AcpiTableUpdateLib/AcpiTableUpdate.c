@@ -39,7 +39,6 @@ UpdateAcpiTables ()
   UINT32 TDTV                            = 0x6654504D;
   UINT64 SOSI                            = 0;
   UINT32 PRP0                            = 0;
-  UINT32 PRP1                            = 0;
   CHAR8  SIDS[EFICHIPINFO_MAX_ID_LENGTH] = {0};
   UINT32 RMTB                            = 0;
   UINT32 RMTX                            = 0;
@@ -138,7 +137,6 @@ UpdateAcpiTables ()
   UpdateNameAslCode (SIGNATURE_32('T', 'C', 'M', 'L'), &TCML, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'O', 'S', 'I'), &SOSI, 8);
   UpdateNameAslCode (SIGNATURE_32('P', 'R', 'P', '0'), &PRP0, 4);
-  UpdateNameAslCode (SIGNATURE_32('P', 'R', 'P', '1'), &PRP1, 4);
   UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'S'), &SIDS, EFICHIPINFO_MAX_ID_LENGTH);
   UpdateNameAslCode (SIGNATURE_32('U', 'A', 'O', 'N'), &UAON, 4);
 }

@@ -13,7 +13,6 @@ APRIORI DXE {
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/renoir/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
-
   INF Binaries/renoir/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
@@ -42,7 +41,7 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  INF Binaries/renoir/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  #INF Binaries/renoir/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf

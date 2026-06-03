@@ -42,7 +42,7 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/renoir/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  INF Binaries/renoir/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
+  #INF Binaries/renoir/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf

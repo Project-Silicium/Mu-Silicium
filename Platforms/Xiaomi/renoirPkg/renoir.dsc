@@ -61,9 +61,9 @@
   #
   # Memory Libraries
   #
-  MemoryMapLib|lisaPkg/Library/MemoryMapLib/MemoryMapLib.inf
+  MemoryMapLib|renoirPkg/Library/MemoryMapLib/MemoryMapLib.inf
 
   #
   # QCOM Libraries
   #
-  ConfigurationMapLib|lisaPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+  ConfigurationMapLib|renoirPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
