@@ -168,9 +168,9 @@ def compile_boot_shim (boot_shim_config: list, uefi_fd_config: list) -> bool:
     # Set Compile Command
     cmd = [
         "make",
-        f"REQUIRES_KERNEL_HEADER={int (boot_shim_config["requires_kernel_header"])}",
-        f"FD_BASE={hex (uefi_fd_config["fd_base"])}",
-        f"FD_SIZE={hex (uefi_fd_config["fd_size"])}"
+        f"REQUIRES_KERNEL_HEADER={int (boot_shim_config['requires_kernel_header'])}",
+        f"FD_BASE={hex (uefi_fd_config['fd_base'])}",
+        f"FD_SIZE={hex (uefi_fd_config['fd_size'])}"
     ]
 
     # Compile Boot Shim
@@ -193,9 +193,9 @@ def compile_uefi (ctx: BuildContext, fd_config: list, script_path: Path) -> bool
         script_path,
         f"TARGET={ctx.build_mode}",
         f"ENABLE_SECUREBOOT={int (ctx.enable_secureboot)}",
-        f"FD_BASE={hex (fd_config["fd_base"])}",
-        f"FD_SIZE={hex (fd_config["fd_size"])}",
-        f"FD_BLOCKS={hex (fd_config["fd_blocks"])}",
+        f"FD_BASE={hex (fd_config['fd_base'])}",
+        f"FD_SIZE={hex (fd_config['fd_size'])}",
+        f"FD_BLOCKS={hex (fd_config['fd_blocks'])}",
         f"DEVICE_MODEL={ctx.device_model}"
     ]
 
