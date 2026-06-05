@@ -2,7 +2,7 @@
 # Boot Shim Configs
 #
 [boot_shim]
-requires_kernel_header = true
+requires_kernel_header = false
 
 #
 # UEFI FD Configs
@@ -15,6 +15,14 @@ fd_size = 0x200000
 # Android Boot Image Configs
 #
 [boot_image]
+requires_boot_shim = false
 kernel_compression = "gzip"
 dtb_location       = "outside"
 header_version     = 2
+base               = 0x40078000
+kernel_offset      = 0x00008000
+ramdisk_offset     = 0x07c08000
+second_offset      = 0xbff88000
+tags_offset        = 0x0bc08000
+dtb_offset         = 0x0bc08000
+cmdline            = "bootopt=64S3,32N2,64N2"
