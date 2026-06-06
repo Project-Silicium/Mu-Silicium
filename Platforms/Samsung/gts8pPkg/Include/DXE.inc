@@ -1,7 +1,6 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/SecShareInfoDxe/SecShareInfoDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
@@ -41,11 +40,8 @@
   INF Binaries/gts8p/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
-
-  # Samsung Drivers Require this to work properly.
-  INF Binaries/gts8p/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF Binaries/gts8p/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
-
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
@@ -60,6 +56,7 @@
   INF Binaries/gts8p/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
@@ -105,12 +102,9 @@
   INF Binaries/gts8p/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/GuidedFvDxe/GuidedFvDxe.inf

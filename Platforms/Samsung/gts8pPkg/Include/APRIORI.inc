@@ -3,7 +3,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
   INF QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf
 
-  INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/SecShareInfoDxe/SecShareInfoDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
@@ -40,10 +39,8 @@ APRIORI DXE {
 
   INF Binaries/gts8p/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
-  # Samsung Drivers Require this to work properly.
-  INF Binaries/gts8p/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF Binaries/gts8p/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
-
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/gts8p/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
@@ -52,9 +49,7 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF Binaries/gts8p/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
