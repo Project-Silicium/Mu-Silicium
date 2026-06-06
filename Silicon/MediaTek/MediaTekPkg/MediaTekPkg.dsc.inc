@@ -22,6 +22,11 @@
   #
   ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
 
+  #
+  # Memory Libraries
+  #
+  RamManagerLib|MediaTekPkg/Library/RamManagerLib/RamManagerLib.inf
+
 [Components]
   #
   # SmBios
