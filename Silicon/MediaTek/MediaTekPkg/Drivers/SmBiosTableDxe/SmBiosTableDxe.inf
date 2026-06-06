@@ -7,27 +7,23 @@
   ENTRY_POINT                    = RegisterSmBiosTables
 
 [Sources]
-  SmBiosTableDxe.c
+  SmBiosTable.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
-  ArmPlatformPkg/ArmPlatformPkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  EmbeddedPkg/EmbeddedPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
   SiliciumPkg/SiliciumPkg.dec
-  MediaTekPkg/MediaTekPkg.dec
 
 [LibraryClasses]
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
-  MemoryMapHelperLib
   BaseMemoryLib
-  PrintLib
   DebugLib
   UefiLib
-  IoLib
+  PrintLib
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdSystemMemoryBase
