@@ -1,0 +1,31 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ClockDxe
+  FILE_GUID                      = A5E6FF71-3990-41FC-B8A7-9147C53BF78D
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitClockDriver
+
+[Sources]
+  ClockDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  MediaTekPkg/MediaTekPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+  DebugLib
+  IoLib
+  TimerLib
+  ClockImplLib
+
+[Protocols]
+  gMediaTekClockProtocolGuid
+
+[Depex]
+  TRUE

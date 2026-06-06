@@ -61,5 +61,6 @@
   # Custom Libraries
   #
   GpioImplLib|MT6768Pkg/Library/GpioImplLib/GpioImplLib.inf
+  ClockImplLib|MT6768Pkg/Library/ClockImplLib/ClockImplLib.inf
   PmicWrapperImplLib|MT6768Pkg/Library/PmicWrapperImplLib/PmicWrapperImplLib.inf
   MsdcImplLib|MT6768Pkg/Library/MsdcImplLib/MsdcImplLib.inf
