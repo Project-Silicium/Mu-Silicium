@@ -6,11 +6,14 @@ typedef enum {
   PmicWrapperWacs2Cmd,
   PmicWrapperWacs2VldClr,
   PmicWrapperWacs2RData,
+  PmicWrapperSwinf2WData31,
+  PmicWrapperSwinf2RData31,
   PmicWrapperMaxReg
 } MTK_PMIC_WRAPPER_REG;
 
 typedef struct {
-  UINT16 RegMap[PmicWrapperMaxReg];
+  MTK_PMIC_WRAPPER_REG RegMap[PmicWrapperMaxReg];
+  BOOLEAN ArbCapabilities;
 } MTK_PMIC_WRAPPER_PLATFORM_INFO;
 
 extern MTK_PMIC_WRAPPER_PLATFORM_INFO gPlatformInfo;

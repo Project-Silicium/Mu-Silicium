@@ -36,8 +36,19 @@ STATIC
 WACS_FSM_STATE
 WacsGetFsm ()
 {
+  UINT32 Value;
+
   // Read Data
-  return (PmicWrapperRead (PmicWrapperWacs2RData) >> 16) & 0x7;
+  Value = PmicWrapperRead (PmicWrapperWacs2RData);
+
+  // Get FSM State
+  if (gPlatformInfo.ArbCapabilities) {
+    Value = (Value >> 1) & 0x7;
+  } else {
+    Value = (Value >> 16) & 0x7;
+  }
+
+  return Value;
 }
 
 STATIC
@@ -59,11 +70,24 @@ WacsCommand (
   IN UINT32  Data,
   IN BOOLEAN IsWrite)
 {
+  UINT32 WacsCommand;
+
   // Wait until FSM reaches idle state
   WacsWaitFor (WacsFsmIdle);
 
+  // Encode Address, data and write mode
+  if (gPlatformInfo.ArbCapabilities) {
+    WacsCommand = Address;
+    if (IsWrite) {
+      PmicWrapperWrite (PmicWrapperSwinf2WData31, Data);
+      WacsCommand |= (1 << 29);
+    }
+  } else {
+    WacsCommand = (IsWrite << 31) | ((Address >> 1) << 16) | Data;
+  }
+
   // Write Command
-  PmicWrapperWrite (PmicWrapperWacs2Cmd, (IsWrite << 31) | ((Address >> 1) << 16) | Data);
+  PmicWrapperWrite (PmicWrapperWacs2Cmd, WacsCommand);
 }
 
 STATIC
@@ -79,7 +103,7 @@ PmicWrapperImplRead (
   WacsWaitFor (WacsFsmWfVldClr);
 
   // Read data
-  Result = PmicWrapperRead (PmicWrapperWacs2RData);
+  Result = PmicWrapperRead (gPlatformInfo.ArbCapabilities ? PmicWrapperSwinf2RData31 : PmicWrapperWacs2RData);
   PmicWrapperWrite (PmicWrapperWacs2VldClr, 1);
 
   *Value = (Result & 0xFFFF);
