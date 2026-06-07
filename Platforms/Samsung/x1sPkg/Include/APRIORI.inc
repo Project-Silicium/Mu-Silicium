@@ -9,11 +9,10 @@ APRIORI DXE {
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-  INF SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
-  INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
+  INF SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   INF SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
-  INF SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
+  INF SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf

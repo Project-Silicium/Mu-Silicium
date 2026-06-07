@@ -18,27 +18,45 @@
 
 [LibraryClasses]
   #
-  # ARM Libraries
+  # Memory Libraries
   #
-  ArmSmcLib|SamsungPkg/Library/ArmSmcLib/ArmSmcLib.inf
+  RamManagerLib|SamsungPkg/Library/RamManagerLib/RamManagerLib.inf
 
   #
-  # Custom Libraries
+  # IO Libraries
   #
-  PlatformUfsLib|SamsungPkg/Library/PlatformUfsLibNull/PlatformUfsLibNull.inf
+  GpioLib|SamsungNullPkg/Library/GpioNullLib/GpioNullLib.inf
+  SpeedyLib|SamsungNullPkg/Library/SpeedyNullLib/SpeedyNullLib.inf
+
+  #
+  # Storage Libraries
+  #
+  PlatformUfsLib|SamsungNullPkg/Library/PlatformUfsLibNull/PlatformUfsLibNull.inf
   UfsCalAdapterLib|SamsungPkg/Library/UfsCalAdapterLib/UfsCalAdapterLib.inf
 
 [Components]
   #
-  # SMBIOS
+  # Storage Drivers
+  #
+  SamsungPkg/Drivers/UfsDxe/UfsDxe.inf
+
+  #
+  # IO Drivers
+  #
+  SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
+  SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
+
+  #
+  # Power Management Drivers
+  #
+  SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
+
+  #
+  # SMBIOS Drivers
   #
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   #
   # Custom Drivers
   #
-  SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
-  SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
-  SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
-  SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
-  SamsungPkg/Drivers/UfsDxe/UfsDxe.inf
+  SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

@@ -22,9 +22,9 @@
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-  INF SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
-  INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
+  INF SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
+  INF SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf

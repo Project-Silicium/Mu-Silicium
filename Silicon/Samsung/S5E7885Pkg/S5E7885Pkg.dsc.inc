@@ -52,6 +52,7 @@
   PlatformSecLib|S5E7885Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Custom Libraries
+  # IO Libraries
   #
-  GpioBankLib|S5E7885Pkg/Library/GpioBankLib/GpioBankLib.inf
+  GpioLib|S5E7885Pkg/Library/GpioLib/GpioLib.inf
+  SpeedyLib|S5E7885Pkg/Library/SpeedyLib/SpeedyLib.inf

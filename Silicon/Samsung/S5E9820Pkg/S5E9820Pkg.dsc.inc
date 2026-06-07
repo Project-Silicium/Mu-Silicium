@@ -34,15 +34,9 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10102000
 
   #
-  # DDR Info
+  # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
-
-  #
-  # PMIC
-  #
-  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|FALSE
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
 
   #
   # SMBIOS
@@ -59,23 +53,12 @@
 
 [LibraryClasses]
   #
-  # UEFI Libraries
-  #
-  HwResetSystemLib|S5E9820Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-  ResetSystemLib|S5E9820Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-
-  #
   # SEC Libraries
   #
   PlatformSecLib|S5E9820Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Custom Libraries
+  # IO Libraries
   #
-  GpioBankLib|S5E9820Pkg/Library/GpioBankLib/GpioBankLib.inf
-
-[Components]
-  #
-  # Custom Drivers
-  #
-  SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
+  GpioLib|S5E9820Pkg/Library/GpioLib/GpioLib.inf
+  SpeedyLib|S5E9820Pkg/Library/SpeedyLib/SpeedyLib.inf

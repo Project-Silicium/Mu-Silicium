@@ -62,9 +62,9 @@
   IoMmuLib|MdeModulePkg/Library/IoMmuLibNull/IoMmuLibNull.inf
 
   #
-  # Custom Libraries
+  # IO Libraries
   #
-  GpioBankLib|S5E7870Pkg/Library/GpioBankLib/GpioBankLib.inf
+  GpioLib|S5E7870Pkg/Library/GpioLib/GpioLib.inf
 
 [Components]
   #

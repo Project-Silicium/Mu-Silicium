@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = GpioNullLib
+  FILE_GUID                      = 0A92BADF-E72B-4E6D-A1B4-5A9604C32BEA
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = GpioLib|DXE_DRIVER
+
+[Sources]
+  GpioNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec

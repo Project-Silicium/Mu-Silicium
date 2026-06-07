@@ -10,20 +10,17 @@
   RamManager.c
 
 [Packages]
-  ArmPkg/ArmPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  UefiCpuPkg/UefiCpuPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
   DebugLib
-  DxeServicesTableLib
+  MemoryAllocationHelperLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
   RamManagerLib
-  ArmMmuLib
   SortLib
 
 [Depex]

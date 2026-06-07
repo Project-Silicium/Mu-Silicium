@@ -127,6 +127,7 @@
   #
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
+  ArmHvcLib|ArmPkg/Library/ArmHvcLib/ArmHvcLib.inf
   ArmMonitorLib|ArmPkg/Library/ArmMonitorLib/ArmMonitorLib.inf
 !if $(USE_PHYSICAL_TIMER) == 1
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.inf
@@ -176,6 +177,7 @@
   DmaLib|EmbeddedPkg/Library/CoherentDmaLib/CoherentDmaLib.inf
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
   RamManagerLib|SiliciumNullPkg/Library/RamManagerLibNull/RamManagerLibNull.inf
+  MemoryAllocationHelperLib|SiliciumPkg/Library/MemoryAllocationHelperLib/MemoryAllocationHelperLib.inf
 
   #
   # SEC Libraries

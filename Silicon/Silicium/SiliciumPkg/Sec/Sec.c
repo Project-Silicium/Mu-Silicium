@@ -18,8 +18,6 @@
 
 #include "Sec.h"
 
-STATIC EFI_MEMORY_REGION_DESCRIPTOR UefiFdRegion;
-
 #ifndef MDEPKG_NDEBUG
 STATIC
 VOID
@@ -223,29 +221,26 @@ CEntryPoint (
   IN UINTN StackBase,
   IN UINTN StackSize)
 {
-    EFI_STATUS Status;
+  EFI_MEMORY_REGION_DESCRIPTOR UefiFdRegion;
+
   // Verify Exception Vector Table
   ASSERT (((UINTN)SecVectorTable & ARM_VECTOR_TABLE_ALIGNMENT) == 0);
 
   // Enable new Exception Vector Table
   ArmWriteVBar ((UINTN)SecVectorTable);
 
-  // Do Platform Specific Initialization
-  PlatformInitialize ();
-
-  // Locate "UEFI FD" Memory Region
-  Status = LocateMemoryRegionByName ("UEFI FD", &UefiFdRegion);
-  if (EFI_ERROR (Status)) {
-    // Locate "UEFI_FD" Memory Region
-    Status = LocateMemoryRegionByName ("UEFI_FD", &UefiFdRegion);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI FD' Memory Region!\n"));
-      ASSERT_EFI_ERROR (Status);
-    }
-  }
-
   // Invalidate Stack D-Cache
   InvalidateDataCacheRange ((VOID *)StackBase, StackSize);
+
+  // Invalidate UEFI FD D-Cache
+  LocateMemoryRegionByName ("UEFI FD", &UefiFdRegion);
+  LocateMemoryRegionByName ("UEFI_FD", &UefiFdRegion);
+  if (UefiFdRegion.Address != 0 && UefiFdRegion.Length != 0) {
+    InvalidateDataCacheRange ((VOID *)UefiFdRegion.Address, UefiFdRegion.Length);
+  }
+
+  // Do Platform Specific Initialization
+  PlatformInitialize ();
 
   // Enter SEC Main Function
   SecMain (StackBase, StackSize);

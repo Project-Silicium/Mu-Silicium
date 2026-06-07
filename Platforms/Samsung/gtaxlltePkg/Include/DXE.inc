@@ -26,9 +26,10 @@
   INF FatPkg/EnhancedFatDxe/Fat.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
-  INF SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
-  INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
+  INF SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
+  INF SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
+  INF SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
   INF S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
   
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0

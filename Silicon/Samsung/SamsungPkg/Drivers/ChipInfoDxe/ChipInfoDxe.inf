@@ -1,0 +1,28 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ChipInfoDxe
+  FILE_GUID                      = 9F81B9CA-0CE3-408A-BFD1-FA8DD59F73F4
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = RegisterChipInfo
+
+[Sources]
+  ChipInfo.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+  IoLib
+
+[Protocols]
+  gEfiChipInfoProtocolGuid
+
+[Depex]
+  TRUE

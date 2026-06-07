@@ -1,3 +1,4 @@
-REPO:   https://github.com/halal-beef/lk_linaro/
-TAG:    Leon-TP1A-2A03V1-2A06R1
-FILE:   dev/speedy/speedy_multi.c
+REPO:   https://github.com/exynos990-mainline/lk3rd/
+BRANCH: dev
+FILES:  dev/speedy/speedy_multi.c      (COMMIT: 8742f9aa3d5a60e097003d226da2d3ee30fa7018)
+        dev/include/dev/speedy_multi.h (COMMIT: 1014feb95d7e134f7bfee2c7033b83a7f4450600)

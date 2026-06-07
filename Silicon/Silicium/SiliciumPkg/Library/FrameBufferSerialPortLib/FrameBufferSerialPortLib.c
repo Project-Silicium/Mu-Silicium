@@ -81,7 +81,7 @@ Print:
   // Check Buffer Length
   if ((UINT8)Buffer < 32) {
     // Check for "\n" & Overflow X Position
-    if (Buffer == '\n' || FrameBufferData.CurrentPosition->XPos >= FrameBufferData.MaxPosition.XPos - FrameBufferData.FontScale) {
+    if (Buffer == '\n' || FrameBufferData.CurrentPosition->XPos >= FrameBufferData.MaxPosition.XPos) {
       goto NewLine;
     }
 
@@ -251,16 +251,11 @@ SerialPortInitialize ()
   // Update Display Reserved Length
   FrameBufferData.MemoryRegion.Length = FrameBufferData.Width * FrameBufferData.Height * FrameBufferData.BytesPerPixel;
 
-  // Calculate Font Scales
-  UINT8 ScaleX = FrameBufferData.Width / 480;
-  UINT8 ScaleY = FrameBufferData.Height / 768;
+  // Get Smaller Display Dimension
+  UINT32 ShorterDimension = (FrameBufferData.Width < FrameBufferData.Height) ? FrameBufferData.Width : FrameBufferData.Height;
 
   // Set Font Scale
-  if (ScaleX == ScaleY) {
-    FrameBufferData.FontScale = FrameBufferData.Width / 768;
-  } else {
-    FrameBufferData.FontScale = (ScaleX < ScaleY) ? ScaleX : ScaleY;
-  }
+  FrameBufferData.FontScale = ShorterDimension / 400;
 
   // Verify Font Scale
   if (!FrameBufferData.FontScale) {
@@ -272,7 +267,7 @@ SerialPortInitialize ()
 
   // Calculate Max Position
   FrameBufferData.MaxPosition.XPos = FrameBufferData.Width / ((FONT_WIDTH + 1) * FrameBufferData.FontScale);
-  FrameBufferData.MaxPosition.YPos = FrameBufferData.Height / ((FONT_HEIGHT - 3) * FrameBufferData.FontScale);
+  FrameBufferData.MaxPosition.YPos = FrameBufferData.Height / ((FONT_HEIGHT - 4) * FrameBufferData.FontScale);
 
   return EFI_SUCCESS;
 }

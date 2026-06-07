@@ -11,96 +11,125 @@
 #ifndef _SPEEDY_H_
 #define _SPEEDY_H_
 
-// SPEEDY Register Map
-#define SPEEDY_CTRL                                   0x000
-#define SPEEDY_FIFO_CTRL                              0x004
-#define SPEEDY_CMD                                    0x008
-#define SPEEDY_INT_ENABLE                             0x00C
-#define SPEEDY_INT_STATUS                             0x010
-#define SPEEDY_FIFO_STATUS                            0x030
-#define SPEEDY_TX_DATA                                0x034
-#define SPEEDY_RX_DATA                                0x038
-#define SPEEDY_PACKET_GAP_TIME                        0x044
-#define SPEEDY_TIMEOUT_COUNT                          0x048
-#define SPEEDY_FIFO_DEBUG                             0x100
-#define SPEEDY_CTRL_STATUS                            0x104
+//
+// SPEEDY MMIO
+//
+#define SPEEDY_MMIO_LENGTH                           0x2000
 
-// SPEEDY_CTRL Register Bits
-#define SPEEDY_ENABLE                                (1 << 0)
-#define SPEEDY_TIMEOUT_CMD_DISABLE                   (1 << 1)
-#define SPEEDY_TIMEOUT_STANDBY_DISABLE               (1 << 2)
-#define SPEEDY_TIMEOUT_DATA_DISABLE                  (1 << 3)
-#define SPEEDY_ALWAYS_PULLUP_EN                      (1 << 7)
+//
+// SPPEDY Controller Register Bits
+//
 #define SPEEDY_DATA_WIDTH_8BIT                       (0 << 8)
-#define SPEEDY_REMOTE_RESET_REQ_EN                   (1 << 30)
-#define SPEEDY_SW_RST                                (1 << 31)
+#define SPEEDY_ENABLE                                BIT0
+#define SPEEDY_TIMEOUT_CMD_DISABLE                   BIT1
+#define SPEEDY_TIMEOUT_STANDBY_DISABLE               BIT2
+#define SPEEDY_TIMEOUT_DATA_DISABLE                  BIT3
+#define SPEEDY_ALWAYS_PULLUP_EN                      BIT7
+#define SPEEDY_REMOTE_RESET_REQ_EN                   BIT30
+#define SPEEDY_SW_RST                                BIT31
 
-// SPEEDY_FIFO_CTRL Register Bits
+//
+// SPEEDY FIFO Controller Register Bits
+//
 #define SPEEDY_RX_TRIGGER_LEVEL(x)                   ((x) << 0)
 #define SPEEDY_TX_TRIGGER_LEVEL(x)                   ((x) << 8)
 #define SPEEDY_FIFO_DEBUG_INDEX                      (0 << 24)
-#define SPEEDY_FIFO_RESET                            (1 << 31)
+#define SPEEDY_FIFO_RESET                            BIT31
 
-// SPEEDY_CMD Register Bits
+//
+// SPEEDY Command Register Bits
+//
+#define SPEEDY_ADDRESS(x)                            (((x) & 0xFFF) << 7)
+#define SPEEDY_SLAVE_ADDRESS(x, y)                   (y + ((x & 0xF) << 8))
 #define SPEEDY_BURST_LENGTH(x)                       ((x) << 0)
 #define SPEEDY_BURST_FIXED                           (0 << 5)
-#define SPEEDY_BURST_INCR                            (1 << 5)
-#define SPEEDY_BURST_EXTENSION                       (2 << 5)
-#define SPEEDY_ADDRESS(x)                            (((x) & 0xFFF) << 7)
 #define SPEEDY_ACCESS_BURST                          (0 << 19)
-#define SPEEDY_ACCESS_RANDOM                         (1 << 19)
 #define SPEEDY_DIRECTION_READ                        (0 << 20)
-#define SPEEDY_DIRECTION_WRITE                       (1 << 20)
+#define SPEEDY_BURST_INCR                            BIT5
+#define SPEEDY_BURST_EXTENSION                       (BIT5 | BIT6)
+#define SPEEDY_ACCESS_RANDOM                         BIT19
+#define SPEEDY_DIRECTION_WRITE                       BIT20
 
-// SPEEDY_INT_ENABLE Register Bits
-#define SPEEDY_TRANSFER_DONE_EN                      (1 << 0)
-#define SPEEDY_TIMEOUT_CMD_EN                        (1 << 1)
-#define SPEEDY_TIMEOUT_STANDBY_EN                    (1 << 2)
-#define SPEEDY_TIMEOUT_DATA_EN                       (1 << 3)
-#define SPEEDY_FIFO_TX_ALMOST_EMPTY_EN               (1 << 4)
-#define SPEEDY_FIFO_RX_ALMOST_FULL_EN                (1 << 8)
-#define SPEEDY_RX_FIFO_INT_TRAILER_EN                (1 << 9)
-#define SPEEDY_RX_MODEBIT_ERR_EN                     (1 << 16)
-#define SPEEDY_RX_GLITCH_ERR_EN                      (1 << 17)
-#define SPEEDY_RX_ENDBIT_ERR_EN                      (1 << 18)
-#define SPEEDY_TX_LINE_BUSY_ERR_EN                   (1 << 20)
-#define SPEEDY_TX_STOPBIT_ERR_EN                     (1 << 21)
-#define SPEEDY_REMOTE_RESET_REQ                      (1 << 31)
+//
+// SPEEDY Interrupt Enable Register Bits
+//
+#define SPEEDY_TRANSFER_DONE_EN                      BIT0
+#define SPEEDY_TIMEOUT_CMD_EN                        BIT1
+#define SPEEDY_TIMEOUT_STANDBY_EN                    BIT2
+#define SPEEDY_TIMEOUT_DATA_EN                       BIT3
+#define SPEEDY_FIFO_TX_ALMOST_EMPTY_EN               BIT4
+#define SPEEDY_FIFO_RX_ALMOST_FULL_EN                BIT8
+#define SPEEDY_RX_FIFO_INT_TRAILER_EN                BIT9
+#define SPEEDY_RX_MODEBIT_ERR_EN                     BIT16
+#define SPEEDY_RX_GLITCH_ERR_EN                      BIT17
+#define SPEEDY_RX_ENDBIT_ERR_EN                      BIT18
+#define SPEEDY_TX_LINE_BUSY_ERR_EN                   BIT20
+#define SPEEDY_TX_STOPBIT_ERR_EN                     BIT21
+#define SPEEDY_REMOTE_RESET_REQ                      BIT31
 
-// SPEEDY_INT_STATUS Register Bits
-#define SPEEDY_TRANSFER_DONE                         (1 << 0)
-#define SPEEDY_TIMEOUT_CMD                           (1 << 1)
-#define SPEEDY_TIMEOUT_STANDBY                       (1 << 2)
-#define SPEEDY_TIMEOUT_DATA                          (1 << 3)
-#define SPEEDY_FIFO_TX_ALMOST_EMPTY                  (1 << 4)
-#define SPEEDY_FIFO_RX_ALMOST_FULL                   (1 << 8)
-#define SPEEDY_RX_FIFO_INT_TRAILER                   (1 << 9)
-#define SPEEDY_RX_MODEBIT_ERR                        (1 << 16)
-#define SPEEDY_RX_GLITCH_ERR                         (1 << 17)
-#define SPEEDY_RX_ENDBIT_ERR                         (1 << 18)
-#define SPEEDY_TX_LINE_BUSY_ERR                      (1 << 20)
-#define SPEEDY_TX_STOPBIT_ERR                        (1 << 21)
-#define SPEEDY_REMOTE_RESET_REQ_STAT                 (1 << 31)
+//
+// SPEEDY Interupt Status Register Bits
+//
+#define SPEEDY_TRANSFER_DONE                         BIT0
+#define SPEEDY_TIMEOUT_CMD                           BIT1
+#define SPEEDY_TIMEOUT_STANDBY                       BIT2
+#define SPEEDY_TIMEOUT_DATA                          BIT3
+#define SPEEDY_FIFO_TX_ALMOST_EMPTY                  BIT4
+#define SPEEDY_FIFO_RX_ALMOST_FULL                   BIT8
+#define SPEEDY_RX_FIFO_INT_TRAILER                   BIT9
+#define SPEEDY_RX_MODEBIT_ERR                        BIT16
+#define SPEEDY_RX_GLITCH_ERR                         BIT17
+#define SPEEDY_RX_ENDBIT_ERR                         BIT18
+#define SPEEDY_TX_LINE_BUSY_ERR                      BIT20
+#define SPEEDY_TX_STOPBIT_ERR                        BIT21
+#define SPEEDY_REMOTE_RESET_REQ_STAT                 BIT31
 
-// SPEEDY_FIFO_STATUS Register Bits
+//
+// SPEEDY FIFO Status Register Bits
+//
 #define SPEEDY_VALID_DATA_CNT                        (0 << 0)
-#define SPEEDY_FIFO_FULL                             (1 << 5)
-#define SPEEDY_FIFO_EMPTY                            (1 << 6)
+#define SPEEDY_FIFO_FULL                             BIT5
+#define SPEEDY_FIFO_EMPTY                            BIT6
 
-// SPEEDY_PACKET_GAP_TIME Register Bits
-#define SPEEDY_PULL_EN_CNT                           (0xF << 0)
+//
+// SPEEDY Packet Gap Time Register Bits
+//
 #define SPEEDY_PACKET_GAP_TIME_CNT                   (0 << 16)
+#define SPEEDY_PULL_EN_CNT                           (BIT0 | BIT1 | BIT2 | BIT3)
 
-// SPEEDY_CTRL_STATUS Register Bits
-#define SPEEDY_FSM_IDLE                              (1 << 0)
-#define SPEEDY_FSM_INIT                              (1 << 1)
-#define SPEEDY_FSM_TX_CMD                            (1 << 2)
-#define SPEEDY_FSM_STANDBY                           (1 << 3)
-#define SPEEDY_FSM_DATA                              (1 << 4)
-#define SPEEDY_FSM_TIMEOUT                           (1 << 5)
-#define SPEEDY_FSM_TRANS_DONE                        (1 << 6)
-#define SPEEDY_FSM_IO_RX_STAT_MASK                   (3 << 7)
-#define SPEEDY_FSM_IO_TX_IDLE                        (1 << 9)
-#define SPEEDY_FSM_IO_TX_GET_PACKET                  (1 << 10)
+//
+// SPEEDY Controller Status Register Bits
+//
+#define SPEEDY_FSM_IDLE                              BIT0
+#define SPEEDY_FSM_INIT                              BIT1
+#define SPEEDY_FSM_TX_CMD                            BIT2
+#define SPEEDY_FSM_STANDBY                           BIT3
+#define SPEEDY_FSM_DATA                              BIT4
+#define SPEEDY_FSM_TIMEOUT                           BIT5
+#define SPEEDY_FSM_TRANS_DONE                        BIT6
+#define SPEEDY_FSM_IO_RX_STAT_MASK                   (BIT7 | BIT8)
+#define SPEEDY_FSM_IO_TX_IDLE                        BIT9
+#define SPEEDY_FSM_IO_TX_GET_PACKET                  BIT10
+
+//
+// SPEEDY Bus
+//
+typedef struct {
+  UINT32 ctrl;
+  UINT32 fifo_ctrl;
+  UINT32 cmd;
+  UINT32 int_enable;
+  UINT32 int_status;
+  UINT16 Reserved1[13];
+  UINT32 fifo_status;
+  UINT32 tx_data;
+  UINT32 rx_data;
+  UINT16 Reserved2[4];
+  UINT32 packet_gap_time;
+  UINT32 timeout_count;
+  UINT16 Reserved3[90];
+  UINT32 fifo_debug;
+  UINT32 ctrl_status;
+} EFI_SPEEDY_BUS;
 
 #endif /* _SPEEDY_H_ */

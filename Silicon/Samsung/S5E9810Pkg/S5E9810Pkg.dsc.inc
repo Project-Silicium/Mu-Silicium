@@ -39,10 +39,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
 
   #
-  # DDR Info
+  # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x1EC00
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
 
   #
   # SMBIOS
@@ -64,6 +63,7 @@
   PlatformSecLib|S5E9810Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Custom Libraries
+  # IO Libraries
   #
-  GpioBankLib|S5E9810Pkg/Library/GpioBankLib/GpioBankLib.inf
+  GpioLib|S5E9810Pkg/Library/GpioLib/GpioLib.inf
+  SpeedyLib|S5E9810Pkg/Library/SpeedyLib/SpeedyLib.inf
