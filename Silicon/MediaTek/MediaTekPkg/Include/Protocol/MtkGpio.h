@@ -1,16 +1,6 @@
 #ifndef _MTK_GPIO_H_
 #define _MTK_GPIO_H_
 
-typedef struct {
-    UINT32 SetOffset;
-    UINT32 ResetOffset;
-    UINT32 DirOffset;
-    UINT32 DataOutOffset;
-    UINT32 DataInOffset;
-    UINT32 ModeOffset;
-    UINT32 MaxPin;
-} MTK_GPIO_PLATFORM_INFO;
-
 //
 // Declare forward Reference to the GPIO Protocol
 //
@@ -50,7 +40,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *MTK_GPIO_GET_PIN) (
+(EFIAPI *MTK_GPIO_GET_STATE) (
   IN  UINT32   Pin,
   OUT BOOLEAN *State
   );
@@ -63,7 +53,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *MTK_GPIO_SET_PIN) (
+(EFIAPI *MTK_GPIO_SET_STATE) (
   IN UINT32  Pin,
   IN BOOLEAN State
   );
@@ -85,11 +75,11 @@ EFI_STATUS
 // Define Protocol Functions
 //
 struct _MTK_GPIO_PROTOCOL {
-  MTK_GPIO_GET_DIR  GetDir;
-  MTK_GPIO_SET_DIR  SetDir;
-  MTK_GPIO_GET_PIN  GetPin;
-  MTK_GPIO_SET_PIN  SetPin;
-  MTK_GPIO_SET_MODE SetMode;
+  MTK_GPIO_GET_DIR   GetDir;
+  MTK_GPIO_SET_DIR   SetDir;
+  MTK_GPIO_GET_STATE GetState;
+  MTK_GPIO_SET_STATE SetState;
+  MTK_GPIO_SET_MODE  SetMode;
 };
 
 extern EFI_GUID gMediaTekGpioProtocolGuid;

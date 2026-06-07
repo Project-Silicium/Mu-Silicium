@@ -61,6 +61,11 @@
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2340
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
+  #
+  # Storage
+  #
+  gMediaTekPkgTokenSpaceGuid.PcdStorageIsEMMC|TRUE
+
 [LibraryClasses]
   #
   # Memory Libraries

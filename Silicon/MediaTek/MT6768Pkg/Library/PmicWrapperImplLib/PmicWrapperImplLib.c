@@ -1,10 +1,10 @@
-#include <Protocol/MtkPmicWrapper.h>
+#include <Library/PmicWrapperImplLib.h>
 
-MTK_PMIC_WRAPPER_PLATFORM_INFO PlatformInfo = {
+MTK_PMIC_WRAPPER_PLATFORM_INFO gPlatformInfo = {
   .RegMap = {
-    [PMIC_WRAPPER_INIT_DONE2]   = 0x094,
-    [PMIC_WRAPPER_WACS2_CMD]    = 0xC20,
-    [PMIC_WRAPPER_WACS2_RDATA]  = 0xC24,
-    [PMIC_WRAPPER_WACS2_VLDCLR] = 0xC28,
+    [PmicWrapperInitDone2]   = 0x094,
+    [PmicWrapperWacs2Cmd]    = 0xC20,
+    [PmicWrapperWacs2RData]  = 0xC24,
+    [PmicWrapperWacs2VldClr] = 0xC28,
   }
 };

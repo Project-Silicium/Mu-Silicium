@@ -5,6 +5,7 @@
   MODULE_TYPE                    = SEC
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = MsdcImplLib
+  CONSTRUCTOR                    = MsdcLibConstructor
 
 [Sources]
   MsdcImplLib.c
@@ -21,3 +22,8 @@
 
 [Protocols]
   gMediaTekGpioProtocolGuid
+  gMediaTekClockProtocolGuid
+  gMediaTekPmicProtocolGuid
+
+[FixedPcd]
+  gMediaTekPkgTokenSpaceGuid.PcdStorageIsEMMC

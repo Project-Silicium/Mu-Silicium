@@ -4,56 +4,69 @@
 #include <Library/TimerLib.h>
 #include <Library/IoLib.h>
 
-#include <Protocol/MtkPmicWrapper.h>
 #include <Library/PmicWrapperImplLib.h>
 
-#define WACS_FSM_IDLE     0x0
-#define WACS_FSM_REQ      0x2
-#define WACS_FSM_WFVLDCLR 0x6
+#include <Protocol/MtkPmicWrapper.h>
+
+typedef enum {
+  WacsFsmIdle = 0,
+  WacsFsmWfVldClr = 6,
+} WACS_FSM_STATE;
 
 STATIC EFI_MEMORY_REGION_DESCRIPTOR mPmicWrapperRegion;
 
+STATIC
 UINT32
 PmicWrapperRead(
-  IN  MTK_PMIC_WRAPPER_REG Reg)
+  IN  UINT16 Reg)
 {
-  return MmioRead32 (mPmicWrapperRegion.Address + PlatformInfo.RegMap[Reg]);
+  return MmioRead32 (mPmicWrapperRegion.Address + gPlatformInfo.RegMap[Reg]);
 }
 
+STATIC
 VOID
 PmicWrapperWrite(
-  IN  MTK_PMIC_WRAPPER_REG Reg,
-  IN  UINT32               Value)
+  IN  UINT16 Reg,
+  IN  UINT32 Value)
 {
-  MmioWrite32 (mPmicWrapperRegion.Address + PlatformInfo.RegMap[Reg], Value);
+  MmioWrite32 (mPmicWrapperRegion.Address + gPlatformInfo.RegMap[Reg], Value);
 }
 
-UINT32
+STATIC
+WACS_FSM_STATE
 WacsGetFsm ()
 {
-  return (PmicWrapperRead (PMIC_WRAPPER_WACS2_RDATA) >> 16) & 0x7;
+  // Read Data
+  return (PmicWrapperRead (PmicWrapperWacs2RData) >> 16) & 0x7;
 }
 
+STATIC
 VOID
 WacsWaitFor (
-  IN UINT32 Fsm)
+  IN WACS_FSM_STATE Fsm)
 {
+  // Wait until FSM reaches requested state
   while (WacsGetFsm () != Fsm)
   {
     MicroSecondDelay (100);
   }
 }
 
+STATIC
 VOID
 WacsCommand (
   IN UINT32  Address,
   IN UINT32  Data,
   IN BOOLEAN IsWrite)
 {
-  WacsWaitFor (WACS_FSM_IDLE);
-  PmicWrapperWrite (PMIC_WRAPPER_WACS2_CMD, (IsWrite << 31) | ((Address >> 1) << 16) | Data);
+  // Wait until FSM reaches idle state
+  WacsWaitFor (WacsFsmIdle);
+
+  // Write Command
+  PmicWrapperWrite (PmicWrapperWacs2Cmd, (IsWrite << 31) | ((Address >> 1) << 16) | Data);
 }
 
+STATIC
 VOID
 PmicWrapperImplRead (
   IN  UINT16  Address,
@@ -61,20 +74,24 @@ PmicWrapperImplRead (
 {
   UINT32 Result;
 
+  // Send read transaction and wait until result become valid
   WacsCommand (Address, 0, FALSE);
-  WacsWaitFor (WACS_FSM_WFVLDCLR);
+  WacsWaitFor (WacsFsmWfVldClr);
 
-  Result = PmicWrapperRead(PMIC_WRAPPER_WACS2_RDATA);
-  PmicWrapperWrite (PMIC_WRAPPER_WACS2_VLDCLR, 1);
+  // Read data
+  Result = PmicWrapperRead (PmicWrapperWacs2RData);
+  PmicWrapperWrite (PmicWrapperWacs2VldClr, 1);
 
   *Value = (Result & 0xFFFF);
 }
 
+STATIC
 VOID
 PmicWrapperImplWrite (
   IN  UINT16 Address,
   OUT UINT16 Value)
 {
+  // Send write transaction
   WacsCommand (Address, Value, TRUE);
 }
 
@@ -100,7 +117,7 @@ InitPmicWrapper (
   }
 
   // Read init state of PMIC Wrapper
-  InitState = PmicWrapperRead (PMIC_WRAPPER_INIT_DONE2);
+  InitState = PmicWrapperRead (PmicWrapperInitDone2);
   if (InitState != 1) {
     DEBUG ((EFI_D_ERROR, "PMIC Wrapper Not Initialized!\n", Status));
     Status = EFI_NOT_READY;

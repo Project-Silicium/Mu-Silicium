@@ -41,6 +41,6 @@ InitGpio (
   UINT32 Index
   );
 
-extern MSDC_PLATFORM_INFO PlatformInfo;
+extern MSDC_PLATFORM_INFO gPlatformInfo;
 
 #endif /* _MSDC_IMPL_LIB_H_ */

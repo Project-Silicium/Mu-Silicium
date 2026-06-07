@@ -755,11 +755,11 @@ VOID MsdcInit (
   // Disable detecting SDIO interrupts
   MsdcClrBits (Private, SDC_CFG, SDC_CFG_SDIOIDE);
 
-  if (PlatformInfo.UseTop) {
+  if (gPlatformInfo.UseTop) {
     MsdcTopWrite (Private, TOP_CTRL, 0);
     MsdcTopWrite (Private, TOP_CMD, 0);
   } else {
-    MsdcWrite (Private, PlatformInfo.MsdcPadTuneReg, 0);
+    MsdcWrite (Private, gPlatformInfo.MsdcPadTuneReg, 0);
   }
 
   MsdcWrite (Private, MSDC_IOCON, 0);
@@ -770,26 +770,26 @@ VOID MsdcInit (
 
   MsdcSetBits (Private, EMMC50_CFG0, EMMC50_CFG0_CRCSTSSEL);
 
-  if (PlatformInfo.BusyCheck) {
+  if (gPlatformInfo.BusyCheck) {
     MsdcClrBits (Private, MSDC_PATCH_BIT1, MSDC_PB1_BUSYCHECKSEL);
   }
 
-  if (PlatformInfo.StopClkFix) {
+  if (gPlatformInfo.StopClkFix) {
     MsdcSetBits (Private, MSDC_PATCH_BIT1, BIT8 | BIT9);
     MsdcClrBits (Private, SDC_FIFO_CFG, SDC_FIFO_CFG_WRVALIDSEL);
     MsdcClrBits (Private, SDC_FIFO_CFG, SDC_FIFO_CFG_RDVALIDSEL);
   }
 
-  if (PlatformInfo.AsyncFifo)
+  if (gPlatformInfo.AsyncFifo)
   {
     MsdcClrSetBits(Private, MSDC_PATCH_BIT2, MSDC_PB2_RESPWAIT, 3 << MSDC_PB2_RESPWAIT_SHIFT);
 
     MsdcClrBits (Private, MSDC_PATCH_BIT2, MSDC_PB2_CFGRESP);
     MsdcSetBits (Private, MSDC_PATCH_BIT2, MSDC_PB2_CFGCRCSTS);
 
-    if (PlatformInfo.EnhanceRx)
+    if (gPlatformInfo.EnhanceRx)
     {
-      if (PlatformInfo.UseTop) {
+      if (gPlatformInfo.UseTop) {
         MsdcTopSetBits (Private, TOP_CTRL, SDC_RX_ENH_EN);
       } else {
         MsdcSetBits (Private, SDC_ADV_CFG0, SDC_RX_ENHANCE_EN);
@@ -800,17 +800,17 @@ VOID MsdcInit (
   }
 
   // Data tune
-  if (PlatformInfo.UseTop) {
+  if (gPlatformInfo.UseTop) {
     MsdcTopSetBits (Private, TOP_CTRL, PAD_DAT_RD_RXDLY_SEL);
     MsdcTopClrBits (Private, TOP_CTRL, DATA_K_VALUE_SEL);
     MsdcTopSetBits (Private, TOP_CMD, PAD_CMD_RD_RXDLY_SEL);
-    if (PlatformInfo.TuningStep[Private->Index] > 32)
+    if (gPlatformInfo.TuningStep[Private->Index] > 32)
     {
       MsdcTopSetBits (Private, TOP_CTRL, PAD_DAT_RD_RXDLY2_SEL);
       MsdcTopSetBits (Private, TOP_CMD, PAD_CMD_RD_RXDLY2_SEL);
     }
   } else {
-    MsdcSetBits (Private, PlatformInfo.MsdcPadTuneReg, MSDC_PAD_TUNE_RD_SEL | MSDC_PAD_TUNE_CMD_SEL);
+    MsdcSetBits (Private, gPlatformInfo.MsdcPadTuneReg, MSDC_PAD_TUNE_RD_SEL | MSDC_PAD_TUNE_CMD_SEL);
   }
 
   // Set default data timeout
@@ -1378,7 +1378,7 @@ InitMsdc (
   EFI_MEMORY_REGION_DESCRIPTOR Region;
   CHAR8 MsdcName[11];
 
-  for (UINTN i = 0; i < PlatformInfo.NumberOfHosts; i++) {
+  for (UINTN i = 0; i < gPlatformInfo.NumberOfHosts; i++) {
     Private = AllocateCopyPool (sizeof(MSDC_PRIVATE_DATA), &gMSDCPrivateDataTemplate);
     if (Private == NULL) {
       return EFI_OUT_OF_RESOURCES;

@@ -1,6 +1,6 @@
-#include <Protocol/MtkGpio.h>
+#include <Library/GpioImplLib.h>
 
-MTK_GPIO_PLATFORM_INFO PlatformInfo = {
+MTK_GPIO_PLATFORM_INFO gPlatformInfo = {
   .SetOffset     = 0x4,
   .ResetOffset   = 0x8,
   .DirOffset     = 0x0,

@@ -1,13 +1,11 @@
-#include <Library/DebugLib.h>
-#include <Library/PrintLib.h>
-#include <Library/BaseMemoryLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/DebugLib.h>
 #include <Library/MemoryMapHelperLib.h>
-#include <Library/TimerLib.h>
 #include <Library/IoLib.h>
 
-#include <Protocol/MtkGpio.h>
 #include <Library/GpioImplLib.h>
+
+#include <Protocol/MtkGpio.h>
 
 #define PIN_OFFSET(pin) (((pin) / 32) * 0x10)
 
@@ -16,6 +14,7 @@
 
 STATIC EFI_MEMORY_REGION_DESCRIPTOR mPinctrlRegion;
 
+STATIC
 UINT32
 GpioRead(
   IN  UINT32 Reg)
@@ -23,6 +22,7 @@ GpioRead(
   return MmioRead32 (mPinctrlRegion.Address + Reg);
 }
 
+STATIC
 VOID
 GpioWrite(
   IN  UINT32 Reg,
@@ -38,11 +38,12 @@ GpioGetDir(
 {
   UINT32 Value;
 
-  if (Pin > PlatformInfo.MaxPin)
+  if (Pin > gPlatformInfo.MaxPin)
     return EFI_INVALID_PARAMETER;
 
-  Value = GpioRead (PlatformInfo.DirOffset + PIN_OFFSET(Pin));
-  *Direction = (Value & (1 << (Pin % 32))) ? FALSE : TRUE;
+  // Read Pin Direction
+  Value = GpioRead (gPlatformInfo.DirOffset + PIN_OFFSET(Pin));
+  *Direction = !!(Value & (1 << (Pin % 32)));
 
   return EFI_SUCCESS;
 }
@@ -54,10 +55,11 @@ GpioSetDir(
 {
   UINT32 Value, Offset;
 
-  if (Pin > PlatformInfo.MaxPin)
+  if (Pin > gPlatformInfo.MaxPin)
     return EFI_INVALID_PARAMETER;
 
-  Offset = PIN_OFFSET(Pin) + (Direction ? PlatformInfo.ResetOffset : PlatformInfo.SetOffset);
+  // Set Pin Direction
+  Offset = PIN_OFFSET (Pin) + (Direction ? gPlatformInfo.ResetOffset : gPlatformInfo.SetOffset);
   Value = GpioRead (Offset);
   Value |= (1 << (Pin % 32));
   GpioWrite (Offset, Value);
@@ -66,34 +68,36 @@ GpioSetDir(
 }
 
 EFI_STATUS
-GpioGetPin(
+GpioGetState(
   IN  UINT32   Pin,
   OUT BOOLEAN *State)
 {
   UINT32 Value;
   BOOLEAN Direction;
 
-  if (Pin > PlatformInfo.MaxPin)
+  if (Pin > gPlatformInfo.MaxPin)
     return EFI_INVALID_PARAMETER;
 
-  GpioGetDir(Pin, &Direction);
-  Value = GpioRead ((Direction ? PlatformInfo.DataInOffset : PlatformInfo.DataOutOffset) + PIN_OFFSET(Pin));
-  *State = (Value & (1 << (Pin % 32))) ? TRUE : FALSE;
+  // Read Pin State
+  GpioGetDir (Pin, &Direction);
+  Value = GpioRead ((Direction ? gPlatformInfo.DataInOffset : gPlatformInfo.DataOutOffset) + PIN_OFFSET(Pin));
+  *State = !!(Value & (1 << (Pin % 32)));
 
   return EFI_SUCCESS;
 }
 
 EFI_STATUS
-GpioSetPin(
+GpioSetState(
   IN UINT32  Pin,
   IN BOOLEAN State)
 {
   UINT32 Value, Offset;
 
-  if (Pin > PlatformInfo.MaxPin)
+  if (Pin > gPlatformInfo.MaxPin)
     return EFI_INVALID_PARAMETER;
 
-  Offset = PlatformInfo.DataOutOffset + (State ? PlatformInfo.SetOffset : PlatformInfo.ResetOffset) + PIN_OFFSET(Pin);
+  // Set Pin State
+  Offset = gPlatformInfo.DataOutOffset + (State ? gPlatformInfo.SetOffset : gPlatformInfo.ResetOffset) + PIN_OFFSET(Pin);
   Value = GpioRead (Offset);
   Value |= (1 << (Pin % 32));
   GpioWrite (Offset, Value);
@@ -107,21 +111,24 @@ GpioSetMode(
   IN UINT32 Mode)
 {
   UINT32 SetValue, ResetValue, Offset;
-  UINT32 ModeBits = (Mode << PIN_MODE_BIT(Pin));
+  UINT32 ModeBits = (Mode << PIN_MODE_BIT (Pin));
 
-  if (Pin > PlatformInfo.MaxPin)
+  if (Pin > gPlatformInfo.MaxPin)
     return EFI_INVALID_PARAMETER;
 
-  Offset = PlatformInfo.ModeOffset + PIN_MODE_OFFSET(Pin);
+  Offset = gPlatformInfo.ModeOffset + PIN_MODE_OFFSET (Pin);
 
-  SetValue = GpioRead (Offset + PlatformInfo.SetOffset);
-  ResetValue = GpioRead (Offset + PlatformInfo.ResetOffset);
+  // Read current Mode
+  SetValue = GpioRead (Offset + gPlatformInfo.SetOffset);
+  ResetValue = GpioRead (Offset + gPlatformInfo.ResetOffset);
 
+  // Set new Mode
   SetValue |= ModeBits;
-  ResetValue |= (~ModeBits) & (0x7 << PIN_MODE_BIT(Pin));
+  ResetValue |= (~ModeBits) & (0x7 << PIN_MODE_BIT (Pin));
 
-  GpioWrite (Offset + PlatformInfo.SetOffset, SetValue);
-  GpioWrite (Offset + PlatformInfo.ResetOffset, ResetValue);
+  // Write new Mode
+  GpioWrite (Offset + gPlatformInfo.SetOffset, SetValue);
+  GpioWrite (Offset + gPlatformInfo.ResetOffset, ResetValue);
 
   return EFI_SUCCESS;
 }
@@ -129,8 +136,8 @@ GpioSetMode(
 STATIC MTK_GPIO_PROTOCOL mGpio = {
   GpioGetDir,
   GpioSetDir,
-  GpioGetPin,
-  GpioSetPin,
+  GpioGetState,
+  GpioSetState,
   GpioSetMode
 };
 

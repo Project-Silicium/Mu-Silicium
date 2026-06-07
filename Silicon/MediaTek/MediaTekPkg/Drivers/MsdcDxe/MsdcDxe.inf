@@ -24,7 +24,6 @@
   DevicePathLib
   TimerLib
   DebugLib
-  PrintLib
   IoLib
   MsdcImplLib
 

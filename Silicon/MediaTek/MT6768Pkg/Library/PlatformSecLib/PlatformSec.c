@@ -58,7 +58,6 @@ EnableConstantBlending ()
 {
   EFI_STATUS                   Status;
   EFI_MEMORY_REGION_DESCRIPTOR OvlRegion;
-  UINT32                       Value;
 
   // Locate "Display OVL" Memory Region
   Status = LocateMemoryRegionByName ("Display OVL", &OvlRegion);

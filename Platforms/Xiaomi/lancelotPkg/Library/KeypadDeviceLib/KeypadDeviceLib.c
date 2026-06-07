@@ -3,9 +3,7 @@
 #include <Library/BaseMemoryLib.h>
 #include <Library/BitmapLib.h>
 #include <Library/KeypadDeviceLib.h>
-#include <Library/TimerLib.h>
 #include <Library/DebugLib.h>
-#include <Library/IoLib.h>
 
 #include <Protocol/MtkGpio.h>
 #include <Protocol/MtkPmic.h>
@@ -296,7 +294,7 @@ KeypadDeviceGetKeys (
         continue;
       }
     } else if (Context->Type == KEY_TYPE_GPIO) {
-      Status = mGpioProtocol->GetPin (Context->Pin, &IsPressed);
+      Status = mGpioProtocol->GetState (Context->Pin, &IsPressed);
       if (EFI_ERROR (Status)) {
         return Status;
       }

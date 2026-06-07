@@ -11,11 +11,9 @@
 #ifndef _MSDC_DXE_H_
 #define _MSDC_DXE_H_
 
-#include <Uefi.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiDriverEntryPoint.h>
 #include <Library/MemoryMapHelperLib.h>
-#include <Library/UefiLib.h>
 #include <Library/IoLib.h>
 #include <Library/TimerLib.h>
 #include <Library/DebugLib.h>
