@@ -358,6 +358,43 @@
 <br>
 
 <details>
+<summary><b><strong>MediaTek G99 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi POCO M5
+
+<img align="right" src="Resources/Pictures/Xiaomi-POCO-M5.png" width="400" alt="Preview">
+
+**State:** Inactive <br>
+**Codename:** stone
+
+**Contributors:** [Nikroks](https://github.com/N1kroks/)
+
+### UEFI Status
+
+| Feature            | Description    | State |
+|:-------------------|:---------------|:-----:|
+| Display            |                | ✅    |
+| Internal Storage   |                | ❌    |
+| Side Buttons       |                | ✅    |
+| USB Host Mode      |                | ❌    |
+| USB Device Mode    |                | ❌    |
+| USB Power Delivery |                | ❌    |
+| SD Card            |                | ❌    |
+| Windows Boot       |                | ❌    |
+| Linux Boot         |                | ❌    |
+
+</details>
+
+---
+
+</details>
+
+<details>
 <summary><b><strong>MediaTek P65/G80 Devices</strong></b></summary>
 
 <br>
