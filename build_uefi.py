@@ -206,9 +206,9 @@ def create_android_boot_img (image_config: list, ctx: BuildContext) -> bool:
     # Set Required Paths
     boot_shim_payload_path = BOOT_SHIM_PATH / "BootShim.bin"
     device_fv_path         = BUILD_PATH / f"{ctx.device}Pkg" / f"{ctx.build_mode}_CLANGPDB" / "FV"
-    uefi_fd_path           = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd"
-    uefi_boot_shim_path    = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd-bootshim"
-    uefi_boot_shim_gz_path = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd-bootshim.gz"
+    uefi_fd_path           = device_fv_path / "SILICIUM_UEFI.fd"
+    uefi_boot_shim_path    = device_fv_path / "SILICIUM_UEFI.fd-bootshim"
+    uefi_boot_shim_gz_path = device_fv_path / "SILICIUM_UEFI.fd-bootshim.gz"
     device_dtb_path        = RESOURCE_DTBS_PATH / f"{ctx.device}.dtb"
     android_kernel_path    = BUILD_PATH / f"kernel-{ctx.device}"
 
