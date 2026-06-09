@@ -39,7 +39,6 @@
   #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x0F200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x0F240000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x0F240000
 
   #
   # Timer
