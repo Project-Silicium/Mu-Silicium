@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UsiNullLib
+  FILE_GUID                      = 38B96EA6-6A1A-4DCE-B206-ADD846C6D2AD
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = UsiLib|DXE_DRIVER
+
+[Sources]
+  UsiNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec

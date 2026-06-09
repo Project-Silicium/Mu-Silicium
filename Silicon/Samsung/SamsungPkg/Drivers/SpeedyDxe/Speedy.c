@@ -21,8 +21,8 @@
 //
 // Global Variables
 //
-STATIC EFI_SPEEDY_BUS_DATA *BusData;
-STATIC UINT8                BusCount;
+STATIC EFI_PHYSICAL_ADDRESS *Bus;
+STATIC UINT8                 BusCount;
 
 VOID
 ClearSpeedyInterrupt (IN EFI_SPEEDY_BUS *Bus)
@@ -157,7 +157,7 @@ GetSpeedyBus (IN UINT8 BusNumber)
   }
 
   // Return SPEEDY Bus
-  return (EFI_SPEEDY_BUS *)BusData[BusNumber].Address;
+  return (EFI_SPEEDY_BUS *)Bus[BusNumber];
 }
 
 EFI_STATUS
@@ -348,8 +348,8 @@ InitSpeedy (
 {
   EFI_STATUS Status;
 
-  // Get Speedy Bus Data
-  GetSpeedyBusData (&BusData, &BusCount);
+  // Get Speedy Buses
+  GetSpeedyBuses (&Bus, &BusCount);
 
   // Verify Bus Count
   if (!BusCount) {
@@ -359,7 +359,7 @@ InitSpeedy (
   // Go thru all SPEEDY Buses
   for (UINT8 i = 0; i < BusCount; i++) {
     // Get SPEEDY Bus Address
-    EFI_PHYSICAL_ADDRESS BusAddress = BusData[i].Address;
+    EFI_PHYSICAL_ADDRESS BusAddress = Bus[i];
 
     // Map SPEEDY Bus
     Status = MapMemoryRegion (BusAddress, SPEEDY_MMIO_LENGTH, EfiMemoryMappedIO);

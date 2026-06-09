@@ -10,7 +10,7 @@
   @param[out] Data                         - The Output Data.
 
   @return EFI_SUCCESS                      - Successfully Read Data from the Specified Slave.
-  @return EFI_INVALID_PARAMETER            - The Data Parameter is NULL.
+  @return EFI_INVALID_PARAMETER            - The "Data" Parameter is NULL.
   @return EFI_NOT_FOUND                    - The Specified SPEEDY Bus does not Exist.
   @return EFI_TIMEOUT                      - The SPEEDY Command took too Long to be Processed.
   @return EFI_PROTOCOL_ERROR               - The SPEEDY RX Bits are Faulty.
@@ -36,7 +36,8 @@ EFI_STATUS
   @param[out] Data                         - The Output Data.
 
   @return EFI_SUCCESS                      - Successfully Read Data from the Specified Slave.
-  @return EFI_INVALID_PARAMETER            - The Data Parameter is NULL and/or DataCount is 0.
+  @return EFI_INVALID_PARAMETER            - The "Data" Parameter is NULL.
+  @return EFI_INVALID_PARAMETER            - The "DataCount" Parameter is 0.
   @return EFI_NOT_FOUND                    - The Specified SPEEDY Bus does not Exist.
   @return EFI_TIMEOUT                      - The SPEEDY Command took too Long to be Processed.
   @return EFI_PROTOCOL_ERROR               - The SPEEDY RX Bits are Faulty.
@@ -62,7 +63,7 @@ EFI_STATUS
   @param[in] Data                          - The Input Data.
 
   @return EFI_SUCCESS                      - Successfully Wrote the Specified Data to the Specified Slave.
-  @return EFI_INVALID_PARAMETER            - The Data Parameter is 0.
+  @return EFI_INVALID_PARAMETER            - The "Data" Parameter is 0.
   @return EFI_NOT_FOUND                    - The Specified SPEEDY Bus does not Exist.
   @return EFI_TIMEOUT                      - The SPEEDY Command took too Long to be Processed.
   @return EFI_PROTOCOL_ERROR               - The SPEEDY RX Bits are Faulty.
@@ -88,7 +89,8 @@ EFI_STATUS
   @param[in] Data                          - The Input Data.
 
   @return EFI_SUCCESS                      - Successfully Wrote the Specified Data to the Specified Slave.
-  @return EFI_INVALID_PARAMETER            - The Data Parameter is NULL and/or DataCount is 0.
+  @return EFI_INVALID_PARAMETER            - The "Data" Parameter is NULL.
+  @return EFI_INVALID_PARAMETER            - The "DataCount" Parameter is 0.
   @return EFI_NOT_FOUND                    - The Specified SPEEDY Bus does not Exist.
   @return EFI_TIMEOUT                      - The SPEEDY Command took too Long to be Processed.
   @return EFI_PROTOCOL_ERROR               - The SPEEDY RX Bits are Faulty.

@@ -62,3 +62,8 @@
   #
   GpioLib|S5E9820Pkg/Library/GpioLib/GpioLib.inf
   SpeedyLib|S5E9820Pkg/Library/SpeedyLib/SpeedyLib.inf
+
+  #
+  # Samsung Libraries
+  #
+  UsiLib|S5E9820Pkg/Library/UsiLib/UsiLib.inf

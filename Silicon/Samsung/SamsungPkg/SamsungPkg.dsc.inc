@@ -34,6 +34,11 @@
   PlatformUfsLib|SamsungNullPkg/Library/PlatformUfsLibNull/PlatformUfsLibNull.inf
   UfsCalAdapterLib|SamsungPkg/Library/UfsCalAdapterLib/UfsCalAdapterLib.inf
 
+  #
+  # Samsung Libraries
+  #
+  UsiLib|SamsungNullPkg/Library/UsiNullLib/UsiNullLib.inf
+
 [Components]
   #
   # Storage Drivers
@@ -57,6 +62,7 @@
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   #
-  # Custom Drivers
+  # Samsung Drivers
   #
   SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
+  SamsungPkg/Drivers/UsiDxe/UsiDxe.inf

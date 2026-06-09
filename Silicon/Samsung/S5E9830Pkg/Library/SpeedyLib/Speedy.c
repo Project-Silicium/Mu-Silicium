@@ -1,19 +1,18 @@
 #include <Library/SpeedyLib.h>
 
 STATIC
-EFI_SPEEDY_BUS_DATA
+EFI_PHYSICAL_ADDRESS
 gSpeedyBuses[] = {
-  // Bus Number, Bus Address
-  {0, 0x15940000},
-  {1, 0x15950000}
+  0x15940000,
+  0x15950000
 };
 
 VOID
-GetSpeedyBusData (
-  OUT EFI_SPEEDY_BUS_DATA **Data,
-  OUT UINT8                *Count)
+GetSpeedyBuses (
+  OUT EFI_PHYSICAL_ADDRESS **Bus,
+  OUT UINT8                 *Count)
 {
   // Pass Data
-  *Data  = gSpeedyBuses;
+  *Bus   = gSpeedyBuses;
   *Count = ARRAY_SIZE (gSpeedyBuses);
 }

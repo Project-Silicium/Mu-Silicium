@@ -1,0 +1,28 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UsiDxe
+  FILE_GUID                      = EEC60B8A-1B34-434E-B090-EC1BE247A6B1
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = RegisterUsi
+
+[Sources]
+  Usi.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UsiLib
+  IoLib
+
+[Protocols]
+  gEfiUsiProtocolGuid
+
+[Depex]
+  TRUE
