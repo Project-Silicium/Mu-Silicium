@@ -30,7 +30,6 @@
   # GIC
   #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x12301000
-  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x12302000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x12302000
 
   #
