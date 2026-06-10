@@ -52,14 +52,14 @@ UsiGetControllerAddress (
 
       default:
         return EFI_INVALID_PARAMETER;
+    }
 
-      // Compare Bus Numbers
-      if (PrivateBusNumber == BusNumber) {
-        // Pass Controller Address
-        *Address = UsiData[i].ControllerAddress;
+    // Compare Bus Numbers
+    if (PrivateBusNumber == BusNumber) {
+      // Pass Controller Address
+      *Address = UsiData[i].ControllerAddress;
 
-        return EFI_SUCCESS;
-      }
+      return EFI_SUCCESS;
     }
   }
 
