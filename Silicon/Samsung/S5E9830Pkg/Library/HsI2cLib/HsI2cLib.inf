@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = HsI2cLib
+  FILE_GUID                      = 0475AC82-12EC-4F25-BE38-B092E477D198
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = HsI2cLib|DXE_DRIVER
+
+[Sources]
+  HsI2c.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec

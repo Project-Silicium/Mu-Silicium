@@ -11,7 +11,7 @@
 #ifndef _GPIO_LIB_H_
 #define _GPIO_LIB_H_
 
-#include <GpioBankId.h>
+#include <GpioData.h>
 
 //
 // GPIO Limits

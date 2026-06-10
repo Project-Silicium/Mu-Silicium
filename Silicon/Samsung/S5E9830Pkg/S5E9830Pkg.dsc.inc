@@ -68,6 +68,7 @@
   #
   GpioLib|S5E9830Pkg/Library/GpioLib/GpioLib.inf
   SpeedyLib|S5E9830Pkg/Library/SpeedyLib/SpeedyLib.inf
+  HsI2cLib|S5E9830Pkg/Library/HsI2cLib/HsI2cLib.inf
 
   #
   # Storage Libraries

@@ -1,0 +1,31 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = HsI2cDxe
+  FILE_GUID                      = 252158CA-8DC8-483F-B233-C6EDBCC2396F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = RegisterHsI2c
+
+[Sources]
+  HsI2c.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  MemoryAllocationHelperLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  HsI2cLib
+  IoLib
+
+[Protocols]
+  gEfiUsiProtocolGuid
+  gEfiGpioProtocolGuid
+  gEfiHsI2cProtocolGuid
+
+[Depex]
+  TRUE

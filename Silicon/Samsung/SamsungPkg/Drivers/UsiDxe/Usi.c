@@ -22,7 +22,7 @@ STATIC EFI_USI_DATA *UsiData;
 STATIC UINT8         UsiCount;
 
 EFI_STATUS
-UsiGetControllerAddress (
+UsiGetControllerAddr (
   IN  UINT8                 BusNumber,
   IN  EFI_USI_BUS_TYPE      BusType,
   OUT EFI_PHYSICAL_ADDRESS *Address)
@@ -38,15 +38,15 @@ UsiGetControllerAddress (
   for (UINT8 i = 0; i < UsiCount; i++) {
     // Get Bus Number
     switch (BusType) {
-      case BUS_TYPE_UART:
+      case BUS_UART:
         PrivateBusNumber = UsiData[i].UartBus;
         break;
 
-      case BUS_TYPE_SPI:
+      case BUS_SPI:
         PrivateBusNumber = UsiData[i].SpiBus;
         break;
 
-      case BUS_TYPE_I2C:
+      case BUS_I2C:
         PrivateBusNumber = UsiData[i].I2cBus;
         break;
 
@@ -118,7 +118,7 @@ UsiSetMode (
 }
 
 STATIC EFI_USI_PROTOCOL mUsi = {
-  UsiGetControllerAddress,
+  UsiGetControllerAddr,
   UsiSetMode
 };
 

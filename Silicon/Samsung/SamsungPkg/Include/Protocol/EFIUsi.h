@@ -14,9 +14,9 @@ typedef enum {
 // USI Bus Type
 //
 typedef enum {
-  BUS_TYPE_UART,
-  BUS_TYPE_SPI,
-  BUS_TYPE_I2C
+  BUS_UART,
+  BUS_SPI,
+  BUS_I2C
 } EFI_USI_BUS_TYPE;
 
 /**
@@ -33,7 +33,7 @@ typedef enum {
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USI_GET_CONTROLLER_ADDRESS) (
+(EFIAPI *EFI_USI_GET_CONTROLLER_ADDR) (
   IN  UINT8                 BusNumber,
   IN  EFI_USI_BUS_TYPE      BusType,
   OUT EFI_PHYSICAL_ADDRESS *Address
@@ -60,8 +60,8 @@ EFI_STATUS
 // Define Protocol
 //
 typedef struct {
-  EFI_USI_GET_CONTROLLER_ADDRESS GetControllerAddress;
-  EFI_USI_SET_MODE               SetMode;
+  EFI_USI_GET_CONTROLLER_ADDR GetControllerAddr;
+  EFI_USI_SET_MODE            SetMode;
 } EFI_USI_PROTOCOL;
 
 #endif /* _EFI_USI_H_ */

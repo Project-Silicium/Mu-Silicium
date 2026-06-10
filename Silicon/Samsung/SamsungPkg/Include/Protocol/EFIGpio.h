@@ -1,44 +1,7 @@
-/**
-  Copyright (C) Samsung Electronics Co. LTD
-
-  This software is proprietary of Samsung Electronics.
-  No part of this software, either material or conceptual may be copied or distributed, transmitted,
-  transcribed, stored in a retrieval system or translated into any human or computer language in any form by any means,
-  electronic, mechanical, manual or otherwise, or disclosed
-  to third parties without the express written permission of Samsung Electronics.
-
-  Alternatively, this program is free software in case of open source project
-  you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 2 as
-  published by the Free Software Foundation.
-**/
-
 #ifndef _EFI_GPIO_H_
 #define _EFI_GPIO_H_
 
-#include <GpioBankId.h>
-
-//
-// GPIO Functions
-//
-typedef enum {
-  FUNCTION_INPUT,
-  FUNCTION_OUTPUT,
-  FUNCTION_2,
-
-  FUNCTION_NUM
-} EFI_GPIO_FUNCTION;
-
-//
-// GPIO Pull Modes
-//
-typedef enum {
-  PULL_NONE,
-  PULL_DOWN,
-  PULL_UP,
-
-  PULL_NUM
-} EFI_GPIO_PULL_MODE;
+#include <GpioData.h>
 
 /**
   This Function gets the current State of the Specified GPIO Pin.
