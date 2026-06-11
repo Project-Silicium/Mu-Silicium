@@ -7,10 +7,10 @@
 // HSI2C Speed Modes
 //
 typedef enum {
+  STAND_SPD,
   FAST_SPD,
-  HIGH_SPD,
   FAST_PLUS_SPD,
-  STAND_SPD
+  HIGH_SPD
 } EFI_HSI2C_SPEED_MODE;
 
 //

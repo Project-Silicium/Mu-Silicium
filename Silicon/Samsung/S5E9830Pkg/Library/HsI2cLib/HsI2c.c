@@ -14,8 +14,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 1000000,
+      .SpeedMode  = FAST_PLUS_SPD
     }
   },
   {
@@ -29,8 +29,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 1000000,
+      .SpeedMode  = FAST_PLUS_SPD
     }
   },
   {
@@ -44,8 +44,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -59,8 +59,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 1000000,
+      .SpeedMode  = FAST_PLUS_SPD
     }
   },
   {
@@ -74,8 +74,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -89,7 +89,7 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 400000,
+      .Freq       = 200000000,
       .SpeedMode  = FAST_SPD
     }
   },
@@ -104,8 +104,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 100000,
+      .SpeedMode  = STAND_SPD
     }
   },
   {
@@ -119,8 +119,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -134,8 +134,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -149,8 +149,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -164,8 +164,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -179,8 +179,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -194,8 +194,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -209,8 +209,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -224,8 +224,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -239,8 +239,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -254,8 +254,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -269,8 +269,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -284,8 +284,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -299,8 +299,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -314,8 +314,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -329,8 +329,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -344,8 +344,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -359,8 +359,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -374,8 +374,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 1000000,
+      .SpeedMode  = FAST_PLUS_SPD
     }
   },
   {
@@ -389,8 +389,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 400000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -404,8 +404,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -419,8 +419,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -434,8 +434,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -449,8 +449,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -464,8 +464,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -479,8 +479,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 400000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -494,8 +494,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -509,8 +509,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -524,8 +524,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 1
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -539,8 +539,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 3
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -554,8 +554,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 5
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -569,8 +569,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 7
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -584,8 +584,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 0
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -599,8 +599,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 0
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 400000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -614,8 +614,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 0
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -629,8 +629,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 0
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -644,8 +644,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 0
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -659,8 +659,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 0
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -674,8 +674,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 0
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 200000000,
+      .SpeedMode  = FAST_SPD
     }
   },
   {
@@ -689,8 +689,8 @@ gHsI2cBusData[] = {
       .SdaPin     = 0
     },
     {
-      .Freq       = 0,
-      .SpeedMode  = 0
+      .Freq       = 1000000,
+      .SpeedMode  = FAST_PLUS_SPD
     }
   }
 };
