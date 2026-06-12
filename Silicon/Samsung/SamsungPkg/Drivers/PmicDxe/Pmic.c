@@ -141,8 +141,5 @@ InitPmics (
   }
   */
 
-  // Loop >:D
-  while (TRUE);
-
   return EFI_SUCCESS;
 }
