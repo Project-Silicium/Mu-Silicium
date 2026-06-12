@@ -44,7 +44,6 @@
   #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x17200000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17260000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x17260000
 
   #
   # SMBIOS

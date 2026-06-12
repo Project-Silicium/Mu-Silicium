@@ -23,11 +23,6 @@
     SECTION UI = "Panel_N16_41_02_0c_amoled_dsc_vid.xml"
     SECTION RAW = Binaries/garnet/RawFiles/Panel_N16_41_02_0c_amoled_dsc_vid.xml
   }
-
-  FILE FREEFORM = 03E9256F-E621-48D8-8576-7E3B4FCF2D41 {
-    SECTION UI = "PanelSimConfig.csv"
-    SECTION RAW = Binaries/garnet/RawFiles/PanelSimConfig.csv
-  }
 !endif
 
   FILE FREEFORM = 45FE4B7C-150C-45DA-A021-4BEB2048EC6F {

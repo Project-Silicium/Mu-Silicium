@@ -284,7 +284,7 @@ UpdateAcpiTables ()
   // Set Default Values
   UINT32 STOR = 0x1;
   UINT32 SUFS = 0xFFFFFFFF;
-  UINT32 PUS3 = 0x1;
+  UINT32 PUS3 = FixedPcdGetBool(PcdStorageIsUfs3);
   UINT32 SUS3 = 0xFFFFFFFF;
   UINT32 PRP0 = 0;
   UINT32 PRP1 = 0;

@@ -36,7 +36,7 @@ gConfigurationDescriptor[] = {
   {"EarlyInitCoreCnt", 2},
   {"EnableUefiSecAppDebugLogDump", 0x0},
   {"AllowNonPersistentVarsInRetail", 0x1},
-  {"EnableDisplayThread", 1},
+  {"EnableDisplayThread", 0},
   {"EnableDisplayImageFv", 0x1},
   {"DDRInfoNotifyFlag", 0x0},
   {"EnableMultiCoreFvDecompression", 1},

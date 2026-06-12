@@ -27,3 +27,6 @@
   gEfiChipInfoProtocolGuid
   gEfiPlatformInfoProtocolGuid
   gEfiSMEMProtocolGuid
+
+[FixedPcd]
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3
