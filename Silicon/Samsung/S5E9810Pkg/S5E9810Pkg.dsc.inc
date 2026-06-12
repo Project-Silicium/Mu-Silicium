@@ -66,3 +66,8 @@
   #
   GpioLib|S5E9810Pkg/Library/GpioLib/GpioLib.inf
   SpeedyLib|S5E9810Pkg/Library/SpeedyLib/SpeedyLib.inf
+
+  #
+  # Power Management Libraries
+  #
+  PmicLib|S5E9810Pkg/Library/PmicLib/PmicLib.inf

@@ -1,7 +1,7 @@
 #ifndef _EFI_GPIO_H_
 #define _EFI_GPIO_H_
 
-#include <GpioData.h>
+#include <Device/Gpio.h>
 
 /**
   This Function gets the current State of the Specified GPIO Pin.

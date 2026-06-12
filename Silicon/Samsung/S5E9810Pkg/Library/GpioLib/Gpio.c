@@ -5,97 +5,293 @@ EFI_GPIO_CONTROLLER_DATA
 gGpioControllers[] = {
   // Pinctrl Address - Bank ID, Bank Number, Bank Offset
   {
-    0x10430000,
+    .Address    = 0x10430000,
     {
-      {BANK_ID_G, 0, 0x0080},
-      {BANK_ID_G, 1, 0x00A0},
-      {BANK_ID_G, 2, 0x00C0},
-      {BANK_ID_P, 0, 0x0000},
-      {BANK_ID_P, 1, 0x0020},
-      {BANK_ID_P, 2, 0x0040},
-      {BANK_ID_P, 3, 0x0060}
+      {
+        .Id     = BANK_ID_G,
+        .Number = 0,
+        .Offset = 0x80
+      },
+      {
+        .Id     = BANK_ID_G,
+        .Number = 1,
+        .Offset = 0xA0
+      },
+      {
+        .Id     = BANK_ID_G,
+        .Number = 2,
+        .Offset = 0xC0
+      },
+      {
+        .Id     = BANK_ID_P,
+        .Number = 0,
+        .Offset = 0x0
+      },
+      {
+        .Id     = BANK_ID_P,
+        .Number = 1,
+        .Offset = 0x20
+      },
+      {
+        .Id     = BANK_ID_P,
+        .Number = 2,
+        .Offset = 0x40
+      },
+      {
+        .Id     = BANK_ID_P,
+        .Number = 3,
+        .Offset = 0x60
+      }
     }
   },
   {
-    0x10830000,
+    .Address    = 0x10830000,
     {
-      {BANK_ID_C, 0, 0x0060},
-      {BANK_ID_C, 1, 0x0080},
-      {BANK_ID_D, 0, 0x00A0},
-      {BANK_ID_G, 3, 0x00C0},
-      {BANK_ID_P, 4, 0x0000},
-      {BANK_ID_P, 5, 0x0020},
-      {BANK_ID_P, 6, 0x0040}
+      {
+        .Id     = BANK_ID_C,
+        .Number = 0,
+        .Offset = 0x60
+      },
+      {
+        .Id     = BANK_ID_C,
+        .Number = 1,
+        .Offset = 0x80
+      },
+      {
+        .Id     = BANK_ID_D,
+        .Number = 0,
+        .Offset = 0xA0
+      },
+      {
+        .Id     = BANK_ID_G,
+        .Number = 3,
+        .Offset = 0xC0
+      },
+      {
+        .Id     = BANK_ID_P,
+        .Number = 4,
+        .Offset = 0x0
+      },
+      {
+        .Id     = BANK_ID_P,
+        .Number = 5,
+        .Offset = 0x20
+      },
+      {
+        .Id     = BANK_ID_P,
+        .Number = 6,
+        .Offset = 0x40
+      }
     }
   },
   {
-    0x11050000,
+    .Address    = 0x11050000,
     {
-      {BANK_ID_F, 0, 0x0000}
+      {
+        .Id     = BANK_ID_F,
+        .Number = 0,
+        .Offset = 0x0
+      }
     }
   },
   {
-    0x11430000,
+    .Address    = 0x11430000,
     {
-      {BANK_ID_F, 1, 0x0000},
-      {BANK_ID_F, 2, 0x0020}
+      {
+        .Id     = BANK_ID_F,
+        .Number = 1,
+        .Offset = 0x0
+      },
+      {
+        .Id     = BANK_ID_F,
+        .Number = 2,
+        .Offset = 0x20
+      }
     }
   },
   {
-    0x13880000,
+    .Address    = 0x13880000,
     {
-      {BANK_ID_T, 0, 0x0000}
+      {
+        .Id     = BANK_ID_T,
+        .Number = 0,
+        .Offset = 0x0
+      }
     }
   },
   {
-    0x13A80000,
+    .Address    = 0x13A80000,
     {
-      {BANK_ID_H, 0, 0x0000},
-      {BANK_ID_H, 1, 0x0020}
+      {
+        .Id     = BANK_ID_H,
+        .Number = 0,
+        .Offset = 0x0
+      },
+      {
+        .Id     = BANK_ID_H,
+        .Number = 1,
+        .Offset = 0x20
+      }
     }
   },
   {
-    0x14050000,
+    .Address    = 0x14050000,
     {
-      {BANK_ID_A, 0, 0x0020},
-      {BANK_ID_A, 1, 0x0040},
-      {BANK_ID_A, 2, 0x0060},
-      {BANK_ID_A, 3, 0x0080},
-      {BANK_ID_A, 4, 0x00A0},
-      {BANK_ID_Q, 0, 0x00A0}
+      {
+        .Id     = BANK_ID_A,
+        .Number = 0,
+        .Offset = 0x20
+      },
+      {
+        .Id     = BANK_ID_A,
+        .Number = 1,
+        .Offset = 0x40
+      },
+      {
+        .Id     = BANK_ID_A,
+        .Number = 2,
+        .Offset = 0x60
+      },
+      {
+        .Id     = BANK_ID_A,
+        .Number = 3,
+        .Offset = 0x80
+      },
+      {
+        .Id     = BANK_ID_A,
+        .Number = 4,
+        .Offset = 0xA0
+      },
+      {
+        .Id     = BANK_ID_Q,
+        .Number = 0,
+        .Offset = 0xA0
+      }
     }
   },
   {
-    0x14220000,
+    .Address    = 0x14220000,
     {
-      {BANK_ID_M, 0,  0x0000},
-      {BANK_ID_M, 1,  0x0020},
-      {BANK_ID_M, 2,  0x0040},
-      {BANK_ID_M, 3,  0x0060},
-      {BANK_ID_M, 4,  0x0080},
-      {BANK_ID_M, 5,  0x00A0},
-      {BANK_ID_M, 6,  0x00C0},
-      {BANK_ID_M, 7,  0x00E0},
-      {BANK_ID_M, 10, 0x0100},
-      {BANK_ID_M, 11, 0x0120},
-      {BANK_ID_M, 12, 0x0140},
-      {BANK_ID_M, 13, 0x0160},
-      {BANK_ID_M, 14, 0x0180},
-      {BANK_ID_M, 15, 0x01A0},
-      {BANK_ID_M, 16, 0x01C0},
-      {BANK_ID_M, 17, 0x01E0},
-      {BANK_ID_M, 40, 0x0200},
-      {BANK_ID_M, 41, 0x0220},
-      {BANK_ID_M, 42, 0x0240},
-      {BANK_ID_M, 43, 0x0260}
+      {
+        .Id     = BANK_ID_M,
+        .Number = 0,
+        .Offset = 0x0
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 1,
+        .Offset = 0x0020
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 2,
+        .Offset = 0x0040
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 3,
+        .Offset = 0x0060
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 4,
+        .Offset = 0x0080
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 5,
+        .Offset = 0x00A0
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 6,
+        .Offset = 0x00C0
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 7,
+        .Offset = 0x00E0
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 10,
+        .Offset = 0x0100
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 11,
+        .Offset = 0x0120
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 12,
+        .Offset = 0x0140
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 13,
+        .Offset = 0x0160
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 14,
+        .Offset = 0x0180
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 15,
+        .Offset = 0x01A0
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 16,
+        .Offset = 0x01C0
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 17,
+        .Offset = 0x01E0
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 40,
+        .Offset = 0x0200
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 41,
+        .Offset = 0x0220
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 42,
+        .Offset = 0x0240
+      },
+      {
+        .Id     = BANK_ID_M,
+        .Number = 43,
+        .Offset = 0x0260
+      }
     }
   },
   {
-    0x17C60000,
+    .Address    = 0x17C60000,
     {
-      {BANK_ID_B, 0, 0x0000},
-      {BANK_ID_B, 1, 0x0020},
-      {BANK_ID_B, 2, 0x0040}
+      {
+        .Id     = BANK_ID_B,
+        .Number = 0,
+        .Offset = 0x0
+      },
+      {
+        .Id     = BANK_ID_B,
+        .Number = 1,
+        .Offset = 0x20
+      },
+      {
+        .Id     = BANK_ID_B,
+        .Number = 2,
+        .Offset = 0x40
+      }
     }
   }
 };

@@ -9,6 +9,10 @@
 [Sources]
   Pmic.c
 
+  S2mps18/S2mps18.c
+  S2mps19/S2mps19.c
+  S2mps22/S2mps22.c
+
 [Packages]
   MdePkg/MdePkg.dec
   SiliciumPkg/SiliciumPkg.dec
@@ -18,9 +22,14 @@
   DebugLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
+  MemoryMapHelperLib
+  PmicLib
+  IoLib
 
 [Protocols]
   gEfiSpeedyProtocolGuid
+  gEfiHsI2cProtocolGuid
+  gEfiPmicProtocolGuid
 
 [Depex]
   TRUE

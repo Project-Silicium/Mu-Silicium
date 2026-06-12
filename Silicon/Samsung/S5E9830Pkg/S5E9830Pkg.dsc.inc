@@ -70,6 +70,11 @@
   HsI2cLib|S5E9830Pkg/Library/HsI2cLib/HsI2cLib.inf
 
   #
+  # Power Management Libraries
+  #
+  PmicLib|S5E9830Pkg/Library/PmicLib/PmicLib.inf
+
+  #
   # Storage Libraries
   #
   PlatformUfsLib|S5E9830Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf

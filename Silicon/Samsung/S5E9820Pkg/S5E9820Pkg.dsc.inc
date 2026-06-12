@@ -63,6 +63,11 @@
   SpeedyLib|S5E9820Pkg/Library/SpeedyLib/SpeedyLib.inf
 
   #
+  # Power Management Libraries
+  #
+  PmicLib|S5E9820Pkg/Library/PmicLib/PmicLib.inf
+
+  #
   # Samsung Libraries
   #
   UsiLib|S5E9820Pkg/Library/UsiLib/UsiLib.inf

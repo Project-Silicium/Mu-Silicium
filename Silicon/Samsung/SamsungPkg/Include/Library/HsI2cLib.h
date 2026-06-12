@@ -1,7 +1,7 @@
 #ifndef _HSI2C_LIB_H_
 #define _HSI2C_LIB_H_
 
-#include <GpioData.h>
+#include <Device/Gpio.h>
 
 //
 // HSI2C Speed Modes

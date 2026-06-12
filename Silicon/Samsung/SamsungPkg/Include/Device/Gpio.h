@@ -13,8 +13,8 @@
   published by the Free Software Foundation.
 **/
 
-#ifndef _GPIO_BANK_ID_H_
-#define _GPIO_BANK_ID_H_
+#ifndef _GPIO_DEVICE_H_
+#define _GPIO_DEVICE_H_
 
 //
 // GPIO Bank IDs
@@ -73,4 +73,4 @@ typedef enum {
   PULL_NUM
 } EFI_GPIO_PULL_MODE;
 
-#endif /* _GPIO_BANK_ID_H_ */
+#endif /* _GPIO_DEVICE_H_ */

@@ -30,6 +30,11 @@
   HsI2cLib|SamsungNullPkg/Library/HsI2cNullLib/HsI2cNullLib.inf
 
   #
+  # Power Management Libraries
+  #
+  PmicLib|SamsungNullPkg/Library/PmicNullLib/PmicNullLib.inf
+
+  #
   # Storage Libraries
   #
   PlatformUfsLib|SamsungNullPkg/Library/PlatformUfsLibNull/PlatformUfsLibNull.inf
