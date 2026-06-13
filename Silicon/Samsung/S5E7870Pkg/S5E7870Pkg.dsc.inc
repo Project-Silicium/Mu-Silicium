@@ -29,7 +29,7 @@
   #
   # GIC
   #
-  gArmTokenSpaceGuid.PcdGicDistributorBase|0x104E0000
+  gArmTokenSpaceGuid.PcdGicDistributorBase|0x104E1000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x104E2000
 
   #

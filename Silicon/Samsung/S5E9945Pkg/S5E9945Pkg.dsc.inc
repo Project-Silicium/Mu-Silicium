@@ -30,7 +30,7 @@
   # GIC
   #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x10200000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10240000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x10240000
 
   #
   # RAM Manager
