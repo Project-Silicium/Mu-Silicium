@@ -10,8 +10,18 @@
 //
 // Global Variables
 //
-STATIC EFI_SPEEDY_PROTOCOL *mSpeedyProtocol;
-STATIC UINT8                mBusNumber;
+STATIC EFI_SPEEDY_PROTOCOL *mSpeedyProtocol = NULL;
+STATIC UINT8                mBusNumber      = 0;
+
+EFI_STATUS
+S2mps18SetLdo (
+  IN UINT8   LdoNumber,
+  IN UINT8   Mode,
+  IN BOOLEAN Enable)
+{
+  // TODO!
+  return EFI_ABORTED;
+}
 
 EFI_STATUS
 S2mps18SetWtsr (IN BOOLEAN Enable)
@@ -19,8 +29,13 @@ S2mps18SetWtsr (IN BOOLEAN Enable)
   EFI_STATUS Status;
   UINT8      Value;
 
+  // Verify SPEEDY Protocol
+  if (mSpeedyProtocol == NULL) {
+    return EFI_NOT_READY;
+  }
+
   // Get current WTSR Config
-  Status = mSpeedyProtocol->Read (mBusNumber, S2MPS18_RTC_ADDR, S2MPS18_RTC_WTSR, &Value);
+  Status = mSpeedyProtocol->Read (mBusNumber, S2MPS18_RTC_ADDR, S2MPS18_RTC_WTSR_SMPL, &Value);
   if (EFI_ERROR (Status)) {
     return Status;
   }
@@ -33,12 +48,19 @@ S2mps18SetWtsr (IN BOOLEAN Enable)
   }
 
   // Write new WTSR Config
-  Status = mSpeedyProtocol->Write (mBusNumber, S2MPS18_RTC_ADDR, S2MPS18_RTC_WTSR, Value);
+  Status = mSpeedyProtocol->Write (mBusNumber, S2MPS18_RTC_ADDR, S2MPS18_RTC_WTSR_SMPL, Value);
   if (EFI_ERROR (Status)) {
     return Status;
   }
 
   return EFI_SUCCESS;
+}
+
+EFI_STATUS
+S2mps18SetSmpl (IN BOOLEAN Enable)
+{
+  // TODO!
+  return EFI_ABORTED;
 }
 
 EFI_STATUS
@@ -71,7 +93,7 @@ EnableUnknown2 ()
   EFI_STATUS Status;
   UINT8      Value;
 
-  // ?
+  // Get current INT2M Config
   Status = mSpeedyProtocol->Read (mBusNumber, S2MPS18_PM_ADDR, S2MPS18_PM_INT2M, &Value);
   if (EFI_ERROR (Status)) {
     return Status;
@@ -80,7 +102,7 @@ EnableUnknown2 ()
   // ?
   Value |= (BIT1 | BIT2);
 
-  // ?
+  // Write new INT2M Config
   Status = mSpeedyProtocol->Write (mBusNumber, S2MPS18_PM_ADDR, S2MPS18_PM_INT2M, Value);
   if (EFI_ERROR (Status)) {
     return Status;
@@ -144,8 +166,6 @@ InitS2mps18 (
     DEBUG ((EFI_D_ERROR, "%a: Failed to Disable WTSR!\n", __FUNCTION__));
     return Status;
   }
-
-  DEBUG ((EFI_D_WARN, "%a: Successfull\n", __FUNCTION__));
 
   return EFI_SUCCESS;
 }

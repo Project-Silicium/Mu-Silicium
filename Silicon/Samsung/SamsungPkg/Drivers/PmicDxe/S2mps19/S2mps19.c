@@ -8,14 +8,29 @@
 //
 // Global Variables
 //
-STATIC EFI_SPEEDY_PROTOCOL *mSpeedyProtocol;
-STATIC UINT8                mBusNumber;
+STATIC EFI_SPEEDY_PROTOCOL *mSpeedyProtocol = NULL;
+STATIC UINT8                mBusNumber      = 0;
+
+EFI_STATUS
+S2mps19SetLdo (
+  IN UINT8   LdoNumber,
+  IN UINT8   Mode,
+  IN BOOLEAN Enable)
+{
+  // TODO!
+  return EFI_ABORTED;
+}
 
 EFI_STATUS
 S2mps19SetWtsr (IN BOOLEAN Enable)
 {
   EFI_STATUS Status;
   UINT8      Value;
+
+  // Verify SPEEDY Protocol
+  if (mSpeedyProtocol == NULL) {
+    return EFI_NOT_READY;
+  }
 
   // Get current WTSR Config
   Status = mSpeedyProtocol->Read (mBusNumber, S2MPS19_RTC_ADDR, S2MPS19_RTC_WTSR_SMPL, &Value);
@@ -44,6 +59,11 @@ S2mps19SetSmpl (IN BOOLEAN Enable)
 {
   EFI_STATUS Status;
   UINT8      Value;
+
+  // Verify SPEEDY Protocol
+  if (mSpeedyProtocol == NULL) {
+    return EFI_NOT_READY;
+  }
 
   // Get current SMPL Config
   Status = mSpeedyProtocol->Read (mBusNumber, S2MPS19_RTC_ADDR, S2MPS19_RTC_WTSR_SMPL, &Value);
@@ -122,8 +142,6 @@ InitS2mps19 (
     DEBUG ((EFI_D_ERROR, "%a: Failed to Enable SMPL!\n", __FUNCTION__));
     return Status;
   }
-
-  DEBUG ((EFI_D_WARN, "%a: Successfull\n", __FUNCTION__));
 
   return EFI_SUCCESS;
 }

@@ -8,8 +8,47 @@
 //
 // Global Variables
 //
-STATIC EFI_SPEEDY_PROTOCOL *mSpeedyProtocol;
-STATIC UINT8                mBusNumber;
+STATIC EFI_SPEEDY_PROTOCOL *mSpeedyProtocol = NULL;
+STATIC UINT8                mBusNumber      = 0;
+
+EFI_STATUS
+S2mps22SetLdo (
+  IN UINT8   LdoNumber,
+  IN UINT8   Mode,
+  IN BOOLEAN Enable)
+{
+  // TODO!
+  return EFI_ABORTED;
+}
+
+EFI_STATUS
+S2mps22PowerDown ()
+{
+  EFI_STATUS Status;
+  UINT8      Value;
+
+  // Verify SPEEDY Protocol
+  if (mSpeedyProtocol == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  // Get current CTRL1 Config
+  Status = mSpeedyProtocol->Read (mBusNumber, S2MPS22_PM_ADDR, S2MPS22_PM_CTRL1, &Value);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  // ?
+  Value |= BIT7;
+
+  // Write new CTRL1 Config
+  Status = mSpeedyProtocol->Write (mBusNumber, S2MPS22_PM_ADDR, S2MPS22_PM_CTRL1, Value);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  return EFI_SUCCESS;
+}
 
 EFI_STATUS
 InitS2mps22 (
@@ -19,8 +58,6 @@ InitS2mps22 (
   // Save SPEEDY Details
   mSpeedyProtocol = SpeedyProtocol;
   mBusNumber      = BusNumber;
-
-  DEBUG ((EFI_D_WARN, "%a: Successfull\n", __FUNCTION__));
 
   return EFI_SUCCESS;
 }

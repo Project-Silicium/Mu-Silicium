@@ -46,7 +46,7 @@
 //
 // RTC Register Addresses
 //
-#define S2MPS18_RTC_WTSR         0x01
+#define S2MPS18_RTC_WTSR_SMPL    0x01
 
 //
 // WTSR Register Bits

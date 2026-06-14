@@ -29,7 +29,8 @@
 [Protocols]
   gEfiSpeedyProtocolGuid
   gEfiHsI2cProtocolGuid
-  gEfiPmicProtocolGuid
+  gEfiPmicExtraProtocolGuid
+  gEfiPmicRegulatorProtocolGuid
 
 [Depex]
   TRUE
