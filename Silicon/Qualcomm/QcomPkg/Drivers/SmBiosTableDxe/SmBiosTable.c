@@ -407,6 +407,10 @@ MemDevInfoUpdateSmbiosType17 (IN UINT64 SystemMemorySize)
           mMemDevInfoType17Strings[2] = "Hynix";
           break;
 
+        case 255:
+          mMemDevInfoType17Strings[2] = "Micron";
+          break;
+
         default:
           DEBUG ((EFI_D_WARN, "Unknown Memory Manufacturer Found\n"));
           break;
