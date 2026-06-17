@@ -11,6 +11,8 @@
 #ifndef _S2MPS_22_H_
 #define _S2MPS_22_H_
 
+#include <Device/Pmic.h>
+
 //
 // Slave Addresses
 //
@@ -19,7 +21,18 @@
 //
 // PM Register Addresses
 //
-#define S2MPS22_PM_CTRL1         0x13
-#define S2MPS22_PM_LDO4S_CTRL    0x2D
+#define S2MPS22_PM_CTRL1           0x13
+#define S2MPS22_PM_LDOS_CTRL(x)   (0x29 + x)
+
+//
+// Regulator Limits
+//
+#define MAX_S2MPS22_LDO_COUNT      7
+
+//
+// LDO Regulator Modes
+//
+#define S2MPS22_OUTPUT_ON_TCXO     BIT6
+#define S2MPS22_OUTPUT_ON_NORMAL  (BIT6 | BIT7)
 
 #endif /* _S2MPS_22_H_ */

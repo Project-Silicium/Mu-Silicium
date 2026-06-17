@@ -39,10 +39,10 @@ PmicSetBuck (
 
 EFI_STATUS
 PmicSetLdo (
-  IN EFI_PMIC_ID Id,
-  IN UINT8       LdoNumber,
-  IN UINT8       Mode,
-  IN BOOLEAN     Enable)
+  IN EFI_PMIC_ID       Id,
+  IN UINT8             LdoNumber,
+  IN EFI_PMIC_LDO_MODE Mode,
+  IN BOOLEAN           Enable)
 {
   // Go thru each Supported PMIC
   for (UINT8 i = 0; i < ARRAY_SIZE (SupportedPmicRegulator); i++) {

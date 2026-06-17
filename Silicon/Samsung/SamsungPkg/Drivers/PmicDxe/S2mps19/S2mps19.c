@@ -13,12 +13,51 @@ STATIC UINT8                mBusNumber      = 0;
 
 EFI_STATUS
 S2mps19SetLdo (
-  IN UINT8   LdoNumber,
-  IN UINT8   Mode,
-  IN BOOLEAN Enable)
+  IN UINT8             LdoNumber,
+  IN EFI_PMIC_LDO_MODE Mode,
+  IN BOOLEAN           Enable)
 {
-  // TODO!
-  return EFI_ABORTED;
+  EFI_STATUS Status;
+  UINT8      Value;
+
+  // Verify LDO Number
+  if (!LdoNumber || LdoNumber > MAX_S2MPS19_LDO_COUNT) {
+    return EFI_NOT_FOUND;
+  }
+
+  // Verify Mode Parameter
+  if (Enable && (Mode != S2MPS_MODE_TCXO && Mode != S2MPS_MODE_NORMAL)) {
+    return EFI_INVALID_PARAMETER;
+  }
+
+  // Get LDO Register
+  UINT8 LdoRegister = S2MPS19_PM_LDOM_CTRL (LdoNumber);
+
+  // Get current LDO Config
+  Status = mSpeedyProtocol->Read (mBusNumber, S2MPS19_PM_ADDR, LdoRegister, &Value);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  // Clear LDO Mode
+  Value &= ~S2MPS19_OUTPUT_ON_NORMAL;
+
+  // Set Specified Mode
+  if (Enable) {
+    if (Mode == S2MPS_MODE_TCXO) {
+      Value |= S2MPS19_OUTPUT_ON_TCXO;
+    } else {
+      Value |= S2MPS19_OUTPUT_ON_NORMAL;
+    }
+  }
+
+  // Write new LDO Config
+  Status = mSpeedyProtocol->Write (mBusNumber, S2MPS19_PM_ADDR, LdoRegister, Value);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  return EFI_SUCCESS;
 }
 
 EFI_STATUS

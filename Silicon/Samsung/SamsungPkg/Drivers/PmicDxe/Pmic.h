@@ -64,23 +64,23 @@ S2mps22PowerDown ();
 
 EFI_STATUS
 S2mps18SetLdo (
-  IN UINT8   LdoNumber,
-  IN UINT8   Mode,
-  IN BOOLEAN Enable
+  IN UINT8             LdoNumber,
+  IN EFI_PMIC_LDO_MODE Mode,
+  IN BOOLEAN           Enable
   );
 
 EFI_STATUS
 S2mps19SetLdo (
-  IN UINT8   LdoNumber,
-  IN UINT8   Mode,
-  IN BOOLEAN Enable
+  IN UINT8             LdoNumber,
+  IN EFI_PMIC_LDO_MODE Mode,
+  IN BOOLEAN           Enable
   );
 
 EFI_STATUS
 S2mps22SetLdo (
-  IN UINT8   LdoNumber,
-  IN UINT8   Mode,
-  IN BOOLEAN Enable
+  IN UINT8             LdoNumber,
+  IN EFI_PMIC_LDO_MODE Mode,
+  IN BOOLEAN           Enable
   );
 
 // =========================================================================
@@ -97,9 +97,9 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *EFI_PMIC_REGULATOR_SET_LDO) (
-  IN UINT8   LdoNumber,
-  IN UINT8   Mode,
-  IN BOOLEAN Enable
+  IN UINT8             LdoNumber,
+  IN EFI_PMIC_LDO_MODE Mode,
+  IN BOOLEAN           Enable
   );
 
 // =========================================================================
