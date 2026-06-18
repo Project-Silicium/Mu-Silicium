@@ -1486,6 +1486,43 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 7s Gen 2/6 Gen 1 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi Redmi Note 13 Pro 5G
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-Note-13-Pro-5G.png" width="500" alt="Preview">
+
+**State:** Active <br>
+**Codename:** garnet
+
+**Contributors:** [iNUCi](https://github.com/iNUCi)
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❔    |
+
+</details>
+
+---
+
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 8 Gen 1 Devices</strong></b></summary>
 
 <br>
