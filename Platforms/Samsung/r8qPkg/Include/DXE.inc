@@ -41,7 +41,6 @@
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/r8q/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
-
   INF Binaries/r8q/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
@@ -101,10 +100,7 @@
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
-  INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/GuidedFvDxe/GuidedFvDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/r8q/QcomPkg/Application/SamsungQuestApp/SamsungQuestApp.inf
-  INF Binaries/r8q/QcomPkg/Application/SamsungDdrApp/SamsungDdrApp.inf
   INF Binaries/r8q/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
