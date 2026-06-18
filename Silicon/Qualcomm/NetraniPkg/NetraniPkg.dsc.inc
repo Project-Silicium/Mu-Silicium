@@ -77,16 +77,6 @@
   #
   PlatformSecLib|NetraniPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
-  #
-  # ACPI Libraries
-  #
-  #AcpiTableUpdateLib|NetraniPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
-
-  #
-  # Custom Libraries
-  #
-  #RFSProtectionLib|NetraniPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
-
 [Components]
   #
   # Custom Drivers
