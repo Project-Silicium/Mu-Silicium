@@ -207,7 +207,7 @@ InitGpio (
   }
 
   // Register GPIO Protocol
-  Status = gBS->InstallMultipleProtocolInterfaces (&ImageHandle, &gEfiGpioProtocolGuid, &mGpio, NULL);
+  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiGpioProtocolGuid, EFI_NATIVE_INTERFACE, &mGpio);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register GPIO Protocol!\n"));
     return Status;

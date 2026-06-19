@@ -69,6 +69,11 @@
   SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   #
+  # RNG Drivers
+  #
+  SamsungPkg/Drivers/RngDxe/RngDxe.inf
+
+  #
   # Samsung Drivers
   #
   SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf

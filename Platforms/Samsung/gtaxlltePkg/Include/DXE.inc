@@ -38,4 +38,6 @@
   INF SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
   INF SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
 
+  INF SamsungPkg/Drivers/RngDxe/RngDxe.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
