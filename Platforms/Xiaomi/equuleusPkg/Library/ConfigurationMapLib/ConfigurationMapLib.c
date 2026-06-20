@@ -26,10 +26,7 @@ gConfigurationDescriptor[] = {
   {"TzAppsRegnSize", 0x03C00000},
   {"ImageFVFlashed", 0x0},
   {"EnableLogFsSyncInRetail", 0x1},
-  {"EnableSecurityHoleForSplashPartition", 0x1},
- 
-  // Terminator
-  {"Terminator", 0xFFFFFFFF}
+  {"EnableSecurityHoleForSplashPartition", 0x1}
 };
 
 VOID

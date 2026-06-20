@@ -48,10 +48,7 @@ gMemoryDescriptor[] = {
   {"AOSS",               0x0B000000, 0x04000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
   {"TLMM",               0x0F000000, 0x01000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
   {"SMMU",               0x15000000, 0x00200000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
-  {"APSS_HM",            0x16000000, 0x06000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
-  
-  // Terminator for MMU
-  {"Terminator", 0, 0, 0, 0, 0, 0, 0}
+  {"APSS_HM",            0x16000000, 0x06000000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE}
 };
 
 VOID
