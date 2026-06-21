@@ -105,6 +105,9 @@ PatchOsLoaderArm64TransferToKernel (
       WriteBackInvalidateDataCacheRange ((VOID *)Current, ARM64_INSTRUCTION_LENGTH);
       InvalidateInstructionCacheRange   ((VOID *)Current, ARM64_INSTRUCTION_LENGTH);
 
+      // Print Windows Semester
+      DEBUG ((EFI_D_WARN, "%a: Detected Windows Semester = %a\n", __FUNCTION__, WinSemesterData[i].SemesterName));
+  
       return EFI_SUCCESS;
     }
   }
