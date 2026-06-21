@@ -27,6 +27,7 @@
 [LibraryClasses]
   DebugLib
   UefiBootServicesTableLib
+  CacheMaintenanceLib
   ErrataPatchesLib
   PerformanceLib
   BaseMemoryLib

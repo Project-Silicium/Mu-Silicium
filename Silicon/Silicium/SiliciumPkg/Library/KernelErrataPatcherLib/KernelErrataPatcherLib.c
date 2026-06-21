@@ -39,36 +39,46 @@ KernelErrataPatcherExitBootServices (
   // Calculate new CRC32
   gBS->CalculateCrc32 (gBS, sizeof (EFI_BOOT_SERVICES), &gBS->Hdr.CRC32);
 
-  // Get winload.efi Base Address
-  WinloadBase = LocateWinloadBase (fwpKernelSetupPhase1, &WinloadLength);
-  if (!WinloadBase) {
+  // Locate Winload Memory Range
+  Status = LocateWinloadMemoryRange (fwpKernelSetupPhase1, &WinloadBase, &WinloadLength);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Winload Memory Range! Status = %r\n", __FUNCTION__, Status));
     goto exit;
   }
 
   // Unprotect winload.efi
-  Status = UnprotectWinload (WinloadBase + EFI_PAGE_SIZE, WinloadLength);
+  Status = SetWinloadProtection (WinloadBase, WinloadLength, FALSE);
   if (EFI_ERROR (Status)) {
-    goto exit;
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Unprotect Winload! Status = %r\n", __FUNCTION__, Status));
+    goto reprotect;
   }
 
   // Apply Platform Errata Patches
-  Status = ApplyPlatformErrataPatches (WinloadBase, SCAN_MAX);
+  Status = ApplyPlatformErrataPatches (WinloadBase, WinloadLength);
   if (EFI_ERROR (Status)) {
-    goto exit;
+    goto reprotect;
   }
 
   // Get Platform Shell Code
   GetPlatformTransferToKernelShellCode (&TransferToKernelShellCode, &TransferToKernelShellCodeSize);
+  if (TransferToKernelShellCode == NULL || TransferToKernelShellCodeSize == 0) {
+    goto reprotect;
+  }
 
-  // Apply Platform Shell Code
-  if (TransferToKernelShellCode != NULL && TransferToKernelShellCodeSize) {
-    PatchOsLoaderArm64TransferToKernel (WinloadBase + 0xC00, TransferToKernelShellCode, TransferToKernelShellCodeSize);
+  // Inject Shell Code
+  Status = PatchOsLoaderArm64TransferToKernel (WinloadBase, WinloadLength, TransferToKernelShellCode, TransferToKernelShellCodeSize);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Inject Shell Code! Status = %r\n", __FUNCTION__, Status));
+  }
+
+reprotect:
+  // Protect winload.efi
+  Status = SetWinloadProtection (WinloadBase, WinloadLength, TRUE);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Protect Winload! Status = %r\n", __FUNCTION__, Status));
   }
 
 exit:
-  // Re-Protect winload.efi
-  ReProtectWinload (WinloadBase + EFI_PAGE_SIZE, WinloadLength);
-
   // Call Original EBS
   return gBS->ExitBootServices (ImageHandle, MapKey);
 }
@@ -106,7 +116,7 @@ KernelErrataPatcherLibConstructor (
   Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, ReadyToBootHandler, NULL, &gEfiEventReadyToBootGuid, &ReadyToBootEvent);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Create Ready To Boot Event! Status = %r\n", __FUNCTION__, Status));
-    return Status;
+    return EFI_SUCCESS;
   }
 
   // Locate Memory Attribute Protocol
