@@ -52,16 +52,9 @@ WakeUpCores ()
     return;
   }
 
-  // Wake Up all Cores
+  // Update GIC Wakers
   for (UINTN i = 0; i < EarlyInitCoreCnt; i++) {
-    UINT32 Value;
-
-    // Modify current GIC Waker
-    Value  = MmioRead32 (GICR_WAKER_CPU (i));
-    Value &= ~GIC_WAKER_PROCESSORSLEEP;
-
-    // Write new GIC Waker
-    MmioWrite32 (GICR_WAKER_CPU (i), Value);
+    MmioAnd32 (GICR_WAKER_CPU (i), ~GIC_WAKER_PROCESSORSLEEP);
   }
 }
 

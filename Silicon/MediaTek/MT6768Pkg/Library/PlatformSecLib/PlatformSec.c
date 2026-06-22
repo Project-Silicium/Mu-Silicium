@@ -66,14 +66,8 @@ EnableConstantBlending ()
     return;
   }
 
-  // Get current Pitch 0 Config
-  Value = MmioRead32 (OvlRegion.Address + OVL_PITCH_OFFSET (0));
-
   // Enable Constant Blending
-  Value |= OVL_CONST_BLEND;
-
-  // Write new Pitch 0 Config
-  MmioWrite32 (OvlRegion.Address + OVL_PITCH_OFFSET (0), Value);
+  MmioOr32 (OvlRegion.Address + OVL_PITCH_OFFSET (0), OVL_CONST_BLEND);
 }
 
 VOID

@@ -50,20 +50,14 @@ DisableWatchdogTimer ()
   EFI_MEMORY_REGION_DESCRIPTOR WatchdogTimerRegion;
   UINT32                       Value;
 
-  // Locate Watchdog Timner Memory Region
+  // Locate Watchdog Timer Memory Region
   Status = LocateMemoryRegionByName ("Watchdog Timer", &WatchdogTimerRegion);
   if (EFI_ERROR (Status)) {
     return;
   }
 
-  // Get current Config
-  Value = MmioRead32 (WatchdogTimerRegion.Address);
-
-  // Update Config
-  Value &= ~WATCHDOG_ENABLE;
-
-  // Write new Config
-  MmioWrite32 (WatchdogTimerRegion.Address, Value);
+  // Disable Watchdog Timer
+  MmioAnd32 (WatchdogTimerRegion.Address, ~WATCHDOG_ENABLE);
 }
 
 VOID
