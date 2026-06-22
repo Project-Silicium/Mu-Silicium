@@ -1,5 +1,4 @@
 #include <Library/DebugLib.h>
-#include <Library/BaseMemoryLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/BootGraphicsLib.h>
@@ -10,164 +9,83 @@
 #include <Protocol/EFIUsbMsd.h>
 
 #include "MassStorage.h"
-#include "eMMC.h"
-#include "UFS.h"
+
+//
+// Global Variables
+//
+STATIC EFI_HANDLE mImageHandle;
 
 //
 // Global Protocols
 //
-STATIC EFI_USB_MSD_PROTOCOL         *mUsbMsdProtocol;
 STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGopProtocol;
-
-//
-// Global Storage Handles
-//
-STATIC EFI_UFS_LUN_DATA       UfsLunData[8];
-STATIC EFI_BLOCK_IO_PROTOCOL *EmmcBlockIoProtocol;
-
-VOID
-GetUfsStorageHandles ()
-{
-  EFI_STATUS Status;
-
-  // Clear UFS LUN Data
-  ZeroMem (&UfsLunData, sizeof (EFI_UFS_LUN_DATA) * 8);
-
-  // Set UFS LUN Device Paths
-  UfsLunData[0].DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun0DevicePath;
-  UfsLunData[1].DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun1DevicePath;
-  UfsLunData[2].DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun2DevicePath;
-  UfsLunData[3].DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun3DevicePath;
-  UfsLunData[4].DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun4DevicePath;
-  UfsLunData[5].DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun5DevicePath;
-  UfsLunData[6].DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun6DevicePath;
-  UfsLunData[7].DevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&UfsLun7DevicePath;
-
-  // Get Block IO Protocols
-  for (UINT8 i = 0; i < 8; i++) {
-    EFI_HANDLE ProtocolHandle;
-
-    // Locate Device Path
-    Status = gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &UfsLunData[i].DevicePath, &ProtocolHandle);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Device Path of UFS LUN %u! Status = %r\n", __FUNCTION__, i, Status));
-      continue;
-    }
-
-    // Save Block IO Protocol
-    Status = gBS->HandleProtocol (ProtocolHandle, &gEfiBlockIoProtocolGuid, (VOID *)&UfsLunData[i].BlockIoProtocol);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Get Block IO Protocol from UFS LUN %u Device Path! Status = %r\n", __FUNCTION__, i, Status));
-      continue;
-    }
-  }
-}
-
-VOID
-GetEmmcStorageHandle ()
-{
-  EFI_STATUS                Status;
-  EFI_DEVICE_PATH_PROTOCOL *EmmcDevicePath;
-  EFI_HANDLE                ProtocolHandle;
-
-  // Set eMMC Device Path
-  EmmcDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&EmmcUserDevicePath;
-
-  // Locate Device Path
-  Status = gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &EmmcDevicePath, &ProtocolHandle);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Device Path of eMMC! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
-
-  // Save Block IO Protocol
-  Status = gBS->HandleProtocol (ProtocolHandle, &gEfiBlockIoProtocolGuid, (VOID *)&EmmcBlockIoProtocol);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Get Block IO Protocol from eMMC Device Path! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
-}
-
-EFI_STATUS
-GetInternalStorageHandles ()
-{
-  // Get UFS Storage Handles
-  GetUfsStorageHandles ();
-
-  // Get eMMC Storage Handle
-  GetEmmcStorageHandle ();
-
-  // Check for Errors
-  if (UfsLunData[0].BlockIoProtocol == NULL && EmmcBlockIoProtocol == NULL) {
-    return EFI_NOT_FOUND;
-  }
-
-  return EFI_SUCCESS;
-}
+STATIC EFI_USB_MSD_PROTOCOL         *mUsbMsdProtocol;
 
 VOID
 PrintUI (
-  IN CHAR16  *Message,
-  IN UINT8    MessageArg,
-  IN BOOLEAN  AltPosition)
+  IN CHAR16 *SubBottomMessage,
+  IN CHAR16 *BottomMessage)
 {
-  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
-  UINTN                         XPos;
-  UINTN                         YPos;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL  Color[2];
+  CHAR16                        *Message[2];
+  UINTN                          YPos[2];
+  UINTN                          XPos;
 
   // Get Screen Resolution
   UINT32 ScreenWidth  = mGopProtocol->Mode->Info->HorizontalResolution;
   UINT32 ScreenHeight = mGopProtocol->Mode->Info->VerticalResolution;
 
-  // Set Message Y Position
-  if (AltPosition) {
-    YPos = (ScreenHeight - EFI_GLYPH_HEIGHT) * 47 / 50;
-  } else {
-    YPos = (ScreenHeight - EFI_GLYPH_HEIGHT) * 48 / 50;
-  }
+  // Calculate Y Positions
+  YPos[0] = (ScreenHeight - EFI_GLYPH_HEIGHT) * 47 / 50;
+  YPos[1] = (ScreenHeight - EFI_GLYPH_HEIGHT) * 48 / 50;
 
-  // Set Background Color
-  Color.Red = Color.Green = Color.Blue = 0;
+  // Set Draw Colors
+  Color[0].Red = Color[0].Green = Color[0].Blue = 0;
+  Color[1].Red = Color[1].Green = Color[1].Blue = 255;
 
-  // Clear Message Position
-  mGopProtocol->Blt (mGopProtocol, &Color, EfiBltVideoFill, 0, 0, 0, YPos, ScreenWidth, 20, 0);
+  // Save Messages
+  Message[0] = SubBottomMessage;
+  Message[1] = BottomMessage;
 
-  // Verify Message
-  if (Message == NULL) {
-    return;
-  }
+  // Process both Messages
+  for (UINT8 i = 0; i < 2; i++) {
+    // Clear Message Row
+    mGopProtocol->Blt (mGopProtocol, &Color[0], EfiBltVideoFill, 0, 0, 0, YPos[i], ScreenWidth, 20, 0);
 
-  // Set Message X Position
-  XPos = (ScreenWidth - StrLen (Message) * EFI_GLYPH_WIDTH) / 2;
+    // Verify Message Content
+    if (Message[i] != NULL) {
+      // Calculate X Position
+      XPos = (ScreenWidth - StrLen (Message[i]) * EFI_GLYPH_WIDTH) / 2;
 
-  // Set Message Color
-  Color.Red = Color.Green = Color.Blue = 0xFF;
-
-  // Draw New Message
-  if (MessageArg != -1) {
-    PrintXY (XPos, YPos, &Color, NULL, Message, MessageArg);
-  } else {
-    PrintXY (XPos, YPos, &Color, NULL, Message);
+      // Print Message
+      PrintXY (XPos, YPos[i], &Color[1], NULL, Message[i]);
+    }
   }
 }
 
+EFI_INPUT_KEY
+GetPressedKey (IN BOOLEAN Wait)
+{
+  EFI_INPUT_KEY Key;
+
+  // Wait for Keypress
+  if (Wait) {
+    gBS->WaitForEvent (1, &gST->ConIn->WaitForKey, NULL);
+  }
+
+  // Get Detected Keypress
+  gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
+
+  return Key;
+}
+
 VOID
-StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
+MassStorageStart ()
 {
   EFI_STATUS Status;
 
-  // Print Instruction Message
-  PrintUI (L"[Arrow Key Up] Exit Mass Storage", -1, TRUE);
-
-  // Clear Bottom Message
-  PrintUI (NULL, -1, FALSE);
-
-  // Assing Block IO Protocol
-  Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, BlockIo, 0);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Assing Block IO Protocol! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
+  // Show Cancel Instruction
+  PrintUI (L"[Volume Up] Exit Mass Storage", NULL);
 
   // Start USB Device
   Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
@@ -176,20 +94,12 @@ StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
     return;
   }
 
-  // Reset Input Protocol
-  gST->ConIn->Reset (gST->ConIn, TRUE);
-
-  // Handle USB Events & Input
   while (TRUE) {
-    EFI_INPUT_KEY Key;
-
-    // Execute Event Handler
+    // Handle USB Events
     mUsbMsdProtocol->EventHandler (mUsbMsdProtocol);
 
-    // Get current Key
-    gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
-
-    // Exit Loop
+    // Get current Keypress
+    EFI_INPUT_KEY Key = GetPressedKey (FALSE);
     if (Key.ScanCode == SCAN_UP) {
       break;
     }
@@ -199,165 +109,133 @@ StartMassStorage (IN EFI_BLOCK_IO_PROTOCOL *BlockIo)
   Status = mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Stop USB Device! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
-
-  // Unassing Block IO Protocol
-  Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, 0);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Unassing Block IO Protocol! Status = %r\n", __FUNCTION__, Status));
   }
 }
 
 VOID
-SelectUfsLun ()
+MassStorageContinue ()
 {
-  CHAR16  *Option[2]    = { L"UFS LUN %u", L"Back" };
-  BOOLEAN  BackSelected = FALSE;
-  UINT8    SelectedLun  = 0;
+  EFI_STATUS Status;
 
-Selection:
-  // Print Instruction Message
-  PrintUI (L"[Arrow Keys] Switch UFS LUN - [Enter] Select UFS LUN", -1, TRUE);
-
-  // Clear Bottom Message
-  PrintUI (Option[0], 0, FALSE);
-
-  // Wait for Keypress
-  gBS->WaitForEvent (1, &gST->ConIn->WaitForKey, NULL);
-
-  // Reset Input Protocol
-  gST->ConIn->Reset (gST->ConIn, TRUE);
-
-  // Handle Input
-  while (TRUE) {
-    EFI_INPUT_KEY Key;
-
-    // Wait for Keypress
-    gBS->WaitForEvent (1, &gST->ConIn->WaitForKey, NULL);
-
-    // Get Current Key Press
-    gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
-
-    // Execute Current Option
-    if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
+  // Unassign BLKIO Protocols
+  for (UINT8 i = 0; i < MAX_UINT8; i++) {
+    Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, i);
+    if (EFI_ERROR (Status)) {
       break;
     }
-
-    // Select Next Option
-    if ((Key.ScanCode == SCAN_UP && SelectedLun < 7) && UfsLunData[SelectedLun + 1].BlockIoProtocol != NULL) {
-      if (BackSelected) {
-        BackSelected = FALSE;
-      } else {
-        SelectedLun++;
-      }
-    }
-
-    // Select Previous Option
-    if (Key.ScanCode == SCAN_DOWN) {
-      if (SelectedLun > 0) {
-        SelectedLun--;
-      } else {
-        BackSelected = TRUE;
-      }
-    }
-
-    // Print Current Option
-    if (BackSelected) {
-      PrintUI (Option[1], -1, FALSE);
-    } else {
-      PrintUI (Option[0], SelectedLun, FALSE);
-    }
   }
 
-  // Exit LUN Selection
-  if (BackSelected) {
-    return;
+  // Exit UEFI App
+  gBS->Exit (mImageHandle, EFI_SUCCESS, 0, NULL);
+}
+
+VOID
+MassStoragePowerOff ()
+{
+  // Power Off
+  gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
+}
+
+//
+// Main Menu Options
+//
+STATIC EFI_UI_MENU_DETAILS MainMenu[] = {
+  { L"Start Mass Storage", MassStorageStart },
+  { L"Continue Boot",      MassStorageContinue },
+  { L"Power Off",          MassStoragePowerOff }
+};
+
+VOID
+MassStorageMain ()
+{
+  UINT8 MaxMainOption     = ARRAY_SIZE (MainMenu) - 1;
+  UINT8 CurrentMainOption = 0;
+
+  while (TRUE) {
+    // Show current Selected Option & Instructions
+    PrintUI (L"[Volume Keys] Switch Option - [Power Button] Select Option", MainMenu[CurrentMainOption].Label);
+
+    // Get current Keypress
+    EFI_INPUT_KEY Key = GetPressedKey (TRUE);
+
+    // Execute Specified Action
+    if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
+      MainMenu[CurrentMainOption].Action ();
+      continue;
+    }
+
+    // Select Different Option
+    if (Key.ScanCode == SCAN_UP && CurrentMainOption < MaxMainOption) {
+      CurrentMainOption++;
+    } else if (Key.ScanCode == SCAN_DOWN && CurrentMainOption > 0) {
+      CurrentMainOption--;
+    }
   }
-
-  // Start Mass Storage
-  StartMassStorage (UfsLunData[SelectedLun].BlockIoProtocol);
-
-  // Go to Selection
-  goto Selection;
 }
 
 EFI_STATUS
-MassStorageHandler ()
+AssignStorageHandles ()
 {
-  CHAR16 *Option[3]      = { L"Start Mass Storage", L"Reboot", L"Power Off" };
-  UINT8   SelectedOption = 0;
+  EFI_STATUS                Status            = EFI_SUCCESS;
+  EFI_DEVICE_PATH_PROTOCOL *StorageDevicePath = NULL;
+  EFI_BLOCK_IO_PROTOCOL    *BlkIoProtocol     = NULL;
+  EFI_HANDLE                ProtocolHandle    = NULL;
+  UINT8                     AssignableMsdLuns = 0;
+  UINT8                     AssignedMsdLuns   = 0;
 
-  // Draw Mass Storage Graphic
-  DisplayBootGraphic (BG_MASS_STORAGE);
+  // Set Storage GUIDs
+  EFI_GUID StorageGuid[] = {
+    gEfiUfsLU0Guid,            gEfiUfsLU1Guid,
+    gEfiUfsLU2Guid,            gEfiUfsLU3Guid,
+    gEfiUfsLU4Guid,            gEfiUfsLU5Guid,
+    gEfiUfsLU6Guid,            gEfiUfsLU7Guid,
+    gEfiEmmcUserPartitionGuid, gEfiSdRemovableGuid
+  };
 
-Menu:
-  // Print Instruction Message
-  PrintUI (L"[Arrow Keys] Switch Option - [Enter] Select Option", -1, TRUE);
-
-  // Clear Bottom Message
-  PrintUI (Option[0], -1, FALSE);
-
-  // Wait for Keypress
-  gBS->WaitForEvent (1, &gST->ConIn->WaitForKey, NULL);
-
-  // Reset Input Protocol
-  gST->ConIn->Reset (gST->ConIn, TRUE);
-
-  // Handle Input
-  while (TRUE) {
-    EFI_INPUT_KEY Key;
-
-    // Wait for Keypress
-    gBS->WaitForEvent (1, &gST->ConIn->WaitForKey, NULL);
-
-    // Get Current Key Press
-    gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
-
-    // Execute Current Option
-    if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
-      break;
-    }
-
-    // Select Next Option
-    if (Key.ScanCode == SCAN_UP && SelectedOption < ARRAY_SIZE (Option) - 1) {
-      SelectedOption++;
-    }
-
-    // Select Previous Option
-    if (Key.ScanCode == SCAN_DOWN && SelectedOption > 0) {
-      SelectedOption--;
-    }
-
-    // Print Current Option
-    PrintUI (Option[SelectedOption], -1, FALSE);
+  // Get Max Number of Assignable LUNs
+  Status = mUsbMsdProtocol->QueryMaxLun (mUsbMsdProtocol, &AssignableMsdLuns);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to get Number of Max Assignable LUNs! Status = %r\n", __FUNCTION__, Status));
+    AssignableMsdLuns = 2;
   }
 
-  // Execute Selected Option
-  switch (SelectedOption) {
-    case 0:
-      // Enter UFS LUN Selection / Start Mass Storage
-      if (EmmcBlockIoProtocol != NULL) {
-        StartMassStorage (EmmcBlockIoProtocol);
-      } else {
-        SelectUfsLun ();
-      }
-
-      // Go back
-      goto Menu;
-
-    case 1:
-      // Reboot
-      gRT->ResetSystem (EfiResetCold, EFI_SUCCESS, 0, NULL);
+  // Go thru each Storage
+  for (UINT8 i = 0; i < ARRAY_SIZE (StorageGuid); i++) {
+    // Compare Assigned and Assignable LUNs
+    if (AssignedMsdLuns + 1 == AssignableMsdLuns) {
       break;
+    }
 
-    case 2:
-      // Shutdown
-      gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
-      break;
+    // Set Storage GUID
+    StorageVendorDevicePath.VendorDevicePath.Guid = StorageGuid[i];
 
-    default:
-      return EFI_INVALID_PARAMETER;
+    // Convert Storage Device Path
+    StorageDevicePath = (EFI_DEVICE_PATH_PROTOCOL *)&StorageVendorDevicePath;
+
+    // Locate Storage Device Path
+    Status = gBS->LocateDevicePath (&gEfiBlockIoProtocolGuid, &StorageDevicePath, &ProtocolHandle);
+    if (EFI_ERROR (Status)) {
+      continue;
+    }
+
+    // Get Storage BLKIO Protocol
+    Status = gBS->HandleProtocol (ProtocolHandle, &gEfiBlockIoProtocolGuid, (VOID *)&BlkIoProtocol);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Get BLKIO Protocol from Storage %u Device Path!\n", __FUNCTION__, i));
+      return Status;
+    }
+
+    // Assign Storage BLKIO Protocol
+    Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, BlkIoProtocol, AssignedMsdLuns);
+    if (!EFI_ERROR (Status)) {
+      AssignedMsdLuns++;
+    }
+  }
+
+  // Verify Assigned MSD LUNs
+  if (!AssignedMsdLuns) {
+    DEBUG ((EFI_D_ERROR, "%a: No BLKIO Protocol was Assigned!\n", __FUNCTION__));
+    return EFI_NOT_FOUND;
   }
 
   return EFI_SUCCESS;
@@ -365,11 +243,14 @@ Menu:
 
 EFI_STATUS
 EFIAPI
-InitMassStorage (
+MassStorageEntry (
   IN EFI_HANDLE        ImageHandle,
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS Status;
+
+  // Save Image Handle
+  mImageHandle = ImageHandle;
 
   // Locate GOP Protocol
   Status = gBS->LocateProtocol (&gEfiGraphicsOutputProtocolGuid, NULL, (VOID *)&mGopProtocol);
@@ -378,27 +259,27 @@ InitMassStorage (
     return Status;
   }
 
-  // Locate USB Mass Storage Protocol
+  // Locate USB MSD Protocol
   Status = gBS->LocateProtocol (&gEfiUsbMsdProtocolGuid, NULL, (VOID *)&mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate USB Mass Storage Protocol! Status = %r\n", __FUNCTION__, Status));
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate USB MSD Protocol! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  // Get Internal Storage Handles
-  Status = GetInternalStorageHandles ();
+  // Assign Storage Handles
+  Status = AssignStorageHandles ();
   if (EFI_ERROR (Status)) {
     return Status;
   }
 
-  // Disable WatchDog Timer
+  // Disable Watchdog Timer
   gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
 
-  // Enter Mass Storage Handler
-  Status = MassStorageHandler ();
-  if (EFI_ERROR (Status)) {
-    return Status;
-  }
+  // Show Mass Storage Splash
+  DisplayBootGraphic (BG_MASS_STORAGE);
+
+  // Enter Main Menu
+  MassStorageMain ();
 
   return EFI_SUCCESS;
 }

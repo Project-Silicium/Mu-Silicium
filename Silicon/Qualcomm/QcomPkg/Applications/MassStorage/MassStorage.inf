@@ -4,7 +4,7 @@
   FILE_GUID                      = FB14ECD8-9432-48B8-A692-AE4BC19D568B
   MODULE_TYPE                    = UEFI_APPLICATION
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = InitMassStorage
+  ENTRY_POINT                    = MassStorageEntry
 
 [Sources]
   MassStorage.c
@@ -17,15 +17,26 @@
 
 [LibraryClasses]
   DebugLib
-  BaseMemoryLib
   UefiBootServicesTableLib
-  UefiApplicationEntryPoint
   UefiRuntimeServicesTableLib
+  UefiApplicationEntryPoint
   BootGraphicsLib
   DevicePathLib
   UefiLib
 
+[Guids]
+  gEfiUfsLU0Guid
+  gEfiUfsLU1Guid
+  gEfiUfsLU2Guid
+  gEfiUfsLU3Guid
+  gEfiUfsLU4Guid
+  gEfiUfsLU5Guid
+  gEfiUfsLU6Guid
+  gEfiUfsLU7Guid
+  gEfiEmmcUserPartitionGuid
+  gEfiSdRemovableGuid
+
 [Protocols]
+  gEfiGraphicsOutputProtocolGuid
   gEfiUsbMsdProtocolGuid
   gEfiBlockIoProtocolGuid
-  gEfiGraphicsOutputProtocolGuid
