@@ -167,44 +167,21 @@ cleanup:
 #endif
 
 VOID
-EFIAPI
-FileSystemCallback (
-  IN EFI_EVENT  Event,
-  IN VOID      *Context)
+ProcessFileSystem (IN EFI_FILE_PROTOCOL *FsVolume)
 {
-  EFI_STATUS                       Status;
-  EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *mSfsProtocol;
-  EFI_FILE_PROTOCOL               *FsVolume;
-  EFI_FILE_HANDLE                  BootmgfwFile;
-  EFI_FILE_HANDLE                  SiPolicyFile;
-  EFI_HANDLE                      *SfsProtocolHandle;
-  UINTN                            NumOfHandles;
+  EFI_STATUS      Status;
+  EFI_FILE_HANDLE BootmgfwFile;
+  EFI_FILE_HANDLE SiPolicyFile;
 
-  // Locate SFS Protocol Handle
-  Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, RegisteredSfsProtocol, &NumOfHandles, &SfsProtocolHandle);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate SFS Protocol Handle! Status = %r\n", __FUNCTION__, Status));
-    goto cleanup;
-  }
-
-  // Locate SFS Protocol
-  Status = gBS->HandleProtocol (SfsProtocolHandle[0], &gEfiSimpleFileSystemProtocolGuid, (VOID *)&mSfsProtocol);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate SFS Protocol! Status = %r\n", __FUNCTION__, Status));
-    goto cleanup;
-  }
-
-  // Open FS Volume
-  Status = mSfsProtocol->OpenVolume (mSfsProtocol, &FsVolume);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Open FS Volume! Status = %r\n", __FUNCTION__, Status));
-    goto cleanup;
+  // Verify Parameter
+  if (FsVolume == NULL) {
+    return;
   }
 
   // Verify "bootmgfw.efi" Existence
   Status = FsVolume->Open (FsVolume, &BootmgfwFile, EFI_BOOTMGFW_FILE_PATH, EFI_FILE_MODE_READ, EFI_FILE_READ_ONLY | EFI_FILE_SYSTEM);
   if (EFI_ERROR (Status)) {
-    goto cleanup;
+    return;
   }
 
   // Close "bootmgfw.efi"
@@ -214,7 +191,7 @@ FileSystemCallback (
   Status = FsVolume->Open (FsVolume, &SiPolicyFile, EFI_SIPOLICY_FILE_PATH, EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE, 0);
   if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Open \"SiPolicy.p7b\"! Status = %r\n", __FUNCTION__, Status));
-    goto cleanup;
+    return;
   }
 
 #if ENABLE_SECUREBOOT == 1
@@ -223,7 +200,7 @@ FileSystemCallback (
     Status = FsVolume->Open (FsVolume, &SiPolicyFile, EFI_SIPOLICY_FILE_PATH, EFI_FILE_MODE_READ | EFI_FILE_MODE_WRITE | EFI_FILE_MODE_CREATE, 0);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Create \"SiPolicy.p7b\"! Status = %r\n", __FUNCTION__, Status));
-      goto cleanup;
+      return;
     }
   }
 
@@ -235,19 +212,56 @@ FileSystemCallback (
 #else
   // Check SiPolicy Presence
   if (Status == EFI_NOT_FOUND) {
-    goto cleanup;
+    return;
   }
 
   // Delete "SiPolicy.p7b" File
   Status = FsVolume->Delete (SiPolicyFile);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Delete \"SiPolicy.p7b\"! Status = %r\n", __FUNCTION__, Status));
-    goto cleanup;
+    return;
   }
 
   // Show Progress
   DEBUG ((EFI_D_WARN, "%a: Successfully Deleted SiPolicy\n", __FUNCTION__));
 #endif
+}
+
+VOID
+EFIAPI
+FileSystemCallback (
+  IN EFI_EVENT  Event,
+  IN VOID      *Context)
+{
+  EFI_STATUS                       Status;
+  EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *SfsProtocol;
+  EFI_FILE_PROTOCOL               *FsVolume;
+  EFI_HANDLE                      *SfsProtocolHandle;
+  UINTN                            NumOfHandles;
+
+  // Locate SFS Protocol Handle
+  Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, RegisteredSfsProtocol, &NumOfHandles, &SfsProtocolHandle);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate SFS Protocol Handle! Status = %r\n", __FUNCTION__, Status));
+    goto cleanup;
+  }
+
+  // Locate SFS Protocol
+  Status = gBS->HandleProtocol (SfsProtocolHandle[0], &gEfiSimpleFileSystemProtocolGuid, (VOID *)&SfsProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate SFS Protocol! Status = %r\n", __FUNCTION__, Status));
+    goto cleanup;
+  }
+
+  // Open FS Volume
+  Status = SfsProtocol->OpenVolume (SfsProtocol, &FsVolume);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Open FS Volume! Status = %r\n", __FUNCTION__, Status));
+    goto cleanup;
+  }
+
+  // Process File System
+  ProcessFileSystem (FsVolume);
 
 cleanup:
   // Free Buffer
@@ -259,8 +273,10 @@ cleanup:
 EFI_STATUS
 SetupSecureBoot ()
 {
-  EFI_STATUS Status;
-  EFI_EVENT  CallbackEvent;
+  EFI_STATUS  Status;
+  EFI_EVENT   CallbackEvent;
+  EFI_HANDLE *SfsBuffer;
+  UINTN       SfsCount;
 
 #if ENABLE_SECUREBOOT == 1
   // Enroll Secure Boot Keys
@@ -283,6 +299,35 @@ SetupSecureBoot ()
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Register Callback Event!\n", __FUNCTION__));
     return Status;
+  }
+
+  // Locate SFS Protocols
+  Status = gBS->LocateHandleBuffer (ByProtocol, &gEfiSimpleFileSystemProtocolGuid, NULL, &SfsCount, &SfsBuffer);
+  if (!EFI_ERROR (Status)) {
+    for (UINTN i = 0; i < SfsCount; i++) {
+      EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *SfsProtocol;
+      EFI_FILE_PROTOCOL               *FsVolume;
+
+      // Get SFS Protocol
+      Status = gBS->HandleProtocol (SfsBuffer[i], &gEfiSimpleFileSystemProtocolGuid, (VOID *)&SfsProtocol);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "%a: Failed to get SFS Protocol! Status = %r\n", __FUNCTION__, Status));
+        continue;
+      }
+
+      // Open FS Volume
+      Status = SfsProtocol->OpenVolume (SfsProtocol, &FsVolume);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "%a: Failed to Open FS Volume! Status = %r\n", __FUNCTION__, Status));
+        continue;
+      }
+
+      // Process File System
+      ProcessFileSystem (FsVolume);
+    }
+
+    // Free Buffer
+    FreePool (SfsBuffer);
   }
 
   return EFI_SUCCESS;
