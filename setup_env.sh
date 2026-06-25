@@ -47,7 +47,17 @@ elif [[ ${PAK} = dnf ]]; then
     sudo dnf install -y git mono-devel nuget nasm make lld gcc automake gcc-aarch64-linux-gnu python3 python3-pip gettext gnupg ca-certificates git git-core clang llvm curl lld||_error "\nFailed to install Packages!\n"
 elif [[ ${PAK} = pacman ]]; then
     sudo pacman -Syu --needed git mono base-devel nuget lld nasm aarch64-linux-gnu-gcc python3 python python-distutils-extra python-pip gettext gnupg ca-certificates python-virtualenv python-pipenv clang llvm curl lld||_error "\nFailed to install Packages!\n"
-    git clone https://aur.archlinux.org/uuid.git && cd uuid && makepkg -sic
+
+    # Clone UUID Package
+    git clone https://aur.archlinux.org/uuid.git
+
+    # Compile & Install UUID Package
+    pushd uuid &> /dev/null
+    makepkg -sic
+    popd &> /dev/null
+
+    # Delete UUID Package
+    rm -rf uuid &> /dev/null
 else
     _error "\nInvaild Package Manager!\nAvailbe Package Managers: apt, dnf and pacman\n"
 fi
