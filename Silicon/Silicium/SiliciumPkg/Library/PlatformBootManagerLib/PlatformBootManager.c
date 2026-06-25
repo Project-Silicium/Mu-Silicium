@@ -33,17 +33,11 @@ VOID
 EFIAPI
 PlatformBootManagerBeforeConsole ()
 {
-  EFI_STATUS Status;
-
   // Signal End Of DXE
   EfiEventGroupSignal (&gEfiEndOfDxeEventGroupGuid);
 
   // Dispatch Deferred Images
   EfiBootManagerDispatchDeferredImages ();
-
-  // Setup Secure Boot
-  Status = SetupSecureBoot ();
-  ASSERT_EFI_ERROR (Status);
 
   // Register Boot Options
   MsBootOptionsLibRegisterDefaultBootOptions ();
@@ -133,13 +127,6 @@ PlatformBootManagerOnDemandConInConnect ()
 
 VOID
 EFIAPI
-PlatformBootManagerBdsEntry ()
-{
-  return;
-}
-
-VOID
-EFIAPI
 PlatformBootManagerProcessBootCompletion (OUT EFI_BOOT_MANAGER_LOAD_OPTION *BootOption)
 {
   return;
@@ -178,11 +165,6 @@ PlatformBootManagerPriorityBoot (IN OUT UINT16 **BootNext)
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to get Specified Load Option! Status = %r", __FUNCTION__, Status));
     return;
-  }
-
-  // Wipe next Boot Option
-  if (EnterFfuMode && *BootNext != NULL) {
-    FreePool (*BootNext);
   }
 
   // Execute Specified Load Option
@@ -244,4 +226,32 @@ PlatformBootManagerUnableToBoot ()
 
   // Do Cpu Dead Loop
   CpuDeadLoop ();
+}
+
+VOID
+EFIAPI
+PreReadyToBoot (
+  IN EFI_EVENT  Event,
+  IN VOID      *Context)
+{
+  EFI_STATUS Status;
+
+  // Setup Secure Boot
+  Status = SetupSecureBoot ();
+  ASSERT_EFI_ERROR (Status);
+
+  // Close Event
+  gBS->CloseEvent (Event);
+}
+
+VOID
+EFIAPI
+PlatformBootManagerBdsEntry ()
+{
+  EFI_STATUS Status;
+  EFI_EVENT  PreReadyToBootEvent;
+
+  // Register Pre-ReadyToBoot Event
+  Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, PreReadyToBoot, NULL, &gEfiEventPreReadyToBootGuid, &PreReadyToBootEvent);
+  ASSERT_EFI_ERROR (Status);
 }
