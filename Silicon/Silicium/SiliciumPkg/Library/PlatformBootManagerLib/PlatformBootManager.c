@@ -97,58 +97,10 @@ CreateComboMessage (
 }
 
 VOID
-SetMaxConsoleMode (
-  IN  EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *ConOut,
-  OUT UINT32                          *ScreenWidth,
-  OUT UINT32                          *ScreenHeight)
-{
-  EFI_STATUS Status    = EFI_SUCCESS;
-  UINTN      MaxMode   = 0;
-  UINTN      Colums[2] = {0};
-  UINTN      Rows[2]   = {0};
-
-  // Go thru each Console Mode
-  for (INT32 i = 0; i < ConOut->Mode->MaxMode; i++) {
-    // Get Specified Console Mode Details
-    Status = ConOut->QueryMode (ConOut, i, &Colums[0], &Rows[0]);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to get Console Resolution of Mode %d! Status = %r\n", __FUNCTION__, i, Status));
-      continue;
-    }
-
-    // Compare Console Resolutions
-    if ((Colums[0] > Colums[1]) && (Rows[0] > Rows[1])) {
-      // Save Console Mode
-      MaxMode = i;
-
-      // Save Console Resolution
-      Colums[1] = Colums[0];
-      Rows[1]   = Rows[0];
-    }
-  }
-
-  // Set Max Console Mode
-  Status = ConOut->SetMode (ConOut, MaxMode);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to set Max Console Mode! Status = %r\n", __FUNCTION__, Status));
-    return;
-  }
-
-  // Pass Screen Resolution
-  *ScreenWidth  = Colums[1] * EFI_GLYPH_WIDTH;
-  *ScreenHeight = Rows[1] * EFI_GLYPH_HEIGHT;
-}
-
-VOID
 EFIAPI
 PlatformBootManagerAfterConsole ()
 {
   EFI_STATUS Status;
-  UINT32     ScreenWidth;
-  UINT32     ScreenHeight;
-
-  // Set Max Console Mode
-  SetMaxConsoleMode (gST->ConOut, &ScreenWidth, &ScreenHeight);
 
   // Display Boot Logo
   Status = DisplayBootGraphic (BG_SYSTEM_LOGO);
@@ -156,16 +108,19 @@ PlatformBootManagerAfterConsole ()
     DEBUG ((EFI_D_ERROR, "%a: Failed to Display Boot Logo! Status = %r\n", __FUNCTION__, Status));
   }
 
-  // Verify Screen Resolution
-  if (!ScreenWidth || !ScreenHeight) {
-    return;
-  }
-
   // Register Key Callback
   Status = RegisterKeyCallback ((EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath);
   if (!EFI_ERROR (Status)) {
+    EFI_GRAPHICS_OUTPUT_PROTOCOL *GopProtocol;
+
+    // Locate GOP Protocol
+    Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&GopProtocol);
+    if (EFI_ERROR (Status)) {
+      return;
+    }
+
     // Create Combo Message
-    CreateComboMessage (ScreenWidth, ScreenHeight);
+    CreateComboMessage (GopProtocol->Mode->Info->HorizontalResolution, GopProtocol->Mode->Info->VerticalResolution);
   }
 }
 
