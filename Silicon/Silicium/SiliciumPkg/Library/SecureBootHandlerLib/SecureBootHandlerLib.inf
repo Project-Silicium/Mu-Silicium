@@ -30,8 +30,6 @@
 
 [Guids]
   gEfiFileInfoGuid
-  gEfiHashAlgorithmSha256Guid
 
 [Protocols]
   gEfiSimpleFileSystemProtocolGuid
-  gEfiHashProtocolGuid
