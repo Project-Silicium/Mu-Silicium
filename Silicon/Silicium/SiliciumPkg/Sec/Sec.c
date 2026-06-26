@@ -18,8 +18,6 @@
 
 #include "Sec.h"
 
-STATIC EFI_MEMORY_REGION_DESCRIPTOR UefiFdRegion;
-
 #ifndef MDEPKG_NDEBUG
 STATIC
 VOID
@@ -39,16 +37,13 @@ ClearFrameBuffer ()
   // Clear Memory Region
   ZeroMem ((VOID *)FrameBufferRegion.Address, FrameBufferRegion.Length);
 }
-#endif
 
 STATIC
 VOID
 PrintFirmwareVersion ()
 {
-#ifndef MDEPKG_NDEBUG
   // Clear Frame Buffer
   ClearFrameBuffer ();
-#endif
 
   // Print UEFI Version Message
   DEBUG ((EFI_D_WARN, "\n"));
@@ -56,6 +51,7 @@ PrintFirmwareVersion ()
   DEBUG ((EFI_D_WARN, "Firmware Version %s Build at %a on %a\n", PcdGetPtr (PcdFirmwareVersionString), __TIME__, __DATE__));
   DEBUG ((EFI_D_WARN, "\n"));
 }
+#endif
 
 STATIC
 EFI_STATUS
@@ -169,8 +165,10 @@ SecMain (
     return;
   }
 
+#ifndef MDEPKG_NDEBUG
   // Print Firmware Version
   PrintFirmwareVersion ();
+#endif
 
   // Initialize Debug Agent
   InitializeDebugAgent (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
@@ -196,7 +194,7 @@ SecMain (
   // Set the Boot Mode
   SetBootMode (BOOT_WITH_DEFAULT_SETTINGS);
 
-  // Initialize Platform HOBs (CpuHob and FvHob)
+  // Initialize Platform HOBs
   Status = PlatformPeim ();
   if (EFI_ERROR (Status)) {
     return;
@@ -223,29 +221,18 @@ CEntryPoint (
   IN UINTN StackBase,
   IN UINTN StackSize)
 {
-    EFI_STATUS Status;
   // Verify Exception Vector Table
   ASSERT (((UINTN)SecVectorTable & ARM_VECTOR_TABLE_ALIGNMENT) == 0);
 
   // Enable new Exception Vector Table
   ArmWriteVBar ((UINTN)SecVectorTable);
 
+  // Invalidate Stack & UEFI FD D-Cache
+  InvalidateDataCacheRange ((VOID *)StackBase, StackSize);
+  InvalidateDataCacheRange ((VOID *)FixedPcdGet64 (PcdFdBaseAddress), FixedPcdGet32 (PcdFdSize));
+
   // Do Platform Specific Initialization
   PlatformInitialize ();
-
-  // Locate "UEFI FD" Memory Region
-  Status = LocateMemoryRegionByName ("UEFI FD", &UefiFdRegion);
-  if (EFI_ERROR (Status)) {
-    // Locate "UEFI_FD" Memory Region
-    Status = LocateMemoryRegionByName ("UEFI_FD", &UefiFdRegion);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Locate 'UEFI FD' Memory Region!\n"));
-      ASSERT_EFI_ERROR (Status);
-    }
-  }
-
-  // Invalidate Stack D-Cache
-  InvalidateDataCacheRange ((VOID *)StackBase, StackSize);
 
   // Enter SEC Main Function
   SecMain (StackBase, StackSize);

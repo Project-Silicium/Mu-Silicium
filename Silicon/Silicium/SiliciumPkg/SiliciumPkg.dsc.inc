@@ -8,8 +8,9 @@
 ##
 
 [BuildOptions]
-  *_CLANGPDB_*_CC_FLAGS = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype
-  *_CLANGPDB_*_CC_FLAGS = -D CLANG -D ENABLE_SECUREBOOT=$(ENABLE_SECUREBOOT)
+  RELEASE_CLANGPDB_*_CC_FLAGS = -D MDEPKG_NDEBUG
+  *_CLANGPDB_*_CC_FLAGS       = -Wno-unused-const-variable -Wno-sometimes-uninitialized -Wno-unaligned-access -Wno-deprecated-non-prototype
+  *_CLANGPDB_*_CC_FLAGS       = -D CLANG -D ENABLE_SECUREBOOT=$(ENABLE_SECUREBOOT)
   *_CLANGPDB_AARCH64_CC_FLAGS = -D __DEPRECATED_AARCH64_4K_RUNTIME_GRANULARITY
 
 [BuildOptions.common.EDKII.SEC,BuildOptions.common.EDKII.MM_CORE_STANDALONE]
