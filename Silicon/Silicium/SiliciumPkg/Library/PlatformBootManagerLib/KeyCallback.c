@@ -11,14 +11,28 @@
 #include <Protocol/SimpleTextInEx.h>
 
 #include "PlatformBootManager.h"
+#include "KeyCallback.h"
 
 //
 // Global Variables
 //
-STATIC EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *mSimpleInExProtocol = NULL;
-STATIC VOID                              *KeyNotifyHandle[]   = { NULL, NULL };
-STATIC BOOLEAN                            EnterFfuMode        = FALSE;
-STATIC BOOLEAN                            EnterAlternativeApp = FALSE;
+STATIC EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *mSimpleInExProtocol  = NULL;
+STATIC BOOLEAN                            mEnterFfuMode        = FALSE;
+STATIC BOOLEAN                            mEnterAlternativeApp = FALSE;
+
+//
+// Key Notify Data
+//
+STATIC EFI_KEY_NOTIFY_DATA mNotifyData[] = {
+  {
+    .ScanCode     = SCAN_UP,
+    .NotifyHandle = NULL
+  },
+  {
+    .ScanCode     = SCAN_DOWN,
+    .NotifyHandle = NULL
+  }
+};
 
 EFI_STATUS
 EFIAPI
@@ -26,12 +40,12 @@ KeyNotify (IN EFI_KEY_DATA *KeyData)
 {
   // Check for SCAN_UP
   if (KeyData->Key.ScanCode == SCAN_UP) {
-    EnterFfuMode = TRUE;
+    mEnterFfuMode = TRUE;
   }
 
   // Check for SCAN_DOWN
   if (KeyData->Key.ScanCode == SCAN_DOWN) {
-    EnterAlternativeApp = TRUE;
+    mEnterAlternativeApp = TRUE;
   }
 
   return EFI_SUCCESS;
@@ -74,7 +88,7 @@ SetupKeypad (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
   // Reset STI Device
   Status = mSimpleInExProtocol->Reset (mSimpleInExProtocol, TRUE);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to STI Device! Status = %r\n", __FUNCTION__, Status));
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Reset STI Device! Status = %r\n", __FUNCTION__, Status));
   }
 
   return EFI_SUCCESS;
@@ -85,32 +99,22 @@ RegisterKeyNotify ()
 {
   EFI_STATUS Status;
 
-  // Set Key Scan Codes
-  UINT8 KeyScanCodes[] = { SCAN_UP, SCAN_DOWN };
-
-  // Verify Array Sizes
-  STATIC_ASSERT (ARRAY_SIZE (KeyNotifyHandle) == ARRAY_SIZE (KeyScanCodes), "KeyNotifyHandle and KeyScanCodes don't have the same amount of Elements!");
-
   // Go thru each Key
-  for (UINT8 i = 0; i < ARRAY_SIZE (KeyNotifyHandle); i++) {
+  for (UINT8 i = 0; i < ARRAY_SIZE (mNotifyData); i++) {
     EFI_KEY_DATA KeyData;
 
     // Set Inital Key Data
     KeyData.KeyState.KeyToggleState = 0;
     KeyData.KeyState.KeyShiftState  = 0;
     KeyData.Key.UnicodeChar         = CHAR_NULL;
-    KeyData.Key.ScanCode            = KeyScanCodes[i];
+    KeyData.Key.ScanCode            = mNotifyData[i].ScanCode;
 
     // Register Key Notify
-    Status = mSimpleInExProtocol->RegisterKeyNotify (mSimpleInExProtocol, &KeyData, &KeyNotify, &KeyNotifyHandle[i]);
+    Status = mSimpleInExProtocol->RegisterKeyNotify (mSimpleInExProtocol, &KeyData, &KeyNotify, &mNotifyData[i].NotifyHandle);
     if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Register Key Notify for Scan Code %u! Status = %r\n", __FUNCTION__, KeyScanCodes[i], Status));
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Register Key Notify for Scan Code %u! Status = %r\n", __FUNCTION__, mNotifyData[i].ScanCode, Status));
     }
   }
-
-  // Reset Key States
-  EnterFfuMode        = FALSE;
-  EnterAlternativeApp = FALSE;
 
   return EFI_SUCCESS;
 }
@@ -140,15 +144,20 @@ UnregisterKeyCallback ()
 {
   EFI_STATUS Status;
 
+  // Verify STI Protocol Presense
+  if (mSimpleInExProtocol == NULL) {
+    return;
+  }
+
   // Go thru each Key
-  for (UINT8 i = 0; i < ARRAY_SIZE (KeyNotifyHandle); i++) {
+  for (UINT8 i = 0; i < ARRAY_SIZE (mNotifyData); i++) {
     // Verify Key Notify
-    if (KeyNotifyHandle[i] == NULL) {
+    if (mNotifyData[i].NotifyHandle == NULL) {
       continue;
     }
 
     // Unregister Key Notify
-    Status = mSimpleInExProtocol->UnregisterKeyNotify (mSimpleInExProtocol, KeyNotifyHandle[i]);
+    Status = mSimpleInExProtocol->UnregisterKeyNotify (mSimpleInExProtocol, mNotifyData[i].NotifyHandle);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Unregister Key Notify Nr. %u! Status = %r\n", __FUNCTION__, i, Status));
     }
@@ -161,6 +170,6 @@ GetKeyStates (
   OUT BOOLEAN *AlternativeApp)
 {
   // Pass Data
-  *FfuMode        = EnterFfuMode;
-  *AlternativeApp = EnterAlternativeApp;
+  *FfuMode        = mEnterFfuMode;
+  *AlternativeApp = mEnterAlternativeApp;
 }
