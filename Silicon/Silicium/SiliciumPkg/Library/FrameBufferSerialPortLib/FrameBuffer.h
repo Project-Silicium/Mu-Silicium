@@ -2,24 +2,19 @@
 #define _FRAME_BUFFER_H_
 
 //
+// Frame Buffer Details
+//
+#define FB_WIDTH    FixedPcdGet32 (PcdFrameBufferWidth)
+#define FB_HEIGHT   FixedPcdGet32 (PcdFrameBufferHeight)
+#define FB_BPP      FixedPcdGet8  (PcdFrameBufferColorDepth) / 8
+#define FB_DELAY_US FixedPcdGet32 (PcdFrameBufferDelay)
+
+//
 // Frame Buffer Position
 //
 typedef struct {
   UINT32 XPos;
   UINT32 YPos;
 } EFI_FRAME_BUFFER_POSITION;
-
-//
-// Frame Buffer Data
-//
-typedef struct {
-  EFI_MEMORY_REGION_DESCRIPTOR  MemoryRegion;
-  EFI_FRAME_BUFFER_POSITION    *CurrentPosition;
-  EFI_FRAME_BUFFER_POSITION     MaxPosition;
-  UINT32                        Width;
-  UINT32                        Height;
-  UINT8                         BytesPerPixel;
-  UINT8                         FontScale;
-} EFI_FRAME_BUFFER_DATA;
 
 #endif /* _FRAME_BUFFER_H_ */
