@@ -7,3 +7,4 @@ __pycache__
 *.elf
 *:Zone.Identifier
 .vscode
+uuid
