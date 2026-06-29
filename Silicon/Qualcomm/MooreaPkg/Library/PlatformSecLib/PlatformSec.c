@@ -6,7 +6,7 @@
 #include <Library/IoLib.h>
 #include <Library/PlatformSecLib.h>
 #include <Library/MemoryMapHelperLib.h>
-//#include <Library/ArmSmmuDetachLib.h>
+#include <Library/ArmSmmuDetachLib.h>
 
 #include "PlatformRegisters.h"
 
@@ -55,44 +55,14 @@ DisableWatchDogTimer ()
 }
 
 VOID
-EnableUfsCacheCoherency ()
-{
-  EFI_STATUS                   Status;
-  EFI_MEMORY_REGION_DESCRIPTOR SmmuRegion;
-  UINT32                       ContextBankAddr;
-
-  // Locate "SMMU" Memory Region
-  Status = LocateMemoryRegionByName ("SMMU", &SmmuRegion);
-  if (EFI_ERROR (Status)) {
-    return;
-  }
-
-  // Set UFS Context Bank Address
-  ContextBankAddr = SmmuRegion.Address + SMMU_CTX_BANK_0_OFFSET + UFS_CTX_BANK * SMMU_CTX_BANK_SIZE;
-
-  // Configure UFS Context Bank
-  MmioWrite32 (ContextBankAddr + SMMU_CTX_BANK_SCTLR_OFFSET,   SMMU_CCA_SCTLR);
-  MmioWrite32 (ContextBankAddr + SMMU_CTX_BANK_TTBR0_0_OFFSET, 0);
-  MmioWrite32 (ContextBankAddr + SMMU_CTX_BANK_TTBR0_1_OFFSET, 0);
-  MmioWrite32 (ContextBankAddr + SMMU_CTX_BANK_TTBR1_0_OFFSET, 0);
-  MmioWrite32 (ContextBankAddr + SMMU_CTX_BANK_TTBR1_1_OFFSET, 0);
-  MmioWrite32 (ContextBankAddr + SMMU_CTX_BANK_MAIR0_OFFSET,   0);
-  MmioWrite32 (ContextBankAddr + SMMU_CTX_BANK_MAIR1_OFFSET,   0);
-  MmioWrite32 (ContextBankAddr + SMMU_CTX_BANK_TTBCR_OFFSET,   0);
-}
-
-VOID
 PlatformInitialize ()
 {
   // Disable WatchDog Timer
   DisableWatchDogTimer ();
 
-  // Enable UFS Cache Coherency (DEPRECATED!)
-  EnableUfsCacheCoherency ();
-
   // Set MDP SIDs
-  //CONST UINT16 MdpStreams[] = { 0x800, 0x801 };
+  CONST UINT16 MdpStreams[] = { 0x800, 0x801, 0x840, 0x841, 0xC00, 0xC01, 0xC40, 0xC41 };
 
   // Detach IOMMU Domains
-  //ArmSmmuDetach (MdpStreams, ARRAY_SIZE (MdpStreams));
+  ArmSmmuDetach (MdpStreams, ARRAY_SIZE (MdpStreams));
 }
