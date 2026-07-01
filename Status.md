@@ -384,9 +384,49 @@
 | USB Host Mode      |                | ❌    |
 | USB Device Mode    |                | ❌    |
 | USB Power Delivery |                | ❌    |
-| SD Card            |                | ❌    |
-| Windows Boot       |                | ❌    |
+| SD Card            |                | ✅    |
+| Windows Boot       |                | ✅    |
 | Linux Boot         |                | ❌    |
+
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE boots.
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ❌    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    |
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB                  |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
+| CPU                  | One Core only | ⚠️    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Flashlight           |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    |
+| Vibration            |               | ❌    |
+
+</td></tr>
+</table>
 
 </details>
 
