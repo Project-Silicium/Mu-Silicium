@@ -27,12 +27,12 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build UEFI for active devices
         run: bash ./setup_env.sh -p apt && bash ./build_active_devices.sh -r DEBUG
 
       - name: Upload UEFI images
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: uefi-images
           path: ./Mu-*
