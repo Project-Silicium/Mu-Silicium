@@ -185,10 +185,13 @@ AssignStorageHandles ()
 
   // Set Storage GUIDs
   EFI_GUID StorageGuid[] = {
+    gEfiUfsLU0Guid,
+    /*
     gEfiUfsLU0Guid,            gEfiUfsLU1Guid,
     gEfiUfsLU2Guid,            gEfiUfsLU3Guid,
     gEfiUfsLU4Guid,            gEfiUfsLU5Guid,
     gEfiUfsLU6Guid,            gEfiUfsLU7Guid,
+    */
     gEfiEmmcUserPartitionGuid, gEfiSdRemovableGuid
   };
 
