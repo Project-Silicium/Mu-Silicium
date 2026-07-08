@@ -968,6 +968,39 @@
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
+## Samsung Galaxy Flip5
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-5` Version is Required on this Device!
+
+</td></tr>
+</table>
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Flip5.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** b5q
+
+**Contributors:** [Robotix](https://github.com/Robotix22/)
+
+### UEFI Status
+
+| Feature            | Description                 | State |
+|:-------------------|:----------------------------|:-----:|
+| Display            |                             | ✅    |
+| Cover Display      | No Driver to Handle it      | ⚠️    |
+| Internal Storage   |                             | ✅    |
+| Side Buttons       |                             | ✅    |
+| USB Host Mode      |                             | ❌    |
+| USB Device Mode    |                             | ✅    |
+| USB Power Delivery |                             | ❌    |
+| Mass Storage       |                             | ✅    |
+| Windows Boot       |                             | ❌    |
+| Linux Boot         |                             | ❌    |
+
 ## Samsung Galaxy S23+
 
 <table>
