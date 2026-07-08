@@ -100,7 +100,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S20-5G.png" width="500" alt="Preview">
 
-**State:** Inactive <br>
+**State:** Active <br>
 **Codename:** x1s
 
 **Contributors:** [halal-beef](https://github.com/halal-beef/)
@@ -212,7 +212,7 @@
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-S9.png" width="500" alt="Preview">
 
-**State:** Inactive <br>
+**State:** Active <br>
 **Codename:** starlte
 
 **Contributors:** [Robotix](https://github.com/Robotix22/)
