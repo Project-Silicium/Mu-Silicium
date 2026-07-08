@@ -14,6 +14,11 @@
   #
   USE_PHYSICAL_TIMER                         = 1
 
+  #
+  # KEP
+  #
+  HAS_CNTFRQ_EL0_EMPTY_ERRATA                = 0
+
 !include SamsungPkg/SamsungPkg.dsc.inc
 
 [BuildOptions]
@@ -33,15 +38,9 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10102000
 
   #
-  # DDR Info
+  # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
-
-  #
-  # PMIC
-  #
-  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|FALSE
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
 
   #
   # SMBIOS
@@ -58,23 +57,28 @@
 
 [LibraryClasses]
   #
+  # SEC Libraries
+  #
+  PlatformSecLib|S5E9820Pkg/Library/PlatformSecLib/PlatformSecLib.inf
+
+  #
   # UEFI Libraries
   #
   HwResetSystemLib|S5E9820Pkg/Library/ResetSystemLib/ResetSystemLib.inf
   ResetSystemLib|S5E9820Pkg/Library/ResetSystemLib/ResetSystemLib.inf
 
   #
-  # SEC Libraries
+  # IO Libraries
   #
-  PlatformSecLib|S5E9820Pkg/Library/PlatformSecLib/PlatformSecLib.inf
+  GpioLib|S5E9820Pkg/Library/GpioLib/GpioLib.inf
+  SpeedyLib|S5E9820Pkg/Library/SpeedyLib/SpeedyLib.inf
 
   #
-  # Custom Libraries
+  # Power Management Libraries
   #
-  GpioBankLib|S5E9820Pkg/Library/GpioBankLib/GpioBankLib.inf
+  PmicLib|S5E9820Pkg/Library/PmicLib/PmicLib.inf
 
-[Components]
   #
-  # Custom Drivers
+  # Samsung Libraries
   #
-  SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
+  UsiLib|S5E9820Pkg/Library/UsiLib/UsiLib.inf

@@ -1,0 +1,36 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PmicDxe
+  FILE_GUID                      = 632ED0C6-B9F4-4459-97D6-8CB410E4778F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitPmics
+
+[Sources]
+  Pmic.c
+
+  S2mps18/S2mps18.c
+  S2mps19/S2mps19.c
+  S2mps22/S2mps22.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  MemoryMapHelperLib
+  PmicLib
+  IoLib
+
+[Protocols]
+  gEfiSpeedyProtocolGuid
+  gEfiHsI2cProtocolGuid
+  gEfiPmicExtraProtocolGuid
+  gEfiPmicRegulatorProtocolGuid
+
+[Depex]
+  TRUE

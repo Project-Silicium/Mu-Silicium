@@ -42,7 +42,7 @@
   #
   # UEFI Stack
   #
-  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xF4B00000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xF4A00000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #

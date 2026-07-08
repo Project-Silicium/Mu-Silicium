@@ -221,15 +221,24 @@ CEntryPoint (
   IN UINTN StackBase,
   IN UINTN StackSize)
 {
+  // Disable Data Cache
+  ArmDisableDataCache ();
+
+  // Invalidate Instruction Cache
+  ArmInvalidateInstructionCache ();
+
+  // Enable Instruction Cache
+  ArmEnableInstructionCache ();
+
+  // Invalidate Stack & UEFI FD D-Cache
+  InvalidateDataCacheRange ((VOID *)StackBase, StackSize);
+  InvalidateDataCacheRange ((VOID *)FixedPcdGet64 (PcdFdBaseAddress), FixedPcdGet32 (PcdFdSize));
+
   // Verify Exception Vector Table
   ASSERT (((UINTN)SecVectorTable & ARM_VECTOR_TABLE_ALIGNMENT) == 0);
 
   // Enable new Exception Vector Table
   ArmWriteVBar ((UINTN)SecVectorTable);
-
-  // Invalidate Stack & UEFI FD D-Cache
-  InvalidateDataCacheRange ((VOID *)StackBase, StackSize);
-  InvalidateDataCacheRange ((VOID *)FixedPcdGet64 (PcdFdBaseAddress), FixedPcdGet32 (PcdFdSize));
 
   // Do Platform Specific Initialization
   PlatformInitialize ();

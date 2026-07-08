@@ -1,0 +1,4 @@
+REPO:   https://github.com/exynos990-mainline/lk3rd/
+BRANCH: dev
+FILES:  dev/dev/i2c/exynos_hsi2c.c     (COMMIT: 8742f9aa3d5a60e097003d226da2d3ee30fa7018)
+        dev/include/dev/exynos_hsi2c.h (COMMIT: 4ccfaf189a40036397e69d5f5d212a511c9e6aac)

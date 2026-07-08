@@ -22,4 +22,4 @@
   UfsCalAdapterLib
 
 [Protocols]
-  gEfiExynosGpioProtocolGuid
+  gEfiGpioProtocolGuid

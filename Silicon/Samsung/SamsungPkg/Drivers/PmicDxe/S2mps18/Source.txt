@@ -1,0 +1,3 @@
+REPO:   https://github.com/duhansysl/exynos9810-kernel/
+BRANCH: duhan-(4.9.337)
+FILES:  include/linux/mfd/samsung/s2mps18-private.h (COMMIT: a4bd396b7c2d46cf74e4eb1f9a8300f944efd8fb)

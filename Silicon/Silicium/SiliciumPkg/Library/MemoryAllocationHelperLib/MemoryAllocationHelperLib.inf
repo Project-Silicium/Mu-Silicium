@@ -1,0 +1,20 @@
+[Defines]
+  INF_VERSION                    = 0x00010017
+  BASE_NAME                      = MemoryAllocationHelperLib
+  FILE_GUID                      = C1421AB3-C0E1-4A5E-83D8-3EB366762C5D
+  VERSION_STRING                 = 1.0
+  MODULE_TYPE                    = DXE_DRIVER
+  LIBRARY_CLASS                  = MemoryAllocationHelperLib|DXE_DRIVER
+
+[Sources]
+  MemoryAllocationHelper.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  DxeServicesTableLib
+  ArmMmuLib

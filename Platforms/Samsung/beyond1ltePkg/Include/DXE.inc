@@ -22,16 +22,19 @@
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-  INF SamsungPkg/Drivers/ChipDataDxe/ChipDataDxe.inf
-  INF SamsungPkg/Drivers/DdrInfoDxe/DdrInfoDxe.inf
+  INF SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
+  INF SamsungPkg/Drivers/UsiDxe/UsiDxe.inf
   INF SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
-  INF SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
+  INF SamsungPkg/Drivers/HsI2cDxe/HsI2cDxe.inf
+  INF SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
   INF SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
   INF SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+
+  INF SamsungPkg/Drivers/RngDxe/RngDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf

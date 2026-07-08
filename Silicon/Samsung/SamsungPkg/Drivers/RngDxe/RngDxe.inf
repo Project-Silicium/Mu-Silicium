@@ -1,0 +1,28 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = RngDxe
+  FILE_GUID                      = B367883E-1078-4272-9CF4-0866B109ED49
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = RegisterRng
+
+[Sources]
+  Rng.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  BaseMemoryLib
+  ArmSmcLib
+
+[Guids]
+  gEfiRngAlgorithmRaw
+
+[Protocols]
+  gEfiRngProtocolGuid
+
+[Depex]
+  TRUE

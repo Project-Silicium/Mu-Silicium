@@ -1,3 +1,4 @@
 REPO:   https://github.com/exynos990-mainline/lk3rd/
 BRANCH: dev
-FILE:   platform/exynos/gpio.c
+FILES:  platform/exynos/gpio.c                      (COMMIT: 8742f9aa3d5a60e097003d226da2d3ee30fa7018)
+        platform/exynos9830/include/platform/gpio.h (COMMIT: 64d8534bb5217ea43dcf753e32377417539cfa03)

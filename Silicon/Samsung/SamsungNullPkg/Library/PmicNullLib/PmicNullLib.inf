@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PmicNullLib
+  FILE_GUID                      = 4B6E6938-74EB-4925-84A1-4EBD10AB072D
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PmicLib|DXE_DRIVER
+
+[Sources]
+  PmicNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec

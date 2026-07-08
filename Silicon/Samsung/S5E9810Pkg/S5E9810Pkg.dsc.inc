@@ -14,6 +14,11 @@
   #
   USE_PHYSICAL_TIMER                         = 1
 
+  #
+  # KEP
+  #
+  HAS_CNTFRQ_EL0_EMPTY_ERRATA                = 1
+
 !include SamsungPkg/SamsungPkg.dsc.inc
 
 [BuildOptions]
@@ -38,10 +43,9 @@
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
 
   #
-  # DDR Info
+  # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x1EC00
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
 
   #
   # SMBIOS
@@ -63,6 +67,23 @@
   PlatformSecLib|S5E9810Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Custom Libraries
+  # UEFI Libraries
   #
-  GpioBankLib|S5E9810Pkg/Library/GpioBankLib/GpioBankLib.inf
+  HwResetSystemLib|S5E9810Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+  ResetSystemLib|S5E9810Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+
+  #
+  # IO Libraries
+  #
+  GpioLib|S5E9810Pkg/Library/GpioLib/GpioLib.inf
+  SpeedyLib|S5E9810Pkg/Library/SpeedyLib/SpeedyLib.inf
+
+  #
+  # Power Management Libraries
+  #
+  PmicLib|S5E9810Pkg/Library/PmicLib/PmicLib.inf
+
+  #
+  # Storage Libraries
+  #
+  PlatformUfsLib|S5E9810Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf

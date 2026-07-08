@@ -14,6 +14,11 @@
   #
   USE_PHYSICAL_TIMER                         = 0
 
+  #
+  # KEP
+  #
+  HAS_CNTFRQ_EL0_EMPTY_ERRATA                = 0
+
 !include SamsungPkg/SamsungPkg.dsc.inc
 
 [BuildOptions]
@@ -51,6 +56,7 @@
   PlatformSecLib|S5E7885Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Custom Libraries
+  # IO Libraries
   #
-  GpioBankLib|S5E7885Pkg/Library/GpioBankLib/GpioBankLib.inf
+  GpioLib|S5E7885Pkg/Library/GpioLib/GpioLib.inf
+  SpeedyLib|S5E7885Pkg/Library/SpeedyLib/SpeedyLib.inf

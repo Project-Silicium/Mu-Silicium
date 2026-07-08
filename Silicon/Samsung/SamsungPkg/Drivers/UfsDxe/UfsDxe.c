@@ -10,7 +10,7 @@
 
 #include <Library/PlatformUfsLib.h>
 
-#include <Protocol/EfiChipData.h>
+#include <Protocol/EFIChipInfo.h>
 
 #include "UfsDxe.h"
 
@@ -41,7 +41,7 @@ UINT8 gQueryParams[][5] = {
   {UFS_STD_READ_REQ,     UPIU_QUERY_OPCODE_READ_ATTR,    UPIU_ATTR_ID_REFCLKFREQ,     0, 0},
 };
 
-STATIC EFI_CHIP_DATA_PROTOCOL *mChipDataProtocol;
+STATIC EFI_CHIP_INFO_PROTOCOL *mChipInfoProtocol;
 
 STATIC
 VOID
@@ -173,13 +173,19 @@ static
 EFI_STATUS
 UfsInitCal (struct UfsHost *Ufs)
 {
-  UINT32 ChipRevision[2];
+  EFI_STATUS Status;
+  UINT8      MajorChipRev;
+  UINT8      MinorChipRev;
 
-  mChipDataProtocol->GetRevision(ChipRevision);
+  Status = mChipInfoProtocol->GetRevision (&MajorChipRev, &MinorChipRev);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to get Chip Revision! Status = %r\n", Status));
+    return Status;
+  }
 
   Ufs->CalParam->Host = Ufs;
   Ufs->CalParam->Board = UfsCalGetTargetBoard();
-  Ufs->CalParam->EvtVer = ChipRevision[0] & 0xF;
+  Ufs->CalParam->EvtVer = MajorChipRev;
 
   DEBUG((EFI_D_INFO, "UFS EVT version %d\n", Ufs->CalParam->EvtVer));
 
@@ -1408,9 +1414,9 @@ InitUfsDriver (
   EFI_STATUS Status;
   struct UfsHost *Ufs = UfsAllocHost();
 
-  Status = gBS->LocateProtocol (&gEfiChipDataProtocolGuid, NULL, (VOID *)&mChipDataProtocol);
+  Status = gBS->LocateProtocol (&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mChipInfoProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Locate Chip Data Protocol! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Chip Info Protocol! Status = %r\n", Status));
     return Status;
   }
 

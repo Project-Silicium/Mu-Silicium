@@ -16,32 +16,45 @@
 #ifndef _GPIO_H_
 #define _GPIO_H_
 
-#define CON_MASK(x)      (0xF << ((x) << 2))
-#define CON_SFR(x, v)    ((v) << ((x) << 2))
+//
+// GPIO MMIO
+//
+#define GPIO_MMIO_LENGTH              0x1000
 
-#define DAT_MASK(x)      (0x1 << (x))
-#define DAT_SET(x)       (0x1 << (x))
+//
+// GPIO CON
+//
+#define CON_MASK(x)                   (15  << ((x) << 2))
+#define CON_SFR(x, y)                 ((y) << ((x) << 2))
 
-#define PULL_MASK(x)     (0xF << ((x) << 2))
-#define PULL_MODE(x, v)  ((v) << ((x) << 2))
+//
+// GPIO DAT
+//
+#define DAT_MASK(x)                   (1 << (x))
+#define DAT_SET(x)                    (0 << (x))
 
-#define DRV_MASK(x)      (0xF << ((x) << 2))
-#define DRV_SET(x, m)    ((m) << ((x) << 2))
+//
+// GPIO Pull
+//
+#define PULL_MASK(x)                  CON_MASK(x)
+#define PULL_MODE(x, y)               CON_SFR(x, y)
 
-#define RATE_MASK(x)     (0x1 << (x + 16))
-#define RATE_SET(x)      (0x1 << (x + 16))
+//
+// GPIO Rate
+//
+#define DRV_MASK(x)                   CON_MASK(x)
+#define DRV_SET(x, y)                 CON_SFR(x, y)
 
 //
 // GPIO Bank
 //
 typedef struct {
-  UINT32 Con;
-  UINT32 Dat;
-  UINT32 Pull;
-  UINT32 Drv;
-  UINT32 PdnCon;
-  UINT32 PdnPull;
-  UINT8  Reserved[8];
+  UINT32 con;
+  UINT32 dat;
+  UINT32 pull;
+  UINT32 drv;
+  UINT32 pdn_con;
+  UINT32 pdn_pull;
 } EFI_GPIO_BANK;
 
 #endif /* _GPIO_H_ */

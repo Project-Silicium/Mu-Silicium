@@ -14,6 +14,11 @@
   #
   USE_PHYSICAL_TIMER                         = 1
 
+  #
+  # KEP
+  #
+  HAS_CNTFRQ_EL0_EMPTY_ERRATA                = 0
+
 !include SamsungPkg/SamsungPkg.dsc.inc
 
 [BuildOptions]
@@ -30,13 +35,14 @@
   # GIC
   #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x10200000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10240000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x10240000
 
   #
-  # DDR Info
+  # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x4F000
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
+  gSamsungPkgTokenSpaceGuid.PcdHasHarx|TRUE
+  gSamsungPkgTokenSpaceGuid.PcdHasDrmPlugin|TRUE
 
   #
   # SMBIOS
@@ -66,6 +72,6 @@
   PlatformSecLib|S5E9945Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Custom Libraries
+  # IO Libraries
   #
-  GpioBankLib|S5E9945Pkg/Library/GpioBankLib/GpioBankLib.inf
+  GpioLib|S5E9945Pkg/Library/GpioLib/GpioLib.inf

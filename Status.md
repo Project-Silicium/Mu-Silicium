@@ -52,6 +52,9 @@
 <details>
 <summary><b><strong>Exynos 9830 Devices</strong></b></summary>
 
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
 ## Samsung Galaxy Note 20 5G
 
 <table>
@@ -153,6 +156,9 @@
 <details>
 <summary><b><strong>Exynos 9820 Devices</strong></b></summary>
 
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
 ## Samsung Galaxy S10
 
 <table>
@@ -190,6 +196,9 @@
 <details>
 <summary><b><strong>Exynos 9810 Devices</strong></b></summary>
 
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
 ## Samsung Galaxy S9
 
 <table>
@@ -213,14 +222,56 @@
 | Feature            | Description | State |
 |:-------------------|:------------|:-----:|
 | Display            |             | ✅    |
-| Internal Storage   |             | ❌    |
+| Internal Storage   |             | ✅    |
 | Side Buttons       |             | ✅    |
 | USB Host Mode      |             | ❌    |
 | USB Device Mode    |             | ❌    |
 | USB Power Delivery |             | ❌    |
 | SD Card            |             | ❌    |
-| Windows Boot       |             | ❌    |
+| Windows Boot       |             | ✅    |
 | Linux Boot         |             | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE boots.
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ❌    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB Host Mode        |               | ❌    |
+| USB Device Mode      |               | ❌    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
+| CPU                  | Only one Core | ⚠️    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td></tr>
+</table>
 
 </details>
 
@@ -4817,9 +4868,6 @@
 <table>
 <tr><th>Windows</th></tr>
 <tr><td>
-
-> [!IMPORTANT]
-> Widndows 11 24H2 Builds and above do not Boot!
 
 | Feature              | Description  | State |
 |:---------------------|:-------------|:-----:|

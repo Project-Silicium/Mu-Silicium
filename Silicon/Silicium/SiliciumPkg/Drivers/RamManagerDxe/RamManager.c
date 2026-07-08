@@ -31,11 +31,10 @@
 **/
 
 #include <Library/DebugLib.h>
-#include <Library/DxeServicesTableLib.h>
+#include <Library/MemoryAllocationHelperLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/RamManagerLib.h>
-#include <Library/ArmMmuLib.h>
 #include <Library/SortLib.h>
 
 //
@@ -46,45 +45,12 @@ STATIC UINTN                  EfiMemoryMapSize = 0;
 STATIC UINTN                  DescriptorSize   = 0;
 
 VOID
-MapRamRange (
-  IN EFI_PHYSICAL_ADDRESS Base,
-  IN UINT64               Length)
-{
-  EFI_STATUS Status;
-
-  // Add new Memory Space
-  Status = gDS->AddMemorySpace (EfiGcdMemoryTypeSystemMemory, Base, Length, 0xF);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to add new Memory Space! Status = %r\n", Status));
-    DEBUG ((EFI_D_ERROR, "Affected RAM Range: 0x%llx - 0x%llx\n", Base, Length));
-    return;
-  }
-
-  // Set Memory Attributes
-  Status = ArmSetMemoryAttributes (Base, Length, ARM_MEMORY_REGION_ATTRIBUTE_WRITE_BACK, 0);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Set Memory Attributes! Status = %r\n", Status));
-    DEBUG ((EFI_D_ERROR, "Affected RAM Range: 0x%llx - 0x%llx\n", Base, Length));
-    return;
-  }
-
-  // Set Memory Space Attributes
-  Status = gDS->SetMemorySpaceAttributes (Base, Length, EFI_MEMORY_WB);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Set Memory Space Attributes! Status = %r\n", Status));
-    DEBUG ((EFI_D_ERROR, "Affected RAM Range: 0x%llx - 0x%llx\n", Base, Length));
-    return;
-  }
-
-  // Show Progress
-  DEBUG ((EFI_D_WARN, "Successfully Mapped RAM Range: 0x%llx - 0x%llx\n", Base, Length));
-}
-
-VOID
 ParseMemoryRange (
   IN EFI_PHYSICAL_ADDRESS RangeBase,
   IN EFI_PHYSICAL_ADDRESS RangeEnd)
 {
+  EFI_STATUS Status;
+
   // Set Inital Memory Range Base
   EFI_PHYSICAL_ADDRESS CurrentRangeBase = RangeBase;
 
@@ -113,7 +79,10 @@ ParseMemoryRange (
       UINT64 RamChunkLength = RegionBase - CurrentRangeBase;
 
       // Map RAM Range
-      MapRamRange (CurrentRangeBase, RamChunkLength);
+      Status = MapMemoryRegion (CurrentRangeBase, RamChunkLength, EfiConventionalMemory);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "Failed to Map RAM Range: 0x%llx - 0x%llx! Status = %r\n", CurrentRangeBase, RamChunkLength, Status));
+      }
     }
 
     // Set new Memory Range Base
@@ -128,7 +97,10 @@ ParseMemoryRange (
     UINT64 RamChunkLength = RangeEnd - CurrentRangeBase;
 
     // Map RAM Range
-    MapRamRange (CurrentRangeBase, RamChunkLength);
+    Status = MapMemoryRegion (CurrentRangeBase, RamChunkLength, EfiConventionalMemory);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "Failed to Map RAM Range: 0x%llx - 0x%llx! Status = %r\n", CurrentRangeBase, RamChunkLength, Status));
+    }
   }
 }
 

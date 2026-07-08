@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UsiLib
+  FILE_GUID                      = CCCE7C42-1CFB-453D-8813-269AE1EF5898
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = UsiLib|DXE_DRIVER
+
+[Sources]
+  Usi.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec

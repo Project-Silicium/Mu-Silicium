@@ -1,0 +1,4 @@
+REPO:   https://github.com/exynos990-mainline/lk3rd
+BRANCH: dev
+FILES:  dev/platform/exynos9830/include/platform/exynos9830.h (COMMIT: 2f2684da2ce1a2685bec10bf60471c137ba1f3b1)
+        dev/platform/exynos9830/platform.c                    (COMMIT: 6e15f38f85b971af2ae97048075eca1079eeae62)

@@ -1,0 +1,3 @@
+REPO:   https://github.com/LineageOS/android_kernel_samsung_universal9830/
+BRANCH: lineage-23.2
+FILES:  arch/arm64/boot/dts/exynos/exynos9830-usi.dtsi (COMMIT: 91b7cda81a20dd365043a1a66b2b85337a633504)

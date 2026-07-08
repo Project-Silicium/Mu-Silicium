@@ -14,6 +14,11 @@
   #
   USE_PHYSICAL_TIMER                         = 0
 
+  #
+  # KEP
+  #
+  HAS_CNTFRQ_EL0_EMPTY_ERRATA                = 1
+
 !include SamsungPkg/SamsungPkg.dsc.inc
 
 [BuildOptions]
@@ -38,15 +43,10 @@
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
 
   #
-  # DDR Info
+  # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdDdrInfoOffset|0x2AC00
-  gSamsungPkgTokenSpaceGuid.PcdDdrSizeInfoOffset|0x848
-
-  #
-  # PMIC
-  #
-  gSamsungPkgTokenSpaceGuid.PcdInitS2mps22|TRUE
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
+  gSamsungPkgTokenSpaceGuid.PcdHasHarx|TRUE
 
   #
   # SMBIOS
@@ -63,24 +63,28 @@
 
 [LibraryClasses]
   #
-  # UEFI Libraries
-  #
-  HwResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-  ResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-
-  #
   # SEC Libraries
   #
   PlatformSecLib|S5E9830Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
-  # Custom Libraries
+  # IO Libraries
   #
-  GpioBankLib|S5E9830Pkg/Library/GpioBankLib/GpioBankLib.inf
+  GpioLib|S5E9830Pkg/Library/GpioLib/GpioLib.inf
+  SpeedyLib|S5E9830Pkg/Library/SpeedyLib/SpeedyLib.inf
+  HsI2cLib|S5E9830Pkg/Library/HsI2cLib/HsI2cLib.inf
+
+  #
+  # Power Management Libraries
+  #
+  PmicLib|S5E9830Pkg/Library/PmicLib/PmicLib.inf
+
+  #
+  # Storage Libraries
+  #
   PlatformUfsLib|S5E9830Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
 
-[Components]
   #
-  # Custom Drivers
+  # Samsung Libraries
   #
-  SamsungPkg/Drivers/PmicDxe/S2mps1922Dxe.inf
+  UsiLib|S5E9830Pkg/Library/UsiLib/UsiLib.inf

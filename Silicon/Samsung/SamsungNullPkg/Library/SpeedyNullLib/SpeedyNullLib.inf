@@ -1,0 +1,14 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SpeedyNullLib
+  FILE_GUID                      = 7D24EC63-935E-46BA-BB49-F6ACB86C1556
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SpeedyLib|DXE_DRIVER
+
+[Sources]
+  SpeedyNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec

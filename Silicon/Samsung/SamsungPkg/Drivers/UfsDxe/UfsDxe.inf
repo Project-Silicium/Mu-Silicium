@@ -29,7 +29,7 @@
 
 [Protocols]
   gEfiBlockIoProtocolGuid
-  gEfiChipDataProtocolGuid
+  gEfiChipInfoProtocolGuid
 
 [Depex]
   TRUE

@@ -1,0 +1,29 @@
+##
+#  Copyright (c) 2008, Apple Inc. All rights reserved.
+#  Copyright (c) 2014, Linaro Ltd. All rights reserved.
+#  Copyright (c) 2024, Google Llc. All rights reserved.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ResetSystemLib
+  FILE_GUID                      = AE855820-4BC5-405B-8BFF-245596D146C7
+  MODULE_TYPE                    = DXE_RUNTIME_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = ResetSystemLib|DXE_RUNTIME_DRIVER
+  CONSTRUCTOR                    = ResetSystemLibConstructor
+
+[Sources]
+  ResetSystem.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  MemoryMapHelperLib
+  IoLib

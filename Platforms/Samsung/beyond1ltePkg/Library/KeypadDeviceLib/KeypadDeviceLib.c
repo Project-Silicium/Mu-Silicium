@@ -7,9 +7,9 @@
 #include <Library/DebugLib.h>
 #include <Library/IoLib.h>
 
-#include <Protocol/EfiGpio.h>
+#include <Protocol/EFIGpio.h>
 
-EFI_EXYNOS_GPIO_PROTOCOL *mGpioProtocol;
+EFI_GPIO_PROTOCOL *mGpioProtocol;
 
 typedef struct {
   KEY_CONTEXT EfiKeyContext;
@@ -220,34 +220,34 @@ KeypadDeviceConstructor ()
   }
 
   // Locate Gpio Protocol
-  Status = gBS->LocateProtocol (&gEfiExynosGpioProtocolGuid, NULL, (VOID *)&mGpioProtocol);
+  Status = gBS->LocateProtocol (&gEfiGpioProtocolGuid, NULL, (VOID *)&mGpioProtocol);
   if (!EFI_ERROR (Status)) {
     // Configure keys
     /// Volume Up Button
     StaticContext             = KeypadKeyCodeToKeyContext (115);
     StaticContext->BankNumber = 0;
-    StaticContext->BankId     = GPIO_BANK_ID_A;
+    StaticContext->BankId     = BANK_ID_A;
     StaticContext->Pin        = 0x3;
 
     /// Volume Down Button
     StaticContext             = KeypadKeyCodeToKeyContext (116);
     StaticContext->BankNumber = 0;
-    StaticContext->BankId     = GPIO_BANK_ID_A;
+    StaticContext->BankId     = BANK_ID_A;
     StaticContext->Pin        = 0x4;
 
     /// Power Button
     StaticContext             = KeypadKeyCodeToKeyContext (117);
     StaticContext->BankNumber = 2;
-    StaticContext->BankId     = GPIO_BANK_ID_A;
+    StaticContext->BankId     = BANK_ID_A;
     StaticContext->Pin        = 0x4;
 
     /// Special Button
     StaticContext             = KeypadKeyCodeToKeyContext (118);
     StaticContext->BankNumber = 0;
-    StaticContext->BankId     = GPIO_BANK_ID_A;
+    StaticContext->BankId     = BANK_ID_A;
     StaticContext->Pin        = 0x6;
   } else {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Exynos GPIO Protocol! Status = %r\n", __FUNCTION__, Status));
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GPIO Protocol! Status = %r\n", __FUNCTION__, Status));
   }
 
   return RETURN_SUCCESS;
@@ -279,7 +279,7 @@ KeypadDeviceGetKeys (
   UINT64                  Delta)
 {
   EFI_STATUS Status    = EFI_SUCCESS;
-  UINT8      IsPressed = FALSE;
+  BOOLEAN    IsPressed = FALSE;
 
   if (mGpioProtocol == NULL) {
     return EFI_SUCCESS;
@@ -288,7 +288,7 @@ KeypadDeviceGetKeys (
   for (UINTN Index = 0; Index < (sizeof(KeyList) / sizeof(KeyList[0])); Index++) {
     KEY_CONTEXT_PRIVATE *Context = KeyList[Index];
 
-    Status = mGpioProtocol->GetPin (Context->BankNumber, Context->BankId, Context->Pin, &IsPressed);
+    Status = mGpioProtocol->GetState (Context->BankId, Context->BankNumber, Context->Pin, &IsPressed);
     if (EFI_ERROR (Status)) {
       return Status;
     }

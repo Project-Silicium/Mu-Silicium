@@ -1,0 +1,35 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = RamManagerLib
+  FILE_GUID                      = CC98DAC6-EAE7-40E7-AA6F-3CB86DA5B1DF
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = RamManagerLib|DXE_DRIVER
+  CONSTRUCTOR                    = GetMemoryData
+
+[Sources]
+  RamManager.c
+  MemoryHole.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  MemoryMapHelperLib
+  ArmSmcLib
+  ArmHvcLib
+  PcdLib
+  IoLib
+
+[FixedPcd]
+  gArmTokenSpaceGuid.PcdSystemMemoryBase
+
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl
+  gSamsungPkgTokenSpaceGuid.PcdHasHarx
+  gSamsungPkgTokenSpaceGuid.PcdHasDrmPlugin
