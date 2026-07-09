@@ -17,6 +17,7 @@
 #include <Library/DebugLib.h>
 #include <Library/BaseMemoryLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/EfiMemoryMapUtilsLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/PrintLib.h>
 #include <Library/UefiLib.h>
@@ -535,9 +536,9 @@ GetSystemMemorySize (
   }
 
   // Go thru each Memory Descriptor
-  for (UINT16 i = 0; i < EfiMemoryMapSize / DescriptorSize; i++) {
+  for (UINT16 i = 0; i < MEMORY_DESCRIPTOR_LIST_SIZE (EfiMemoryMapSize, DescriptorSize); i++) {
     // Get new Memory Descriptor
-    EFI_MEMORY_DESCRIPTOR *Descriptor = (EFI_MEMORY_DESCRIPTOR *)((UINT8 *)EfiMemoryMap + (i * DescriptorSize));
+    EFI_MEMORY_DESCRIPTOR *Descriptor = GET_MEMORY_DESCRIPTOR (EfiMemoryMap, i, DescriptorSize);
 
     // Skip Non-DDR Memory
     if (Descriptor->PhysicalStart < SystemMemoryBase) {

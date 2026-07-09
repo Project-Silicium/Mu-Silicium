@@ -33,6 +33,7 @@
 #include <Library/DebugLib.h>
 #include <Library/MemoryAllocationHelperLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/EfiMemoryMapUtilsLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/RamManagerLib.h>
 #include <Library/SortLib.h>
@@ -45,19 +46,35 @@ STATIC UINTN                  EfiMemoryMapSize = 0;
 STATIC UINTN                  DescriptorSize   = 0;
 
 VOID
+HandleRamRange (
+  IN EFI_PHYSICAL_ADDRESS Base,
+  IN UINT64               Length)
+{
+  EFI_STATUS Status;
+
+  // Map RAM Range
+  Status = MapMemoryRegion (Base, Length, EfiConventionalMemory);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Map RAM Range: 0x%llx - 0x%llx! Status = %r\n", Base, Length, Status));
+    return;
+  }
+
+  // Show Mapped RAM Range
+  DEBUG ((EFI_D_WARN, "Successfully Mapped RAM Range: 0x%llx - 0x%llx\n", Base, Length));
+}
+
+VOID
 ParseMemoryRange (
   IN EFI_PHYSICAL_ADDRESS RangeBase,
   IN EFI_PHYSICAL_ADDRESS RangeEnd)
 {
-  EFI_STATUS Status;
-
   // Set Inital Memory Range Base
   EFI_PHYSICAL_ADDRESS CurrentRangeBase = RangeBase;
 
   // Go thru each Memory Map Region
-  for (UINT16 i = 0; i < EfiMemoryMapSize / DescriptorSize; i++) {
+  for (UINT16 i = 0; i < MEMORY_DESCRIPTOR_LIST_SIZE (EfiMemoryMapSize, DescriptorSize); i++) {
     // Get new Memory Descriptor
-    EFI_MEMORY_DESCRIPTOR *Descriptor = (EFI_MEMORY_DESCRIPTOR *)((UINT8 *)EfiMemoryMap + (i * DescriptorSize));
+    EFI_MEMORY_DESCRIPTOR *Descriptor = GET_MEMORY_DESCRIPTOR (EfiMemoryMap, i, DescriptorSize);
 
     // Save Memory Region Details
     EFI_PHYSICAL_ADDRESS RegionBase = Descriptor->PhysicalStart;
@@ -75,14 +92,8 @@ ParseMemoryRange (
 
     // Check Memory Region Base
     if (RegionBase > CurrentRangeBase) {
-      // Set new RAM Range Length
-      UINT64 RamChunkLength = RegionBase - CurrentRangeBase;
-
-      // Map RAM Range
-      Status = MapMemoryRegion (CurrentRangeBase, RamChunkLength, EfiConventionalMemory);
-      if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "Failed to Map RAM Range: 0x%llx - 0x%llx! Status = %r\n", CurrentRangeBase, RamChunkLength, Status));
-      }
+      // Handle Free Memory Space
+      HandleRamRange (CurrentRangeBase, RegionBase - CurrentRangeBase);
     }
 
     // Set new Memory Range Base
@@ -93,14 +104,8 @@ ParseMemoryRange (
 
   // Check Current Memory Range Base
   if (CurrentRangeBase < RangeEnd) {
-    // Set new RAM Range Length
-    UINT64 RamChunkLength = RangeEnd - CurrentRangeBase;
-
-    // Map RAM Range
-    Status = MapMemoryRegion (CurrentRangeBase, RamChunkLength, EfiConventionalMemory);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Map RAM Range: 0x%llx - 0x%llx! Status = %r\n", CurrentRangeBase, RamChunkLength, Status));
-    }
+    // Handle Free Memory Space
+    HandleRamRange (CurrentRangeBase, RangeEnd - CurrentRangeBase);
   }
 }
 
@@ -199,8 +204,8 @@ ManageRam (
   }
 
   // Sort Memory Map & Memory Ranges
-  PerformQuickSort (EfiMemoryMap, EfiMemoryMapSize / DescriptorSize, DescriptorSize,            CompareMemoryRegions);
-  PerformQuickSort (MemoryRange,  MemoryRangeCount,                  sizeof (EFI_MEMORY_RANGE), CompareMemoryRanges);
+  PerformQuickSort (EfiMemoryMap, MEMORY_DESCRIPTOR_LIST_SIZE (EfiMemoryMapSize, DescriptorSize), DescriptorSize,            CompareMemoryRegions);
+  PerformQuickSort (MemoryRange,  MemoryRangeCount,                                               sizeof (EFI_MEMORY_RANGE), CompareMemoryRanges);
 
   // Go thru each Memory Range
   for (UINT8 i = 0; i < MemoryRangeCount; i++) {
