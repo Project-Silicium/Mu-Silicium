@@ -1,11 +1,11 @@
 #include <Library/SpeedyLib.h>
 
 VOID
-GetSpeedyBusData (
-  OUT EFI_SPEEDY_BUS_DATA **Data,
-  OUT UINT8                *Count)
+GetSpeedyBuses (
+  OUT EFI_PHYSICAL_ADDRESS **Bus,
+  OUT UINT8                 *Count)
 {
-  // Pass Dumy Data
-  *Data  = NULL;
+  // Pass Dummy Data
+  *Bus   = NULL;
   *Count = 0;
 }
