@@ -64,12 +64,12 @@ GetUsableMemoryRanges (
   return EFI_SUCCESS;
 }
 
-// NOTE: Should IRAM Stuff go into a Seperate Library?
 EFI_STATUS
 GetMemorySpace ()
 {
   EFI_STATUS                   Status;
   EFI_MEMORY_REGION_DESCRIPTOR NsIramRegion;
+  UINT64                       MemorySize;
 
   // Locate "NS_IRAM" Memory Region
   Status = LocateMemoryRegionByName ("NS_IRAM", &NsIramRegion);
@@ -78,9 +78,18 @@ GetMemorySpace ()
     return Status;
   }
 
-  // Set Memory Start & End Address
+  // Get System Memory Size
+  MemorySize = MmioRead64 (NsIramRegion.Address + 0x848);
+
+  // Set Memory Address
   MemoryStart = FixedPcdGet64 (PcdSystemMemoryBase);
-  MemoryEnd   = BASE_32GB + MmioRead64 (NsIramRegion.Address + 0x848);
+
+  // Set Memory End Address
+  if (MemoryStart == BASE_2GB) {
+    MemoryEnd = BASE_32GB + MemorySize;
+  } else {
+    MemoryEnd = MemoryStart + MemorySize;
+  }
 
   return EFI_SUCCESS;
 }
@@ -124,8 +133,10 @@ GetMemoryHoles ()
   }
 
   // Add DRAM2 Carve-out
-  HoleRange[4].Address = BASE_4GB;
-  HoleRange[4].Length  = (UINT64)SIZE_1GB * 30;
+  if (MemoryStart == BASE_2GB) {
+    HoleRange[4].Address = BASE_4GB;
+    HoleRange[4].Length  = (UINT64)SIZE_1GB * 30;
+  }
 
   return EFI_SUCCESS;
 }
@@ -152,3 +163,4 @@ GetMemoryData (
 
   return EFI_SUCCESS;
 }
+
