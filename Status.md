@@ -770,6 +770,53 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 8 Gen 3 Devices</strong></b></summary>
+
+<br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
+
+<details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## OnePlus 13R / Ace 5
+
+<img align="right" src="Resources/Pictures/OnePlus-13R.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** giulia <br>
+**Models:** 2
+
+**Contributors:** [Robotix](https://github.com/Robotix22/), [olegos2](https://github.com/olegos2/)
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
+
+</details>
+
+---
+
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 8s Gen 3 / 7+ Gen 3 Devices</strong></b></summary>
 
 <br>

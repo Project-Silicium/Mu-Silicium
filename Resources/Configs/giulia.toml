@@ -1,0 +1,23 @@
+#
+# Boot Shim Configs
+#
+[boot_shim]
+requires_kernel_header = true
+
+#
+# UEFI FD Configs
+#
+[uefi_fd]
+fd_base = 0xA7100000
+fd_size = 0x300000
+
+#
+# Android Boot Image Configs
+#
+[boot_image]
+requires_boot_shim = true
+kernel_compression = "gzip"
+dtb_location       = "kernel"
+header_version     = 4
+os_version         = "16.0.0"
+os_patch_level     = "2026-07"

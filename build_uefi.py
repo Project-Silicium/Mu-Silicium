@@ -319,6 +319,8 @@ def create_android_boot_img (image_config: list, ctx: BuildContext) -> bool:
         "tags_offset": "--tags_offset",
         "dtb_offset": "--dtb_offset",
         "cmdline": "--cmdline",
+        "os_version": "--os_version",
+        "os_patch_level": "--os_patch_level",
     }
 
     # Process mkbootimg options mapping
