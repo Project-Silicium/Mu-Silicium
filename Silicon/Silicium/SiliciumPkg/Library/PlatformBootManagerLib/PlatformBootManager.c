@@ -91,10 +91,52 @@ CreateComboMessage (
 }
 
 VOID
+PostGopSetup (OUT EFI_GRAPHICS_OUTPUT_PROTOCOL **GopProtocol)
+{
+  EFI_STATUS                    Status;
+  EFI_GRAPHICS_OUTPUT_PROTOCOL *LocalGopProtocol;
+
+  // Verify Parameters
+  if (GopProtocol == NULL) {
+    return;
+  }
+
+  // Locate GOP Protocol
+  Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&LocalGopProtocol);
+  if (EFI_ERROR (Status) && Status != EFI_UNSUPPORTED) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Protocol from Handle! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  // Check Status
+  if (Status == EFI_UNSUPPORTED) {
+    // Locate GOP Protocol
+    Status = gBS->LocateProtocol (&gEfiGraphicsOutputProtocolGuid, NULL, (VOID *)&LocalGopProtocol);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Protocol! Status = %r\n", __FUNCTION__, Status));
+      return;
+    }
+
+    // Install GOP Protocol
+    Status = gBS->InstallProtocolInterface (&gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, EFI_NATIVE_INTERFACE, LocalGopProtocol);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Install GOP Protocol onto \"ConsoleOutHandle\"! Status = %r\n", __FUNCTION__, Status));
+    }
+  }
+
+  // Pass GOP Protocol
+  *GopProtocol = LocalGopProtocol;
+}
+
+VOID
 EFIAPI
 PlatformBootManagerAfterConsole ()
 {
-  EFI_STATUS Status;
+  EFI_STATUS                    Status      = EFI_SUCCESS;
+  EFI_GRAPHICS_OUTPUT_PROTOCOL *GopProtocol = NULL;
+
+  // Post Setup GOP
+  PostGopSetup (&GopProtocol);
 
   // Display Boot Logo
   Status = DisplayBootGraphic (BG_SYSTEM_LOGO);
@@ -104,15 +146,7 @@ PlatformBootManagerAfterConsole ()
 
   // Register Key Callback
   Status = RegisterKeyCallback ((EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath);
-  if (!EFI_ERROR (Status)) {
-    EFI_GRAPHICS_OUTPUT_PROTOCOL *GopProtocol;
-
-    // Locate GOP Protocol
-    Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&GopProtocol);
-    if (EFI_ERROR (Status)) {
-      return;
-    }
-
+  if (!EFI_ERROR (Status) && GopProtocol != NULL) {
     // Create Combo Message
     CreateComboMessage (GopProtocol->Mode->Info->HorizontalResolution, GopProtocol->Mode->Info->VerticalResolution);
   }
