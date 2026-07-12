@@ -116,8 +116,55 @@
 | USB Device Mode    |             | ❌    |
 | USB Power Delivery |             | ❌    |
 | SD Card            |             | ❌    |
-| Windows Boot       |             | ❌    |
+| Windows Boot       | Only WinPE  | ✅    |
 | Linux Boot         |             | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows PE boots.
+
+> [!CAUTION]
+> To boot windows on this device, the Platform Hypervisor Extensions partition needs to be erased via ```dd if=/dev/zero of=/dev/block/by-name/uh```
+> This will stop android from booting until the partition is restored from the BL tar file.
+> Erasing this partition is needed since UH traps EL1 MMU Registers, stopping windows from booting.
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ❌    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Light Sensor         |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    | 
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| NFC Sensor           |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB Host Mode        |               | ❌    |
+| USB Device Mode      |               | ❌    |
+| USB Power Delivery   |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
+| CPU                  | Only one Core | ⚠️    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    | 
+| Vibration            |               | ❌    |
+
+</td></tr>
+</table>
 
 ## Samsung Galaxy S20 FE
 
