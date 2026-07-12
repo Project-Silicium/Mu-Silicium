@@ -5,7 +5,7 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 !if $(ENABLE_SECUREBOOT) == 0
   SECTION RAW = Kailua/DBG2.aml
 !endif
-  SECTION RAW = Kailua/DSDT_minimal.aml
+  SECTION RAW = b5q/DSDT.aml
 # SECTION RAW = b5q/SSDT.aml
   SECTION RAW = Kailua/FACP.aml
 # SECTION RAW = Kailua/FPDT.aml
