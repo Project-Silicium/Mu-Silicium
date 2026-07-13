@@ -774,15 +774,6 @@
 
 <br>
 
-<table>
-<tr><td>
-
-> [!IMPORTANT]
-> Only Windows Builds 26090 or higher Work.
-
-</td></tr>
-</table>
-
 <details>
 <summary><b><strong>OnePlus Devices</strong></b></summary>
 
