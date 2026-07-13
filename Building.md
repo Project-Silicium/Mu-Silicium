@@ -77,9 +77,32 @@ You can Find the Codename of the Device in the [Status Page](Status.md).
 
 # Updating
 
-Since this is an Open Source Project, There will be some Updates from Time to Time. <br>
-To get these new Updates and Changes you can use `git` again in the Project Folder to Update your Local Copy:
+To get these new Updates and Changes you can use the `-u` Parameter to Update your Local Repo when Building:
 ```
-git pull
-git submodule update
+python3 build_uefi.py -d [DEVICE_CODENAME] -u
 ```
+
+# Tips & Tricks
+
+## Faster Build Times on Windows
+
+If you're Compiling on Windows, you probably Experience slow Builds Times. <br>
+Here are some Suggestions to Improve this:
+
+### Setting Up a Dev Drive
+
+One Way to Improve the Build Times is using a Dev Drive in Windows. <br>
+You can Find more Details, the Requirements and How to Set it Up on the [Microsoft Website](https://learn.microsoft.com/en-us/windows/dev-drive/).
+
+### Adding a Antivirus Exception
+
+> [!CAUTION]
+> This will Disable Security in the `Mu-Silicium` Folder! <br>
+> Only follow this if you're Comfortable with that.
+
+Another Way to Improve the Build Times is adding the `Mu-Silicium` as an Exception in your Antivirus. <br>
+How to do that Highly depends on the Antivirus you're using, On Microsoft Defender you can do it like this:
+```
+Virus & thread protection -> Virus & thread protection settings -> Exclusions -> Add or remove exclusions
+```
+In there you can Add the `Mu-Silicium` Folder as an Exclusion.

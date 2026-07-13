@@ -45,6 +45,7 @@ class BuildContext:
     build_mode:        str
     enable_secureboot: bool
     cleanup:           bool
+    update:            bool
 
 def setup_logger ():
     global logger
@@ -78,6 +79,7 @@ def parse_arguments () -> BuildContext:
     parser.add_argument ("-r", "--release",           type=str, default="RELEASE", choices=["RELEASE", "DEBUG"], help="Defines the Model Type of the Selected Target Device.")
     parser.add_argument ("-s", "--enable-secureboot", action="store_true",                                       help="Enables Secure Boot.")
     parser.add_argument ("-c", "--clean",             action="store_true",                                       help="Removes Old Build Files and Starts a Clean Build.")
+    parser.add_argument ("-u", "--update",            action="store_true",                                       help="Updates your Local Repo before Building.")
 
     # Parse Script Arguments
     args = parser.parse_args ()
@@ -88,7 +90,8 @@ def parse_arguments () -> BuildContext:
         device_model      = args.model,
         build_mode        = args.release,
         enable_secureboot = args.enable_secureboot,
-        cleanup           = args.clean
+        cleanup           = args.clean,
+        update            = args.update
     )
 
 def get_device_package_path (device: str) -> Path | None:
@@ -164,6 +167,17 @@ def handle_git_patch (submodule_path: Path, patch_name: str, remove: bool) -> bo
     # Apply Path
     return subprocess.run (["git", "apply", absolute_patch_path], cwd=submodule_path).returncode == 0
 
+def update_local_repo () -> bool:
+    # Pull Latest Changes
+    if not subprocess.run (["git", "pull"]).returncode == 0:
+        return False
+
+    # Update Submodules
+    if not subprocess.run (["git", "submodule", "update"]).returncode == 0:
+        return False
+
+    return True
+
 def compile_boot_shim (boot_shim_config: list, uefi_fd_config: list) -> bool:
     # Set Compile Command
     cmd = [
@@ -176,7 +190,11 @@ def compile_boot_shim (boot_shim_config: list, uefi_fd_config: list) -> bool:
     # Compile Boot Shim
     return subprocess.run (cmd, cwd=BOOT_SHIM_PATH).returncode == 0
 
-def prepare_uefi_environment (script_path: Path, build_mode: str) -> bool:
+def prepare_uefi_environment (script_path: Path, build_mode: str, update: bool) -> bool:
+    # Skip UEFI Env Setup
+    if not update and os.path.isdir (BUILD_PATH):
+        return True
+
     # Go thru each Environment Action
     for action in ["--setup", "--update"]:
         # Exeucute Environment Action
@@ -409,12 +427,17 @@ def main ():
     for patch_name in ["Auth-Service.patch", "Timer.patch", "Usb-Bus.patch"]:
         handle_git_patch (MU_BASECORE_PATH, patch_name, True)
 
+    # Update Local Repo
+    if ctx.update:
+        if not update_local_repo ():
+            sys.exit (1)
+
     # Compile Boot Shim
     if not compile_boot_shim (device_data["boot_shim"], device_data["uefi_fd"]):
         sys.exit (1)
 
     # Prepare UEFI Environment
-    if not prepare_uefi_environment (device_script_path, ctx.build_mode):
+    if not prepare_uefi_environment (device_script_path, ctx.build_mode, ctx.update):
         sys.exit (1)
 
     # Apply Mu_Basecore Patches
