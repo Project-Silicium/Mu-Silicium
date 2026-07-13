@@ -52,8 +52,14 @@
 <details>
 <summary><b><strong>Exynos 9830 Devices</strong></b></summary>
 
+<table>
+<tr><td>
+
 > [!IMPORTANT]
 > Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 ## Samsung Galaxy Note 20 5G
 
@@ -116,7 +122,7 @@
 | USB Device Mode    |             | ❌    |
 | USB Power Delivery |             | ❌    |
 | SD Card            |             | ❌    |
-| Windows Boot       | Only WinPE  | ✅    |
+| Windows Boot       | WinPE Only  | ✅    |
 | Linux Boot         |             | ❌    |
 
 ### OS Status
@@ -125,12 +131,9 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
-> [!IMPORTANT]
-> Only Windows PE boots.
-
 > [!CAUTION]
-> To boot windows on this device, the Platform Hypervisor Extensions partition needs to be erased via ```dd if=/dev/zero of=/dev/block/by-name/uh```
-> This will stop android from booting until the partition is restored from the BL tar file.
+> To boot windows on this device, the Platform Hypervisor Extensions partition needs to be erased via `dd if=/dev/zero of=/dev/block/by-name/uh` <br>
+> This will stop android from booting until the partition is restored from the BL tar file. <br>
 > Erasing this partition is needed since UH traps EL1 MMU Registers, stopping windows from booting.
 
 | Feature              | Description   | State |
@@ -203,8 +206,14 @@
 <details>
 <summary><b><strong>Exynos 9820 Devices</strong></b></summary>
 
+<table>
+<tr><td>
+
 > [!IMPORTANT]
 > Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 ## Samsung Galaxy S10
 
@@ -243,8 +252,14 @@
 <details>
 <summary><b><strong>Exynos 9810 Devices</strong></b></summary>
 
+<table>
+<tr><td>
+
 > [!IMPORTANT]
 > Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
 
 ## Samsung Galaxy S9
 
