@@ -450,14 +450,53 @@
 | Feature            | Description           | State |
 |:-------------------|:----------------------|:-----:|
 | Display            |                       | ✅    |
-| Internal Storage   | Untested Writes       | ✅    |
+| Internal Storage   |                       | ✅    |
 | Side Buttons       |                       | ✅    |
 | USB Host Mode      |                       | ❌    |
 | USB Device Mode    |                       | ❌    |
 | USB Power Delivery |                       | ❌    |
 | SD Card            |                       | ❌    |
-| Windows Boot       |                       | ❌    |
+| Windows Boot       |                       | ✅    |
 | Linux Boot         |                       | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Needs [Windows Drivers](https://github.com/AistopGit/windows_oem_samsung_gtaxllte).
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ✅    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    |
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB                  |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
+| CPU                  | One Core only | ⚠️    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Flashlight           |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    |
+| Vibration            |               | ❌    |
+
+</td></tr>
+</table>
 
 </details>
 
