@@ -1,0 +1,23 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformBootOptionsLib
+  FILE_GUID                      = 09EC7157-D5E7-4A19-A0BC-CEFD8C6A901F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformBootOptionsLib|DXE_DRIVER
+
+[Sources]
+  PlatformBootOptions.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  MemoryAllocationLib
+  PcdLib
+
+[FixedPcd]
+  gQcomPkgTokenSpaceGuid.PcdMassStorageFile

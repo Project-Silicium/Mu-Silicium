@@ -8,6 +8,7 @@
 #include <Library/DxeServicesLib.h>
 #include <Library/UefiBootManagerLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/PlatformBootOptionsLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/UefiLib.h>
 #include <Library/PcdLib.h>
@@ -72,21 +73,20 @@ BuildFwLoadOption (
 EFI_STATUS
 EFIAPI
 MsBootOptionsLibGetDefaultBootApp (
-  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
+  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *LoadOption,
   IN     CHAR8                        *Parameter)
 {
-  // Return Special App Boot Ooption
-  return BuildFwLoadOption (BootOption, FixedPcdGetPtr (PcdAlternativeAppFile), Parameter);
+  return EFI_UNSUPPORTED;
 }
 
 EFI_STATUS
 EFIAPI
 MsBootOptionsLibGetBootManagerMenu (
-  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *BootOption,
+  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION *LoadOption,
   IN     CHAR8                        *Parameter)
 {
-  // Return UEFI Menu Boot Option
-  return BuildFwLoadOption (BootOption, PcdGetPtr (PcdBootManagerMenuFile), Parameter);
+  // Return Boot Manager Load Option
+  return BuildFwLoadOption (LoadOption, PcdGetPtr (PcdBootManagerMenuFile), Parameter);
 }
 
 EFI_STATUS
@@ -174,7 +174,7 @@ RegisterFvBootOption (
   IN UINTN     Position,
   IN UINT32    Attributes,
   IN UINT8    *OptionalData, 
-  IN UINT32    OptionalDataSize OPTIONAL)
+  IN UINT32    OptionalDataSize)
 {
   EFI_STATUS                    Status          = EFI_SUCCESS;
   EFI_BOOT_MANAGER_LOAD_OPTION *BootOptions     = NULL;
@@ -239,45 +239,31 @@ VOID
 EFIAPI
 MsBootOptionsLibRegisterDefaultBootOptions ()
 {
-  // Register Internal Storage Boot Option
-  RegisterFvBootOption (&gMsBootPolicyFileGuid, L"Internal Storage", (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"SSD", sizeof ("SSD"));
+  EFI_PLATFORM_BOOT_OPTION *BootOption;
+  UINT8                     BootOptionCount;
 
-  // Register USB Storage Boot Ooption
-  RegisterFvBootOption (&gMsBootPolicyFileGuid, L"USB Storage", (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));
+  // Register Default Boot Options
+  RegisterFvBootOption (&gMsBootPolicyFileGuid,              L"Internal Storage", (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"SSD", sizeof ("SSD"));
+  RegisterFvBootOption (&gMsBootPolicyFileGuid,              L"USB Storage",      (UINTN)-1, LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));
+  RegisterFvBootOption (FixedPcdGetPtr (PcdUfpDeviveFwFile), L"FFU Mode",         (UINTN)-1, LOAD_OPTION_HIDDEN, NULL, 0);
+
+  // Get Platform Boot Options
+  GetPlatformBootOptions (&BootOption, &BootOptionCount);
+
+  // Register Platform Boot Options
+  for (UINT8 i = 0; i < BootOptionCount; i++) {
+    RegisterFvBootOption (BootOption[i].AppGuid, BootOption[i].AppName, (UINTN)-1, LOAD_OPTION_HIDDEN, NULL, 0);
+  }
+
+  // Free Buffer
+  if (BootOption != NULL) {
+    FreePool (BootOption);
+  }
 }
 
 EFI_BOOT_MANAGER_LOAD_OPTION*
 EFIAPI
 MsBootOptionsLibGetDefaultOptions (OUT UINTN *OptionCount)
 {
-  EFI_STATUS                    Status           = EFI_SUCCESS;
-  EFI_BOOT_MANAGER_LOAD_OPTION *Option           = NULL;
-  UINTN                         LocalOptionCount = 2;
-
-  // Allocate Memory
-  Option = (EFI_BOOT_MANAGER_LOAD_OPTION *)AllocateZeroPool (sizeof (EFI_BOOT_MANAGER_LOAD_OPTION) * LocalOptionCount);
-  if (Option == NULL) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Allocate Memory for Boot Options!\n", __FUNCTION__));
-    return NULL;
-  }
-
-  // Create FV Boot Options
-  Status  = CreateFvBootOption (&gMsBootPolicyFileGuid, L"Internal Storage", &Option[0], LOAD_OPTION_ACTIVE, (UINT8 *)"SSD", sizeof ("SSD"));
-  Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, L"USB Storage",      &Option[1], LOAD_OPTION_ACTIVE, (UINT8 *)"USB", sizeof ("USB"));
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Create FV Boot Options! Status = %r\n", __FUNCTION__, Status));
-
-    // Free Buffer
-    FreePool (Option);
-
-    // Reset Option Count
-    *OptionCount = 0;
-
-    return NULL;
-  }
-
-  // Pass Option Count
-  *OptionCount = LocalOptionCount;
-
-  return Option;
+  return NULL;
 }

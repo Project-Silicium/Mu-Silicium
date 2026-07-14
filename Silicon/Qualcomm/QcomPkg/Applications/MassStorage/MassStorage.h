@@ -2,21 +2,6 @@
 #define _MASS_STORAGE_H_
 
 //
-// Menu Action
-//
-typedef
-VOID
-(*EFI_MENU_ACTION) ();
-
-//
-// Menu Details
-//
-typedef struct {
-  CHAR16          *Label;
-  EFI_MENU_ACTION  Action;
-} EFI_UI_MENU_DETAILS;
-
-//
 // Storage Device Path
 //
 typedef struct {

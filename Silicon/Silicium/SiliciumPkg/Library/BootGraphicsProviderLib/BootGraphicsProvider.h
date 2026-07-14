@@ -15,7 +15,7 @@ struct {
   {BG_CRITICAL_OVER_TEMP,   PcdGetPtr (PcdThermalFile)},
   {BG_CRITICAL_LOW_BATTERY, PcdGetPtr (PcdLowBatteryFile)},
   {BG_NO_BOOT_OS,           FixedPcdGetPtr (PcdNoBootOSFile)},
-  {BG_MASS_STORAGE,         FixedPcdGetPtr (PcdMassStorageFile)}
+  {BG_MASS_STORAGE,         FixedPcdGetPtr (PcdMassStorageBmpFile)}
 };
 
 #endif /* _BOOT_GRAPHICS_PROVIDER_H_ */

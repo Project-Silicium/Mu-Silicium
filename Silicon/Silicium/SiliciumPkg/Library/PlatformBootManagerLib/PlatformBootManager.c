@@ -25,9 +25,13 @@
 //
 // Global Variables
 //
-STATIC CHAR16 *ComboMessage = NULL;
-STATIC UINTN   XPos         = 0;
-STATIC UINTN   YPos         = 0;
+STATIC UINTN XPos = 0;
+STATIC UINTN YPos = 0;
+
+//
+// BDS Combo Message
+//
+STATIC CONST CHAR8 *ComboMessage = "[Volume Up] Boot Manager";
 
 VOID
 EFIAPI
@@ -49,45 +53,6 @@ PlatformBootManagerBeforeConsole ()
 
   // Update ACPI Tables
   UpdateAcpiTables ();
-}
-
-VOID
-CreateComboMessage (
-  IN UINT32 ScreenWidth,
-  IN UINT32 ScreenHeight)
-{
-  UINTN MessageLength;
-
-  // Set Combo Message Parts
-  CHAR8 *InitalMessage = "[Volume Up] FFU Mode";
-  CHAR8 *AltAppName    = (CHAR8 *)FixedPcdGetPtr (PcdAlternativeAppFileName);
-
-  // Set Combo Message Length
-  MessageLength = AsciiStrLen (InitalMessage) + 1;
-  if (AltAppName != "NULL") {
-    MessageLength += AsciiStrLen (AltAppName) + 17;
-  }
-
-  // Fix Buffer Size
-  MessageLength *= sizeof (CHAR16);
-
-  // Alocate Memory
-  ComboMessage = AllocateZeroPool (MessageLength);
-  if (ComboMessage == NULL) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to Allocate Memory for Combo Message!\n", __FUNCTION__));
-    return;
-  }
-
-  // Set Combo Message
-  if (AltAppName == "NULL") {
-    UnicodeSPrint (ComboMessage, MessageLength, L"%a", InitalMessage);
-  } else {
-    UnicodeSPrint (ComboMessage, MessageLength, L"%a - [Volume Down] %a", InitalMessage, AltAppName);
-  }
-
-  // Set Combo Message Position
-  XPos = (ScreenWidth - StrLen (ComboMessage) * EFI_GLYPH_WIDTH) / 2;
-  YPos = ScreenHeight * 48 / 50;
 }
 
 VOID
@@ -147,8 +112,13 @@ PlatformBootManagerAfterConsole ()
   // Register Key Callback
   Status = RegisterKeyCallback ((EFI_DEVICE_PATH_PROTOCOL *)&KeypadDevicePath);
   if (!EFI_ERROR (Status) && GopProtocol != NULL) {
-    // Create Combo Message
-    CreateComboMessage (GopProtocol->Mode->Info->HorizontalResolution, GopProtocol->Mode->Info->VerticalResolution);
+    // Set Screen Resolution
+    UINT32 ScreenWidth  = GopProtocol->Mode->Info->HorizontalResolution;
+    UINT32 ScreenHeight = GopProtocol->Mode->Info->VerticalResolution;
+
+    // Set Combo Message Position
+    XPos = (ScreenWidth - AsciiStrLen (ComboMessage) * EFI_GLYPH_WIDTH) / 2;
+    YPos = ScreenHeight * 48 / 50;
   }
 }
 
@@ -172,36 +142,25 @@ PlatformBootManagerPriorityBoot (IN OUT UINT16 **BootNext)
 {
   EFI_STATUS                   Status;
   EFI_BOOT_MANAGER_LOAD_OPTION LoadOption;
-  BOOLEAN                      EnterFfuMode;
-  BOOLEAN                      EnterAlternativeApp;
-
-  // Get current Key States
-  GetKeyStates (&EnterFfuMode, &EnterAlternativeApp);
+  BOOLEAN                      BootManagerFlag;
 
   // Unregister Key Callback
   UnregisterKeyCallback ();
 
-  // Verify Key States
-  if (!EnterFfuMode && !EnterAlternativeApp) {
+  // Get Boot Manager Flag
+  BootManagerFlag = EnterBootManager ();
+  if (BootManagerFlag == FALSE) {
     return;
   }
 
-  // Check FFU Mode & Alternative App
-  if (EnterFfuMode) {
-    // Get FFU Mode Load Option
-    Status = MsBootOptionsLibGetBootManagerMenu (&LoadOption, NULL);
-  } else if (EnterAlternativeApp) {
-    // Get Alternative App Load Option
-    Status = MsBootOptionsLibGetDefaultBootApp (&LoadOption, NULL);
-  }
-
-  // Check for Errors
+  // Get Boot Manager Load Option
+  Status = MsBootOptionsLibGetBootManagerMenu (&LoadOption, NULL);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "%a: Failed to get Specified Load Option! Status = %r", __FUNCTION__, Status));
+    DEBUG ((EFI_D_ERROR, "%a: Failed to get Boot Manager Load Option! Status = %r", __FUNCTION__, Status));
     return;
   }
 
-  // Execute Specified Load Option
+  // Execute Boot Manager Load Option
   EfiBootManagerBoot           (&LoadOption);
   EfiBootManagerFreeLoadOption (&LoadOption);
 }
@@ -212,30 +171,19 @@ PlatformBootManagerWaitCallback (IN UINT16 TimeoutRemain)
 {
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
 
-  // Verify Combo Message
-  if (ComboMessage == NULL) {
-    return;
-  }
-
   // Get Timeout Time
   UINT16 Timeout = PcdGet16 (PcdPlatformBootTimeOut);
 
-  // Check Remaining Time
-  if (TimeoutRemain == Timeout) {
-    // Set Text Color
-    Color.Red = Color.Green = Color.Blue = 0xFF;
+  // Check Remaining Timeout
+  if (TimeoutRemain == Timeout || TimeoutRemain == 0) {
+    // Set Draw Color
+    UINT8 DrawColor = (TimeoutRemain == Timeout) ? 0xFF : 0x00;
+
+    // Set GOP Draw Color
+    Color.Red = Color.Green = Color.Blue = DrawColor;
 
     // Print Combo Message
-    PrintXY (XPos, YPos, &Color, NULL, ComboMessage);
-  } else if (!TimeoutRemain) {
-    // Set Text Color
-    Color.Red = Color.Green = Color.Blue = 0x00;
-
-    // Clear Combo Message
-    PrintXY (XPos, YPos, &Color, NULL, ComboMessage);
-
-    // Free Buffer
-    FreePool (ComboMessage);
+    AsciiPrintXY (XPos, YPos, &Color, NULL, ComboMessage);
   }
 }
 

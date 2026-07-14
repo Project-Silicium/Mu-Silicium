@@ -19,12 +19,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Qualcomm"
   gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Qualcomm Technologies, Inc."
 
-  #
-  # Mass Storage
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdAlternativeAppFile|{ 0xD8, 0xEC, 0x14, 0xFB, 0x32, 0x94, 0xB8, 0x48, 0xA6, 0x92, 0xAE, 0x4B, 0xC1, 0x9D, 0x56, 0x8B }
-  gSiliciumPkgTokenSpaceGuid.PcdAlternativeAppFileName|"Mass Storage"
-
 [LibraryClasses]
   #
   # SEC Libraries
@@ -39,6 +33,7 @@
   #
   # BDS Libraries
   #
+  PlatformBootOptionsLib|QcomPkg/Library/PlatformBootOptionsLib/PlatformBootOptionsLib.inf
   ErrataPatchesLib|QcomPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
 
   #

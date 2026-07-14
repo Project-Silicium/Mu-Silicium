@@ -7,10 +7,7 @@ RegisterKeyCallback (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath);
 VOID
 UnregisterKeyCallback ();
 
-VOID
-GetKeyStates (
-  OUT BOOLEAN *FfuMode,
-  OUT BOOLEAN *AlternativeApp
-  );
+BOOLEAN
+EnterBootManager ();
 
 #endif /* _PLATFORM_BOOT_MANAGER_H_ */
