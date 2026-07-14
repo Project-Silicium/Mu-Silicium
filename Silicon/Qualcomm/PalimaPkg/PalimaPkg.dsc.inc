@@ -29,11 +29,6 @@
 
 [PcdsFixedAtBuild]
   #
-  # Platform PEI
-  #
-  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7044830
-
-  #
   # CPU
   #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

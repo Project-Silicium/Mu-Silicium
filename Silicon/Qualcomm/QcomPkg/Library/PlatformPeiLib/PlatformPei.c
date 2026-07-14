@@ -9,13 +9,19 @@
 #include <Library/DebugLib.h>
 #include <Library/ConfigurationMapLib.h>
 #include <Library/ConfigurationMapHelperLib.h>
+#include <Library/MemoryAllocationLib.h>
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/SerialPortLib.h>
+#include <Library/PrintLib.h>
 #include <Library/HobLib.h>
+
+#include <Protocol/EFIKernelInterface.h>
 
 #include "EFIUefiConfig.h"
 #include "EFISerialPort.h"
 #include "EFIShim.h"
+
+#include "FvList.h"
 
 STATIC
 EFI_STATUS
@@ -152,9 +158,51 @@ ShLibraryLoader = {
   ShimLoadLib
 };
 
+UINTN*
+CreateFvList (IN EFI_KERNEL_PROTOCOL *SchedulerProtocol)
+{
+  EFI_STATUS  Status;
+  UINTN      *FvListAddr;
+
+  // Allocate Memory
+  FvListAddr = AllocateZeroPool (FV_LIST_STRUCTURE_SIZE * MAX_FV_ENTRIES);
+  if (FvListAddr == NULL) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Allocate Memory for FV List!\n", __FUNCTION__));
+    goto exit;
+  }
+
+  // Go thru each FV Entry
+  for (UINT8 i = 0; i < MAX_FV_ENTRIES; i++) {
+    LockHandle *FvEntryHandle;
+    CHAR8       FvEntryName[16];
+
+    // Set FV Entry Name
+    AsciiSPrint (FvEntryName, ARRAY_SIZE (FvEntryName), "FVLCK%u", i);
+
+    // Init FV Entry Lock
+    Status = SchedulerProtocol->Lock->InitLock (FvEntryName, &FvEntryHandle);
+    if (EFI_ERROR (Status)) {
+      DEBUG ((EFI_D_ERROR, "%a: Failed to Init FV Entry %u Lock! Status = %r\n", __FUNCTION__, i, Status));
+      goto exit;
+    }
+
+    // Add FV Entry Lock Handle
+    FV_LIST_LOCK_HANDLE (FvListAddr, i) = (UINT64)FvEntryHandle;
+  }
+
+  return FvListAddr;
+
+exit:
+  // Free Buffer
+  if (FvListAddr != NULL) {
+    FreePool (FvListAddr);
+  }
+
+  return NULL;
+}
+
 VOID
 BuildXblHobs (
-  IN EFI_PHYSICAL_ADDRESS FvDecompressAddr,
   IN EFI_PHYSICAL_ADDRESS SchedulerInterfaceAddr,
   IN EFI_PHYSICAL_ADDRESS DtbExtensionAddr)
 {
@@ -180,14 +228,20 @@ BuildXblHobs (
   // Build Prodmode HOB
   BuildGuidDataHob (&gEfiProdmodeHobGuid, &Prodmode, sizeof (Prodmode));
 
-  // Build FV Decompress HOB
-  if (FvDecompressAddr) {
-    BuildGuidDataHob (&gFvDecompressHobGuid, &FvDecompressAddr, sizeof (FvDecompressAddr));
-  }
-
-  // Build Scheduler Interface HOB
+  // Check Scheduler Address
   if (SchedulerInterfaceAddr) {
+    // Build Scheduler Interface HOB
     BuildGuidDataHob (&gEfiSchedulerInterfaceHobGuid, &SchedulerInterfaceAddr, sizeof (SchedulerInterfaceAddr));
+
+    // Get Scheduler Interface Protocol
+    EFI_KERNEL_PROTOCOL *SchedulerProtocol = (EFI_KERNEL_PROTOCOL *)SchedulerInterfaceAddr;
+
+    // Create FV List
+    UINTN *FvListAddr = CreateFvList (SchedulerProtocol);
+    if (FvListAddr != NULL) {
+      // Build FV List HOB
+      BuildGuidDataHob (&gEfiFvListHobGuid, &FvListAddr, sizeof (FvListAddr));
+    }
   }
 
   // Build DTB Extension HOB
@@ -204,12 +258,11 @@ PlatformPeim ()
   BuildFvHob (PcdGet64 (PcdFvBaseAddress), PcdGet32 (PcdFvSize));
 
   // Get XBL HOB Addresses
-  EFI_PHYSICAL_ADDRESS FvDecompressAddr       = FixedPcdGet64 (PcdFvDecompressAddr);
   EFI_PHYSICAL_ADDRESS SchedulerInterfaceAddr = FixedPcdGet64 (PcdSchedulerInterfaceAddr);
   EFI_PHYSICAL_ADDRESS DtbExtensionAddr       = FixedPcdGet64 (PcdDtbExtensionAddr);
 
   // Build XBL HOBs
-  BuildXblHobs (FvDecompressAddr, SchedulerInterfaceAddr, DtbExtensionAddr);
+  BuildXblHobs (SchedulerInterfaceAddr, DtbExtensionAddr);
 
   return EFI_SUCCESS;
 }

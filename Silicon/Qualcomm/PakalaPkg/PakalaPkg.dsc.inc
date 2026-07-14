@@ -30,11 +30,6 @@
 
 [PcdsFixedAtBuild]
   #
-  # Platform PEI
-  #
-  gQcomPkgTokenSpaceGuid.PcdFvDecompressAddr|0xA7049F78
-
-  #
   # CPU
   #
 !if $(SOC_TYPE) == 1
