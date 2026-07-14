@@ -225,7 +225,7 @@ KeypadDeviceConstructor ()
     // Configure keys
     /// Volume Up Button
     StaticContext             = KeypadKeyCodeToKeyContext (115);
-    StaticContext->BankNumber = 0;
+    StaticContext->BankNumber = 2;
     StaticContext->BankId     = BANK_ID_A;
     StaticContext->Pin        = 0x00;
 
@@ -237,7 +237,7 @@ KeypadDeviceConstructor ()
 
     /// Power Button
     StaticContext             = KeypadKeyCodeToKeyContext (117);
-    StaticContext->BankNumber = 2;
+    StaticContext->BankNumber = 0;
     StaticContext->BankId     = BANK_ID_A;
     StaticContext->Pin        = 0x00;
 
