@@ -204,8 +204,6 @@
     SECTION RAW = Binaries/giulia/RawFiles/Panel_r66451_60hz_fhd_plus_dsc_vid.xml
   }
 
-  EEEEEEEEEEE
-
   FILE FREEFORM = AE3F9548-010C-4AEC-A9D2-4AE3E16D2F8B {
     SECTION UI = Panel_vtdr6130_144hz_fhd_plus_dsc_cmd.xml
     SECTION RAW = Binaries/giulia/RawFiles/Panel_vtdr6130_144hz_fhd_plus_dsc_cmd.xml
