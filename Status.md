@@ -450,14 +450,53 @@
 | Feature            | Description           | State |
 |:-------------------|:----------------------|:-----:|
 | Display            |                       | ✅    |
-| Internal Storage   | Untested Writes       | ✅    |
+| Internal Storage   |                       | ✅    |
 | Side Buttons       |                       | ✅    |
 | USB Host Mode      |                       | ❌    |
 | USB Device Mode    |                       | ❌    |
 | USB Power Delivery |                       | ❌    |
 | SD Card            |                       | ❌    |
-| Windows Boot       |                       | ❌    |
+| Windows Boot       |                       | ✅    |
 | Linux Boot         |                       | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+> [!IMPORTANT]
+> Needs [Windows Drivers](https://github.com/AistopGit/windows_oem_samsung_gtaxllte).
+
+| Feature              | Description   | State |
+|:---------------------|:--------------|:-----:|
+| Internal Storage     |               | ✅    |
+| Side Buttons         |               | ❌    |
+| Proximity Sensor     |               | ❌    |
+| Accelerometer Sensor |               | ❌    |
+| Compass Sensor       |               | ❌    |
+| Gyroscope Sensor     |               | ❌    |
+| Fingerprint Sensor   |               | ❌    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB                  |               | ❌    |
+| Charging             |               | ❌    |
+| WLAN                 |               | ❌    |
+| CPU                  | One Core only | ⚠️    |
+| Touchscreen          |               | ❌    |
+| Bluetooth            |               | ❌    |
+| GPS                  |               | ❌    |
+| Speakers             |               | ❌    |
+| Microphone           |               | ❌    |
+| GPU                  |               | ❌    |
+| Flashlight           |               | ❌    |
+| Camera               |               | ❌    |
+| Mobile Data          |               | ❌    |
+| Display              |               | ✅    |
+| Vibration            |               | ❌    |
+
+</td></tr>
+</table>
 
 </details>
 
@@ -824,6 +863,53 @@
 | Mass Storage       |                          | ✅    |
 | Windows Boot       |                          | ❌    |
 | Linux Boot         |                          | ❌    |
+
+</details>
+
+---
+
+</details>
+
+<details>
+<summary><b><strong>Snapdragon 8 Gen 3 Devices</strong></b></summary>
+
+<br>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only Windows Builds 26090 or higher Work.
+
+</td></tr>
+</table>
+
+<details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## OnePlus 13R / Ace 5
+
+<img align="right" src="Resources/Pictures/OnePlus-13R.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** giulia <br>
+**Models:** 2
+
+**Contributors:** [Robotix](https://github.com/Robotix22/), [olegos2](https://github.com/olegos2/)
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
 
 </details>
 

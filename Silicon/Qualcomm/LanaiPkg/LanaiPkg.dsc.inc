@@ -25,14 +25,14 @@
 !include QcomPkg/QcomPkg.dsc.inc
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv9-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv9.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild]
   #
   # CPU
   #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|3
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|4
 
   #
   # GIC
@@ -43,31 +43,37 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 1"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8450"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2995
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
+!if $(SOC_TYPE) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3 for Galaxy"
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3"
+!endif
+!if $(SOC_TYPE) == 0
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-AA"
+!elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-AB"
+!elseif $(SOC_TYPE) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-AC"
+!endif
+!if $(SOC_TYPE) == 0
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3052
+!elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3302
+!elseif $(SOC_TYPE) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3398
+!endif
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x1800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x3000
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4800
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #
   # SEC Libraries
   #
-  PlatformSecLib|WaipioPkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # ACPI Libraries
-  #
-  AcpiTableUpdateLib|WaipioPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
-
-  #
-  # Custom Libraries
-  #
-  RFSProtectionLib|WaipioPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
+  PlatformSecLib|LanaiPkg/Library/PlatformSecLib/PlatformSecLib.inf
 
 [Components]
   #
