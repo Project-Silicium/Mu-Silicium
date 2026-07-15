@@ -4778,7 +4778,7 @@
 
 ---
 
-</details>
+<details>
 <summary><b><strong>Snapdragon 675 Devices</strong></b></summary>
 
 <br>
