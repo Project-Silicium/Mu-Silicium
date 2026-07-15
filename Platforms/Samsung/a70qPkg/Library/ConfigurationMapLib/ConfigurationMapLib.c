@@ -4,7 +4,6 @@ STATIC
 EFI_CONFIGURATION_ENTRY_DESCRIPTOR
 gConfigurationDescriptor[] = {
     // Configuration Map
-    // Configuration Map
     {"NumCpusFuseAddr", 0x5C04C},
     {"EnableShell", 0x1},
     {"SharedIMEMBaseAddr", 0x146AA000},
