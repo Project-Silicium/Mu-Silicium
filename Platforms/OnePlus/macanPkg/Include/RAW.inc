@@ -343,9 +343,4 @@
     SECTION UI = "Panel_sharp_120hz_qhdpipe_plus_dsc_vid.xml"
     SECTION RAW = Binaries/macan/RawFiles/Panel_sharp_120hz_qhdpipe_plus_dsc_vid.xml
   }
-
-  FILE FREEFORM = 03E9256F-E621-48D8-8576-7E3B4FCF2D41 {
-    SECTION UI = "PanelSimConfig.csv"
-    SECTION RAW = Binaries/macan/RawFiles/PanelSimConfig.csv
-  }
 !endif
