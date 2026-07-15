@@ -4781,6 +4781,47 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 675 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Samsung Devices</strong></b></summary>
+
+## Samsung Galaxy A70
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-A70.png" width="700" alt="Preview">
+
+**State:** Inactive <br>
+**Codename:** fog
+
+**Contributors:** [kdetechy-mp4](https://github.com/kdetechy-mp4)/)
+
+### UEFI Status
+
+| Feature            | Description       | State |
+|:-------------------|:------------------|:-----:|
+| Display            |                   | ✅    |
+| Internal Storage   |                   | ✅    |
+| Side Buttons       |                   | ✅    |
+| USB Host Mode      |                   | ✅    |
+| USB Device Mode    |                   | ❌    |
+| USB Power Delivery |                   | ❌    |
+| Mass Storage       |                   | ✅    |
+| SD Card            |                   | ❔    |
+| Windows Boot       |                   | ❔    |
+| Linux Boot         |                   | ❔    |
+
+</td></tr>
+</table>
+
+</details>
+
+---
+
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 665 Devices</strong></b></summary>
 
 <br>
