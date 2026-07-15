@@ -4796,9 +4796,11 @@
 </td></tr>
 </table>
 
+<br>
+
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
-
+ 
 ## Samsung Galaxy A70
 
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-A70.png" width="500" alt="Preview">
