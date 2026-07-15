@@ -4813,8 +4813,8 @@
 | Display            |                   | ✅    |
 | Internal Storage   |                   | ✅    |
 | Side Buttons       |                   | ✅    |
-| USB Host Mode      |                   | ✅    |
-| USB Device Mode    |                   | ❌    |
+| USB Host Mode      |                   | ❌    |
+| USB Device Mode    |                   | ✅    |
 | USB Power Delivery |                   | ❌    |
 | Mass Storage       |                   | ✅    |
 | SD Card            |                   | ❔    |
