@@ -26,6 +26,7 @@
   DxeServicesLib
   UefiBootManagerLib
   UefiBootServicesTableLib
+  PlatformBootOptionsLib
   MemoryAllocationLib
   UefiLib
   PcdLib
@@ -38,7 +39,7 @@
   gEfiFirmwareVolume2ProtocolGuid
 
 [FixedPcd]
-  gSiliciumPkgTokenSpaceGuid.PcdAlternativeAppFile
+  gSiliciumPkgTokenSpaceGuid.PcdUfpDeviveFwFile
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile

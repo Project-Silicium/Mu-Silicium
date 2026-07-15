@@ -426,7 +426,7 @@ def main ():
     cleanup_old_build (ctx.device, ctx.device_model, ctx.cleanup)
 
     # Remove Mu_Basecore Patches
-    for patch_name in ["Auth-Service.patch", "Timer.patch", "Usb-Bus.patch"]:
+    for patch_name in ["Auth-Service.patch", "Boot-Manager.patch", "Timer.patch", "Usb-Bus.patch"]:
         handle_git_patch (MU_BASECORE_PATH, patch_name, True)
 
     # Update Local Repo
@@ -443,7 +443,7 @@ def main ():
         sys.exit (1)
 
     # Apply Mu_Basecore Patches
-    for patch_name in ["Auth-Service.patch", "Timer.patch", "Usb-Bus.patch"]:
+    for patch_name in ["Auth-Service.patch", "Boot-Manager.patch", "Timer.patch", "Usb-Bus.patch"]:
         if not handle_git_patch (MU_BASECORE_PATH, patch_name, False):
             sys.exit (1)
 
