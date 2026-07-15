@@ -4796,6 +4796,9 @@
 > [!CAUTION]
 > `BIT-5` Version is Required on this Device!
 
+</td></tr>
+</table>
+
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-A70.png" width="600" alt="Preview">
 
 **State:** Inactive <br>
