@@ -4802,7 +4802,7 @@
 <img align="right" src="Resources/Pictures/Samsung-Galaxy-A70.png" width="600" alt="Preview">
 
 **State:** Inactive <br>
-**Codename:** fog
+**Codename:** a70q
 
 **Contributors:** [kdetechy-mp4](https://github.com/kdetechy-mp4)
 
