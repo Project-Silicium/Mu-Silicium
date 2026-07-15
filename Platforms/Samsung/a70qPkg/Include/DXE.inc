@@ -37,9 +37,7 @@
   INF Binaries/a70q/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
-  INF Binaries/a70q/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
-  !endif
+
   INF Binaries/a70q/QcomPkg/Drivers/PdcDxe/PdcDxe.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
@@ -67,6 +65,8 @@
   INF Binaries/a70q/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  INF Binaries/a70q/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
+  INF Binaries/a70q/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/a70q/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
