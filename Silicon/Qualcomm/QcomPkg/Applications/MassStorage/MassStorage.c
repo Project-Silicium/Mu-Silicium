@@ -204,5 +204,13 @@ MassStorageEntry (
   // Start Mass Storage
   MassStorageStart ();
 
+  // Unassign BLKIO Protocols
+  for (UINT8 i = 0; i < MAX_UINT8; i++) {
+    Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, i);
+    if (EFI_ERROR (Status)) {
+      break;
+    }
+  }
+
   return EFI_SUCCESS;
 }
