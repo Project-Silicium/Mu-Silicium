@@ -11,56 +11,40 @@
 #include "MassStorage.h"
 
 //
-// Global Variables
-//
-STATIC EFI_HANDLE mImageHandle;
-
-//
 // Global Protocols
 //
 STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGopProtocol;
 STATIC EFI_USB_MSD_PROTOCOL         *mUsbMsdProtocol;
 
 VOID
-PrintUI (
-  IN CHAR16 *SubBottomMessage,
-  IN CHAR16 *BottomMessage)
+PrintUI (IN CHAR8 *Message)
 {
-  EFI_GRAPHICS_OUTPUT_BLT_PIXEL  Color[2];
-  CHAR16                        *Message[2];
-  UINTN                          YPos[2];
-  UINTN                          XPos;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color[2];
+  UINTN                         YPos;
+  UINTN                         XPos;
+
+  // Verify Parameter
+  if (Message == NULL) {
+    return;
+  }
 
   // Get Screen Resolution
   UINT32 ScreenWidth  = mGopProtocol->Mode->Info->HorizontalResolution;
   UINT32 ScreenHeight = mGopProtocol->Mode->Info->VerticalResolution;
 
-  // Calculate Y Positions
-  YPos[0] = (ScreenHeight - EFI_GLYPH_HEIGHT) * 47 / 50;
-  YPos[1] = (ScreenHeight - EFI_GLYPH_HEIGHT) * 48 / 50;
+  // Calculate Message Position
+  XPos = (ScreenWidth - AsciiStrLen (Message) * EFI_GLYPH_WIDTH) / 2;
+  YPos = (ScreenHeight - EFI_GLYPH_HEIGHT) * 48 / 50;
 
   // Set Draw Colors
   Color[0].Red = Color[0].Green = Color[0].Blue = 0;
   Color[1].Red = Color[1].Green = Color[1].Blue = 255;
 
-  // Save Messages
-  Message[0] = SubBottomMessage;
-  Message[1] = BottomMessage;
+  // Clear Message Row
+  mGopProtocol->Blt (mGopProtocol, &Color[0], EfiBltVideoFill, 0, 0, 0, YPos, ScreenWidth, 20, 0);
 
-  // Process both Messages
-  for (UINT8 i = 0; i < 2; i++) {
-    // Clear Message Row
-    mGopProtocol->Blt (mGopProtocol, &Color[0], EfiBltVideoFill, 0, 0, 0, YPos[i], ScreenWidth, 20, 0);
-
-    // Verify Message Content
-    if (Message[i] != NULL) {
-      // Calculate X Position
-      XPos = (ScreenWidth - StrLen (Message[i]) * EFI_GLYPH_WIDTH) / 2;
-
-      // Print Message
-      PrintXY (XPos, YPos[i], &Color[1], NULL, Message[i]);
-    }
-  }
+  // Print Message
+  AsciiPrintXY (XPos, YPos, &Color[1], NULL, Message);
 }
 
 EFI_INPUT_KEY
@@ -85,7 +69,7 @@ MassStorageStart ()
   EFI_STATUS Status;
 
   // Show Cancel Instruction
-  PrintUI (L"[Volume Up] Exit Mass Storage", NULL);
+  PrintUI ("[Volume Up] Exit Mass Storage");
 
   // Start USB Device
   Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
@@ -109,67 +93,6 @@ MassStorageStart ()
   Status = mUsbMsdProtocol->StopDevice (mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Stop USB Device! Status = %r\n", __FUNCTION__, Status));
-  }
-}
-
-VOID
-MassStorageContinue ()
-{
-  EFI_STATUS Status;
-
-  // Unassign BLKIO Protocols
-  for (UINT8 i = 0; i < MAX_UINT8; i++) {
-    Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, NULL, i);
-    if (EFI_ERROR (Status)) {
-      break;
-    }
-  }
-
-  // Exit UEFI App
-  gBS->Exit (mImageHandle, EFI_SUCCESS, 0, NULL);
-}
-
-VOID
-MassStoragePowerOff ()
-{
-  // Power Off
-  gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
-}
-
-//
-// Main Menu Options
-//
-STATIC EFI_UI_MENU_DETAILS MainMenu[] = {
-  { L"Start Mass Storage", MassStorageStart },
-  { L"Continue Boot",      MassStorageContinue },
-  { L"Power Off",          MassStoragePowerOff }
-};
-
-VOID
-MassStorageMain ()
-{
-  UINT8 MaxMainOption     = ARRAY_SIZE (MainMenu) - 1;
-  UINT8 CurrentMainOption = 0;
-
-  while (TRUE) {
-    // Show current Selected Option & Instructions
-    PrintUI (L"[Volume Keys] Switch Option - [Power Button] Select Option", MainMenu[CurrentMainOption].Label);
-
-    // Get current Keypress
-    EFI_INPUT_KEY Key = GetPressedKey (TRUE);
-
-    // Execute Specified Action
-    if (Key.UnicodeChar == CHAR_CARRIAGE_RETURN) {
-      MainMenu[CurrentMainOption].Action ();
-      continue;
-    }
-
-    // Select Different Option
-    if (Key.ScanCode == SCAN_UP && CurrentMainOption < MaxMainOption) {
-      CurrentMainOption++;
-    } else if (Key.ScanCode == SCAN_DOWN && CurrentMainOption > 0) {
-      CurrentMainOption--;
-    }
   }
 }
 
@@ -252,11 +175,8 @@ MassStorageEntry (
 {
   EFI_STATUS Status;
 
-  // Save Image Handle
-  mImageHandle = ImageHandle;
-
   // Locate GOP Protocol
-  Status = gBS->LocateProtocol (&gEfiGraphicsOutputProtocolGuid, NULL, (VOID *)&mGopProtocol);
+  Status = gBS->HandleProtocol (gST->ConsoleOutHandle, &gEfiGraphicsOutputProtocolGuid, (VOID *)&mGopProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GOP Protocol! Status = %r\n", __FUNCTION__, Status));
     return Status;
@@ -281,8 +201,8 @@ MassStorageEntry (
   // Show Mass Storage Splash
   DisplayBootGraphic (BG_MASS_STORAGE);
 
-  // Enter Main Menu
-  MassStorageMain ();
+  // Start Mass Storage
+  MassStorageStart ();
 
   return EFI_SUCCESS;
 }

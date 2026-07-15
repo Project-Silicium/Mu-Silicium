@@ -11,42 +11,20 @@
 #include <Protocol/SimpleTextInEx.h>
 
 #include "PlatformBootManager.h"
-#include "KeyCallback.h"
 
 //
 // Global Variables
 //
 STATIC EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *mSimpleInExProtocol  = NULL;
-STATIC BOOLEAN                            mEnterFfuMode        = FALSE;
-STATIC BOOLEAN                            mEnterAlternativeApp = FALSE;
-
-//
-// Key Notify Data
-//
-STATIC EFI_KEY_NOTIFY_DATA mNotifyData[] = {
-  {
-    .ScanCode     = SCAN_UP,
-    .NotifyHandle = NULL
-  },
-  {
-    .ScanCode     = SCAN_DOWN,
-    .NotifyHandle = NULL
-  }
-};
+STATIC VOID                              *mNotifyHandle        = NULL;
+STATIC BOOLEAN                            mEnterBootManager    = FALSE;
 
 EFI_STATUS
 EFIAPI
 KeyNotify (IN EFI_KEY_DATA *KeyData)
 {
-  // Check for SCAN_UP
-  if (KeyData->Key.ScanCode == SCAN_UP) {
-    mEnterFfuMode = TRUE;
-  }
-
-  // Check for SCAN_DOWN
-  if (KeyData->Key.ScanCode == SCAN_DOWN) {
-    mEnterAlternativeApp = TRUE;
-  }
+  // Toggle Boot Manager Flag
+  mEnterBootManager = TRUE;
 
   return EFI_SUCCESS;
 }
@@ -97,23 +75,20 @@ SetupKeypad (IN EFI_DEVICE_PATH_PROTOCOL *DevicePath)
 EFI_STATUS
 RegisterKeyNotify ()
 {
-  EFI_STATUS Status;
+  EFI_STATUS   Status;
+  EFI_KEY_DATA KeyData;
 
-  // Go thru each Key
-  for (UINT8 i = 0; i < ARRAY_SIZE (mNotifyData); i++) {
-    EFI_KEY_DATA KeyData;
+  // Set Key Data
+  KeyData.KeyState.KeyToggleState = 0;
+  KeyData.KeyState.KeyShiftState  = 0;
+  KeyData.Key.UnicodeChar         = CHAR_NULL;
+  KeyData.Key.ScanCode            = SCAN_UP;
 
-    // Set Inital Key Data
-    KeyData.KeyState.KeyToggleState = 0;
-    KeyData.KeyState.KeyShiftState  = 0;
-    KeyData.Key.UnicodeChar         = CHAR_NULL;
-    KeyData.Key.ScanCode            = mNotifyData[i].ScanCode;
-
-    // Register Key Notify
-    Status = mSimpleInExProtocol->RegisterKeyNotify (mSimpleInExProtocol, &KeyData, &KeyNotify, &mNotifyData[i].NotifyHandle);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Register Key Notify for Scan Code %u! Status = %r\n", __FUNCTION__, mNotifyData[i].ScanCode, Status));
-    }
+  // Register Volume Up Key Notify
+  Status = mSimpleInExProtocol->RegisterKeyNotify (mSimpleInExProtocol, &KeyData, &KeyNotify, &mNotifyHandle);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Register Volume Up Key Notify! Status = %r\n", __FUNCTION__, Status));
+    return Status;
   }
 
   return EFI_SUCCESS;
@@ -144,32 +119,21 @@ UnregisterKeyCallback ()
 {
   EFI_STATUS Status;
 
-  // Verify STI Protocol Presense
-  if (mSimpleInExProtocol == NULL) {
+  // Verify STI Protocol Presense & Key Notify
+  if (mSimpleInExProtocol == NULL || mNotifyHandle == NULL) {
     return;
   }
 
-  // Go thru each Key
-  for (UINT8 i = 0; i < ARRAY_SIZE (mNotifyData); i++) {
-    // Verify Key Notify
-    if (mNotifyData[i].NotifyHandle == NULL) {
-      continue;
-    }
-
-    // Unregister Key Notify
-    Status = mSimpleInExProtocol->UnregisterKeyNotify (mSimpleInExProtocol, mNotifyData[i].NotifyHandle);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Unregister Key Notify Nr. %u! Status = %r\n", __FUNCTION__, i, Status));
-    }
+  // Unregister Volume Up Key Notify
+  Status = mSimpleInExProtocol->UnregisterKeyNotify (mSimpleInExProtocol, mNotifyHandle);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Unregister Volume Up Key Notify! Status = %r\n", __FUNCTION__, Status));
   }
 }
 
-VOID
-GetKeyStates (
-  OUT BOOLEAN *FfuMode,
-  OUT BOOLEAN *AlternativeApp)
+BOOLEAN
+EnterBootManager ()
 {
-  // Pass Data
-  *FfuMode        = mEnterFfuMode;
-  *AlternativeApp = mEnterAlternativeApp;
+  // Pass Boot Manager Flag
+  return mEnterBootManager;
 }
