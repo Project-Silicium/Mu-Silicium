@@ -1,5 +1,5 @@
 diff --git a/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.c b/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.c
-index ef19319614..9c29b9ed7b 100644
+index ef19319614..df8d1ac040 100644
 --- a/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.c
 +++ b/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.c
 @@ -6,6 +6,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -53,6 +53,42 @@ index ef19319614..9c29b9ed7b 100644
    InitializeBootMenuScreen (BootMenuData);
    BootMenuData->SelectItem = 0;
    return EFI_SUCCESS;
+@@ -468,7 +479,7 @@ BootMenuSelectItem (
+       BootMenuData->ScrollBarControl.LastItem  = WantSelectItem;
+     }
+ 
+-    gST->ConOut->SetAttribute (gST->ConOut, EFI_WHITE | EFI_BACKGROUND_BLUE);
++    gST->ConOut->SetAttribute (gST->ConOut, EFI_WHITE | EFI_BACKGROUND_BLACK);
+     FirstItem   = BootMenuData->ScrollBarControl.FirstItem;
+     LastItem    = BootMenuData->ScrollBarControl.LastItem;
+     TopShadeNum = 0;
+@@ -539,7 +550,7 @@ BootMenuSelectItem (
+   //
+   FirstItem = BootMenuData->ScrollBarControl.FirstItem;
+   if ((WantSelectItem != BootMenuData->SelectItem) && !RePaintItems) {
+-    gST->ConOut->SetAttribute (gST->ConOut, EFI_WHITE | EFI_BACKGROUND_BLUE);
++    gST->ConOut->SetAttribute (gST->ConOut, EFI_WHITE | EFI_BACKGROUND_BLACK);
+     String   = HiiGetString (gStringPackHandle, BootMenuData->PtrTokens[BootMenuData->SelectItem], NULL);
+     PrintCol = StartCol  + 1;
+     PrintRow = StartRow + 3 + BootMenuData->SelectItem - FirstItem;
+@@ -550,7 +561,7 @@ BootMenuSelectItem (
+   //
+   // Print want to select item
+   //
+-  gST->ConOut->SetAttribute (gST->ConOut, EFI_WHITE | EFI_BACKGROUND_BLACK);
++  gST->ConOut->SetAttribute (gST->ConOut, EFI_WHITE | EFI_BACKGROUND_LIGHTGRAY);
+   String   = HiiGetString (gStringPackHandle, BootMenuData->PtrTokens[WantSelectItem], NULL);
+   PrintCol = StartCol  + 1;
+   PrintRow = StartRow + TITLE_TOKEN_COUNT + 2 + WantSelectItem - FirstItem;
+@@ -589,7 +600,7 @@ DrawBootPopupMenu (
+   gST->ConOut->ClearScreen (gST->ConOut);
+ 
+   SavedAttribute = gST->ConOut->Mode->Attribute;
+-  gST->ConOut->SetAttribute (gST->ConOut, EFI_WHITE | EFI_BACKGROUND_BLUE);
++  gST->ConOut->SetAttribute (gST->ConOut, EFI_WHITE | EFI_BACKGROUND_BLACK);
+   Width              = BootMenuData->MenuScreen.Width;
+   StartCol           = BootMenuData->MenuScreen.StartCol;
+   StartRow           = BootMenuData->MenuScreen.StartRow;
 @@ -754,6 +765,16 @@ BootFromSelectOption (
        break;
      }
