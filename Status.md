@@ -712,6 +712,43 @@
 </details>
 
 <details>
+<summary><b><strong>Snapdragon 8 Gen 5 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>OnePlus Devices</strong></b></summary>
+
+## OnePlus 15R
+
+<img align="right" src="Resources/Pictures/OnePlus-15R.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** macan
+
+**Contributors:** [Robotix](https://github.com/Robotix22/), [Nikka](https://github.com/NikkaGames)
+
+### UEFI Status
+
+| Feature            | Description  | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       |              | ❌    |
+| Linux Boot         |              | ❌    |
+
+</details>
+
+---
+
+</details>
+
+<details>
 <summary><b><strong>Snapdragon 8 Elite Devices</strong></b></summary>
 
 <br>
