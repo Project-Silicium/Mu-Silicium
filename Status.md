@@ -4778,59 +4778,7 @@
 
 ---
 
-<details>
-<summary><b><strong>Snapdragon 675 Devices</strong></b></summary>
-
-<br>
-
-<table>
-<tr><td>
-
-> [!IMPORTANT]
-> Only 23H2 Windows Builds and Lower are able to Boot.
-
-
-</td></tr>
-</table>
-
-</td></tr>
-</table>
-
-<br>
-
-<details>
-<summary><b><strong>Samsung Devices</strong></b></summary>
- 
-## Samsung Galaxy A70
-
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-A70.png" width="500" alt="Preview">
-
-**State:** Inactive <br>
-**Codename:** a70q
-
-**Contributors:** [kdetechy-mp4](https://github.com/kdetechy-mp4/)
-
-### UEFI Status
-
-| Feature            | Description | State |
-|:-------------------|:------------|:-----:|
-| Display            |             | ✅    |
-| Internal Storage   |             | ✅    |
-| Side Buttons       |             | ✅    |
-| USB Host Mode      |             | ❌    |
-| USB Device Mode    |             | ✅    |
-| USB Power Delivery |             | ❌    |
-| Mass Storage       |             | ✅    |
-| SD Card            |             | ❔    |
-| Windows Boot       |             | ❔    |
-| Linux Boot         |             | ❔    |
-
-</td></tr>
-</table>
-
 </details>
-
----
 
 <details>
 <summary><b><strong>Snapdragon 665 Devices</strong></b></summary>
@@ -4842,10 +4790,6 @@
 
 > [!IMPORTANT]
 > Only 23H2 Windows Builds and Lower are able to Boot.
-
-
-</td></tr>
-</table>
 
 </td></tr>
 </table>
