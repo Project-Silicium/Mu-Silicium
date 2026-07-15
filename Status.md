@@ -4790,12 +4790,18 @@
 
 ## Samsung Galaxy A70
 
-<img align="right" src="Resources/Pictures/Samsung-Galaxy-A70.png" width="700" alt="Preview">
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-5` Version is Required on this Device!
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-A70.png" width="600" alt="Preview">
 
 **State:** Inactive <br>
 **Codename:** fog
 
-**Contributors:** [kdetechy-mp4](https://github.com/kdetechy-mp4)/)
+**Contributors:** [kdetechy-mp4](https://github.com/kdetechy-mp4)
 
 ### UEFI Status
 
