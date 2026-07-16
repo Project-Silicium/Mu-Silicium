@@ -4804,7 +4804,7 @@
 **State:** Inactive <br>
 **Codename:** a70q
 
-**Contributors:** [kdetechy-mp4](https://github.com/kdetechy-mp4)
+**Contributors:** [kdetechy-mp4](https://github.com/kdetechy-mp4), [Robotix](https://github.com/Robotix22/)
 
 ### UEFI Status
 
