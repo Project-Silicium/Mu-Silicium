@@ -242,11 +242,6 @@ def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image
     uefi_fd         = fv_path            / "SILICIUM_UEFI.fd"
     uefi_fd_gz      = fv_path            / "SILICIUM_UEFI.fd.gz"
 
-    # Verify DTB Path
-    if not device_dtb.is_file ():
-        logger.error (f"The Device DTB is Missing in \"{RESOURCE_DTBS_PATH}\"!")
-        return False
-
     # Check Boot Shim Flag
     if append_boot_shim:
         # Set Boot Shim Paths
@@ -301,6 +296,11 @@ def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image
 
     # Append DTB
     if image_kernel_config.get ("append_dtb"):
+        # Verify DTB Path
+        if not device_dtb.is_file ():
+            logger.error (f"The Device DTB is Missing in \"{RESOURCE_DTBS_PATH}\"!")
+            return False
+
         try:
             android_kernel.write_bytes (android_kernel.read_bytes () + device_dtb.read_bytes ())
         except Exception as e:
