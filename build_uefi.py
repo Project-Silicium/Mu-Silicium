@@ -99,13 +99,13 @@ def get_device_package_path (device: str) -> Path | None:
     package_name = f"{device}Pkg"
 
     # Set Search Pattern
-    search_pattern = [f"*/{package_name}", f"*/*/{package_name}"]
+    search_patterns = [f"*/{package_name}", f"*/*/{package_name}"]
 
     # Find Device Package Folder
     matches = (
         match
-        for search_pattern in search_pattern
-        for match in PLATFORM_PATH.glob (search_pattern)
+        for pattern in search_patterns
+        for match in PLATFORM_PATH.glob (pattern)
         if match.is_dir ()
     )
 
@@ -153,19 +153,19 @@ def handle_git_patch (submodule_path: Path, patch_name: str, remove: bool) -> bo
     # Get Absolute Patch Path
     absolute_patch_path = str (patch_path.resolve ())
 
+    # Set Git Command
+    cmd = [
+        "git",
+        "apply",
+        absolute_patch_path
+    ]
+
+    # Append Undo Flag
     if remove:
-        # Undo Patch
-        subprocess.run (
-            ["git", "apply", "-R", absolute_patch_path],
-            cwd=submodule_path,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
+        cmd.append ("-R")
 
-        return True
-
-    # Apply Path
-    return subprocess.run (["git", "apply", absolute_patch_path], cwd=submodule_path).returncode == 0
+    # Apply/Undo Path
+    return subprocess.run (cmd, cwd=submodule_path).returncode == 0
 
 def update_local_repo () -> bool:
     # Pull Latest Changes
@@ -178,13 +178,20 @@ def update_local_repo () -> bool:
 
     return True
 
-def compile_boot_shim (boot_shim_config: list, uefi_fd_config: list) -> bool:
+def compile_boot_shim (boot_shim_config: dict, fd_config: dict) -> bool:
+    # Get FD Details
+    fd_base = hex (fd_config.get ("base"))
+    fd_size = hex (fd_config.get ("size"))
+
+    # Get Kernel Header Flag
+    requires_kernel_header = boot_shim_config.get ("requires_kernel_header", False)
+
     # Set Compile Command
     cmd = [
         "make",
-        f"REQUIRES_KERNEL_HEADER={int (boot_shim_config['requires_kernel_header'])}",
-        f"FD_BASE={hex (uefi_fd_config['fd_base'])}",
-        f"FD_SIZE={hex (uefi_fd_config['fd_size'])}"
+        f"REQUIRES_KERNEL_HEADER={int (requires_kernel_header)}",
+        f"FD_BASE={fd_base}",
+        f"FD_SIZE={fd_size}"
     ]
 
     # Compile Boot Shim
@@ -204,196 +211,201 @@ def prepare_uefi_environment (script_path: Path, build_mode: str, update: bool) 
 
     return True
 
-def compile_uefi (ctx: BuildContext, fd_config: list, script_path: Path) -> bool:
+def compile_uefi (ctx: BuildContext, fd_config: dict, script_path: Path) -> bool:
+    # Get FD Details
+    fd_base   = hex (fd_config.get ("base"))
+    fd_size   = hex (fd_config.get ("size"))
+    fd_blocks = hex (fd_config.get ("blocks"))
+
     # Set Compile Command
     cmd = [
         sys.executable,
-        script_path,
+        str (script_path),
         f"TARGET={ctx.build_mode}",
         f"ENABLE_SECUREBOOT={int (ctx.enable_secureboot)}",
-        f"FD_BASE={hex (fd_config['fd_base'])}",
-        f"FD_SIZE={hex (fd_config['fd_size'])}",
-        f"FD_BLOCKS={hex (fd_config['fd_blocks'])}",
+        f"FD_BASE={fd_base}",
+        f"FD_SIZE={fd_size}",
+        f"FD_BLOCKS={fd_blocks}",
         f"DEVICE_MODEL={ctx.device_model}"
     ]
 
     # Compile UEFI
     return subprocess.run (cmd).returncode == 0
 
-def create_android_boot_img (image_config: list, ctx: BuildContext) -> bool:
-    # Set Required Paths
-    boot_shim_payload_path = BOOT_SHIM_PATH / "BootShim.bin"
-    device_fv_path         = BUILD_PATH / f"{ctx.device}Pkg" / f"{ctx.build_mode}_CLANGPDB" / "FV"
-    uefi_fd_path           = device_fv_path / "SILICIUM_UEFI.fd"
-    uefi_fd_gz_path        = device_fv_path / "SILICIUM_UEFI.fd.gz"
-    uefi_boot_shim_path    = device_fv_path / "SILICIUM_UEFI.fd-bootshim"
-    uefi_boot_shim_gz_path = device_fv_path / "SILICIUM_UEFI.fd-bootshim.gz"
-    device_dtb_path        = RESOURCE_DTBS_PATH / f"{ctx.device}.dtb"
-    android_kernel_path    = BUILD_PATH / f"kernel-{ctx.device}"
+def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image_config: dict, append_boot_shim: bool) -> bool:
+    # Set Base Paths
+    device_pkg_path = BUILD_PATH         / f"{ctx.device}Pkg"
+    fv_path         = device_pkg_path    / f"{ctx.build_mode}_CLANGPDB" / "FV"
 
-    # Check if adding Boot Shim is required
-    if image_config["requires_boot_shim"]:
-        # Append Boot Shim
+    # Set File Paths
+    device_dtb      = RESOURCE_DTBS_PATH / f"{ctx.device}.dtb"
+    uefi_fd         = fv_path            / "SILICIUM_UEFI.fd"
+    uefi_fd_gz      = fv_path            / "SILICIUM_UEFI.fd.gz"
+
+    # Verify DTB Path
+    if not device_dtb.is_file ():
+        logger.error (f"The Device DTB is Missing in \"{RESOURCE_DTBS_PATH}\"!")
+        return False
+
+    # Check Boot Shim Flag
+    if append_boot_shim:
+        # Set Boot Shim Paths
+        boot_shim_payload = BOOT_SHIM_PATH / "BootShim.bin"
+        boot_shim_fd      = fv_path        / "SILICIUM_UEFI.fd-bootshim"
+        boot_shim_fd_gz   = fv_path        / "SILICIUM_UEFI.fd-bootshim.gz"
+
         try:
-            # Create Combined UEFI FD File
-            with open (uefi_boot_shim_path, 'wb') as combined_fd_file:
-                # Append Boot Shim Payload
-                with open (boot_shim_payload_path, 'rb') as boot_shim_payload_file:
-                    shutil.copyfileobj (boot_shim_payload_file, combined_fd_file)
+            # Read File Content
+            combined_data = boot_shim_payload.read_bytes () + uefi_fd.read_bytes ()
 
-                # Append Device UEFI FD
-                with open (uefi_fd_path, 'rb') as device_uefi_fd_file:
-                    shutil.copyfileobj (device_uefi_fd_file, combined_fd_file)
+            # Write Combined File Content
+            boot_shim_fd.write_bytes (combined_data)
         except Exception as e:
-            logger.error (f"Failed to Create Combined UEFI FD File! Error = {e}")
+            logger.error ("Failed to Append Boot Shim Payload to UEFI FD File!")
+            logger.error (e)
             return False
 
-        # Set UEFI FD Paths to combined UEFI FD Paths
-        uefi_fd_path = uefi_boot_shim_path
-        uefi_fd_gz_path = uefi_boot_shim_gz_path
+        # Update UEFI FD Paths
+        uefi_fd    = boot_shim_fd
+        uefi_fd_gz = boot_shim_fd_gz
 
     # Get Kernel Compression Type
-    kernel_compression = image_config["kernel_compression"]
+    kernel_compression = image_kernel_config.get ("kernel_compression")
+    if kernel_compression is None:
+        logger.error ("No Kernel Compression is Specified!")
+        return False
 
     # Check Kernel Compression Type
-    if kernel_compression == "gzip":
-        # Compress Kernel
-        try:
-            # Open UEFI FD File
-            with open (uefi_fd_path, 'rb') as fd_file:
+    match kernel_compression:
+        # Use GZIP Compression
+        case "gzip":
+            try:
                 # Compress UEFI FD File
-                with gzip.open (uefi_fd_gz_path, 'wb') as compressed_fd_file:
-                    shutil.copyfileobj (fd_file, compressed_fd_file)
-        except Exception as e:
-            logger.error (f"Failed to Compress UEFI FD File! Error = {e}")
+                with gzip.open (uefi_fd_gz, 'wb') as compressed_fd_file:
+                    compressed_fd_file.write (uefi_fd.read_bytes ())
+            except Exception as e:
+                logger.error ("Failed to Compress UEFI FD File!")
+                logger.error (e)
+                return False
+
+        # Use No Compression
+        case "none":
+            pass
+
+        case _:
+            logger.error (f"Unknown Kernel Compression Type = \"{kernel_compression}\"!")
             return False
-    elif kernel_compression == "none":
-        pass
-    else:
-        logger.error (f"Unknown Kernel Compression Type = \"{kernel_compression}\"!")
+
+    # Set Android Kernel Path
+    android_kernel = uefi_fd if kernel_compression == "none" else uefi_fd_gz
+
+    # Append DTB
+    if image_kernel_config.get ("append_dtb"):
+        try:
+            android_kernel.write_bytes (android_kernel.read_bytes () + device_dtb.read_bytes ())
+        except Exception as e:
+            logger.error ("Failed to Append Android DTB!")
+            logger.error (e)
+            return False
+
+    # Set "mkbootimg.py" Script Path
+    mkbootimg = RESOURCE_SCRIPTS_PATH / "mkbootimg.py"
+    if not mkbootimg.is_file ():
+        logger.error (f"The \"mkbootimg.py\" Script is Missing in \"{RESOURCE_SCRIPTS_PATH}\"!")
         return False
 
-    # Get DTB Location
-    dtb_location = image_config["dtb_location"]
+    # Set Output File Name
+    output_file_name = f"Mu-{ctx.device}-{ctx.device_model}.img"
 
-    # Check DTB Location
-    if dtb_location == "kernel":
-        # Append Android DTB
-        try:
-            # Create Final Android Kernel
-            with open (android_kernel_path, 'wb') as android_kernel_file:
-                # Open UEFI FD File
-                if kernel_compression == "none":
-                    with open (uefi_fd_path, 'rb') as fd_file:
-                        shutil.copyfileobj (fd_file, android_kernel_file)
-                else:
-                    with open (uefi_fd_gz_path, 'rb') as fd_file:
-                        shutil.copyfileobj (fd_file, android_kernel_file)
-
-                # Open Device DTB
-                with open (device_dtb_path, 'rb') as device_dtb_file:
-                    shutil.copyfileobj (device_dtb_file, android_kernel_file)
-        except Exception as e:
-            logger.error (f"Failed to Append Android DTB! Error = {e}")
-            return False
-    elif dtb_location == "outside" or dtb_location == "none":
-        try:
-            # Create Final Android Kernel
-            with open (android_kernel_path, 'wb') as android_kernel_file:
-                # Open UEFI FD File
-                if kernel_compression == "none":
-                    with open (uefi_fd_path, 'rb') as fd_file:
-                        shutil.copyfileobj (fd_file, android_kernel_file)
-                else:
-                    with open (uefi_fd_gz_path, 'rb') as fd_file:
-                        shutil.copyfileobj (fd_file, android_kernel_file)
-        except Exception as e:
-            logger.error (f"Failed to Create Final Android Kernel! Error = {e}")
-            return False
-    else:
-        logger.error (f"Unknown DTB Location = \"{dtb_location}\"!")
-        return False
-
-    # Set mkbootimg Command
+    # Set Base mkbootimg Command
     cmd = [
-        sys.executable, "Resources/Scripts/mkbootimg.py",
-        "--kernel", android_kernel_path,
-        "--ramdisk", "Resources/ramdisk",
-        "--header_version", str (image_config["header_version"]),
-        "-o", f"Mu-{ctx.device}-{ctx.device_model}.img"
+        sys.executable, str (mkbootimg),
+        "--kernel",     str (android_kernel),
+        "--ramdisk",    "Resources/ramdisk",
+        "-o",           output_file_name
     ]
 
-    # Append DTB Location
-    if dtb_location == "outside":
-        cmd.append ("--dtb")
-        cmd.append (device_dtb_path)
-
-    # mkbootimg options mapping
-    option_map = {
-        "base": "--base",
-        "kernel_offset": "--kernel_offset",
-        "ramdisk_offset": "--ramdisk_offset",
-        "second_offset": "--second_offset",
-        "tags_offset": "--tags_offset",
-        "dtb_offset": "--dtb_offset",
-        "cmdline": "--cmdline",
-        "os_version": "--os_version",
+    # mkbootimg Argument Map
+    argument_map = {
+        "base":           "--base",
+        "cmdline":        "--cmdline",
+        "dtb":            "--dtb",
+        "dtb_offset":     "--dtb_offset",
+        "header_version": "--header_version",
+        "kernel_offset":  "--kernel_offset",
         "os_patch_level": "--os_patch_level",
+        "os_version":     "--os_version",
+        "ramdisk_offset": "--ramdisk_offset",
+        "second_offset":  "--second_offset",
+        "tags_offset":    "--tags_offset"
     }
 
-    # Process mkbootimg options mapping
-    for key, option in option_map.items ():
+    # Go thru each Argument
+    for key, option in argument_map.items ():
+        # Get Argument Value
         value = image_config.get (key)
 
+        # Append Argument Value
         if value:
             cmd.append (option)
-            cmd.append (str(value))
+            cmd.append (str (value))
 
     # Execute mkbootimg Command
     return subprocess.run (cmd).returncode == 0
 
-def create_payload_file (payload_config: list, ctx: BuildContext) -> bool:
-    # Set Required Paths
-    boot_shim_payload_path = BOOT_SHIM_PATH / "BootShim.bin"
-    device_fv_path         = BUILD_PATH / f"{ctx.device}Pkg" / f"{ctx.build_mode}_CLANGPDB" / "FV"
-    uefi_fd_path           = device_fv_path / f"{ctx.device.upper ()}_UEFI.fd"
-    payload_file_output    = f"Mu-{ctx.device}-{ctx.device_model}.bin"
+def create_payload_file (ctx: BuildContext, payload_config: dict, append_boot_shim: bool) -> bool:
+    # Set Base Paths
+    device_pkg_path = BUILD_PATH      / f"{ctx.device}Pkg"
+    fv_path         = device_pkg_path / f"{ctx.build_mode}_CLANGPDB" / "FV"
+
+    # Set File Paths
+    uefi_fd         = fv_path         / "SILICIUM_UEFI.fd"
+    output_file     = Path.cwd ()     / f"Mu-{ctx.device}-{ctx.device_model}.bin"
 
     # Get Payload Type
-    payload_type = payload_config["type"]
+    payload_type = payload_config.get ("type")
+    if payload_type is None:
+        logger.error ("No Payload Type was Specified! Please Check your Config File.")
+        return False
 
     # Check Payload Type
-    if payload_type == "raw":
-        # Append Boot Shim
-        try:
-            # Create Combined UEFI FD File
-            with open (payload_file_output, 'wb') as combined_fd_file:
-                # Append Boot Shim Payload
-                with open (boot_shim_payload_path, 'rb') as boot_shim_payload_file:
-                    shutil.copyfileobj (boot_shim_payload_file, combined_fd_file)
+    match payload_type:
+        case "raw":
+            if append_boot_shim:
+                # Set Boot Shim Payload Path
+                boot_shim_payload = BOOT_SHIM_PATH / "BootShim.bin"
 
-                # Append Device UEFI FD
-                with open (uefi_fd_path, 'rb') as device_uefi_fd_file:
-                    shutil.copyfileobj (device_uefi_fd_file, combined_fd_file)
-        except Exception as e:
-            logger.error (f"Failed to Create Combined UEFI FD File! Error = {e}")
+                # Append Boot Shim
+                output_file.write_bytes (boot_shim_payload.read_bytes () + uefi_fd.read_bytes ())
+            else:
+                # Write Output File
+                output_file.write_bytes (uefi_fd.read_bytes ())
+
+        case _:
+            logger.error (f"Unknown Payload Type = \"{payload_type}\"!")
             return False
-    else:
-        logger.error (f"Unknown Payload Type = \"{payload_type}\"!")
-        return False
 
     return True
 
-def create_output_image (device_data: dict, ctx: BuildContext) -> bool:
+def create_output_image (ctx: BuildContext, config_data: dict, append_boot_shim: bool) -> bool:
     # Check Output Type
-    if "boot_image" in device_data:
-        # Create Android Boot Image
-        if not create_android_boot_img (device_data["boot_image"], ctx):
-            return False
-    elif "payload" in device_data:
-        # Create Payload File
-        if not create_payload_file (device_data["payload"], ctx):
-            return False
+    match config_data:
+        case {"boot_image": image_config}:
+            # Get Image Kernel Configs
+            image_kernel_config = config_data.get ("boot_image_kernel")
+            if image_kernel_config is None:
+                logger.error ("The Boot Image Kernel Config is Missing! Please Check your Config File.")
+                return False
+
+            # Create Android Boot Image
+            return create_android_boot_img (ctx, image_kernel_config, image_config, append_boot_shim)
+
+        case {"payload": payload_config}:
+            # Create Payload File
+            return create_payload_file (ctx, payload_config, append_boot_shim)
+
+        case _:
+            logger.warning ("No Output Format was Specified, Skipping Output Creation.")
 
     return True
 
@@ -406,21 +418,39 @@ def main ():
 
     # Get Device Package Path
     device_package_path = get_device_package_path (ctx.device)
-    if not device_package_path:
+    if device_package_path is None:
         logger.error (f"There are no Build Files for \"{ctx.device}\"!")
         sys.exit (1)
 
     # Parse Device Config File
-    device_data = parse_device_config (ctx.device)
-    if not device_data:
+    config_data = parse_device_config (ctx.device)
+    if config_data is None:
         logger.error (f"There is no Config File in \"{RESOURCE_CONFIGS_PATH}\" for \"{ctx.device}\"!")
         sys.exit (1)
 
+    # Get FD Config
+    fd_config = config_data.get ("uefi_fd")
+    if fd_config is None:
+        logger.error ("The FD Config is Missing! Please Check your Config File.")
+        sys.exit (1)
+
+    # Get FD Details
+    fd_base = fd_config.get ("base")
+    fd_size = fd_config.get ("size")
+
+    # Verify FD Details
+    if fd_base is None or fd_size is None:
+        logger.error ("The FD Config is Faulty! Please Check your Config File.")
+        sys.exit (1)
+
     # Append FD Block Size
-    device_data["uefi_fd"]["fd_blocks"] = device_data["uefi_fd"]["fd_size"] // 4096
+    fd_config["blocks"] = fd_config["size"] // 4096
 
     # Set Device Script Path
     device_script_path = device_package_path / "DeviceBuild.py"
+    if not device_script_path.is_file ():
+        logger.error (f"The Device Build Script isn't Present in \"{device_package_path}\"!")
+        sys.exit (1)
 
     # Delete Old Build Files
     cleanup_old_build (ctx.device, ctx.device_model, ctx.cleanup)
@@ -434,9 +464,13 @@ def main ():
         if not update_local_repo ():
             sys.exit (1)
 
+    # Set Boot Shim Compile Flag
+    boot_shim_present = "boot_shim" in config_data
+
     # Compile Boot Shim
-    if not compile_boot_shim (device_data["boot_shim"], device_data["uefi_fd"]):
-        sys.exit (1)
+    if boot_shim_present:
+        if not compile_boot_shim (config_data.get ("boot_shim"), config_data.get ("uefi_fd")):
+            sys.exit (1)
 
     # Prepare UEFI Environment
     if not prepare_uefi_environment (device_script_path, ctx.build_mode, ctx.update):
@@ -448,11 +482,11 @@ def main ():
             sys.exit (1)
 
     # Compile Device UEFI
-    if not compile_uefi (ctx, device_data["uefi_fd"], device_script_path):
+    if not compile_uefi (ctx, fd_config, device_script_path):
         sys.exit (1)
 
     # Create Output Image
-    if not create_output_image (device_data, ctx):
+    if not create_output_image (ctx, config_data, boot_shim_present):
         sys.exit (1)
 
 if __name__ == "__main__":

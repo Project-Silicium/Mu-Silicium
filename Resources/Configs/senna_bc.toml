@@ -8,14 +8,18 @@ requires_kernel_header = true
 # UEFI FD Configs
 #
 [uefi_fd]
-fd_base = 0xE5700000
-fd_size = 0x300000
+base = 0xE5700000
+size = 0x300000
+
+#
+# Android Boot Image Kernel Configs
+#
+[boot_image_kernel]
+kernel_compression = "gzip"
+append_dtb         = true
 
 #
 # Android Boot Image Configs
 #
 [boot_image]
-requires_boot_shim = true
-kernel_compression = "gzip"
-dtb_location       = "kernel"
-header_version     = 4
+header_version = 4
