@@ -1,4 +1,10 @@
 #
+# Device Status
+#
+[status]
+model_count = 2
+
+#
 # Boot Shim Configs
 #
 [boot_shim]
@@ -23,5 +29,5 @@ append_dtb         = true
 #
 [boot_image]
 header_version = 4
-os_version         = "16.0.0"
-os_patch_level     = "2026-07"
+os_version     = "16.0.0"
+os_patch_level = "2026-07"

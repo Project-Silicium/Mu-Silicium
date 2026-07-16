@@ -135,7 +135,9 @@ def cleanup_old_build (device: str, device_model: int, cleanup: bool):
         BOOT_SHIM_PATH / "BootShim.bin",
         BUILD_PATH / f"kernel-{device}",
         Path (f"Mu-{device}-{device_model}.img"),
-        Path (f"Mu-{device}-{device_model}.bin")
+        Path (f"Mu-{device}-{device_model}.bin"),
+        Path (f"Mu-{device}.img"),
+        Path (f"Mu-{device}.bin")
     ]
 
     # Delete Old Build Files
@@ -232,7 +234,7 @@ def compile_uefi (ctx: BuildContext, fd_config: dict, script_path: Path) -> bool
     # Compile UEFI
     return subprocess.run (cmd).returncode == 0
 
-def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image_config: dict, append_boot_shim: bool) -> bool:
+def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image_config: dict, append_boot_shim: bool, add_output_suffix: bool) -> bool:
     # Set Base Paths
     device_pkg_path = BUILD_PATH         / f"{ctx.device}Pkg"
     fv_path         = device_pkg_path    / f"{ctx.build_mode}_CLANGPDB" / "FV"
@@ -294,13 +296,14 @@ def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image
     # Set Android Kernel Path
     android_kernel = uefi_fd if kernel_compression == "none" else uefi_fd_gz
 
-    # Append DTB
+    # Check DTB Append Flag
     if image_kernel_config.get ("append_dtb"):
         # Verify DTB Path
         if not device_dtb.is_file ():
             logger.error (f"The Device DTB is Missing in \"{RESOURCE_DTBS_PATH}\"!")
             return False
 
+        # Append DTB
         try:
             android_kernel.write_bytes (android_kernel.read_bytes () + device_dtb.read_bytes ())
         except Exception as e:
@@ -315,7 +318,7 @@ def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image
         return False
 
     # Set Output File Name
-    output_file_name = f"Mu-{ctx.device}-{ctx.device_model}.img"
+    output_file_name = f"Mu-{ctx.device}-{ctx.device_model}.img" if add_output_suffix else f"Mu-{ctx.device}.img"
 
     # Set Base mkbootimg Command
     cmd = [
@@ -353,14 +356,17 @@ def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image
     # Execute mkbootimg Command
     return subprocess.run (cmd).returncode == 0
 
-def create_payload_file (ctx: BuildContext, payload_config: dict, append_boot_shim: bool) -> bool:
+def create_payload_file (ctx: BuildContext, payload_config: dict, append_boot_shim: bool, add_output_suffix: bool) -> bool:
+    # Set Output File Name
+    output_file_name = f"Mu-{ctx.device}-{ctx.device_model}.bin" if add_output_suffix else f"Mu-{ctx.device}.bin"
+
     # Set Base Paths
     device_pkg_path = BUILD_PATH      / f"{ctx.device}Pkg"
     fv_path         = device_pkg_path / f"{ctx.build_mode}_CLANGPDB" / "FV"
 
     # Set File Paths
     uefi_fd         = fv_path         / "SILICIUM_UEFI.fd"
-    output_file     = Path.cwd ()     / f"Mu-{ctx.device}-{ctx.device_model}.bin"
+    output_file     = Path.cwd ()     / output_file_name
 
     # Get Payload Type
     payload_type = payload_config.get ("type")
@@ -388,6 +394,9 @@ def create_payload_file (ctx: BuildContext, payload_config: dict, append_boot_sh
     return True
 
 def create_output_image (ctx: BuildContext, config_data: dict, append_boot_shim: bool) -> bool:
+    # Set Suffix Flag
+    add_output_suffix = add_output_suffix = "status" in config_data and "model_count" in config_data["status"]
+
     # Check Output Type
     match config_data:
         case {"boot_image": image_config}:
@@ -398,11 +407,11 @@ def create_output_image (ctx: BuildContext, config_data: dict, append_boot_shim:
                 return False
 
             # Create Android Boot Image
-            return create_android_boot_img (ctx, image_kernel_config, image_config, append_boot_shim)
+            return create_android_boot_img (ctx, image_kernel_config, image_config, append_boot_shim, add_output_suffix)
 
         case {"payload": payload_config}:
             # Create Payload File
-            return create_payload_file (ctx, payload_config, append_boot_shim)
+            return create_payload_file (ctx, payload_config, append_boot_shim, add_output_suffix)
 
         case _:
             logger.warning ("No Output Format was Specified, Skipping Output Creation.")
@@ -427,6 +436,22 @@ def main ():
     if config_data is None:
         logger.error (f"There is no Config File in \"{RESOURCE_CONFIGS_PATH}\" for \"{ctx.device}\"!")
         sys.exit (1)
+
+    # Get Device Status Config
+    device_status = config_data.get ("status")
+
+    # Check Device Model Argument
+    if device_status is not None:
+        # Get Number of Models
+        device_model_count = device_status.get ("model_count")
+        if device_model_count is None:
+            logger.error ("The Model Count is Missing! Please Check your Config File.")
+            sys.exit (1)
+
+        # Verify Device Model Argument
+        if ctx.device_model >= device_model_count:
+            logger.error (f"\"{ctx.device}\" doesn't have a Model for the Specified Model Number \"{ctx.device_model}\"!")
+            sys.exit (1)
 
     # Get FD Config
     fd_config = config_data.get ("uefi_fd")
