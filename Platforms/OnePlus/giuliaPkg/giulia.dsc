@@ -59,8 +59,6 @@
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13R"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2645"
-!else
-!error "Invalid Model Type! 0 or 1 are Valid Model Types."
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"24825"
 

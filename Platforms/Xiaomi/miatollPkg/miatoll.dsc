@@ -73,8 +73,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gram"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6CI"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6CI"
-!else
-!error "Invalid Model Type! 0, 1, 2, 3, 4 or 5 are Valid Model Types."
 !endif
 
   #

@@ -56,8 +56,6 @@
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"POCO X2"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"phoenixin"
-!else
-!error "Invalid Model Type! 0 and 1 are Valid Model Types."
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"MZB9011IN"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"G7B"

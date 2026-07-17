@@ -44,8 +44,6 @@
   SOC_TYPE                       = 0
 
 !include MarikoPkg/MarikoPkg.dsc.inc
-!else
-!error "Invalid Model Type! 0 for Icosa, 1 for Iowa"
 !endif
 
 [PcdsFixedAtBuild]

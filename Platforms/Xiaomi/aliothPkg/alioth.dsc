@@ -63,8 +63,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11X"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2012K11AI"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"K11AI"
-!else
-!error "Invalid Model Type! 0, 1 or 2 are Valid Model Types."
 !endif
 
   #
