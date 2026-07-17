@@ -50,6 +50,7 @@
   INF Binaries/q2q/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
@@ -62,9 +63,9 @@
 !endif
   INF Binaries/q2q/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
+  INF Binaries/q2q/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
@@ -102,10 +103,8 @@
   INF Binaries/q2q/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  #INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
-  #INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
-  INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
-  INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/GuidedFvDxe/GuidedFvDxe.inf
+  INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
+  INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/GpioExpanderDxe/GpioExpanderDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf

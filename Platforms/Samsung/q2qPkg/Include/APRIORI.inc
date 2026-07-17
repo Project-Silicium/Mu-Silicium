@@ -43,7 +43,6 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF Binaries/q2q/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
