@@ -68,11 +68,6 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0x9FC37998
 
-  #
-  # Storage
-  #
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-
 [LibraryClasses]
   #
   # Memory Libraries

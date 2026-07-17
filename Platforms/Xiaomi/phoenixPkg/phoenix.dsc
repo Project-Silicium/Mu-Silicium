@@ -74,11 +74,6 @@
   #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"
 
-  #
-  # Storage
-  #
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-
 [LibraryClasses]
   #
   # Memory Libraries

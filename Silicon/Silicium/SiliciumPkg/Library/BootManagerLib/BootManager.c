@@ -8,6 +8,7 @@
 #include <Library/PcdLib.h>
 #include <Library/DebugLib.h>
 #include <Library/AcpiTableUpdateLib.h>
+#include <Library/DeviceBootManagerLib.h>
 #include <Library/PlatformBootManagerLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/UefiBootServicesTableLib.h>
@@ -20,7 +21,7 @@
 
 #include <Configuration/BootDevices.h>
 
-#include "PlatformBootManager.h"
+#include "BootManager.h"
 
 //
 // Global Variables
@@ -53,6 +54,9 @@ PlatformBootManagerBeforeConsole ()
 
   // Update ACPI Tables
   UpdateAcpiTables ();
+
+  // Execute Secondary Before Console
+  DeviceBootManagerBeforeConsole (NULL, NULL);
 }
 
 VOID
@@ -120,13 +124,17 @@ PlatformBootManagerAfterConsole ()
     XPos = (ScreenWidth - AsciiStrLen (ComboMessage) * EFI_GLYPH_WIDTH) / 2;
     YPos = ScreenHeight * 48 / 50;
   }
+
+  // Execute Secondary After Console
+  DeviceBootManagerAfterConsole ();
 }
 
 VOID
 EFIAPI
 PlatformBootManagerOnDemandConInConnect ()
 {
-  return;
+  // Execute Secondary On Demand
+  DeviceBootManagerOnDemandConInConnect ();
 }
 
 VOID
@@ -193,6 +201,9 @@ PlatformBootManagerUnableToBoot ()
 {
   EFI_STATUS Status;
 
+  // Execute Secondary Unable To Boot
+  DeviceBootManagerUnableToBoot ();
+
   // Display No Boot OS Logo
   Status = DisplayBootGraphic (BG_NO_BOOT_OS);
   if (EFI_ERROR (Status)) {
@@ -236,4 +247,7 @@ PlatformBootManagerBdsEntry ()
   // Register Pre-ReadyToBoot Event
   Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, PreReadyToBoot, NULL, &gEfiEventPreReadyToBootGuid, &PreReadyToBootEvent);
   ASSERT_EFI_ERROR (Status);
+
+  // Execute Secondary BDS Entry
+  DeviceBootManagerBdsEntry ();
 }

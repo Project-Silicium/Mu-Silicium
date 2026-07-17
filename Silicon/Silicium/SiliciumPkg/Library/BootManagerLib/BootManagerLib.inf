@@ -5,7 +5,7 @@
 
 [Defines]
   INF_VERSION                    = 0x00010018
-  BASE_NAME                      = PlatformBootManagerLib
+  BASE_NAME                      = BootManagerLib
   FILE_GUID                      = DF8F3324-5448-46BC-872C-BE198ECF2F76
   VERSION_STRING                 = 1.0
   MODULE_TYPE                    = DXE_DRIVER
@@ -13,7 +13,7 @@
   LIBRARY_CLASS                  = PlatformBootManagerLib|DXE_DRIVER
 
 [Sources]
-  PlatformBootManager.c
+  BootManager.c
   KeyCallback.c
 
 [Packages]
@@ -28,7 +28,7 @@
   PcdLib
   DebugLib
   AcpiTableUpdateLib
-  PlatformBootManagerLib
+  DeviceBootManagerLib
   UefiRuntimeServicesTableLib
   UefiBootServicesTableLib
   SecureBootHandlerLib

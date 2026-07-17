@@ -10,7 +10,7 @@
 
 #include <Protocol/SimpleTextInEx.h>
 
-#include "PlatformBootManager.h"
+#include "BootManager.h"
 
 //
 // Global Variables

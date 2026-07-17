@@ -85,11 +85,6 @@
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0C8
   gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703C928
 
-  #
-  # Storage
-  #
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
-
 [LibraryClasses]
   #
   # Memory Libraries

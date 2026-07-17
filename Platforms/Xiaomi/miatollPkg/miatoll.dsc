@@ -90,11 +90,6 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"
   gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0x9FC36588
 
-  #
-  # Storage
-  #
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
-
 [LibraryClasses]
   #
   # Memory Libraries

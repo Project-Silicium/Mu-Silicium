@@ -71,7 +71,6 @@
   #
   # Storage
   #
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
   gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|TRUE
 
 [LibraryClasses]

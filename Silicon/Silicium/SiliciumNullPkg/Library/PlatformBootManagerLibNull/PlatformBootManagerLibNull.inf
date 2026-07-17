@@ -1,0 +1,15 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformBootManagerLibNull
+  FILE_GUID                      = 3EA72DDC-C357-4C15-BE01-4B3F706E13FD
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = DeviceBootManagerLib|DXE_DRIVER
+
+[Sources]
+  PlatformBootManagerNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MsCorePkg/MsCorePkg.dec

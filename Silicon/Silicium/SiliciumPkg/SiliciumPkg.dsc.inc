@@ -228,7 +228,8 @@
   # BDS Libraries
   #
   MsBootOptionsLib|SiliciumPkg/Library/MsBootOptionsLib/MsBootOptionsLib.inf
-  PlatformBootManagerLib|SiliciumPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
+  DeviceBootManagerLib|SiliciumNullPkg/Library/PlatformBootManagerLibNull/PlatformBootManagerLibNull.inf
+  PlatformBootManagerLib|SiliciumPkg/Library/BootManagerLib/BootManagerLib.inf
   PlatformBootOptionsLib|SiliciumNullPkg/Library/PlatformBootOptionsLibNull/PlatformBootOptionsLibNull.inf
   UefiBootManagerLib|MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
   MsBootPolicyLib|SiliciumPkg/Library/MsBootPolicyLib/MsBootPolicyLib.inf
