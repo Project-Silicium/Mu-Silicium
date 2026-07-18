@@ -129,7 +129,7 @@ GetFontScale ()
   UINT32 ShorterDimension = (FB_WIDTH < FB_HEIGHT) ? FB_WIDTH : FB_HEIGHT;
 
   // Return Calculated Font Scale
-  return (ShorterDimension < 400) ? 1 : (UINT8)(ShorterDimension / 400);
+  return (ShorterDimension < 426) ? 1 : (UINT8)(ShorterDimension / 426);
 }
 
 VOID

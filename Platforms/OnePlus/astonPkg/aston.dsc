@@ -59,8 +59,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2585"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23861"
-!else
-!error "Invalid Model Type! 0 or 1 are Valid Model Types."
 !endif
 
   #
@@ -76,11 +74,6 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703A0C8
   gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703A950
-
-  #
-  # Storage
-  #
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
   #

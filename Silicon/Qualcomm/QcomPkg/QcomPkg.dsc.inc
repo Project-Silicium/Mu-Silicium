@@ -33,6 +33,7 @@
   #
   # BDS Libraries
   #
+  DeviceBootManagerLib|QcomPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
   PlatformBootOptionsLib|QcomPkg/Library/PlatformBootOptionsLib/PlatformBootOptionsLib.inf
   ErrataPatchesLib|QcomPkg/Library/ErrataPatchesLib/ErrataPatchesLib.inf
 
@@ -52,7 +53,6 @@
   # Custom Drivers
   #
   QcomPkg/Drivers/DisplayReEnablerDxe/DisplayReEnablerDxe.inf
-  QcomPkg/Drivers/PeripheralInitDxe/PeripheralInitDxe.inf
 
   #
   # Custom Apps

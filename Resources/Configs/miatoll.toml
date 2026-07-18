@@ -1,4 +1,10 @@
 #
+# Device Status
+#
+[status]
+model_count = 6
+
+#
 # Boot Shim Configs
 #
 [boot_shim]
@@ -8,14 +14,18 @@ requires_kernel_header = true
 # UEFI FD Configs
 #
 [uefi_fd]
-fd_base = 0x9FD00000
-fd_size = 0x200000
+base = 0x9FD00000
+size = 0x200000
+
+#
+# Android Boot Image Kernel Configs
+#
+[boot_image_kernel]
+kernel_compression = "gzip"
+append_dtb         = true
 
 #
 # Android Boot Image Configs
 #
 [boot_image]
-requires_boot_shim = true
-kernel_compression = "gzip"
-dtb_location       = "kernel"
-header_version     = 1
+header_version = 1

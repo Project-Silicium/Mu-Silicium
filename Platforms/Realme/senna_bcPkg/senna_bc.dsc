@@ -67,8 +67,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"senna_c"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"GT3_senna_c"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"GT3"
-!else
-!error "Invalid Model! specify "0" for GT Neo5 150W or "1" for GT Neo5 240W or "2" for GT3"
 !endif
 
   #
@@ -84,11 +82,6 @@
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703C0C8
   gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703C928
-
-  #
-  # Storage
-  #
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|FALSE
 
 [LibraryClasses]
   #
