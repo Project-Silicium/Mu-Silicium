@@ -52,7 +52,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy S24"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"e1s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_S24_e1s"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy S24"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy S24"
 
   #
   # Simple Frame Buffer

@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy A52s 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"a52sxq"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A52s_5G_a52sxq"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy A52s 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy A52s 5G"
 
   #
   # Simple Frame Buffer

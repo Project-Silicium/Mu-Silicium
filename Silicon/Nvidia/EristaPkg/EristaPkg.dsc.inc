@@ -52,12 +52,6 @@
 !elseif $(SOC_TYPE) == 4
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM660M-A2"
 !endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2100
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x30
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1600                            # Incorrect?
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30                               # LPDDR3 Variants do Exist
 
   #
   # Clock

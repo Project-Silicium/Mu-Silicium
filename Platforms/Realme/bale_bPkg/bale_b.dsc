@@ -54,7 +54,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"GT Neo6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"bale_b"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"RMX3852"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23622"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"23622"
 
   #
   # Simple Frame Buffer

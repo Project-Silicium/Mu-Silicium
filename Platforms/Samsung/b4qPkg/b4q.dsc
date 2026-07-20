@@ -27,10 +27,10 @@
 
   #
   # 0 = SM8475
-  # 1 = SM8475-AB
+  # 1 = SM8475    (Overclocked)
   # 2 = SM7475-AB
   #
-  SOC_TYPE                       = 0
+  SOC_TYPE                       = 1
 
 !include PalimaPkg/PalimaPkg.dsc.inc
 
@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Flip 4"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"b4q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Flip_4_b4q"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Flip 4"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy Z Flip 4"
 
   #
   # Simple Frame Buffer

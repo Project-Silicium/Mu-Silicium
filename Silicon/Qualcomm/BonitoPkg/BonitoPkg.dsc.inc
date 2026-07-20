@@ -43,15 +43,8 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8s Gen 4"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8s Gen 4 @ 3.20 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8735"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x10                      # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x10                      # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100                         # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400                         # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #

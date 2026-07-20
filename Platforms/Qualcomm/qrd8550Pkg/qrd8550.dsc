@@ -52,7 +52,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"QRD8550"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"qrd8550"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"QRD8550"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"QRD8550"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"QRD8550"
 
   #
   # Simple Frame Buffer

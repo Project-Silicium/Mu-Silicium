@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Tab A9+ Wi-Fi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gta9pwifi"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Tab_A9+_Wi-Fi_gta9pwifi"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Tab A9+ Wi-Fi"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy Tab A9+ Wi-Fi"
 
   #
   # Simple Frame Buffer

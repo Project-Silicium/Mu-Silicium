@@ -54,7 +54,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 7 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"muyu"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Pad_7_Pro_muyu"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Pad 7 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Pad 7 Pro"
 
   #
   # Simple Frame Buffer

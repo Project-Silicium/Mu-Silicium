@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F4 GT"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"ingres"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F4_GT_ingres"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F4 GT"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Poco F4 GT"
 
   #
   # Simple Frame Buffer

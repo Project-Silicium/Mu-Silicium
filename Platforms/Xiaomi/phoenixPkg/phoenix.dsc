@@ -58,7 +58,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"phoenixin"
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"MZB9011IN"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"G7B"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"G7B"
 
   #
   # Simple Frame Buffer

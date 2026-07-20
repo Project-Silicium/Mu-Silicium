@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"r8q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy S20 FE"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_S20_FE_r8q"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy S20 FE"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy S20 FE"
 
   #
   # Simple Frame Buffer

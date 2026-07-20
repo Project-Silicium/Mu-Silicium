@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Legion Tab Y700"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"9707f"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Legion_Tab_Y700_9707f"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Legion Tab Y700"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Legion Tab Y700"
 
   #
   # Simple Frame Buffer

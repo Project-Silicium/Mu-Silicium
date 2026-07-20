@@ -30,22 +30,13 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Not Specified"|VOID*|0x0000A200
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Not Specified"|VOID*|0x0000A201
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Not Specified"|VOID*|0x0000A202
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Not Specified"|VOID*|0x0000A203
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"Not Specified"|VOID*|0x0000A204
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Not Specified"|VOID*|0x0000A205
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Not Specified"|VOID*|0x0000A206
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Not Specified"|VOID*|0x0000A207
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Not Specified"|VOID*|0x0000A208
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|0|UINT32|0x0000A209
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|0|UINT32|0x0000A20A
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|0|UINT32|0x0000A20B
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0|UINT32|0x0000A20C
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0|UINT32|0x0000A20D
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0|UINT32|0x0000A20E
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0|UINT32|0x0000A20F
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Not Specified"|VOID*|0x0000A200
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"Not Specified"|VOID*|0x0000A201
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Not Specified"|VOID*|0x0000A202
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Not Specified"|VOID*|0x0000A203
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Not Specified"|VOID*|0x0000A204
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"Not Specified"|VOID*|0x0000A205
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Not Specified"|VOID*|0x0000A206
 
   #
   # UFP Device

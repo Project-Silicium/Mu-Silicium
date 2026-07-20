@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy S22 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"r0q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_S22_5G_r0q"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy S22 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy S22 5G"
 
   #
   # Simple Frame Buffer

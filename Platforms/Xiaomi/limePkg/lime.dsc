@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 9T"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lime"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_9T_lime"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi 9T"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Redmi 9T"
 
   #
   # Simple Frame Buffer

@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy A10"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"a10"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A10_a10"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy A10"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy A10"
 
   #
   # Simple Frame Buffer

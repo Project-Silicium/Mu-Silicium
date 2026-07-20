@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"P11 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"j706f"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"P11_Pro_j706f"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"P11 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"P11 Pro"
 
   #
   # Simple Frame Buffer

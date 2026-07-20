@@ -52,7 +52,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 13 Pro 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"garnet"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"2312DRA50G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"N16"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"N16"
 
   #
   # Simple Frame Buffer

@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy S10"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"beyond1lte"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_S10_beyond1lte"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy S10"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy S10"
 
   #
   # Simple Frame Buffer

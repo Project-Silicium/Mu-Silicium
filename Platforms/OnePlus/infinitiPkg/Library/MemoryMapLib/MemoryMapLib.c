@@ -6,10 +6,13 @@ gMemoryDescriptor[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
 
   // DDR Regions
-  {"RSRV0",              0x81960000, 0x000A0000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"HYP",                0x80000000, 0x00E00000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"RSRV0",              0x80E00000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
+  {"PDP",                0x81300000, 0x00100000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"RSRV1",              0x81960000, 0x000A0000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"XBL_DT",             0x81A00000, 0x00060000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"AOP",                0x81C00000, 0x000A0000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-  {"UEFI_Log",           0x81CE4000, 0x00010000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"TME",                0x81CA0000, 0x00054000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"SMEM",               0x81D00000, 0x00200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"PDP_NS",             0x81F00000, 0x00100000, AddMem, MEM_RES, UNCACHEABLE, Reserv, NS_DEVICE},
   {"PvmFw",              0x824A0000, 0x00100000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},

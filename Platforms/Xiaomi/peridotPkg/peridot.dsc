@@ -54,7 +54,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"peridot"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F6_peridot"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F6"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Poco F6"
 
   #
   # Simple Frame Buffer

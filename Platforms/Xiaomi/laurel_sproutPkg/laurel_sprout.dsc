@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi A3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"laurel_sprout"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_A3_laurel_sprout"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi A3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Mi A3"
 
   #
   # Simple Frame Buffer

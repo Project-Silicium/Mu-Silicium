@@ -9,13 +9,6 @@
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc
 
-[PcdsFixedAtBuild]
-  #
-  # SMBIOS
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"NVIDIA"
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"NVIDIA Corporation"
-
 [LibraryClasses]
   #
   # ARM Libraries
@@ -23,11 +16,6 @@
   ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
 
 [Components]
-  #
-  # SMBIOS
-  #
-  NvidiaPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
-
   #
   # Custom Drivers
   #

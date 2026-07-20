@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 6"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pipa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"23043RP34G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"M82"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"M82"
 
   #
   # Simple Frame Buffer

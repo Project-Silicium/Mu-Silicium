@@ -6,7 +6,7 @@ gMemoryDescriptor[] = {
   // Name, Address, Length, HobOption, ResourceType, ResourceAttribute, MemoryType, ArmAttribute
 
   // DDR Regions
-  {"NOMAP",             0x80000000, 0x01200000, NoHob,  MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN}, // gunyah_hyp_region + cpusys_vm_region
+  {"NOMAP",             0x80000000, 0x01200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN}, // gunyah_hyp_region + cpusys_vm_region
   {"RSRV0",             0x81200000, 0x00800000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"XBL DT",            0x81A00000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"XBL Ramdump",       0x81A40000, 0x001C0000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
@@ -36,7 +36,7 @@ gMemoryDescriptor[] = {
   {"DXE Heap",          0xBAB00000, 0x0D1C0000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
   {"UEFI FD",           0xC7CC0000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"TZApps Reserved",   0xD8800000, 0x07400000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
-  {"NOMAP",             0xFF800000, 0x00800000, NoHob,  MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
+  {"NOMAP",             0xFF800000, 0x00800000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
 
   // Other Memory Regions
   {"IMEM Base",         0x14680000, 0x0002A000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},

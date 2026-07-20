@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"9"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lemonade"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"9_lemonade"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"9"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"9"
 
   #
   # Simple Frame Buffer

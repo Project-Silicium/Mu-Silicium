@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"ROG Phone 5"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"i005d"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"ROG_Phone_5_i005d"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"ROG Phone 5"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"ROG Phone 5"
 
   #
   # Simple Frame Buffer

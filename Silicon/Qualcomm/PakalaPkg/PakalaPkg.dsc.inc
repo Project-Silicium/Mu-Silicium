@@ -48,25 +48,17 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite"
+!if ($(SOC_TYPE) == 0 || $(SOC_TYPE) == 1)
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite @ 4.32 GHz"
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8750-AB"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8750-3-AB"
+!endif
 !elseif $(SOC_TYPE) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite @ 4.47 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8750-AC"
 !endif
-!if $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|4470
-!else
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|4320
-!endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000                         # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|5300
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #

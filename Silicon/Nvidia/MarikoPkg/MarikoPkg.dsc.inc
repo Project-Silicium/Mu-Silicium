@@ -42,12 +42,6 @@
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM675M-A1"
 !endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2100
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x30
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1600                               # Incorrect?
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
   #
   # Clock

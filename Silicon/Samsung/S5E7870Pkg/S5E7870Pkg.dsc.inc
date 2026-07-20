@@ -47,12 +47,6 @@
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7870 @ 1.60 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E7870"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|1600
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x100                       # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x100                       # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200                           # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|933                                 # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|29
 
 [LibraryClasses]
   #

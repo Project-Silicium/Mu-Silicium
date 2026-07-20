@@ -27,10 +27,10 @@
 
   #
   # 0 = SM8475
-  # 1 = SM8475-AB
+  # 1 = SM8475    (Overclocked)
   # 2 = SM7475-AB
   #
-  SOC_TYPE                       = 1
+  SOC_TYPE                       = 0
 
 !include PalimaPkg/PalimaPkg.dsc.inc
 
@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Phone 2"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pong"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Phone_2_pong"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Phone 2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Phone 2"
 
   #
   # Simple Frame Buffer

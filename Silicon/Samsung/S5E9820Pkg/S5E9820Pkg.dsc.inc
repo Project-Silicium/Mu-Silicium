@@ -47,13 +47,6 @@
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 9820 @ 2.73 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E9820"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2730
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20                         # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20                         # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x80                             # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400                            # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2730                                 # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
   #

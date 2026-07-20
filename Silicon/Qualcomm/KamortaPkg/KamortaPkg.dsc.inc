@@ -50,15 +50,13 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 662"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 662 @ 2.00 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6115"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2000
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866                               # LPDDR3 Variant: 933 MHz
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
-  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|TRUE                                    # Xiaomi Only?
+
+  #
+  # Memory
+  #
+  gQcomPkgTokenSpaceGuid.PcdFaultyDdrProtocol|TRUE
 
 [LibraryClasses]
   #

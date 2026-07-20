@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"POCO X3 NFC"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"surya"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2007J20CG"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J20CG"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"J20CG"
 
   #
   # Simple Frame Buffer

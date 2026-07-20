@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Phone 1"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"spacewar"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Phone_1_spacewar"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Phone 1"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Phone 1"
 
   #
   # Simple Frame Buffer

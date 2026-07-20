@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 11"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"venus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2011K2G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"K2G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"K2G"
 
   #
   # Simple Frame Buffer

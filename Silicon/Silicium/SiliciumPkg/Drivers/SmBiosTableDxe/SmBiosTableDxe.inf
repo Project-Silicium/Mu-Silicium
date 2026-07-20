@@ -4,53 +4,50 @@
   FILE_GUID                      = 50A15B6F-E3A9-4192-9640-369CB367C4DE
   MODULE_TYPE                    = DXE_DRIVER
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = RegisterSmBiosTables
+  ENTRY_POINT                    = SmBiosTableDriverEntry
 
 [Sources]
   SmBiosTable.c
+  Utils.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  ArmPlatformPkg/ArmPlatformPkg.dec
   SiliciumPkg/SiliciumPkg.dec
 
 [LibraryClasses]
+  DebugLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
   MemoryAllocationLib
+  SmBiosTableLib
   BaseMemoryLib
-  DebugLib
-  UefiLib
   PrintLib
+  BaseLib
+  ArmLib
+  PcdLib
 
 [FixedPcd]
+  gArmTokenSpaceGuid.PcdFdSize
   gArmTokenSpaceGuid.PcdSystemMemoryBase
-  gArmTokenSpaceGuid.PcdSystemMemorySize
+
   gArmPlatformTokenSpaceGuid.PcdCoreCount
-  gArmPlatformTokenSpaceGuid.PcdClusterCount
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
+
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString
+
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize
 
 [Protocols]
   gEfiSmbiosProtocolGuid
-
+  
 [Depex]
-  gEfiSmbiosProtocolGuid
+  TRUE

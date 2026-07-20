@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"8T"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"kebab"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"8T_kebab"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"8T"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"8T"
 
   #
   # Simple Frame Buffer

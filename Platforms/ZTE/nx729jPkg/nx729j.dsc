@@ -52,7 +52,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"RedMagic 8 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nx729j"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"RedMagic_8_Pro_nx729j"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"RedMagic 8 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"RedMagic 8 Pro"
 
   #
   # Simple Frame Buffer

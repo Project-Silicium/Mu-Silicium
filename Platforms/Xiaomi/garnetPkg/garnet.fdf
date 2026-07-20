@@ -83,9 +83,12 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
   !include Include/RAW.inc
 
+  # RAM Manager
+  INF SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
+
   # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF QcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  INF SiliciumPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI
   #INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf

@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Velvet"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"caymanslm"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Velvet_caymanslm"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Velvet"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Velvet"
 
   #
   # Simple Frame Buffer

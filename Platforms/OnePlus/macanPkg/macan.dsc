@@ -48,7 +48,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"15R"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"macan"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2769"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"24831"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"24831"
 
   #
   # Simple Frame Buffer
