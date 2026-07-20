@@ -29,10 +29,12 @@
 
   #
   # 0 = SM8650-AA
-  # 1 = SM8650-AB
-  # 2 = SM8650-AC
+  # 1 = SM8650-Q-AA
+  # 2 = SM8650-AB
+  # 3 = SM8650-Q-AB
+  # 4 = SM8650-AC
   #
-  SOC_TYPE                       = 1
+  SOC_TYPE                       = 2
 
 !include LanaiPkg/LanaiPkg.dsc.inc
 

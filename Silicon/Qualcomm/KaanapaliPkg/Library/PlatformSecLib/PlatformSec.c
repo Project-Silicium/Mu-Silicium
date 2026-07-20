@@ -21,7 +21,9 @@ mArmPlatformMpCoreInfoTable[] = {
 
   // Cluster 1
   { 0x10000, 0, 0, 0, 0xFFFFFFFF },
+#if SOC_TYPE != 1
   { 0x10100, 0, 0, 0, 0xFFFFFFFF }
+#endif
 };
 
 VOID

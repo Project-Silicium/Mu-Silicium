@@ -31,7 +31,7 @@
   #
   # CPU
   #
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|8          # Q Variants have 6 Cores.
   gArmPlatformTokenSpaceGuid.PcdClusterCount|4
 
   #
@@ -43,12 +43,22 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3 @ 3.40 GHz"
+!if ($(SOC_TYPE) == 0 || $(SOC_TYPE) == 1)
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3 @ 3.00 GHz"
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-AA"
 !elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-Q-AA"
+!endif
+!elseif ($(SOC_TYPE) == 2 || $(SOC_TYPE) == 3)
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3 @ 3.30 GHz"
+!if $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-AB"
-!elseif $(SOC_TYPE) == 2
+!elseif $(SOC_TYPE) == 3
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-Q-AB"
+!endif
+!elseif $(SOC_TYPE) == 4
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3 @ 3.40 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-AC"
 !endif
 

@@ -25,13 +25,17 @@
 !include QcomPkg/QcomPkg.dsc.inc
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv9.2-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv9.2-a+crypto+rcpc -DSOC_TYPE=$(SOC_TYPE)
 
 [PcdsFixedAtBuild]
   #
   # CPU
   #
+!if $(SOC_TYPE) != 1
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
+!else
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|7
+!endif
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
 
   #
@@ -43,8 +47,17 @@
   #
   # SMBIOS
   #
+!if $(SOC_TYPE) != 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite Gen 5 @ 4.74 GHz"
+!if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8850-AC"
+!elseif $(SOC_TYPE) == 1
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8850-5-AC"
+!endif
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite Gen 5 @ 4.60 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8850-1-AD"
+!endif
 
 [LibraryClasses]
   #
