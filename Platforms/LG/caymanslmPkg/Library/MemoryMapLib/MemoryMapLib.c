@@ -7,7 +7,7 @@ gMemoryDescriptor[] = {
 
   // DDR Regions
   {"Kernel",             0x80000000, 0x05700000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
-  {"QTEE",               0x85fc0000, 0x02f40000, NoHob,  SYS_MEM, SYS_MEM_CAP, Reserv, NS_DEVICE},
+  {"QTEE",               0x85fc0000, 0x02f40000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"AOP CMD DB",         0x85FE0000, 0x00020000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
   {"SMEM",               0x86000000, 0x00200000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"DXE Heap",           0x97C00000, 0x05730000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK_XN},
