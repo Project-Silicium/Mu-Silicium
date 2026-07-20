@@ -1,0 +1,34 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = SmBiosTableLib
+  FILE_GUID                      = 353B60FF-1ABC-4A66-8B48-58000A57F458
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = SmBiosTableLib|DXE_DRIVER
+  CONSTRUCTOR                    = SmBiosTablesLibConstructor
+
+[Sources]
+  SmBiosTable.c
+  Utils.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  UefiBootServicesTableLib
+  MemoryAllocationLib
+  PrintLib
+  BaseLib
+  PcdLib
+
+[FixedPcd]
+  gArmPlatformTokenSpaceGuid.PcdClusterCount
+  gQcomPkgTokenSpaceGuid.PcdFaultyDdrProtocol
+
+[Protocols]
+  gEfiClockProtocolGuid
+  gEfiDDRGetInfoProtocolGuid

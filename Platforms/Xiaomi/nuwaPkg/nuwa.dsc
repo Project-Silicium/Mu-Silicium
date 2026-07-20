@@ -52,7 +52,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nuwa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"13_Pro_nuwa"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"13 Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"13 Pro"
 
   #
   # Simple Frame Buffer

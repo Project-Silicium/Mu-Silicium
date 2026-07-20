@@ -52,7 +52,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi 10C"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"fog"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_10C_fog"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi 10C"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Redmi 10C"
 
   #
   # Simple Frame Buffer

@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Phone 2"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pong"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Phone_2_pong"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Phone 2"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Phone 2"
 
   #
   # Simple Frame Buffer

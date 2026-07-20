@@ -42,12 +42,6 @@
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7885 @ 2.20 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E7885"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40                         # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40                         # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800                            # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866                                 # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
   #

@@ -54,7 +54,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F5"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"marble"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F5_marble"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F5"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Poco F5"
 
   #
   # Simple Frame Buffer

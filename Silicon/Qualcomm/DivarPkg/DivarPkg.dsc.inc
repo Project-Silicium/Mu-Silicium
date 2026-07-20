@@ -51,22 +51,12 @@
   # SMBIOS
   #
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 680 @ 2.40 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6225"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 685 @ 2.80 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM6225-AD"
 !endif
-!if $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2800
-!else
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2400
-!endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|2133
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
   #

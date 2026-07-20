@@ -241,6 +241,11 @@
   UefiHiiServicesLib|MdeModulePkg/Library/UefiHiiServicesLib/UefiHiiServicesLib.inf
 
   #
+  # SMBIOS Libraries
+  #
+  SmBiosTableLib|SiliciumNullPkg/Library/SmBiosTableLibNull/SmBiosTableLibNull.inf
+
+  #
   # Storage Libraries
   #
   FileHandleLib|MdePkg/Library/UefiFileHandleLib/UefiFileHandleLib.inf
@@ -413,7 +418,6 @@
       NULL|SecurityPkg/Library/DxeImageVerificationLib/DxeImageVerificationLib.inf
 !endif
   }
-  MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
   MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
 
@@ -468,6 +472,12 @@
   # RAM Manager
   #
   SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
+
+  #
+  # SMBIOS
+  #
+  MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
+  SiliciumPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   #
   # ACPI

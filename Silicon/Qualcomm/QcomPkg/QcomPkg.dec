@@ -102,9 +102,9 @@
   gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0|UINT64|0x0000C003
 
   #
-  # Memory Speed
+  # Memory
   #
-  gQcomPkgTokenSpaceGuid.PcdForceMemorySpeed|FALSE|BOOLEAN|0x0000C100
+  gQcomPkgTokenSpaceGuid.PcdFaultyDdrProtocol|FALSE|BOOLEAN|0x0000C100
 
   #
   # Storage

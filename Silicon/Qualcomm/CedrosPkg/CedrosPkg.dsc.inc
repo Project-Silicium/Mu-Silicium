@@ -43,15 +43,8 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 780G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 780G @ 2.40 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7350"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2500
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x80
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #

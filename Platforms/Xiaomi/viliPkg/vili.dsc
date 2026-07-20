@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"11T Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"vili"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"11T_Pro_vili"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"11T Pro"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"11T Pro"
 
   #
   # Simple Frame Buffer

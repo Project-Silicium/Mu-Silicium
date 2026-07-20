@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 7"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lavender"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_7_lavender"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 7"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Redmi Note 7"
 
   #
   # Simple Frame Buffer

@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Flip 4"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"b4q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Flip_4_b4q"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Flip 4"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy Z Flip 4"
 
   #
   # Simple Frame Buffer

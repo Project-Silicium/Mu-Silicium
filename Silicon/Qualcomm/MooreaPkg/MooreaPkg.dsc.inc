@@ -50,26 +50,15 @@
   # SMBIOS
   #
 !if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730 @ 2.20 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AA"
 !elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 730G @ 2.20 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AB"
 !elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 732G @ 2.30 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7150-AC"
 !endif
-!if $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2300
-!else
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2200
-!endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x100
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
   #

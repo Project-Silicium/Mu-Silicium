@@ -12,13 +12,6 @@
 [BuildOptions]
   *_CLANGPDB_AARCH64_CC_FLAGS = -D HAS_CNTFRQ_EL0_EMPTY_ERRATA=$(HAS_CNTFRQ_EL0_EMPTY_ERRATA)
 
-[PcdsFixedAtBuild]
-  #
-  # SMBIOS
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"Samsung"
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"Samsung Electronics Co., Ltd."
-
 [LibraryClasses]
   #
   # Memory Libraries
@@ -70,11 +63,6 @@
   # Power Management Drivers
   #
   SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
-
-  #
-  # SMBIOS Drivers
-  #
-  SamsungPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   #
   # RNG Drivers

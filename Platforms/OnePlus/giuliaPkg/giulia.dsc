@@ -60,7 +60,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13R"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2645"
 !endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"24825"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"24825"
 
   #
   # Simple Frame Buffer

@@ -48,7 +48,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco M3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"citrus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_M3_citrus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco M3"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Poco M3"
 
   #
   # Simple Frame Buffer

@@ -48,7 +48,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"15"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"infiniti"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2747"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"24831"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"24831"
 
   #
   # Simple Frame Buffer

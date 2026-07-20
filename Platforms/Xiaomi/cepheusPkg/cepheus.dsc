@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Mi 9"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"cepheus"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Mi_9_cepheus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Mi 9"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Mi 9"
 
   #
   # Simple Frame Buffer

@@ -69,7 +69,7 @@
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"iowa"
 !endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Switch"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Switch"
 
   #
   # Simple Frame Buffer (TODO: Rotate Screen Somehow)

@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Note 20 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"c1s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Note_20_5G_c1s"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Note 20 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy Note 20 5G"
 
   #
   # Simple Frame Buffer

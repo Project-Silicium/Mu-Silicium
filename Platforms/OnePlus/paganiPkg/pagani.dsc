@@ -55,7 +55,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"13s"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"pagani"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2723"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"24875"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"24875"
 
   #
   # Simple Frame Buffer

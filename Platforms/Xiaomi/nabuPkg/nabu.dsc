@@ -55,7 +55,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Pad 5"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nabu"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"21051182G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"K82"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"K82"
 
   #
   # Simple Frame Buffer

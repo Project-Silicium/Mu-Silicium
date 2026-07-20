@@ -9,13 +9,6 @@
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc
 
-[PcdsFixedAtBuild]
-  #
-  # SMBIOS
-  #
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorSocket|"MediaTek"
-  gSiliciumPkgTokenSpaceGuid.PcdSmBiosProcessorManufacturer|"MediaTek Inc."
-
 [LibraryClasses]
   #
   # ARM Libraries
@@ -28,11 +21,6 @@
   RamManagerLib|MediaTekPkg/Library/RamManagerLib/RamManagerLib.inf
 
 [Components]
-  #
-  # SmBios
-  #
-  MediaTekPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
-
   #
   # Custom Drivers
   #

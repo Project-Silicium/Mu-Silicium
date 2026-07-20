@@ -43,15 +43,8 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite Gen 5"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Elite Gen 5 @ 4.74 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8850-AC"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|4600
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x200                                # 2nd Cluster has 0x600
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000                               # Unoffical Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|5300
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #

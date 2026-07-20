@@ -52,7 +52,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy Z Flip5"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"b5q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Flip5_b5q"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy Z Flip5"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy Z Flip5"
 
   #
   # Simple Frame Buffer

@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Poco F7"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"onyx"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Poco_F7_onyx"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Poco F7"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Poco F7"
 
   #
   # Simple Frame Buffer

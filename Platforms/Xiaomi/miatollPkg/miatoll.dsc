@@ -47,32 +47,32 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9S"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6A1G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6A1G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"J6A1G"
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro India"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6A1I"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6A1I"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"J6A1I"
 !elseif $(DEVICE_MODEL) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 10 Lite"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"curtana"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2002F4LG"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"F4LG"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"F4LG"
 !elseif $(DEVICE_MODEL) == 3
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro Global"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"joyeuse"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6B2G"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6B2G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"J6B2G"
 !elseif $(DEVICE_MODEL) == 4
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 9 Pro Max"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"excalibur"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6B1I"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6B1I"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"J6B1I"
 !elseif $(DEVICE_MODEL) == 5
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"POCO M2 Pro"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"gram"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"M2003J6CI"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"J6CI"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"J6CI"
 !endif
 
   #

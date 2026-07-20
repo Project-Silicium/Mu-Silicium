@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 11 Pro 5G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"veux"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_11_Pro_5G_veux"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 11 Pro 5G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Redmi Note 11 Pro 5G"
 
   #
   # Simple Frame Buffer

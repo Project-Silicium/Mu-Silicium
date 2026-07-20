@@ -52,13 +52,6 @@
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 9810 @ 2.90 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E9810"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2900
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x100                       # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x80                        # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800                           # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x1000                          # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1800                                # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
   #

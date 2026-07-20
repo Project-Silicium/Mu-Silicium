@@ -43,31 +43,17 @@
   #
   # SMBIOS
   #
-!if ($(SOC_TYPE) == 0) || ($(SOC_TYPE) == 1)
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1"
-!elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 7+ Gen 2"
-!endif
+!if $(SOC_TYPE) != 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8+ Gen 1 @ 3.20 GHz"
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8475"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8475-AB"
-!elseif $(SOC_TYPE) == 2
+!endif
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 7+ Gen 2 @ 2.91 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM7475"
 !endif
-!if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3200
-!elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3000
-!elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2910
-!endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x1800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|3200
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #

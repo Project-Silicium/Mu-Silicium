@@ -53,17 +53,6 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 2400e @ 3.11 GHz"
 !endif
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"S5E9945"
-!if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3210
-!elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3110
-!endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x20
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x2000                              # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4200                                    # Unofficial Value
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #

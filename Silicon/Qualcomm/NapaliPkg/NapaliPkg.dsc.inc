@@ -49,14 +49,8 @@
   #
   # SMBIOS
   #
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 845"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 845 @ 2.80 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SDM845"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|2800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|1866
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|30
 
 [LibraryClasses]
   #

@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Moto G9 Power"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"cebu"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Moto_G9_Power_cebu"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Moto G9"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Moto G9"
 
   #
   # Simple Frame Buffer

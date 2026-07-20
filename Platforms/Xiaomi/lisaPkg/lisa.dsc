@@ -53,7 +53,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"11 Lite 5G NE"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"lisa"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"11_Lite_5G_NE_lisa"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"11 Lite 5G NE"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"11 Lite 5G NE"
 
   #
   # Simple Frame Buffer

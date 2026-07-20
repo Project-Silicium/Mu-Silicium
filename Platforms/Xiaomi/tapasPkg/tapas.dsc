@@ -52,7 +52,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Redmi Note 12 4G"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"tapas"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Redmi_Note_12_4G_tapas"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Redmi Note 12 4G"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Redmi Note 12 4G"
 
   #
   # Simple Frame Buffer

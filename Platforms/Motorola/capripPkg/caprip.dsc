@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Moto G30"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"caprip"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Moto_G30_caprip"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Moto G30"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Moto G30"
 
   #
   # Simple Frame Buffer

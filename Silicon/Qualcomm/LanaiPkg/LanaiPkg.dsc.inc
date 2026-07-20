@@ -43,11 +43,7 @@
   #
   # SMBIOS
   #
-!if $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3 for Galaxy"
-!else
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3"
-!endif
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 3 @ 3.40 GHz"
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-AA"
 !elseif $(SOC_TYPE) == 1
@@ -55,19 +51,6 @@
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8650-AC"
 !endif
-!if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3052
-!elseif $(SOC_TYPE) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3302
-!elseif $(SOC_TYPE) == 2
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMaxCpuFreq|3398
-!endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1InstCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel1DataCacheSize|0x40
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel2CacheSize|0x400
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosLevel3CacheSize|0x3000
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemorySpeed|4800
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosMemoryType|35
 
 [LibraryClasses]
   #

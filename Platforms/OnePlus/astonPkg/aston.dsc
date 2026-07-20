@@ -53,12 +53,12 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Ace 3"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"PJE110"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23801"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"23801"
 !elseif $(DEVICE_MODEL) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"12R"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"aston"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2585"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"23861"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"23861"
 !endif
 
   #
