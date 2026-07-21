@@ -46,7 +46,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy A70"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"a70q"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_A70_a70q"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy A70"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Galaxy A70"
 
   #
   # Simple Frame Buffer
@@ -63,7 +63,7 @@
   #
   # Storage
   #
-  gQcomPkgTokenSpaceGuid.PcdInitCardSlot|TRUE
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|FALSE
 
 [LibraryClasses]
   #
