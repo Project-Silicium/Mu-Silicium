@@ -15,6 +15,10 @@
 
 [Sources]
   PlatformPei.c
+  ShimLoader.c
+  UefiConfig.c
+  SerialPort.c
+  XblProtocols.c
 
 [Packages]
   ArmPkg/ArmPkg.dec

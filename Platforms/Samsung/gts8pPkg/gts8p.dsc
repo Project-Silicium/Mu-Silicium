@@ -59,8 +59,6 @@
   # Platform PEI
   #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"
-  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703B920
-  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703B0C8
 
 [LibraryClasses]
   #
