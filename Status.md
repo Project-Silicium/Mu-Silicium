@@ -4856,7 +4856,7 @@
 | USB Power Delivery |                   | ❌    |
 | Mass Storage       |                   | ✅    |
 | SD Card            |                   | ❔    |
-| Windows Boot       |                   | ❔    |
+| Windows Boot       |                   | ❌    |
 | Linux Boot         |                   | ❔    |
 
 </td></tr>
