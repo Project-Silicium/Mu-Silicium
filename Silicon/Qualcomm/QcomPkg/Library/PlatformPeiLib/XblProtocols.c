@@ -56,7 +56,7 @@ GetXblHobAddresses (
   OUT EFI_PHYSICAL_ADDRESS *SchedulerInterfaceAddr,
   OUT EFI_PHYSICAL_ADDRESS *DtbExtensionAddr)
 {
-  EFI_MEMORY_REGION_DESCRIPTOR ReservedFd;
+  EFI_MEMORY_REGION_DESCRIPTOR ReservedFd = {0};
 
   // Get XBL HOB PCDs
   EFI_PHYSICAL_ADDRESS SchedulerAddrPcd    = FixedPcdGet64 (PcdSchedulerInterfaceAddr);
