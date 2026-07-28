@@ -72,8 +72,6 @@
   # Platform PEI
   #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
-  gQcomPkgTokenSpaceGuid.PcdDtbExtensionAddr|0xA703A0C8
-  gQcomPkgTokenSpaceGuid.PcdSchedulerInterfaceAddr|0xA703A950
 
 [LibraryClasses]
   #
