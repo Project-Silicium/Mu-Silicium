@@ -39,7 +39,7 @@ UpdateAcpiTables ()
   UINT32 TPMA                            = 0x1;
   UINT32 TDTV                            = 0x6654504D;
   UINT64 SOSI                            = 0;
-  UINT32 PRP0                            = 0;
+  UINT32 PRP0                            = 1;
   UINT32 PRP1                            = 0;
   CHAR8  SIDS[EFICHIPINFO_MAX_ID_LENGTH] = {0};
   UINT32 RMTB                            = 0;
