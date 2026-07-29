@@ -33,8 +33,8 @@ APRIORI DXE {
   INF Binaries/lemonade/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
-  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
-  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF Binaries/lemonade/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF Binaries/lemonade/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/lemonade/QcomPkg/Drivers/SdccDxe/SdccDxe.inf

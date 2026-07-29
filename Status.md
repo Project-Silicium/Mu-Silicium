@@ -1759,6 +1759,29 @@
 | Windows Boot       |              | ❌    |
 | Linux Boot         |              | ❌    |
 
+## Realme GT Neo5 SE
+
+<img align="right" src="Resources/Pictures/Realme-GT-Neo5-SE.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** senna_a <br>
+
+**Contributors:** [v1-727](https://github.com/v1-727/), [Rostislav Lastochkin](https://github.com/remtrik), [Robotix](https://github.com/Robotix22/)
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:-------------|:-----:|
+| Display            |              | ✅    |
+| Internal Storage   |              | ✅    |
+| Side Buttons       |              | ✅    |
+| USB Host Mode      |              | ❌    |
+| USB Device Mode    |              | ✅    |
+| USB Power Delivery |              | ❌    |
+| Mass Storage       |              | ✅    |
+| Windows Boot       |              | ❌    |
+| Linux Boot         |              | ❌    |
+
 </details>
 
 <details>
