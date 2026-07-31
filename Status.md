@@ -2310,10 +2310,10 @@
 | USB Device Mode      |             | ✅    |
 | USB Power Delivery   |             | ❌    |
 | Charging             |             | ✅    |
-| WLAN                 |             | ❌    |
+| WLAN                 |             | ✅    |
 | CPU                  |             | ✅    |
 | Touchscreen          |             | ❌    |
-| Bluetooth            |             | ❌    |
+| Bluetooth            |             | ✅    |
 | GPS                  |             | ✅    |
 | Speakers             |             | ❌    |
 | Microphone           |             | ❌    |
