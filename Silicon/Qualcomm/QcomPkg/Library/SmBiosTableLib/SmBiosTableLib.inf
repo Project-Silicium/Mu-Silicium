@@ -32,3 +32,4 @@
 [Protocols]
   gEfiClockProtocolGuid
   gEfiDDRGetInfoProtocolGuid
+  gEfiChipInfoProtocolGuid

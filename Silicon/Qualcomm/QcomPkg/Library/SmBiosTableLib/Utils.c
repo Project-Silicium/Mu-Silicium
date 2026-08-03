@@ -4,6 +4,7 @@
 
 #include <Protocol/EFIClock.h>
 #include <Protocol/EFIDDRGetConfig.h>
+#include <Protocol/EFIChipInfo.h>
 
 #include "SmBiosTable.h"
 
@@ -12,6 +13,7 @@
 //
 STATIC EFI_CLOCK_PROTOCOL      *mClockProtocol    = NULL;
 STATIC EFI_DDRGETINFO_PROTOCOL *mDdrInfoProtocol  = NULL;
+STATIC EFI_CHIPINFO_PROTOCOL   *mChipInfoProtocol  = NULL;
 
 EFI_STATUS
 GetClusterSpeeds (
@@ -190,6 +192,25 @@ ConvertManufacturerId (IN UINT8 Id)
   return "Not Specified";
 }
 
+EFI_STATUS
+GetChipIdString (OUT CHAR8* ChipIdString)
+{
+  EFI_STATUS Status;
+
+  // Verify Protocol Presense
+  if (mChipInfoProtocol == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  // Get Chip ID String
+  Status = mChipInfoProtocol->GetChipIdString (mChipInfoProtocol, ChipIdString, 16);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  return EFI_SUCCESS;
+}
+
 VOID
 InitializeUtilities ()
 {
@@ -205,5 +226,11 @@ InitializeUtilities ()
   Status = gBS->LocateProtocol (&gEfiDDRGetInfoProtocolGuid, NULL, (VOID *)&mDdrInfoProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate DDR Info Protocol! Status = %r\n", Status));
+  }
+
+  // Locate Chip Info Protocol
+  Status = gBS->LocateProtocol (&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mChipInfoProtocol);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Locate Chip Info Protocol! Status = %r\n", Status));
   }
 }

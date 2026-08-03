@@ -7,6 +7,21 @@
 #include "SmBiosTable.h"
 
 VOID
+PlatformUpdateSmBiosType1 (IN OUT EFI_SMBIOS_TYPE1 *Type1)
+{
+  EFI_STATUS   Status;
+  STATIC CHAR8 ChipIdString[16];
+
+  // Get Chip ID String
+  Status = GetChipIdString (ChipIdString);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to get Chip ID String! Status = %r\n", Status));
+  } else {
+    Type1->Strings[5] = ChipIdString;
+  }
+}
+
+VOID
 PlatformUpdateSmBiosType4 (IN OUT EFI_SMBIOS_TYPE4 *Type4)
 {
   EFI_STATUS Status;
@@ -87,6 +102,7 @@ VOID
 PlatformUpdateSmBiosTables (IN OUT EFI_SMBIOS_TABLES *SmBiosTables)
 {
   // Update SMBIOS Tables
+  PlatformUpdateSmBiosType1  (&SmBiosTables->Type1);
   PlatformUpdateSmBiosType4  (&SmBiosTables->Type4);
   PlatformUpdateSmBiosType17 (&SmBiosTables->Type17);
 }

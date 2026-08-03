@@ -46,6 +46,11 @@ ConvertManufacturerId (
   IN UINT8 Id
   );
 
+EFI_STATUS
+GetChipIdString (
+  OUT CHAR8* ChipIdString
+  );
+
 VOID
 InitializeUtilities ();
 
