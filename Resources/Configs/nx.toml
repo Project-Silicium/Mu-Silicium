@@ -2,19 +2,13 @@
 # Device Status
 #
 [status]
-model_count = 2
-
-#
-# Boot Shim Configs
-#
-[boot_shim]
-requires_kernel_header = false
+model_count = 4
 
 #
 # UEFI FD Configs
 #
 [uefi_fd]
-base = 0x80000000
+base = 0xAA000000
 size = 0x200000
 
 #

@@ -8,16 +8,3 @@
 ##
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc
-
-[LibraryClasses]
-  #
-  # ARM Libraries
-  #
-  ArmSmcLib|MdePkg/Library/ArmSmcLib/ArmSmcLib.inf
-
-[Components]
-  #
-  # Custom Drivers
-  #
-  NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
-  NvidiaPkg/GPLDrivers/TegraClockDxe/TegraClockDxe.inf

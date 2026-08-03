@@ -36,7 +36,7 @@
   SOC_TYPE                       = 0
 
 !include EristaPkg/EristaPkg.dsc.inc
-!elseif $(DEVICE_MODEL) == 1
+!else
   #
   # 0 = ODNX10-A1
   # 1 = TM675M-A1
@@ -55,21 +55,32 @@
   #
   # UEFI Stack
   #
-  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0x80201000
+  gArmPlatformTokenSpaceGuid.PcdCPUCoresStackBase|0xAA200000
   gArmPlatformTokenSpaceGuid.PcdCPUCorePrimaryStackSize|0x40000
 
   #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Nintendo"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"nx"
+!if ($(DEVICE_MODEL) == 0) || ($(DEVICE_MODEL) == 1)
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch"
 !if $(DEVICE_MODEL) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"icosa"
-!elseif $(DEVICE_MODEL) == 1
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"iowa"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"HAC-001"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"icosa"
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"HAC-001(-01)"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"iowa"
 !endif
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"Switch"
+!elseif $(DEVICE_MODEL) == 2
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch Lite"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"HDH-001"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"hoag"
+!elseif $(DEVICE_MODEL) == 3
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Switch OLED"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"HEG-001"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"aula"
+!endif
 
   #
   # Simple Frame Buffer (TODO: Rotate Screen Somehow)
@@ -83,15 +94,3 @@
   # Memory Libraries
   #
   MemoryMapLib|nxPkg/Library/MemoryMapLib/MemoryMapLib.inf
-
-  #
-  # Input Libraries
-  #
-  KeypadDeviceLib|nxPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
-
-[Components]
-  #
-  # Input
-  #
-  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
-  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf

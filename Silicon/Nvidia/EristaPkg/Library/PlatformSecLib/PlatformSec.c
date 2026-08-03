@@ -14,13 +14,7 @@ mArmPlatformMpCoreInfoTable[] = {
   { 0x000, 0, 0, 0, 0xFFFFFFFF },
   { 0x001, 0, 0, 0, 0xFFFFFFFF },
   { 0x002, 0, 0, 0, 0xFFFFFFFF },
-  { 0x003, 0, 0, 0, 0xFFFFFFFF },
-
-  // Cluster 1
-  { 0x100, 0, 0, 0, 0xFFFFFFFF },
-  { 0x101, 0, 0, 0, 0xFFFFFFFF },
-  { 0x102, 0, 0, 0, 0xFFFFFFFF },
-  { 0x103, 0, 0, 0, 0xFFFFFFFF }
+  { 0x003, 0, 0, 0, 0xFFFFFFFF }
 };
 
 VOID

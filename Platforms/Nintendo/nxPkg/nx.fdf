@@ -101,6 +101,10 @@ READ_LOCK_STATUS   = TRUE
   #  SECTION RAW = nxPkg/FdtBlob/tegra210-nintendo-icosa.dtb
 !elseif $(DEVICE_MODEL) == 1
   #  SECTION RAW = nxPkg/FdtBlob/tegra214-nintendo-iowa.dtb
+!elseif $(DEVICE_MODEL) == 2
+  #  SECTION RAW = nxPkg/FdtBlob/tegra214-nintendo-hoag.dtb
+!elseif $(DEVICE_MODEL) == 3
+  #  SECTION RAW = nxPkg/FdtBlob/tegra214-nintendo-aula.dtb
 !endif
   #  SECTION UI = "DeviceTreeBlob"
   #}

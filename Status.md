@@ -5482,7 +5482,7 @@
 <br>
 
 <details>
-<summary><b><strong>Tegra X1 Devices</strong></b></summary>
+<summary><b><strong>Tegra X1/X1+ Devices</strong></b></summary>
 
 <br>
 
@@ -5498,13 +5498,13 @@
 <details>
 <summary><b><strong>Nintendo Devices</strong></b></summary>
 
-## Nintendo Switch
+## Nintendo Switch / Lite / OLED
 
 <img align="right" src="Resources/Pictures/Nintendo-Switch.png" width="500" alt="Preview">
 
 **State:** Inactive <br>
 **Codename:** nx <br>
-**Models:** 2
+**Models:** 4
 
 **Contributors:** [Robotix](https://github.com/Robotix22/)
 
@@ -5515,7 +5515,7 @@
 | Display            | Wrong Orientation | ⚠️    |
 | Internal Storage   |                   | ❌    |
 | Joy Cons           |                   | ❌    |
-| Side Buttons       | No Power Button   | ⚠️    |
+| Side Buttons       |                   | ❌    |
 | USB Host Mode      |                   | ❌    |
 | USB Device Mode    |                   | ❌    |
 | USB Power Delivery |                   | ❌    |
