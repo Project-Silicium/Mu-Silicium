@@ -226,23 +226,37 @@ GetMemoryRegionInfos (
 VOID
 UpdateAcpiTables ()
 {
-  EFI_STATUS Status;
-  UINT32     SIDV;
-  UINT32     SOID;
-  UINT16     SDFE;
-  UINT16     SIDM;
-  UINT32     SOSN1;
-  UINT32     SOSN2;
-  UINT32     PLST;
-  UINT64     SOSI;
-  UINT32     RMTB;
-  UINT32     RMTX;
-  UINT32     RFMB;
-  UINT32     RFMS;
-  UINT32     RFAB;
-  UINT32     RFAS;
-  UINT32     TCMA;
-  UINT32     TCML;
+  EFI_STATUS                   Status;
+  EFI_ACPI_DESCRIPTION_HEADER *DsdtTable;
+  UINTN                        DsdtHandle;
+  UINT32                       SIDV;
+  UINT32                       SOID;
+  UINT16                       SDFE;
+  UINT16                       SIDM;
+  UINT32                       SOSN1;
+  UINT32                       SOSN2;
+  UINT32                       PLST;
+  UINT64                       SOSI;
+  UINT32                       RMTB;
+  UINT32                       RMTX;
+  UINT32                       RFMB;
+  UINT32                       RFMS;
+  UINT32                       RFAB;
+  UINT32                       RFAS;
+  UINT32                       TCMA;
+  UINT32                       TCML;
+
+  // Locate DSDT Table
+  Status = LocateTableBySignature (EFI_ACPI_3_0_DIFFERENTIATED_SYSTEM_DESCRIPTION_TABLE_SIGNATURE, &DsdtTable, &DsdtHandle);
+  if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Locate DSDT Table! Status = %r\n", __FUNCTION__, Status));
+    return;
+  }
+
+  // Verify Table Presense
+  if (Status == EFI_NOT_FOUND) {
+    return;
+  }
 
   // Locate needed Protocols
   Status = LocateQcomProtocols ();
@@ -295,31 +309,37 @@ UpdateAcpiTables ()
   UINT32 EMUL = MmioRead32 (0x01FC8004) & 0x3;
 
   // Update DSDT / SSDT Names
-  UpdateNameAslCode (SIGNATURE_32 ('E', 'M', 'U', 'L'), &EMUL, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('P', 'L', 'S', 'T'), &PLST, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('P', 'U', 'S', '3'), &PUS3, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('R', 'F', 'A', 'B'), &RFAB, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('R', 'F', 'A', 'S'), &RFAS, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('R', 'F', 'M', 'B'), &RFMB, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('R', 'F', 'M', 'S'), &RFMS, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('R', 'M', 'T', 'B'), &RMTB, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('R', 'M', 'T', 'X'), &RMTX, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('P', 'R', 'P', '0'), &PRP0, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('P', 'R', 'P', '1'), &PRP1, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'D', 'F', 'E'), &SDFE, 2);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'I', 'D', 'M'), &SIDM, 2);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'I', 'D', 'S'), &SIDS, EFICHIPINFO_MAX_ID_LENGTH);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'I', 'D', 'T'), &SIDT, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'I', 'D', 'V'), &SIDV, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'J', 'T', 'G'), &SJTG, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'O', 'I', 'D'), &SOID, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'O', 'S', 'N'), &SOSN, 8);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'O', 'S', 'I'), &SOSI, 8);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'T', 'O', 'R'), &STOR, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'U', 'F', 'S'), &SUFS, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'U', 'S', '3'), &SUS3, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'V', 'M', 'I'), &SVMI, 2);
-  UpdateNameAslCode (SIGNATURE_32 ('S', 'V', 'M', 'J'), &SVMJ, 2);
-  UpdateNameAslCode (SIGNATURE_32 ('T', 'C', 'M', 'A'), &TCMA, 4);
-  UpdateNameAslCode (SIGNATURE_32 ('T', 'C', 'M', 'L'), &TCML, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('E', 'M', 'U', 'L'), &EMUL, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('P', 'L', 'S', 'T'), &PLST, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('P', 'U', 'S', '3'), &PUS3, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'F', 'A', 'B'), &RFAB, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'F', 'A', 'S'), &RFAS, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'F', 'M', 'B'), &RFMB, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'F', 'M', 'S'), &RFMS, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'M', 'T', 'B'), &RMTB, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'M', 'T', 'X'), &RMTX, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('P', 'R', 'P', '0'), &PRP0, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('P', 'R', 'P', '1'), &PRP1, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'D', 'F', 'E'), &SDFE, 2);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'I', 'D', 'M'), &SIDM, 2);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'I', 'D', 'S'), &SIDS, EFICHIPINFO_MAX_ID_LENGTH);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'I', 'D', 'T'), &SIDT, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'I', 'D', 'V'), &SIDV, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'J', 'T', 'G'), &SJTG, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'I', 'D'), &SOID, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'S', 'N'), &SOSN, 8);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'S', 'I'), &SOSI, 8);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'T', 'O', 'R'), &STOR, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'U', 'F', 'S'), &SUFS, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'U', 'S', '3'), &SUS3, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'V', 'M', 'I'), &SVMI, 2);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'V', 'M', 'J'), &SVMJ, 2);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('T', 'C', 'M', 'A'), &TCMA, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('T', 'C', 'M', 'L'), &TCML, 4);
+
+  // Reinstall DSDT Table
+  Status = ReinstallTable (DsdtTable, &DsdtHandle);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Reinstall DSDT Table! Status = %r\n", __FUNCTION__, Status));
+  }
 }
