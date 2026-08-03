@@ -179,6 +179,11 @@ PlatformBootManagerWaitCallback (IN UINT16 TimeoutRemain)
 {
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
 
+  // Verify Combo Message Position
+  if (XPos == 0 && YPos == 0) {
+    return;
+  }
+
   // Get Timeout Time
   UINT16 Timeout = PcdGet16 (PcdPlatformBootTimeOut);
 
