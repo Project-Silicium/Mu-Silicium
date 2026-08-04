@@ -504,18 +504,18 @@ SmBiosTableDriverEntry (
 
   // Set SMBIOS Tables
   EFI_SMBIOS_TABLES SmBiosTables = {
-    .Type0     = mSmBiosType0,
-    .Type1     = mSmBiosType1,
-    .Type2     = mSmBiosType2,
-    .Type3     = mSmBiosType3,
-    .Type4     = mSmBiosType4,
-    .Type7_L1I = mSmBiosType7_L1I,
-    .Type7_L1D = mSmBiosType7_L1D,
-    .Type7_L2  = mSmBiosType7_L2,
-    .Type7_L3  = mSmBiosType7_L3,
-    .Type16    = mSmBiosType16,
-    .Type17    = mSmBiosType17,
-    .Type19    = mSmBiosType19
+    .Type0     = &mSmBiosType0,
+    .Type1     = &mSmBiosType1,
+    .Type2     = &mSmBiosType2,
+    .Type3     = &mSmBiosType3,
+    .Type4     = &mSmBiosType4,
+    .Type7_L1I = &mSmBiosType7_L1I,
+    .Type7_L1D = &mSmBiosType7_L1D,
+    .Type7_L2  = &mSmBiosType7_L2,
+    .Type7_L3  = &mSmBiosType7_L3,
+    .Type16    = &mSmBiosType16,
+    .Type17    = &mSmBiosType17,
+    .Type19    = &mSmBiosType19
   };
 
   // Update SMBIOS Tables

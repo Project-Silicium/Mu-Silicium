@@ -66,22 +66,15 @@ GetClusterSpeeds (
 }
 
 EFI_STATUS
-GetChipIdString (OUT CHAR8 *ChipIdString)
+GetChipIdString (OUT CHAR8 *IdString)
 {
-  EFI_STATUS Status;
-
   // Verify Protocol Presense
   if (mChipInfoProtocol == NULL) {
     return EFI_NOT_READY;
   }
 
   // Get Chip ID String
-  Status = mChipInfoProtocol->GetChipIdString (mChipInfoProtocol, ChipIdString, 16);
-  if (EFI_ERROR (Status)) {
-    return Status;
-  }
-
-  return EFI_SUCCESS;
+  return mChipInfoProtocol->GetChipIdString (mChipInfoProtocol, IdString, 16);
 }
 
 MEMORY_DEVICE_TYPE
