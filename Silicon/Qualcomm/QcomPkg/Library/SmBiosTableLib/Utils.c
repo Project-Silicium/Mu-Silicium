@@ -12,8 +12,8 @@
 // Global Protocols
 //
 STATIC EFI_CLOCK_PROTOCOL      *mClockProtocol    = NULL;
+STATIC EFI_CHIPINFO_PROTOCOL   *mChipInfoProtocol = NULL;
 STATIC EFI_DDRGETINFO_PROTOCOL *mDdrInfoProtocol  = NULL;
-STATIC EFI_CHIPINFO_PROTOCOL   *mChipInfoProtocol  = NULL;
 
 EFI_STATUS
 GetClusterSpeeds (
@@ -61,6 +61,25 @@ GetClusterSpeeds (
   // Pass Cluster Speeds
   *MaxSpeed     = Freq[0] / 1000000;
   *CurrentSpeed = Freq[1] / 1000000;
+
+  return EFI_SUCCESS;
+}
+
+EFI_STATUS
+GetChipIdString (OUT CHAR8 *ChipIdString)
+{
+  EFI_STATUS Status;
+
+  // Verify Protocol Presense
+  if (mChipInfoProtocol == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  // Get Chip ID String
+  Status = mChipInfoProtocol->GetChipIdString (mChipInfoProtocol, ChipIdString, 16);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
 
   return EFI_SUCCESS;
 }
@@ -190,25 +209,6 @@ ConvertManufacturerId (IN UINT8 Id)
 
   // Return Dummy Name
   return "Not Specified";
-}
-
-EFI_STATUS
-GetChipIdString (OUT CHAR8* ChipIdString)
-{
-  EFI_STATUS Status;
-
-  // Verify Protocol Presense
-  if (mChipInfoProtocol == NULL) {
-    return EFI_NOT_READY;
-  }
-
-  // Get Chip ID String
-  Status = mChipInfoProtocol->GetChipIdString (mChipInfoProtocol, ChipIdString, 16);
-  if (EFI_ERROR (Status)) {
-    return Status;
-  }
-
-  return EFI_SUCCESS;
 }
 
 VOID

@@ -15,8 +15,9 @@ PlatformUpdateSmBiosType1 (IN OUT EFI_SMBIOS_TYPE1 *Type1)
   // Get Chip ID String
   Status = GetChipIdString (ChipIdString);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to get Chip ID String! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "%a: Failed to get Chip ID String! Status = %r\n", __FUNCTION__, Status));
   } else {
+    // Update System Family String
     Type1->Strings[5] = ChipIdString;
   }
 }
