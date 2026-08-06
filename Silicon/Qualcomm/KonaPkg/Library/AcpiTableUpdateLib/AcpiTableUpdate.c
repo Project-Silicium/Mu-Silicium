@@ -11,7 +11,6 @@ VOID
 UpdateAcpiTables ()
 {
   EFI_STATUS                          Status;
-  EFI_MEMORY_REGION_DESCRIPTOR        TGCMRegion;
   EFI_CHIPINFO_PROTOCOL              *mChipInfoProtocol;
   EFI_PLATFORMINFO_PROTOCOL          *mPlatformInfoProtocol;
   EFI_SMEM_PROTOCOL                  *mSmemProtocol;
@@ -35,12 +34,10 @@ UpdateAcpiTables ()
   UINT32  SOSN1                           = 0;
   UINT32  SOSN2                           = 0;
   UINT64  SOSI                            = 0;
-  UINT32  PRP0                            = 0;
+  UINT32  PRP0                            = 1;
   UINT32  PRP1                            = 0;
   UINT32  PRP2                            = 0;
   CHAR8   SIDS[EFICHIPINFO_MAX_ID_LENGTH] = {0};
-  UINT32  TCMA                            = 0;
-  UINT32  TCML                            = 0;
   UINT32  SmemSize                        = 0;
 
   // Locate DSDT Table
@@ -79,13 +76,7 @@ UpdateAcpiTables ()
   UINT64 SOSN = ((UINT64)SOSN2 << 32) | SOSN1;
   UINT32 PLST = PlatformInfo.subtype;
 
-  if (!EFI_ERROR(LocateMemoryRegionByName("TGCM", &TGCMRegion))) {
-    TCMA = (UINT32)TGCMRegion.Address;
-    TCML = (UINT32)TGCMRegion.Length;
-  } else {
-    TCMA = 0xDEADBEEF;
-    TCML = 0xBEEFDEAD;
-  }
+  PRP2 = PLST == 0 || PLST == 3;
 
   AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'I', 'D'), &SOID, 4);
   AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'T', 'O', 'R'), &STOR, 4);
@@ -100,8 +91,6 @@ UpdateAcpiTables ()
   AslUpdateName (DsdtTable, SIGNATURE_32 ('E', 'M', 'U', 'L'), &EMUL, 4);
   AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'S', 'N'), &SOSN, 8);
   AslUpdateName (DsdtTable, SIGNATURE_32 ('P', 'L', 'S', 'T'), &PLST, 4);
-  AslUpdateName (DsdtTable, SIGNATURE_32 ('T', 'C', 'M', 'A'), &TCMA, 4);
-  AslUpdateName (DsdtTable, SIGNATURE_32 ('T', 'C', 'M', 'L'), &TCML, 4);
   AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'S', 'I'), &SOSI, 8);
   AslUpdateName (DsdtTable, SIGNATURE_32 ('P', 'R', 'P', '0'), &PRP0, 4);
   AslUpdateName (DsdtTable, SIGNATURE_32 ('P', 'R', 'P', '1'), &PRP1, 4);

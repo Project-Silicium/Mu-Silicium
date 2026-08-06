@@ -3016,22 +3016,22 @@
 | Side Buttons         |                                   | ✅    |
 | Proximity Sensor     |                                   | ❌    |
 | Light Sensor         |                                   | ❌    |
-| Accelerometer Sensor |                                   | ❌    |
-| Compass Sensor       |                                   | ❌    |
-| Gyroscope Sensor     |                                   | ❌    |
+| Accelerometer Sensor |                                   | ✅    |
+| Compass Sensor       |                                   | ✅    |
+| Gyroscope Sensor     |                                   | ✅    |
 | Fingerprint Sensor   |                                   | ❌    |
 | NFC Sensor           |                                   | ❌    |
-| Battery              |                                   | ❌    |
-| USB Host Mode        |                                   | ❌    |
+| Battery              |                                   | ✅    |
+| USB Host Mode        |                                   | ✅    |
 | USB Device Mode      |                                   | ✅    |
-| USB Power Delivery   |                                   | ❌    |
-| Charging             |                                   | ❌    |
+| USB Power Delivery   |                                   | ✅    |
+| Charging             | Slow                              | ⚠️    |
 | WLAN                 |                                   | ❌    |
 | CPU                  |                                   | ✅    |
-| Touchscreen          |                                   | ❌    |
-| Bluetooth            |                                   | ❌    |
+| Touchscreen          |                                   | ✅    |
+| Bluetooth            |                                   | ✅    |
 | GPS                  |                                   | ❌    |
-| Speakers             |                                   | ❌    |
+| Speakers             |                                   | ✅    |
 | Microphone           |                                   | ❌    |
 | GPU                  |                                   | ❌    |
 | Camera               |                                   | ❌    |

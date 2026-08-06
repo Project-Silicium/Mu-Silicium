@@ -63,7 +63,14 @@ PlatformInitialize ()
   DisableWatchDogTimer ();
 
   // Set MDP SIDs
-  CONST UINT16 MdpStreams[] = { 0x820, 0x821, 0xC21 };
+  CONST UINT16 MdpStreams[] = {
+    0x0820,
+    0x0821,
+    0x0822,
+    0x0C20,
+    0x0C21,
+    0x0C22
+  };
 
   // Detach IOMMU Domains
   ArmSmmuDetach (MdpStreams, ARRAY_SIZE (MdpStreams));
