@@ -4895,7 +4895,7 @@
 | Side Buttons         |              | ❌    |
 | Proximity Sensor     |              | ❌    |
 | Light Sensor         |              | ✅    |
-| Accelerometer Sensor |              | ❌    |
+| Accelerometer Sensor |              | ✅    |
 | Compass Sensor       |              | ❌    |
 | Gyroscope Sensor     |              | ❌    |
 | Fingerprint Sensor   |              | ❌    |
