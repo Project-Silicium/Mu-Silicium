@@ -79,20 +79,26 @@ GetXblHobAddresses (
   }
 
   // Set XBL HOB Details
-  EFI_XBL_HOB_DETAILS mHobDetails[] = {
+  EFI_XBL_HOB_DETAILS HobDetails[] = {
     {
       .Address           = SchedulerInterfaceAddr,
       .ExpectedGuid      = &gEfiSchedulerInterfaceHobGuid,
-      .TargetInstruction = 0x52800102,
       .AdrpGuidOffset    = 4,
       .AdrpAddrOffset    = 3,
       .AddGuidOffset     = 6,
       .AddAddrOffset     = 5
     },
     {
+      .Address           = SchedulerInterfaceAddr,
+      .ExpectedGuid      = &gEfiSchedulerInterfaceHobGuid,
+      .AdrpGuidOffset    = 5,
+      .AdrpAddrOffset    = 3,
+      .AddGuidOffset     = 6,
+      .AddAddrOffset     = 4
+    },
+    {
       .Address           = DtbExtensionAddr,
       .ExpectedGuid      = &gEfiDtbExtnHobGuid,
-      .TargetInstruction = 0x52800108,
       .AdrpGuidOffset    = 6,
       .AdrpAddrOffset    = 3,
       .AddGuidOffset     = 7,
@@ -107,47 +113,41 @@ GetXblHobAddresses (
       continue;
     }
 
-    // Save 8th Function Instruction
-    UINT32 HobFunctionMarker = ARM64_INSTRUCTION (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (8));
+    // Verify 8th Function Instruction
+    if ((ARM64_INSTRUCTION (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (8)) & 0xFFFFFFE0) != 0x52800100) {
+      continue;
+    }
 
     // Go thru each Target HOB
-    for (UINT8 i = 0; i < ARRAY_SIZE (mHobDetails); i++) {
+    for (UINT8 i = 0; i < ARRAY_SIZE (HobDetails); i++) {
       // Set Default Values
       UINT64 BasePage = 0;
       UINT64 Offset   = 0;
 
-      // Check Target Instruction
-      if (HobFunctionMarker != mHobDetails[i].TargetInstruction) {
-        continue;
-      }
-
       // Get HOB GUID Location
-      BasePage = GetAdrpImm (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (mHobDetails[i].AdrpGuidOffset));
-      Offset   = GetAddImm  (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (mHobDetails[i].AddGuidOffset));
+      BasePage = GetAdrpImm (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (HobDetails[i].AdrpGuidOffset));
+      Offset   = GetAddImm  (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (HobDetails[i].AddGuidOffset));
 
       // Verify Base Page & Offset
       if (BasePage == 0 || Offset == 0) {
-        break;
+        continue;
       }
 
       // Set HOB GUID
       EFI_GUID *HobGuid = (EFI_GUID *)(BasePage + Offset);
 
-      // Get HOB Address
-      BasePage = GetAdrpImm (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (mHobDetails[i].AdrpAddrOffset));
-      Offset   = GetAddImm  (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (mHobDetails[i].AddAddrOffset));
-
-      // Verify Base Page & Offset
-      if (BasePage == 0 || Offset == 0) {
-        break;
+      // Compare HOB GUIDs
+      if (!CompareGuid (HobGuid, HobDetails[i].ExpectedGuid)) {
+        continue;
       }
 
-      // Set HOB Address
-      EFI_PHYSICAL_ADDRESS HobAddress = (EFI_PHYSICAL_ADDRESS)(BasePage + Offset);
+      // Get HOB Address
+      BasePage = GetAdrpImm (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (HobDetails[i].AdrpAddrOffset));
+      Offset   = GetAddImm  (Current + ARM64_TOTAL_INSTRUCTION_LENGTH (HobDetails[i].AddAddrOffset));
 
-      // Compare HOB GUIDs
-      if (CompareGuid (HobGuid, mHobDetails[i].ExpectedGuid)) {
-        *mHobDetails[i].Address = HobAddress;
+      // Set HOB Address
+      if (BasePage != 0 && Offset != 0) {
+        *HobDetails[i].Address = (EFI_PHYSICAL_ADDRESS)(BasePage + Offset);
       }
     }
   }

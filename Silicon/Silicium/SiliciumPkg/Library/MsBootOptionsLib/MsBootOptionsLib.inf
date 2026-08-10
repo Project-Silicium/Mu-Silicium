@@ -39,7 +39,7 @@
   gEfiFirmwareVolume2ProtocolGuid
 
 [FixedPcd]
-  gSiliciumPkgTokenSpaceGuid.PcdUfpDeviveFwFile
+  gSiliciumPkgTokenSpaceGuid.PcdUfpLoaderFile
 
 [Pcd]
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile

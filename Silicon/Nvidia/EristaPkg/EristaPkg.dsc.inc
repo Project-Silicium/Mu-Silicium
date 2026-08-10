@@ -17,20 +17,19 @@
 !include NvidiaPkg/NvidiaPkg.dsc.inc
 
 [BuildOptions]
-  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc
+  *_*_AARCH64_CC_FLAGS = -march=armv8-a+crypto+rcpc -mtune=cortex-a57
 
 [PcdsFixedAtBuild]
   #
   # CPU
   #
-  gArmPlatformTokenSpaceGuid.PcdCoreCount|8
-  gArmPlatformTokenSpaceGuid.PcdClusterCount|2
+  gArmPlatformTokenSpaceGuid.PcdCoreCount|4
+  gArmPlatformTokenSpaceGuid.PcdClusterCount|1
 
   #
   # GIC
   #
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x50041000
-  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x50042000
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x50042000
 
   #
@@ -39,7 +38,7 @@
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"
 !elseif $(SOC_TYPE) == 4
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 1.42 GHz"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 1.40 GHz"
 !endif
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"ODNX02-A2"
@@ -53,32 +52,8 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM660M-A2"
 !endif
 
-  #
-  # Clock
-  #
-  gNvidiaPkgTokenSpaceGuid.PcdCGeneralID|0
-  gNvidiaPkgTokenSpaceGuid.PcdMemoryID|1
-  gNvidiaPkgTokenSpaceGuid.PcdPeriphID|2
-  gNvidiaPkgTokenSpaceGuid.PcdAudioID|3
-  gNvidiaPkgTokenSpaceGuid.PcdUsbID|4
-  gNvidiaPkgTokenSpaceGuid.PcdDisplayID|5
-  gNvidiaPkgTokenSpaceGuid.PcdDisplay2ID|0xFF
-  gNvidiaPkgTokenSpaceGuid.PcdXCpuID|6
-  gNvidiaPkgTokenSpaceGuid.PcdEpciID|7
-  gNvidiaPkgTokenSpaceGuid.PcdSfrom32KhzID|8
-  gNvidiaPkgTokenSpaceGuid.PcdDpID|9
-  gNvidiaPkgTokenSpaceGuid.Pcd32KhzID|10
-  gNvidiaPkgTokenSpaceGuid.PcdOscID|11
-  gNvidiaPkgTokenSpaceGuid.PcdClkmID|12
-  gNvidiaPkgTokenSpaceGuid.PcdIDCount|13
-
 [LibraryClasses]
   #
   # SEC Libraries
   #
   PlatformSecLib|EristaPkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # Custom Libraries
-  #
-  TegraClockLib|EristaPkg/GPLLibrary/TegraClockLib/TegraClockLib.inf

@@ -22,13 +22,8 @@
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
-  INF NvidiaPkg/GPLDrivers/TegraClockDxe/TegraClockDxe.inf
-  INF NvidiaPkg/GPLDrivers/TegraGpioDxe/TegraGpioDxe.inf
-
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
-  INF SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-  INF SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf

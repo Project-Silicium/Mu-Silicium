@@ -18,6 +18,9 @@ UpdateAcpiTables ()
   EFI_SMEM_PROTOCOL                  *mSmemProtocol;
   EFI_PLATFORMINFO_PLATFORM_INFO_TYPE PlatformInfo;
 
+  EFI_ACPI_DESCRIPTION_HEADER *DsdtTable;
+  UINTN                        DsdtHandle;
+
   UINT32 SOID                            = 0;
   UINT32 STOR                            = 0x1;
   UINT32 SIDV                            = 0;
@@ -38,6 +41,12 @@ UpdateAcpiTables ()
   UINT32 TCMA                            = 0;
   UINT32 TCML                            = 0;
   UINT32 SmemSize                        = 0;
+
+  // Locate DSDT Table
+  Status = LocateTableBySignature (EFI_ACPI_3_0_DIFFERENTIATED_SYSTEM_DESCRIPTION_TABLE_SIGNATURE, &DsdtTable, &DsdtHandle);
+  if (EFI_ERROR (Status)) {
+    return;
+  }
 
   // Locate Chip Info Protocol
   Status  = gBS->LocateProtocol (&gEfiChipInfoProtocolGuid, NULL, (VOID *)&mChipInfoProtocol);
@@ -81,25 +90,28 @@ UpdateAcpiTables ()
     RFAS = (UINT32)ADSPEFSRegion.Length / 2;
   }
 
-  UpdateNameAslCode (SIGNATURE_32('S', 'O', 'I', 'D'), &SOID, 4);
-  UpdateNameAslCode (SIGNATURE_32('S', 'T', 'O', 'R'), &STOR, 4);
-  UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'V'), &SIDV, 4);
-  UpdateNameAslCode (SIGNATURE_32('S', 'V', 'M', 'J'), &SVMJ, 2);
-  UpdateNameAslCode (SIGNATURE_32('S', 'V', 'M', 'I'), &SVMI, 2);
-  UpdateNameAslCode (SIGNATURE_32('S', 'D', 'F', 'E'), &SDFE, 2);
-  UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'M'), &SIDM, 2);
-  UpdateNameAslCode (SIGNATURE_32('S', 'O', 'S', 'N'), &SOSN, 8);
-  UpdateNameAslCode (SIGNATURE_32('P', 'L', 'S', 'T'), &PLST, 4);
-  UpdateNameAslCode (SIGNATURE_32('R', 'M', 'T', 'B'), &RMTB, 4);
-  UpdateNameAslCode (SIGNATURE_32('R', 'M', 'T', 'X'), &RMTX, 4);
-  UpdateNameAslCode (SIGNATURE_32('R', 'F', 'M', 'B'), &RFMB, 4);
-  UpdateNameAslCode (SIGNATURE_32('R', 'F', 'M', 'S'), &RFMS, 4);
-  UpdateNameAslCode (SIGNATURE_32('R', 'F', 'A', 'B'), &RFAB, 4);
-  UpdateNameAslCode (SIGNATURE_32('R', 'F', 'A', 'S'), &RFAS, 4);
-  UpdateNameAslCode (SIGNATURE_32('T', 'P', 'M', 'A'), &TPMA, 4);
-  UpdateNameAslCode (SIGNATURE_32('T', 'D', 'T', 'V'), &TDTV, 4);
-  UpdateNameAslCode (SIGNATURE_32('T', 'C', 'M', 'A'), &TCMA, 4);
-  UpdateNameAslCode (SIGNATURE_32('T', 'C', 'M', 'L'), &TCML, 4);
-  UpdateNameAslCode (SIGNATURE_32('S', 'O', 'S', 'I'), &SOSI, 8);
-  UpdateNameAslCode (SIGNATURE_32('S', 'I', 'D', 'S'), &SIDS, EFICHIPINFO_MAX_ID_LENGTH);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'I', 'D'), &SOID, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'T', 'O', 'R'), &STOR, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'I', 'D', 'V'), &SIDV, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'V', 'M', 'J'), &SVMJ, 2);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'V', 'M', 'I'), &SVMI, 2);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'D', 'F', 'E'), &SDFE, 2);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'I', 'D', 'M'), &SIDM, 2);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'S', 'N'), &SOSN, 8);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('P', 'L', 'S', 'T'), &PLST, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'M', 'T', 'B'), &RMTB, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'M', 'T', 'X'), &RMTX, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'F', 'M', 'B'), &RFMB, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'F', 'M', 'S'), &RFMS, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'F', 'A', 'B'), &RFAB, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('R', 'F', 'A', 'S'), &RFAS, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('T', 'P', 'M', 'A'), &TPMA, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('T', 'D', 'T', 'V'), &TDTV, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('T', 'C', 'M', 'A'), &TCMA, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('T', 'C', 'M', 'L'), &TCML, 4);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'O', 'S', 'I'), &SOSI, 8);
+  AslUpdateName (DsdtTable, SIGNATURE_32 ('S', 'I', 'D', 'S'), &SIDS, EFICHIPINFO_MAX_ID_LENGTH);
+
+  // Reinstall DSDT Table
+  ReinstallTable (DsdtTable, &DsdtHandle);
 }

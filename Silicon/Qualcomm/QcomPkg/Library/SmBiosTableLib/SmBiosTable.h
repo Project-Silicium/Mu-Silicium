@@ -30,6 +30,11 @@ GetClusterSpeeds (
   );
 
 EFI_STATUS
+GetChipIdString (
+  OUT CHAR8 *IdString
+  );
+
+EFI_STATUS
 GetDdrDetails (
   OUT UINT8              *ManufacturerId,
   OUT MEMORY_DEVICE_TYPE *MemoryType

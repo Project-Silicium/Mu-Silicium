@@ -6,7 +6,6 @@
 #include <AsmMacroLib.h>
 
 ASM_FUNC (PlatformAssemblyInitialize)
-  // Set Stack pointer to EL1
+  // Set Stack pointer to EL2
   msr   SPSel, #1
-
   ret

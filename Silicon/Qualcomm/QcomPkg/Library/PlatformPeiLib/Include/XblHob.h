@@ -5,9 +5,8 @@
 // XBL HOB Details
 //
 typedef struct {
-  CONST EFI_GUID       *ExpectedGuid;
   EFI_PHYSICAL_ADDRESS *Address;
-  UINT32                TargetInstruction;
+  CONST EFI_GUID       *ExpectedGuid;
   UINT8                 AdrpGuidOffset;
   UINT8                 AdrpAddrOffset;
   UINT8                 AddGuidOffset;

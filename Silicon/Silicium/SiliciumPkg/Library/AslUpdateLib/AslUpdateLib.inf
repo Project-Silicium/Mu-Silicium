@@ -1,5 +1,5 @@
 ##
-#  Copyright (c) 2020, Intel Corporation. All rights reserved.<BR>
+#  Copyright (c) 2020, Intel Corporation. All rights reserved.
 #  SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
@@ -10,6 +10,7 @@
   VERSION_STRING                 = 1.0
   MODULE_TYPE                    = DXE_DRIVER
   LIBRARY_CLASS                  = AslUpdateLib|DXE_DRIVER
+  CONSTRUCTOR                    = LocateAcpiProtocols
 
 [Sources]
   AslUpdateLib.c
@@ -23,6 +24,7 @@
   BaseMemoryLib
   UefiBootServicesTableLib
   MemoryAllocationLib
+  BaseLib
 
 [Protocols]
   gEfiAcpiTableProtocolGuid

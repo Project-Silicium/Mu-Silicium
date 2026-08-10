@@ -6,8 +6,8 @@
 !if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Erista/DBG2.aml
 !endif
-#  SECTION RAW = icosa/DSDT.aml
-#  SECTION RAW = Common/SSDT.aml
+#  SECTION RAW = Erista/DSDT.aml
+#  SECTION RAW = nx/SSDT_icosa.aml
 #  SECTION RAW = Erista/FACP.aml
 #  SECTION RAW = Erista/FPDT.aml
 #  SECTION RAW = Erista/GTDT.aml
@@ -23,10 +23,14 @@
 !if $(ENABLE_SECUREBOOT) == 0
 #  SECTION RAW = Mariko/DBG2.aml
 !endif
+#  SECTION RAW = Mariko/DSDT.aml
 !if $(DEVICE_MODEL) == 1
-#  SECTION RAW = iowa/DSDT.aml
+#  SECTION RAW = nx/SSDT_iowa.aml
+!elseif $(DEVICE_MODEL) == 2
+#  SECTION RAW = nx/SSDT_hoag.aml
+!elseif $(DEVICE_MODEL) == 3
+#  SECTION RAW = nx/SSDT_aula.aml
 !endif
-#  SECTION RAW = Common/SSDT.aml
 #  SECTION RAW = Mariko/FACP.aml
 #  SECTION RAW = Mariko/FPDT.aml
 #  SECTION RAW = Mariko/GTDT.aml

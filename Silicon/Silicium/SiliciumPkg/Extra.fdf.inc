@@ -9,6 +9,7 @@
   #
   INF MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenuApp.inf
   INF PcBdsPkg/MsBootPolicy/MsBootPolicy.inf
+  INF SiliciumPkg/Applications/UFPLoader/UFPLoader.inf
   INF SiliciumPkg/Applications/UFP/ufpdevicefw.inf
 
   #

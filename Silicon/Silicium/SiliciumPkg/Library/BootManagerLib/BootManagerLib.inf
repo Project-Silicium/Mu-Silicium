@@ -42,7 +42,6 @@
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut
 
 [Guids]
-  gEfiEventPreReadyToBootGuid
   gEfiEndOfDxeEventGroupGuid
 
 [Protocols]

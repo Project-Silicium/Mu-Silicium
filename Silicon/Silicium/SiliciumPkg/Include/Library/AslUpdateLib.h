@@ -11,36 +11,35 @@
 
 EFI_STATUS
 EFIAPI
-UpdateNameAslCode (
-  IN UINT32  AslSignature,
-  IN VOID   *Buffer,
-  IN UINTN   Length
+LocateTableBySignature (
+  IN  UINT32                        Signature,
+  OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
+  OUT UINTN                        *Handle
   );
 
 EFI_STATUS
 EFIAPI
-UpdateSsdtNameAslCode (
-  IN UINT8  *TableId,
-  IN UINT8   TableIdSize,
-  IN UINT32  AslSignature,
-  IN VOID   *Buffer,
-  IN UINTN   Length
+LocateTableByOemTableId (
+  IN  UINT8                        *TableId,
+  IN  UINT8                         TableIdSize,
+  OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
+  OUT UINTN                        *Handle
   );
 
 EFI_STATUS
 EFIAPI
-UpdateMethodAslCode (
-  IN UINT32  AslSignature,
-  IN VOID   *Buffer,
-  IN UINTN   Length
+AslUpdateName (
+  IN EFI_ACPI_DESCRIPTION_HEADER *Table,
+  IN UINT32                       NameSignature,
+  IN VOID                        *Buffer,
+  IN UINTN                        Length
   );
 
 EFI_STATUS
 EFIAPI
-LocateAcpiTableBySignature (
-  IN     UINT32                        Signature,
-  IN OUT EFI_ACPI_DESCRIPTION_HEADER **Table,
-  IN OUT UINTN                        *Handle
+ReinstallTable (
+  IN     EFI_ACPI_DESCRIPTION_HEADER *Table,
+  IN OUT UINTN                       *TableHandle
   );
 
 #endif /* _ASL_UPDATE_LIB_H_ */

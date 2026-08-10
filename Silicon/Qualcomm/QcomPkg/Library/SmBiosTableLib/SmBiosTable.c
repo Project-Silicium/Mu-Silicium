@@ -7,6 +7,32 @@
 #include "SmBiosTable.h"
 
 VOID
+PlatformUpdateSmBiosType1 (IN OUT EFI_SMBIOS_TYPE1 *Type1)
+{
+  EFI_STATUS  Status;
+  CHAR8      *ChipIdString;
+
+  // Allocate Memory
+  ChipIdString = AllocateZeroPool (sizeof (CHAR8) * 16);
+  if (ChipIdString == NULL) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to Allocate Memory for Chip ID!\n", __FUNCTION__));
+    return;
+  }
+
+  // Get Chip ID String
+  Status = GetChipIdString (ChipIdString);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "%a: Failed to get Chip ID String! Status = %r\n", __FUNCTION__, Status));
+
+    // Free Buffer
+    FreePool (ChipIdString);
+  } else {
+    // Update System Family String
+    Type1->Strings[5] = ChipIdString;
+  }
+}
+
+VOID
 PlatformUpdateSmBiosType4 (IN OUT EFI_SMBIOS_TYPE4 *Type4)
 {
   EFI_STATUS Status;
@@ -87,14 +113,28 @@ VOID
 PlatformUpdateSmBiosTables (IN OUT EFI_SMBIOS_TABLES *SmBiosTables)
 {
   // Update SMBIOS Tables
-  PlatformUpdateSmBiosType4  (&SmBiosTables->Type4);
-  PlatformUpdateSmBiosType17 (&SmBiosTables->Type17);
+  PlatformUpdateSmBiosType1  (SmBiosTables->Type1);
+  PlatformUpdateSmBiosType4  (SmBiosTables->Type4);
+  PlatformUpdateSmBiosType17 (SmBiosTables->Type17);
+}
+
+VOID
+PlatformSmBiosType1CleanUp (IN OUT EFI_SMBIOS_TYPE1 *Type1)
+{
+  // Get System Family String
+  CHAR8 *SystemFamily = Type1->Strings[5];
+
+  // Free System Family Buffer
+  if (SystemFamily != NULL && AsciiStrCmp (SystemFamily, "Not Specified") != 0) {
+    FreePool (SystemFamily);
+  }
 }
 
 VOID
 PlatformSmBiosCleanUp (IN OUT EFI_SMBIOS_TABLES *SmBiosTables)
 {
-  return;
+  // Do TYPE1 Clean Up
+  PlatformSmBiosType1CleanUp (SmBiosTables->Type1);
 }
 
 EFI_STATUS

@@ -179,6 +179,11 @@ PlatformBootManagerWaitCallback (IN UINT16 TimeoutRemain)
 {
   EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color;
 
+  // Verify Combo Message Position
+  if (XPos == 0 && YPos == 0) {
+    return;
+  }
+
   // Get Timeout Time
   UINT16 Timeout = PcdGet16 (PcdPlatformBootTimeOut);
 
@@ -223,29 +228,12 @@ PlatformBootManagerUnableToBoot ()
 
 VOID
 EFIAPI
-PreReadyToBoot (
-  IN EFI_EVENT  Event,
-  IN VOID      *Context)
+PlatformBootManagerBdsEntry ()
 {
   EFI_STATUS Status;
 
   // Setup Secure Boot
   Status = SetupSecureBoot ();
-  ASSERT_EFI_ERROR (Status);
-
-  // Close Event
-  gBS->CloseEvent (Event);
-}
-
-VOID
-EFIAPI
-PlatformBootManagerBdsEntry ()
-{
-  EFI_STATUS Status;
-  EFI_EVENT  PreReadyToBootEvent;
-
-  // Register Pre-ReadyToBoot Event
-  Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, PreReadyToBoot, NULL, &gEfiEventPreReadyToBootGuid, &PreReadyToBootEvent);
   ASSERT_EFI_ERROR (Status);
 
   // Execute Secondary BDS Entry

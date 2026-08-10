@@ -137,10 +137,10 @@ ConvertFirmwareString (
 }
 
 VOID
-UpdateSmBiosType0 (IN OUT EFI_SMBIOS_TYPE0 *Type0)
+UpdateSmBiosType0 ()
 {
   // Update BIOS Size
-  Type0->Table.BiosSize = (UINT8)((FixedPcdGet32 (PcdFdSize) / SIZE_64KB) - 1);
+  mSmBiosType0.Table.BiosSize = (UINT8)((FixedPcdGet32 (PcdFdSize) / SIZE_64KB) - 1);
 
   // Get Firmware Strings
   CHAR16 *FirmwareVendor    = (CHAR16 *)FixedPcdGetPtr (PcdFirmwareVendor);
@@ -148,41 +148,41 @@ UpdateSmBiosType0 (IN OUT EFI_SMBIOS_TYPE0 *Type0)
   CHAR16 *FirmwareBuildDate = SMBIOS_BUILD_DATE;
 
   // Set Firmware Strings
-  Type0->Strings[0] = ConvertFirmwareString (FirmwareVendor,    StrSize (FirmwareVendor));
-  Type0->Strings[1] = ConvertFirmwareString (FirmwareVersion,   StrSize (FirmwareVersion));
-  Type0->Strings[2] = ConvertFirmwareString (FirmwareBuildDate, StrSize (FirmwareBuildDate));
+  mSmBiosType0.Strings[0] = ConvertFirmwareString (FirmwareVendor,    StrSize (FirmwareVendor));
+  mSmBiosType0.Strings[1] = ConvertFirmwareString (FirmwareVersion,   StrSize (FirmwareVersion));
+  mSmBiosType0.Strings[2] = ConvertFirmwareString (FirmwareBuildDate, StrSize (FirmwareBuildDate));
 }
 
 VOID
-UpdateSmBiosType1 (IN OUT EFI_SMBIOS_TYPE1 *Type1)
+UpdateSmBiosType1 ()
 {
   // Update System UUID
-  Type1->Table.Uuid = gSiliciumPkgTokenSpaceGuid;
+  mSmBiosType1.Table.Uuid = gSiliciumPkgTokenSpaceGuid;
 
   // Update System Strings
-  Type1->Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
-  Type1->Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemModel);
-  Type1->Strings[2] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemRetailModel);
-  Type1->Strings[4] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemRetailSku);
+  mSmBiosType1.Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
+  mSmBiosType1.Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemModel);
+  mSmBiosType1.Strings[2] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemRetailModel);
+  mSmBiosType1.Strings[4] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemRetailSku);
 }
 
 VOID
-UpdateSmBiosType2 (IN OUT EFI_SMBIOS_TYPE2 *Type2)
+UpdateSmBiosType2 ()
 {
   // Update System Strings
-  Type2->Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
-  Type2->Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemBoardModel);
+  mSmBiosType2.Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
+  mSmBiosType2.Strings[1] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemBoardModel);
 }
 
 VOID
-UpdateSmBiosType3 (IN OUT EFI_SMBIOS_TYPE3 *Type3)
+UpdateSmBiosType3 ()
 {
   // Update System Strings
-  Type3->Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
+  mSmBiosType3.Strings[0] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosSystemManufacturer);
 }
 
 VOID
-UpdateSmBiosType4 (IN OUT EFI_SMBIOS_TYPE4 *Type4)
+UpdateSmBiosType4 ()
 {
   // Get ARMv9 Flag
   BOOLEAN Armv9 = IsArmv9 ();
@@ -191,33 +191,29 @@ UpdateSmBiosType4 (IN OUT EFI_SMBIOS_TYPE4 *Type4)
   UINT64 Midr = (UINT64)GetMidr ();
 
   // Update Processor MIDR
-  CopyMem (&Type4->Table.ProcessorId, &Midr, sizeof (PROCESSOR_ID_DATA));
+  CopyMem (&mSmBiosType4.Table.ProcessorId, &Midr, sizeof (PROCESSOR_ID_DATA));
 
   // Update Processor Core & Thread Count
-  Type4->Table.CoreCount        = FixedPcdGet32 (PcdCoreCount);
-  Type4->Table.EnabledCoreCount = FixedPcdGet32 (PcdCoreCount);
-  Type4->Table.ThreadCount      = FixedPcdGet32 (PcdCoreCount);
-  Type4->Table.ThreadEnabled    = FixedPcdGet32 (PcdCoreCount);
+  mSmBiosType4.Table.CoreCount        = FixedPcdGet32 (PcdCoreCount);
+  mSmBiosType4.Table.EnabledCoreCount = FixedPcdGet32 (PcdCoreCount);
+  mSmBiosType4.Table.ThreadCount      = FixedPcdGet32 (PcdCoreCount);
+  mSmBiosType4.Table.ThreadEnabled    = FixedPcdGet32 (PcdCoreCount);
 
   // Set Multi Core Flag
-  if (Type4->Table.CoreCount > 1) {
-    Type4->Table.ProcessorCharacteristics |= BIT3;
+  if (mSmBiosType4.Table.CoreCount > 1) {
+    mSmBiosType4.Table.ProcessorCharacteristics |= BIT3;
   }
 
   // Update Processor Family
-  Type4->Table.ProcessorFamily2 = Armv9 ? ProcessorFamilyARMv9 : ProcessorFamilyARMv8;
+  mSmBiosType4.Table.ProcessorFamily2 = Armv9 ? ProcessorFamilyARMv9 : ProcessorFamilyARMv8;
 
   // Update Processor Strings
-  Type4->Strings[2] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorModel);
-  Type4->Strings[5] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorPartNumber);
+  mSmBiosType4.Strings[2] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorModel);
+  mSmBiosType4.Strings[5] = (CHAR8 *)FixedPcdGetPtr (PcdSmbiosProcessorPartNumber);
 }
 
 VOID
-UpdateSmBiosType7 (
-  IN OUT EFI_SMBIOS_TYPE7 *Type7_L1I,
-  IN OUT EFI_SMBIOS_TYPE7 *Type7_L1D,
-  IN OUT EFI_SMBIOS_TYPE7 *Type7_L2,
-  IN OUT EFI_SMBIOS_TYPE7 *Type7_L3)
+UpdateSmBiosType7 ()
 {
   CACHE_ASSOCIATIVITY_DATA L1iAssociativity;
   CACHE_ASSOCIATIVITY_DATA L1dAssociativity;
@@ -235,90 +231,85 @@ UpdateSmBiosType7 (
   GetCpuCacheDetails (3, FALSE, &L3Size,  &L3Associativity);
 
   // Update L1I Cache Details
-  Type7_L1I->Table.InstalledSize.Size    = L1iSize;
-  Type7_L1I->Table.MaximumCacheSize.Size = L1iSize;
-  Type7_L1I->Table.Associativity         = L1iAssociativity;
+  mSmBiosType7_L1I.Table.InstalledSize.Size    = L1iSize;
+  mSmBiosType7_L1I.Table.MaximumCacheSize.Size = L1iSize;
+  mSmBiosType7_L1I.Table.Associativity         = L1iAssociativity;
 
   // Update L1D Cache Details
-  Type7_L1D->Table.InstalledSize.Size    = L1dSize;
-  Type7_L1D->Table.MaximumCacheSize.Size = L1dSize;
-  Type7_L1D->Table.Associativity         = L1dAssociativity;
+  mSmBiosType7_L1D.Table.InstalledSize.Size    = L1dSize;
+  mSmBiosType7_L1D.Table.MaximumCacheSize.Size = L1dSize;
+  mSmBiosType7_L1D.Table.Associativity         = L1dAssociativity;
 
   // Update L2 Cache Details
-  Type7_L2->Table.InstalledSize.Size     = L2Size;
-  Type7_L2->Table.MaximumCacheSize.Size  = L2Size;
-  Type7_L2->Table.Associativity          = L2Associativity;
+  mSmBiosType7_L2.Table.InstalledSize.Size     = L2Size;
+  mSmBiosType7_L2.Table.MaximumCacheSize.Size  = L2Size;
+  mSmBiosType7_L2.Table.Associativity          = L2Associativity;
 
   // Update L3 Cache Details
-  Type7_L3->Table.InstalledSize.Size     = L3Size;
-  Type7_L3->Table.MaximumCacheSize.Size  = L3Size;
-  Type7_L3->Table.Associativity          = L3Associativity;
+  mSmBiosType7_L3.Table.InstalledSize.Size     = L3Size;
+  mSmBiosType7_L3.Table.MaximumCacheSize.Size  = L3Size;
+  mSmBiosType7_L3.Table.Associativity          = L3Associativity;
 
   // Update Cache Strings
-  Type7_L1I->Strings[0] = "L1 Instruction Cache";
-  Type7_L1D->Strings[0] = "L1 Data Cache";
-  Type7_L2->Strings[0]  = "L2 Unified Cache";
-  Type7_L3->Strings[0]  = "L3 Unified Cache";
+  mSmBiosType7_L1I.Strings[0] = "L1 Instruction Cache";
+  mSmBiosType7_L1D.Strings[0] = "L1 Data Cache";
+  mSmBiosType7_L2.Strings[0]  = "L2 Unified Cache";
+  mSmBiosType7_L3.Strings[0]  = "L3 Unified Cache";
 }
 
 VOID
-UpdateSmBiosType16 (
-  IN EFI_SMBIOS_TYPE16 *Type16,
-  IN UINT64             MemorySize)
+UpdateSmBiosType16 (IN UINT64 MemorySize)
 {
   // Check Memory Size
   if (MemorySize < SIZE_2TB) {
     // Update Maximum Capacity
-    Type16->Table.MaximumCapacity = (UINT32)(MemorySize / SIZE_1KB);
+    mSmBiosType16.Table.MaximumCapacity = (UINT32)(MemorySize / SIZE_1KB);
   } else {
     // Update Maximum Capacity
-    Type16->Table.MaximumCapacity = 0x80000000;
+    mSmBiosType16.Table.MaximumCapacity = 0x80000000;
 
     // Update Extended Maximum Capacity
-    Type16->Table.ExtendedMaximumCapacity = MemorySize;
+    mSmBiosType16.Table.ExtendedMaximumCapacity = MemorySize;
   }
 }
 
 VOID
-UpdateSmBiosType17 (
-  IN EFI_SMBIOS_TYPE17 *Type17,
-  IN UINT64             MemorySize)
+UpdateSmBiosType17 (IN UINT64 MemorySize)
 {
   // Check Memory Size
   if (MemorySize < (SIZE_32GB - SIZE_1MB)) {
     // Update Memory Size
-    Type17->Table.Size = (UINT16)(MemorySize / SIZE_1MB);
+    mSmBiosType17.Table.Size = (UINT16)(MemorySize / SIZE_1MB);
   } else {
     // Update Memory Size
-    Type17->Table.Size = 0x7FFF;
+    mSmBiosType17.Table.Size = 0x7FFF;
 
     // Update Extended Memory Size
-    Type17->Table.ExtendedSize = MemorySize;
+    mSmBiosType17.Table.ExtendedSize = MemorySize;
   }
 
   // Update Volatile Memory Size
-  Type17->Table.VolatileSize = MemorySize;
+  mSmBiosType17.Table.VolatileSize = MemorySize;
 }
 
 VOID
 UpdateSmBiosType19 (
-  IN EFI_SMBIOS_TYPE19    *Type19,
-  IN EFI_PHYSICAL_ADDRESS  MemoryBase,
-  IN EFI_PHYSICAL_ADDRESS  MemoryEnd)
+  IN EFI_PHYSICAL_ADDRESS MemoryBase,
+  IN EFI_PHYSICAL_ADDRESS MemoryEnd)
 {
   // Check Memory End
   if (MemoryEnd < SIZE_4TB) {
     // Update System Memory Details
-    Type19->Table.StartingAddress = MemoryBase / SIZE_1KB;
-    Type19->Table.EndingAddress   = MemoryEnd / SIZE_1KB;
+    mSmBiosType19.Table.StartingAddress = (UINT32)(MemoryBase / SIZE_1KB);
+    mSmBiosType19.Table.EndingAddress   = (UINT32)(MemoryEnd / SIZE_1KB);
   } else {
     // Update System Memory Details
-    Type19->Table.StartingAddress = 0xFFFFFFFF;
-    Type19->Table.EndingAddress   = 0xFFFFFFFF;
+    mSmBiosType19.Table.StartingAddress = 0xFFFFFFFF;
+    mSmBiosType19.Table.EndingAddress   = 0xFFFFFFFF;
 
     // Update Extended System Memory Details
-    Type19->Table.ExtendedStartingAddress = MemoryBase;
-    Type19->Table.ExtendedEndingAddress   = MemoryEnd;
+    mSmBiosType19.Table.ExtendedStartingAddress = MemoryBase;
+    mSmBiosType19.Table.ExtendedEndingAddress   = MemoryEnd;
   }
 }
 
@@ -377,33 +368,26 @@ cleanup:
 }
 
 VOID
-UpdateSmBiosTables (IN OUT EFI_SMBIOS_TABLES *SmBiosTables)
+UpdateSmBiosTables ()
 {
   // Get System Memory Details
   EFI_PHYSICAL_ADDRESS MemoryBase = FixedPcdGet64 (PcdSystemMemoryBase);
   UINT64               MemorySize = GetMemorySize ();
 
   // Update SMBIOS Tables
-  UpdateSmBiosType0  (&SmBiosTables->Type0);
-  UpdateSmBiosType1  (&SmBiosTables->Type1);
-  UpdateSmBiosType2  (&SmBiosTables->Type2);
-  UpdateSmBiosType3  (&SmBiosTables->Type3);
-  UpdateSmBiosType4  (&SmBiosTables->Type4);
-  UpdateSmBiosType7  (&SmBiosTables->Type7_L1I,
-                      &SmBiosTables->Type7_L1D,
-                      &SmBiosTables->Type7_L2,
-                      &SmBiosTables->Type7_L3);
-  UpdateSmBiosType16 (&SmBiosTables->Type16, MemorySize);
-  UpdateSmBiosType17 (&SmBiosTables->Type17, MemorySize);
-  UpdateSmBiosType19 (&SmBiosTables->Type19, MemoryBase, (EFI_PHYSICAL_ADDRESS)(MemoryBase + MemorySize - 1));
+  UpdateSmBiosType0  ();
+  UpdateSmBiosType1  ();
+  UpdateSmBiosType2  ();
+  UpdateSmBiosType3  ();
+  UpdateSmBiosType4  ();
+  UpdateSmBiosType7  ();
+  UpdateSmBiosType16 (MemorySize);
+  UpdateSmBiosType17 (MemorySize);
+  UpdateSmBiosType19 (MemoryBase, (EFI_PHYSICAL_ADDRESS)(MemoryBase + MemorySize - 1));
 }
 
 VOID
 RegisterCacheTables (
-  IN  EFI_SMBIOS_TYPE7  *Type7_L1I,
-  IN  EFI_SMBIOS_TYPE7  *Type7_L1D,
-  IN  EFI_SMBIOS_TYPE7  *Type7_L2,
-  IN  EFI_SMBIOS_TYPE7  *Type7_L3,
   OUT EFI_SMBIOS_HANDLE *L1dHandle,
   OUT EFI_SMBIOS_HANDLE *L2Handle,
   OUT EFI_SMBIOS_HANDLE *L3Handle)
@@ -414,28 +398,28 @@ RegisterCacheTables (
   *L3Handle  = 0xFFFF;
 
   // Register L1I TYPE7 Table
-  if (Type7_L1I->Table.InstalledSize.Size != 0) {
-    RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&Type7_L1I->Table, Type7_L1I->Strings, NULL);
+  if (mSmBiosType7_L1I.Table.InstalledSize.Size != 0) {
+    RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType7_L1I.Table, mSmBiosType7_L1I.Strings, NULL);
   }
 
   // Register L1D TYPE7 Table
-  if (Type7_L1D->Table.InstalledSize.Size != 0) {
-    RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&Type7_L1D->Table, Type7_L1D->Strings, L1dHandle);
+  if (mSmBiosType7_L1D.Table.InstalledSize.Size != 0) {
+    RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType7_L1D.Table, mSmBiosType7_L1D.Strings, L1dHandle);
   }
 
   // Register L2 TYPE7 Table
-  if (Type7_L2->Table.InstalledSize.Size != 0) {
-    RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&Type7_L2->Table, Type7_L2->Strings, L2Handle);
+  if (mSmBiosType7_L2.Table.InstalledSize.Size != 0) {
+    RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType7_L2.Table, mSmBiosType7_L2.Strings, L2Handle);
   }
 
   // Register L3 TYPE7 Table
-  if (Type7_L3->Table.InstalledSize.Size != 0) {
-    RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&Type7_L3->Table, Type7_L3->Strings, L3Handle);
+  if (mSmBiosType7_L3.Table.InstalledSize.Size != 0) {
+    RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType7_L3.Table, mSmBiosType7_L3.Strings, L3Handle);
   }
 }
 
 VOID
-RegisterSmBiosTables (IN OUT EFI_SMBIOS_TABLES *SmBiosTables)
+RegisterSmBiosTables ()
 {
   EFI_SMBIOS_HANDLE MemoryArrayHandle;
   EFI_SMBIOS_HANDLE L1dHandle;
@@ -443,39 +427,39 @@ RegisterSmBiosTables (IN OUT EFI_SMBIOS_TABLES *SmBiosTables)
   EFI_SMBIOS_HANDLE L3Handle;
 
   // Register Information Tables
-  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&SmBiosTables->Type0.Table, SmBiosTables->Type0.Strings, NULL);
-  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&SmBiosTables->Type1.Table, SmBiosTables->Type1.Strings, NULL);
-  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&SmBiosTables->Type2.Table, SmBiosTables->Type2.Strings, NULL);
-  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&SmBiosTables->Type3.Table, SmBiosTables->Type3.Strings, NULL);
+  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType0.Table, mSmBiosType0.Strings, NULL);
+  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType1.Table, mSmBiosType1.Strings, NULL);
+  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType2.Table, mSmBiosType2.Strings, NULL);
+  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType3.Table, mSmBiosType3.Strings, NULL);
 
   // Register Cache Handles
-  RegisterCacheTables (&SmBiosTables->Type7_L1I, &SmBiosTables->Type7_L1D, &SmBiosTables->Type7_L2, &SmBiosTables->Type7_L3, &L1dHandle, &L2Handle, &L3Handle);
+  RegisterCacheTables (&L1dHandle, &L2Handle, &L3Handle);
 
   // Update Processor Cache Handles
-  SmBiosTables->Type4.Table.L1CacheHandle = L1dHandle;
-  SmBiosTables->Type4.Table.L2CacheHandle = L2Handle;
-  SmBiosTables->Type4.Table.L3CacheHandle = L3Handle;
+  mSmBiosType4.Table.L1CacheHandle = L1dHandle;
+  mSmBiosType4.Table.L2CacheHandle = L2Handle;
+  mSmBiosType4.Table.L3CacheHandle = L3Handle;
 
   // Register TYPE4 & TYPE16 Table
-  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&SmBiosTables->Type4.Table,  SmBiosTables->Type4.Strings,  NULL);
-  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&SmBiosTables->Type16.Table, SmBiosTables->Type16.Strings, &MemoryArrayHandle);
+  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType4.Table,  mSmBiosType4.Strings,  NULL);
+  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType16.Table, mSmBiosType16.Strings, &MemoryArrayHandle);
 
   // Update Memory Array Handle
-  SmBiosTables->Type17.Table.MemoryArrayHandle = MemoryArrayHandle;
-  SmBiosTables->Type19.Table.MemoryArrayHandle = MemoryArrayHandle;
+  mSmBiosType17.Table.MemoryArrayHandle = MemoryArrayHandle;
+  mSmBiosType19.Table.MemoryArrayHandle = MemoryArrayHandle;
 
   // Register Memory Tables
-  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&SmBiosTables->Type17.Table, SmBiosTables->Type17.Strings, NULL);
-  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&SmBiosTables->Type19.Table, SmBiosTables->Type19.Strings, NULL);
+  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType17.Table, mSmBiosType17.Strings, NULL);
+  RegisterTable ((EFI_SMBIOS_TABLE_HEADER *)&mSmBiosType19.Table, mSmBiosType19.Strings, NULL);
 }
 
 VOID
-SmBiosType0CleanUp (IN OUT EFI_SMBIOS_TABLES *SmBiosTables)
+SmBiosType0CleanUp ()
 {
   // Get Firmware Strings
-  CHAR8 *FirmwareVendor    = SmBiosTables->Type0.Strings[0];
-  CHAR8 *FirmwareVersion   = SmBiosTables->Type0.Strings[1];
-  CHAR8 *FirmwareBuildDate = SmBiosTables->Type0.Strings[2];
+  CHAR8 *FirmwareVendor    = mSmBiosType0.Strings[0];
+  CHAR8 *FirmwareVersion   = mSmBiosType0.Strings[1];
+  CHAR8 *FirmwareBuildDate = mSmBiosType0.Strings[2];
 
   // Free Firmware Vendor Buffer
   if (FirmwareVendor != NULL && AsciiStrCmp (FirmwareVendor, "Not Specified") != 0) {
@@ -497,7 +481,7 @@ VOID
 SmBiosCleanUp (IN OUT EFI_SMBIOS_TABLES *SmBiosTables)
 {
   // Do TYPE0 Clean Up
-  SmBiosType0CleanUp (SmBiosTables);
+  SmBiosType0CleanUp ();
 
   // Do Platform Specific Clean Up
   PlatformSmBiosCleanUp (SmBiosTables);
@@ -520,28 +504,28 @@ SmBiosTableDriverEntry (
 
   // Set SMBIOS Tables
   EFI_SMBIOS_TABLES SmBiosTables = {
-    .Type0     = mSmBiosType0,
-    .Type1     = mSmBiosType1,
-    .Type2     = mSmBiosType2,
-    .Type3     = mSmBiosType3,
-    .Type4     = mSmBiosType4,
-    .Type7_L1I = mSmBiosType7_L1I,
-    .Type7_L1D = mSmBiosType7_L1D,
-    .Type7_L2  = mSmBiosType7_L2,
-    .Type7_L3  = mSmBiosType7_L3,
-    .Type16    = mSmBiosType16,
-    .Type17    = mSmBiosType17,
-    .Type19    = mSmBiosType19
+    .Type0     = &mSmBiosType0,
+    .Type1     = &mSmBiosType1,
+    .Type2     = &mSmBiosType2,
+    .Type3     = &mSmBiosType3,
+    .Type4     = &mSmBiosType4,
+    .Type7_L1I = &mSmBiosType7_L1I,
+    .Type7_L1D = &mSmBiosType7_L1D,
+    .Type7_L2  = &mSmBiosType7_L2,
+    .Type7_L3  = &mSmBiosType7_L3,
+    .Type16    = &mSmBiosType16,
+    .Type17    = &mSmBiosType17,
+    .Type19    = &mSmBiosType19
   };
 
   // Update SMBIOS Tables
-  UpdateSmBiosTables (&SmBiosTables);
+  UpdateSmBiosTables ();
 
   // Apply Platform Specific Updates
   PlatformUpdateSmBiosTables (&SmBiosTables);
 
   // Register SMBIOS Tables
-  RegisterSmBiosTables (&SmBiosTables);
+  RegisterSmBiosTables ();
 
   // Do Clean Up
   SmBiosCleanUp (&SmBiosTables);

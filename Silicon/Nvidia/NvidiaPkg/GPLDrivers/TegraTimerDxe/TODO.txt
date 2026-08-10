@@ -1,3 +1,0 @@
-This Driver is Unfinisched!
-I'll have to Rewrite this when Clocks are working.
-Clean Up also needs to be Done.

@@ -29,7 +29,7 @@
   #
   # Firmware Details
   #
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.7"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.8"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
 
   #
@@ -495,3 +495,4 @@
   # UEFI Applications
   #
   MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenuApp.inf
+  SiliciumPkg/Applications/UFPLoader/UFPLoader.inf
