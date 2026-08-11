@@ -2422,18 +2422,18 @@
 
 ### UEFI Status
 
-| Feature            | Description | State |
-|:-------------------|:------------|:-----:|
-| Main Display       |             | ✅    |
-| Cover Display      |             | ❌    |
-| Internal Storage   |             | ✅    |
-| Side Buttons       |             | ✅    |
-| USB Host Mode      |             | ❌    |
-| USB Device Mode    |             | ✅    |
-| USB Power Delivery |             | ❌    |
-| Mass Storage       |             | ✅    |
-| Windows Boot       | WinPE only  | ✅    |
-| Linux Boot         |             | ❌    |
+| Feature            | Description                         | State |
+|:-------------------|:------------------------------------|:-----:|
+| Main Display       |                                     | ✅    |
+| Cover Display      |                                     | ❌    |
+| Internal Storage   |                                     | ✅    |
+| Side Buttons       |                                     | ✅    |
+| USB Host Mode      |                                     | ❌    |
+| USB Device Mode    |                                     | ✅    |
+| USB Power Delivery |                                     | ❌    |
+| Mass Storage       | Unstable, Breaks on Large Transfers | ⚠️    |
+| Windows Boot       |                                     | ✅    |
+| Linux Boot         |                                     | ❌    |
 
 ### OS Status
 
@@ -2441,40 +2441,40 @@
 <tr><th>Windows</th></tr>
 <tr><td>
 
-| Feature              | Description | State |
-|:---------------------|:------------|:-----:|
-| Internal Storage     |             | ❌    |
-| Side Buttons         |             | ❌    |
-| Proximity Sensor     |             | ❌    |
-| Light Sensor         |             | ❌    |
-| Accelerometer Sensor |             | ❌    |
-| Compass Sensor       |             | ❌    |
-| Gyroscope Sensor     |             | ❌    |
-| Barometer Sensor     |             | ❌    |
-| Pedometer Sensor     |             | ❌    |
-| Geomagnetic Sensor   |             | ❌    |
-| Fingerprint Sensor   |             | ❌    |
-| Hall Sensor          |             | ❌    |
-| Heart Rate Sensor    |             | ❌    |
-| NFC Sensor           |             | ❌    |
-| Temperature Sensor   |             | ❌    |
-| Battery              |             | ❌    |
-| USB Host Mode        |             | ❌    |
-| USB Device Mode      |             | ❌    |
-| USB Power Delivery   |             | ❌    |
-| Charging             |             | ❌    |
-| WLAN                 |             | ❌    |
-| CPU                  |             | ✅    |
-| Touchscreen          |             | ❌    |
-| Bluetooth            |             | ❌    |
-| GPS                  |             | ❌    |
-| Speakers             |             | ❌    |
-| Microphone           |             | ❌    |
-| GPU                  |             | ❌    |
-| Camera               |             | ❌    |
-| Mobile Data          |             | ❌    |
-| Display              |             | ✅    |
-| Vibration            |             | ❌    |
+| Feature              | Description                                                                                                       | State |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
+| Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
+| Side Buttons         |                                                                                                                   | ❌    |
+| Proximity Sensor     |                                                                                                                   | ❌    |
+| Light Sensor         |                                                                                                                   | ❌    |
+| Accelerometer Sensor |                                                                                                                   | ❌    |
+| Compass Sensor       |                                                                                                                   | ❌    |
+| Gyroscope Sensor     |                                                                                                                   | ❌    |
+| Barometer Sensor     |                                                                                                                   | ❌    |
+| Pedometer Sensor     |                                                                                                                   | ❌    |
+| Geomagnetic Sensor   |                                                                                                                   | ❌    |
+| Fingerprint Sensor   |                                                                                                                   | ❌    |
+| Hall Sensor          |                                                                                                                   | ❌    |
+| Heart Rate Sensor    |                                                                                                                   | ❌    |
+| NFC Sensor           |                                                                                                                   | ❌    |
+| Temperature Sensor   |                                                                                                                   | ❌    |
+| Battery              |                                                                                                                   | ❌    |
+| USB Host Mode        |                                                                                                                   | ❌    |
+| USB Device Mode      |                                                                                                                   | ❌    |
+| USB Power Delivery   |                                                                                                                   | ❌    |
+| Charging             |                                                                                                                   | ❌    |
+| WLAN                 |                                                                                                                   | ❌    |
+| CPU                  |                                                                                                                   | ✅    |
+| Touchscreen          |                                                                                                                   | ❌    |
+| Bluetooth            |                                                                                                                   | ❌    |
+| GPS                  |                                                                                                                   | ❌    |
+| Speakers             |                                                                                                                   | ❌    |
+| Microphone           |                                                                                                                   | ❌    |
+| GPU                  |                                                                                                                   | ❌    |
+| Camera               |                                                                                                                   | ❌    |
+| Mobile Data          |                                                                                                                   | ❌    |
+| Display              |                                                                                                                   | ✅    |
+| Vibration            |                                                                                                                   | ❌    |
 
 </td></tr>
 </table>

@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/q2q/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/q2q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -69,7 +65,6 @@
   INF Binaries/q2q/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/q2q/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/q2q/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -100,9 +95,6 @@
   INF Binaries/q2q/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/q2q/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/q2q/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/q2q/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/q2q/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
