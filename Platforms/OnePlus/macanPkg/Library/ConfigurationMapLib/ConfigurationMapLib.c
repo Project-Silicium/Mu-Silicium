@@ -33,7 +33,7 @@ gConfigurationDescriptor[] = {
   {"DetectRetailUserAttentionHotkeyCode", 0x17},
   {"ShmBridgememSize", 0xA00000},
   {"MaxCoreCount", 0x8},
-  {"EnableMultiThreading", 0x1},
+  {"EnableMultiThreading", 0x0},
   {"EarlyInitCoreCnt", 0x2},
   {"IsFunctionalCoreCountToOverrideFlag", 0x0},
   {"EnableUefiSecAppDebugLogDump", 0x0},
