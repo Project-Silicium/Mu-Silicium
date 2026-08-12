@@ -14,7 +14,7 @@ requires_kernel_header = true
 # UEFI FD Configs
 #
 [uefi_fd]
-base = 0xBAB00000
+base = 0xA7100000
 size = 0x300000
 
 #
