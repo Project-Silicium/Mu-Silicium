@@ -117,7 +117,7 @@ BuildXblHobs (
 
   // Build DTB Extension HOB
   if (DtbExtensionAddr) {
-    BuildGuidDataHob (&gEfiDtbExtnHobGuid, &DtbExtensionAddr, sizeof (DtbExtensionAddr));
+    BuildGuidDataHob (&gEfiDtbExtensionHobGuid, &DtbExtensionAddr, sizeof (DtbExtensionAddr));
   }
 }
 
