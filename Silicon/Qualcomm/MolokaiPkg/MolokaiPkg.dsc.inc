@@ -18,7 +18,7 @@
   # KEP
   #
   HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA         = 0
-  HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 0
+  HAS_AMCNTENSET0_EL0_UNIMPLEMENTED_ERRATA   = 1
   HAS_GIC_V3_WITHOUT_IRM_FLAG_SUPPORT_ERRATA = 0
   HAS_PSCI_MEMPROTECT_FAILING_ERRATA         = 0
 
@@ -50,7 +50,12 @@
   #
   # SEC Libraries
   #
-  PlatformSecLib|KaanapaliPkg/Library/PlatformSecLib/PlatformSecLib.inf
+  PlatformSecLib|MolokaiPkg/Library/PlatformSecLib/PlatformSecLib.inf
+  
+  #
+  # ACPI Libraries
+  #
+  AcpiTableUpdateLib|MolokaiPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
 
 [Components]
   #
