@@ -9,8 +9,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
-  INF Binaries/macan/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -30,7 +28,6 @@ APRIORI DXE {
   INF Binaries/macan/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/MailboxDxe/MailboxDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/QcomScmiDxe/QcomScmiDxe.inf
-  INF Binaries/macan/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
@@ -77,7 +74,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/macan/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/macan/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkSoccpDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLAGio.inf
@@ -115,5 +111,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
   INF Binaries/macan/QcomPkg/Drivers/RscDxe/RscDxe.inf
-  INF Binaries/macan/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
 }

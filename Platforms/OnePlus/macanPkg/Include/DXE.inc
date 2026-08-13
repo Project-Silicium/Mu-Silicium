@@ -12,8 +12,6 @@
   INF Binaries/macan/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/macan/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/macan/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/macan/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
-
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
@@ -23,9 +21,6 @@
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/macan/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/macan/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -34,7 +29,6 @@
   INF Binaries/macan/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf 
   INF Binaries/macan/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
-  INF Binaries/macan/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/QupDxe/QupDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
@@ -58,12 +52,12 @@
   INF Binaries/macan/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/MailboxDxe/MailboxDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/QcomScmiDxe/QcomScmiDxe.inf
-  #INF Binaries/macan/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/macan/QcomPkg/Drivers/RscDxe/RscDxe.inf
@@ -113,6 +107,3 @@
   INF Binaries/macan/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/macan/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/macan/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/macan/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/macan/QcomPkg/Drivers/ParserDxe/ParserEnhancedDxe.inf
