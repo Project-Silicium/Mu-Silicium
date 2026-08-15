@@ -51,10 +51,10 @@
   #
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 855 @ 2.84 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8150"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8150-AB"
 !elseif $(SOC_TYPE) == 1
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 855+ @ 2.96 GHz"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8150-AB"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8150-AC"
 !elseif $(SOC_TYPE) == 2
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 860 @ 2.96 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SM8150-AC"
