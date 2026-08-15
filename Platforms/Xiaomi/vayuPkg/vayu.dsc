@@ -26,9 +26,9 @@
   USE_CUSTOM_DISPLAY_DRIVER      = 1
 
   #
-  # 0 = SM8150
-  # 1 = SM8150-AB
-  # 2 = SM8150-AC
+  # 0 = SM8150-AB
+  # 1 = SM8150-AC / 855+
+  # 2 = SM8150-AC / 860
   #
   SOC_TYPE                       = 2
 
