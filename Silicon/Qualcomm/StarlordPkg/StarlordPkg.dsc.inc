@@ -51,9 +51,3 @@
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 660 @ 2.20 GHz"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"SDM660"
-
-[LibraryClasses]
-  #
-  # SEC Libraries
-  #
-  PlatformSecLib|StarlordPkg/Library/PlatformSecLib/PlatformSecLib.inf

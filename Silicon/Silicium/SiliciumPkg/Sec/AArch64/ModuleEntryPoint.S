@@ -10,7 +10,7 @@
 //
 // SCTRL_EL1 Bits
 //
-.set CTRL_SPAN_BIT, (1 << 23)
+.set CTRL_SPAN_BIT, BIT23
 
 ASM_FUNC (_ModuleEntryPoint)
   // Do Platform Specific Initialization
@@ -35,29 +35,29 @@ ASM_FUNC (_ModuleEntryPoint)
 
 ASM_PFX (MainEntryPoint):
   // Get Stack Details
-  MOV64 (x8, FixedPcdGet64 (PcdCPUCoresStackBase))
-  MOV32 (x9, FixedPcdGet32 (PcdCPUCorePrimaryStackSize))
+  MOV64 (x3, FixedPcdGet64 (PcdCPUCoresStackBase))
+  MOV32 (x4, FixedPcdGet32 (PcdCPUCorePrimaryStackSize))
 
   // Set Stack End Address
-  add   x7, x8, x9
+  add   x5, x3, x4
 
   // Set Stack Pointer
-  mov   sp, x7
+  mov   sp, x5
 
   // Clear Stack
   mov   x6, xzr
-0:stp   x6, x6, [x8], #16
-  cmp   x8, x7
+0:stp   x6, x6, [x3], #16
+  cmp   x3, x5
   b.lt  0b
 
   // Pass Parameters
-  mov   x0, x8
-  mov   x1, x9
+  mov   x0, x3
+  mov   x1, x4
 
   // Set Jump Location
-  ldr   x2, =ASM_PFX (CEntryPoint)
+  ldr   x2, =ASM_PFX (SecEntry)
 
-  // Clear Frame pointer
+  // Clear Frame Pointer
   mov   x29, xzr
 
   // Jump to C Code

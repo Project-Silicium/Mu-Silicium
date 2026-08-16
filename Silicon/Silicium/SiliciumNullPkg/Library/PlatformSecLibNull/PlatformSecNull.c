@@ -8,5 +8,5 @@
 VOID
 PlatformInitialize ()
 {
-  // Nothing to do Here.
+  return;
 }

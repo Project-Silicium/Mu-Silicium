@@ -10,36 +10,6 @@
 
 #include "PlatformRegisters.h"
 
-STATIC
-ARM_CORE_INFO
-mArmPlatformMpCoreInfoTable[] = {
-  // Mpidr, MailboxSetAddress, MailboxGetAddress, MailboxClearAddress, MailboxClearValue
-
-  // Cluster 0
-  { 0x000, 0, 0, 0, 0xFFFFFFFF },
-  { 0x100, 0, 0, 0, 0xFFFFFFFF },
-  { 0x200, 0, 0, 0, 0xFFFFFFFF },
-  { 0x300, 0, 0, 0, 0xFFFFFFFF },
-
-  // Cluster 1
-  { 0x400, 0, 0, 0, 0xFFFFFFFF },
-  { 0x500, 0, 0, 0, 0xFFFFFFFF },
-  { 0x600, 0, 0, 0, 0xFFFFFFFF },
-
-  // Cluster 2
-  { 0x700, 0, 0, 0, 0xFFFFFFFF }
-};
-
-VOID
-GetPlatformCoreTable (
-  OUT ARM_CORE_INFO **ArmCoreTable,
-  OUT UINTN          *CoreCount)
-{
-  // Pass Data
-  *ArmCoreTable = mArmPlatformMpCoreInfoTable;
-  *CoreCount    = ARRAY_SIZE (mArmPlatformMpCoreInfoTable);
-}
-
 VOID
 DisableWatchDogTimer ()
 {
