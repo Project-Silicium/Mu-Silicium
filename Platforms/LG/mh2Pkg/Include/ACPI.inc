@@ -1,0 +1,19 @@
+FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+  SECTION RAW = Hana/APIC.aml
+# SECTION RAW = Hana/BERT.aml
+  SECTION RAW = Hana/CSRT.aml
+!if $(ENABLE_SECUREBOOT) == 0
+  SECTION RAW = Hana/DBG2.aml
+!endif
+  SECTION RAW = mh2/DSDT.aml
+  SECTION RAW = Common/SSDT.aml
+  SECTION RAW = Hana/FACP.aml
+# SECTION RAW = Hana/FPDT.aml
+  SECTION RAW = Hana/GTDT.aml
+  SECTION RAW = Hana/IORT.aml
+  SECTION RAW = Hana/MCFG.aml
+# SECTION RAW = Hana/MSDM.aml
+  SECTION RAW = Hana/PPTT.aml
+# SECTION RAW = Hana/SPCR.aml
+  SECTION UI = "AcpiTables" 
+}
