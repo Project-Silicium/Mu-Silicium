@@ -17,7 +17,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = mh2
-  PLATFORM_GUID                  = C613F7A8-7FF8-42A8-92F7-FF34EA2B9866
+  PLATFORM_GUID                  = 410E0BBA-7EB7-4496-887B-061CD573D974
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/mh2Pkg
