@@ -52,9 +52,6 @@ PlatformBootManagerBeforeConsole ()
   EfiBootManagerUpdateConsoleVariable (ConOut, (EFI_DEVICE_PATH_PROTOCOL *)&DisplayDevicePath, NULL);
   EfiBootManagerUpdateConsoleVariable (ErrOut, (EFI_DEVICE_PATH_PROTOCOL *)&DisplayDevicePath, NULL);
 
-  // Update ACPI Tables
-  UpdateAcpiTables ();
-
   // Execute Secondary Before Console
   DeviceBootManagerBeforeConsole (NULL, NULL);
 }
@@ -235,6 +232,9 @@ PlatformBootManagerBdsEntry ()
   // Setup Secure Boot
   Status = SetupSecureBoot ();
   ASSERT_EFI_ERROR (Status);
+
+  // Update ACPI Tables
+  UpdateAcpiTables ();
 
   // Execute Secondary BDS Entry
   DeviceBootManagerBdsEntry ();
