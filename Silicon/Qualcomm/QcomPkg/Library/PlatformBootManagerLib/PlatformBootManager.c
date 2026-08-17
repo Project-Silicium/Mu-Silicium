@@ -1,6 +1,7 @@
 #include <Library/DebugLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/DeviceBootManagerLib.h>
+#include <Library/RfsProtectionLib.h>
 
 STATIC
 VOID
@@ -87,5 +88,6 @@ VOID
 EFIAPI
 DeviceBootManagerBdsEntry ()
 {
-  return;
+  // Protect Shared RFS Area
+  ProtectRfsSharedArea ();
 }

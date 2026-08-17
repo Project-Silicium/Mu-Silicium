@@ -19,7 +19,6 @@
   UefiBootServicesTableLib
   AslUpdateLib
   MemoryMapHelperLib
-  RFSProtectionLib
 
 [Protocols]
   gEfiChipInfoProtocolGuid

@@ -2,7 +2,6 @@
 #define _RFS_PROTECTION_LIB_H_
 
 EFI_STATUS
-EFIAPI
-RFSLocateAndProtectSharedArea ();
+ProtectRfsSharedArea ();
 
 #endif /* _RFS_PROTECTION_LIB_H_ */

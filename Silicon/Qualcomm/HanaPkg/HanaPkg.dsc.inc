@@ -47,6 +47,11 @@
   gArmTokenSpaceGuid.PcdArmArchTimerIntrNum|18
 
   #
+  # Shared RFS Area
+  #
+  gQcomPkgTokenSpaceGuid.PcdDestinationVmCount|2
+
+  #
   # SMBIOS
   #
 !if $(SOC_TYPE) == 0
@@ -70,8 +75,3 @@
   # ACPI Libraries
   #
   AcpiTableUpdateLib|HanaPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
-
-  #
-  # Custom Libraries
-  #
-  RFSProtectionLib|HanaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf

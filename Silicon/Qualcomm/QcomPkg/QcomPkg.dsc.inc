@@ -22,6 +22,7 @@
   # Memory Libraries
   #
   RamManagerLib|QcomPkg/Library/RamManagerLib/RamManagerLib.inf
+  RfsProtectionLib|QcomPkg/Library/RfsProtectionLib/RfsProtectionLib.inf
 
   #
   # BDS Libraries

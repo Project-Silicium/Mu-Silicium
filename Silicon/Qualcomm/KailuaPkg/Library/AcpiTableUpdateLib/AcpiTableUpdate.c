@@ -2,7 +2,6 @@
 #include <Library/AcpiTableUpdateLib.h>
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/RFSProtectionLib.h>
 
 #include <Protocol/EFIChipInfo.h>
 #include <Protocol/EFIPlatformInfo.h>
@@ -88,9 +87,6 @@ UpdateAcpiTables ()
   if (!EFI_ERROR (LocateMemoryRegionByName ("MPSS_EFS", &MPSSEFSRegion))) {
     RMTB = MPSSEFSRegion.Address;
     RMTX = MPSSEFSRegion.Length;
-
-    // Configure MPSS Permissions
-    RFSLocateAndProtectSharedArea ();
   }
 
   if (!EFI_ERROR (LocateMemoryRegionByName ("ADSP_EFS", &ADSPEFSRegion))) {
