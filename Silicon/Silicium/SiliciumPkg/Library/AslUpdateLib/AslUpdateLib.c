@@ -117,6 +117,43 @@ LocateTableByOemTableId (
 }
 
 EFI_STATUS
+GetAslNameDataSize (
+  IN  UINT8 *Current,
+  OUT UINTN *DataSize)
+{
+  // Get Data OP Code
+  UINT8 DataOp = *(Current + 5);
+
+  // Return Original Data Size
+  switch (DataOp) {
+    case AML_STRING_PREFIX:
+      *DataSize = AsciiStrSize ((CHAR8 *)(Current + 6));
+      break;
+
+    case AML_BYTE_PREFIX:
+      *DataSize = sizeof (UINT8);
+      break;
+
+    case AML_WORD_PREFIX:
+      *DataSize = sizeof (UINT16);
+      break;
+
+    case AML_DWORD_PREFIX:
+      *DataSize = sizeof (UINT32);
+      break;
+
+    case AML_QWORD_PREFIX:
+      *DataSize = sizeof (UINT64);
+      break;
+
+    default:
+      return EFI_UNSUPPORTED;
+  }
+
+  return EFI_SUCCESS;
+}
+
+EFI_STATUS
 EFIAPI
 AslUpdateName (
   IN EFI_ACPI_DESCRIPTION_HEADER *Table,
@@ -124,6 +161,9 @@ AslUpdateName (
   IN VOID                        *Buffer,
   IN UINTN                        Length)
 {
+  EFI_STATUS Status;
+  UINTN      OrigDataSize;
+
   // Verify Parameters
   if (Table == NULL || Buffer == NULL || Length == 0) {
     return EFI_INVALID_PARAMETER;
@@ -148,6 +188,17 @@ AslUpdateName (
     // Compare Name Signatures
     if (*(UINT32 *)(Current + 1) != NameSignature) {
       continue;
+    }
+
+    // Get Original Name Data Size
+    Status = GetAslNameDataSize (Current, &OrigDataSize);
+    if (EFI_ERROR (Status)) {
+      return Status;
+    }
+
+    // Verify Original Name Data Size
+    if (Length > OrigDataSize) {
+      return EFI_BUFFER_TOO_SMALL;
     }
 
     // Overwrite Original Value
