@@ -54,11 +54,6 @@
 
 [LibraryClasses]
   #
-  # SEC Libraries
-  #
-  PlatformSecLib|BlackboltPkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
   # ACPI Libraries
   #
   AcpiTableUpdateLib|BlackboltPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf

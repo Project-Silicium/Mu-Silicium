@@ -66,11 +66,6 @@
   #
   AcpiTableUpdateLib|PalimaPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
 
-  #
-  # Custom Libraries
-  #
-  RFSProtectionLib|PalimaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
-
 [Components]
   #
   # Custom Drivers

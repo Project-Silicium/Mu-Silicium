@@ -3,7 +3,6 @@
 #include <Library/AcpiTableUpdateLib.h>
 #include <Library/MemoryMapHelperLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/RFSProtectionLib.h>
 #include <Library/IoLib.h>
 
 #include <Protocol/EFIChipInfo.h>
@@ -193,9 +192,6 @@ GetMemoryRegionInfos (
     // Pass Data
     *MpssEfsAddress = (UINT32)MpssEfsRegion.Address;
     *MpssEfsLength  = (UINT32)MpssEfsRegion.Length;
-
-    // Configure MPSS Permissions
-    RFSLocateAndProtectSharedArea ();
   }
 
   // Locate "ADSP_EFS" Memory Region

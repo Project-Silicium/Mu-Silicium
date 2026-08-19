@@ -29,13 +29,10 @@ ClearFrameBuffer ()
   LocateMemoryRegionByName ("Display Reserved", &FrameBufferRegion);
   LocateMemoryRegionByName ("Display_Reserved", &FrameBufferRegion);
 
-  // Verify Memory Region
-  if (!FrameBufferRegion.Address) {
-    return;
-  }
-
   // Clear Memory Region
-  ZeroMem ((VOID *)FrameBufferRegion.Address, FrameBufferRegion.Length);
+  if (FrameBufferRegion.Address != 0 && FrameBufferRegion.Length != 0) {
+    ZeroMem ((VOID *)FrameBufferRegion.Address, FrameBufferRegion.Length);
+  }
 }
 
 STATIC
@@ -72,7 +69,7 @@ InitializeMemory (
   UINTN UefiMemorySize = UefiMemoryRegion.Length;
 
   // Verify UEFI Memory Base
-  if (!UefiMemoryBase) {
+  if (UefiMemoryBase == 0 && UefiMemorySize == 0) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate \"DXE Heap\" Memory Region!\n"));
     return EFI_NOT_FOUND;
   }
@@ -94,64 +91,6 @@ InitializeMemory (
 }
 
 STATIC
-EFI_STATUS
-InitializeMpCoreInfo ()
-{
-  ARM_CORE_INFO *ArmCoreInfoTable;
-  UINTN          ArmCoreCount;
-
-  // Get Core Table Data
-  GetPlatformCoreTable (&ArmCoreInfoTable, &ArmCoreCount);
-
-  // Verify ARM Core Info Table
-  if (ArmCoreInfoTable == NULL) {
-    DEBUG ((EFI_D_ERROR, "ARM Core Info Table is NULL!\n"));
-    return EFI_UNSUPPORTED;
-  }
-
-  // Build MPCore Info HOB
-  BuildGuidDataHob (&gArmMpCoreInfoGuid, ArmCoreInfoTable, sizeof (ARM_CORE_INFO) * ArmCoreCount);
-
-  return EFI_SUCCESS;
-}
-
-STATIC
-EFI_STATUS
-DecompressFvs ()
-{
-  EFI_PEI_FV_HANDLE VolumeHandle = NULL;
-  BOOLEAN           FvsExist     = FALSE;
-
-  // Go thru each FFS Volume
-  for (UINTN Instance = 0; !EFI_ERROR (FfsFindNextVolume (Instance, &VolumeHandle)); Instance++) {
-    EFI_PEI_FILE_HANDLE FileHandle = NULL;
-
-    // Go thru all FFS Volume Files
-    while (!EFI_ERROR (FfsFindNextFile (EFI_FV_FILETYPE_FIRMWARE_VOLUME_IMAGE, VolumeHandle, &FileHandle))) {
-      EFI_STATUS Status;
-
-      // Process FV File
-      Status = FfsProcessFvFile (FileHandle, VolumeHandle);
-      if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "Failed to Process FV Instance %u! Status = %r\n", Instance, Status));
-        continue;
-      }
-
-      // Set FV Bool
-      FvsExist = TRUE;
-    }
-  }
-
-  // Verify Amount of Instances
-  if (!FvsExist) {
-    DEBUG ((EFI_D_ERROR, "No FVs were Found!\n"));
-    return EFI_NOT_FOUND;
-  }
-
-  return EFI_SUCCESS;
-}
-
-STATIC
 VOID
 SecMain (
   IN UINTN StackBase,
@@ -159,20 +98,20 @@ SecMain (
 {
   EFI_STATUS Status;
 
+#ifndef MDEPKG_NDEBUG
   // Initialize Serial Port
   Status = SerialPortInitialize ();
   if (EFI_ERROR (Status)) {
     return;
   }
 
-#ifndef MDEPKG_NDEBUG
   // Print Firmware Version
   PrintFirmwareVersion ();
-#endif
 
   // Initialize Debug Agent
   InitializeDebugAgent (DEBUG_AGENT_INIT_POSTMEM_SEC, NULL, NULL);
   SaveAndSetDebugTimerInterrupt (TRUE);
+#endif
 
   // Initialize Memory
   Status = InitializeMemory (StackBase, StackSize);
@@ -182,14 +121,6 @@ SecMain (
 
   // Build CPU HOB
   BuildCpuHob (ArmGetPhysicalAddressBits (), PcdGet8 (PcdPrePiCpuIoSize));
-
-  // Initialize PPI
-  if (ArmIsMpCore ()) {
-    Status = InitializeMpCoreInfo ();
-    if (EFI_ERROR (Status)) {
-      return;
-    }
-  }
 
   // Set the Boot Mode
   SetBootMode (BOOT_WITH_DEFAULT_SETTINGS);
@@ -204,8 +135,9 @@ SecMain (
   ProcessLibraryConstructorList ();
 
   // Decompress all FVs
-  Status = DecompressFvs ();
+  Status = DecompressFirstFv ();
   if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Decompress FV! Status = %r\n", Status));
     return;
   }
 
@@ -217,7 +149,7 @@ SecMain (
 }
 
 VOID
-CEntryPoint (
+SecEntry (
   IN UINTN StackBase,
   IN UINTN StackSize)
 {

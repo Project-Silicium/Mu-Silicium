@@ -41,6 +41,11 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
 
   #
+  # Shared RFS Area
+  #
+  gQcomPkgTokenSpaceGuid.PcdDestinationVmCount|3
+
+  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 780G @ 2.40 GHz"
@@ -56,8 +61,3 @@
   # ACPI Libraries
   #
   AcpiTableUpdateLib|CedrosPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
-
-  #
-  # Custom Libraries
-  #
-  RFSProtectionLib|CedrosPkg/Library/RFSProtectionLib/RFSProtectionLib.inf

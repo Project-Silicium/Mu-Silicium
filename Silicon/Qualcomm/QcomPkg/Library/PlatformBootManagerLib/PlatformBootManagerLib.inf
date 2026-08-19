@@ -18,6 +18,7 @@
 [LibraryClasses]
   DebugLib
   UefiBootServicesTableLib
+  RfsProtectionLib
 
 [Guids]
   gUsbControllerInitGuid

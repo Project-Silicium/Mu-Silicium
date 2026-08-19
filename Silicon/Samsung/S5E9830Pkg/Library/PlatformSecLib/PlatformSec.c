@@ -9,36 +9,6 @@
 
 #include "PlatformRegisters.h"
 
-STATIC
-ARM_CORE_INFO
-mArmPlatformMpCoreInfoTable[] = {
-  // Mpidr, MailboxSetAddress, MailboxGetAddress, MailboxClearAddress, MailboxClearValue
-
-  // Cluster 0
-  { 0x000, 0, 0, 0, 0xFFFFFFFF },
-  { 0x001, 0, 0, 0, 0xFFFFFFFF },
-  { 0x002, 0, 0, 0, 0xFFFFFFFF },
-  { 0x003, 0, 0, 0, 0xFFFFFFFF },
-
-  // Cluster 1
-  { 0x004, 0, 0, 0, 0xFFFFFFFF },
-  { 0x005, 0, 0, 0, 0xFFFFFFFF },
-
-  // Cluster 2
-  { 0x100, 0, 0, 0, 0xFFFFFFFF },
-  { 0x101, 0, 0, 0, 0xFFFFFFFF }
-};
-
-VOID
-GetPlatformCoreTable (
-  OUT ARM_CORE_INFO **ArmCoreTable,
-  OUT UINTN          *CoreCount)
-{
-  // Pass Data
-  *ArmCoreTable = mArmPlatformMpCoreInfoTable;
-  *CoreCount    = ARRAY_SIZE (mArmPlatformMpCoreInfoTable);
-}
-
 VOID
 EnableFrameBufferWrites ()
 {

@@ -189,6 +189,7 @@
   PeCoffExtraActionLib|MdePkg/Library/BasePeCoffExtraActionLibNull/BasePeCoffExtraActionLibNull.inf
   PlatformPeiLib|SiliciumNullPkg/Library/PlatformPeiLibNull/PlatformPeiLibNull.inf
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
+  PlatformSecLib|SiliciumNullPkg/Library/PlatformSecLibNull/PlatformSecLibNull.inf
 
   #
   # UEFI Libraries

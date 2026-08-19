@@ -102,7 +102,8 @@
   #
   # Memory
   #
-  gQcomPkgTokenSpaceGuid.PcdFaultyDdrProtocol|FALSE|BOOLEAN|0x0000C100
+  gQcomPkgTokenSpaceGuid.PcdDestinationVmCount|0|UINT8|0x0000C100
+  gQcomPkgTokenSpaceGuid.PcdFaultyDdrProtocol|FALSE|BOOLEAN|0x0000C101
 
   #
   # Storage

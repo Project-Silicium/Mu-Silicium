@@ -41,6 +41,11 @@
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x17A60000
 
   #
+  # Shared RFS Area
+  #
+  gQcomPkgTokenSpaceGuid.PcdDestinationVmCount|3
+
+  #
   # SMBIOS
   #
 !if $(SOC_TYPE) != 2
@@ -65,8 +70,3 @@
   # ACPI Libraries
   #
   AcpiTableUpdateLib|LahainaPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
-
-  #
-  # Custom Libraries
-  #
-  RFSProtectionLib|LahainaPkg/Library/RFSProtectionLib/RFSProtectionLib.inf

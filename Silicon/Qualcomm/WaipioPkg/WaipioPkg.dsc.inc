@@ -57,11 +57,6 @@
   #
   AcpiTableUpdateLib|WaipioPkg/Library/AcpiTableUpdateLib/AcpiTableUpdateLib.inf
 
-  #
-  # Custom Libraries
-  #
-  RFSProtectionLib|WaipioPkg/Library/RFSProtectionLib/RFSProtectionLib.inf
-
 [Components]
   #
   # Custom Drivers

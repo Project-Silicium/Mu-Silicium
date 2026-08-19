@@ -3088,6 +3088,36 @@
 <br>
 
 <details>
+<summary><b><strong>LG Devices</strong></b></summary>
+
+## LG G8x ThinQ
+
+<img align="right" src="Resources/Pictures/LG-G8x-Thinq.png" width="500" alt="Preview">
+
+**State:** Active <br>
+**Codename:** mh2
+
+**Contributors:** [Rostislav Lastochkin](https://github.com/remtrik)
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ✅    |
+| Linux Boot         |             | ✅    |
+
+</details>
+
+---
+
+<details>
 <summary><b><strong>Xiaomi Devices</strong></b></summary>
 
 ## Xiaomi Pad 5
