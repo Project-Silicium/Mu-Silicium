@@ -69,6 +69,11 @@
   #
   gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
 
+  #
+  # Storage
+  #
+  gQcomPkgTokenSpaceGuid.PcdStorageIsUfs3|FALSE
+
 [LibraryClasses]
   #
   # Memory Libraries
