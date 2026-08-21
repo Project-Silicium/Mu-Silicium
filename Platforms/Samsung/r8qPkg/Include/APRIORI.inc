@@ -49,7 +49,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
   INF Binaries/r8q/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/r8q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
@@ -78,9 +77,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/r8q/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/r8q/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf

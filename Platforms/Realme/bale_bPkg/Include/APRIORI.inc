@@ -47,7 +47,6 @@ APRIORI DXE {
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
-  INF Binaries/bale_b/QcomPkg/Drivers/OplusStorageDxe/OplusStorageDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
@@ -55,7 +54,6 @@ APRIORI DXE {
   INF Binaries/bale_b/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/bale_b/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -69,18 +67,12 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/bale_b/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/bale_b/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/OplusSecurityDxe/OplusSecurityDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
@@ -114,7 +106,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
   INF Binaries/bale_b/QcomPkg/Drivers/RscDxe/RscDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
 }

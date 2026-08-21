@@ -61,7 +61,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/muyu/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -75,13 +74,9 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/muyu/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/muyu/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/muyu/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
@@ -111,5 +106,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
   INF Binaries/muyu/QcomPkg/Drivers/RscDxe/RscDxe.inf
-  INF Binaries/muyu/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
 }

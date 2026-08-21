@@ -55,7 +55,6 @@ APRIORI DXE {
   INF Binaries/senna_a/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  INF Binaries/senna_a/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -68,15 +67,11 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/senna_a/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/senna_a/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/senna_a/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

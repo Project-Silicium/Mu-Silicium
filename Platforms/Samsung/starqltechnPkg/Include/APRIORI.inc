@@ -49,9 +49,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/starqltechn/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/starqltechn/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
@@ -92,6 +89,5 @@ APRIORI DXE {
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/DispPmicDxe/DispPmicDxe.inf
-  INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/SvcLedDxe/SvcLedDxe.inf
 }

@@ -12,7 +12,6 @@
   INF Binaries/bale_b/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/bale_b/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/bale_b/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -22,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/bale_b/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -73,7 +68,6 @@
 !endif
   INF Binaries/bale_b/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
@@ -83,7 +77,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/bale_b/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -91,7 +84,6 @@
   #INF Binaries/bale_b/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/bale_b/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
-  #INF Binaries/bale_b/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
@@ -111,10 +103,4 @@
   INF Binaries/bale_b/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/bale_b/QcomPkg/Drivers/SSRDxe/SSRDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/OplusSecurityDxe/OplusSecurityDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/ParserDxe/ParserEnhancedDxe.inf
-  INF Binaries/bale_b/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

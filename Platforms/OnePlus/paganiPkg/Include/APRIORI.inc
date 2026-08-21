@@ -8,9 +8,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
-
-  INF Binaries/pagani/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -30,7 +27,6 @@ APRIORI DXE {
   INF Binaries/pagani/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/MailboxDxe/MailboxDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/QcomScmiDxe/QcomScmiDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
@@ -62,7 +58,6 @@ APRIORI DXE {
   INF Binaries/pagani/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/pagani/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -79,7 +74,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/pagani/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
@@ -116,5 +110,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
   INF Binaries/pagani/QcomPkg/Drivers/RscDxe/RscDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
 }

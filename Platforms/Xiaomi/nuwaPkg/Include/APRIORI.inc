@@ -50,7 +50,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/nuwa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
@@ -60,8 +59,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/nuwa/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/nuwa/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -74,9 +71,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/nuwa/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/nuwa/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

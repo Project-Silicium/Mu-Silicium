@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/renoir/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/renoir/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -77,7 +73,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/renoir/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -104,6 +99,3 @@
   INF Binaries/renoir/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/renoir/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  INF Binaries/renoir/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/renoir/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/renoir/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

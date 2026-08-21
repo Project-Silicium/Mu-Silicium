@@ -8,9 +8,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
-
-  INF Binaries/infiniti/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -30,7 +27,6 @@ APRIORI DXE {
   INF Binaries/infiniti/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/MailboxDxe/MailboxDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/QcomScmiDxe/QcomScmiDxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
@@ -79,7 +75,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/infiniti/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkSoccpDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLAGio.inf
@@ -117,5 +112,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
   INF Binaries/infiniti/QcomPkg/Drivers/RscDxe/RscDxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
 }

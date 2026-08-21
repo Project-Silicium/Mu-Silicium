@@ -2,7 +2,6 @@ APRIORI DXE {
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/SecShareInfoDxe/SecShareInfoDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
@@ -52,16 +51,12 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf 
   INF Binaries/dm2q/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
@@ -70,8 +65,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/dm2q/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -84,9 +77,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/dm2q/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/dm2q/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

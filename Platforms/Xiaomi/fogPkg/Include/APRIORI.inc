@@ -38,8 +38,9 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF Binaries/fog/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/fog/QcomPkg/Drivers/VariableDxe/VariableDxe.inf
-  INF Binaries/fog/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
+
+  INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
+
   INF Binaries/fog/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/fog/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
 
@@ -56,9 +57,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/fog/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/fog/QcomPkg/Drivers/I2CDxe/I2CDxe.inf

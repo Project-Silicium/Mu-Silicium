@@ -61,7 +61,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/peridot/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -75,13 +74,9 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/peridot/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/peridot/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/peridot/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/peridot/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
@@ -111,5 +106,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
   INF Binaries/peridot/QcomPkg/Drivers/RscDxe/RscDxe.inf
-  INF Binaries/peridot/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
 }

@@ -29,10 +29,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/caprip/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -59,7 +56,6 @@
   INF Binaries/caprip/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/caprip/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  INF Binaries/caprip/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotBootFlagsDxe/MotBootFlagsDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
   INF Binaries/caprip/MbmPkg/Core/Drivers/BacklightDxe/BacklightDxe.inf

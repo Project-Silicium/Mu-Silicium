@@ -5,7 +5,6 @@
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   #INF Binaries/cheeseburger/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/cheeseburger/QcomPkg/Drivers/MdtpDxe/MdtpDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -24,7 +23,6 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/cheeseburger/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
@@ -65,7 +63,6 @@
   INF Binaries/cheeseburger/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-  INF Binaries/cheeseburger/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf

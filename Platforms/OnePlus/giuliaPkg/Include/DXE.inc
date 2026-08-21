@@ -12,7 +12,6 @@
   INF Binaries/giulia/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/giulia/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/giulia/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/giulia/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -22,9 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/giulia/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -45,7 +41,6 @@
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF Binaries/giulia/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/OplusStorageDxe/OplusStorageDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
@@ -72,7 +67,6 @@
 !endif
   INF Binaries/giulia/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
@@ -83,7 +77,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/giulia/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -94,9 +87,6 @@
   INF Binaries/giulia/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/giulia/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/giulia/QcomPkg/Drivers/PhoenixDxe/PhoenixDxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/Phoenix2_0Dxe/Phoenix2_0Dxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
@@ -117,10 +107,3 @@
   INF Binaries/giulia/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/giulia/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
-  INF Binaries/giulia/QcomPkg/Drivers/ParserDxe/ParserEnhancedDxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  INF Binaries/giulia/QcomPkg/Drivers/OplusOrdumpDxe/OplusOrdump.inf
-  INF Binaries/giulia/QcomPkg/Drivers/OplusSecurityDxe/OplusSecurityDxe.inf

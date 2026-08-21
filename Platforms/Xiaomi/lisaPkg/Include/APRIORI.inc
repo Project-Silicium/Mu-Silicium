@@ -50,7 +50,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/lisa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
@@ -60,7 +59,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/lisa/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -77,9 +75,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/lisa/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/lisa/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

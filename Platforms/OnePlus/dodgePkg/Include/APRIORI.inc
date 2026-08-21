@@ -8,9 +8,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
-
-  INF Binaries/dodge/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
@@ -30,7 +27,6 @@ APRIORI DXE {
   INF Binaries/dodge/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/MailboxDxe/MailboxDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/QcomScmiDxe/QcomScmiDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
@@ -51,7 +47,6 @@ APRIORI DXE {
 
   INF Binaries/dodge/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/OplusStorageDxe/OplusStorageDxe.inf
 
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
@@ -61,10 +56,7 @@ APRIORI DXE {
 
   INF Binaries/dodge/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
-  INF Binaries/dodge/QcomPkg/Drivers/OplusS4ResetDxe/OplusS4ResetDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/OplusFpgaDxe/OplusFpga.inf
   INF Binaries/dodge/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -81,12 +73,9 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/dodge/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/dodge/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/OplusSecurityDxe/OplusSecurityDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/dodge/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
@@ -121,8 +110,4 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
   INF Binaries/dodge/QcomPkg/Drivers/RscDxe/RscDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
-  INF Binaries/dodge/QcomPkg/Drivers/OplusOrdumpDxe/OplusOrdump.inf
-  INF Binaries/dodge/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
 }

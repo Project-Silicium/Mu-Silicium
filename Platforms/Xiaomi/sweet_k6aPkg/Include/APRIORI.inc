@@ -40,7 +40,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/sweet_k6a/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
 
@@ -56,14 +55,10 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/sweet_k6a/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/sweet_k6a/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/AW8624Dxe/AW8624Dxe.inf
-  INF Binaries/sweet_k6a/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/sweet_k6a/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf

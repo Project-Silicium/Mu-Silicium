@@ -24,9 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/9707f/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/9707f/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -101,4 +99,3 @@
   INF Binaries/9707f/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/9707f/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
-  INF Binaries/9707f/QcomPkg/Drivers/I2cHapticDxe/I2cHapticDxe.inf

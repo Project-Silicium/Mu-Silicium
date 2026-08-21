@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/spacewar/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/spacewar/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -82,7 +78,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/spacewar/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -109,6 +104,3 @@
   INF Binaries/spacewar/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  INF Binaries/spacewar/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/spacewar/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/spacewar/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

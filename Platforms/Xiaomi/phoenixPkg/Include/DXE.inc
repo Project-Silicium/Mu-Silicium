@@ -24,9 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/phoenix/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/phoenix/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -58,7 +56,6 @@
   INF Binaries/phoenix/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/phoenix/QcomPkg/Drivers/AW8624Dxe/AW8624Dxe.inf
-  INF Binaries/phoenix/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/phoenix/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

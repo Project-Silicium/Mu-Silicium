@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/lisa/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -76,7 +72,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/lisa/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -103,6 +98,3 @@
   INF Binaries/lisa/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/lisa/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/lisa/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
