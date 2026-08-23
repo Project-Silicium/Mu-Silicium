@@ -4929,12 +4929,12 @@
 | Magnetometer Sensor  |               | ❌    |
 | Fingerprint Sensor   |               | ❌    |
 | NFC Sensor           |               | ❌    |
-| Temperature Sensor   | Only Battery  | ⚠️    |
-| Battery              |               | ✅    |
-| USB Host Mode        |               | ❌    |
-| USB Device Mode      |               | ❔    |
+| Temperature Sensor   |               | ❌    |
+| Battery              |               | ❌    |
+| USB Host Mode        |               | ✅    |
+| USB Device Mode      |               | ❌    |
 | USB Power Delivery   |               | ❌    |
-| Charging             | No Indication | ⚠️    |
+| Charging             |               | ❌    |
 | WLAN                 |               | ❌    |
 | CPU                  |               | ✅    |
 | Touchscreen          |               | ❌    |
@@ -4948,44 +4948,38 @@
 | Display              |               | ✅    | 
 | Vibration            |               | ❌    |
 
-</td>
-<td>
+</td><td>
 
-> [!IMPORTANT]
-> Linux Requires: [Mainline Kernel](https://github.com/jiganomegsdfdf/aston-mainline).
-
-> [!TIP]
-> Recommended Guide: [Ubuntu](https://github.com/jiganomegsdfdf/ubuntu-oneplus-aston).
-
-| Feature              | Description             | State |
-|:---------------------|:------------------------|:-----:|
-| Internal Storage     |                         | ✅    |
-| Side Buttons         |                         | ✅    |
-| Proximity Sensor     |                         | ❌    |
-| Light Sensor         |                         | ✅    |
-| Accelerometer Sensor |                         | ❌    |
-| Gyroscope Sensor     |                         | ❌    |
-| Magnetometer Sensor  | Userspace Issues        | ⚠️    |
-| Fingerprint Sensor   |                         | ❌    |
-| NFC Sensor           | Untested                | ❔    |
-| Temperature Sensor   |                         | ✅    |
-| Battery              |                         | ✅    |
-| USB Host Mode        |                         | ❌    |
-| USB Device Mode      |                         | ✅    |
-| USB Power Delivery   |                         | ❌    |
-| Charging             | 100W = 1.1W             | ⚠️    |
-| WLAN                 |                         | ✅    |
-| CPU                  |                         | ✅    |
-| Touchscreen          |                         | ✅    |
-| Bluetooth            |                         | ✅    |
-| GPS                  |                         | ❌    |
-| Speakers             |                         | ✅    |
-| Microphone           |                         | ✅    |
-| GPU                  |                         | ✅    |
-| Camera               | Only Front, Macroand UW | ✅    |
-| Mobile Data          |                         | ❌    |
-| Display              |                         | ✅    | 
-| Vibration            |                         | ❌    |
+| Feature              | Description | State |
+|:---------------------|:------------|:-----:|
+| Internal Storage     |             | ✅    |
+| SD Card              |             | ❔    |
+| Side Buttons         |             | ❌    |
+| Proximity Sensor     |             | ❌    |
+| Light Sensor         |             | ❌    |
+| Accelerometer Sensor |             | ❌    |
+| Compass Sensor       |             | ❌    |
+| Fingerprint Sensor   |             | ❌    |
+| NFC Sensor           |             | ❌    |
+| Temperature Sensor   |             | ❌    |
+| Battery              |             | ❌    |
+| USB Host Mode        |             | ✅    |
+| USB Device Mode      |             | ❌    |
+| USB Power Delivery   |             | ❌    |
+| Charging             |             | ❌    |
+| WLAN                 |             | ✅    |
+| CPU                  |             | ✅    |
+| Touchscreen          |             | ✅    |
+| Bluetooth            |             | ✅    |
+| GPS                  |             | ❌    |
+| Speakers             |             | ❌    |
+| 3.5mm Audio Jack     |             | ❌    |
+| Microphone           |             | ❌    |
+| GPU                  |             | ❌    |
+| Camera               |             | ❌    |
+| Mobile Data          |             | ❌    |
+| Display              |             | ✅    |
+| Vibration            |             | ❌    |
 
 </td></tr>
 </table>
