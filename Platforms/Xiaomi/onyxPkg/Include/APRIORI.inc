@@ -64,7 +64,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/onyx/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -82,7 +81,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/onyx/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf

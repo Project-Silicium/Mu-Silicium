@@ -35,9 +35,6 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
   
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-  
-  INF Binaries/lavender/QcomPkg/Drivers/QdssDxe/QdssDxe.inf
-
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
@@ -46,9 +43,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/lavender/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   
   INF Binaries/lavender/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
@@ -79,10 +73,8 @@ APRIORI DXE {
 
   INF Binaries/lavender/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF Binaries/lavender/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-  INF Binaries/lavender/QcomPkg/Drivers/MdtpDxe/MdtpDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/lavender/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  INF Binaries/lavender/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

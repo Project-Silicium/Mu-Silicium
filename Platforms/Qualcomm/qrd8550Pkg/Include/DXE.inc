@@ -2,8 +2,6 @@
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   INF Binaries/qrd8550/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/qrd8550/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/qrd8550/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
@@ -14,7 +12,6 @@
   INF Binaries/qrd8550/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/qrd8550/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -24,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/qrd8550/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/qrd8550/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -83,7 +76,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/qrd8550/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
@@ -109,4 +101,3 @@
   INF Binaries/qrd8550/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/qrd8550/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf

@@ -5,7 +5,6 @@
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
 
   #INF Binaries/nitrogen/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/nitrogen/QcomPkg/Drivers/MdtpDxe/MdtpDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -24,7 +23,6 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/nitrogen/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
@@ -66,7 +64,6 @@
   INF Binaries/nitrogen/QcomPkg/Drivers/AdcDxe/AdcDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-  INF Binaries/nitrogen/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
@@ -80,7 +77,5 @@
   INF Binaries/nitrogen/QcomPkg/Drivers/RNGDxe/RngDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-
-  INF Binaries/nitrogen/QcomPkg/Drivers/QdssDxe/QdssDxe.inf
 
   INF nitrogenPkg/Drivers/TscResConfigDxe/TscResConfigDxe.inf

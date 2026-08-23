@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/gts8p/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -99,12 +95,8 @@
   INF Binaries/gts8p/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
-  INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
   INF Binaries/gts8p/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf

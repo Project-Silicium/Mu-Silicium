@@ -24,9 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/pipa/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/pipa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -61,7 +59,6 @@
   INF Binaries/pipa/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/pipa/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/pipa/QcomPkg/Drivers/VibratorDxe/VibratorDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
 	INF Binaries/pipa/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

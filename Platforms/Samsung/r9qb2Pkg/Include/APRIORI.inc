@@ -43,11 +43,9 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF Binaries/r9qb2/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/r9qb2/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
 
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
@@ -64,7 +62,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/r9qb2/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -79,9 +76,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/r9qb2/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/r9qb2/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

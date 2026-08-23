@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/a52sxq/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -67,7 +63,6 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
@@ -76,7 +71,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/a52sxq/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
@@ -100,12 +94,7 @@
   INF Binaries/a52sxq/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
   INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
-  INF Binaries/a52sxq/QcomPkg/Drivers/SamsungDxe/GuidedFvDxe/GuidedFvDxe.inf

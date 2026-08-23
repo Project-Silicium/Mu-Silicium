@@ -12,7 +12,6 @@
   INF Binaries/muyu/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/muyu/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/muyu/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/muyu/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -22,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/muyu/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/muyu/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -72,7 +67,6 @@
 !endif
   INF Binaries/muyu/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
-  INF Binaries/muyu/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
@@ -108,8 +102,4 @@
   INF Binaries/muyu/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/muyu/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/muyu/QcomPkg/Drivers/SSRDxe/SSRDxe.inf
-  INF Binaries/muyu/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/muyu/QcomPkg/Drivers/ParserDxe/ParserEnhancedDxe.inf
-  INF Binaries/muyu/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

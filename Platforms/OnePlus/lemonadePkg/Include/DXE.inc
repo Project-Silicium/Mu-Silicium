@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/lemonade/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/lemonade/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -68,7 +64,6 @@
   INF Binaries/lemonade/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/lemonade/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/lemonade/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -103,6 +98,3 @@
   INF Binaries/lemonade/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/lemonade/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/lemonade/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/lemonade/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/lemonade/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

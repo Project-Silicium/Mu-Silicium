@@ -24,9 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/r8q/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/r8q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -99,7 +97,6 @@
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
-  INF Binaries/r8q/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/r8q/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf

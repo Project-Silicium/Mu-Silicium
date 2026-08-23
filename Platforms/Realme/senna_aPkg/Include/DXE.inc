@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/senna_a/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  #INF Binaries/senna_a/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -84,7 +80,6 @@
   INF Binaries/senna_a/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/senna_a/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/senna_a/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
@@ -108,6 +103,3 @@
   INF Binaries/senna_a/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/senna_a/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/senna_a/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/senna_a/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/senna_a/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

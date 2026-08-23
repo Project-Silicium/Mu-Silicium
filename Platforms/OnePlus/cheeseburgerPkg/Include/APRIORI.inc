@@ -34,9 +34,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
-
-  INF Binaries/cheeseburger/QcomPkg/Drivers/QdssDxe/QdssDxe.inf
-
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
@@ -46,9 +43,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/cheeseburger/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/cheeseburger/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
@@ -84,8 +78,6 @@ APRIORI DXE {
 
   INF Binaries/cheeseburger/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-  INF Binaries/cheeseburger/QcomPkg/Drivers/MdtpDxe/MdtpDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/cheeseburger/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  INF Binaries/cheeseburger/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
 }

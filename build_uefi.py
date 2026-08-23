@@ -133,7 +133,7 @@ def cleanup_old_build (device: str, device_model: int, cleanup: bool):
     old_build_files = [
         BOOT_SHIM_PATH / "BootShim.elf",
         BOOT_SHIM_PATH / "BootShim.bin",
-        BUILD_PATH / f"kernel-{device}",
+        BUILD_PATH / f"{device}Pkg" / f"{device}-kernel",
         Path (f"Mu-{device}-{device_model}.img"),
         Path (f"Mu-{device}-{device_model}.bin"),
         Path (f"Mu-{device}.img"),
@@ -167,7 +167,7 @@ def handle_git_patch (submodule_path: Path, patch_name: str, remove: bool) -> bo
         cmd.append ("-R")
 
     # Apply/Undo Path
-    return subprocess.run (cmd, cwd=submodule_path).returncode == 0
+    return subprocess.run (cmd, cwd=submodule_path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
 
 def update_local_repo () -> bool:
     # Pull Latest Changes
@@ -240,6 +240,7 @@ def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image
     fv_path         = device_pkg_path    / f"{ctx.build_mode}_CLANGPDB" / "FV"
 
     # Set File Paths
+    android_kernel  = device_pkg_path    / f"{ctx.device}-kernel"
     device_dtb      = RESOURCE_DTBS_PATH / f"{ctx.device}.dtb"
     uefi_fd         = fv_path            / "SILICIUM_UEFI.fd"
     uefi_fd_gz      = fv_path            / "SILICIUM_UEFI.fd.gz"
@@ -293,8 +294,8 @@ def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image
             logger.error (f"Unknown Kernel Compression Type = \"{kernel_compression}\"!")
             return False
 
-    # Set Android Kernel Path
-    android_kernel = uefi_fd if kernel_compression == "none" else uefi_fd_gz
+    # Update UEFI FD Path
+    uefi_fd = uefi_fd if kernel_compression == "none" else uefi_fd_gz
 
     # Check DTB Append Flag
     if image_kernel_config.get ("append_dtb"):
@@ -305,11 +306,14 @@ def create_android_boot_img (ctx: BuildContext, image_kernel_config: dict, image
 
         # Append DTB
         try:
-            android_kernel.write_bytes (android_kernel.read_bytes () + device_dtb.read_bytes ())
+            android_kernel.write_bytes (uefi_fd.read_bytes () + device_dtb.read_bytes ())
         except Exception as e:
             logger.error ("Failed to Append Android DTB!")
             logger.error (e)
             return False
+    else:
+        # Copy UEFI FD File
+        shutil.copy (uefi_fd, android_kernel)
 
     # Set "mkbootimg.py" Script Path
     mkbootimg = RESOURCE_SCRIPTS_PATH / "mkbootimg.py"
@@ -504,6 +508,7 @@ def main ():
     # Apply Mu_Basecore Patches
     for patch_name in ["Auth-Service.patch", "Boot-Manager.patch", "Timer.patch", "Usb-Bus.patch"]:
         if not handle_git_patch (MU_BASECORE_PATH, patch_name, False):
+            logger.error (f"Failed to Apply \"{patch_name}\" Git Patch!")
             sys.exit (1)
 
     # Compile Device UEFI

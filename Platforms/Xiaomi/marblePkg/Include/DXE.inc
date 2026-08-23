@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/marble/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/marble/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -101,6 +97,3 @@
   #INF Binaries/marble/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/marble/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/marble/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/marble/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/marble/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

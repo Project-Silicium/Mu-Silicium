@@ -51,12 +51,9 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/aston/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/OcdtDxe/OplusProject.inf
   INF Binaries/aston/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/aston/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/aston/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -69,17 +66,12 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/aston/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/aston/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
-  INF Binaries/aston/QcomPkg/Drivers/OplusVibrDxe/OplusVibrDxe.inf
-  INF Binaries/aston/QcomPkg/Drivers/OplusSecurityDxe/OplusSecurityDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/aston/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
   INF Binaries/aston/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf

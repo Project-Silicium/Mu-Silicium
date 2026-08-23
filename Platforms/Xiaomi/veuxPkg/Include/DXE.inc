@@ -24,10 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/veux/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/veux/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-  INF Binaries/veux/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -63,7 +60,6 @@
 !endif
 
   INF Binaries/veux/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
-  INF Binaries/veux/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/veux/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/veux/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   #INF Binaries/veux/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf

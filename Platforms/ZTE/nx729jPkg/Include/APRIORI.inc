@@ -51,11 +51,8 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/nx729j/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/nx729j/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/nx729j/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/nx729j/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -68,9 +65,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/nx729j/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/nx729j/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

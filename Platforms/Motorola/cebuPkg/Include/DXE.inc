@@ -29,10 +29,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/cebu/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/cebu/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-  INF Binaries/cebu/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -59,7 +56,6 @@
   INF Binaries/cebu/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/cebu/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  INF Binaries/cebu/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
   INF Binaries/cebu/MbmPkg/Core/Drivers/MotStorageDxe/MotStorageDxe.inf
   INF Binaries/cebu/MbmPkg/Core/Drivers/MotBootFlagsDxe/MotBootFlagsDxe.inf
   INF Binaries/cebu/MbmPkg/Core/Drivers/MotCoreServicesDxe/MotCoreServicesDxe.inf

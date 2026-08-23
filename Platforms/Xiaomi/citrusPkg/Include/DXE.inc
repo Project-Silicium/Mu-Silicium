@@ -24,10 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/citrus/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/citrus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-  INF Binaries/citrus/QcomPkg/Drivers/QcomMpmTimerDxe/QcomMpmTimerDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -54,7 +51,6 @@
   INF Binaries/citrus/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/citrus/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  INF Binaries/citrus/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/citrus/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf

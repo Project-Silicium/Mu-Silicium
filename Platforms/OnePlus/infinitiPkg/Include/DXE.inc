@@ -12,7 +12,6 @@
   INF Binaries/infiniti/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/infiniti/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/infiniti/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -22,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/infiniti/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -34,7 +29,6 @@
   INF Binaries/infiniti/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf 
   INF Binaries/infiniti/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/QupDxe/QupDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
@@ -59,7 +53,6 @@
   INF Binaries/infiniti/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/MailboxDxe/MailboxDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/QcomScmiDxe/QcomScmiDxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
@@ -115,6 +108,3 @@
   INF Binaries/infiniti/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/infiniti/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/infiniti/QcomPkg/Drivers/ParserDxe/ParserEnhancedDxe.inf

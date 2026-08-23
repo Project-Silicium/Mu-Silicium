@@ -40,7 +40,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/cepheus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/cepheus/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
@@ -64,9 +63,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/cepheus/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/cepheus/QcomPkg/Drivers/AdcDxe/AdcDxe.inf

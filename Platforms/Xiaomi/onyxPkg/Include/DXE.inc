@@ -21,9 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/onyx/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -33,7 +30,6 @@
   INF Binaries/onyx/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/QupDxe/QupDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/ExFgDxe/ExFg.inf
@@ -112,8 +108,5 @@
   INF Binaries/onyx/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/SSRDxe/SSRDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/ParserDxe/ParserEnhancedDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
 

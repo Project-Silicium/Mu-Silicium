@@ -24,9 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/a52q/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/a52q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -57,7 +55,6 @@
   INF Binaries/a52q/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/UFSDxe/UFSDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  INF Binaries/a52q/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/a52q/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -94,7 +91,4 @@
   INF Binaries/a52q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
-  INF Binaries/a52q/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
-  INF Binaries/a52q/QcomPkg/Drivers/SamsungDxe/LazyPanicDxe/LazyPanicDxe.inf
-  INF Binaries/a52q/QcomPkg/Drivers/SamsungDxe/GuidedFvDxe/GuidedFvDxe.inf
   INF Binaries/a52q/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf

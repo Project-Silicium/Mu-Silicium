@@ -12,7 +12,6 @@
   INF Binaries/pagani/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/pagani/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/pagani/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/pagani/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -22,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/pagani/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -34,7 +29,6 @@
   INF Binaries/pagani/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf 
   INF Binaries/pagani/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/HSUartDxe/HSUartDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/QupDxe/QupDxe.inf
@@ -56,7 +50,6 @@
   INF Binaries/pagani/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/MailboxDxe/MailboxDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/QcomScmiDxe/QcomScmiDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/CalibrationDxe/CalibrationDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
@@ -111,7 +104,3 @@
   INF Binaries/pagani/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/pagani/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/FvUtilsDxe/FvUtilsEnhancedDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/RmVmDxe/RmVmDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/ParserDxe/ParserEnhancedDxe.inf
-  INF Binaries/pagani/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/garnet/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/garnet/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -102,6 +98,3 @@
   INF Binaries/garnet/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/garnet/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/garnet/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/garnet/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/garnet/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/garnet/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

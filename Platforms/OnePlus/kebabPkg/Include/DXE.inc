@@ -24,9 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/kebab/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/kebab/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -100,5 +98,4 @@
   #INF Binaries/kebab/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/kebab/QcomPkg/OnePlusPkg/OnePlusUFS/UFSUpgradeDxe.inf
   INF Binaries/kebab/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf

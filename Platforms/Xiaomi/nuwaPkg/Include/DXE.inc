@@ -2,8 +2,6 @@
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
   INF Binaries/nuwa/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/nuwa/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/nuwa/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
@@ -14,7 +12,6 @@
   INF Binaries/nuwa/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/nuwa/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/nuwa/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/nuwa/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -24,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/nuwa/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/nuwa/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -84,7 +77,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/nuwa/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
@@ -110,4 +102,3 @@
   INF Binaries/nuwa/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/nuwa/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf

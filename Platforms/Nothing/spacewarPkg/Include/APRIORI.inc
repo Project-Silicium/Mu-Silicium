@@ -50,7 +50,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/spacewar/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
   
@@ -60,7 +59,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif 
 
-  INF Binaries/spacewar/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/spacewar/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -77,9 +75,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/spacewar/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/spacewar/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

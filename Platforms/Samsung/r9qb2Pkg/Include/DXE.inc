@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/r9qb2/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -64,11 +60,9 @@
   INF Binaries/r9qb2/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/r9qb2/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -99,13 +93,8 @@
   INF Binaries/r9qb2/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  #INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
-  #INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
-  INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/GuidedFvDxe/GuidedFvDxe.inf
+  INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
+  INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/GpioExpanderDxe/GpioExpanderDxe.inf
   INF Binaries/r9qb2/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf

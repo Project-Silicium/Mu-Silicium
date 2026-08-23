@@ -51,11 +51,8 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/qrd8550/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/qrd8550/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/qrd8550/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/qrd8550/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -68,9 +65,6 @@ APRIORI DXE {
   INF Binaries/qrd8550/MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/qrd8550/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/qrd8550/QcomPkg/Drivers/SPIDxe/SPIDxe.inf

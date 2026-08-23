@@ -1,10 +1,7 @@
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
 
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/SecShareInfoDxe/SecShareInfoDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
 
   INF MdeModulePkg/Universal/ReportStatusCodeRouter/RuntimeDxe/ReportStatusCodeRouterRuntimeDxe.inf
   INF MdeModulePkg/Universal/StatusCodeHandler/RuntimeDxe/StatusCodeHandlerRuntimeDxe.inf
@@ -15,7 +12,6 @@
   INF Binaries/dm2q/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/dm2q/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
   INF Binaries/dm2q/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/PsStateDxe/PsStateDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
@@ -25,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/dm2q/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -86,7 +78,6 @@
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/dm2q/QcomPkg/Drivers/QRKSDxe/QRKSDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
@@ -109,13 +100,8 @@
   INF Binaries/dm2q/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/SecEnvDxe/SecEnvDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/BoardInfoDxe/BoardInfoDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/RedriverDxe/RedriverDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/MuicDxe/MuicDxe.inf
-  INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
   INF Binaries/dm2q/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf

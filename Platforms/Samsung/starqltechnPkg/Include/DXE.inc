@@ -23,7 +23,6 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/starqltechn/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
@@ -88,5 +87,4 @@
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/SubPmicDxe/SubPmicDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/DispPmicDxe/DispPmicDxe.inf
-  INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
   INF Binaries/starqltechn/QcomPkg/Drivers/SamsungDxe/SvcLedDxe/SvcLedDxe.inf

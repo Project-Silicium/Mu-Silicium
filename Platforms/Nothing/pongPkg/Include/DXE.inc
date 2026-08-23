@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/pong/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/pong/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -106,7 +102,3 @@
   INF Binaries/pong/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/pong/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/pong/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/pong/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf
-  INF Binaries/pong/QcomPkg/Drivers/I2CHapticDxe/I2CHapticDxe.inf

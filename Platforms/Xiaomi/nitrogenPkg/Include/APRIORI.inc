@@ -35,9 +35,6 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
-
-  INF Binaries/nitrogen/QcomPkg/Drivers/QdssDxe/QdssDxe.inf
-
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
   INF EmbeddedPkg/EmbeddedMonotonicCounter/EmbeddedMonotonicCounter.inf
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
@@ -46,9 +43,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/nitrogen/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/nitrogen/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
@@ -84,7 +78,6 @@ APRIORI DXE {
 
   INF Binaries/nitrogen/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
-  INF Binaries/nitrogen/QcomPkg/Drivers/MdtpDxe/MdtpDxe.inf
 
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
@@ -92,7 +85,6 @@ APRIORI DXE {
 
   INF Binaries/nitrogen/QcomPkg/Drivers/HashDxe/HashDxe.inf
   INF Binaries/nitrogen/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  INF Binaries/nitrogen/QcomPkg/Drivers/MpPowerDxe/MpPowerDxe.inf
 
   INF nitrogenPkg/Drivers/TscResConfigDxe/TscResConfigDxe.inf
 }

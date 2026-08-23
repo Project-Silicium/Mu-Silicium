@@ -21,10 +21,6 @@
   INF EmbeddedPkg/RealTimeClockRuntimeDxe/RealTimeClockRuntimeDxe.inf
   INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/venus/QcomPkg/Drivers/FontDxe/FontDxe.inf
-  INF Binaries/venus/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
@@ -69,7 +65,6 @@
   INF Binaries/venus/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  INF Binaries/venus/QcomPkg/Drivers/MinidumpTADxe/MinidumpTADxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/venus/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
@@ -103,6 +98,3 @@
   #INF Binaries/venus/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/venus/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  INF Binaries/venus/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
-  INF Binaries/venus/QcomPkg/Drivers/ParserDxe/ParserDxe.inf
-  INF Binaries/venus/QcomPkg/Drivers/SerialPortDxe/SerialPortDxe.inf

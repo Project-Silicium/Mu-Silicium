@@ -49,11 +49,9 @@ APRIORI DXE {
   INF FatPkg/EnhancedFatDxe/Fat.inf
 
   INF Binaries/pong/QcomPkg/Drivers/TzDxe/TzDxeLA.inf
-  INF Binaries/pong/QcomPkg/Drivers/I2CHapticDxe/I2CHapticDxe.inf
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/pong/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
 
@@ -63,7 +61,6 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 !endif
 
-  INF Binaries/pong/QcomPkg/Drivers/FvUtilsDxe/FvUtilsDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/pong/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
@@ -76,9 +73,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
-
-  INF Binaries/pong/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/pong/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
