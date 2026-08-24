@@ -4943,6 +4943,7 @@
 | Touchscreen          |                                                                                                                   | ❌    |
 | Bluetooth            |                                                                                                                   | ❌    |
 | GPS                  |                                                                                                                   | ❌    |
+| 3.5mm Audio Jack     |                                                                                                                   | ❌    |
 | Speakers             |                                                                                                                   | ❌    |
 | Microphone           |                                                                                                                   | ❌    |
 | GPU                  |                                                                                                                   | ❌    |
@@ -4962,6 +4963,7 @@
 | Light Sensor         |             | ❌    |
 | Accelerometer Sensor |             | ❌    |
 | Compass Sensor       |             | ❌    |
+| Gyroscope Sensor     |             | ❌    |
 | Fingerprint Sensor   |             | ❌    |
 | Geomagnetic Sensor   |             | ❌    |
 | Hall Sensor          |             | ❌    |
