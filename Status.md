@@ -4921,6 +4921,7 @@
 | Feature              | Description                                                                                                       | State |
 |:---------------------|:------------------------------------------------------------------------------------------------------------------|:-----:|
 | Internal Storage     | Needs [Special Setup](https://github.com/Project-Silicium/Guides/blob/main/Vendors/Samsung/Modding-UFS/README.md) | ✅    |
+| SD Card              |                                                                                                                   | ❌    |
 | Side Buttons         |                                                                                                                   | ❌    |
 | Proximity Sensor     |                                                                                                                   | ❌    |
 | Light Sensor         |                                                                                                                   | ❌    |
@@ -4930,7 +4931,7 @@
 | Fingerprint Sensor   |                                                                                                                   | ❌    |
 | Geomagnetic Sensor   |                                                                                                                   | ❌    |
 | Hall Sensor          |                                                                                                                   | ❌    |
-| NFC Sensor           |                                                                                                                    | ❌    |
+| NFC Sensor           |                                                                                                                   | ❌    |
 | Temperature Sensor   |                                                                                                                   | ❌    |
 | Battery              |                                                                                                                   | ❌    |
 | USB Host Mode        |                                                                                                                   | ✅    |
