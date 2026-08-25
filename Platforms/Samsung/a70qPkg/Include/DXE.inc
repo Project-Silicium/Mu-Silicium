@@ -24,9 +24,7 @@
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/a70q/QcomPkg/Drivers/FontDxe/FontDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
-  INF Binaries/a70q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
 
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -73,8 +71,6 @@
   INF Binaries/a70q/QcomPkg/Drivers/LimitsDxe/LimitsDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
@@ -92,5 +88,4 @@
   INF Binaries/a70q/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/SamsungDxe/CcicDxe/CcicDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/SamsungDxe/ChgDxe/ChgDxe.inf
-  INF Binaries/a70q/QcomPkg/Drivers/SamsungDxe/VibDxe/VibDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
