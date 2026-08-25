@@ -252,7 +252,7 @@ MsBootOptionsLibRegisterDefaultBootOptions ()
 
   // Register Platform Boot Options
   for (UINT8 i = 0; i < BootOptionCount; i++) {
-    RegisterFvBootOption (BootOption[i].AppGuid, BootOption[i].AppName, (UINTN)-1, LOAD_OPTION_HIDDEN, NULL, 0);
+    RegisterFvBootOption (BootOption[i].AppGuid, BootOption[i].AppName, (UINTN)-1, BootOption[i].LoadAttribute, NULL, 0);
   }
 
   // Free Buffer

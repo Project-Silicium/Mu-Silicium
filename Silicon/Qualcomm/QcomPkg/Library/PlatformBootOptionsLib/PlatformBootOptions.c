@@ -10,6 +10,7 @@ GetPlatformBootOptions (
 {
   EFI_PLATFORM_BOOT_OPTION *LocalBootOption      = NULL;
   UINT8                     LocalBootOptionCount = 0;
+
   // Allocate Memory
   LocalBootOption = AllocateZeroPool (sizeof (EFI_PLATFORM_BOOT_OPTION));
   if (LocalBootOption == NULL) {
@@ -18,8 +19,9 @@ GetPlatformBootOptions (
   }
 
   // Add Mass Storage Boot Option
-  LocalBootOption[0].AppName = L"Mass Storage";
-  LocalBootOption[0].AppGuid = FixedPcdGetPtr (PcdMassStorageFile);
+  LocalBootOption[0].AppName       = L"Mass Storage";
+  LocalBootOption[0].AppGuid       = FixedPcdGetPtr (PcdMassStorageFile);
+  LocalBootOption[0].LoadAttribute = LOAD_OPTION_HIDDEN;
 
   // Set Boot Option Count
   LocalBootOptionCount = 1;
