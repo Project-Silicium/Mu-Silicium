@@ -6,7 +6,6 @@ gMemoryDescriptor[] = {
     // Name, Address, Length, HobOption, ResourceType, ResourceAttribute, MemoryType, ArmAttribute
 
     // DDR Regions
-    {"Kernel",            0x40000000, 0x22B00000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
     {"HYP",               0x85700000, 0x00600000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
     {"AOP CMD DB",        0x85F20000, 0x00020000, AddMem, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
     {"XBL AOP MEM",       0x96D00000, 0x00240000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_BACK_XN},
