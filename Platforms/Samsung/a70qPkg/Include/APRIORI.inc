@@ -40,7 +40,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/Variable/RuntimeDxe/VariableRuntimeDxe.inf
 
-  INF Binaries/a70q/QcomPkg/Drivers/QcomWDogDxe/QcomWDogDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
 
@@ -57,8 +56,6 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
-  INF Binaries/a70q/QcomPkg/Drivers/FontDxe/FontDxe.inf
-
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
   INF Binaries/a70q/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
@@ -67,9 +64,6 @@ APRIORI DXE {
   INF Binaries/a70q/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/a70q/QcomPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
-
-  INF Binaries/generic/QcomPkg/Drivers/XhciPciEmulationDxe/XhciPciEmulationDxe.inf
-  INF Binaries/generic/QcomPkg/Drivers/XhciDxe/XhciDxe.inf
 
   INF MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   INF MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
