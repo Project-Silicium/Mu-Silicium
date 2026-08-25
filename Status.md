@@ -4943,7 +4943,7 @@
 | NFC Sensor           |                                                                                                                   | ❌    |
 | Temperature Sensor   |                                                                                                                   | ❌    |
 | Battery              |                                                                                                                   | ❌    |
-| USB Host Mode        |                                                                                                                   | ✅    |
+| USB Host Mode        |                                                                                                                   | ❌    |
 | USB Device Mode      |                                                                                                                   | ❌    |
 | USB Power Delivery   |                                                                                                                   | ❌    |
 | Charging             |                                                                                                                   | ❌    |
