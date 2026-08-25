@@ -4876,6 +4876,15 @@
 
 <br>
 
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
+
 <details>
 <summary><b><strong>Samsung Devices</strong></b></summary>
 
@@ -4953,6 +4962,9 @@
 | Vibration            |                                                                                                                   | ❌    |
 
 </td><td>
+
+> [!NOTE]
+> The PostmarketOS Site for this Device can be Found [here](https://wiki.postmarketos.org/wiki/Samsung_Galaxy_A70_(samsung-a70q)).
  
 | Feature              | Description | State |
 |:---------------------|:------------|:-----:|
