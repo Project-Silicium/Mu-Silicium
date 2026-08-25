@@ -41,8 +41,13 @@ KernelErrataPatcherExitBootServices (
 
   // Locate Winload Memory Range
   Status = LocateWinloadMemoryRange (fwpKernelSetupPhase1, &WinloadBase, &WinloadLength);
-  if (EFI_ERROR (Status)) {
+  if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate Winload Memory Range! Status = %r\n", __FUNCTION__, Status));
+    goto exit;
+  }
+
+  // Verify Winload Memory Range Existence
+  if (Status == EFI_NOT_FOUND) {
     goto exit;
   }
 

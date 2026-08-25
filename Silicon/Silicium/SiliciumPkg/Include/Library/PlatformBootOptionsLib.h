@@ -7,6 +7,7 @@
 typedef struct {
   CHAR16   *AppName;
   EFI_GUID *AppGuid;
+  UINT32    LoadAttribute;
 } EFI_PLATFORM_BOOT_OPTION;
 
 /**
