@@ -7,6 +7,13 @@
 #define HSI2C_MMIO_LENGTH               0x1000
 
 //
+// Transfer parameters
+//
+#define HSI2C_XFER_RETRIES              5
+
+#define HSI2C_MAX_WRITE_LEN             8
+
+//
 // HSI2C Clock Speeds
 //
 #define I2C_STAND_TX_CLOCK              100000
@@ -77,6 +84,27 @@
 #define HSI2C_INT_TRANSFER_DONE         BIT7
 #define HSI2C_INT_I2C_EN                BIT9
 #define HSI2C_INT_CHK_TRANS_STATE      (15 << 8)
+
+//
+// Interrupt Status Register Bits
+//
+#define HSI2C_INT_TX_UNDERRUN           BIT2
+#define HSI2C_INT_TX_OVERRUN            BIT3
+#define HSI2C_INT_RX_UNDERRUN           BIT4
+#define HSI2C_INT_RX_OVERRUN            BIT5
+#define HSI2C_INT_I2C                   BIT9
+#define HSI2C_INT_NO_DEV                BIT10
+
+//
+// Transfer Status Register Bits
+//
+#define HSI2C_MASTER_BUSY               BIT17
+#define HSI2C_SLAVE_BUSY                BIT16
+#define HSI2C_TIMEOUT_AUTO              BIT4
+#define HSI2C_NO_DEV                    BIT3
+#define HSI2C_NO_DEV_ACK                BIT2
+#define HSI2C_TRANS_ABORT               BIT1
+#define HSI2C_TRANS_DONE                BIT0
 
 //
 // FIFO Status Register Bits
