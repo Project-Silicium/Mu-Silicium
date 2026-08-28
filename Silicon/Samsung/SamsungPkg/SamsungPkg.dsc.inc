@@ -37,6 +37,11 @@
   UfsCalAdapterLib|SamsungPkg/Library/UfsCalAdapterLib/UfsCalAdapterLib.inf
 
   #
+  # USB Libraries
+  #
+  PlatformUsbfnLib|SamsungNullPkg/Library/PlatformUsbfnLibNull/PlatformUsbfnLibNull.inf
+
+  #
   # Samsung Libraries
   #
   UsiLib|SamsungNullPkg/Library/UsiNullLib/UsiNullLib.inf
@@ -63,6 +68,11 @@
   # Power Management Drivers
   #
   SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
+
+  #
+  # USB Drivers
+  #
+  SamsungPkg/Drivers/UsbfnDwc3Dxe/UsbfnDwc3Dxe.inf
 
   #
   # RNG Drivers
