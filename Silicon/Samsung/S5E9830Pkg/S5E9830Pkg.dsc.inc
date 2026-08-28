@@ -78,6 +78,11 @@
   PlatformUfsLib|S5E9830Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
 
   #
+  # USB Libraries
+  #
+  PlatformUsbfnLib|S5E9830Pkg/Library/PlatformUsbfnLib/PlatformUsbfnLib.inf
+
+  #
   # Samsung Libraries
   #
   UsiLib|S5E9830Pkg/Library/UsiLib/UsiLib.inf
