@@ -29,6 +29,12 @@
 
 [PcdsFixedAtBuild]
   #
+  # ACPI
+  #
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x204C4C454E4E4552
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x7125
+
+  #
   # CPU
   #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

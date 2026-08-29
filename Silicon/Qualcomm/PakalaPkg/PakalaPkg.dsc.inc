@@ -30,6 +30,12 @@
 
 [PcdsFixedAtBuild]
   #
+  # ACPI
+  #
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x2020414C414B4150
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x8750
+
+  #
   # CPU
   #
 !if $(SOC_TYPE) == 1

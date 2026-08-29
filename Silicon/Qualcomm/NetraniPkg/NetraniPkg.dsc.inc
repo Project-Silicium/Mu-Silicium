@@ -29,6 +29,16 @@
 
 [PcdsFixedAtBuild]
   #
+  # ACPI
+  #
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x20494E415254454E
+!if $(SOC_TYPE) == 0
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x7435
+!elseif $(SOC_TYPE) == 1
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x6450
+!endif
+
+  #
   # CPU
   #
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8

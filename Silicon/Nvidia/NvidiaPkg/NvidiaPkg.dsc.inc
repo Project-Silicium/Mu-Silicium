@@ -8,3 +8,9 @@
 ##
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc
+
+[PcdsFixedAtBuild]
+  #
+  # ACPI
+  #
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"NVIDIA"

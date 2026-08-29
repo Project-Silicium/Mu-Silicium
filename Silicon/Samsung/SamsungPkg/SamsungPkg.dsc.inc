@@ -12,6 +12,12 @@
 [BuildOptions]
   *_CLANGPDB_AARCH64_CC_FLAGS = -D HAS_CNTFRQ_EL0_EMPTY_ERRATA=$(HAS_CNTFRQ_EL0_EMPTY_ERRATA)
 
+[PcdsFixedAtBuild]
+  #
+  # ACPI
+  #
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"SAMSUN"
+
 [LibraryClasses]
   #
   # Memory Libraries

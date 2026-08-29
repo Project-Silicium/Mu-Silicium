@@ -9,6 +9,12 @@
 
 !include SiliciumPkg/SiliciumPkg.dsc.inc
 
+[PcdsFixedAtBuild]
+  #
+  # ACPI
+  #
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"MTK   "
+
 [LibraryClasses]
   #
   # ARM Libraries

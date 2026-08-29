@@ -27,6 +27,12 @@
 
 [PcdsFixedAtBuild]
   #
+  # ACPI
+  #
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorId|0x4C495350
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorRevision|0x00000038
+
+  #
   # Firmware Details
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"3.8"
