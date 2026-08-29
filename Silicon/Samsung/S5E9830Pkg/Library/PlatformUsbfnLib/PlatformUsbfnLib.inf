@@ -1,0 +1,23 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformUsbfnLib
+  FILE_GUID                      = C4A17D62-8B39-4E05-BF7A-2C6E9D14A835
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformUsbfnLib|DXE_DRIVER
+
+[Sources]
+  BoardInit.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  IoLib
+  TimerLib
+  UefiBootServicesTableLib
+
+[Protocols]
+  gEfiChipInfoProtocolGuid                      ## CONSUMES

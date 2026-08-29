@@ -1,0 +1,39 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UsbfnDwc3Dxe
+  FILE_GUID                      = 0BF8B0C9-30E6-4E2A-9E1D-5F6C1A47D3B2
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitUsbfnDwc3Driver
+
+[Sources]
+  UsbfnDwc3Dxe.c
+  Dwc3Core.c
+  Dwc3Endpoint.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  CacheMaintenanceLib
+  DebugLib
+  DxeServicesTableLib
+  IoLib
+  MemoryAllocationLib
+  PlatformUsbfnLib
+  TimerLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
+
+[Protocols]
+  gEfiUsbFunctionIoProtocolGuid                 ## PRODUCES
+  gEfiChipInfoProtocolGuid                      ## CONSUMES
+
+[Depex]
+  TRUE

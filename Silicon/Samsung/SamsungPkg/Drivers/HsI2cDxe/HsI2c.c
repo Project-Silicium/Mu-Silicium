@@ -1,3 +1,4 @@
+#include <Library/BaseMemoryLib.h>
 #include <Library/DebugLib.h>
 #include <Library/MemoryAllocationHelperLib.h>
 #include <Library/UefiBootServicesTableLib.h>
@@ -225,6 +226,33 @@ HsI2cInitBus (IN UINT8 BusNumber)
   return EFI_SUCCESS;
 }
 
+/**
+  Check if transfer has failed.
+**/
+STATIC
+EFI_STATUS
+CheckTransferError (IN EFI_HSI2C_BUS *Bus)
+{
+  UINT32 IntStatus = MmioRead32 ((UINTN)&Bus->int_status);
+
+  if ((IntStatus & HSI2C_INT_CHK_TRANS_STATE) == 0) {
+    return EFI_SUCCESS;
+  }
+
+  // Write One to Clear, so the next Attempt starts clean
+  MmioWrite32 ((UINTN)&Bus->int_status, IntStatus);
+
+  if (IntStatus & HSI2C_INT_NO_DEV) {
+    DEBUG ((EFI_D_ERROR, "HSI2C: NACK, INT_STATUS 0x%08x\n", IntStatus));
+    return EFI_NO_RESPONSE;
+  }
+
+  DEBUG ((EFI_D_ERROR, "HSI2C: Transfer Error, INT_STATUS 0x%08x TRANS_STATUS 0x%08x\n",
+          IntStatus, MmioRead32 ((UINTN)&Bus->trans_status)));
+
+  return EFI_DEVICE_ERROR;
+}
+
 EFI_STATUS
 HsI2cXferMsg (
   IN UINT8          BusNumber,
@@ -241,11 +269,15 @@ HsI2cXferMsg (
   UINT32 IntStatus  = 0;
   UINT32 FifoStatus = 0;
   UINT32 TrigLevel  = 0;
-  UINT64 Timeout    = 1000000;
-  UINTN  MsgPtr     = 0;
+  UINT64     Timeout = 1000000;
+  UINTN      MsgPtr  = 0;
+  EFI_STATUS Status;
 
   // Disable Timeout
   MmioAnd32 ((UINTN)&Bus->timeout, ~HSI2C_TIMEOUT_EN);
+
+  // Echo current Interrupt Status
+  MmioWrite32 ((UINTN)&Bus->int_status, MmioRead32 ((UINTN)&Bus->int_status));
 
   // Set FIFO Trigger Level
   TrigLevel = (BufferLen >= FIFO_TRIG_CRITERIA) ? FIFO_TRIG_CRITERIA : BufferLen;
@@ -295,10 +327,10 @@ HsI2cXferMsg (
   if (IsRead) {
     while (Timeout--) {
       // Get current FIFO Status
-      BOOLEAN FifoEmpty = MmioRead32 ((UINTN)&Bus->fifo_status) & HSI2C_RX_FIFO_EMPTY;
+      BOOLEAN FifoEmpty = (BOOLEAN)((MmioRead32 ((UINTN)&Bus->fifo_status) & HSI2C_RX_FIFO_EMPTY) != 0);
 
       // Read HSI2C Data
-      if (!FifoEmpty) {
+      if (!FifoEmpty && MsgPtr < BufferLen) {
         Buffer[MsgPtr++] = (UINT8)MmioRead32 ((UINTN)&Bus->rx_data);
       }
 
@@ -313,6 +345,12 @@ HsI2cXferMsg (
 
           return EFI_SUCCESS;
         }
+      }
+
+      // Give up early on a Slave that is not answering
+      Status = CheckTransferError (Bus);
+      if (EFI_ERROR (Status)) {
+        goto Failed;
       }
     }
   } else {
@@ -342,26 +380,34 @@ HsI2cXferMsg (
         return EFI_SUCCESS;
       }
 
+      // Give up early on a Slave that is not answering
+      Status = CheckTransferError (Bus);
+      if (EFI_ERROR (Status)) {
+        goto Failed;
+      }
+
       // Wait 1us
       gBS->Stall (1);
     }
   }
 
-  // Reset HSI2C Bus
+  Status = EFI_TIMEOUT;
+
+Failed:
   ResetController (Bus);
   ResetConfig (BusNumber, Bus, BusData[BusNumber].Clock.SpeedMode);
 
-  return EFI_TIMEOUT;
+  return Status;
 }
 
+/**
+  Resolves a Bus Number to its Controller.
+**/
+STATIC
 EFI_STATUS
-HsI2cXfer (
-  IN UINT8    BusNumber,
-  IN UINT8    SlaveAddr,
-  IN UINT8   *Buffer,
-  IN UINTN    BufferLen,
-  IN BOOLEAN  IsRead,
-  IN BOOLEAN  Stop)
+HsI2cGetBus (
+  IN  UINT8           BusNumber,
+  OUT EFI_HSI2C_BUS **Bus)
 {
   EFI_STATUS           Status;
   EFI_PHYSICAL_ADDRESS BusAddress;
@@ -382,21 +428,93 @@ HsI2cXfer (
     return Status;
   }
 
-  // Get HSI2C Bus
-  EFI_HSI2C_BUS *Bus = (EFI_HSI2C_BUS *)BusAddress;
+  *Bus = (EFI_HSI2C_BUS *)BusAddress;
 
-  for (UINT8 Retry = 0; Retry < 5; Retry++) {
-    // Send HSI2C Command
-    Status = HsI2cXferMsg (BusNumber, Bus, SlaveAddr, Buffer, BufferLen, IsRead, Stop);
+  return EFI_SUCCESS;
+}
+
+/**
+  Reads from a Slave Register.
+**/
+EFI_STATUS
+HsI2cReadReg (
+  IN  UINT8   BusNumber,
+  IN  UINT8   SlaveAddr,
+  IN  UINT32  SlaveReg,
+  OUT UINT8  *Data,
+  IN  UINTN   DataLen)
+{
+  EFI_STATUS     Status;
+  EFI_HSI2C_BUS *Bus;
+  UINT8          RegAddr;
+
+  Status = HsI2cGetBus (BusNumber, &Bus);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  for (UINT8 Retry = 0; Retry < HSI2C_XFER_RETRIES; Retry++) {
+    RegAddr = (UINT8)(SlaveReg & 0xFF);
+
+    Status = HsI2cXferMsg (BusNumber, Bus, SlaveAddr, &RegAddr, 1, FALSE, FALSE);
+
     if (!EFI_ERROR (Status)) {
-      return EFI_SUCCESS;
+      Status = HsI2cXferMsg (BusNumber, Bus, SlaveAddr, Data, DataLen, TRUE, TRUE);
+      if (!EFI_ERROR (Status)) {
+        return EFI_SUCCESS;
+      }
+    }
+
+    if (Status == EFI_NO_RESPONSE && Retry >= 1) {
+      break;
     }
 
     // Wait 100us
     gBS->Stall (100);
   }
 
-  return EFI_DEVICE_ERROR;
+  return Status;
+}
+
+EFI_STATUS
+HsI2cWriteReg (
+  IN UINT8   BusNumber,
+  IN UINT8   SlaveAddr,
+  IN UINT32  SlaveReg,
+  IN UINT8  *Data,
+  IN UINTN   DataLen)
+{
+  EFI_STATUS     Status;
+  EFI_HSI2C_BUS *Bus;
+  UINT8          Buffer[1 + HSI2C_MAX_WRITE_LEN];
+
+  if (DataLen > HSI2C_MAX_WRITE_LEN) {
+    return EFI_INVALID_PARAMETER;
+  }
+
+  Status = HsI2cGetBus (BusNumber, &Bus);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  for (UINT8 Retry = 0; Retry < HSI2C_XFER_RETRIES; Retry++) {
+    Buffer[0] = (UINT8)(SlaveReg & 0xFF);
+    CopyMem (Buffer + 1, Data, DataLen);
+
+    Status = HsI2cXferMsg (BusNumber, Bus, SlaveAddr, Buffer, DataLen + 1, FALSE, TRUE);
+    if (!EFI_ERROR (Status)) {
+      return EFI_SUCCESS;
+    }
+
+    if (Status == EFI_NO_RESPONSE && Retry >= 1) {
+      break;
+    }
+
+    // Wait 100us
+    gBS->Stall (100);
+  }
+
+  return Status;
 }
 
 EFI_STATUS
@@ -407,31 +525,21 @@ HsI2cRead32 (
   OUT UINT32 *Data)
 {
   EFI_STATUS Status;
-  UINT8      AddrBuf[4];
   UINT8      Buf[4];
 
-  // Set Slave Register
-  AddrBuf[0] = (SlaveReg >> 24) & 0xFF;
-  AddrBuf[1] = (SlaveReg >> 16) & 0xFF;
-  AddrBuf[2] = (SlaveReg >>  8) & 0xFF;
-  AddrBuf[3] =  SlaveReg        & 0xFF;
+  if (Data == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
 
-  // Send HSI2C Write Command
-  Status = HsI2cXfer (BusNumber, SlaveAddr, AddrBuf, 4, FALSE, FALSE);
+  Status = HsI2cReadReg (BusNumber, SlaveAddr, SlaveReg, Buf, sizeof (Buf));
   if (EFI_ERROR (Status)) {
     return Status;
   }
 
-  // Send HSI2C Read Command
-  Status = HsI2cXfer (BusNumber, SlaveAddr, Buf, 4, TRUE, TRUE);
-  if (EFI_ERROR (Status)) {
-    return Status;
-  }
-
-  // Pass Data
-  for (UINT8 i = 0; i < 4; i++) {
-    Data[i] = Buf[i];
-  }
+  *Data = ((UINT32)Buf[0] << 24) |
+          ((UINT32)Buf[1] << 16) |
+          ((UINT32)Buf[2] <<  8) |
+          ((UINT32)Buf[3] <<  0);
 
   return EFI_SUCCESS;
 }
@@ -443,22 +551,14 @@ HsI2cWrite32 (
   IN UINT32 SlaveReg,
   IN UINT32 Data)
 {
-  UINT8 Buf[8];
+  UINT8 Buf[4];
 
-  // Set Slave Register
-  Buf[0] = (SlaveReg >> 24) & 0xFF;
-  Buf[1] = (SlaveReg >> 16) & 0xFF;
-  Buf[2] = (SlaveReg >>  8) & 0xFF;
-  Buf[3] =  SlaveReg        & 0xFF;
+  Buf[0] = (Data >> 24) & 0xFF;
+  Buf[1] = (Data >> 16) & 0xFF;
+  Buf[2] = (Data >>  8) & 0xFF;
+  Buf[3] =  Data        & 0xFF;
 
-  // Set Data
-  Buf[4] = (Data >> 24) & 0xFF;
-  Buf[5] = (Data >> 16) & 0xFF;
-  Buf[6] = (Data >>  8) & 0xFF;
-  Buf[7] =  Data        & 0xFF;
-
-  // Send HSI2C Write Command
-  return HsI2cXfer (BusNumber, SlaveAddr, Buf, 8, FALSE, TRUE);
+  return HsI2cWriteReg (BusNumber, SlaveAddr, SlaveReg, Buf, sizeof (Buf));
 }
 
 EFI_STATUS
@@ -468,23 +568,11 @@ HsI2cRead (
   IN  UINT32  SlaveReg,
   OUT UINT8  *Data)
 {
-  EFI_STATUS Status;
-  UINT8      AddrBuf[4];
-
-  // Set Slave Register
-  AddrBuf[0] = (SlaveReg >> 24) & 0xFF;
-  AddrBuf[1] = (SlaveReg >> 16) & 0xFF;
-  AddrBuf[2] = (SlaveReg >>  8) & 0xFF;
-  AddrBuf[3] =  SlaveReg        & 0xFF;
-
-  // Send HSI2C Write Command
-  Status = HsI2cXfer (BusNumber, SlaveAddr, AddrBuf, 4, FALSE, FALSE);
-  if (EFI_ERROR (Status)) {
-    return Status;
+  if (Data == NULL) {
+    return EFI_INVALID_PARAMETER;
   }
 
-  // Send HSI2C Read Command
-  return HsI2cXfer (BusNumber, SlaveAddr, Data, 1, TRUE, TRUE);
+  return HsI2cReadReg (BusNumber, SlaveAddr, SlaveReg, Data, 1);
 }
 
 EFI_STATUS
@@ -494,19 +582,7 @@ HsI2cWrite (
   IN UINT32 SlaveReg,
   IN UINT8  Data)
 {
-  UINT8 Buf[5];
-
-  // Set Slave Register
-  Buf[0] = (SlaveReg >> 24) & 0xFF;
-  Buf[1] = (SlaveReg >> 16) & 0xFF;
-  Buf[2] = (SlaveReg >>  8) & 0xFF;
-  Buf[3] =  SlaveReg        & 0xFF;
-
-  // Set Data
-  Buf[4] = Data;
-
-  // Send HSI2C Write Command
-  return HsI2cXfer (BusNumber, SlaveAddr, Buf, 5, FALSE, TRUE);
+  return HsI2cWriteReg (BusNumber, SlaveAddr, SlaveReg, &Data, 1);
 }
 
 STATIC EFI_HSI2C_PROTOCOL mHsI2c = {
@@ -514,7 +590,9 @@ STATIC EFI_HSI2C_PROTOCOL mHsI2c = {
   HsI2cRead32,
   HsI2cWrite32,
   HsI2cRead,
-  HsI2cWrite
+  HsI2cWrite,
+  HsI2cReadReg,
+  HsI2cWriteReg
 };
 
 EFI_STATUS

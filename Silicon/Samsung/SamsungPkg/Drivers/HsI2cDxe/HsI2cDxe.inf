@@ -15,6 +15,7 @@
   SamsungPkg/SamsungPkg.dec
 
 [LibraryClasses]
+  BaseMemoryLib
   DebugLib
   MemoryAllocationHelperLib
   UefiBootServicesTableLib

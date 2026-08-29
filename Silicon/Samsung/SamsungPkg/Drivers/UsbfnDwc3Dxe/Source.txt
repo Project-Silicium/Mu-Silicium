@@ -1,0 +1,7 @@
+REPO:   https://github.com/LineageOS/android_kernel_samsung_universal9830/
+BRANCH: lineage-23.2
+FILES:  drivers/usb/dwc3/core.h
+        drivers/usb/dwc3/core.c
+        drivers/usb/dwc3/gadget.c
+        drivers/usb/dwc3/gadget.h
+        drivers/usb/dwc3/ep0.c

@@ -105,15 +105,72 @@ EFI_STATUS
   IN UINT8  Data
   );
 
+/**
+  This Function Reads n Bytes from a Slave Register.
+
+  Registers wider than a Byte, and Registers that are not Big Endian, cannot
+  be used by Read/Read32. This hands the Bytes over as is.
+
+  @param[in]  BusNumber                    - The HSI2C Bus Number.
+  @param[in]  SlaveAddr                    - The 7 Bit Slave Address.
+  @param[in]  SlaveReg                     - The Register Address. Only the
+                                             low Byte is placed on the Bus.
+  @param[out] Data                         - The received Bytes.
+  @param[in]  DataLen                      - How many Bytes to read.
+
+  @return EFI_SUCCESS                      - Successfully read the Register.
+  @return EFI_INVALID_PARAMETER            - The "Data" Parameter is NULL.
+  @return EFI_NOT_FOUND                    - The Bus does not Exist.
+  @return EFI_NOT_READY                    - The Bus is not Initialised.
+  @return EFI_DEVICE_ERROR                 - The Slave did not respond.
+**/
+typedef
+EFI_STATUS
+(EFIAPI *EFI_HSI2C_READ_BUFFER) (
+  IN  UINT8   BusNumber,
+  IN  UINT8   SlaveAddr,
+  IN  UINT32  SlaveReg,
+  OUT UINT8  *Data,
+  IN  UINTN   DataLen
+  );
+
+/**
+  This Function Writes a Number of Bytes to a Slave Register.
+
+  @param[in] BusNumber                     - The HSI2C Bus Number.
+  @param[in] SlaveAddr                     - The 7 Bit Slave Address.
+  @param[in] SlaveReg                      - The Register Address. Only the
+                                             low Byte is placed on the Bus.
+  @param[in] Data                          - The Bytes to send.
+  @param[in] DataLen                       - How many Bytes to write.
+
+  @return EFI_SUCCESS                      - Successfully wrote the Register.
+  @return EFI_INVALID_PARAMETER            - The Payload is too large.
+  @return EFI_NOT_FOUND                    - The Bus does not Exist.
+  @return EFI_NOT_READY                    - The Bus is not Initialised.
+  @return EFI_DEVICE_ERROR                 - The Slave did not respond.
+**/
+typedef
+EFI_STATUS
+(EFIAPI *EFI_HSI2C_WRITE_BUFFER) (
+  IN UINT8   BusNumber,
+  IN UINT8   SlaveAddr,
+  IN UINT32  SlaveReg,
+  IN UINT8  *Data,
+  IN UINTN   DataLen
+  );
+
 //
 // Define Protocol
 //
 typedef struct {
-  EFI_HSI2C_INIT_BUS InitBus;
-  EFI_HSI2C_READ_32  Read32;
-  EFI_HSI2C_WRITE_32 Write32;
-  EFI_HSI2C_READ     Read;
-  EFI_HSI2C_WRITE    Write;
+  EFI_HSI2C_INIT_BUS     InitBus;
+  EFI_HSI2C_READ_32      Read32;
+  EFI_HSI2C_WRITE_32     Write32;
+  EFI_HSI2C_READ         Read;
+  EFI_HSI2C_WRITE        Write;
+  EFI_HSI2C_READ_BUFFER  ReadBuffer;
+  EFI_HSI2C_WRITE_BUFFER WriteBuffer;
 } EFI_HSI2C_PROTOCOL;
 
 #endif /* _EFI_HSI2C_H_ */
