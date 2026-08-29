@@ -68,6 +68,11 @@
 
 [Components]
   #
+  # ACPI Tables
+  #
+  #a10/AcpiTables.inf
+
+  #
   # Input
   #
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf

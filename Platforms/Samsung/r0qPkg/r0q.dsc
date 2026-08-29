@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|r0qPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  r0q/AcpiTables.inf

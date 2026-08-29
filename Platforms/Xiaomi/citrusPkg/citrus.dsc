@@ -72,3 +72,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|citrusPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  citrus/AcpiTables.inf

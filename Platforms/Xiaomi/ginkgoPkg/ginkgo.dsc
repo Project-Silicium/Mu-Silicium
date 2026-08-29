@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|ginkgoPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  ginkgo/AcpiTables.inf

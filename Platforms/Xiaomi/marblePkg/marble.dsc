@@ -78,3 +78,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|marblePkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  marble/AcpiTables.inf

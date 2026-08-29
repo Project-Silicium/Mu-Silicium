@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|lavenderPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  lavender/AcpiTables.inf

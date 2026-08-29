@@ -78,3 +78,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|peridotPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  peridot/AcpiTables.inf

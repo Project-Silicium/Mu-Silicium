@@ -94,3 +94,9 @@
   # Memory Libraries
   #
   MemoryMapLib|nxPkg/Library/MemoryMapLib/MemoryMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #nx/AcpiTables.inf

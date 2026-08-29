@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|willowPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  willow/AcpiTables.inf

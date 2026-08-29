@@ -38,7 +38,7 @@ class CommonPlatform ():
         "Silicon/Silicium",
         "Silicium-ACPI",
         "Silicium-ACPI/Platforms/Xiaomi",
-        "Silicium-ACPI/SoCs/MediaTek"
+        "Silicium-ACPI/Silicon/MediaTek"
     )
 
 # ####################################################################################### #

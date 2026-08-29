@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|laurel_sproutPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #laurel_sprout/AcpiTables.inf

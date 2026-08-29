@@ -76,3 +76,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|tapasPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  tapas/AcpiTables.inf

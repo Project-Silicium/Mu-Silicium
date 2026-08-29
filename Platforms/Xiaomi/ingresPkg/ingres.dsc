@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|ingresPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  ingres/AcpiTables.inf

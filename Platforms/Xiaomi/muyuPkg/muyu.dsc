@@ -78,3 +78,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|muyuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #muyu/AcpiTables.inf

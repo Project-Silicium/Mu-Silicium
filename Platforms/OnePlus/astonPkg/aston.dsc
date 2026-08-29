@@ -83,3 +83,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|astonPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  aston/AcpiTables.inf

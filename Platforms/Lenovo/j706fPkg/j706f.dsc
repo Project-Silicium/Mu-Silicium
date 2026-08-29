@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|j706fPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  j706f/AcpiTables.inf

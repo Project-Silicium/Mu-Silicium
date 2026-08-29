@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|kebabPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  kebab/AcpiTables.inf

@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|capripPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  caprip/AcpiTables.inf

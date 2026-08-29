@@ -72,3 +72,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|gta4lPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #gta4l/AcpiTables.inf

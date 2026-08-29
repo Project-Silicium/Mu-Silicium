@@ -78,3 +78,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|bale_bPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  bale_b/AcpiTables.inf

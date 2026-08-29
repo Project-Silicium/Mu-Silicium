@@ -82,3 +82,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|cepheusPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  cepheus/AcpiTables.inf

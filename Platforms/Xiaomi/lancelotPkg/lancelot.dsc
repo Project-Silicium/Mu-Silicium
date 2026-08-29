@@ -79,6 +79,11 @@
 
 [Components]
   #
+  # ACPI Tables
+  #
+  lancelot/AcpiTables.inf
+
+  #
   # Input
   #
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf

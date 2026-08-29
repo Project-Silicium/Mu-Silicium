@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|equuleusPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #equuleus/AcpiTables.inf

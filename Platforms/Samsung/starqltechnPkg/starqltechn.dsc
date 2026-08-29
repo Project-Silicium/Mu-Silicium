@@ -72,3 +72,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|starqltechnPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #starqltechn/AcpiTables.inf

@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|bitraPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  bitra/AcpiTables.inf

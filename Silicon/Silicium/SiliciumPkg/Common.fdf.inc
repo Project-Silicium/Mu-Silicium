@@ -68,3 +68,10 @@
     UI        STRING="$(MODULE_NAME)" Optional
     VERSION   STRING="$(INF_VERSION)" Optional BUILD_NUM=$(BUILD_NUMBER)
   }
+
+[Rule.Common.USER_DEFINED.ACPITABLE]
+  FILE FREEFORM = $(NAMED_GUID) {
+    RAW       ACPI                    Optional |.acpi
+    RAW       ASL                              |.aml
+    UI        STRING="$(MODULE_NAME)" Optional
+  }

@@ -39,7 +39,7 @@ class CommonPlatform ():
         "Silicon/Silicium",
         "Silicium-ACPI",
         "Silicium-ACPI/Platforms/Samsung",
-        "Silicium-ACPI/SoCs/Qualcomm"
+        "Silicium-ACPI/Silicon/Qualcomm"
     )
 
 # ####################################################################################### #

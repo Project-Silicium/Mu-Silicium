@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|r8qPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #r8q/AcpiTables.inf

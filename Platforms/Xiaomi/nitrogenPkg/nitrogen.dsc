@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|nitrogenPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  nitrogen/AcpiTables.inf

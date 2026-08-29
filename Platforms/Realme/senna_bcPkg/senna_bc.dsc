@@ -91,3 +91,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|senna_bcPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #senna_bc/AcpiTables.inf

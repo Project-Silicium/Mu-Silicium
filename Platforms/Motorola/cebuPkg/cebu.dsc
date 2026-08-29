@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|cebuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #cebu/AcpiTables.inf

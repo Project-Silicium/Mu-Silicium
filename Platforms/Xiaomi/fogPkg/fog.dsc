@@ -76,3 +76,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|fogPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  fog/AcpiTables.inf

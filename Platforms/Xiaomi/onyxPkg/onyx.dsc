@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|onyxPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #onyx/AcpiTables.inf

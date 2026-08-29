@@ -38,7 +38,7 @@ class CommonPlatform ():
         "Silicon/Silicium",
         "Silicium-ACPI",
         "Silicium-ACPI/Platforms/Lenovo",
-        "Silicium-ACPI/SoCs/Qualcomm"
+        "Silicium-ACPI/Silicon/Qualcomm"
     )
 
 # ####################################################################################### #

@@ -76,3 +76,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|nuwaPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #nuwa/AcpiTables.inf

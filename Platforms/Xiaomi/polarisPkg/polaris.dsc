@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|polarisPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  polaris/AcpiTables.inf

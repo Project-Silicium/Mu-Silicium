@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|dodgePkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #dodge/AcpiTables.inf

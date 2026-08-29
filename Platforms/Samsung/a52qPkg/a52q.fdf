@@ -93,7 +93,7 @@ READ_LOCK_STATUS   = TRUE
   # ACPI
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  !include Include/ACPI.inc
+  INF RuleOverride = ACPITABLE a52q/AcpiTables.inf
 
   # Device Tree
   #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf

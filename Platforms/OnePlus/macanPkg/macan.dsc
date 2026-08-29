@@ -72,3 +72,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|macanPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #macan/AcpiTables.inf

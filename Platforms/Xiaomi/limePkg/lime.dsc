@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|limePkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  lime/AcpiTables.inf

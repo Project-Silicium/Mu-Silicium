@@ -87,3 +87,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|aliothPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  alioth/AcpiTables.inf

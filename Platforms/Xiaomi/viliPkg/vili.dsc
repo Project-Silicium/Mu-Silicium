@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|viliPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  vili/AcpiTables.inf

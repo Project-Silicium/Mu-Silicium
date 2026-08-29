@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|caymanslmPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  caymanslm/AcpiTables.inf

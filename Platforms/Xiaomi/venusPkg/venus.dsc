@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|venusPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  venus/AcpiTables.inf

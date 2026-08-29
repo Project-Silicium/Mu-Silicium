@@ -97,3 +97,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|miatollPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  miatoll/AcpiTables.inf

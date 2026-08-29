@@ -79,3 +79,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|paganiPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #pagani/AcpiTables.inf

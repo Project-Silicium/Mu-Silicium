@@ -76,3 +76,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|dm2qPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #dm2q/AcpiTables.inf

@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|gts8pPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  gts8p/AcpiTables.inf

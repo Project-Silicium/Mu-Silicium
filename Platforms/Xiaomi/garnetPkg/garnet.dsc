@@ -76,3 +76,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|garnetPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #garnet/AcpiTables.inf

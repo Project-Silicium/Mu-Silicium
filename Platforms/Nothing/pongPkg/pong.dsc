@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|pongPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  pong/AcpiTables.inf

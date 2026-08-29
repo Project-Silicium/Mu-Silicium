@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|suryaPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  surya/AcpiTables.inf

@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|vayuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  vayu/AcpiTables.inf

@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|veuxPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #veux/AcpiTables.inf

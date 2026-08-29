@@ -79,3 +79,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|infinitiPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #infiniti/AcpiTables.inf

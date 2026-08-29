@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|cheeseburgerPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #cheeseburger/AcpiTables.inf

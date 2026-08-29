@@ -79,3 +79,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|nabuPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  nabu/AcpiTables.inf

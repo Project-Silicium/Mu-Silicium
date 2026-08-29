@@ -76,3 +76,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|spesPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  spes/AcpiTables.inf

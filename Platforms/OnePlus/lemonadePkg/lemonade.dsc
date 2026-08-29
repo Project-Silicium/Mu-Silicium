@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|lemonadePkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  lemonade/AcpiTables.inf

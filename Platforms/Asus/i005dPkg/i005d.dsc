@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|i005dPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #i005d/AcpiTables.inf

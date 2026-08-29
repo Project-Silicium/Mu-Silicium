@@ -84,3 +84,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|mh2Pkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  mh2/AcpiTables.inf

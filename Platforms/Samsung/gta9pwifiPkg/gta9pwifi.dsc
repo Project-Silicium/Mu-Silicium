@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|gta9pwifiPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #gta9pwifi/AcpiTables.inf

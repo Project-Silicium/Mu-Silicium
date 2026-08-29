@@ -82,3 +82,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|phoenixPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #phoenix/AcpiTables.inf

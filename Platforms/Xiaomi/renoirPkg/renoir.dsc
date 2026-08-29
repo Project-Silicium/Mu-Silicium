@@ -75,3 +75,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|renoirPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  renoir/AcpiTables.inf

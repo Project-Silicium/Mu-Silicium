@@ -86,3 +86,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|giuliaPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #giulia/AcpiTables.inf

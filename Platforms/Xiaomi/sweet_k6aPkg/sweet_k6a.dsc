@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|sweet_k6aPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #sweet_k6a/AcpiTables.inf

@@ -76,3 +76,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|qrd8550Pkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  qrd8550/AcpiTables.inf

@@ -38,7 +38,7 @@ class CommonPlatform ():
         "Silicon/Silicium",
         "Silicium-ACPI",
         "Silicium-ACPI/Platforms/Nintendo",
-        "Silicium-ACPI/SoCs/Nvidia"
+        "Silicium-ACPI/Silicon/Nvidia"
     )
 
 # ####################################################################################### #

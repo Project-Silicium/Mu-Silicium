@@ -70,3 +70,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|enchiladaPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  enchilada/AcpiTables.inf

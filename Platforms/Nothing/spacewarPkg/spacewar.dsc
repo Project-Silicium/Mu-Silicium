@@ -82,3 +82,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|spacewarPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  spacewar/AcpiTables.inf

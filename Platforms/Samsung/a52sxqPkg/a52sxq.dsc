@@ -82,3 +82,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|a52sxqPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  a52sxq/AcpiTables.inf

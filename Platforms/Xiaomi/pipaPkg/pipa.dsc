@@ -77,3 +77,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|pipaPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  pipa/AcpiTables.inf

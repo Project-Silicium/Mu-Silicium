@@ -82,3 +82,9 @@
   # QCOM Libraries
   #
   ConfigurationMapLib|lisaPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  lisa/AcpiTables.inf
