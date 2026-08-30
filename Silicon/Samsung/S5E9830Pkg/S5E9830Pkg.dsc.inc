@@ -67,6 +67,12 @@
   PlatformSecLib|S5E9830Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
+  # UEFI Libraries
+  #
+  HwResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+  ResetSystemLib|S5E9830Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+
+  #
   # IO Libraries
   #
   GpioLib|S5E9830Pkg/Library/GpioLib/GpioLib.inf
