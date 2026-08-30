@@ -227,6 +227,33 @@ HsI2cInitBus (IN UINT8 BusNumber)
 }
 
 /**
+  Decode the Master State Machine of TRANS_STATUS into a readable Name.
+**/
+STATIC
+CONST CHAR8 *
+GetMasterStateName (IN UINT32 TransStatus)
+{
+  switch (HSI2C_MASTER_ST (TransStatus)) {
+    case HSI2C_MASTER_ST_IDLE:      return "IDLE";
+    case HSI2C_MASTER_ST_START:     return "START";
+    case HSI2C_MASTER_ST_RESTART:   return "RESTART";
+    case HSI2C_MASTER_ST_STOP:      return "STOP";
+    case HSI2C_MASTER_ST_MASTER_ID: return "MASTER_ID";
+    case HSI2C_MASTER_ST_ADDR0:     return "ADDR0";
+    case HSI2C_MASTER_ST_ADDR1:     return "ADDR1";
+    case HSI2C_MASTER_ST_ADDR2:     return "ADDR2";
+    case HSI2C_MASTER_ST_ADDR_SR:   return "ADDR_SR";
+    case HSI2C_MASTER_ST_READ:      return "READ";
+    case HSI2C_MASTER_ST_WRITE:     return "WRITE";
+    case HSI2C_MASTER_ST_NO_ACK:    return "NO_ACK";
+    case HSI2C_MASTER_ST_LOSE:      return "LOSE";
+    case HSI2C_MASTER_ST_WAIT:      return "WAIT";
+    case HSI2C_MASTER_ST_WAIT_CMD:  return "WAIT_CMD";
+    default:                        return "RESERVED";
+  }
+}
+
+/**
   Check if transfer has failed.
 **/
 STATIC
@@ -247,10 +274,21 @@ CheckTransferError (IN EFI_HSI2C_BUS *Bus)
     return EFI_NO_RESPONSE;
   }
 
-  DEBUG ((EFI_D_ERROR, "HSI2C: Transfer Error, INT_STATUS 0x%08x TRANS_STATUS 0x%08x\n",
-          IntStatus, MmioRead32 ((UINTN)&Bus->trans_status)));
+  UINT32 TransStatus = MmioRead32 ((UINTN)&Bus->trans_status);
 
-  return EFI_DEVICE_ERROR;
+  DEBUG ((EFI_D_ERROR, "HSI2C: Transfer Error, INT_STATUS 0x%08x TRANS_STATUS 0x%08x (Master State %a%a%a)\n",
+          IntStatus, TransStatus, GetMasterStateName (TransStatus),
+          (TransStatus & HSI2C_MASTER_BUSY) ? ", MASTER_BUSY" : "",
+          (TransStatus & HSI2C_SLAVE_BUSY)  ? ", SLAVE_BUSY"  : ""));
+
+  switch (HSI2C_MASTER_ST (TransStatus)) {
+    case HSI2C_MASTER_ST_NO_ACK:
+      return EFI_NO_RESPONSE;
+    case HSI2C_MASTER_ST_LOSE:
+      return EFI_ABORTED;
+    default:
+      return EFI_DEVICE_ERROR;
+  }
 }
 
 EFI_STATUS
@@ -266,7 +304,8 @@ HsI2cXferMsg (
   UINT32 AutoConf   = 0;
   UINT32 Addr       = 0;
   UINT32 FifoCtl    = 0;
-  UINT32 IntStatus  = 0;
+  UINT32 IntStatus   = 0;
+  UINT32 TransStatus = 0;
   UINT32 FifoStatus = 0;
   UINT32 TrigLevel  = 0;
   UINT64     Timeout = 1000000;
@@ -390,6 +429,12 @@ HsI2cXferMsg (
       gBS->Stall (1);
     }
   }
+
+  TransStatus = MmioRead32 ((UINTN)&Bus->trans_status);
+
+  DEBUG ((EFI_D_ERROR, "HSI2C: %a of %u Bytes to 0x%02x timed out. Master State %a\n",
+          IsRead ? "Read" : "Write", (UINT32)BufferLen, SlaveAddr,
+          GetMasterStateName (TransStatus)));
 
   Status = EFI_TIMEOUT;
 

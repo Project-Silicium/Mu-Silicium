@@ -100,11 +100,28 @@
 //
 #define HSI2C_MASTER_BUSY               BIT17
 #define HSI2C_SLAVE_BUSY                BIT16
-#define HSI2C_TIMEOUT_AUTO              BIT4
-#define HSI2C_NO_DEV                    BIT3
-#define HSI2C_NO_DEV_ACK                BIT2
-#define HSI2C_TRANS_ABORT               BIT1
-#define HSI2C_TRANS_DONE                BIT0
+
+//
+// Transfer Status Master States
+//
+#define HSI2C_MASTER_ST_MASK            0xF
+#define HSI2C_MASTER_ST(x)             ((x) & HSI2C_MASTER_ST_MASK)
+
+#define HSI2C_MASTER_ST_IDLE            0x0
+#define HSI2C_MASTER_ST_START           0x1
+#define HSI2C_MASTER_ST_RESTART         0x2
+#define HSI2C_MASTER_ST_STOP            0x3
+#define HSI2C_MASTER_ST_MASTER_ID       0x4
+#define HSI2C_MASTER_ST_ADDR0           0x5
+#define HSI2C_MASTER_ST_ADDR1           0x6
+#define HSI2C_MASTER_ST_ADDR2           0x7
+#define HSI2C_MASTER_ST_ADDR_SR         0x8
+#define HSI2C_MASTER_ST_READ            0x9
+#define HSI2C_MASTER_ST_WRITE           0xA
+#define HSI2C_MASTER_ST_NO_ACK          0xB
+#define HSI2C_MASTER_ST_LOSE            0xC
+#define HSI2C_MASTER_ST_WAIT            0xD
+#define HSI2C_MASTER_ST_WAIT_CMD        0xE
 
 //
 // FIFO Status Register Bits
