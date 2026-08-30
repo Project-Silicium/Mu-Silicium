@@ -356,7 +356,7 @@ MshcPrepareTransfer (
   }
 
   // Map the DMA Buffer
-  Status = DmaMap (MapOperationBusMasterCommonBuffer, (VOID *)pgMshcDmaBaseAddr, &DmaBufferSize, &gMshcDmaBaseAddr, &gDmaMapping);
+  Status = DmaMap (MapOperationBusMasterCommonBuffer, (VOID *)pgMshcDmaBaseAddr, &DmaBufferSize, 0, 0, &gMshcDmaBaseAddr, &gDmaMapping);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Map the DMA Buffer! Status = %r\n", Status));
     return Status;
