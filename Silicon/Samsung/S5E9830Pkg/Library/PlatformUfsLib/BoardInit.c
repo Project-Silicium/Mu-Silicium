@@ -21,8 +21,8 @@
 
 #define EXYNOS9830_UFS_BASE            0x13100000
 #define EXYNOS9830_UFS_VS_BASE         (EXYNOS9830_UFS_BASE + 0x1100)
-#define EXYNOS9830_UNIPRO_BASE         (EXYNOS9830_UFS_BASE + 0x8000)
 #define EXYNOS9830_PHY_PMA_BASE        (EXYNOS9830_UFS_BASE + 0x4000)
+#define EXYNOS9830_UNIPRO_BASE         (EXYNOS9830_UFS_BASE + 0x80000)
 
 #define EXYNOS9830_PMU_BASE            0x15860000
 #define EXYNOS9830_PMU_RST_STAT        (EXYNOS9830_PMU_BASE + 0x404)
@@ -92,8 +92,6 @@ UfsBoardInit (struct UfsHost *Ufs)
   Ufs->GearMode = 4;
 
   UfsSetUniProClk (Ufs);
-
-  // TODO : Hook this in with the actual GPIO driver, instead of direct memory writes.
 
   /* GPIO: RST_N and REFCLK */
   Status = mGpioProtocol->SetPull(BANK_ID_F, 2, 0, PULL_NONE);
