@@ -50,6 +50,11 @@ struct {
     .SemesterName           = "Krypton",
     .TransferToKernelOffset = 0xC60,
     .TargetInstruction      = 0x52800015
+  },
+  {
+    .SemesterName           = "Rubidium",
+    .TransferToKernelOffset = 0xDD0,
+    .TargetInstruction      = 0x52800015
   }
 };
 
