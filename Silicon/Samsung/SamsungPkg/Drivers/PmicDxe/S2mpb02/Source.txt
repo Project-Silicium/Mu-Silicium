@@ -1,0 +1,5 @@
+REPO:   https://github.com/LineageOS/android_kernel_samsung_universal9830/
+BRANCH: lineage-23.2
+FILES:  drivers/mfd/s2mpb02-core.c
+        drivers/regulator/s2mpb02-regulator.c
+        include/linux/mfd/s2mpb02-regulator.h
