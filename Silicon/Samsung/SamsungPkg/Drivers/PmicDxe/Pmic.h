@@ -30,6 +30,13 @@ InitS2dos05 (
   IN UINT32              Slave
   );
 
+EFI_STATUS
+InitS2mpb02 (
+  IN EFI_HSI2C_PROTOCOL *HsI2cProtocol,
+  IN UINT8               BusNumber,
+  IN UINT32              Slave
+  );
+
 // =========================================================================
 // PMIC Set WTSR Functions
 // =========================================================================
@@ -99,6 +106,19 @@ S2dos05SetLdo (
 
 EFI_STATUS
 S2dos05SetBuck (
+  IN UINT8   BuckNumber,
+  IN BOOLEAN Enable
+  );
+
+EFI_STATUS
+S2mpb02SetLdo (
+  IN UINT8             LdoNumber,
+  IN EFI_PMIC_LDO_MODE Mode,
+  IN BOOLEAN           Enable
+  );
+
+EFI_STATUS
+S2mpb02SetBuck (
   IN UINT8   BuckNumber,
   IN BOOLEAN Enable
   );
@@ -189,6 +209,11 @@ struct {
     .Id      = ID_S2DOS05,
     .SetBuck = S2dos05SetBuck,
     .SetLdo  = S2dos05SetLdo,
+  },
+  {
+    .Id      = ID_S2MPB02,
+    .SetBuck = S2mpb02SetBuck,
+    .SetLdo  = S2mpb02SetLdo,
   }
 };
 
@@ -250,6 +275,11 @@ struct {
     .Id         = ID_S2DOS05,
     .SpeedyInit = NULL,
     .HsI2cInit  = InitS2dos05
+  },
+  {
+    .Id         = ID_S2MPB02,
+    .SpeedyInit = NULL,
+    .HsI2cInit  = InitS2mpb02
   }
 };
 
