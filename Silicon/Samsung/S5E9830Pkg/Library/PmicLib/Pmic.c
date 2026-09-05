@@ -23,6 +23,11 @@ gPmicData = {
       .Id        = ID_S2MPB02,
       .BusNumber = 27,
       .Slave     = 0x59
+    },
+    {
+      .Id        = ID_S2MPB03,
+      .BusNumber = 38,
+      .Slave     = 0x56
     }
   }
 };
