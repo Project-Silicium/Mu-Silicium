@@ -24,6 +24,12 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = salamiPkg/salami.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
+  
+  #
+  # 0 = SM8550-AB
+  # 1 = SM8550-AC
+  #
+  SOC_TYPE                       = 0
 
 !include KailuaPkg/KailuaPkg.dsc.inc
 
