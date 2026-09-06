@@ -8,30 +8,28 @@
   to third parties without the express written permission of Samsung Electronics.
 **/
 
-#ifndef _PMIC_DEVICE_H_
-#define _PMIC_DEVICE_H_
+#ifndef _S2MPB_03_H_
+#define _S2MPB_03_H_
+
+#include <Device/Pmic.h>
 
 //
-// PMIC IDs
+// Register Addresses
 //
-typedef enum {
-  ID_S2MPS18 = 1,
-  ID_S2MPS19,
-  ID_S2MPS20,
-  ID_S2MPS22,
-  ID_S2DOS05,
-  ID_S2MPB02,
-  ID_S2MPB03
-} EFI_PMIC_ID;
+#define S2MPB03_REG_PMIC_ID         0x00
+#define S2MPB03_REG_STATUS          0x01
+#define S2MPB03_REG_CTRL            0x02
+#define S2MPB03_REG_LDO1_CTRL       0x03
+#define S2MPB03_REG_LDO_CTRL(x)    (S2MPB03_REG_LDO1_CTRL + (x - 1))
 
 //
-// PMIC LDO Modes
+// Regulator Limits
 //
-typedef enum {
-  S2MPS_MODE_TCXO   = 1,
-  S2MPS_MODE_NORMAL,
+#define MAX_S2MPB03_LDO_COUNT       7
 
-  MODE_COUNT
-} EFI_PMIC_LDO_MODE;
+//
+// Regulator Enable Mask
+//
+#define S2MPB03_LDO_ENABLE          BIT7
 
-#endif /* _PMIC_DEVICE_H_ */
+#endif /* _S2MPB_03_H_ */

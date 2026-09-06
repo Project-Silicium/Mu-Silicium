@@ -12,6 +12,9 @@
   S2mps18/S2mps18.c
   S2mps19/S2mps19.c
   S2mps22/S2mps22.c
+  S2dos05/S2dos05.c
+  S2mpb02/S2mpb02.c
+  S2mpb03/S2mpb03.c
 
 [Packages]
   MdePkg/MdePkg.dec
