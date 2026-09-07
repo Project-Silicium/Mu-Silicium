@@ -1,10 +1,4 @@
 #
-# Device Status
-#
-[status]
-model_count = 2
-
-#
 # Boot Shim Configs
 #
 [boot_shim]
