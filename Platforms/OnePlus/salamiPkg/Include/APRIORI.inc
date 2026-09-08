@@ -1,6 +1,7 @@
 APRIORI DXE {
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+  INF QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf
 
   INF Binaries/salami/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
@@ -20,17 +21,13 @@ APRIORI DXE {
   INF Binaries/salami/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
-#  INF Binaries/salami/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  INF Binaries/salami/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/salami/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  !else
-  INF Binaries/salami/QcomPkg/Drivers/ClockDxe/ClockDxe.old.inf
-  !endif
   INF Binaries/salami/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
   INF Binaries/salami/QcomPkg/Drivers/TzDxe/ScmDxeCompat.inf
@@ -110,6 +107,5 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 
-#  INF Binaries/salami/QcomPkg/Drivers/RscDxe/RscDxe.inf
-#  INF Binaries/salami/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
+  INF Binaries/salami/QcomPkg/Drivers/RscDxe/RscDxe.inf
 }

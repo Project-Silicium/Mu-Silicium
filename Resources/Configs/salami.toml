@@ -23,5 +23,5 @@ append_dtb         = true
 #
 [boot_image]
 header_version = 4
-os_version = "15.0.0"
+os_version     = "15.0.0"
 os_patch_level = "2025-07"

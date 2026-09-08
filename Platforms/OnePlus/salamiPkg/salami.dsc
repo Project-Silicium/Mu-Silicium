@@ -15,7 +15,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = salami
-  PLATFORM_GUID                  = 5CA58D2B-99C8-40DE-A7A5-44C5DAAE24BD
+  PLATFORM_GUID                  = 4A35C5C1-5884-4A86-A5C7-CBE66DC38CD1
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/salamiPkg
@@ -24,7 +24,7 @@
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = salamiPkg/salami.fdf
   USE_CUSTOM_DISPLAY_DRIVER      = 0
-  
+
   #
   # 0 = SM8550-AB
   # 1 = SM8550-AC
@@ -49,13 +49,14 @@
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"OnePlus"
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|" 11"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"11"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"salami"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"CPH2449"
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemBoardModel|"22861"
 
   #
   # Simple Frame Buffer
+  # (NOTE: Actual Max Resolution is 1440x3216)
   #
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferWidth|1080
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2412
@@ -81,4 +82,4 @@
   #
   # ACPI Tables
   #
-  salami/AcpiTables.inf
+  #salami/AcpiTables.inf

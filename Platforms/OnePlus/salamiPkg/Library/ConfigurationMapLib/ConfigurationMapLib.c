@@ -5,7 +5,7 @@ EFI_CONFIGURATION_ENTRY_DESCRIPTOR
 gConfigurationDescriptor[] = {
   // Configuration Map
   {"EnableShell", 0x1},
-  {"SecPagePoolCount", 0x800},
+  {"SecPagePoolCount", 0x1800},
   {"SharedIMEMBaseAddr", 0x146AA000},
   {"DloadCookieAddr", 0x01FD9000},
   {"DloadCookieValue", 0x10},
@@ -38,14 +38,13 @@ gConfigurationDescriptor[] = {
   {"EnableUefiSecAppDebugLogDump", 0x0},
   {"AllowNonPersistentVarsInRetail", 0x1},
   {"EnableDisplayThread", 0x1},
-  {"EnableDisplayImageFv", 0x1},
+  {"EnableDisplayImageFv", 0x0},
   {"DDRInfoNotifyFlag", 0x0},
   {"EnableMultiCoreFvDecompression", 0},
   {"EnableVariablePolicyEngine", 0},
   {"EnableACPIFallback", 0x0},
   {"DRAM_CLK_PERIOD_ADDR", 0x240BA050},
-  {"LoadAutoImageInPILFlag", 0x1},
-  {"OverRideSharedImemBootCfg", 0x8}
+  {"LoadAutoImageInPILFlag", 0x1}
 };
 
 VOID

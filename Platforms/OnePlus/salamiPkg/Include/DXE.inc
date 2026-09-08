@@ -26,7 +26,7 @@
 
   INF Binaries/salami/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
-#  INF Binaries/salami/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  #INF Binaries/salami/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
@@ -50,19 +50,14 @@
   INF Binaries/salami/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/VcsDxe/VcsDxe.inf
-  !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/salami/QcomPkg/Drivers/ClockDxe/ClockDxe.inf
-  !else
-  INF Binaries/salami/QcomPkg/Drivers/ClockDxe/ClockDxe.old.inf
-  !endif
   INF Binaries/salami/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/ICBDxe/ICBDxe.inf
   INF Binaries/salami/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-#  INF Binaries/salami/QcomPkg/Drivers/RscDxe/RscDxe.inf
-#  INF Binaries/salami/QcomPkg/Drivers/OGaugeAuthDxe/OGaugeAuth.inf
+  INF Binaries/salami/QcomPkg/Drivers/RscDxe/RscDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
