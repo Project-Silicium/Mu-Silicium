@@ -170,11 +170,36 @@ GpioSetPull (
   return EFI_SUCCESS;
 }
 
+EFI_STATUS
+GpioSetDrive (
+  IN EFI_GPIO_BANK_ID        BankId,
+  IN UINT8                   BankNumber,
+  IN UINT8                   Pin,
+  IN EFI_GPIO_DRIVE_STRENGTH Drive)
+{
+  // Verify GPIO Pin & GPIO Pin Drive Strength
+  if (Pin >= MAX_GPIO_PIN_COUNT || Drive >= DRIVE_NUM) {
+    return EFI_INVALID_PARAMETER;
+  }
+
+  // Get GPIO Bank
+  EFI_GPIO_BANK *Bank = GetBank (BankId, BankNumber);
+  if (Bank == NULL) {
+    return EFI_NOT_FOUND;
+  }
+
+  // Re-set GPIO Pin Drive Strength
+  MmioAndThenOr32 ((UINTN)&Bank->drv, ~DRV_MASK (Pin), DRV_SET (Pin, Drive));
+
+  return EFI_SUCCESS;
+}
+
 STATIC EFI_GPIO_PROTOCOL mGpio = {
   GpioGetState,
   GpioSetState,
   GpioSetFunction,
-  GpioSetPull
+  GpioSetPull,
+  GpioSetDrive
 };
 
 EFI_STATUS

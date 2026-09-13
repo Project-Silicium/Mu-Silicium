@@ -1,0 +1,21 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformMshcLib
+  FILE_GUID                      = 2f8c41d6-9b07-4e35-a1c8-5d6e0b93f472
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformMshcLib|DXE_DRIVER
+
+[Sources]
+  BoardInit.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  MemoryMapHelperLib
+  DebugLib
+  IoLib

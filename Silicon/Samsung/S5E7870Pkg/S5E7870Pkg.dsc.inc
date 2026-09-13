@@ -70,8 +70,7 @@
   #
   GpioLib|S5E7870Pkg/Library/GpioLib/GpioLib.inf
 
-[Components]
   #
-  # Custom Drivers
+  # Storage Libraries
   #
-  S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
+  PlatformMshcLib|S5E7870Pkg/Library/PlatformMshcLib/PlatformMshcLib.inf

@@ -98,6 +98,18 @@ S2mps19SetLdo (
   );
 
 EFI_STATUS
+S2mps19SetLdoVoltage (
+  IN UINT8  LdoNumber,
+  IN UINT32 Microvolts
+  );
+
+EFI_STATUS
+S2mps19GetLdoVoltage (
+  IN  UINT8   LdoNumber,
+  OUT UINT32 *Microvolts
+  );
+
+EFI_STATUS
 S2mps22SetLdo (
   IN UINT8             LdoNumber,
   IN EFI_PMIC_LDO_MODE Mode,
@@ -156,6 +168,20 @@ EFI_STATUS
   IN BOOLEAN           Enable
   );
 
+typedef
+EFI_STATUS
+(EFIAPI *EFI_PMIC_REGULATOR_SET_LDO_VOLTAGE) (
+  IN UINT8  LdoNumber,
+  IN UINT32 Microvolts
+  );
+
+typedef
+EFI_STATUS
+(EFIAPI *EFI_PMIC_REGULATOR_GET_LDO_VOLTAGE) (
+  IN  UINT8   LdoNumber,
+  OUT UINT32 *Microvolts
+  );
+
 // =========================================================================
 // PMIC Extra Function Pointers
 // =========================================================================
@@ -201,8 +227,10 @@ EFI_STATUS
 
 struct {
   EFI_PMIC_ID                 Id;
-  EFI_PMIC_REGULATOR_SET_BUCK SetBuck;
-  EFI_PMIC_REGULATOR_SET_LDO  SetLdo;
+  EFI_PMIC_REGULATOR_SET_BUCK        SetBuck;
+  EFI_PMIC_REGULATOR_SET_LDO         SetLdo;
+  EFI_PMIC_REGULATOR_SET_LDO_VOLTAGE SetLdoVoltage;
+  EFI_PMIC_REGULATOR_GET_LDO_VOLTAGE GetLdoVoltage;
 } SupportedPmicRegulator[] = {
   {
     .Id      = ID_S2MPS18,
@@ -210,9 +238,11 @@ struct {
     .SetLdo  = S2mps18SetLdo,
   },
   {
-    .Id      = ID_S2MPS19,
-    .SetBuck = NULL,
-    .SetLdo  = S2mps19SetLdo,
+    .Id            = ID_S2MPS19,
+    .SetBuck       = NULL,
+    .SetLdo        = S2mps19SetLdo,
+    .SetLdoVoltage = S2mps19SetLdoVoltage,
+    .GetLdoVoltage = S2mps19GetLdoVoltage,
   },
   {
     .Id      = ID_S2MPS22,

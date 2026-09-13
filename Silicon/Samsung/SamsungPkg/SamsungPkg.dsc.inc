@@ -40,6 +40,7 @@
   # Storage Libraries
   #
   PlatformUfsLib|SamsungNullPkg/Library/PlatformUfsLibNull/PlatformUfsLibNull.inf
+  PlatformMshcLib|SamsungNullPkg/Library/PlatformMshcLibNull/PlatformMshcLibNull.inf
   UfsCalAdapterLib|SamsungPkg/Library/UfsCalAdapterLib/UfsCalAdapterLib.inf
 
   #
@@ -62,6 +63,7 @@
   # Storage Drivers
   #
   SamsungPkg/Drivers/UfsDxe/UfsDxe.inf
+  SamsungPkg/Drivers/MshcDxe/MshcDxe.inf
 
   #
   # IO Drivers

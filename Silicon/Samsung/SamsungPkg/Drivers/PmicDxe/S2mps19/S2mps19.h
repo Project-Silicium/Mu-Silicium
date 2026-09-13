@@ -62,6 +62,26 @@
 #define MAX_S2MPS19_LDO_COUNT      29
 
 //
+// LDO Voltage Selection
+//
+// The Control Register carries the Enable State in its Top two Bits and the
+// Voltage Selection in the Low six. Each Regulator belongs to one of five
+// Groups, which decide the Lowest Voltage it can Produce and the Size of a
+// Step. The Groups are taken from the Regulator Descriptor Table of the Vendor
+// Kernel, drivers/regulator/s2mps19_regulator.c.
+//
+#define S2MPS19_LDO_VSEL_MASK      0x3F
+#define S2MPS19_LDO_GROUP_COUNT    5
+
+#define S2MPS19_LDO_GROUPS { \
+  3, 2, 3, 1, 5, 5, 5, 5, 3, 3, 1, 2, 2, 2, 2,  \
+  2, 1, 3, 1, 2, 1, 1, 3, 2, 1, 2, 2, 1, 2      \
+}
+
+#define S2MPS19_LDO_GROUP_MIN_UV   { 700000, 1800000, 700000, 400000, 300000 }
+#define S2MPS19_LDO_GROUP_STEP_UV  {  25000,   25000,  12500,  12500,  25000 }
+
+//
 // LDO Regulator Modes
 //
 #define S2MPS19_OUTPUT_ON_TCXO     BIT6

@@ -1,0 +1,12 @@
+REPO:   https://github.com/LineageOS/android_kernel_samsung_universal9830/
+BRANCH: lineage-23.2
+FILES:  drivers/mmc/host/dw_mmc-exynos.c
+        drivers/mmc/host/dw_mmc-exynos.h
+        drivers/soc/samsung/cal-if/exynos9830/cmucal-sfr.c
+        drivers/soc/samsung/cal-if/exynos9830/cmucal-node.c
+        drivers/soc/samsung/cal-if/ra.c
+        drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+        arch/arm64/boot/dts/exynos/exynos9830.dts
+        arch/arm64/boot/dts/exynos/exynos9830-pinctrl.dtsi
+        arch/arm64/boot/dts/exynos/exynos9830-universal9830_common.dtsi
+        arch/arm64/boot/dts/exynos/exynos9830-universal9830_power.dtsi

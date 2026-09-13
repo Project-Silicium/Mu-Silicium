@@ -61,6 +61,101 @@ S2mps19SetLdo (
 }
 
 EFI_STATUS
+S2mps19SetLdoVoltage (
+  IN UINT8  LdoNumber,
+  IN UINT32 Microvolts)
+{
+  EFI_STATUS Status;
+  UINT8      Value;
+  UINT8      Groups[]  = S2MPS19_LDO_GROUPS;
+  UINT32     MinUv[]   = S2MPS19_LDO_GROUP_MIN_UV;
+  UINT32     StepUv[]  = S2MPS19_LDO_GROUP_STEP_UV;
+
+  // Verify LDO Number
+  if (!LdoNumber || LdoNumber > MAX_S2MPS19_LDO_COUNT) {
+    return EFI_NOT_FOUND;
+  }
+
+  // Verify SPEEDY Protocol
+  if (mSpeedyProtocol == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  UINT8  Group = Groups[LdoNumber - 1];
+  UINT32 Min   = MinUv[Group - 1];
+  UINT32 Step  = StepUv[Group - 1];
+
+  //
+  // Only whole steps inside the range the group can produce are accepted. A
+  // rounded voltage on a rail feeding a card is not worth the convenience.
+  //
+  if (Microvolts < Min || Microvolts > Min + (S2MPS19_LDO_VSEL_MASK * Step)) {
+    DEBUG ((EFI_D_ERROR, "%a: LDO%u cannot Produce %u uV!\n", __FUNCTION__, LdoNumber, Microvolts));
+    return EFI_INVALID_PARAMETER;
+  }
+
+  if (((Microvolts - Min) % Step) != 0) {
+    DEBUG ((EFI_D_ERROR, "%a: %u uV is not a Whole Step for LDO%u!\n", __FUNCTION__, Microvolts, LdoNumber));
+    return EFI_INVALID_PARAMETER;
+  }
+
+  // Get LDO Register
+  UINT8 LdoRegister = S2MPS19_PM_LDOM_CTRL (LdoNumber);
+
+  // Get current LDO Config
+  Status = mSpeedyProtocol->Read (mBusNumber, S2MPS19_PM_ADDR, LdoRegister, &Value);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  // Replace the Voltage Selection, leaving the Enable State alone
+  Value &= ~S2MPS19_LDO_VSEL_MASK;
+  Value |= (UINT8)((Microvolts - Min) / Step);
+
+  return mSpeedyProtocol->Write (mBusNumber, S2MPS19_PM_ADDR, LdoRegister, Value);
+}
+
+EFI_STATUS
+S2mps19GetLdoVoltage (
+  IN  UINT8   LdoNumber,
+  OUT UINT32 *Microvolts)
+{
+  EFI_STATUS Status;
+  UINT8      Value;
+  UINT8      Groups[] = S2MPS19_LDO_GROUPS;
+  UINT32     MinUv[]  = S2MPS19_LDO_GROUP_MIN_UV;
+  UINT32     StepUv[] = S2MPS19_LDO_GROUP_STEP_UV;
+
+  if (Microvolts == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
+
+  if (!LdoNumber || LdoNumber > MAX_S2MPS19_LDO_COUNT) {
+    return EFI_NOT_FOUND;
+  }
+
+  if (mSpeedyProtocol == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  Status = mSpeedyProtocol->Read (mBusNumber, S2MPS19_PM_ADDR, S2MPS19_PM_LDOM_CTRL (LdoNumber), &Value);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  UINT8 Group = Groups[LdoNumber - 1];
+
+  DEBUG ((EFI_D_ERROR,
+          "%a: LDO%u CTRL = 0x%02X (Enable %u, VSEL 0x%02X, Group %u)\n",
+          __FUNCTION__, LdoNumber, Value,
+          (Value >> 6) & 0x3, Value & S2MPS19_LDO_VSEL_MASK, Group));
+
+  *Microvolts = MinUv[Group - 1] + ((Value & S2MPS19_LDO_VSEL_MASK) * StepUv[Group - 1]);
+
+  return EFI_SUCCESS;
+}
+
+EFI_STATUS
 S2mps19SetWtsr (IN BOOLEAN Enable)
 {
   EFI_STATUS Status;

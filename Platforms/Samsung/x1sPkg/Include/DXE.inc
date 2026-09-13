@@ -33,6 +33,7 @@
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
 
   INF SamsungPkg/Drivers/UfsDxe/UfsDxe.inf
+  INF SamsungPkg/Drivers/MshcDxe/MshcDxe.inf
 
   INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
   INF FatPkg/EnhancedFatDxe/Fat.inf
