@@ -88,6 +88,7 @@
   # Storage Libraries
   #
   PlatformUfsLib|S5E9830Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
+  PlatformMshcLib|S5E9830Pkg/Library/PlatformMshcLib/PlatformMshcLib.inf
 
   #
   # USB Libraries

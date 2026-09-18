@@ -1,0 +1,11 @@
+REPO:   https://github.com/Project-Silicium/Mu-Silicium
+BRANCH: main
+FOLDER: Silicon/Samsung/S5E7870Pkg/Drivers/MshcDxe
+
+REPO:   https://github.com/LineageOS/android_kernel_samsung_universal9830/
+BRANCH: lineage-23.2
+FILES:  drivers/mmc/host/dw_mmc.h
+        drivers/mmc/host/dw_mmc.c
+        drivers/mmc/host/dw_mmc-exynos.h
+        drivers/mmc/core/sd.c
+        drivers/mmc/core/sd_ops.c

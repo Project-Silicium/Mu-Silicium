@@ -1,0 +1,40 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MshcDxe
+  FILE_GUID                      = 4c7f2e91-8b3a-4d65-9f10-2a6c5b48e731
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+
+  ENTRY_POINT                    = MshcEntryPoint
+
+[Sources.common]
+  MshcDxe.c
+  MshcHost.c
+  MshcMmc.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  ArmPkg/ArmPkg.dec
+  SamsungPkg/SamsungPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  PlatformMshcLib
+  BaseLib
+  BaseMemoryLib
+  CacheMaintenanceLib
+  DmaLib
+  DebugLib
+  IoLib
+  TimerLib
+
+[Protocols]
+  gEfiBlockIoProtocolGuid
+  gEfiDevicePathProtocolGuid
+
+[Depex]
+  TRUE

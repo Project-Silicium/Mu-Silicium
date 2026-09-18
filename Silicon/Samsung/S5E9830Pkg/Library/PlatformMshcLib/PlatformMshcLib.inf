@@ -1,0 +1,27 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformMshcLib
+  FILE_GUID                      = 6b3e94a7-1c58-4f02-8d61-27fa9e4b3c15
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformMshcLib|DXE_DRIVER
+
+[Sources]
+  BoardInit.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  UefiBootServicesTableLib
+  MemoryMapHelperLib
+  DebugLib
+  IoLib
+  TimerLib
+
+[Protocols]
+  gEfiGpioProtocolGuid               ## CONSUMES
+  gEfiPmicRegulatorProtocolGuid      ## CONSUMES

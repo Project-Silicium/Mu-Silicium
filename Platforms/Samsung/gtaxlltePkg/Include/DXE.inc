@@ -30,7 +30,7 @@
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   INF SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
   INF SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
-  INF S5E7870Pkg/Drivers/MshcDxe/MshcDxe.inf
+  INF SamsungPkg/Drivers/MshcDxe/MshcDxe.inf
   
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf

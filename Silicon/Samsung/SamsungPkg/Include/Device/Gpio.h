@@ -66,11 +66,25 @@ typedef enum {
 // GPIO Pull Modes
 //
 typedef enum {
-  PULL_NONE,
-  PULL_DOWN,
-  PULL_UP,
+  PULL_NONE = 0,
+  PULL_DOWN = 1,
+  PULL_UP   = 3,
 
-  PULL_NUM
+  PULL_NUM  = 4
 } EFI_GPIO_PULL_MODE;
+
+//
+// GPIO Drive Strengths
+//
+typedef enum {
+  DRIVE_1X   = 0,
+  DRIVE_1_5X = 1,
+  DRIVE_2X   = 2,
+  DRIVE_2_5X = 3,
+  DRIVE_3X   = 4,
+  DRIVE_4X   = 5,
+
+  DRIVE_NUM  = 6
+} EFI_GPIO_DRIVE_STRENGTH;
 
 #endif /* _GPIO_DEVICE_H_ */

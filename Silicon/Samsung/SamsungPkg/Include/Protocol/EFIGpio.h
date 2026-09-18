@@ -89,6 +89,28 @@ EFI_STATUS
   IN EFI_GPIO_PULL_MODE Pull
   );
 
+/**
+  This Function sets the Specified Drive Strength of the Specified GPIO Pin.
+
+  @param[in] BankId                        - The GPIO Bank ID of the GPIO Pin.
+  @param[in] BankNumber                    - The GPIO Bank Number of the GPIO Pin.
+  @param[in] Pin                           - The GPIO Pin.
+  @param[in] Drive                         - The new Drive Strength.
+
+  @return EFI_SUCCESS                      - Successfully set the new Drive Strength of the Specified GPIO Pin.
+  @return EFI_INVALID_PARAMETER            - The "Pin" Parameter is larger than 7.
+  @return EFI_INVALID_PARAMETER            - The "Drive" Parameter is Invalid.
+  @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+**/
+typedef
+EFI_STATUS
+(EFIAPI *EFI_GPIO_SET_DRIVE) (
+  IN EFI_GPIO_BANK_ID         BankId,
+  IN UINT8                    BankNumber,
+  IN UINT8                    Pin,
+  IN EFI_GPIO_DRIVE_STRENGTH  Drive
+  );
+
 //
 // Define Protocol
 //
@@ -97,6 +119,7 @@ typedef struct {
   EFI_GPIO_SET_STATE    SetState;
   EFI_GPIO_SET_FUNCTION SetFunction;
   EFI_GPIO_SET_PULL     SetPull;
+  EFI_GPIO_SET_DRIVE    SetDrive;
 } EFI_GPIO_PROTOCOL;
 
 #endif /* _EFI_GPIO_H_ */

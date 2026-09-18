@@ -1,0 +1,17 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformMshcLibNull
+  FILE_GUID                      = 2F9A6C41-77B3-4E08-B5D2-9C1084EA37B6
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformMshcLib|DXE_DRIVER
+
+[Sources]
+  PlatformMshcLibNull.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib

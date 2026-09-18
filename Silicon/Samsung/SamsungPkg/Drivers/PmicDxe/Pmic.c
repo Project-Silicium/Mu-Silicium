@@ -66,9 +66,67 @@ PmicSetLdo (
   return EFI_NOT_FOUND;
 }
 
+EFI_STATUS
+PmicSetLdoVoltage (
+  IN EFI_PMIC_ID Id,
+  IN UINT8       LdoNumber,
+  IN UINT32      Microvolts)
+{
+  // Go thru each Supported PMIC
+  for (UINT8 i = 0; i < ARRAY_SIZE (SupportedPmicRegulator); i++) {
+    // Compare PMIC IDs
+    if (Id != SupportedPmicRegulator[i].Id) {
+      continue;
+    }
+
+    // Set LDO Voltage Function
+    EFI_PMIC_REGULATOR_SET_LDO_VOLTAGE SetLdoVoltage = SupportedPmicRegulator[i].SetLdoVoltage;
+
+    // Verify Set LDO Voltage Function
+    if (SetLdoVoltage == NULL) {
+      return EFI_UNSUPPORTED;
+    }
+
+    // Set LDO Voltage
+    return SetLdoVoltage (LdoNumber, Microvolts);
+  }
+
+  return EFI_NOT_FOUND;
+}
+
+EFI_STATUS
+PmicGetLdoVoltage (
+  IN  EFI_PMIC_ID Id,
+  IN  UINT8       LdoNumber,
+  OUT UINT32     *Microvolts)
+{
+  // Go thru each Supported PMIC
+  for (UINT8 i = 0; i < ARRAY_SIZE (SupportedPmicRegulator); i++) {
+    // Compare PMIC IDs
+    if (Id != SupportedPmicRegulator[i].Id) {
+      continue;
+    }
+
+    // Get LDO Voltage Function
+    EFI_PMIC_REGULATOR_GET_LDO_VOLTAGE GetLdoVoltage = SupportedPmicRegulator[i].GetLdoVoltage;
+
+    // Verify Get LDO Voltage Function
+    if (GetLdoVoltage == NULL) {
+      return EFI_UNSUPPORTED;
+    }
+
+    // Get LDO Voltage
+    return GetLdoVoltage (LdoNumber, Microvolts);
+  }
+
+  return EFI_NOT_FOUND;
+}
+
 STATIC EFI_PMIC_REGULATOR_PROTOCOL mPmicRegulator = {
   PmicSetBuck,
-  PmicSetLdo
+  PmicSetLdo,
+  PmicSetLdoVoltage,
+  PmicGetLdoVoltage
 };
 
 EFI_STATUS
