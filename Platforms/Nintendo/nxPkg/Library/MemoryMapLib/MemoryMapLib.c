@@ -13,7 +13,9 @@ gMemoryDescriptor[] = {
 
   // Register Regions
   {"GICC",               0x50041000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
-  {"GICD",               0x50042000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE}
+  {"GICD",               0x50042000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"GICH",               0x50044000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"GICV",               0x50046000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE}
 };
 
 VOID
