@@ -1406,9 +1406,36 @@
 </td></tr>
 </table>
 
+## OnePlus 11 5G
+
+<img align="right" src="Resources/Pictures/OnePlus-11.png" width="350" alt="Preview">
+
+**State:** Inactive <br>
+**Codename:** salami <br>
+
+**Contributors:** [Degdag](https://github.com/degdag/), [Robotix](https://github.com/Robotix22/)
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
+
+</td></tr>
+</table>
+
 </details>
 
 <details>
+
 <summary><b><strong>Qualcomm Devices</strong></b></summary>
 
 ## Qualcomm Technologies, Inc. QRD8550
