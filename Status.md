@@ -1412,9 +1412,8 @@
 
 **State:** Inactive <br>
 **Codename:** salami <br>
-**Models:** 1
 
-**Contributors:** [Robotix](https://github.com/Robotix22/), [Degdag](https://github.com/degdag/)
+**Contributors:** [Degdag](https://github.com/degdag/), [Robotix](https://github.com/Robotix22/)
 
 ### UEFI Status
 
@@ -1428,7 +1427,8 @@
 | USB Power Delivery |             | ❌    |
 | Mass Storage       |             | ✅    |
 | Windows Boot       |             | ❌    |
-| Linux Boot         |             | ✅    |
+| Linux Boot         |             | ❌    |
+
 </td></tr>
 </table>
 
