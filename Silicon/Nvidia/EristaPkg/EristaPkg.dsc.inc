@@ -41,11 +41,11 @@
   #
   # SMBIOS
   #
-!if $(SOC_TYPE) == 0
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"
-!elseif $(SOC_TYPE) == 4
+!if $(SOC_TYPE) == 4
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 1.40 GHz"
-!endif
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM660M-A2"
+!else
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Tegra (TM) X1 @ 2.20 GHz"
 !if $(SOC_TYPE) == 0
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"ODNX02-A2"
 !elseif $(SOC_TYPE) == 1
@@ -54,8 +54,7 @@
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM670M-A2"
 !elseif $(SOC_TYPE) == 3
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM671D-A2"
-!elseif $(SOC_TYPE) == 4
-  gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorPartNumber|"TM660M-A2"
+!endif
 !endif
 
 [LibraryClasses]
