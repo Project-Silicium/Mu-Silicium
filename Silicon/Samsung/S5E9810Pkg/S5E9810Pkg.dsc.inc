@@ -49,6 +49,11 @@
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
 
   #
+  # Hypervisor
+  #
+  gSamsungPkgTokenSpaceGuid.PcdVmmStackOffset|0x2000
+
+  #
   # RAM Manager
   #
   gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
@@ -64,12 +69,6 @@
   # SEC Libraries
   #
   PlatformSecLib|S5E9810Pkg/Library/PlatformSecLib/PlatformSecLib.inf
-
-  #
-  # UEFI Libraries
-  #
-  HwResetSystemLib|S5E9810Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-  ResetSystemLib|S5E9810Pkg/Library/ResetSystemLib/ResetSystemLib.inf
 
   #
   # IO Libraries

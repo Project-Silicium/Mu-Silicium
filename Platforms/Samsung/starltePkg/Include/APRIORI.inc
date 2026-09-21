@@ -42,6 +42,7 @@ APRIORI DXE {
   INF SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
 
   INF SamsungPkg/Drivers/RngDxe/RngDxe.inf
+  INF SamsungPkg/Drivers/HypLoaderDxe/HypLoaderDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

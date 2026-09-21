@@ -21,8 +21,14 @@
 
 [PcdsFixedAtBuild]
   #
+  # Hypervisor
+  #
+  gSamsungPkgTokenSpaceGuid.PcdVmmStackOffset|0|UINT16|0x0000D100
+  gSamsungPkgTokenSpaceGuid.PcdHypFile|{ 0x9B, 0xDB, 0x1F, 0x01, 0x5F, 0x4B, 0x4D, 0x72, 0x9C, 0x2D, 0x5A, 0xDD, 0xE7, 0x84, 0x37, 0x11 }|VOID*|0x0000D101
+
+  #
   # RAM Manager
   #
-  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|FALSE|BOOLEAN|0x0000D100
-  gSamsungPkgTokenSpaceGuid.PcdHasHarx|FALSE|BOOLEAN|0x0000D101
-  gSamsungPkgTokenSpaceGuid.PcdHasDrmPlugin|FALSE|BOOLEAN|0x0000D102
+  gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|FALSE|BOOLEAN|0x0000D200
+  gSamsungPkgTokenSpaceGuid.PcdHasHarx|FALSE|BOOLEAN|0x0000D201
+  gSamsungPkgTokenSpaceGuid.PcdHasDrmPlugin|FALSE|BOOLEAN|0x0000D202

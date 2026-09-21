@@ -1,0 +1,31 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = HypLoaderDxe
+  FILE_GUID                      = 44E12EC7-2168-4ABF-A943-A89FF1EB4405
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = HypLoaderEntry
+
+[Sources]
+  HypLoader.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  DxeServicesLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  CacheMaintenanceLib
+  BaseMemoryLib
+  ArmSmcLib
+  PcdLib
+
+[FixedPcd]
+  gSamsungPkgTokenSpaceGuid.PcdHypFile
+  gSamsungPkgTokenSpaceGuid.PcdVmmStackOffset
+
+[Depex]
+  TRUE

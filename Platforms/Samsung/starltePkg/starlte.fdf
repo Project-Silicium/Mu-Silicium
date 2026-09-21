@@ -101,6 +101,12 @@ READ_LOCK_STATUS   = TRUE
   #  SECTION UI = "DeviceTreeBlob"
   #}
 
+  # Hypervisor
+  FILE FREEFORM = PCD (gSamsungPkgTokenSpaceGuid.PcdHypFile) {
+    SECTION RAW = S5E9810Pkg/Include/Firmware/Hyp.bin
+    SECTION UI = "Hypervisor"
+  }
+
   !include SamsungPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]

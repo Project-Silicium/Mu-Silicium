@@ -302,35 +302,35 @@
 > [!IMPORTANT]
 > Only Windows PE boots.
 
-| Feature              | Description   | State |
-|:---------------------|:--------------|:-----:|
-| Internal Storage     |               | ❌    |
-| Side Buttons         |               | ❌    |
-| Proximity Sensor     |               | ❌    |
-| Light Sensor         |               | ❌    |
-| Accelerometer Sensor |               | ❌    |
-| Compass Sensor       |               | ❌    | 
-| Gyroscope Sensor     |               | ❌    |
-| Fingerprint Sensor   |               | ❌    |
-| NFC Sensor           |               | ❌    |
-| Temperature Sensor   |               | ❌    |
-| Battery              |               | ❌    |
-| USB Host Mode        |               | ❌    |
-| USB Device Mode      |               | ❌    |
-| USB Power Delivery   |               | ❌    |
-| Charging             |               | ❌    |
-| WLAN                 |               | ❌    |
-| CPU                  | Only one Core | ⚠️    |
-| Touchscreen          |               | ❌    |
-| Bluetooth            |               | ❌    |
-| GPS                  |               | ❌    |
-| Speakers             |               | ❌    |
-| Microphone           |               | ❌    |
-| GPU                  |               | ❌    |
-| Camera               |               | ❌    |
-| Mobile Data          |               | ❌    |
-| Display              |               | ✅    | 
-| Vibration            |               | ❌    |
+| Feature              | Description  | State |
+|:---------------------|:-------------|:-----:|
+| Internal Storage     |              | ❌    |
+| Side Buttons         |              | ❌    |
+| Proximity Sensor     |              | ❌    |
+| Light Sensor         |              | ❌    |
+| Accelerometer Sensor |              | ❌    |
+| Compass Sensor       |              | ❌    | 
+| Gyroscope Sensor     |              | ❌    |
+| Fingerprint Sensor   |              | ❌    |
+| NFC Sensor           |              | ❌    |
+| Temperature Sensor   |              | ❌    |
+| Battery              |              | ❌    |
+| USB Host Mode        |              | ❌    |
+| USB Device Mode      |              | ❌    |
+| USB Power Delivery   |              | ❌    |
+| Charging             |              | ❌    |
+| WLAN                 |              | ❌    |
+| CPU                  | Only 4 Cores | ⚠️    |
+| Touchscreen          |              | ❌    |
+| Bluetooth            |              | ❌    |
+| GPS                  |              | ❌    |
+| Speakers             |              | ❌    |
+| Microphone           |              | ❌    |
+| GPU                  |              | ❌    |
+| Camera               |              | ❌    |
+| Mobile Data          |              | ❌    |
+| Display              |              | ✅    | 
+| Vibration            |              | ❌    |
 
 </td></tr>
 </table>

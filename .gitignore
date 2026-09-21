@@ -1,10 +1,11 @@
+__pycache__
+.vscode
 Build
 Conf
+
 bootpayload.bin
+BootShim.bin
+BootShim.elf
+
 Mu-*.*
-__pycache__
-*.bin
-*.elf
 *:Zone.Identifier
-.vscode
-uuid

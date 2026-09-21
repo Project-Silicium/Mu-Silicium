@@ -92,3 +92,8 @@
   #
   SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   SamsungPkg/Drivers/UsiDxe/UsiDxe.inf
+
+  #
+  # Custom Drivers
+  #
+  SamsungPkg/Drivers/HypLoaderDxe/HypLoaderDxe.inf
