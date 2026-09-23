@@ -44,6 +44,12 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x12302000
 
   #
+  # SPEEDY
+  # List Contents: 0x11CE0000
+  #
+  gSamsungPkgTokenSpaceGuid.PcdSpeedyBusAddr|{ 0x00, 0x00, 0xCE, 0x11 }
+
+  #
   # SMBIOS
   #
   gSiliciumPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7885 @ 2.20 GHz"
@@ -59,4 +65,3 @@
   # IO Libraries
   #
   GpioLib|S5E7885Pkg/Library/GpioLib/GpioLib.inf
-  SpeedyLib|S5E7885Pkg/Library/SpeedyLib/SpeedyLib.inf

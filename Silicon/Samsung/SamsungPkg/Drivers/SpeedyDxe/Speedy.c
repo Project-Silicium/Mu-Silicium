@@ -11,7 +11,6 @@
 #include <Library/DebugLib.h>
 #include <Library/MemoryAllocationHelperLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/SpeedyLib.h>
 #include <Library/IoLib.h>
 
 #include <Protocol/EFISpeedy.h>
@@ -21,33 +20,25 @@
 //
 // Global Variables
 //
-STATIC EFI_PHYSICAL_ADDRESS *Bus;
-STATIC UINT8                 BusCount;
-
-VOID
-ClearSpeedyInterrupt (IN EFI_SPEEDY_BUS *Bus)
-{
-  // Clear SPEEDY Interrupt Status
-  MmioWrite32 ((UINTN)&Bus->int_status, MAX_UINT32);
-}
+STATIC EFI_SPEEDY_BUS *Bus[SPEEDY_BUS_COUNT] = { NULL };
 
 VOID
 SetSpeedyCommand (
-  IN EFI_SPEEDY_BUS *Bus,
-  IN UINT16          Address,
-  IN UINT8           BurstLength,
-  IN BOOLEAN         IsBurst,
-  IN BOOLEAN         IsRead)
+  IN UINT8   BusNumber,
+  IN UINT16  Address,
+  IN UINT8   BurstLength,
+  IN BOOLEAN IsBurst,
+  IN BOOLEAN IsRead)
 {
   UINT32 FifoController = 0;
   UINT32 Interrupt      = 0;
   UINT32 Command        = 0;
 
   // Reset SPEEDY FIFO Controller
-  MmioOr32 ((UINTN)&Bus->fifo_ctrl, SPEEDY_FIFO_RESET);
+  MmioOr32 ((UINTN)&Bus[BusNumber]->fifo_ctrl, SPEEDY_FIFO_RESET);
 
   // Get current SPEEDY FIFO Controller Configuration
-  FifoController = MmioRead32 ((UINTN)&Bus->fifo_ctrl);
+  FifoController = MmioRead32 ((UINTN)&Bus[BusNumber]->fifo_ctrl);
 
   // Target SPEEDY Address
   Command |= SPEEDY_ADDRESS (Address);
@@ -62,7 +53,7 @@ SetSpeedyCommand (
   }
 
   // Write new SPEEDY FIFO Trigger Level
-  MmioWrite32 ((UINTN)&Bus->fifo_ctrl, FifoController);
+  MmioWrite32 ((UINTN)&Bus[BusNumber]->fifo_ctrl, FifoController);
 
   // Set Inital SPEEDY Interrupt
   Interrupt |= (SPEEDY_TIMEOUT_CMD_EN | SPEEDY_TIMEOUT_STANDBY_EN | SPEEDY_TIMEOUT_DATA_EN);
@@ -90,17 +81,17 @@ SetSpeedyCommand (
   }
 
   // Clear SPEEDY Interrupt Status
-  ClearSpeedyInterrupt (Bus);
+  MmioWrite32 ((UINTN)&Bus[BusNumber]->int_status, MAX_UINT32);
 
   // Write new SPEEDY Interrupt
-  MmioWrite32 ((UINTN)&Bus->int_enable, Interrupt);
+  MmioWrite32 ((UINTN)&Bus[BusNumber]->int_enable, Interrupt);
 
   // Write new SPEEDY Command
-  MmioWrite32 ((UINTN)&Bus->cmd, Command);
+  MmioWrite32 ((UINTN)&Bus[BusNumber]->cmd, Command);
 }
 
 EFI_STATUS
-GetSpeedyStatus (IN EFI_SPEEDY_BUS *Bus)
+GetSpeedyStatus (IN UINT8 BusNumber)
 {
   // Set Completion Masks
   STATIC CONST UINT32 CompletionMask = (
@@ -114,12 +105,12 @@ GetSpeedyStatus (IN EFI_SPEEDY_BUS *Bus)
   // Set 1000 Tries
   for (UINT16 Timeout = 1000; Timeout > 0; Timeout--) {
     // Get current SPEEDY Interrupt Status
-    UINT32 InterruptStatus = MmioRead32 ((UINTN)&Bus->int_status);
+    UINT32 InterruptStatus = MmioRead32 ((UINTN)&Bus[BusNumber]->int_status);
 
     // Check SPEEDY Completion
     if (InterruptStatus & CompletionMask) {
       // Clear SPEEDY Interrupt Status
-      ClearSpeedyInterrupt (Bus);
+      MmioWrite32 ((UINTN)&Bus[BusNumber]->int_status, MAX_UINT32);
 
       // Translate SPEEDY Completion
       switch (InterruptStatus & CompletionMask) {
@@ -148,18 +139,6 @@ GetSpeedyStatus (IN EFI_SPEEDY_BUS *Bus)
   return EFI_TIMEOUT;
 }
 
-EFI_SPEEDY_BUS*
-GetSpeedyBus (IN UINT8 BusNumber)
-{
-  // Verify Bus Number
-  if (BusNumber >= BusCount) {
-    return NULL;
-  }
-
-  // Return SPEEDY Bus
-  return (EFI_SPEEDY_BUS *)Bus[BusNumber];
-}
-
 EFI_STATUS
 SpeedyRead (
   IN  UINT8  BusNumber,
@@ -167,34 +146,74 @@ SpeedyRead (
   IN  UINT8  SlaveAddress,
   OUT UINT8 *Data)
 {
-  EFI_STATUS      Status;
-  EFI_SPEEDY_BUS *Bus;
+  EFI_STATUS Status;
 
   // Verify Data Parameter
   if (Data == NULL) {
     return EFI_INVALID_PARAMETER;
   }
 
-  // Get SPEEDY Bus
-  Bus = GetSpeedyBus (BusNumber);
-  if (Bus == NULL) {
+  // Verify Bus Number
+  if (BusNumber >= SPEEDY_BUS_COUNT) {
     return EFI_NOT_FOUND;
+  }
+
+  // Verify Bus Init State
+  if (Bus[BusNumber] == NULL) {
+    return EFI_NOT_READY;
   }
 
   // Set Target Address
   UINT16 Address = SPEEDY_SLAVE_ADDRESS (Slave, SlaveAddress);
 
   // Set SPEEDY Command
-  SetSpeedyCommand (Bus, Address, 1, FALSE, TRUE);
+  SetSpeedyCommand (BusNumber, Address, 1, FALSE, TRUE);
 
   // Get SPEEDY Status
-  Status = GetSpeedyStatus (Bus);
+  Status = GetSpeedyStatus (BusNumber);
   if (EFI_ERROR (Status)) {
     return Status;
   }
 
   // Pass Data
-  *Data = (UINT8)MmioRead32 ((UINTN)&Bus->rx_data);
+  *Data = (UINT8)MmioRead32 ((UINTN)&Bus[BusNumber]->rx_data);
+
+  return EFI_SUCCESS;
+}
+
+EFI_STATUS
+SpeedyWrite (
+  IN UINT8 BusNumber,
+  IN UINT8 Slave,
+  IN UINT8 SlaveAddress,
+  IN UINT8 Data)
+{
+  EFI_STATUS Status;
+
+  // Verify Bus Number
+  if (BusNumber >= SPEEDY_BUS_COUNT) {
+    return EFI_NOT_FOUND;
+  }
+
+  // Verify Bus Init State
+  if (Bus[BusNumber] == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  // Set new Target Address
+  UINT16 Address = SPEEDY_SLAVE_ADDRESS (Slave, SlaveAddress);
+
+  // Set SPEEDY Command
+  SetSpeedyCommand (BusNumber, Address, 1, FALSE, FALSE);
+
+  // Write new Data
+  MmioWrite32 ((UINTN)&Bus[BusNumber]->tx_data, Data);
+
+  // Get SPEEDY Status
+  Status = GetSpeedyStatus (BusNumber);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
 
   return EFI_SUCCESS;
 }
@@ -207,69 +226,38 @@ SpeedyBurstRead (
   IN  UINT8  DataCount,
   OUT UINT8 *Data)
 {
-  EFI_STATUS      Status;
-  EFI_SPEEDY_BUS *Bus;
+  EFI_STATUS Status;
 
   // Verify Parameters
   if (Data == NULL || !DataCount) {
     return EFI_INVALID_PARAMETER;
   }
 
-  // Get SPEEDY Bus
-  Bus = GetSpeedyBus (BusNumber);
-  if (Bus == NULL) {
+  // Verify Bus Number
+  if (BusNumber >= SPEEDY_BUS_COUNT) {
     return EFI_NOT_FOUND;
+  }
+
+  // Verify Bus Init State
+  if (Bus[BusNumber] == NULL) {
+    return EFI_NOT_READY;
   }
 
   // Set new Target Address
   UINT16 Address = SPEEDY_SLAVE_ADDRESS (Slave, SlaveAddress);
 
   // Set SPEEDY Command
-  SetSpeedyCommand (Bus, Address, DataCount, TRUE, TRUE);
+  SetSpeedyCommand (BusNumber, Address, DataCount, TRUE, TRUE);
 
   // Get SPEEDY Status
-  Status = GetSpeedyStatus (Bus);
+  Status = GetSpeedyStatus (BusNumber);
   if (EFI_ERROR (Status)) {
     return Status;
   }
 
   // Pass Data
   for (UINT8 i = 0; i < DataCount; i++) {
-    Data[i] = (UINT8)MmioRead32 ((UINTN)&Bus->rx_data);
-  }
-
-  return EFI_SUCCESS;
-}
-
-EFI_STATUS
-SpeedyWrite (
-  IN UINT8 BusNumber,
-  IN UINT8 Slave,
-  IN UINT8 SlaveAddress,
-  IN UINT8 Data)
-{
-  EFI_STATUS      Status;
-  EFI_SPEEDY_BUS *Bus;
-
-  // Get SPEEDY Bus
-  Bus = GetSpeedyBus (BusNumber);
-  if (Bus == NULL) {
-    return EFI_NOT_FOUND;
-  }
-
-  // Set new Target Address
-  UINT16 Address = SPEEDY_SLAVE_ADDRESS (Slave, SlaveAddress);
-
-  // Set SPEEDY Command
-  SetSpeedyCommand (Bus, Address, 1, FALSE, FALSE);
-
-  // Write new Data
-  MmioWrite32 ((UINTN)&Bus->tx_data, Data);
-
-  // Get SPEEDY Status
-  Status = GetSpeedyStatus (Bus);
-  if (EFI_ERROR (Status)) {
-    return Status;
+    Data[i] = (UINT8)MmioRead32 ((UINTN)&Bus[BusNumber]->rx_data);
   }
 
   return EFI_SUCCESS;
@@ -283,33 +271,36 @@ SpeedyBurstWrite (
   IN UINT8  DataCount,
   IN UINT8 *Data)
 {
-  EFI_STATUS      Status;
-  EFI_SPEEDY_BUS *Bus;
+  EFI_STATUS Status;
 
   // Verify Parameters
   if (Data == NULL || !DataCount) {
     return EFI_INVALID_PARAMETER;
   }
 
-  // Get SPEEDY Bus
-  Bus = GetSpeedyBus (BusNumber);
-  if (Bus == NULL) {
+  // Verify Bus Number
+  if (BusNumber >= SPEEDY_BUS_COUNT) {
     return EFI_NOT_FOUND;
+  }
+
+  // Verify Bus Init State
+  if (Bus[BusNumber] == NULL) {
+    return EFI_NOT_READY;
   }
 
   // Set new Target Address
   UINT16 Address = SPEEDY_SLAVE_ADDRESS (Slave, SlaveAddress);
 
   // Set SPEEDY Command
-  SetSpeedyCommand (Bus, Address, DataCount, TRUE, FALSE);
+  SetSpeedyCommand (BusNumber, Address, DataCount, TRUE, FALSE);
 
   // Write new Data
   for (UINT8 i = 0; i < DataCount; i++) {
-    MmioWrite32 ((UINTN)&Bus->tx_data, Data[i]);
+    MmioWrite32 ((UINTN)&Bus[BusNumber]->tx_data, Data[i]);
   }
 
   // Get SPEEDY Status
-  Status = GetSpeedyStatus (Bus);
+  Status = GetSpeedyStatus (BusNumber);
   if (EFI_ERROR (Status)) {
     return Status;
   }
@@ -319,25 +310,44 @@ SpeedyBurstWrite (
 
 STATIC EFI_SPEEDY_PROTOCOL mSpeedy = {
   SpeedyRead,
-  SpeedyBurstRead,
   SpeedyWrite,
+  SpeedyBurstRead,
   SpeedyBurstWrite
 };
 
 VOID
-InitSpeedyBus (IN EFI_SPEEDY_BUS *Bus)
+InitBus (IN UINT8 BusNumber)
 {
-  // Clear SPEEDY Interrupt Status
-  ClearSpeedyInterrupt (Bus);
+  // Clear Interrupt Status
+  MmioWrite32 ((UINTN)&Bus[BusNumber]->int_status, MAX_UINT32);
 
-  // Reset SPEEDY Bus Controller
-  MmioOr32 ((UINTN)&Bus->ctrl, SPEEDY_SW_RST);
+  // Reset Controller
+  MmioOr32 ((UINTN)&Bus[BusNumber]->ctrl, SPEEDY_SW_RST);
 
   // Wait 10us
   gBS->Stall (10);
 
-  // Enable SPEEDY Bus Controller
-  MmioOr32 ((UINTN)&Bus->ctrl, SPEEDY_ENABLE);
+  // Enable Bus
+  MmioOr32 ((UINTN)&Bus[BusNumber]->ctrl, SPEEDY_ENABLE);
+}
+
+EFI_STATUS
+MapBusMemory (
+  IN UINT8                BusNumber,
+  IN EFI_PHYSICAL_ADDRESS Address)
+{
+  EFI_STATUS Status;
+
+  // Map Bus Memory
+  Status = MapMemoryRegion (Address, SPEEDY_MMIO_LENGTH, EfiMemoryMappedIO);
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  // Populate Bus Structure
+  Bus[BusNumber] = (EFI_SPEEDY_BUS *)Address;
+
+  return EFI_SUCCESS;
 }
 
 EFI_STATUS
@@ -348,31 +358,26 @@ InitSpeedy (
 {
   EFI_STATUS Status;
 
-  // Get Speedy Buses
-  GetSpeedyBuses (&Bus, &BusCount);
-
-  // Verify Bus Count
-  if (!BusCount) {
-    return EFI_UNSUPPORTED;
+  // Get Bus Addresses
+  CONST UINT32 *BusAddress = (UINT32 *)FixedPcdGetPtr (PcdSpeedyBusAddr);
+  if (BusAddress[0] == MAX_UINT32) {
+    return EFI_NOT_FOUND;
   }
 
-  // Go thru all SPEEDY Buses
-  for (UINT8 i = 0; i < BusCount; i++) {
-    // Get SPEEDY Bus Address
-    EFI_PHYSICAL_ADDRESS BusAddress = Bus[i];
-
-    // Map SPEEDY Bus
-    Status = MapMemoryRegion (BusAddress, SPEEDY_MMIO_LENGTH, EfiMemoryMappedIO);
+  // Go thru each Bus
+  for (UINT8 i = 0; i < SPEEDY_BUS_COUNT; i++) {
+    // Map Bus Memory
+    Status = MapBusMemory (i, BusAddress[i]);
     if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Map SPEEDY Bus: 0x%llx!\n", BusAddress));
-      return Status;
+      DEBUG ((EFI_D_ERROR, "Failed to Map Bus %u Memory (0x%llx)! Status = %r\n", i, BusAddress[i], Status));
+      continue;
     }
 
-    // Get SPEEDY Bus
-    EFI_SPEEDY_BUS *Bus = (EFI_SPEEDY_BUS *)BusAddress;
+    // Init Bus
+    InitBus (i);
 
-    // Init SPEEDY Bus
-    InitSpeedyBus (Bus);
+    // Show Progress
+    DEBUG ((EFI_D_WARN, "Bus %u Initialized\n", i));
   }
 
   // Register SPEEDY Protocol

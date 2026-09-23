@@ -20,8 +20,11 @@
   MemoryAllocationHelperLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
-  SpeedyLib
+  PcdLib
   IoLib
+
+[FixedPcd]
+  gSamsungPkgTokenSpaceGuid.PcdSpeedyBusAddr
 
 [Protocols]
   gEfiSpeedyProtocolGuid

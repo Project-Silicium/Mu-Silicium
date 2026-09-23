@@ -11,9 +11,12 @@
 #ifndef _SPEEDY_H_
 #define _SPEEDY_H_
 
+#include <Library/PcdLib.h>
+
 //
-// SPEEDY MMIO
+// SPEEDY Details
 //
+#define SPEEDY_BUS_COUNT                             FixedPcdGetSize (PcdSpeedyBusAddr) / sizeof (UINT32)
 #define SPEEDY_MMIO_LENGTH                           0x2000
 
 //

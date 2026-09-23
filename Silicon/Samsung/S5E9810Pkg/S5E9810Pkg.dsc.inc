@@ -49,6 +49,12 @@
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
 
   #
+  # SPEEDY
+  # List Contents: 0x141C0000
+  #
+  gSamsungPkgTokenSpaceGuid.PcdSpeedyBusAddr|{ 0x00, 0x00, 0x1C, 0x14 }
+
+  #
   # Hypervisor
   #
   gSamsungPkgTokenSpaceGuid.PcdVmmStackOffset|0x2000
@@ -74,7 +80,6 @@
   # IO Libraries
   #
   GpioLib|S5E9810Pkg/Library/GpioLib/GpioLib.inf
-  SpeedyLib|S5E9810Pkg/Library/SpeedyLib/SpeedyLib.inf
 
   #
   # Power Management Libraries

@@ -44,6 +44,12 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x10102000
 
   #
+  # SPEEDY
+  # List Contents: 0x15970000, 0x15980000
+  #
+  gSamsungPkgTokenSpaceGuid.PcdSpeedyBusAddr|{ 0x00, 0x00, 0x97, 0x15, 0x00, 0x00, 0x98, 0x15 }
+
+  #
   # RAM Manager
   #
   gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
@@ -70,7 +76,6 @@
   # IO Libraries
   #
   GpioLib|S5E9820Pkg/Library/GpioLib/GpioLib.inf
-  SpeedyLib|S5E9820Pkg/Library/SpeedyLib/SpeedyLib.inf
 
   #
   # Power Management Libraries

@@ -49,6 +49,12 @@
   gSiliciumPkgTokenSpaceGuid.PcdTimerFreqOverwrite|26000000
 
   #
+  # SPEEDY
+  # List Contents: 0x15940000, 0x15950000
+  #
+  gSamsungPkgTokenSpaceGuid.PcdSpeedyBusAddr|{ 0x00, 0x00, 0x94, 0x15, 0x00, 0x00, 0x95, 0x15 }
+
+  #
   # RAM Manager
   #
   gSamsungPkgTokenSpaceGuid.PcdHasSecurePgtbl|TRUE
@@ -76,7 +82,6 @@
   # IO Libraries
   #
   GpioLib|S5E9830Pkg/Library/GpioLib/GpioLib.inf
-  SpeedyLib|S5E9830Pkg/Library/SpeedyLib/SpeedyLib.inf
   HsI2cLib|S5E9830Pkg/Library/HsI2cLib/HsI2cLib.inf
 
   #
