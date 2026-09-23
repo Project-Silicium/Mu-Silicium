@@ -255,6 +255,7 @@
   #
   # Storage Libraries
   #
+  GptLib|MdeModulePkg/Library/GptLib/GptLib.inf
   FileHandleLib|MdePkg/Library/UefiFileHandleLib/UefiFileHandleLib.inf
 
   #
