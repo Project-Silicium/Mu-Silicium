@@ -21,7 +21,7 @@
 #ifndef MDEPKG_NDEBUG
 STATIC
 VOID
-ClearFrameBuffer ()
+ClearFrameBuffer (VOID)
 {
   EFI_MEMORY_REGION_DESCRIPTOR FrameBufferRegion;
 
@@ -37,7 +37,7 @@ ClearFrameBuffer ()
 
 STATIC
 VOID
-PrintFirmwareVersion ()
+PrintFirmwareVersion (VOID)
 {
   // Clear Frame Buffer
   ClearFrameBuffer ();
@@ -52,9 +52,7 @@ PrintFirmwareVersion ()
 
 STATIC
 EFI_STATUS
-InitializeMemory (
-  IN UINTN StackBase,
-  IN UINTN StackSize)
+InitializeMemory (VOID)
 {
   EFI_STATUS                    Status;
   EFI_MEMORY_REGION_DESCRIPTOR  UefiMemoryRegion;
@@ -85,18 +83,19 @@ InitializeMemory (
   }
 
   // Build Stack HOB
-  BuildStackHob (StackBase, StackSize);
+  BuildStackHob (FixedPcdGet64 (PcdCPUCoresStackBase), FixedPcdGet32 (PcdCPUCorePrimaryStackSize));
 
   return EFI_SUCCESS;
 }
 
 STATIC
 VOID
-SecMain (
-  IN UINTN StackBase,
-  IN UINTN StackSize)
+SecMain (VOID)
 {
   EFI_STATUS Status;
+
+  // Do Platform Specific Initialization
+  PlatformInitialize ();
 
 #ifndef MDEPKG_NDEBUG
   // Initialize Serial Port
@@ -114,7 +113,7 @@ SecMain (
 #endif
 
   // Initialize Memory
-  Status = InitializeMemory (StackBase, StackSize);
+  Status = InitializeMemory ();
   if (EFI_ERROR (Status)) {
     return;
   }
@@ -149,9 +148,7 @@ SecMain (
 }
 
 VOID
-SecEntry (
-  IN UINTN StackBase,
-  IN UINTN StackSize)
+SecEntry (VOID)
 {
   // Disable Data Cache
   ArmDisableDataCache ();
@@ -163,8 +160,8 @@ SecEntry (
   ArmEnableInstructionCache ();
 
   // Invalidate Stack & UEFI FD D-Cache
-  InvalidateDataCacheRange ((VOID *)StackBase, StackSize);
-  InvalidateDataCacheRange ((VOID *)FixedPcdGet64 (PcdFdBaseAddress), FixedPcdGet32 (PcdFdSize));
+  InvalidateDataCacheRange ((VOID *)FixedPcdGet64 (PcdCPUCoresStackBase), FixedPcdGet32 (PcdCPUCorePrimaryStackSize));
+  InvalidateDataCacheRange ((VOID *)FixedPcdGet64 (PcdFdBaseAddress),     FixedPcdGet32 (PcdFdSize));
 
   // Verify Exception Vector Table
   ASSERT (((UINTN)SecVectorTable & ARM_VECTOR_TABLE_ALIGNMENT) == 0);
@@ -172,12 +169,6 @@ SecEntry (
   // Enable new Exception Vector Table
   ArmWriteVBar ((UINTN)SecVectorTable);
 
-  // Do Platform Specific Initialization
-  PlatformInitialize ();
-
-  // Enter SEC Main Function
-  SecMain (StackBase, StackSize);
-
-  // Something went Wrong
-  CpuDeadLoop ();
+  // Enter Main SEC Function
+  SecMain ();
 }

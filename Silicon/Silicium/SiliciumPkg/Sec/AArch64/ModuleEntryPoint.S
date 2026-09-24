@@ -35,30 +35,29 @@ ASM_FUNC (_ModuleEntryPoint)
 
 ASM_PFX (MainEntryPoint):
   // Get Stack Details
-  MOV64 (x3, FixedPcdGet64 (PcdCPUCoresStackBase))
-  MOV32 (x4, FixedPcdGet32 (PcdCPUCorePrimaryStackSize))
+  MOV64 (x0, FixedPcdGet64 (PcdCPUCoresStackBase))
+  MOV32 (x1, FixedPcdGet32 (PcdCPUCorePrimaryStackSize))
 
   // Set Stack End Address
-  add   x5, x3, x4
+  add   x2, x0, x1
 
   // Set Stack Pointer
-  mov   sp, x5
+  mov   sp, x2
 
   // Clear Stack
-  mov   x6, xzr
-0:stp   x6, x6, [x3], #16
-  cmp   x3, x5
+  mov   x3, xzr
+0:stp   x3, x3, [x0], #16
+  cmp   x0, x2
   b.lt  0b
 
-  // Pass Parameters
-  mov   x0, x3
-  mov   x1, x4
-
   // Set Jump Location
-  ldr   x2, =ASM_PFX (SecEntry)
+  ldr   x0, =ASM_PFX (SecEntry)
 
   // Clear Frame Pointer
   mov   x29, xzr
 
   // Jump to C Code
-  blr   x2
+  blr   x0
+
+  // Do Infinite Spin
+  b     .
