@@ -200,7 +200,7 @@ MshcInitDma (VOID)
     return;
   }
 
-  Status = DmaMap (MapOperationBusMasterCommonBuffer, mDescriptors, &Bytes, 0, 0, &mDescriptorAddr, &mDescriptorMap);
+  Status = DmaMap (MapOperationBusMasterCommonBuffer, mDescriptors, &Bytes, &mDescriptorAddr, &mDescriptorMap);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Map the Descriptor Ring! Status = %r\n", __FUNCTION__, Status));
     DmaFreeBuffer (EFI_SIZE_TO_PAGES (Bytes), mDescriptors);
@@ -524,7 +524,7 @@ MshcStartDma (
   UINTN            Index      = 0;
 
   Status = DmaMap ((OperationType == READ) ? MapOperationBusMasterWrite : MapOperationBusMasterRead,
-                   Buffer, &Mapped, 0, 0, &DeviceAddress, &mBufferMap);
+                   Buffer, &Mapped, &DeviceAddress, &mBufferMap);
 
   if (EFI_ERROR (Status) || Mapped != Length) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Map the Transfer Buffer! Status = %r\n", __FUNCTION__, Status));

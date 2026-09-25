@@ -4,15 +4,15 @@
 [submodule "Common/Mu"]
 	path = Common/Mu
 	url = https://github.com/microsoft/mu_plus.git
-	branch = release/202511
+	branch = release/202608
 [submodule "Common/Mu_OEM_Sample"]
 	path = Common/Mu_OEM_Sample
 	url = https://github.com/microsoft/mu_oem_sample.git
-	branch = release/202511
+	branch = release/202608
 [submodule "Mu_Basecore"]
 	path = Mu_Basecore
 	url = https://github.com/microsoft/mu_basecore.git
-	branch = release/202511
+	branch = release/202608
 [submodule "Silicium-ACPI"]
 	path = Silicium-ACPI
 	url = https://github.com/Project-Silicium/Silicium-ACPI.git
