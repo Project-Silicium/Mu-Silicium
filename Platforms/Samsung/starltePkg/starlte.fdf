@@ -102,6 +102,7 @@ READ_LOCK_STATUS   = TRUE
   #}
 
   # Hypervisor
+  INF SamsungPkg/Drivers/HypLoaderDxe/HypLoaderDxe.inf
   FILE FREEFORM = PCD (gSamsungPkgTokenSpaceGuid.PcdHypFile) {
     SECTION RAW = S5E9810Pkg/Include/Firmware/Hyp.bin
     SECTION UI = "Hypervisor"
