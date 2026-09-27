@@ -3119,9 +3119,9 @@
 
 ## LG G8x ThinQ
 
-<img align="right" src="Resources/Pictures/LG-G8x-Thinq.png" width="500" alt="Preview">
+<img align="right" src="Resources/Pictures/LG-G8x-ThinQ.png" width="500" alt="Preview">
 
-**State:** Active <br>
+**State:** Inactive <br>
 **Codename:** mh2
 
 **Contributors:** [Rostislav Lastochkin](https://github.com/remtrik)
