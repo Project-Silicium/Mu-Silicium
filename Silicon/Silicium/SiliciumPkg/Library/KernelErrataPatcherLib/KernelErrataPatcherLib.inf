@@ -1,5 +1,7 @@
 /**
   Copyright (c) 2022-2023 DuoWoA authors
+  Copyright (c) 2026 Project Silicium
+
   SPDX-License-Identifier: MIT
 **/
 
@@ -11,9 +13,6 @@
   VERSION_STRING                 = 1.0
   LIBRARY_CLASS                  = KernelErrataPatcherLib|DXE_DRIVER
   CONSTRUCTOR                    = KernelErrataPatcherLibConstructor
-
-[Sources.AARCH64]
-  AArch64/OsLoaderHelper.S | GCC
 
 [Sources]
   KernelErrataPatcherLib.c

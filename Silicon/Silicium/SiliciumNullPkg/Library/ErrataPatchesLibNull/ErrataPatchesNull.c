@@ -1,20 +1,22 @@
 /**
   Copyright (c) 2022-2023 DuoWoA authors
+  Copyright (c) 2026 Project Silicium
+
   SPDX-License-Identifier: MIT
 **/
 
 #include <Library/ErrataPatchesLib.h>
 
-EFI_STATUS
+VOID
 ApplyPlatformErrataPatches (
   IN EFI_PHYSICAL_ADDRESS Base,
   IN UINTN                Length)
 {
-  return EFI_UNSUPPORTED;
+  return;
 }
 
 VOID
-GetPlatformTransferToKernelShellCode (
+GetPlatformShellCode (
   OUT UINT8 **ShellCode,
   OUT UINTN  *ShellCodeSize)
 {

@@ -3,6 +3,7 @@
 
   Copyright (c) 2021 Samuel Tulach
   Copyright (c) 2022-2023 DuoWoA authors
+  Copyright (c) 2026 Project Silicium
 
   SPDX-License-Identifier: MIT
 **/
@@ -11,25 +12,29 @@
 #define _KERNEL_ERRATA_PATCHER_LIB_H_
 
 //
+// Save Limits
+//
+#define MAX_LOADER_RANGES 64
+
+//
+// Memory Area Structure
+//
+typedef struct {
+  EFI_PHYSICAL_ADDRESS Base;
+  UINTN                Length;
+} EFI_LOADER_RANGE;
+
+//
 // Functions
 //
 EFI_STATUS
-EFIAPI
-KernelErrataPatcherExitBootServices (
-  IN EFI_HANDLE           ImageHandle,
-  IN UINTN                MapKey,
-  IN EFI_PHYSICAL_ADDRESS fwpKernelSetupPhase1
-  );
+LocateMemoryAttributeProtocol (VOID);
 
-EFI_STATUS
-EFIAPI
-ExitBootServicesWrapper (
-  IN EFI_HANDLE ImageHandle,
-  IN UINTN      MapKey
+BOOLEAN
+IsWinloadMemory (
+  IN EFI_PHYSICAL_ADDRESS Base,
+  IN UINTN                Length
   );
-
-EFI_STATUS
-LocateMemoryAttributeProtocol ();
 
 EFI_STATUS
 SetWinloadProtection (
@@ -38,15 +43,8 @@ SetWinloadProtection (
   IN BOOLEAN              Enable
   );
 
-EFI_STATUS
-LocateWinloadMemoryRange (
-  IN  EFI_PHYSICAL_ADDRESS  fwpKernelSetupPhase1,
-  OUT EFI_PHYSICAL_ADDRESS *Base,
-  OUT UINTN                *Length
-  );
-
-EFI_STATUS
-PatchOsLoaderArm64TransferToKernel (
+VOID
+PatchTransferToKernel (
   IN EFI_PHYSICAL_ADDRESS  Base,
   IN UINT64                Length,
   IN UINT8                *ShellCode,

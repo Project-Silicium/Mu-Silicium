@@ -3,6 +3,7 @@
 
   Copyright (c) 2021 Samuel Tulach
   Copyright (c) 2022-2023 DuoWoA authors
+  Copyright (c) 2026 Project Silicium
 
   SPDX-License-Identifier: MIT
 **/
@@ -11,8 +12,6 @@
 #include <Library/UefiBootServicesTableLib.h>
 
 #include <Protocol/MemoryAttribute.h>
-
-#include "KernelErrataPatcherLib.h"
 
 //
 // Global Variables
@@ -41,7 +40,7 @@ SetWinloadProtection (
 }
 
 EFI_STATUS
-LocateMemoryAttributeProtocol ()
+LocateMemoryAttributeProtocol (VOID)
 {
   // Locate Memory Attribute Protocol
   gBS->LocateProtocol (&gEfiMemoryAttributeProtocolGuid, NULL, (VOID *)&mMemoryAttributeProtocol);

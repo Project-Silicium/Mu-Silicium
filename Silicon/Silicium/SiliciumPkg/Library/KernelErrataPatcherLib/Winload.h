@@ -1,6 +1,7 @@
 /**
   Copyright (c) 2021 Samuel Tulach
   Copyright (c) 2022-2023 DuoWoA authors
+  Copyright (c) 2026 Project Silicium
 
   SPDX-License-Identifier: MIT
 **/
@@ -9,51 +10,46 @@
 #define _WIN_LOAD_H_
 
 //
-// FWP Scan Limit
-//
-#define MAX_FWP_SCAN_LENGTH 0x300000
-
-//
-// Windows Semester Data
+// Windows Codebase Semesters
 //
 struct {
-  CHAR8  *SemesterName;
+  CHAR8  *Name;
   UINT16  TransferToKernelOffset;
   UINT32  TargetInstruction;
-} WinSemesterData[] = {
+} CodebaseSemester[] = {
   {
-    .SemesterName           = "Legacy",
-    .TransferToKernelOffset = 0x400,
+    .Name                   = "Legacy",
+    .TransferToKernelOffset = 0x1000,
     .TargetInstruction      = 0xD2800002
   },
   {
-    .SemesterName           = "Germanium",
-    .TransferToKernelOffset = 0x480,
+    .Name                   = "Germanium",
+    .TransferToKernelOffset = 0x1080,
     .TargetInstruction      = 0xD2800002
   },
   {
-    .SemesterName           = "Vibranium",
-    .TransferToKernelOffset = 0x490,
+    .Name                   = "Vibranium",
+    .TransferToKernelOffset = 0x1090,
     .TargetInstruction      = 0xD2800002
   },
   {
-    .SemesterName           = "Selenium",
-    .TransferToKernelOffset = 0x850,
+    .Name                   = "Selenium",
+    .TransferToKernelOffset = 0x1450,
     .TargetInstruction      = 0xD2800002
   },
   {
-    .SemesterName           = "Bromine",
-    .TransferToKernelOffset = 0x8D0,
+    .Name                   = "Bromine",
+    .TransferToKernelOffset = 0x14D0,
     .TargetInstruction      = 0x52800014
   },
   {
-    .SemesterName           = "Krypton",
-    .TransferToKernelOffset = 0xC60,
+    .Name                   = "Krypton",
+    .TransferToKernelOffset = 0x1860,
     .TargetInstruction      = 0x52800015
   },
   {
-    .SemesterName           = "Rubidium",
-    .TransferToKernelOffset = 0xDD0,
+    .Name                   = "Rubidium",
+    .TransferToKernelOffset = 0x19D0,
     .TargetInstruction      = 0x52800015
   }
 };

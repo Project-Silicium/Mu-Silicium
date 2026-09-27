@@ -1,91 +1,59 @@
 /**
   Copyright (c) 2022-2023 DuoWoA authors
+  Copyright (c) 2026 Project Silicium
+
   SPDX-License-Identifier: MIT
 **/
 
 #include <Library/DebugLib.h>
-#include <Library/BaseMemoryLib.h>
 #include <Library/ErrataPatchesLib.h>
+#include <Library/CacheMaintenanceLib.h>
+#include <Library/AssemblyUtilsLib.h>
 
 #include "ShellCode.h"
 
-#define IN_RANGE(x, a, b) (x >= a && x <= b)
-#define GET_BITS(x)       (IN_RANGE ((x & (~0x20)), 'A', 'F') ? ((x & (~0x20)) - 'A' + 0xA) : (IN_RANGE (x, '0', '9') ? x - '0' : 0))
-#define GET_BYTE(a, b)    (GET_BITS (a) << 4 | GET_BITS (b))
-
-EFI_PHYSICAL_ADDRESS
-FindPattern (
-  IN EFI_PHYSICAL_ADDRESS  Base,
-  IN UINTN                 Length,
-  IN CONST CHAR8          *Pattern)
-{
-  EFI_PHYSICAL_ADDRESS  FirstMatch     = 0;
-  CONST CHAR8          *CurrentPattern = Pattern;
-
-  for (EFI_PHYSICAL_ADDRESS Current = Base; Current < Base + Length; Current++) {
-    UINT8 CharByte = CurrentPattern[0];
-
-    if (!CharByte) {
-      return FirstMatch;
-    }
-      
-    if (CharByte == '\?' || *(UINT8 *)(Current) == GET_BYTE (CharByte, CurrentPattern[1])) {
-      if (!FirstMatch) {
-        FirstMatch = Current;
-      }
-        
-      if (!CurrentPattern[2]) {
-        return FirstMatch;
-      }
-
-      ((CharByte == '\?') ? (CurrentPattern += 2) : (CurrentPattern += 3));
-    } else {
-      CurrentPattern = Pattern;
-      FirstMatch     = 0;
-    }
-  }
-
-  return 0;
-}
-
 #if HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 1
 VOID
-ApplyReadActrlEl1Patch (
+ApplyReadActlrEl1Patch (
   IN EFI_PHYSICAL_ADDRESS Base,
   IN UINTN                Length)
 {
-  // Get ACTRL_EL1 Read Location
-  EFI_PHYSICAL_ADDRESS IllegalInstruction = FindPattern (Base, Length, "28 10 38 D5");
+  // Go thru Winload Memory
+  for (EFI_PHYSICAL_ADDRESS Current = Base; Current < Base + Length; Current += ARM64_INSTRUCTION_LENGTH) {
+    // Get Current Instruction
+    UINT32 Instruction = ARM64_INSTRUCTION (Current);
 
-  // Verify Location
-  if (!IllegalInstruction) {
-    DEBUG ((EFI_D_WARN, "%a: No ACTRL_EL1 Read Instruction was Found\n", __FUNCTION__));
-    return;
+    // Verify Instruction | mrs x?, actlr_el1
+    if ((Instruction & ~0x1F) != 0xD5381020) {
+      continue;
+    }
+
+    // Replace Instruction | mov x?, #0x0
+    ARM64_INSTRUCTION (Current) = 0xD2800000 | (Instruction & 0x1F);
+
+    // Flush Cache
+    WriteBackInvalidateDataCacheRange ((VOID *)Current, ARM64_INSTRUCTION_LENGTH);
+    InvalidateInstructionCacheRange   ((VOID *)Current, ARM64_INSTRUCTION_LENGTH);
+
+    // Show Progress
+    DEBUG ((EFI_D_WARN, "[KEP] Patched ACTLR_EL1 Instruction at 0x%p\n", Current));
   }
-
-  // Set Fixed Instruction
-  UINT8 FixedInstruction[] = {0x08, 0x00, 0x80, 0xD2};
-
-  // Replace Faulty Instruction
-  CopyMem ((VOID *)IllegalInstruction, (CONST VOID *)FixedInstruction, sizeof (FixedInstruction));
 }
 #endif
 
-EFI_STATUS
+VOID
 ApplyPlatformErrataPatches (
   IN EFI_PHYSICAL_ADDRESS Base,
   IN UINTN                Length)
 {
 #if HAS_ACTLR_EL1_UNIMPLEMENTED_ERRATA == 1
-  // Apply ACTRL_EL1 Errata Patch
-  ApplyReadActrlEl1Patch (Base, Length);
+  // Apply ACTLR_EL1 Errata Patch
+  ApplyReadActlrEl1Patch (Base, Length);
 #endif
-
-  return EFI_SUCCESS;
 }
 
 VOID
-GetPlatformTransferToKernelShellCode (
+GetPlatformShellCode (
   OUT UINT8 **ShellCode,
   OUT UINTN  *ShellCodeSize)
 {
