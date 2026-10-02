@@ -52,15 +52,18 @@ HandleRamRange (
 {
   EFI_STATUS Status;
 
+  // Set RAM Range End
+  EFI_PYHSICAL_ADDRESS End = Base + Length;
+
   // Map RAM Range
   Status = MapMemoryRegion (Base, Length, EfiConventionalMemory);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to Map RAM Range: 0x%llx - 0x%llx! Status = %r\n", Base, Length, Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Map RAM Range: 0x%p - 0x%p! Status = %r\n", Base, End, Status));
     return;
   }
 
   // Show Mapped RAM Range
-  DEBUG ((EFI_D_WARN, "Successfully Mapped RAM Range: 0x%llx - 0x%llx\n", Base, Length));
+  DEBUG ((EFI_D_WARN, "Successfully Mapped RAM Range: 0x%p - 0x%p\n", Base, End));
 }
 
 VOID
