@@ -1299,6 +1299,30 @@
 </td></tr>
 </table>
 
+## Samsung Galaxy Tab S9 Wi-Fi
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-Tab-S9.png" width="330" alt="Preview">
+
+**State:** Active <br>
+**Codename:** gts9wifi
+
+**Contributors:** [nacht20-de](https://github.com/nacht20-de)
+
+### UEFI Status
+
+| Feature            | Description                                          | State |
+|:-------------------|:-----------------------------------------------------|:-----:|
+| Display            |                                                      | ✅    |
+| Internal Storage   |                                                      | ✅    |
+| Side Buttons       |                                                      | ✅    |
+| USB Host Mode      |                                                      | ❌    |
+| USB Device Mode    |                                                      | ✅    |
+| USB Power Delivery |                                                      | ❌    |
+| Mass Storage       |                                                      | ✅    |
+| SD Card            |                                                      | ❔    |
+| Windows Boot       |                                                      | ❌    |
+| Linux Boot         |                                                      | ❌    |
+
 </details>
 
 <details>
