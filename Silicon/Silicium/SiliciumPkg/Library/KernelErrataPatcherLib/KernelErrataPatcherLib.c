@@ -115,6 +115,11 @@ KepExitBootServicesHook (
   // Calculate new CRC32
   gBS->CalculateCrc32 (gBS, sizeof (EFI_BOOT_SERVICES), &gBS->Hdr.CRC32);
 
+  // Verify Winload Base
+  if (!mWinloadBase) {
+    goto exit;
+  }
+
   // Unprotect Winload Memory
   Status = SetWinloadProtection (mWinloadBase, mWinloadLength, FALSE);
   if (EFI_ERROR (Status)) {
