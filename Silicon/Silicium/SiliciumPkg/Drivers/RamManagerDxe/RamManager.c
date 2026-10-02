@@ -53,7 +53,7 @@ HandleRamRange (
   EFI_STATUS Status;
 
   // Set RAM Range End
-  EFI_PYHSICAL_ADDRESS End = Base + Length;
+  EFI_PHYSICAL_ADDRESS End = Base + Length;
 
   // Map RAM Range
   Status = MapMemoryRegion (Base, Length, EfiConventionalMemory);
