@@ -1,0 +1,17 @@
+diff --git a/MdePkg/Include/AArch64/AsmMacroLib.h b/MdePkg/Include/AArch64/AsmMacroLib.h
+index ccd834359a..439b96b168 100644
+--- a/MdePkg/Include/AArch64/AsmMacroLib.h
++++ b/MdePkg/Include/AArch64/AsmMacroLib.h
+@@ -37,10 +37,10 @@
+   Name:                                           ; \
+   AARCH64_BTI(c)
+ 
+-#define ASM_FUNC(Name)  _ASM_FUNC(ASM_PFX(Name), .text. ## Name)
++#define ASM_FUNC(Name)  _ASM_FUNC(ASM_PFX(Name), .text)
+ 
+ #define ASM_FUNC_ALIGN(Name, Align)  \
+-  _ASM_FUNC_ALIGN(ASM_PFX(Name), .text. ## Name, Align)
++  _ASM_FUNC_ALIGN(ASM_PFX(Name), .text, Align)
+ 
+ #define MOV32(Reg, Val)                             \
+   movz      Reg, ((Val) >> 16) & 0xffff, lsl #16  ; \
