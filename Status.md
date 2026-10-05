@@ -5046,8 +5046,44 @@
 | USB Power Delivery |                           | ✅    |
 | Mass Storage       | Needs Device mode         | ❌    |
 | SD Card            |                           | ❌    |
-| Windows Boot       |                           | ❌    |
+| Windows Boot       |                           | ✅    |
 | Linux Boot         |                           | ❌    |
+
+### OS Status
+
+<table>
+<tr><th>Windows</th></tr>
+<tr><td>
+
+| Feature              | Description | State |
+|:---------------------|:------------|:-----:|
+| Internal Storage     |             | ✅    |
+| SD Card              |             | ❌    |
+| Side Buttons         |             | ❌    |
+| Proximity Sensor     |             | ❌    |
+| Light Sensor         |             | ❌    |
+| Accelerometer Sensor |             | ❌    |
+| Gyroscope Sensor     |             | ❌    |
+| Fingerprint Sensor   |             | ❌    |
+| Temperature Sensor   |             | ❌    |
+| Battery              |             | ❌    |
+| USB Host Mode        |             | ❌    |
+| USB Device Mode      |             | ❌    |
+| USB Power Delivery   |             | ❌    |
+| Charging             |             | ❌    |
+| WLAN                 |             | ❌    |
+| CPU                  |             | ✅    |
+| Touchscreen          |             | ❌    |
+| Bluetooth            |             | ❌    |
+| GPS                  |             | ❌    |
+| Speakers             |             | ❌    |
+| 3.5mm Audio Jack     |             | ❌    |
+| Microphone           |             | ❌    |
+| GPU                  |             | ❌    |
+| Camera               |             | ❌    |
+| Mobile Data          |             | ❌    |
+| Display              |             | ✅    |
+| Vibration            |             | ❌    |
 
 </details>
 
