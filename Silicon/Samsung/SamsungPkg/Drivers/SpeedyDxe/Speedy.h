@@ -22,7 +22,6 @@
 //
 // SPPEDY Controller Register Bits
 //
-#define SPEEDY_DATA_WIDTH_8BIT                       (0 << 8)
 #define SPEEDY_ENABLE                                BIT0
 #define SPEEDY_TIMEOUT_CMD_DISABLE                   BIT1
 #define SPEEDY_TIMEOUT_STANDBY_DISABLE               BIT2
@@ -36,7 +35,6 @@
 //
 #define SPEEDY_RX_TRIGGER_LEVEL(x)                   ((x) << 0)
 #define SPEEDY_TX_TRIGGER_LEVEL(x)                   ((x) << 8)
-#define SPEEDY_FIFO_DEBUG_INDEX                      (0 << 24)
 #define SPEEDY_FIFO_RESET                            BIT31
 
 //
@@ -45,9 +43,6 @@
 #define SPEEDY_ADDRESS(x)                            (((x) & 0xFFF) << 7)
 #define SPEEDY_SLAVE_ADDRESS(x, y)                   (y + ((x & 0xF) << 8))
 #define SPEEDY_BURST_LENGTH(x)                       ((x) << 0)
-#define SPEEDY_BURST_FIXED                           (0 << 5)
-#define SPEEDY_ACCESS_BURST                          (0 << 19)
-#define SPEEDY_DIRECTION_READ                        (0 << 20)
 #define SPEEDY_BURST_INCR                            BIT5
 #define SPEEDY_BURST_EXTENSION                       (BIT5 | BIT6)
 #define SPEEDY_ACCESS_RANDOM                         BIT19
@@ -90,14 +85,12 @@
 //
 // SPEEDY FIFO Status Register Bits
 //
-#define SPEEDY_VALID_DATA_CNT                        (0 << 0)
 #define SPEEDY_FIFO_FULL                             BIT5
 #define SPEEDY_FIFO_EMPTY                            BIT6
 
 //
 // SPEEDY Packet Gap Time Register Bits
 //
-#define SPEEDY_PACKET_GAP_TIME_CNT                   (0 << 16)
 #define SPEEDY_PULL_EN_CNT                           (BIT0 | BIT1 | BIT2 | BIT3)
 
 //
@@ -123,14 +116,14 @@ typedef struct {
   UINT32 cmd;
   UINT32 int_enable;
   UINT32 int_status;
-  UINT16 Reserved1[13];
+  UINT32 reserved1[7];
   UINT32 fifo_status;
   UINT32 tx_data;
   UINT32 rx_data;
-  UINT16 Reserved2[4];
+  UINT32 reserved2[2];
   UINT32 packet_gap_time;
   UINT32 timeout_count;
-  UINT16 Reserved3[90];
+  UINT32 reserved3[45];
   UINT32 fifo_debug;
   UINT32 ctrl_status;
 } EFI_SPEEDY_BUS;

@@ -7,6 +7,7 @@
 #include "CryptoManager.h"
 
 EFI_STATUS
+EFIAPI
 RngGetInfo (
   IN     EFI_RNG_PROTOCOL  *This,
   IN OUT UINTN             *RngAlgoListSize,
@@ -27,6 +28,7 @@ RngGetInfo (
 }
 
 EFI_STATUS
+EFIAPI
 RngGetRng (
   IN  EFI_RNG_PROTOCOL  *This,
   IN  EFI_RNG_ALGORITHM *RngAlgo,
@@ -71,7 +73,7 @@ RngGetRng (
   return EFI_SUCCESS;
 }
 
-STATIC EFI_RNG_PROTOCOL mRng = {
+STATIC EFI_RNG_PROTOCOL pRng = {
   RngGetInfo,
   RngGetRng
 };
@@ -83,5 +85,5 @@ RegisterRng (
   IN EFI_SYSTEM_TABLE *SystemTable)
 {
   // Register RNG Protocol
-  return gBS->InstallProtocolInterface (&ImageHandle, &gEfiRngProtocolGuid, EFI_NATIVE_INTERFACE, &mRng);
+  return gBS->InstallProtocolInterface (&ImageHandle, &gEfiRngProtocolGuid, EFI_NATIVE_INTERFACE, &pRng);
 }

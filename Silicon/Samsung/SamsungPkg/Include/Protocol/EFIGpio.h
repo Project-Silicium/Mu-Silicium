@@ -12,8 +12,10 @@
   @param[out] State                        - The current State.
 
   @return EFI_SUCCESS                      - Successfully got the current State of the Specified GPIO Pin.
+  @return EFI_INVALID_PARAMETER            - The "BankId" Parameter is Invalid.
   @return EFI_INVALID_PARAMETER            - The "Pin" Parameter is larger than 7.
   @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NOT_READY                    - The GPIO Controller Memory isn't Mapped yet.
 **/
 typedef
 EFI_STATUS
@@ -33,8 +35,10 @@ EFI_STATUS
   @param[in] Enable                        - The new State.
 
   @return EFI_SUCCESS                      - Successfully Enabled/Disabled the Specified GPIO Pin.
+  @return EFI_INVALID_PARAMETER            - The "BankId" Parameter is Invalid.
   @return EFI_INVALID_PARAMETER            - The "Pin" Parameter is larger than 7.
   @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NOT_READY                    - The GPIO Controller Memory isn't Mapped yet.
 **/
 typedef
 EFI_STATUS
@@ -54,9 +58,11 @@ EFI_STATUS
   @param[in] Function                      - The Function.
 
   @return EFI_SUCCESS                      - Successfully set the Function of the Specified GPIO Pin.
+  @return EFI_INVALID_PARAMETER            - The "BankId" Parameter is Invalid.
   @return EFI_INVALID_PARAMETER            - The "Pin" Parameter is larger than 7.
   @return EFI_INVALID_PARAMETER            - The "Function" Parameter is Invalid.
   @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NOT_READY                    - The GPIO Controller Memory isn't Mapped yet.
 **/
 typedef
 EFI_STATUS
@@ -76,9 +82,11 @@ EFI_STATUS
   @param[in] Pull                          - The new Pull Mode.
 
   @return EFI_SUCCESS                      - Successfully set the new Direction of the Specified GPIO Pin.
+  @return EFI_INVALID_PARAMETER            - The "BankId" Parameter is Invalid.
   @return EFI_INVALID_PARAMETER            - The "Pin" Parameter is larger than 7.
   @return EFI_INVALID_PARAMETER            - The "Pull" Parameter is Invalid.
   @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NOT_READY                    - The GPIO Controller Memory isn't Mapped yet.
 **/
 typedef
 EFI_STATUS
@@ -98,9 +106,11 @@ EFI_STATUS
   @param[in] Drive                         - The new Drive Strength.
 
   @return EFI_SUCCESS                      - Successfully set the new Drive Strength of the Specified GPIO Pin.
+  @return EFI_INVALID_PARAMETER            - The "BankId" Parameter is Invalid.
   @return EFI_INVALID_PARAMETER            - The "Pin" Parameter is larger than 7.
   @return EFI_INVALID_PARAMETER            - The "Drive" Parameter is Invalid.
   @return EFI_NOT_FOUND                    - The Specified GPIO Bank does not Exist.
+  @return EFI_NOT_READY                    - The GPIO Controller Memory isn't Mapped yet.
 **/
 typedef
 EFI_STATUS

@@ -64,7 +64,7 @@ LoadHyp (
   InvalidateInstructionCacheRange   ((VOID *)(UINTN)*Base, BinarySize);
 
   // Show Progress
-  DEBUG ((EFI_D_WARN, "Hypervisor Loaded at 0x%llx (%u Bytes)\n", *Base, BinarySize));
+  DEBUG ((EFI_D_WARN, "Hypervisor Loaded at 0x%p (%u Bytes)\n", *Base, BinarySize));
 
   return EFI_SUCCESS;
 }

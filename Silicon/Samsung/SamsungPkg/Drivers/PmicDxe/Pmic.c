@@ -10,6 +10,7 @@
 #include "Pmic.h"
 
 EFI_STATUS
+EFIAPI
 PmicSetBuck (
   IN EFI_PMIC_ID Id,
   IN UINT8       BuckNumber,
@@ -38,6 +39,7 @@ PmicSetBuck (
 }
 
 EFI_STATUS
+EFIAPI
 PmicSetLdo (
   IN EFI_PMIC_ID       Id,
   IN UINT8             LdoNumber,
@@ -67,6 +69,7 @@ PmicSetLdo (
 }
 
 EFI_STATUS
+EFIAPI
 PmicSetLdoVoltage (
   IN EFI_PMIC_ID Id,
   IN UINT8       LdoNumber,
@@ -95,6 +98,7 @@ PmicSetLdoVoltage (
 }
 
 EFI_STATUS
+EFIAPI
 PmicGetLdoVoltage (
   IN  EFI_PMIC_ID Id,
   IN  UINT8       LdoNumber,
@@ -122,7 +126,7 @@ PmicGetLdoVoltage (
   return EFI_NOT_FOUND;
 }
 
-STATIC EFI_PMIC_REGULATOR_PROTOCOL mPmicRegulator = {
+STATIC EFI_PMIC_REGULATOR_PROTOCOL pPmicRegulator = {
   PmicSetBuck,
   PmicSetLdo,
   PmicSetLdoVoltage,
@@ -130,6 +134,7 @@ STATIC EFI_PMIC_REGULATOR_PROTOCOL mPmicRegulator = {
 };
 
 EFI_STATUS
+EFIAPI
 PmicSetWtsr (
   IN EFI_PMIC_ID Id,
   IN BOOLEAN     Enable)
@@ -157,6 +162,7 @@ PmicSetWtsr (
 }
 
 EFI_STATUS
+EFIAPI
 PmicSetSmpl (
   IN EFI_PMIC_ID Id,
   IN BOOLEAN     Enable)
@@ -184,6 +190,7 @@ PmicSetSmpl (
 }
 
 EFI_STATUS
+EFIAPI
 PmicPowerDown (IN EFI_PMIC_ID Id)
 {
   // Go thru each Supported PMIC
@@ -208,7 +215,7 @@ PmicPowerDown (IN EFI_PMIC_ID Id)
   return EFI_NOT_FOUND;
 }
 
-STATIC EFI_PMIC_EXTRA_PROTOCOL mPmicExtra = {
+STATIC EFI_PMIC_EXTRA_PROTOCOL pPmicExtra = {
   PmicSetWtsr,
   PmicSetSmpl,
   PmicPowerDown
@@ -354,9 +361,9 @@ InitPmics (
   Status = gBS->InstallMultipleProtocolInterfaces (
                 &ImageHandle,
                 &gEfiPmicExtraProtocolGuid,
-                &mPmicExtra,
+                &pPmicExtra,
                 &gEfiPmicRegulatorProtocolGuid,
-                &mPmicRegulator,
+                &pPmicRegulator,
                 NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register PMIC Protocols!\n"));

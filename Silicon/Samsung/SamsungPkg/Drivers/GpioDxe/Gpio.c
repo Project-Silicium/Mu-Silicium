@@ -14,11 +14,9 @@
 **/
 
 #include <Library/DebugLib.h>
-#include <Library/MemoryAllocationHelperLib.h>
 #include <Library/UefiBootServicesTableLib.h>
-#include <Library/DxeServicesTableLib.h>
-#include <Library/MemoryMapHelperLib.h>
-#include <Library/GpioLib.h>
+#include <Library/MemoryAllocationHelperLib.h>
+#include <Library/GpioBankLib.h>
 #include <Library/IoLib.h>
 
 #include <Protocol/EFIGpio.h>
@@ -28,173 +26,216 @@
 //
 // Global Variables
 //
-STATIC EFI_GPIO_CONTROLLER_DATA *ControllerData;
-STATIC UINT8                     ControllerCount;
+STATIC EFI_GPIO_CTRL *mCtrl[GPIO_CTRL_COUNT] = { NULL };
 
-EFI_GPIO_BANK*
-GetBank (
-  IN EFI_GPIO_BANK_ID Id,
-  IN UINT8            Number)
+EFI_STATUS
+GetBankDetails (
+  IN  EFI_GPIO_BANK_ID  Id,
+  IN  UINT8             Number,
+  OUT UINT8            *CtrlNum,
+  OUT UINT16           *Offset)
 {
-  // Verify Bank ID
-  if (!Id || Id >= BANK_ID_COUNT) {
-    return NULL;
-  }
+  EFI_GPIO_BANK *Bank;
+  UINT8          BankCount;
 
-  // Go thru all GPIO Controller
-  for (UINT8 i = 0; i < ControllerCount; i++) {
-    // Get GPIO Controller Address
-    EFI_PHYSICAL_ADDRESS ControllerAddress = ControllerData[i].Address;
+  // Get Platform Banks
+  GetGpioBanks (&Bank, &BankCount);
 
-    // Go thru all GPIO Banks
-    for (UINT8 j = 0; j < MAX_GPIO_BANK_COUNT; j++) {
-      // Get GPIO Bank Data
-      EFI_GPIO_BANK_ID BankId     = ControllerData[i].BankData[j].Id;
-      UINT16           BankOffset = ControllerData[i].BankData[j].Offset;
-      UINT8            BankNumber = ControllerData[i].BankData[j].Number;
+  // Go thru each Bank
+  for (UINT8 i = 0; i < BankCount; i++) {
+    // Compare Bank IDs & Numbers
+    if (Bank[i].Id == Id && Bank[i].Number == Number) {
+      // Save Bank Controller Number & Offset
+      *CtrlNum = Bank[i].CtrlNum;
+      *Offset  = Bank[i].Offset;
 
-      // Compare Bank ID & Number
-      if (BankId == Id && BankNumber == Number) {
-        // Return GPIO Bank
-        return (EFI_GPIO_BANK *)(ControllerAddress + BankOffset);
-      }
+      return EFI_SUCCESS;
     }
   }
 
-  return NULL;
+  return EFI_NOT_FOUND;
 }
 
 EFI_STATUS
+EFIAPI
 GpioGetState (
   IN  EFI_GPIO_BANK_ID  BankId,
   IN  UINT8             BankNumber,
   IN  UINT8             Pin,
   OUT BOOLEAN          *State)
 {
-  UINT32 Value;
+  EFI_STATUS Status;
+  UINT32     Value;
+  UINT16     Offset;
+  UINT8      CtrlNum;
 
-  // Verify GPIO Pin
-  if (Pin >= MAX_GPIO_PIN_COUNT) {
+  // Verify Bank & Pin
+  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT) {
     return EFI_INVALID_PARAMETER;
   }
 
-  // Get GPIO Bank
-  EFI_GPIO_BANK *Bank = GetBank (BankId, BankNumber);
-  if (Bank == NULL) {
-    return EFI_NOT_FOUND;
+  // Get Bank Controller Number & Offset
+  Status = GetBankDetails (BankId, BankNumber, &CtrlNum, &Offset);
+  if (EFI_ERROR (Status)) {
+    return Status;
   }
 
-  // Get current GPIO Bank DAT
-  Value = MmioRead32 ((UINTN)&Bank->dat);
+  // Verify Controller State
+  if (mCtrl[CtrlNum] == NULL) {
+    return EFI_NOT_READY;
+  }
 
-  // Pass GPIO Pin State
+  // Get current Pin State
+  Value = MmioRead32 ((UINTN)&mCtrl[CtrlNum]->dat + Offset);
+
+  // Pass Pin State
   *State = !!(Value & DAT_MASK (Pin));
 
   return EFI_SUCCESS;
 }
 
 EFI_STATUS
+EFIAPI
 GpioSetState (
   IN EFI_GPIO_BANK_ID  BankId,
   IN UINT8             BankNumber,
   IN UINT8             Pin,
   IN BOOLEAN          *Enable)
 {
-  // Verify GPIO Pin
-  if (Pin >= MAX_GPIO_PIN_COUNT) {
+  EFI_STATUS Status;
+  UINT16     Offset;
+  UINT8      CtrlNum;
+
+  // Verify Bank & Pin
+  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT) {
     return EFI_INVALID_PARAMETER;
   }
 
-  // Get GPIO Bank
-  EFI_GPIO_BANK *Bank = GetBank (BankId, BankNumber);
-  if (Bank == NULL) {
-    return EFI_NOT_FOUND;
+  // Get Bank Controller Number & Offset
+  Status = GetBankDetails (BankId, BankNumber, &CtrlNum, &Offset);
+  if (EFI_ERROR (Status)) {
+    return Status;
   }
 
-  // Clear current GPIO Pin State
-  MmioAnd32 ((UINTN)&Bank->dat, ~DAT_MASK (Pin));
+  // Verify Controller State
+  if (mCtrl[CtrlNum] == NULL) {
+    return EFI_NOT_READY;
+  }
 
-  // Enable GPIO Pin
+  // Clear current Pin State
+  MmioAnd32 ((UINTN)&mCtrl[CtrlNum]->dat + Offset, ~DAT_MASK (Pin));
+
+  // Enable Pin
   if (Enable) {
-    MmioOr32 ((UINTN)&Bank->dat, DAT_SET (Pin));
+    MmioOr32 ((UINTN)&mCtrl[CtrlNum]->dat + Offset, DAT_SET (Pin));
   }
 
   return EFI_SUCCESS;
 }
 
 EFI_STATUS
+EFIAPI
 GpioSetFunction (
   IN EFI_GPIO_BANK_ID  BankId,
   IN UINT8             BankNumber,
   IN UINT8             Pin,
   IN EFI_GPIO_FUNCTION Function)
 {
-  // Verify GPIO Pin & GPIO Pin Function
-  if (Pin >= MAX_GPIO_PIN_COUNT || Function >= FUNCTION_NUM) {
+  EFI_STATUS Status;
+  UINT16     Offset;
+  UINT8      CtrlNum;
+
+  // Verify Bank & Pin & Function
+  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT || Function >= FUNCTION_MAX) {
     return EFI_INVALID_PARAMETER;
   }
 
-  // Get GPIO Bank
-  EFI_GPIO_BANK *Bank = GetBank (BankId, BankNumber);
-  if (Bank == NULL) {
-    return EFI_NOT_FOUND;
+  // Get Bank Controller Number & Offset
+  Status = GetBankDetails (BankId, BankNumber, &CtrlNum, &Offset);
+  if (EFI_ERROR (Status)) {
+    return Status;
   }
 
-  // Re-set GPIO Pin Function
-  MmioAndThenOr32 ((UINTN)&Bank->con, ~CON_MASK (Pin), CON_SFR (Pin, Function));
+  // Verify Controller State
+  if (mCtrl[CtrlNum] == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  // Re-set Pin Function
+  MmioAndThenOr32 ((UINTN)&mCtrl[CtrlNum]->con + Offset, ~CON_MASK (Pin), CON_SFR (Pin, Function));
 
   return EFI_SUCCESS;
 }
 
 EFI_STATUS
+EFIAPI
 GpioSetPull (
   IN EFI_GPIO_BANK_ID   BankId,
   IN UINT8              BankNumber,
   IN UINT8              Pin,
   IN EFI_GPIO_PULL_MODE Pull)
 {
-  // Verify GPIO Pin & GPIO Pin Pull
-  if (Pin >= MAX_GPIO_PIN_COUNT || Pull >= PULL_NUM) {
+  EFI_STATUS Status;
+  UINT16     Offset;
+  UINT8      CtrlNum;
+
+  // Verify Bank & Pin & Pull
+  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT || (Pull >= PULL_MAX || Pull == 2)) {
     return EFI_INVALID_PARAMETER;
   }
 
-  // Get GPIO Bank
-  EFI_GPIO_BANK *Bank = GetBank (BankId, BankNumber);
-  if (Bank == NULL) {
-    return EFI_NOT_FOUND;
+  // Get Bank Controller Number & Offset
+  Status = GetBankDetails (BankId, BankNumber, &CtrlNum, &Offset);
+  if (EFI_ERROR (Status)) {
+    return Status;
   }
 
-  // Re-set GPIO Pin Pull
-  MmioAndThenOr32 ((UINTN)&Bank->pull, ~PULL_MASK (Pin), PULL_MODE (Pin, Pull));
+  // Verify Controller State
+  if (mCtrl[CtrlNum] == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  // Re-set Pin Pull
+  MmioAndThenOr32 ((UINTN)&mCtrl[CtrlNum]->pull + Offset, ~PULL_MASK (Pin), PULL_MODE (Pin, Pull));
 
   return EFI_SUCCESS;
 }
 
 EFI_STATUS
+EFIAPI
 GpioSetDrive (
   IN EFI_GPIO_BANK_ID        BankId,
   IN UINT8                   BankNumber,
   IN UINT8                   Pin,
   IN EFI_GPIO_DRIVE_STRENGTH Drive)
 {
-  // Verify GPIO Pin & GPIO Pin Drive Strength
-  if (Pin >= MAX_GPIO_PIN_COUNT || Drive >= DRIVE_NUM) {
+  EFI_STATUS Status;
+  UINT16     Offset;
+  UINT8      CtrlNum;
+
+  // Verify Bank & Pin & Drive
+  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT || Drive >= DRIVE_MAX) {
     return EFI_INVALID_PARAMETER;
   }
 
-  // Get GPIO Bank
-  EFI_GPIO_BANK *Bank = GetBank (BankId, BankNumber);
-  if (Bank == NULL) {
-    return EFI_NOT_FOUND;
+  // Get Bank Controller Number & Offset
+  Status = GetBankDetails (BankId, BankNumber, &CtrlNum, &Offset);
+  if (EFI_ERROR (Status)) {
+    return Status;
   }
 
-  // Re-set GPIO Pin Drive Strength
-  MmioAndThenOr32 ((UINTN)&Bank->drv, ~DRV_MASK (Pin), DRV_SET (Pin, Drive));
+  // Verify Controller State
+  if (mCtrl[CtrlNum] == NULL) {
+    return EFI_NOT_READY;
+  }
+
+  // Re-set Pin Drive Strength
+  MmioAndThenOr32 ((UINTN)&mCtrl[CtrlNum]->drv + Offset, ~DRV_MASK (Pin), DRV_SET (Pin, Drive));
 
   return EFI_SUCCESS;
 }
 
-STATIC EFI_GPIO_PROTOCOL mGpio = {
+STATIC EFI_GPIO_PROTOCOL pGpio = {
   GpioGetState,
   GpioSetState,
   GpioSetFunction,
@@ -210,29 +251,27 @@ InitGpio (
 {
   EFI_STATUS Status;
 
-  // Get GPIO Controllers
-  GetGpioControllerData (&ControllerData, &ControllerCount);
-
-  // Verify GPIO Controller Count
-  if (!ControllerCount) {
+  // Get Controller Addresses
+  CONST UINT32 *CtrlAddress = (UINT32 *)FixedPcdGetPtr (PcdGpioCtrlAddr);
+  if (CtrlAddress[0] == MAX_UINT32) {
     return EFI_UNSUPPORTED;
   }
 
-  // Go thru all GPIO Controllers
-  for (UINT8 i = 0; i < ControllerCount; i++) {
-    // Get GPIO Controller Address
-    EFI_PHYSICAL_ADDRESS ControllerAddress = ControllerData[i].Address;
-
-    // Map GPIO Controller
-    Status = MapMemoryRegion (ControllerAddress, GPIO_MMIO_LENGTH, EfiMemoryMappedIO);
+  // Go thru each Controller
+  for (UINT8 i = 0; i < GPIO_CTRL_COUNT; i++) {
+    // Map Controller Memory
+    Status = MapMemoryRegion (CtrlAddress[i], GPIO_MMIO_LENGTH, EfiMemoryMappedIO);
     if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "Failed to Map GPIO Controller: 0x%llx!\n", ControllerAddress));
-      return Status;
+      DEBUG ((EFI_D_ERROR, "Failed to Map Controller %u Memory (0x%p)! Status = %r\n", i, CtrlAddress[i], Status));
+      continue;
     }
+
+    // Populate Controller Structure
+    mCtrl[i] = (EFI_GPIO_CTRL *)(EFI_PHYSICAL_ADDRESS)CtrlAddress[i];
   }
 
   // Register GPIO Protocol
-  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiGpioProtocolGuid, EFI_NATIVE_INTERFACE, &mGpio);
+  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiGpioProtocolGuid, EFI_NATIVE_INTERFACE, &pGpio);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register GPIO Protocol!\n"));
     return Status;

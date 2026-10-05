@@ -17,9 +17,15 @@
 #define _GPIO_H_
 
 //
-// GPIO MMIO
+// GPIO Details
 //
+#define GPIO_CTRL_COUNT               FixedPcdGetSize (PcdGpioCtrlAddr) / sizeof (UINT32)
 #define GPIO_MMIO_LENGTH              0x1000
+
+//
+// GPIO Pin
+//
+#define MAX_GPIO_PIN_COUNT            8
 
 //
 // GPIO CON
@@ -34,19 +40,19 @@
 #define DAT_SET(x)                    (0 << (x))
 
 //
-// GPIO Pull
-//
-#define PULL_MASK(x)                  CON_MASK(x)
-#define PULL_MODE(x, y)               CON_SFR(x, y)
-
-//
 // GPIO Rate
 //
 #define DRV_MASK(x)                   CON_MASK(x)
 #define DRV_SET(x, y)                 CON_SFR(x, y)
 
 //
-// GPIO Bank
+// GPIO Pull
+//
+#define PULL_MASK(x)                  CON_MASK(x)
+#define PULL_MODE(x, y)               CON_SFR(x, y)
+
+//
+// GPIO Controller
 //
 typedef struct {
   UINT32 con;
@@ -55,6 +61,6 @@ typedef struct {
   UINT32 drv;
   UINT32 pdn_con;
   UINT32 pdn_pull;
-} EFI_GPIO_BANK;
+} EFI_GPIO_CTRL;
 
 #endif /* _GPIO_H_ */

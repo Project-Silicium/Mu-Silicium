@@ -157,14 +157,14 @@ typedef struct {
   UINT32 ctrl;
   UINT32 fifo_ctrl;
   UINT32 trail_ctrl;
-  UINT16 Reserved1[10];
+  UINT32 reserved1[5];
   UINT32 int_enable;
   UINT32 int_status;
-  UINT16 Reserved2[4];
+  UINT32 reserved2[2];
   UINT32 fifo_status;
   UINT32 tx_data;
   UINT32 rx_data;
-  UINT16 Reserved3[2];
+  UINT32 reserved3;
   UINT32 conf;
   UINT32 auto_conf;
   UINT32 timeout;
@@ -178,7 +178,7 @@ typedef struct {
   UINT32 timing_fs3;
   UINT32 timing_sla;
   UINT32 address;
-  UINT16 Reserved4[40];
+  UINT32 reserved4[20];
   UINT32 usi_con;
 } EFI_HSI2C_BUS;
 

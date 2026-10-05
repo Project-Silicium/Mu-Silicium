@@ -27,7 +27,7 @@
   #
   # IO Libraries
   #
-  GpioLib|SamsungNullPkg/Library/GpioNullLib/GpioNullLib.inf
+  GpioBankLib|SamsungNullPkg/Library/GpioBankNullLib/GpioBankNullLib.inf
   HsI2cLib|SamsungNullPkg/Library/HsI2cNullLib/HsI2cNullLib.inf
 
   #

@@ -22,6 +22,7 @@ STATIC EFI_USI_DATA *UsiData;
 STATIC UINT8         UsiCount;
 
 EFI_STATUS
+EFIAPI
 UsiGetControllerAddr (
   IN  UINT8                 BusNumber,
   IN  EFI_USI_BUS_TYPE      BusType,
@@ -81,6 +82,7 @@ GetUsiAddress (IN EFI_PHYSICAL_ADDRESS Address)
 }
 
 EFI_STATUS
+EFIAPI
 UsiSetMode (
   IN EFI_PHYSICAL_ADDRESS Address,
   IN EFI_USI_MODE         Mode)
@@ -117,7 +119,7 @@ UsiSetMode (
   return EFI_SUCCESS;
 }
 
-STATIC EFI_USI_PROTOCOL mUsi = {
+STATIC EFI_USI_PROTOCOL pUsi = {
   UsiGetControllerAddr,
   UsiSetMode
 };
@@ -139,7 +141,7 @@ RegisterUsi (
   }
 
   // Register USI Protocol
-  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiUsiProtocolGuid, EFI_NATIVE_INTERFACE, &mUsi);
+  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiUsiProtocolGuid, EFI_NATIVE_INTERFACE, &pUsi);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register USI Protocol!\n"));
     return Status;

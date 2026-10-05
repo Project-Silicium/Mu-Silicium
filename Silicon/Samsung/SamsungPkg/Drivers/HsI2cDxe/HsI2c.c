@@ -20,8 +20,8 @@ STATIC EFI_GPIO_PROTOCOL *mGpioProtocol;
 //
 // Global Variables
 //
-STATIC EFI_HSI2C_BUS_DATA *BusData;
-STATIC UINT8               BusCount;
+STATIC EFI_HSI2C_BUS_DATA *mBusData;
+STATIC UINT8               mBusCount;
 
 EFI_STATUS
 SetupBusGpio (IN EFI_HSI2C_GPIO_DATA *Gpio)
@@ -166,18 +166,19 @@ ResetController (IN EFI_HSI2C_BUS *Bus)
 }
 
 EFI_STATUS
+EFIAPI
 HsI2cInitBus (IN UINT8 BusNumber)
 {
   EFI_STATUS           Status;
   EFI_PHYSICAL_ADDRESS BusAddress;
 
   // Verify Bus Number
-  if (BusNumber >= BusCount) {
+  if (BusNumber >= mBusCount) {
     return EFI_NOT_FOUND;
   }
 
   // Check Init Flag
-  if (BusData[BusNumber].Initialized) {
+  if (mBusData[BusNumber].Initialized) {
     return EFI_SUCCESS;
   }
 
@@ -194,7 +195,7 @@ HsI2cInitBus (IN UINT8 BusNumber)
   }
 
   // Setup HSI2C Bus GPIO
-  Status = SetupBusGpio (&BusData[BusNumber].Gpio);
+  Status = SetupBusGpio (&mBusData[BusNumber].Gpio);
   if (EFI_ERROR (Status)) {
     return Status;
   }
@@ -215,13 +216,13 @@ HsI2cInitBus (IN UINT8 BusNumber)
   ResetController (Bus);
 
   // Set HSI2C Timing
-  SetTiming (Bus, &BusData[BusNumber].Clock);
+  SetTiming (Bus, &mBusData[BusNumber].Clock);
 
   // Reset HSI2C Config
-  ResetConfig (BusNumber, Bus, BusData[BusNumber].Clock.SpeedMode);
+  ResetConfig (BusNumber, Bus, mBusData[BusNumber].Clock.SpeedMode);
 
   // Toggle Init Flag
-  BusData[BusNumber].Initialized = TRUE;
+  mBusData[BusNumber].Initialized = TRUE;
 
   return EFI_SUCCESS;
 }
@@ -440,7 +441,7 @@ HsI2cXferMsg (
 
 Failed:
   ResetController (Bus);
-  ResetConfig (BusNumber, Bus, BusData[BusNumber].Clock.SpeedMode);
+  ResetConfig (BusNumber, Bus, mBusData[BusNumber].Clock.SpeedMode);
 
   return Status;
 }
@@ -458,12 +459,12 @@ HsI2cGetBus (
   EFI_PHYSICAL_ADDRESS BusAddress;
 
   // Verify Bus Number
-  if (BusNumber >= BusCount) {
+  if (BusNumber >= mBusCount) {
     return EFI_NOT_FOUND;
   }
 
   // Verify Init Flag
-  if (!BusData[BusNumber].Initialized) {
+  if (!mBusData[BusNumber].Initialized) {
     return EFI_NOT_READY;
   }
 
@@ -482,6 +483,7 @@ HsI2cGetBus (
   Reads from a Slave Register.
 **/
 EFI_STATUS
+EFIAPI
 HsI2cReadReg (
   IN  UINT8   BusNumber,
   IN  UINT8   SlaveAddr,
@@ -522,6 +524,7 @@ HsI2cReadReg (
 }
 
 EFI_STATUS
+EFIAPI
 HsI2cWriteReg (
   IN UINT8   BusNumber,
   IN UINT8   SlaveAddr,
@@ -563,6 +566,7 @@ HsI2cWriteReg (
 }
 
 EFI_STATUS
+EFIAPI
 HsI2cRead32 (
   IN  UINT8   BusNumber,
   IN  UINT8   SlaveAddr,
@@ -590,6 +594,7 @@ HsI2cRead32 (
 }
 
 EFI_STATUS
+EFIAPI
 HsI2cWrite32 (
   IN UINT8  BusNumber,
   IN UINT8  SlaveAddr,
@@ -607,6 +612,7 @@ HsI2cWrite32 (
 }
 
 EFI_STATUS
+EFIAPI
 HsI2cRead (
   IN  UINT8   BusNumber,
   IN  UINT8   SlaveAddr,
@@ -621,6 +627,7 @@ HsI2cRead (
 }
 
 EFI_STATUS
+EFIAPI
 HsI2cWrite (
   IN UINT8  BusNumber,
   IN UINT8  SlaveAddr,
@@ -630,7 +637,7 @@ HsI2cWrite (
   return HsI2cWriteReg (BusNumber, SlaveAddr, SlaveReg, &Data, 1);
 }
 
-STATIC EFI_HSI2C_PROTOCOL mHsI2c = {
+STATIC EFI_HSI2C_PROTOCOL pHsI2c = {
   HsI2cInitBus,
   HsI2cRead32,
   HsI2cWrite32,
@@ -649,10 +656,10 @@ RegisterHsI2c (
   EFI_STATUS Status;
 
   // Get HSI2C Bus Data
-  GetHsI2cBusData (&BusData, &BusCount);
+  GetHsI2cBusData (&mBusData, &mBusCount);
 
   // Verify Bus Count
-  if (!BusCount) {
+  if (!mBusCount) {
     return EFI_UNSUPPORTED;
   }
 
@@ -671,7 +678,7 @@ RegisterHsI2c (
   }
 
   // Register HSI2C Protocol
-  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiHsI2cProtocolGuid, EFI_NATIVE_INTERFACE, &mHsI2c);
+  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiHsI2cProtocolGuid, EFI_NATIVE_INTERFACE, &pHsI2c);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register HSI2C Protocol!\n"));
     return Status;

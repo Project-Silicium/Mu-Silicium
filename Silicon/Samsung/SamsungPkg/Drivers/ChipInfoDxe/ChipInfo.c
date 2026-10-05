@@ -20,9 +20,10 @@
 //
 // Global Variables
 //
-STATIC EFI_CHIP_INFO *ChipInfo = NULL;
+STATIC EFI_CHIP_INFO *mChipInfo = NULL;
 
 EFI_STATUS
+EFIAPI
 GetChipId (OUT UINT64 *Id)
 {
   // Verify Parameter
@@ -31,8 +32,8 @@ GetChipId (OUT UINT64 *Id)
   }
 
   // Get Chip IDs
-  UINT32 Id1 = MmioRead32 ((UINTN)&ChipInfo->Id[0]);
-  UINT32 Id2 = MmioRead32 ((UINTN)&ChipInfo->Id[1]);
+  UINT32 Id1 = MmioRead32 ((UINTN)&mChipInfo->Id[0]);
+  UINT32 Id2 = MmioRead32 ((UINTN)&mChipInfo->Id[1]);
 
   // Pass Merged ID
   *Id = ((UINT64)Id2 << 32) | Id1;
@@ -41,6 +42,7 @@ GetChipId (OUT UINT64 *Id)
 }
 
 EFI_STATUS
+EFIAPI
 GetChipRevision (
   OUT UINT8 *MajorRev,
   OUT UINT8 *MinorRev)
@@ -51,7 +53,7 @@ GetChipRevision (
   }
 
   // Get Chip Revision
-  UINT32 Revision = MmioRead32 ((UINTN)&ChipInfo->Revision);
+  UINT32 Revision = MmioRead32 ((UINTN)&mChipInfo->Revision);
 
   // Pass Main & Sub Revision
   *MajorRev = (Revision >> MAJOR_REVISION_SHIFT) & REVISION_MASK;
@@ -60,7 +62,7 @@ GetChipRevision (
   return EFI_SUCCESS;
 }
 
-STATIC EFI_CHIP_INFO_PROTOCOL mChipinfo = {
+STATIC EFI_CHIP_INFO_PROTOCOL pChipinfo = {
   GetChipId,
   GetChipRevision
 };
@@ -81,11 +83,11 @@ RegisterChipInfo (
     return Status;
   }
 
-  // Populate Chip Info Structure
-  ChipInfo = (EFI_CHIP_INFO *)ChipInfoRegion.Address;
+  // Populate Info Structure
+  mChipInfo = (EFI_CHIP_INFO *)ChipInfoRegion.Address;
 
   // Register Chip Info Protocol
-  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiChipInfoProtocolGuid, EFI_NATIVE_INTERFACE, &mChipinfo);
+  Status = gBS->InstallProtocolInterface (&ImageHandle, &gEfiChipInfoProtocolGuid, EFI_NATIVE_INTERFACE, &pChipinfo);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Register Chip Info Protocol!\n"));
     return Status;

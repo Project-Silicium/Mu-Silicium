@@ -42,6 +42,7 @@ EFI_STATUS
   @return EFI_TIMEOUT                      - The SPEEDY Command took too Long to be Processed.
   @return EFI_PROTOCOL_ERROR               - The SPEEDY RX Bits are Faulty.
   @return EFI_CRC_ERROR                    - The SPEEDY RX is Glitched.
+  @return EFI_ABORTED                      - The SPEEDY Bus is Currently Busy.
   @return EFI_DEVICE_ERROR                 - The SPEEDY Bus Returned an Unknown Error.
 **/
 typedef
@@ -64,7 +65,7 @@ EFI_STATUS
 
   @return EFI_SUCCESS                      - Successfully Read Data from the Specified Slave.
   @return EFI_INVALID_PARAMETER            - The "Data" Parameter is NULL.
-  @return EFI_INVALID_PARAMETER            - The "DataCount" Parameter is 0.
+  @return EFI_INVALID_PARAMETER            - The "DataCount" Parameter is Smaller than 2.
   @return EFI_NOT_FOUND                    - The Specified SPEEDY Bus does not Exist.
   @return EFI_NOT_READY                    - The Specified SPEEDY Bus wasn't Init.
   @return EFI_TIMEOUT                      - The SPEEDY Command took too Long to be Processed.
@@ -93,12 +94,13 @@ EFI_STATUS
 
   @return EFI_SUCCESS                      - Successfully Wrote the Specified Data to the Specified Slave.
   @return EFI_INVALID_PARAMETER            - The "Data" Parameter is NULL.
-  @return EFI_INVALID_PARAMETER            - The "DataCount" Parameter is 0.
+  @return EFI_INVALID_PARAMETER            - The "DataCount" Parameter is Smaller than 2.
   @return EFI_NOT_FOUND                    - The Specified SPEEDY Bus does not Exist.
   @return EFI_NOT_READY                    - The Specified SPEEDY Bus wasn't Init.
   @return EFI_TIMEOUT                      - The SPEEDY Command took too Long to be Processed.
   @return EFI_PROTOCOL_ERROR               - The SPEEDY RX Bits are Faulty.
   @return EFI_CRC_ERROR                    - The SPEEDY RX is Glitched.
+  @return EFI_ABORTED                      - The SPEEDY Bus is Currently Busy.
   @return EFI_DEVICE_ERROR                 - The SPEEDY Bus Returned an Unknown Error.
 **/
 typedef

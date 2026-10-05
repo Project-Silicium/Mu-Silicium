@@ -20,7 +20,7 @@
 // GPIO Bank IDs
 //
 typedef enum {
-  BANK_ID_A = 1,
+  BANK_ID_A,
   BANK_ID_B,
   BANK_ID_C,
   BANK_ID_D,
@@ -47,7 +47,7 @@ typedef enum {
   BANK_ID_Y,
   BANK_ID_Z,
 
-  BANK_ID_COUNT
+  BANK_ID_MAX
 } EFI_GPIO_BANK_ID;
 
 //
@@ -59,7 +59,7 @@ typedef enum {
   FUNCTION_2,
   FUNCTION_3,
 
-  FUNCTION_NUM
+  FUNCTION_MAX
 } EFI_GPIO_FUNCTION;
 
 //
@@ -70,21 +70,21 @@ typedef enum {
   PULL_DOWN = 1,
   PULL_UP   = 3,
 
-  PULL_NUM  = 4
+  PULL_MAX  = 4
 } EFI_GPIO_PULL_MODE;
 
 //
 // GPIO Drive Strengths
 //
 typedef enum {
-  DRIVE_1X   = 0,
-  DRIVE_1_5X = 1,
-  DRIVE_2X   = 2,
-  DRIVE_2_5X = 3,
-  DRIVE_3X   = 4,
-  DRIVE_4X   = 5,
+  DRIVE_1X,
+  DRIVE_1_5X,
+  DRIVE_2X,
+  DRIVE_2_5X,
+  DRIVE_3X,
+  DRIVE_4X,
 
-  DRIVE_NUM  = 6
+  DRIVE_MAX
 } EFI_GPIO_DRIVE_STRENGTH;
 
 #endif /* _GPIO_DEVICE_H_ */

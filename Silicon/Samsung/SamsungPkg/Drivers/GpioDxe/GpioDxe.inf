@@ -20,10 +20,11 @@
   MemoryAllocationHelperLib
   UefiBootServicesTableLib
   UefiDriverEntryPoint
-  DxeServicesTableLib
-  MemoryMapHelperLib
-  GpioLib
+  GpioBankLib
   IoLib
+
+[FixedPcd]
+  gSamsungPkgTokenSpaceGuid.PcdGpioCtrlAddr
 
 [Protocols]
   gEfiGpioProtocolGuid
