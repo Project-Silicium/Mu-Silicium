@@ -5084,7 +5084,8 @@
 | Mobile Data          |             | ❌    |
 | Display              |             | ✅    |
 | Vibration            |             | ❌    |
-
+</td></tr>
+</table>
 </details>
 
 ---
