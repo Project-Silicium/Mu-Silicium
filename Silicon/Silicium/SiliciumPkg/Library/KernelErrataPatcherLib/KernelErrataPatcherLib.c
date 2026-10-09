@@ -28,10 +28,10 @@ STATIC EFI_LOADER_RANGE mLoaderRange[MAX_LOADER_RANGES] = {0};
 STATIC UINT8            mLoaderCount                    = 0;
 
 //
-// Winload Memory Details
+// Winload .text Memory Range
 //
-STATIC EFI_PHYSICAL_ADDRESS mWinloadBase   = 0;
-STATIC UINTN                mWinloadLength = 0;
+STATIC EFI_PHYSICAL_ADDRESS mWinloadTextBase = 0;
+STATIC EFI_PHYSICAL_ADDRESS mWinloadTextEnd  = 0;
 
 EFI_STATUS
 EFIAPI
@@ -51,40 +51,38 @@ KepAllocatePagesHook (
 
   // Save Memory Allocation
   if (MemoryType == EfiLoaderCode && mLoaderCount < MAX_LOADER_RANGES) {
-    mLoaderRange[mLoaderCount].Base   = (EFI_PHYSICAL_ADDRESS)(*Memory);
-    mLoaderRange[mLoaderCount].Length = EFI_PAGES_TO_SIZE (Pages);
+    mLoaderRange[mLoaderCount].Base = (EFI_PHYSICAL_ADDRESS)(*Memory);
+    mLoaderRange[mLoaderCount].End  = (EFI_PHYSICAL_ADDRESS)(*Memory) + EFI_PAGES_TO_SIZE (Pages);
     mLoaderCount++;
   }
 
   // Go thru Saved Memory Allocations
   for (UINT8 i = 0; i < mLoaderCount; i++) {
     // Check for Winload Memory
-    if (IsWinloadMemory (mLoaderRange[i].Base, mLoaderRange[i].Length)) {
-      mWinloadBase   = mLoaderRange[i].Base;
-      mWinloadLength = mLoaderRange[i].Length;
+    if (IsWinloadMemory (mLoaderRange[i].Base, mLoaderRange[i].End, &mWinloadTextBase, &mWinloadTextEnd)) {
       break;
     }
   }
 
-  // Verify Winload Base
-  if (!mWinloadBase) {
+  // Verify Winload .text Base
+  if (mWinloadTextBase == 0) {
     return EFI_SUCCESS;
   }
 
-  // Unprotect Winload Memory
-  Status = SetWinloadProtection (mWinloadBase, mWinloadLength, FALSE);
+  // Unprotect Winload .text Section
+  Status = SetWinloadProtection (mWinloadTextBase, mWinloadTextEnd, FALSE);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Unprotect Winload Memory! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Unprotect Winload .text Section! Status = %r\n", Status));
     goto restore;
   }
 
   // Apply Platform Specific Patches
-  ApplyPlatformErrataPatches (mWinloadBase, mWinloadLength);
+  ApplyPlatformErrataPatches (mWinloadTextBase, mWinloadTextEnd);
 
-  // Reprotect Winload Memory
-  Status = SetWinloadProtection (mWinloadBase, mWinloadLength, TRUE);
+  // Reprotect Winload .text Section
+  Status = SetWinloadProtection (mWinloadTextBase, mWinloadTextEnd, TRUE);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Reprotect Winload Memory! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Reprotect Winload .text Section! Status = %r\n", Status));
   }
 
 restore:
@@ -116,30 +114,30 @@ KepExitBootServicesHook (
   gBS->CalculateCrc32 (gBS, sizeof (EFI_BOOT_SERVICES), &gBS->Hdr.CRC32);
 
   // Verify Winload Base
-  if (!mWinloadBase) {
-    goto exit;
-  }
-
-  // Unprotect Winload Memory
-  Status = SetWinloadProtection (mWinloadBase, mWinloadLength, FALSE);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Unprotect Winload Memory! Status = %r\n", Status));
+  if (mWinloadTextBase == 0) {
     goto exit;
   }
 
   // Get Platform Shell Code
   GetPlatformShellCode (&ShellCode, &ShellCodeSize);
-
-  // Verify Platform Shell Code
-  if (ShellCode != NULL && ShellCodeSize != 0) {
-    // Patch Transfer to Kernel
-    PatchTransferToKernel (mWinloadBase, mWinloadLength, ShellCode, ShellCodeSize);
+  if (ShellCode == NULL || ShellCodeSize == 0) {
+    goto exit;
   }
 
-  // Reprotect Winload Memory
-  Status = SetWinloadProtection (mWinloadBase, mWinloadLength, TRUE);
+  // Unprotect Winload .text Section
+  Status = SetWinloadProtection (mWinloadTextBase, mWinloadTextEnd, FALSE);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Reprotect Winload Memory! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Unprotect Winload .text Section! Status = %r\n", Status));
+    goto exit;
+  }
+
+  // Patch Transfer to Kernel
+  PatchTransferToKernel (ShellCode, ShellCodeSize);
+
+  // Reprotect Winload .text Section
+  Status = SetWinloadProtection (mWinloadTextBase, mWinloadTextEnd, TRUE);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Reprotect Winload .text Section! Status = %r\n", Status));
   }
 
 exit:

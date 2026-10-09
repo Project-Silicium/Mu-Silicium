@@ -30,6 +30,7 @@
   ErrataPatchesLib
   PerformanceLib
   BaseMemoryLib
+  BaseLib
 
 [Protocols]
   gEfiMemoryAttributeProtocolGuid

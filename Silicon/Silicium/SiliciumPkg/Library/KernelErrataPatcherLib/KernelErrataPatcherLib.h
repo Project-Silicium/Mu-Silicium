@@ -21,7 +21,7 @@
 //
 typedef struct {
   EFI_PHYSICAL_ADDRESS Base;
-  UINTN                Length;
+  EFI_PHYSICAL_ADDRESS End;
 } EFI_LOADER_RANGE;
 
 //
@@ -32,23 +32,23 @@ LocateMemoryAttributeProtocol (VOID);
 
 BOOLEAN
 IsWinloadMemory (
-  IN EFI_PHYSICAL_ADDRESS Base,
-  IN UINTN                Length
+  IN  EFI_PHYSICAL_ADDRESS  Base,
+  IN  EFI_PHYSICAL_ADDRESS  End,
+  OUT EFI_PHYSICAL_ADDRESS *TextBase,
+  OUT EFI_PHYSICAL_ADDRESS *TextEnd
   );
 
 EFI_STATUS
 SetWinloadProtection (
   IN EFI_PHYSICAL_ADDRESS Base,
-  IN UINTN                Length,
+  IN EFI_PHYSICAL_ADDRESS End,
   IN BOOLEAN              Enable
   );
 
 VOID
 PatchTransferToKernel (
-  IN EFI_PHYSICAL_ADDRESS  Base,
-  IN UINT64                Length,
-  IN UINT8                *ShellCode,
-  IN UINTN                 ShellCodeSize
+  IN UINT8 *ShellCode,
+  IN UINTN  ShellCodeSize
   );
 
 #endif /* _KERNEL_ERRATA_PATCHER_LIB_H_ */

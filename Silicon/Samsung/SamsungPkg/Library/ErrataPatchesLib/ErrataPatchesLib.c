@@ -16,10 +16,10 @@
 VOID
 ApplyReadCntfrqEl0Patch (
   IN EFI_PHYSICAL_ADDRESS Base,
-  IN UINTN                Length)
+  IN EFI_PHYSICAL_ADDRESS End)
 {
   // Go thru Winload Memory
-  for (EFI_PHYSICAL_ADDRESS Current = Base; Current < Base + Length; Current += ARM64_INSTRUCTION_LENGTH) {
+  for (EFI_PHYSICAL_ADDRESS Current = Base; Current < End; Current += ARM64_INSTRUCTION_LENGTH) {
     // Get Current Instruction
     UINT32 Instruction = ARM64_INSTRUCTION (Current);
 
@@ -44,11 +44,11 @@ ApplyReadCntfrqEl0Patch (
 VOID
 ApplyPlatformErrataPatches (
   IN EFI_PHYSICAL_ADDRESS Base,
-  IN UINTN                Length)
+  IN EFI_PHYSICAL_ADDRESS End)
 {
 #if HAS_CNTFRQ_EL0_EMPTY_ERRATA == 1
   // Apply CNTFRQ_EL0 Errata Patch
-  ApplyReadCntfrqEl0Patch (Base, Length);
+  ApplyReadCntfrqEl0Patch (Base, End);
 #endif
 }
 

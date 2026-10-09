@@ -21,7 +21,7 @@ STATIC EFI_MEMORY_ATTRIBUTE_PROTOCOL *mMemoryAttributeProtocol;
 EFI_STATUS
 SetWinloadProtection (
   IN EFI_PHYSICAL_ADDRESS Base,
-  IN UINTN                Length,
+  IN EFI_PHYSICAL_ADDRESS End,
   IN BOOLEAN              Enable)
 {
   // Verify Memory Attribute Protocol
@@ -29,14 +29,9 @@ SetWinloadProtection (
     return EFI_SUCCESS;
   }
 
-  // Verify Parameters
-  if (Base == 0 || Length == 0) {
-    return EFI_INVALID_PARAMETER;
-  }
-
   // Set / Clear Read-Only Memory Attribute
-  return Enable ? mMemoryAttributeProtocol->SetMemoryAttributes   (mMemoryAttributeProtocol, Base, Length, EFI_MEMORY_RO)
-                : mMemoryAttributeProtocol->ClearMemoryAttributes (mMemoryAttributeProtocol, Base, Length, EFI_MEMORY_RO);
+  return Enable ? mMemoryAttributeProtocol->SetMemoryAttributes   (mMemoryAttributeProtocol, Base, (End - Base), EFI_MEMORY_RO)
+                : mMemoryAttributeProtocol->ClearMemoryAttributes (mMemoryAttributeProtocol, Base, (End - Base), EFI_MEMORY_RO);
 }
 
 EFI_STATUS

@@ -10,7 +10,7 @@
 VOID
 ApplyPlatformErrataPatches (
   IN EFI_PHYSICAL_ADDRESS Base,
-  IN UINTN                Length)
+  IN EFI_PHYSICAL_ADDRESS End)
 {
   return;
 }

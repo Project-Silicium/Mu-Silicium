@@ -4,13 +4,13 @@
 /**
   This Function Applies Platform Specific Patches.
 
-  @param[in] Base                          - The Memory Region Base of "winload.efi".
-  @param[in] Length                        - The Memory Region Length of "winload.efi".
+  @param[in] Base                          - The ".text" Memory Base of "winload.efi".
+  @param[in] End                           - The ".text" Memory End of "winload.efi".
 **/
 VOID
 ApplyPlatformErrataPatches (
   IN EFI_PHYSICAL_ADDRESS Base,
-  IN UINTN                Length
+  IN EFI_PHYSICAL_ADDRESS End
   );
 
 /**

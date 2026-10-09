@@ -19,37 +19,37 @@ struct {
 } CodebaseSemester[] = {
   {
     .Name                   = "Legacy",
-    .TransferToKernelOffset = 0x1000,
+    .TransferToKernelOffset = 0x0,
     .TargetInstruction      = 0xD2800002
   },
   {
     .Name                   = "Germanium",
-    .TransferToKernelOffset = 0x1080,
+    .TransferToKernelOffset = 0x80,
     .TargetInstruction      = 0xD2800002
   },
   {
     .Name                   = "Vibranium",
-    .TransferToKernelOffset = 0x1090,
+    .TransferToKernelOffset = 0x90,
     .TargetInstruction      = 0xD2800002
   },
   {
     .Name                   = "Selenium",
-    .TransferToKernelOffset = 0x1450,
+    .TransferToKernelOffset = 0x450,
     .TargetInstruction      = 0xD2800002
   },
   {
     .Name                   = "Bromine",
-    .TransferToKernelOffset = 0x14D0,
+    .TransferToKernelOffset = 0x4D0,
     .TargetInstruction      = 0x52800014
   },
   {
     .Name                   = "Krypton",
-    .TransferToKernelOffset = 0x1860,
+    .TransferToKernelOffset = 0x860,
     .TargetInstruction      = 0x52800015
   },
   {
     .Name                   = "Rubidium",
-    .TransferToKernelOffset = 0x19D0,
+    .TransferToKernelOffset = 0x9D0,
     .TargetInstruction      = 0x52800015
   }
 };
