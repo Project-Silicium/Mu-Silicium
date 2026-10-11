@@ -36,7 +36,7 @@ ApplyReadCntfrqEl0Patch (
     InvalidateInstructionCacheRange   ((VOID *)Current, ARM64_INSTRUCTION_LENGTH);
 
     // Show Progress
-    DEBUG ((EFI_D_WARN, "[KEP] Patched CNTFRQ_EL0 Instruction at 0x%p\n", Current));
+    DEBUG ((EFI_D_WARN, "[WINLOAD] Patched CNTFRQ_EL0 Instruction at 0x%p\n", Current));
   }
 }
 #endif
