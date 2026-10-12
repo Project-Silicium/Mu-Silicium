@@ -50,12 +50,19 @@ GetTextMemory (
 
 STATIC
 BOOLEAN
-IsValidString (IN CHAR8 *String)
+IsValidString (
+  IN CONST CHAR8 *String,
+  IN CONST VOID  *End)
 {
   BOOLEAN ValidString = FALSE;
 
   // Go thru each Character
   for (UINT8 i = 0; i < 32; i++) {
+    // Check for Memory End
+    if ((CONST VOID *)(String + i) >= End) {
+      return FALSE;
+    }
+
     // Check for Null-Termination
     if (String[i] == '\0') {
       ValidString = TRUE;
@@ -72,10 +79,17 @@ IsValidString (IN CHAR8 *String)
 }
 
 BOOLEAN
-IsWinloadMemory (IN EFI_PHYSICAL_ADDRESS Base)
+IsWinloadMemory (
+  IN EFI_PHYSICAL_ADDRESS Base,
+  IN EFI_PHYSICAL_ADDRESS End)
 {
   // Verify Parameter
   if (Base == 0) {
+    return FALSE;
+  }
+
+  // Verify Memory Size
+  if (sizeof (EFI_IMAGE_DOS_HEADER) > (End - Base)) {
     return FALSE;
   }
 
@@ -84,6 +98,11 @@ IsWinloadMemory (IN EFI_PHYSICAL_ADDRESS Base)
 
   // Verify DOS Signature
   if (DosHeader->e_magic != EFI_IMAGE_DOS_SIGNATURE) {
+    return FALSE;
+  }
+
+  // Verify Memory Size
+  if ((DosHeader->e_lfanew + sizeof (EFI_IMAGE_NT_HEADERS64)) > (End - Base)) {
     return FALSE;
   }
 
@@ -114,6 +133,11 @@ IsWinloadMemory (IN EFI_PHYSICAL_ADDRESS Base)
     return FALSE;
   }
 
+  // Verify Memory Size
+  if ((ExportDirRva + ExportDirSize) > (End - Base)) {
+    return FALSE;
+  }
+
   // Populate Export Directory
   EFI_IMAGE_EXPORT_DIRECTORY *ImgDirExport = (EFI_IMAGE_EXPORT_DIRECTORY *)(Base + ExportDirRva);
 
@@ -122,16 +146,21 @@ IsWinloadMemory (IN EFI_PHYSICAL_ADDRESS Base)
     return FALSE;
   }
 
+  // Verify Memory Size
+  if (ImgDirExport->Name > (End - Base)) {
+    return FALSE;
+  }
+
   // Get Export Directory Name
   CHAR8 *EntryExportName = (CHAR8 *)(Base + ImgDirExport->Name);
 
   // Verify Entry Export Name
-  if (!IsValidString (EntryExportName)) {
+  if (!IsValidString (EntryExportName, (CONST VOID *)End)) {
     return FALSE;
   }
 
   // Compare Export Directory Name
-  if (AsciiStriCmp ("winload.sys", EntryExportName) == 0) {
+  if (AsciiStriCmp (EntryExportName, "winload.sys") == 0) {
     // Get Winload .text Memory
     return GetTextMemory (Base, NtHeader) == EFI_SUCCESS ? TRUE : FALSE;
   }

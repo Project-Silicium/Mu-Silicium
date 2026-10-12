@@ -14,7 +14,7 @@
 //
 // Save Limits
 //
-#define MAX_LOADER_BASES 64
+#define MAX_LOADER_RANGES 64
 
 //
 // Functions
@@ -23,7 +23,10 @@ EFI_STATUS
 LocateMemoryAttributeProtocol (VOID);
 
 BOOLEAN
-IsWinloadMemory (IN EFI_PHYSICAL_ADDRESS Base);
+IsWinloadMemory (
+  IN EFI_PHYSICAL_ADDRESS Base,
+  IN EFI_PHYSICAL_ADDRESS End
+  );
 
 EFI_STATUS
 SetWinloadProtection (IN BOOLEAN Enable);

@@ -31,22 +31,25 @@ STATIC
 BOOLEAN
 KepParseAllocatedMemory (
   IN EFI_PHYSICAL_ADDRESS Base,
+  IN UINTN                Pages,
   IN EFI_MEMORY_TYPE      MemoryType)
 {
   // Set Default Loader Range Details
-  STATIC EFI_PHYSICAL_ADDRESS LoaderBase[MAX_LOADER_BASES] = {0};
-  STATIC UINT8                LoaderCount                  = 0;
+  STATIC EFI_PHYSICAL_ADDRESS LoaderBase[MAX_LOADER_RANGES] = {0};
+  STATIC EFI_PHYSICAL_ADDRESS LoaderEnd[MAX_LOADER_RANGES]  = {0};
+  STATIC UINT8                LoaderCount                   = 0;
 
   // Save Memory Allocation
-  if (MemoryType == EfiLoaderCode && LoaderCount < MAX_LOADER_BASES) {
+  if (MemoryType == EfiLoaderCode && LoaderCount < MAX_LOADER_RANGES) {
     LoaderBase[LoaderCount] = Base;
+    LoaderEnd[LoaderCount]  = Base + EFI_PAGES_TO_SIZE (Pages);
     LoaderCount++;
   }
 
   // Go thru Saved Memory Allocations
   for (UINT8 i = 0; i < LoaderCount; i++) {
     // Check for Winload Memory
-    if (IsWinloadMemory (LoaderBase[i])) {
+    if (IsWinloadMemory (LoaderBase[i], LoaderEnd[i])) {
       return TRUE;
     }
   }
@@ -71,7 +74,7 @@ KepAllocatePagesHook (
   }
 
   // Parse Allocated Memory
-  if (!KepParseAllocatedMemory ((EFI_PHYSICAL_ADDRESS)(*Memory), MemoryType)) {
+  if (!KepParseAllocatedMemory ((EFI_PHYSICAL_ADDRESS)(*Memory), Pages, MemoryType)) {
     return EFI_SUCCESS;
   }
 
@@ -120,6 +123,11 @@ KepExitBootServicesHook (
   // Calculate new CRC32
   gBS->Hdr.CRC32 = 0;
   gBS->CalculateCrc32 (gBS, sizeof (EFI_BOOT_SERVICES), &gBS->Hdr.CRC32);
+
+  // Verify Winload Memory Range
+  if (mWinloadBase == 0 || mWinloadEnd == 0) {
+    goto exit;
+  }
 
   // Get Platform Shell Code
   GetPlatformShellCode (&ShellCode, &ShellCodeSize);
