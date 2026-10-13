@@ -17,34 +17,17 @@
 #include "Winload.h"
 
 //
-// Target Patch Locations
+// Winload Memory
 //
-STATIC EFI_PHYSICAL_ADDRESS mTransferToKernelAddr  = 0;
-STATIC EFI_PHYSICAL_ADDRESS mTargetInstructionAddr = 0;
+EFI_PHYSICAL_ADDRESS mWinloadBase = 0;
+EFI_PHYSICAL_ADDRESS mWinloadEnd  = 0;
 
-BOOLEAN
-IsWinloadMemory (
-  IN  EFI_PHYSICAL_ADDRESS  Base,
-  IN  EFI_PHYSICAL_ADDRESS  End,
-  OUT EFI_PHYSICAL_ADDRESS *TextBase,
-  OUT EFI_PHYSICAL_ADDRESS *TextEnd)
+STATIC
+EFI_STATUS
+GetTextMemory (
+  IN EFI_PHYSICAL_ADDRESS    Base,
+  IN EFI_IMAGE_NT_HEADERS64 *NtHeader)
 {
-  // Populate DOS Header
-  EFI_IMAGE_DOS_HEADER *DosHeader = (EFI_IMAGE_DOS_HEADER *)Base;
-
-  // Verify DOS Signature
-  if (DosHeader->e_magic != EFI_IMAGE_DOS_SIGNATURE) {
-    return FALSE;
-  }
-
-  // Populate NT Header
-  EFI_IMAGE_NT_HEADERS64 *NtHeader = (EFI_IMAGE_NT_HEADERS64 *)(Base + DosHeader->e_lfanew);
-
-  // Verify NT Signature
-  if (NtHeader->Signature != EFI_IMAGE_NT_SIGNATURE) {
-    return FALSE;
-  }
-
   // Get PE Section Headers
   EFI_IMAGE_SECTION_HEADER *SectionHeader = (EFI_IMAGE_SECTION_HEADER *)((UINTN)&NtHeader->OptionalHeader + NtHeader->FileHeader.SizeOfOptionalHeader);
 
@@ -56,25 +39,155 @@ IsWinloadMemory (
     }
 
     // Save .text Memory Range
-    *TextBase = Base + SectionHeader[i].VirtualAddress;
-    *TextEnd  = *TextBase + ALIGN_VALUE (SectionHeader[i].SizeOfRawData, EFI_PAGE_SIZE);
-    break;
+    mWinloadBase = Base + SectionHeader[i].VirtualAddress;
+    mWinloadEnd  = mWinloadBase + SectionHeader[i].SizeOfRawData;
+
+    return EFI_SUCCESS;
   }
 
-  // Verify .text Memory Range
-  if (*TextBase == 0 || *TextEnd == 0) {
+  return EFI_NOT_FOUND;
+}
+
+STATIC
+BOOLEAN
+IsValidString (
+  IN CONST CHAR8 *String,
+  IN CONST VOID  *End)
+{
+  BOOLEAN ValidString = FALSE;
+
+  // Go thru each Character
+  for (UINT8 i = 0; i < 32; i++) {
+    // Check for Memory End
+    if ((CONST VOID *)(String + i) >= End) {
+      return FALSE;
+    }
+
+    // Check for Null-Termination
+    if (String[i] == '\0') {
+      ValidString = TRUE;
+      break;
+    }
+
+    // Check for Invalid Characters
+    if (String[i] < 0x20 || String[i] > 0x7E) {
+      break;
+    }
+  }
+
+  return ValidString;
+}
+
+BOOLEAN
+IsWinloadMemory (
+  IN EFI_PHYSICAL_ADDRESS Base,
+  IN EFI_PHYSICAL_ADDRESS End)
+{
+  // Verify Parameter
+  if (Base == 0) {
     return FALSE;
+  }
+
+  // Verify Memory Size
+  if (sizeof (EFI_IMAGE_DOS_HEADER) > (End - Base)) {
+    return FALSE;
+  }
+
+  // Populate DOS Header
+  EFI_IMAGE_DOS_HEADER *DosHeader = (EFI_IMAGE_DOS_HEADER *)Base;
+
+  // Verify DOS Signature
+  if (DosHeader->e_magic != EFI_IMAGE_DOS_SIGNATURE) {
+    return FALSE;
+  }
+
+  // Verify Memory Size
+  if ((DosHeader->e_lfanew + sizeof (EFI_IMAGE_NT_HEADERS64)) > (End - Base)) {
+    return FALSE;
+  }
+
+  // Populate NT Header
+  EFI_IMAGE_NT_HEADERS64 *NtHeader = (EFI_IMAGE_NT_HEADERS64 *)(Base + DosHeader->e_lfanew);
+
+  // Verify NT Signature
+  if (NtHeader->Signature != EFI_IMAGE_NT_SIGNATURE) {
+    return FALSE;
+  }
+
+  // Verify Optional Header Magic
+  if (NtHeader->OptionalHeader.Magic != EFI_IMAGE_NT_OPTIONAL_HDR64_MAGIC) {
+    return FALSE;
+  }
+
+  // Verify Data Directory Presense
+  if (NtHeader->OptionalHeader.NumberOfRvaAndSizes == 0) {
+    return FALSE;
+  }
+
+  // Get Export Directory
+  UINT32 ExportDirRva  = NtHeader->OptionalHeader.DataDirectory[EFI_IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
+  UINT32 ExportDirSize = NtHeader->OptionalHeader.DataDirectory[EFI_IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
+
+  // Verify Export Directory Presense
+  if (ExportDirRva == 0 || ExportDirSize == 0) {
+    return FALSE;
+  }
+
+  // Verify Memory Size
+  if ((ExportDirRva + ExportDirSize) > (End - Base)) {
+    return FALSE;
+  }
+
+  // Populate Export Directory
+  EFI_IMAGE_EXPORT_DIRECTORY *ImgDirExport = (EFI_IMAGE_EXPORT_DIRECTORY *)(Base + ExportDirRva);
+
+  // Verify Name Presense
+  if (ImgDirExport->Name == 0) {
+    return FALSE;
+  }
+
+  // Verify Memory Size
+  if (ImgDirExport->Name > (End - Base)) {
+    return FALSE;
+  }
+
+  // Get Export Directory Name
+  CHAR8 *EntryExportName = (CHAR8 *)(Base + ImgDirExport->Name);
+
+  // Verify Entry Export Name
+  if (!IsValidString (EntryExportName, (CONST VOID *)End)) {
+    return FALSE;
+  }
+
+  // Compare Export Directory Name
+  if (AsciiStriCmp (EntryExportName, "winload.sys") == 0) {
+    // Get Winload .text Memory
+    return GetTextMemory (Base, NtHeader) == EFI_SUCCESS ? TRUE : FALSE;
+  }
+
+  return FALSE;
+}
+
+VOID
+PatchWinloadTransferToKernel (
+  IN UINT8 *ShellCode,
+  IN UINTN  ShellCodeSize)
+{
+  // Verify Winload Memory Range
+  if (mWinloadBase == 0 || mWinloadEnd == 0) {
+    return;
   }
 
   // Go thru each Codebase Semester
   for (UINT8 i = 0; i < ARRAY_SIZE (CodebaseSemester); i++) {
-    // Save TransferToKernel Function Location
-    mTransferToKernelAddr = *TextBase + CodebaseSemester[i].TransferToKernelOffset;
+    // Set TransferToKernel Function Locations
+    EFI_PHYSICAL_ADDRESS TransferToKernelAddr    = mWinloadBase + CodebaseSemester[i].TransferToKernelOffset;
+    EFI_PHYSICAL_ADDRESS NewTransferToKernelAddr = TransferToKernelAddr - ShellCodeSize;
 
-    // Go thru TransferToKernel Memory Area
-    for (EFI_PHYSICAL_ADDRESS Current = mTransferToKernelAddr; Current < mTransferToKernelAddr + (*TextEnd - mTransferToKernelAddr); Current += ARM64_INSTRUCTION_LENGTH) {
+    // Parse TransferToKernel Function
+    for (EFI_PHYSICAL_ADDRESS Current = TransferToKernelAddr; Current < TransferToKernelAddr + (mWinloadEnd - TransferToKernelAddr); Current += ARM64_INSTRUCTION_LENGTH) {
       // Verify Branch Instruction
-      if (ARM64_INSTRUCTION (Current) != ARM64_BRANCH_LOCATION_INSTRUCTION (Current, mTransferToKernelAddr)) {
+      if (ARM64_INSTRUCTION (Current) != ARM64_BRANCH_LOCATION_INSTRUCTION (Current, TransferToKernelAddr)) {
         continue;
       }
 
@@ -83,46 +196,28 @@ IsWinloadMemory (
         continue;
       }
 
-      // Show Winload Details
-      DEBUG ((EFI_D_WARN, "[KEP] Winload Memory Range       = 0x%p - 0x%p\n", Base, End));
-      DEBUG ((EFI_D_WARN, "[KEP] Winload .text Memory Range = 0x%p - 0x%p\n", *TextBase, *TextEnd));
-      DEBUG ((EFI_D_WARN, "[KEP] Winload Codebase Semester  = %a\n", CodebaseSemester[i].Name));
+      // Show Detected Codebase Semester
+      DEBUG ((EFI_D_WARN, "[WINLOAD] Detected Codebase Semester = %a\n", CodebaseSemester[i].Name));
 
-      // Save Target Patch Instruction
-      mTargetInstructionAddr = Current;
+      // Inject Shell Code
+      CopyMem ((VOID *)NewTransferToKernelAddr, (CONST VOID *)ShellCode, ShellCodeSize);
 
-      return TRUE;
+      // Patch Jump Instruction
+      ARM64_INSTRUCTION (Current) = ARM64_BRANCH_LOCATION_INSTRUCTION (Current, NewTransferToKernelAddr);
+
+      // Flush Cache
+      WriteBackInvalidateDataCacheRange ((VOID *)NewTransferToKernelAddr, ShellCodeSize);
+      InvalidateInstructionCacheRange   ((VOID *)NewTransferToKernelAddr, ShellCodeSize);
+      WriteBackInvalidateDataCacheRange ((VOID *)Current, ARM64_INSTRUCTION_LENGTH);
+      InvalidateInstructionCacheRange   ((VOID *)Current, ARM64_INSTRUCTION_LENGTH);
+
+      // Show Progress
+      DEBUG ((EFI_D_WARN, "[WINLOAD] Injected Shell Code at 0x%p\n",        NewTransferToKernelAddr));
+      DEBUG ((EFI_D_WARN, "[WINLOAD] Patched Branch Instruction at 0x%p\n", Current));
+      return;
     }
   }
 
-  // Pass Empty Data
-  *TextBase = 0;
-  *TextEnd  = 0;
-
-  return FALSE;
-}
-
-VOID
-PatchTransferToKernel (
-  IN UINT8 *ShellCode,
-  IN UINTN  ShellCodeSize)
-{
-  // Set New TarnsferToKernel Address
-  EFI_PHYSICAL_ADDRESS NewTransferToKernelAddr = mTransferToKernelAddr - ShellCodeSize;
-
-  // Inject Jump Instruction
-  ARM64_INSTRUCTION (mTargetInstructionAddr) = ARM64_BRANCH_LOCATION_INSTRUCTION (mTargetInstructionAddr, NewTransferToKernelAddr);
-
-  // Copy Shell Code
-  CopyMem ((VOID *)NewTransferToKernelAddr, (CONST VOID *)ShellCode, ShellCodeSize);
-
-  // Flush Cache
-  WriteBackInvalidateDataCacheRange ((VOID *)NewTransferToKernelAddr, ShellCodeSize);
-  InvalidateInstructionCacheRange   ((VOID *)NewTransferToKernelAddr, ShellCodeSize);
-  WriteBackInvalidateDataCacheRange ((VOID *)mTargetInstructionAddr,  ARM64_INSTRUCTION_LENGTH);
-  InvalidateInstructionCacheRange   ((VOID *)mTargetInstructionAddr,  ARM64_INSTRUCTION_LENGTH);
-
-  // Show Winload Details
-  DEBUG ((EFI_D_WARN, "[KEP] Patched Branch Instruction at 0x%p\n", mTargetInstructionAddr));
-  DEBUG ((EFI_D_WARN, "[KEP] Injected Shell Code at 0x%p\n",        NewTransferToKernelAddr));
+  // Show Failure
+  DEBUG ((EFI_D_ERROR, "[WINLOAD] Failed to Detect Codebase Semester!\n"));
 }

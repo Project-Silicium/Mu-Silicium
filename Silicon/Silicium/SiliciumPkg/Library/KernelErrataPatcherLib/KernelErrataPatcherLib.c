@@ -22,16 +22,40 @@ STATIC EFI_ALLOCATE_PAGES     mOrigAllocatePages    = NULL;
 STATIC EFI_EXIT_BOOT_SERVICES mOrigExitBootServices = NULL;
 
 //
-// Memory Allocation Details
+// Winload Memory
 //
-STATIC EFI_LOADER_RANGE mLoaderRange[MAX_LOADER_RANGES] = {0};
-STATIC UINT8            mLoaderCount                    = 0;
+extern EFI_PHYSICAL_ADDRESS mWinloadBase;
+extern EFI_PHYSICAL_ADDRESS mWinloadEnd;
 
-//
-// Winload .text Memory Range
-//
-STATIC EFI_PHYSICAL_ADDRESS mWinloadTextBase = 0;
-STATIC EFI_PHYSICAL_ADDRESS mWinloadTextEnd  = 0;
+STATIC
+BOOLEAN
+KepParseAllocatedMemory (
+  IN EFI_PHYSICAL_ADDRESS Base,
+  IN UINTN                Pages,
+  IN EFI_MEMORY_TYPE      MemoryType)
+{
+  // Set Default Loader Range Details
+  STATIC EFI_PHYSICAL_ADDRESS LoaderBase[MAX_LOADER_RANGES] = {0};
+  STATIC EFI_PHYSICAL_ADDRESS LoaderEnd[MAX_LOADER_RANGES]  = {0};
+  STATIC UINT8                LoaderCount                   = 0;
+
+  // Save Memory Allocation
+  if (MemoryType == EfiLoaderCode && LoaderCount < MAX_LOADER_RANGES) {
+    LoaderBase[LoaderCount] = Base;
+    LoaderEnd[LoaderCount]  = Base + EFI_PAGES_TO_SIZE (Pages);
+    LoaderCount++;
+  }
+
+  // Go thru Saved Memory Allocations
+  for (UINT8 i = 0; i < LoaderCount; i++) {
+    // Check for Winload Memory
+    if (IsWinloadMemory (LoaderBase[i], LoaderEnd[i])) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
+}
 
 EFI_STATUS
 EFIAPI
@@ -49,49 +73,36 @@ KepAllocatePagesHook (
     return Status;
   }
 
-  // Save Memory Allocation
-  if (MemoryType == EfiLoaderCode && mLoaderCount < MAX_LOADER_RANGES) {
-    mLoaderRange[mLoaderCount].Base = (EFI_PHYSICAL_ADDRESS)(*Memory);
-    mLoaderRange[mLoaderCount].End  = (EFI_PHYSICAL_ADDRESS)(*Memory) + EFI_PAGES_TO_SIZE (Pages);
-    mLoaderCount++;
-  }
-
-  // Go thru Saved Memory Allocations
-  for (UINT8 i = 0; i < mLoaderCount; i++) {
-    // Check for Winload Memory
-    if (IsWinloadMemory (mLoaderRange[i].Base, mLoaderRange[i].End, &mWinloadTextBase, &mWinloadTextEnd)) {
-      break;
-    }
-  }
-
-  // Verify Winload .text Base
-  if (mWinloadTextBase == 0) {
+  // Parse Allocated Memory
+  if (!KepParseAllocatedMemory ((EFI_PHYSICAL_ADDRESS)(*Memory), Pages, MemoryType)) {
     return EFI_SUCCESS;
   }
 
-  // Unprotect Winload .text Section
-  Status = SetWinloadProtection (mWinloadTextBase, mWinloadTextEnd, FALSE);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Unprotect Winload .text Section! Status = %r\n", Status));
-    goto restore;
-  }
-
-  // Apply Platform Specific Patches
-  ApplyPlatformErrataPatches (mWinloadTextBase, mWinloadTextEnd);
-
-  // Reprotect Winload .text Section
-  Status = SetWinloadProtection (mWinloadTextBase, mWinloadTextEnd, TRUE);
-  if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Reprotect Winload .text Section! Status = %r\n", Status));
-  }
-
-restore:
-  // Restore Original "AllocatePages"
+  // Restore Original AllocatePages
   gBS->AllocatePages = mOrigAllocatePages;
 
   // Calculate new CRC32
   gBS->Hdr.CRC32 = 0;
   gBS->CalculateCrc32 (gBS, sizeof (EFI_BOOT_SERVICES), &gBS->Hdr.CRC32);
+
+  // Show Winload .text Memory Range
+  DEBUG ((EFI_D_WARN, "[KEP] Winload .text Memory Range = 0x%p - 0x%p\n", mWinloadBase, mWinloadEnd));
+
+  // Unprotect Winload .text Section
+  Status = SetWinloadProtection (FALSE);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Unprotect Winload .text Section! Status = %r\n", Status));
+    return EFI_SUCCESS;
+  }
+
+  // Apply Platform Specific Patches
+  ApplyPlatformErrataPatches (mWinloadBase, mWinloadEnd);
+
+  // Reprotect Winload .text Section
+  Status = SetWinloadProtection (TRUE);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "[KEP] Failed to Reprotect Winload .text Section! Status = %r\n", Status));
+  }
 
   return EFI_SUCCESS;
 }
@@ -108,13 +119,13 @@ KepExitBootServicesHook (
 
   // Restore Original EBS
   gBS->ExitBootServices = mOrigExitBootServices;
-  gBS->Hdr.CRC32        = 0;
 
   // Calculate new CRC32
+  gBS->Hdr.CRC32 = 0;
   gBS->CalculateCrc32 (gBS, sizeof (EFI_BOOT_SERVICES), &gBS->Hdr.CRC32);
 
-  // Verify Winload Base
-  if (mWinloadTextBase == 0) {
+  // Verify Winload Memory Range
+  if (mWinloadBase == 0 || mWinloadEnd == 0) {
     goto exit;
   }
 
@@ -125,17 +136,17 @@ KepExitBootServicesHook (
   }
 
   // Unprotect Winload .text Section
-  Status = SetWinloadProtection (mWinloadTextBase, mWinloadTextEnd, FALSE);
+  Status = SetWinloadProtection (FALSE);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "[KEP] Failed to Unprotect Winload .text Section! Status = %r\n", Status));
     goto exit;
   }
 
   // Patch Transfer to Kernel
-  PatchTransferToKernel (ShellCode, ShellCodeSize);
+  PatchWinloadTransferToKernel (ShellCode, ShellCodeSize);
 
   // Reprotect Winload .text Section
-  Status = SetWinloadProtection (mWinloadTextBase, mWinloadTextEnd, TRUE);
+  Status = SetWinloadProtection (TRUE);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "[KEP] Failed to Reprotect Winload .text Section! Status = %r\n", Status));
   }

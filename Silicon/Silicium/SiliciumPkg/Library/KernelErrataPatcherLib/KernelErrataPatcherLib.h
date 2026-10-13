@@ -17,14 +17,6 @@
 #define MAX_LOADER_RANGES 64
 
 //
-// Memory Area Structure
-//
-typedef struct {
-  EFI_PHYSICAL_ADDRESS Base;
-  EFI_PHYSICAL_ADDRESS End;
-} EFI_LOADER_RANGE;
-
-//
 // Functions
 //
 EFI_STATUS
@@ -32,21 +24,15 @@ LocateMemoryAttributeProtocol (VOID);
 
 BOOLEAN
 IsWinloadMemory (
-  IN  EFI_PHYSICAL_ADDRESS  Base,
-  IN  EFI_PHYSICAL_ADDRESS  End,
-  OUT EFI_PHYSICAL_ADDRESS *TextBase,
-  OUT EFI_PHYSICAL_ADDRESS *TextEnd
+  IN EFI_PHYSICAL_ADDRESS Base,
+  IN EFI_PHYSICAL_ADDRESS End
   );
 
 EFI_STATUS
-SetWinloadProtection (
-  IN EFI_PHYSICAL_ADDRESS Base,
-  IN EFI_PHYSICAL_ADDRESS End,
-  IN BOOLEAN              Enable
-  );
+SetWinloadProtection (IN BOOLEAN Enable);
 
 VOID
-PatchTransferToKernel (
+PatchWinloadTransferToKernel (
   IN UINT8 *ShellCode,
   IN UINTN  ShellCodeSize
   );
