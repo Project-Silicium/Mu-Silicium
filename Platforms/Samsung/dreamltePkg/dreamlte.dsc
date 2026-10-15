@@ -70,7 +70,7 @@
   #
   # ACPI Tables
   #
-  #dreamlte/AcpiTables.inf
+  dreamlte/AcpiTables.inf
 
   #
   # Input

@@ -85,7 +85,7 @@
   #
   # IO Libraries
   #
-  GpioLib|S5E8895Pkg/Library/GpioBankLib/GpioBankLib.inf
+  GpioBankLib|S5E8895Pkg/Library/GpioBankLib/GpioBankLib.inf
 
   #
   # Storage Libraries

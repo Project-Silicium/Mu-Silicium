@@ -1054,11 +1054,6 @@ UfsInitInterface (
   }
 
   Status = UfsPmcCommon (Ufs, Pmd);
-  if (EFI_ERROR (Status))
-  {
-    DEBUG((EFI_D_ERROR, "UFS power mode change failed\n"));
-    return Status;
-  }
 
   DEBUG((EFI_D_INFO, "UFS power mode change pass\n"));
 

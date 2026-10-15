@@ -4,7 +4,6 @@
 #include <Library/UfsHostBridge.h>
 
 #include <Protocol/EFIGpio.h>
-#include <Protocol/EFIChipInfo.h>
 
 #define UFS_SCLK                       166000000UL
 #define CNT_VAL_1US_MASK               0x3FFU
@@ -14,7 +13,6 @@
 
 #define MUX_CLKCMU_UFS_EMBD_CON        0x15A81064UL
 #define DIV_CLKCMU_UFS_EMBD_MUX        0x15A81860UL
-
 #define UFS_CLKCMU_TIMEOUT             100
 
 #define EXYNOS8895_UFS_BASE            0x11120000
@@ -104,17 +102,17 @@ UfsBoardInit (struct UfsHost *Ufs)
 
   Status = mGpioProtocol->SetFunction(BANK_ID_I, 0, 0, FUNCTION_3);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to configure GPIO pin for RST_N! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to configure GPIO pin for RST_N (GPI0-0)! Status = %r\n", Status));
     return Status;
   }
 
   Status = mGpioProtocol->SetFunction(BANK_ID_I, 0, 1, FUNCTION_3);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "Failed to configure GPIO pin for REFCLK! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to configure GPIO pin for REFCLK (GPI0-1)! Status = %r\n", Status));
     return Status;
   }
 
-  /* XBOOTLDO (or ufs_fixed_vcc) GPG0[0] */
+  /* XBOOTLDO GPG0[0] — UFS VCC */
   Status = mGpioProtocol->SetFunction(BANK_ID_G, 0, 0, FUNCTION_OUTPUT);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to configure GPG0-0! Status = %r\n", Status));

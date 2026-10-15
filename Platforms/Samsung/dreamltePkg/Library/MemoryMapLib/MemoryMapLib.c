@@ -6,6 +6,7 @@ gMemoryDescriptor[] = {
   // Name, Address, Length, HobOption, ResourceType, ResourceAttribute, MemoryType, ArmAttribute
 
   // DDR Regions
+  {"RAM Partition",      0x80000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK}, // 1GB
   {"DXE Heap",           0xC3A00000, 0x05600000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv,   WRITE_BACK},
   {"UEFI FD",            0xC9000000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"UEFI Stack",         0xC9200000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
@@ -19,7 +20,7 @@ gMemoryDescriptor[] = {
   {"GICH",               0x10204000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"GICV",               0x10206000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"PMU",                0x16480000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
-  {"SYSREG FSYS0",       0x11020000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+  {"SYSREG FSYS0",       0x11020000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"UFS HCI",            0x11120000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"UFS UniPro",         0x11130000, 0x00008000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"Clock Controller",   0x15A80000, 0x00002000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},

@@ -23,4 +23,3 @@
 
 [Protocols]
   gEfiGpioProtocolGuid
-  gEfiChipInfoProtocolGuid
