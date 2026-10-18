@@ -112,7 +112,7 @@ UfsBoardInit (struct UfsHost *Ufs)
     return Status;
   }
 
-  /* XBOOTLDO GPG0[0] — UFS VCC */
+  /* XBOOTLDO GPG0[0] */
   Status = mGpioProtocol->SetFunction(BANK_ID_G, 0, 0, FUNCTION_OUTPUT);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to configure GPG0-0! Status = %r\n", Status));
