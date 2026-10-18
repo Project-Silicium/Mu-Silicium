@@ -95,4 +95,4 @@
   #
   # Storage Libraries
   #
-  PlatformUfsLib|S5E8895Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
+  # PlatformUfsLib|S5E8895Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
