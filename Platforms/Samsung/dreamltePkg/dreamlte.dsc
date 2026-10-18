@@ -15,7 +15,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = dreamlte
-  PLATFORM_GUID                  = A1B48372-32DF-4294-BE88-10BF0EE9F11B
+  PLATFORM_GUID                  = 71632CA4-905A-4060-A906-7972516F91B9
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/dreamltePkg
