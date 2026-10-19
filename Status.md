@@ -338,6 +338,52 @@
 </details>
 
 <details>
+<summary><b><strong>Exynos 8895 Devices</strong></b></summary>
+
+<table>
+<tr><td>
+
+> [!IMPORTANT]
+> Only 23H2 Windows Builds and Lower are able to Boot.
+
+</td></tr>
+</table>
+
+## Samsung Galaxy S8
+
+<table>
+<tr><td>
+
+> [!CAUTION]
+> `BIT-5` Version is Required on this Device!
+
+</td></tr>
+</table>
+
+<img align="right" src="Resources/Pictures/Samsung-Galaxy-S8.png" width="630" alt="Preview">
+
+**State:** Inactive <br>
+**Codename:** dreamlte
+
+**Contributors:** [kdetechy-mp4](https://github.com/kdetechy-mp4/), [Robotix](https://github.com/Robotix22/), [halal-beef](https://github.com/halal-beef/),
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ❌    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ❌    |
+| USB Power Delivery |             | ❌    |
+| SD Card            |             | ❌    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
+
+</details>
+
+<details>
 <summary><b><strong>Exynos 7885 Devices</strong></b></summary>
 
 <table>
