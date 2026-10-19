@@ -83,7 +83,7 @@ READ_LOCK_STATUS   = TRUE
   !include Include/DXE.inc
 
   # RAM Manager
-  INF SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
+  #INF SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
 
   # SmBios
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
@@ -100,13 +100,6 @@ READ_LOCK_STATUS   = TRUE
   #  SECTION RAW = dreamltePkg/FdtBlob/s5e9820-samsung-dreamlte.dtb
   #  SECTION UI = "DeviceTreeBlob"
   #}
-
-  # Hypervisor
-  INF SamsungPkg/Drivers/HypLoaderDxe/HypLoaderDxe.inf
-  FILE FREEFORM = PCD (gSamsungPkgTokenSpaceGuid.PcdHypFile) {
-    SECTION RAW = S5E8895Pkg/Include/Firmware/Hyp.bin
-    SECTION UI = "Hypervisor"
-  }
 
   !include SamsungPkg/Extra.fdf.inc
 
