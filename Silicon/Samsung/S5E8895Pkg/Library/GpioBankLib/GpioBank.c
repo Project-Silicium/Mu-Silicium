@@ -4,7 +4,7 @@ STATIC
 EFI_GPIO_BANK
 mGpioBanks[] = {
   //
-  //
+  // PERCI0
   //
   {
     .CtrlNum = 0,
@@ -50,7 +50,7 @@ mGpioBanks[] = {
   },
 
   //
-  //
+  // PERIC1
   //
   {
     .CtrlNum = 1,
@@ -138,7 +138,7 @@ mGpioBanks[] = {
   },
 
   //
-  //
+  // FSYS0
   //
   {
     .CtrlNum = 2,
@@ -154,7 +154,7 @@ mGpioBanks[] = {
   },
 
   //
-  //
+  // FSYS1
   //
   {
     .CtrlNum = 3,
@@ -170,7 +170,7 @@ mGpioBanks[] = {
   },
 
   //
-  //
+  // VTS
   //
   {
     .CtrlNum = 4,
@@ -190,7 +190,7 @@ mGpioBanks[] = {
   },
 
   //
-  //
+  // ALIVE
   //
   {
     .CtrlNum = 6,
@@ -224,7 +224,7 @@ mGpioBanks[] = {
   },
 
   //
-  //
+  // ABOX
   //
   {
     .CtrlNum = 7,
