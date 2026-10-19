@@ -71,7 +71,7 @@ UfsBoardInit (struct UfsHost *Ufs)
 
   Status = gBS->LocateProtocol (&gEfiGpioProtocolGuid, NULL, (VOID *)&mGpioProtocol);
   if (EFI_ERROR (Status)) {
-    DEBUG ((EFI_D_ERROR, "UFS: Failed to Locate GPIO Protocol! Status = %r\n", Status));
+    DEBUG ((EFI_D_ERROR, "Failed to Locate GPIO Protocol! Status = %r\n", Status));
     return Status;
   }
 
