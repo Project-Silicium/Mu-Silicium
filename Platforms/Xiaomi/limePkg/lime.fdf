@@ -102,6 +102,9 @@ READ_LOCK_STATUS   = TRUE
   #  SECTION UI = "DeviceTreeBlob"
   #}
 
+  # USB Power
+  INF KamortaPkg/Drivers/UsbPwrEnablerDxe/UsbPwrEnablerDxe.inf
+
   !include QcomPkg/Extra.fdf.inc
 
 [FV.FVMAIN_COMPACT]

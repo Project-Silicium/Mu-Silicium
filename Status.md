@@ -5330,12 +5330,12 @@
 | NFC Sensor           |              | ❌    |
 | Temperature Sensor   |              | ❌    |
 | Battery              |              | ❌    |
-| USB Host Mode        |              | ❌    |
-| USB Device Mode      |              | ❔    |
-| USB Power Delivery   |              | ❌    |
+| USB Host Mode        |              | ✅    |
+| USB Device Mode      |              | ❌    |
+| USB Power Delivery   |              | ✅    |
 | Charging             |              | ❌    |
 | WLAN                 |              | ❌    |
-| CPU                  | 4 Cores only | ⚠️    |
+| CPU                  |              | ✅    |
 | Touchscreen          |              | ❌    |
 | Bluetooth            |              | ❌    |
 | GPS                  |              | ❌    |
