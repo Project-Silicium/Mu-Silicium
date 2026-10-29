@@ -91,14 +91,17 @@ GetFrameBufferInfos (
   OUT UINT32               *Height,
   OUT UINT32               *ColorDepth)
 {
-  EFI_MEMORY_REGION_DESCRIPTOR FrameBufferRegion;
+  EFI_STATUS                   Status;
+  EFI_MEMORY_REGION_DESCRIPTOR FrameBufferRegion = { 0 };
 
   // Locate "Display Reserved" Memory Region
-  LocateMemoryRegionByName ("Display Reserved", &FrameBufferRegion);
-  LocateMemoryRegionByName ("Display_Reserved", &FrameBufferRegion);
+  Status = LocateMemoryRegionByName ("Display Reserved", &FrameBufferRegion);
+  if (EFI_ERROR (Status)) {
+    Status = LocateMemoryRegionByName ("Display_Reserved", &FrameBufferRegion);
+  }
 
   // Verify Frame Buffer Region
-  if (!FrameBufferRegion.Address) {
+  if (EFI_ERROR (Status) || !FrameBufferRegion.Address) {
     DEBUG ((EFI_D_ERROR, "Failed to Locate \"Display Reserved\" Memory Region!\n"));
     return EFI_NOT_FOUND;
   }
