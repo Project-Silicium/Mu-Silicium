@@ -1,5 +1,5 @@
 diff --git a/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.c b/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.c
-index ef19319614..72b399bfa0 100644
+index 5bba6ea816..c761685d4b 100644
 --- a/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.c
 +++ b/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.c
 @@ -6,6 +6,8 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -23,7 +23,17 @@ index ef19319614..72b399bfa0 100644
      return TRUE;
    }
  
-@@ -379,7 +381,7 @@ InitializeBootMenuData (
+@@ -374,12 +376,16 @@ InitializeBootMenuData (
+   UINTN  Index;
+   UINTN  StrIndex;
+ 
+-  if ((BootOption == NULL) || (BootMenuData == NULL)) {
++  if (BootMenuData == NULL) {
++    return EFI_INVALID_PARAMETER;
++  }
++
++  if ((BootOption == NULL) && (BootOptionCount != 0)) {
+     return EFI_INVALID_PARAMETER;
    }
  
    BootMenuData->TitleToken[0] = STRING_TOKEN (STR_BOOT_POPUP_MENU_TITLE_STRING);
@@ -32,7 +42,7 @@ index ef19319614..72b399bfa0 100644
    ASSERT (BootMenuData->PtrTokens != NULL);
  
    //
-@@ -399,10 +401,19 @@ InitializeBootMenuData (
+@@ -399,10 +405,19 @@ InitializeBootMenuData (
                                              );
    }
  
@@ -53,7 +63,7 @@ index ef19319614..72b399bfa0 100644
    InitializeBootMenuScreen (BootMenuData);
    BootMenuData->SelectItem = 0;
    return EFI_SUCCESS;
-@@ -468,7 +479,7 @@ BootMenuSelectItem (
+@@ -468,7 +483,7 @@ BootMenuSelectItem (
        BootMenuData->ScrollBarControl.LastItem  = WantSelectItem;
      }
  
@@ -62,7 +72,7 @@ index ef19319614..72b399bfa0 100644
      FirstItem   = BootMenuData->ScrollBarControl.FirstItem;
      LastItem    = BootMenuData->ScrollBarControl.LastItem;
      TopShadeNum = 0;
-@@ -539,7 +550,7 @@ BootMenuSelectItem (
+@@ -539,7 +554,7 @@ BootMenuSelectItem (
    //
    FirstItem = BootMenuData->ScrollBarControl.FirstItem;
    if ((WantSelectItem != BootMenuData->SelectItem) && !RePaintItems) {
@@ -71,7 +81,7 @@ index ef19319614..72b399bfa0 100644
      String   = HiiGetString (gStringPackHandle, BootMenuData->PtrTokens[BootMenuData->SelectItem], NULL);
      PrintCol = StartCol  + 1;
      PrintRow = StartRow + 3 + BootMenuData->SelectItem - FirstItem;
-@@ -550,7 +561,7 @@ BootMenuSelectItem (
+@@ -550,7 +565,7 @@ BootMenuSelectItem (
    //
    // Print want to select item
    //
@@ -80,7 +90,7 @@ index ef19319614..72b399bfa0 100644
    String   = HiiGetString (gStringPackHandle, BootMenuData->PtrTokens[WantSelectItem], NULL);
    PrintCol = StartCol  + 1;
    PrintRow = StartRow + TITLE_TOKEN_COUNT + 2 + WantSelectItem - FirstItem;
-@@ -589,7 +600,7 @@ DrawBootPopupMenu (
+@@ -589,7 +604,7 @@ DrawBootPopupMenu (
    gST->ConOut->ClearScreen (gST->ConOut);
  
    SavedAttribute = gST->ConOut->Mode->Attribute;
@@ -89,11 +99,32 @@ index ef19319614..72b399bfa0 100644
    Width              = BootMenuData->MenuScreen.Width;
    StartCol           = BootMenuData->MenuScreen.StartCol;
    StartRow           = BootMenuData->MenuScreen.StartRow;
-@@ -754,6 +765,16 @@ BootFromSelectOption (
-       break;
+@@ -742,17 +757,28 @@ BootFromSelectOption (
+   UINTN  ItemNum;
+   UINTN  Index;
+ 
+-  ASSERT (BootOptions != NULL);
++  ItemNum = 0;
++  if (BootOptions != NULL) {
++    for (Index = 0; Index < BootOptionCount; Index++) {
++      if (IgnoreBootOption (&BootOptions[Index])) {
++        continue;
++      }
+ 
+-  for (ItemNum = 0, Index = 0; Index < BootOptionCount; Index++) {
+-    if (IgnoreBootOption (&BootOptions[Index])) {
+-      continue;
++      if (ItemNum++ == SelectItem) {
++        EfiBootManagerBoot (&BootOptions[Index]);
++        break;
++      }
      }
-   }
-+
++  }
+ 
+-    if (ItemNum++ == SelectItem) {
+-      EfiBootManagerBoot (&BootOptions[Index]);
+-      break;
+-    }
 +  // Power Off
 +  if (SelectItem == ItemNum) {
 +    gRT->ResetSystem (EfiResetShutdown, EFI_SUCCESS, 0, NULL);
@@ -102,15 +133,62 @@ index ef19319614..72b399bfa0 100644
 +  // Exit
 +  if (SelectItem == ItemNum + 1) {
 +    gBS->Exit (gImageHandle, EFI_SUCCESS, 0, NULL);
-+  }
+   }
  }
  
- /**
+@@ -1005,7 +1031,7 @@ BootManagerMenuEntry (
+   EFI_GRAPHICS_OUTPUT_PROTOCOL     *GraphicsOutput;
+   EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL  *SimpleTextOut;
+   UINTN                            BootTextColumn;
+-  UINTN                            BootTextRow;
++  UINTN                            BootTextRow = 0;
+ 
+   //
+   // Set Logo status invalid when boot manager menu is launched
+@@ -1118,15 +1144,27 @@ BootManagerMenuEntry (
+         case CHAR_NULL:
+           switch (Key.ScanCode) {
+             case SCAN_UP:
+-              SelectItem = BootMenuData.SelectItem == 0 ? BootMenuData.ItemCount - 1 : BootMenuData.SelectItem - 1;
++              SelectItem = BootMenuData.SelectItem == BootMenuData.ItemCount - 1 ? 0 : BootMenuData.SelectItem + 1;
+               BootMenuSelectItem (SelectItem, &BootMenuData);
+               break;
+ 
+             case SCAN_DOWN:
+-              SelectItem = BootMenuData.SelectItem == BootMenuData.ItemCount - 1 ? 0 : BootMenuData.SelectItem + 1;
++              SelectItem = BootMenuData.SelectItem == 0 ? BootMenuData.ItemCount - 1 : BootMenuData.SelectItem - 1;
+               BootMenuSelectItem (SelectItem, &BootMenuData);
+               break;
+ 
++            case 0x0102:
++            case 0x0085:
++            case SCAN_RIGHT:
++            case SCAN_PAGE_DOWN:
++            case SCAN_HOME:
++              gST->ConOut->ClearScreen (gST->ConOut);
++              BdsSetConsoleMode (FALSE);
++              BootFromSelectOption (BootOption, BootOptionCount, BootMenuData.SelectItem);
++              BdsSetConsoleMode (TRUE);
++              DrawBootPopupMenu (&BootMenuData);
++              break;
++
+             case SCAN_ESC:
+               gST->ConOut->ClearScreen (gST->ConOut);
+               ExitApplication = TRUE;
+@@ -1143,6 +1181,8 @@ BootManagerMenuEntry (
+           break;
+ 
+         case CHAR_CARRIAGE_RETURN:
++        case CHAR_LINEFEED:
++        case 0x0020:
+           gST->ConOut->ClearScreen (gST->ConOut);
+           //
+           // Set boot resolution for normal boot
 diff --git a/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.h b/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.h
-index 876237df18..2aa50e256e 100644
+index 697a44aeae..8b45ad193d 100644
 --- a/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.h
 +++ b/MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenu.h
-@@ -23,7 +23,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
+@@ -22,7 +22,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
  #include <Protocol/BootLogo.h>
  
  #define TITLE_TOKEN_COUNT  1
