@@ -25,9 +25,6 @@ APRIORI DXE {
   INF Binaries/annibale/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/annibale/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/annibale/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
-
-  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
-
   INF Binaries/annibale/QcomPkg/Drivers/RpmhDxe/RpmhDxe.inf
   INF Binaries/annibale/QcomPkg/Drivers/MailboxDxe/MailboxDxe.inf
   INF Binaries/annibale/QcomPkg/Drivers/QcomScmiDxe/QcomScmiDxe.inf
@@ -40,6 +37,8 @@ APRIORI DXE {
   INF Binaries/annibale/QcomPkg/Drivers/QupDxe/QupDxe.inf
   INF Binaries/annibale/QcomPkg/Drivers/I2CDxe/I2CDxe.inf
   INF Binaries/annibale/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
+
+  INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
   INF Binaries/annibale/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
