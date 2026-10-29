@@ -926,17 +926,17 @@
 
 ### UEFI Status
 
-| Feature            | Description              | State |
-|:-------------------|:-------------------------|:-----:|
-| Display            |                          | ✅    |
-| Internal Storage   |                          | ✅    |
-| Side Buttons       |                          | ✅    |
-| USB Host Mode      |                          | ❌    |
-| USB Device Mode    |                          | ✅    |
-| USB Power Delivery |                          | ❌    |
-| Mass Storage       | macOS Hosts Kernel Panic | ⚠️    |
-| Windows Boot       |                          | ❌    |
-| Linux Boot         |                          | ❌    |
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
 
 </details>
 
