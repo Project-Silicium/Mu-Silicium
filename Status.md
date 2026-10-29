@@ -4146,6 +4146,30 @@
 
 </details>
 
+<details>
+<summary><b><strong>Realme Devices</strong></b></summary>
+
+## Realme GT Master Edition
+
+**State:** Active <br>
+**Codename:** lunaa
+
+### UEFI Status
+
+| Feature            | Description            | State |
+|:-------------------|:-----------------------|:-----:|
+| Display            | Native GOP (1080x2400) | ✅    |
+| Internal Storage   | UFS 2.2                | ✅    |
+| Side Buttons       |                        | ✅    |
+| USB Host Mode      |                        | ❌    |
+| USB Device Mode    |                        | ✅    |
+| USB Power Delivery |                        | ❌    |
+| Mass Storage       |                        | ✅    |
+| Windows Boot       |                        | ❌    |
+| Linux Boot         |                        | ❌    |
+
+</details>
+
 ---
 
 </details>
