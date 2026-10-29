@@ -912,6 +912,34 @@
 </table>
 </details>
 
+<details>
+<summary><b><strong>Xiaomi Devices</strong></b></summary>
+
+## Xiaomi Redmi K90
+
+<img align="right" src="Resources/Pictures/Xiaomi-Redmi-K90.png" width="500" alt="Preview">
+
+**State:** Active <br>
+**Codename:** annibale
+
+**Contributors:** [wljf817](https://github.com/wljf817/)
+
+### UEFI Status
+
+| Feature            | Description | State |
+|:-------------------|:------------|:-----:|
+| Display            |             | ✅    |
+| Internal Storage   |             | ✅    |
+| Side Buttons       |             | ✅    |
+| USB Host Mode      |             | ❌    |
+| USB Device Mode    |             | ✅    |
+| USB Power Delivery |             | ❌    |
+| Mass Storage       |             | ✅    |
+| Windows Boot       |             | ❌    |
+| Linux Boot         |             | ❌    |
+
+</details>
+
 ---
 
 </details>
