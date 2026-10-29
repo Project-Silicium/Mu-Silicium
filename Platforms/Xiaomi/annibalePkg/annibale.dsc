@@ -65,7 +65,7 @@
   #
   # Platform PEI
   #
-  gQcomPkgTokenSpaceGuid.PcdPlatformType|"LA"
+  gQcomPkgTokenSpaceGuid.PcdPlatformType|"WP"
 
 [LibraryClasses]
   #
