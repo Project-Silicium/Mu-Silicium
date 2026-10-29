@@ -23,6 +23,7 @@
   BootGraphicsLib
   DevicePathLib
   UefiLib
+  PrintLib
 
 [Guids]
   gEfiUfsLU0Guid

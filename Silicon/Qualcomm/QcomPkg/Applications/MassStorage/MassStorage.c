@@ -5,6 +5,7 @@
 #include <Library/DevicePathLib.h>
 #include <Library/BootGraphics.h>
 #include <Library/UefiLib.h>
+#include <Library/PrintLib.h>
 
 #include <Protocol/EFIUsbMsd.h>
 
@@ -17,40 +18,55 @@ STATIC EFI_GRAPHICS_OUTPUT_PROTOCOL *mGopProtocol;
 STATIC EFI_USB_MSD_PROTOCOL         *mUsbMsdProtocol;
 
 VOID
-PrintUI (IN CHAR8 *Message)
+PrintStatusLine (
+  IN UINTN        Line,
+  IN CONST CHAR8 *Format,
+  ...
+  )
 {
-  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color[2];
-  UINTN                         YPos;
+  VA_LIST                       Marker;
+  CHAR8                         Buffer[128];
+  UINT32                        ScreenWidth;
+  UINT32                        ScreenHeight;
   UINTN                         XPos;
+  UINTN                         YPos;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL Color[2];
 
-  // Verify Parameter
-  if (Message == NULL) {
+  if (mGopProtocol == NULL || Format == NULL) {
     return;
   }
 
-  // Get Screen Resolution
-  UINT32 ScreenWidth  = mGopProtocol->Mode->Info->HorizontalResolution;
-  UINT32 ScreenHeight = mGopProtocol->Mode->Info->VerticalResolution;
+  VA_START (Marker, Format);
+  AsciiVSPrint (Buffer, sizeof (Buffer), Format, Marker);
+  VA_END (Marker);
 
-  // Calculate Message Position
-  XPos = (ScreenWidth - AsciiStrLen (Message) * EFI_GLYPH_WIDTH) / 2;
-  YPos = (ScreenHeight - EFI_GLYPH_HEIGHT) * 48 / 50;
+  ScreenWidth  = mGopProtocol->Mode->Info->HorizontalResolution;
+  ScreenHeight = mGopProtocol->Mode->Info->VerticalResolution;
 
-  // Set Draw Colors
+  XPos = (ScreenWidth - AsciiStrLen (Buffer) * EFI_GLYPH_WIDTH) / 2;
+  YPos = (ScreenHeight - EFI_GLYPH_HEIGHT) * (44 + Line * 2) / 50;
+
   Color[0].Red = Color[0].Green = Color[0].Blue = 0;
   Color[1].Red = Color[1].Green = Color[1].Blue = 255;
 
-  // Clear Message Row
   mGopProtocol->Blt (mGopProtocol, &Color[0], EfiBltVideoFill, 0, 0, 0, YPos, ScreenWidth, 20, 0);
+  AsciiPrintXY (XPos, YPos, &Color[1], NULL, Buffer);
+}
 
-  // Print Message
-  AsciiPrintXY (XPos, YPos, &Color[1], NULL, Message);
+VOID
+PrintUI (IN CHAR8 *Message)
+{
+  PrintStatusLine (0, "%a", Message);
 }
 
 EFI_INPUT_KEY
 GetPressedKey (IN BOOLEAN Wait)
 {
+  EFI_STATUS    Status;
   EFI_INPUT_KEY Key;
+
+  Key.ScanCode    = SCAN_NULL;
+  Key.UnicodeChar = CHAR_NULL;
 
   // Wait for Keypress
   if (Wait) {
@@ -58,7 +74,11 @@ GetPressedKey (IN BOOLEAN Wait)
   }
 
   // Get Detected Keypress
-  gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
+  Status = gST->ConIn->ReadKeyStroke (gST->ConIn, &Key);
+  if (EFI_ERROR (Status)) {
+    Key.ScanCode    = SCAN_NULL;
+    Key.UnicodeChar = CHAR_NULL;
+  }
 
   return Key;
 }
@@ -67,25 +87,38 @@ VOID
 MassStorageStart ()
 {
   EFI_STATUS Status;
+  UINT32     LoopCounter = 0;
 
   // Show Cancel Instruction
-  PrintUI ("[Volume Up] Exit Mass Storage");
+  PrintStatusLine (0, "[Volume / Power] Exit Mass Storage");
+
+  // Flush any leftover keypresses from menu
+  gST->ConIn->Reset (gST->ConIn, FALSE);
 
   // Start USB Device
   Status = mUsbMsdProtocol->StartDevice (mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Start USB Device! Status = %r\n", __FUNCTION__, Status));
+    PrintStatusLine (2, "StartDevice Failed: %r", Status);
+    GetPressedKey (TRUE);
     return;
   }
+
+  PrintStatusLine (2, "USB Active. Waiting for PC...");
 
   while (TRUE) {
     // Handle USB Events
     mUsbMsdProtocol->EventHandler (mUsbMsdProtocol);
 
-    // Get current Keypress
-    EFI_INPUT_KEY Key = GetPressedKey (FALSE);
-    if (Key.ScanCode == SCAN_UP) {
-      break;
+    // Only poll buttons every 5000 events to avoid starving USB controller
+    if (++LoopCounter >= 5000) {
+      LoopCounter = 0;
+
+      // Get current Keypress (any button exits)
+      EFI_INPUT_KEY Key = GetPressedKey (FALSE);
+      if (Key.ScanCode == SCAN_UP || Key.ScanCode == SCAN_DOWN || Key.ScanCode == 0x0102) {
+        break;
+      }
     }
   }
 
@@ -105,16 +138,16 @@ AssignStorageHandles ()
   EFI_HANDLE                ProtocolHandle    = NULL;
   UINT8                     AssignableMsdLuns = 0;
   UINT8                     AssignedMsdLuns   = 0;
+  CHAR8                     LunStr[64];
 
-  // Set Storage GUIDs
+  LunStr[0] = '\0';
+
+  // Set Storage GUIDs: enable all UFS LUNs (0-7), eMMC, and SD
   EFI_GUID StorageGuid[] = {
-    gEfiUfsLU0Guid,
-    /*
     gEfiUfsLU0Guid,            gEfiUfsLU1Guid,
     gEfiUfsLU2Guid,            gEfiUfsLU3Guid,
     gEfiUfsLU4Guid,            gEfiUfsLU5Guid,
     gEfiUfsLU6Guid,            gEfiUfsLU7Guid,
-    */
     gEfiEmmcUserPartitionGuid, gEfiSdRemovableGuid
   };
 
@@ -122,13 +155,13 @@ AssignStorageHandles ()
   Status = mUsbMsdProtocol->QueryMaxLun (mUsbMsdProtocol, &AssignableMsdLuns);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to get Number of Max Assignable LUNs! Status = %r\n", __FUNCTION__, Status));
-    AssignableMsdLuns = 2;
+    AssignableMsdLuns = 8;
   }
 
   // Go thru each Storage
   for (UINT8 i = 0; i < ARRAY_SIZE (StorageGuid); i++) {
     // Compare Assigned and Assignable LUNs
-    if (AssignedMsdLuns + 1 == AssignableMsdLuns) {
+    if (AssignedMsdLuns >= AssignableMsdLuns) {
       break;
     }
 
@@ -148,19 +181,23 @@ AssignStorageHandles ()
     Status = gBS->HandleProtocol (ProtocolHandle, &gEfiBlockIoProtocolGuid, (VOID *)&BlkIoProtocol);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Failed to Get BLKIO Protocol from Storage %u Device Path!\n", __FUNCTION__, i));
-      return Status;
+      continue;
     }
 
     // Assign Storage BLKIO Protocol
     Status = mUsbMsdProtocol->AssignBlkIoHandle (mUsbMsdProtocol, BlkIoProtocol, AssignedMsdLuns);
     if (!EFI_ERROR (Status)) {
+      AsciiSPrint (LunStr + AsciiStrLen (LunStr), sizeof (LunStr) - AsciiStrLen (LunStr), " LU%u", i);
       AssignedMsdLuns++;
     }
   }
 
+  PrintStatusLine (1, "Assigned %u LUNs:%a", AssignedMsdLuns, LunStr);
+
   // Verify Assigned MSD LUNs
   if (!AssignedMsdLuns) {
     DEBUG ((EFI_D_ERROR, "%a: No BLKIO Protocol was Assigned!\n", __FUNCTION__));
+    PrintStatusLine (1, "No Storage Protocol Assigned!");
     return EFI_NOT_FOUND;
   }
 
@@ -182,24 +219,31 @@ MassStorageEntry (
     return Status;
   }
 
+  // Show Mass Storage Splash
+  DisplayBootGraphic (BG_MASS_STORAGE);
+
+  // Show initial instruction
+  PrintStatusLine (0, "[Volume / Power] Exit Mass Storage");
+
   // Locate USB MSD Protocol
   Status = gBS->LocateProtocol (&gEfiUsbMsdProtocolGuid, NULL, (VOID *)&mUsbMsdProtocol);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate USB MSD Protocol! Status = %r\n", __FUNCTION__, Status));
+    PrintStatusLine (1, "Locate USB MSD Failed: %r", Status);
+    GetPressedKey (TRUE);
     return Status;
   }
 
   // Assign Storage Handles
   Status = AssignStorageHandles ();
   if (EFI_ERROR (Status)) {
+    PrintStatusLine (2, "Storage Assign Failed: %r", Status);
+    GetPressedKey (TRUE);
     return Status;
   }
 
   // Disable Watchdog Timer
   gBS->SetWatchdogTimer (0, 0, 0, (CHAR16 *)NULL);
-
-  // Show Mass Storage Splash
-  DisplayBootGraphic (BG_MASS_STORAGE);
 
   // Start Mass Storage
   MassStorageStart ();
