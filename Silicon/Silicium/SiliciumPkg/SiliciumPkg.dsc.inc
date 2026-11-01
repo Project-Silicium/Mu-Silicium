@@ -30,12 +30,12 @@
   # ACPI
   #
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorId|0x4C495350
-  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorRevision|0x00000040
+  gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorRevision|0x00000041
 
   #
   # Firmware Details
   #
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"4.0"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"4.1"
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Project Silicium"
 
   #
