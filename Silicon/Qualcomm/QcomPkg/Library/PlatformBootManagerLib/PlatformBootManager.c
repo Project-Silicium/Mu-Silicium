@@ -39,16 +39,6 @@ DeviceBootManagerAfterConsole ()
   gBS->SignalEvent (InitEvent);
   gBS->CloseEvent  (InitEvent);
 
-  return NULL;
-}
-
-EFI_DEVICE_PATH_PROTOCOL**
-EFIAPI
-DeviceBootManagerOnDemandConInConnect ()
-{
-  EFI_STATUS Status;
-  EFI_EVENT  InitEvent;
-
   // Create USB Controller Start Event
   Status = gBS->CreateEventEx (EVT_NOTIFY_SIGNAL, TPL_CALLBACK, DummyNotify, NULL, &gUsbControllerInitGuid, &InitEvent);
   if (EFI_ERROR (Status)) {
@@ -60,6 +50,13 @@ DeviceBootManagerOnDemandConInConnect ()
   gBS->SignalEvent (InitEvent);
   gBS->CloseEvent  (InitEvent);
 
+  return NULL;
+}
+
+EFI_DEVICE_PATH_PROTOCOL**
+EFIAPI
+DeviceBootManagerOnDemandConInConnect ()
+{
   return NULL;
 }
 
