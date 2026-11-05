@@ -1605,10 +1605,10 @@
 
 <img align="right" src="Resources/Pictures/Xiaomi-13-Pro.png" width="350" alt="Preview">
 
-**State:** Inactive <br>
+**State:** Active <br>
 **Codename:** nuwa
 
-**Contributors:** [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)
+**Contributors:** [Alfa](https://github.com/alfaonyt/), [Robotix](https://github.com/Robotix22/)
 
 ### UEFI Status
 
@@ -1639,11 +1639,11 @@
 | Side Buttons         |                         | ✅    |
 | Proximity Sensor     |                         | ❌    |
 | Light Sensor         |                         | ❌    |
-| Accelerometer Sensor |                         | ❌    |
-| Gyroscope Sensor     |                         | ❌    |
+| Accelerometer Sensor |                         | ✅    |
+| Gyroscope Sensor     |                         | ✅    |
 | Magnetometer Sensor  |                         | ❌    |
 | Fingerprint Sensor   |                         | ❌    |
-| NFC Sensor           |                         | ❌    |
+| NFC Sensor           | Expected to work; untested | ❔ |
 | Temperature Sensor   |                         | ❌    |
 | Battery              |                         | ✅    |
 | USB Host Mode        |                         | ✅    |
@@ -1652,16 +1652,17 @@
 | Charging             |                         | ✅    |
 | WLAN                 |                         | ✅    |
 | CPU                  |                         | ✅    |
-| Touchscreen          |                         | ❌    |
+| Touchscreen          |                         | ✅    |
 | Bluetooth            |                         | ✅    |
 | GPS                  |                         | ❌    |
 | Speakers             |                         | ✅    |
 | Microphone           |                         | ❌    |
 | GPU                  |                         | ✅    |
-| Camera               |                         | ❌    |
-| Mobile Data          |                         | ✅    |
+| Camera               | Ultrawide reported working but reversed; untested | ⚠️ |
+| Mobile Data          | SIM and networks detected; not fully tested | ⚠️ |
 | Display              |                         | ✅    | 
-| Vibration            |                         | ❌    |
+| Vibration            |                         | ✅    |
+| IR Blaster           |                         | ✅    |
 
 </td></tr>
 </table>
