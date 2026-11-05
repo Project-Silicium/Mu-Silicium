@@ -13,6 +13,8 @@ APRIORI DXE {
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF Binaries/nuwa/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
+  # PIL loads the entire ABL partition into memory during initialization.
+  INF SiliciumPkg/Drivers/RamManagerDxe/RamManagerDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/nuwa/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
