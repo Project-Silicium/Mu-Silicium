@@ -1608,9 +1608,7 @@
 **State:** Active <br>
 **Codename:** nuwa
 
-**Maintainer:** [Alfa](https://github.com/alfaonyt/)
-
-**Contributors:** [Robotix](https://github.com/Robotix22/), [Alfa](https://github.com/alfaonyt/)
+**Contributors:** [Alfa](https://github.com/alfaonyt/), [Robotix](https://github.com/Robotix22/)
 
 ### UEFI Status
 
@@ -1645,7 +1643,7 @@
 | Gyroscope Sensor     |                         | ✅    |
 | Magnetometer Sensor  |                         | ❌    |
 | Fingerprint Sensor   |                         | ❌    |
-| NFC Sensor           |                         | ❌    |
+| NFC Sensor           | Expected to work; untested | ❔ |
 | Temperature Sensor   |                         | ❌    |
 | Battery              |                         | ✅    |
 | USB Host Mode        |                         | ✅    |
@@ -1663,7 +1661,8 @@
 | Camera               | Ultrawide reported working but reversed; untested | ⚠️ |
 | Mobile Data          | SIM and networks detected; not fully tested | ⚠️ |
 | Display              |                         | ✅    | 
-| Vibration            |                         | ❌    |
+| Vibration            |                         | ✅    |
+| IR Blaster           |                         | ✅    |
 
 </td></tr>
 </table>

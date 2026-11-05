@@ -119,13 +119,9 @@ GetXblHobAddresses (
   }
 
   // Go thru the Reserved FD Region
-  for (UINTN Offset = 0; Offset + ARM64_TOTAL_INSTRUCTION_LENGTH (9) <= ReservedFd.Length; Offset += ARM64_INSTRUCTION_LENGTH) {
-    EFI_PHYSICAL_ADDRESS Current = ReservedFd.Address + Offset;
-
+  for (EFI_PHYSICAL_ADDRESS Current = ReservedFd.Address; Current < ReservedFd.Address + ReservedFd.Length; Current += ARM64_INSTRUCTION_LENGTH) {
     // Check for Basic HOB Registration Function
-    // Instructions are four-byte aligned; a 64-bit load can fault at Current + 4.
-    if (ARM64_INSTRUCTION (Current) != 0xD10083FF ||
-        ARM64_INSTRUCTION (Current + ARM64_INSTRUCTION_LENGTH) != 0xA9017BFD) {
+    if (*(UINT64 *)Current != 0xA9017BFDD10083FF) {
       continue;
     }
 
