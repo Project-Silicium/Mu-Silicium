@@ -246,44 +246,36 @@ FileSystemCallback (
   UINTN                            SfsCount    = 0;
 
   while (TRUE) {
-    // Locate SFS Protocol Handles
+    SfsBuffer = NULL;
+    SfsCount = 0;
     Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, RegisteredSfsProtocol, &SfsCount, &SfsBuffer);
-    if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate SFS Protocol Handles! Status = %r\n", __FUNCTION__, Status));
-      continue;
-    }
-
-    // Check SFS Handle Presense
-    if (Status == EFI_NOT_FOUND) {
+    if (EFI_ERROR (Status)) {
+      if (SfsBuffer != NULL) {
+        FreePool (SfsBuffer);
+      }
       break;
     }
 
-    // Get SFS Protocol
-    Status = gBS->HandleProtocol (SfsBuffer[0], &gEfiSimpleFileSystemProtocolGuid, (VOID *)&SfsProtocol);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to get SFS Protocol! Status = %r\n", __FUNCTION__, Status));
-      continue;
+    for (UINTN Index = 0; Index < SfsCount; ++Index) {
+      SfsProtocol = NULL;
+      FsVolume = NULL;
+      Status = gBS->HandleProtocol (SfsBuffer[Index], &gEfiSimpleFileSystemProtocolGuid, (VOID **)&SfsProtocol);
+      if (EFI_ERROR (Status) || SfsProtocol == NULL) {
+        continue;
+      }
+      Status = SfsProtocol->OpenVolume (SfsProtocol, &FsVolume);
+      if (EFI_ERROR (Status) || FsVolume == NULL) {
+        continue;
+      }
+      ProcessFileSystem (FsVolume);
+      Status = FsVolume->Close (FsVolume);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "%a: Failed to close FS volume: %r\n", __FUNCTION__, Status));
+      }
     }
-
-    // Open FS Volume
-    Status = SfsProtocol->OpenVolume (SfsProtocol, &FsVolume);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Open FS Volume! Status = %r\n", __FUNCTION__, Status));
-      continue;
-    }
-
-    // Process File System
-    ProcessFileSystem (FsVolume);
-
-    // Free Buffer
     if (SfsBuffer != NULL) {
       FreePool (SfsBuffer);
     }
-  }
-
-  // Free Buffer
-  if (SfsBuffer != NULL) {
-    FreePool (SfsBuffer);
   }
 }
 
