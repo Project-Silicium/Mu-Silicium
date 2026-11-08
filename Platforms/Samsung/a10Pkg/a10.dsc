@@ -70,7 +70,7 @@
   #
   # ACPI Tables
   #
-  #a10/AcpiTables.inf
+  a10/AcpiTables.inf
 
   #
   # Input
