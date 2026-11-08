@@ -71,3 +71,8 @@
   # IO Libraries
   #
   GpioBankLib|S5E7885Pkg/Library/GpioBankLib/GpioBankLib.inf
+
+  #
+  # Storage Libraries
+  #
+  PlatformMshcLib|S5E7870Pkg/Library/PlatformMshcLib/PlatformMshcLib.inf
