@@ -70,7 +70,7 @@
   #
   # ACPI Tables
   #
-  #gta3xllte/AcpiTables.inf
+  gta3xllte/AcpiTables.inf
 
   #
   # Input
