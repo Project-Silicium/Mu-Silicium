@@ -246,36 +246,55 @@ FileSystemCallback (
   UINTN                            SfsCount    = 0;
 
   while (TRUE) {
+    // Reset SFS Handle Buffer Details
     SfsBuffer = NULL;
-    SfsCount = 0;
+    SfsCount  = 0;
+
+    // Locate SFS Protocol Handles
     Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, RegisteredSfsProtocol, &SfsCount, &SfsBuffer);
     if (EFI_ERROR (Status)) {
-      if (SfsBuffer != NULL) {
-        FreePool (SfsBuffer);
-      }
       break;
     }
 
-    for (UINTN Index = 0; Index < SfsCount; ++Index) {
+    // Go thru each SFS Handle
+    for (UINTN i = 0; i < SfsCount; i++) {
+      // Reset SFS Protocol Details
       SfsProtocol = NULL;
-      FsVolume = NULL;
-      Status = gBS->HandleProtocol (SfsBuffer[Index], &gEfiSimpleFileSystemProtocolGuid, (VOID **)&SfsProtocol);
-      if (EFI_ERROR (Status) || SfsProtocol == NULL) {
+      FsVolume    = NULL;
+
+      // Get SFS Protocol
+      Status = gBS->HandleProtocol (SfsBuffer[i], &gEfiSimpleFileSystemProtocolGuid, (VOID **)&SfsProtocol);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "%a: Failed to get SFS Protocol! Status = %r\n", __FUNCTION__, Status));
         continue;
       }
+
+      // Open FS Volume
       Status = SfsProtocol->OpenVolume (SfsProtocol, &FsVolume);
-      if (EFI_ERROR (Status) || FsVolume == NULL) {
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "%a: Failed to Open FS Volume! Status = %r\n", __FUNCTION__, Status));
         continue;
       }
+
+      // Process File System
       ProcessFileSystem (FsVolume);
+
+      // Close FS Volume
       Status = FsVolume->Close (FsVolume);
       if (EFI_ERROR (Status)) {
-        DEBUG ((EFI_D_ERROR, "%a: Failed to close FS volume: %r\n", __FUNCTION__, Status));
+        DEBUG ((EFI_D_ERROR, "%a: Failed to Close FS Volume! Status = %r\n", __FUNCTION__, Status));
       }
     }
+
+    // Free Buffer
     if (SfsBuffer != NULL) {
       FreePool (SfsBuffer);
     }
+  }
+
+  // Free Buffer
+  if (SfsBuffer != NULL) {
+    FreePool (SfsBuffer);
   }
 }
 
