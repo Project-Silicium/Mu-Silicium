@@ -246,34 +246,45 @@ FileSystemCallback (
   UINTN                            SfsCount    = 0;
 
   while (TRUE) {
+    // Reset SFS Handle Buffer Details
+    SfsBuffer = NULL;
+    SfsCount  = 0;
+
     // Locate SFS Protocol Handles
     Status = gBS->LocateHandleBuffer (ByRegisterNotify, NULL, RegisteredSfsProtocol, &SfsCount, &SfsBuffer);
-    if (EFI_ERROR (Status) && Status != EFI_NOT_FOUND) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Locate SFS Protocol Handles! Status = %r\n", __FUNCTION__, Status));
-      continue;
-    }
-
-    // Check SFS Handle Presense
-    if (Status == EFI_NOT_FOUND) {
+    if (EFI_ERROR (Status)) {
       break;
     }
 
-    // Get SFS Protocol
-    Status = gBS->HandleProtocol (SfsBuffer[0], &gEfiSimpleFileSystemProtocolGuid, (VOID *)&SfsProtocol);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to get SFS Protocol! Status = %r\n", __FUNCTION__, Status));
-      continue;
-    }
+    // Go thru each SFS Handle
+    for (UINTN i = 0; i < SfsCount; i++) {
+      // Reset SFS Protocol Details
+      SfsProtocol = NULL;
+      FsVolume    = NULL;
 
-    // Open FS Volume
-    Status = SfsProtocol->OpenVolume (SfsProtocol, &FsVolume);
-    if (EFI_ERROR (Status)) {
-      DEBUG ((EFI_D_ERROR, "%a: Failed to Open FS Volume! Status = %r\n", __FUNCTION__, Status));
-      continue;
-    }
+      // Get SFS Protocol
+      Status = gBS->HandleProtocol (SfsBuffer[i], &gEfiSimpleFileSystemProtocolGuid, (VOID **)&SfsProtocol);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "%a: Failed to get SFS Protocol! Status = %r\n", __FUNCTION__, Status));
+        continue;
+      }
 
-    // Process File System
-    ProcessFileSystem (FsVolume);
+      // Open FS Volume
+      Status = SfsProtocol->OpenVolume (SfsProtocol, &FsVolume);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "%a: Failed to Open FS Volume! Status = %r\n", __FUNCTION__, Status));
+        continue;
+      }
+
+      // Process File System
+      ProcessFileSystem (FsVolume);
+
+      // Close FS Volume
+      Status = FsVolume->Close (FsVolume);
+      if (EFI_ERROR (Status)) {
+        DEBUG ((EFI_D_ERROR, "%a: Failed to Close FS Volume! Status = %r\n", __FUNCTION__, Status));
+      }
+    }
 
     // Free Buffer
     if (SfsBuffer != NULL) {
