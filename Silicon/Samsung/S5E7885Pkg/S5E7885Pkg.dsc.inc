@@ -80,4 +80,4 @@
   #
   # Storage Libraries
   #
-  PlatformMshcLib|S5E7870Pkg/Library/PlatformMshcLib/PlatformMshcLib.inf
+  PlatformMshcLib|S5E7885Pkg/Library/PlatformMshcLib/PlatformMshcLib.inf

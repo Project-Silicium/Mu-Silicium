@@ -418,13 +418,13 @@
 | Feature            | Description | State |
 |:-------------------|:------------|:-----:|
 | Display            |             | ✅    |
-| Internal Storage   |             | ❌    |
+| Internal Storage   |             | ✅    |
 | Side Buttons       |             | ✅    |
 | USB Host Mode      |             | ❌    |
 | USB Device Mode    |             | ❌    |
 | USB Power Delivery |             | ❌    |
 | SD Card            |             | ❌    |
-| Windows Boot       |             | ❌    |
+| Windows Boot       |             | ✅    |
 | Linux Boot         |             | ❌    |
 
 ## Samsung Galaxy A7 (2018)
