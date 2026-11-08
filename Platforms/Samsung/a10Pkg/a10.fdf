@@ -90,9 +90,9 @@ READ_LOCK_STATUS   = TRUE
   INF SiliciumPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI
-  #INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
-  #INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  #INF RuleOverride = ACPITABLE a10/AcpiTables.inf
+  INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  INF RuleOverride = ACPITABLE a10/AcpiTables.inf
 
   # Device Tree
   #INF EmbeddedPkg/Drivers/DtPlatformDxe/DtPlatformDxe.inf
@@ -100,6 +100,13 @@ READ_LOCK_STATUS   = TRUE
   #  SECTION RAW = a10Pkg/FdtBlob/s5e7885-samsung-a10.dtb
   #  SECTION UI = "DeviceTreeBlob"
   #}
+
+  # Hypervisor
+  INF SamsungPkg/Drivers/HypLoaderDxe/HypLoaderDxe.inf
+  FILE FREEFORM = PCD (gSamsungPkgTokenSpaceGuid.PcdHypFile) {
+    SECTION RAW = S5E7885Pkg/Include/Firmware/Hyp.bin
+    SECTION UI = "Hypervisor"
+  }
 
   !include SamsungPkg/Extra.fdf.inc
 

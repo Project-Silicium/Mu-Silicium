@@ -21,11 +21,16 @@
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+  INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
+  INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
+  INF FatPkg/EnhancedFatDxe/Fat.inf
+  INF MdeModulePkg/Universal/Disk/UnicodeCollation/EnglishDxe/EnglishDxe.inf
 
   INF SamsungPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF SamsungPkg/Drivers/GpioDxe/GpioDxe.inf
   INF SamsungPkg/Drivers/SpeedyDxe/SpeedyDxe.inf
   INF SamsungPkg/Drivers/PmicDxe/PmicDxe.inf
+  INF SamsungPkg/Drivers/MshcDxe/MshcDxe.inf
 
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
   INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
