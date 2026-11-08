@@ -23,3 +23,7 @@
 [Guids]
   gUsbControllerInitGuid
   gSdCardInitGuid
+  gEfiEventExitBootServicesGuid
+
+[Protocols]
+  gQcomScmProtocolGuid
