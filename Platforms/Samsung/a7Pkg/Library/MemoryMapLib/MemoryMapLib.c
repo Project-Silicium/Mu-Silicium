@@ -14,6 +14,10 @@ gMemoryDescriptor[] = {
   {"ABOX",               0xE9400000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
   {"Display Reserved",   0xEC000000, 0x0085A000, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH},
 
+  // iRAM Regions
+  {"IRAM",               0x02020000, 0x00029000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   DEVICE},
+  {"NS_IRAM",            0x02049000, 0x00024000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
+
   // Register Regions
   {"Chip Info",          0x10000000, 0x00001000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
   {"PMU",                0x11C80000, 0x00010000, AddDev, MMAP_IO, UNCACHEABLE, MmIO,   NS_DEVICE},
