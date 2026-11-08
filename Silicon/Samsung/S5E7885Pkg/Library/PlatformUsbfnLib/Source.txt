@@ -1,0 +1,12 @@
+REPO:   https://github.com/VDavid003/linux
+BRANCH: linux-6.11-rc2-7885
+FILES:  drivers/phy/samsung/phy-exynos5-usbdrd.c
+        drivers/clk/samsung/clk-exynos7885.c
+        drivers/clk/samsung/clk-pll.c
+        include/linux/soc/samsung/exynos-regs-pmu.h
+        arch/arm64/boot/dts/exynos/exynos7885.dtsi
+
+REPO:   https://github.com/danascape/kernel_samsung_t515
+BRANCH: default
+FILES:  arch/arm64/boot/dts/exynos/dtbo/exynos7885.dts
+        arch/arm64/boot/dts/exynos/dtbo/exynos7904-gta3xl_common.dtsi
