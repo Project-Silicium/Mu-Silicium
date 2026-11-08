@@ -68,6 +68,16 @@
   PlatformSecLib|S5E7885Pkg/Library/PlatformSecLib/PlatformSecLib.inf
 
   #
+  # Memory Libraries
+  #
+  IoMmuLib|MdeModulePkg/Library/IoMmuLibNull/IoMmuLibNull.inf
+
+  #
   # IO Libraries
   #
   GpioBankLib|S5E7885Pkg/Library/GpioBankLib/GpioBankLib.inf
+
+  #
+  # Storage Libraries
+  #
+  PlatformMshcLib|S5E7870Pkg/Library/PlatformMshcLib/PlatformMshcLib.inf
