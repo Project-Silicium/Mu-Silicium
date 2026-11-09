@@ -81,3 +81,8 @@
   # Storage Libraries
   #
   PlatformMshcLib|S5E7885Pkg/Library/PlatformMshcLib/PlatformMshcLib.inf
+
+  #
+  # USB Libraries
+  #
+  PlatformUsbfnLib|S5E7885Pkg/Library/PlatformUsbfnLib/PlatformUsbfnLib.inf
