@@ -421,7 +421,7 @@
 | Internal Storage   |             | ✅    |
 | Side Buttons       |             | ✅    |
 | USB Host Mode      |             | ❌    |
-| USB Device Mode    |             | ❌    |
+| USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
 | SD Card            |             | ❌    |
 | Windows Boot       |             | ✅    |
