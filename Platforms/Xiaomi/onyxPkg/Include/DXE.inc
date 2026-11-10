@@ -57,7 +57,7 @@
 
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-  #INF Binaries/onyx/QcomPkg/Drivers/RscDxe/RscDxe.inf
+  INF Binaries/onyx/QcomPkg/Drivers/RscDxe/RscDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/BatterySecretDxe/ac_slg/OneWireDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/BatterySecretDxe/maxim_ds28e30/Ds28e30Dxe.inf
 
@@ -70,7 +70,7 @@
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   INF Binaries/onyx/QcomPkg/Drivers/CPRDxe/CPRDxe.inf
 !endif
-  INF Binaries/onyx/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
+  #INF Binaries/onyx/QcomPkg/Drivers/GpiDxe/GpiDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
@@ -107,6 +107,4 @@
   INF Binaries/onyx/QcomPkg/Drivers/RNGDxe/RngDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/SSRDxe/SSRDxe.inf
-
