@@ -427,6 +427,11 @@
 | Windows Boot       |             | ✅    |
 | Linux Boot         |             | ❌    |
 
+<table>
+<tr><th>Windows</th>
+</tr>
+<tr><td>
+
 > [!IMPORTANT]
 > Only Windows PE boots.
 
@@ -459,6 +464,9 @@
 | Mobile Data          |              | ❌    |
 | Display              |              | ✅    | 
 | Vibration            |              | ❌    |
+
+</td></tr>
+</table>
 
 ## Samsung Galaxy A10
 
@@ -492,6 +500,11 @@
 | Windows Boot       |             | ✅    |
 | Linux Boot         |             | ❌    |
 
+<table>
+<tr><th>Windows</th>
+</tr>
+<tr><td>
+
 > [!IMPORTANT]
 > Only Windows PE boots.
 
@@ -524,6 +537,9 @@
 | Mobile Data          |              | ❌    |
 | Display              |              | ✅    | 
 | Vibration            |              | ❌    |
+
+</td></tr>
+</table>
 
 ## Samsung Galaxy A7 (2018)
 
