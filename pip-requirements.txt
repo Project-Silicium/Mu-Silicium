@@ -13,8 +13,8 @@
 ##
 
 edk2-pytool-library~=0.23.17
-edk2-pytool-extensions~=0.31.2
+edk2-pytool-extensions~=0.31.3
 antlr4-python3-runtime==4.13.2
-regex==2026.9.29
+regex==2026.11.7
 pefile~=2024.8.26
 coloredlogs
