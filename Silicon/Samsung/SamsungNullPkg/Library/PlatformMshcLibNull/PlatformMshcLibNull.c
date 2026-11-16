@@ -1,9 +1,18 @@
 #include <Library/DebugLib.h>
 #include <Library/MshcHostBridge.h>
 
-EFI_STATUS
-MshcBoardInit (IN OUT MSHC_HOST *Host)
+UINTN
+MshcBoardGetHostCount (VOID)
 {
+  return 0;
+}
+
+EFI_STATUS
+MshcBoardInit (
+  IN     UINTN      Index,
+  IN OUT MSHC_HOST *Host)
+{
+  (VOID)Index;
   Host->Coherent = FALSE;
   DEBUG ((EFI_D_ERROR, "MSHC: PlatformMshcLib not implemented for this SoC\n"));
   return EFI_UNSUPPORTED;
@@ -43,13 +52,15 @@ MshcBoardPostReset (IN OUT MSHC_HOST *Host)
 }
 
 BOOLEAN
-MshcBoardIsCardPresent (VOID)
+MshcBoardIsCardPresent (IN MSHC_HOST *Host)
 {
+  (VOID)Host;
   return FALSE;
 }
 
 BOOLEAN
-MshcBoardIsReadOnly (VOID)
+MshcBoardIsReadOnly (IN MSHC_HOST *Host)
 {
+  (VOID)Host;
   return FALSE;
 }

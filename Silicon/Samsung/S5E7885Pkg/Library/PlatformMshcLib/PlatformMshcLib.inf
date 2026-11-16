@@ -16,6 +16,12 @@
 
 [LibraryClasses]
   BaseLib
+  UefiBootServicesTableLib
   MemoryMapHelperLib
   DebugLib
   IoLib
+  TimerLib
+
+[Protocols]
+  gEfiGpioProtocolGuid               ## CONSUMES
+  gEfiPmicRegulatorProtocolGuid      ## CONSUMES
