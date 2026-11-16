@@ -423,7 +423,7 @@
 | USB Host Mode      |             | ❌    |
 | USB Device Mode    |             | ✅    |
 | USB Power Delivery |             | ❌    |
-| SD Card            |             | ❌    |
+| SD Card            |             | ✅    |
 | Windows Boot       |             | ✅    |
 | Linux Boot         |             | ❌    |
 
