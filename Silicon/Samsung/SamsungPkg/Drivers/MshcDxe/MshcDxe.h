@@ -77,21 +77,33 @@ typedef struct {
   UINT32    CSD[4];
 } CARD_INFO;
 
+#pragma pack(1)
 typedef struct {
-  VENDOR_DEVICE_PATH  Mmc;
-  EFI_DEVICE_PATH     End;
+  VENDOR_DEVICE_PATH        Mmc;
+  UINT8                     Controller;
+  EFI_DEVICE_PATH_PROTOCOL  End;
 } MSHC_DEVICE_PATH;
+#pragma pack()
 
-//
-// Global Variables
-//
-extern CARD_INFO gCardInfo;
+#define MSHC_INSTANCE_SIGNATURE        SIGNATURE_32 ('m', 's', 'h', 'c')
+#define MSHC_INSTANCE_FROM_BLOCKIO(a)  CR (a, MSHC_INSTANCE, BlockIo, MSHC_INSTANCE_SIGNATURE)
+
+typedef struct {
+  UINT32                Signature;
+  MSHC_CONTROLLER       Controller;
+  CARD_INFO             CardInfo;
+  BOOLEAN               SkipUhs;
+  EFI_HANDLE            Handle;
+  EFI_BLOCK_IO_MEDIA    Media;
+  EFI_BLOCK_IO_PROTOCOL BlockIo;
+  MSHC_DEVICE_PATH      DevicePath;
+} MSHC_INSTANCE;
 
 /**
   Works out how many Blocks the Card holds from its CSD.
 **/
 EFI_STATUS
-MshcDecodeCsd (VOID);
+MshcDecodeCsd (IN OUT MSHC_INSTANCE *Instance);
 
 /**
   Brings an eMMC from Idle to Standby.
@@ -99,12 +111,12 @@ MshcDecodeCsd (VOID);
   @retval EFI_UNSUPPORTED       Nothing Answered, there is no eMMC here.
 **/
 EFI_STATUS
-MshcMmcIdentify (VOID);
+MshcMmcIdentify (IN OUT MSHC_INSTANCE *Instance);
 
 /**
   Takes an Identified eMMC up to its Working Width and Speed.
 **/
 EFI_STATUS
-MshcMmcConfigure (VOID);
+MshcMmcConfigure (IN OUT MSHC_INSTANCE *Instance);
 
 #endif /* _MSHCDXE_H_ */

@@ -28,13 +28,14 @@
 STATIC
 EFI_STATUS
 MshcMmcSwitch (
-  IN UINT8 Index,
-  IN UINT8 Value)
+  IN OUT MSHC_INSTANCE *Instance,
+  IN     UINT8          Index,
+  IN     UINT8          Value)
 {
   EFI_STATUS Status;
   UINT32     Response = 0;
 
-  Status = MshcSendCmd (MMC_CMD6, MMC_SWITCH_ARG (Index, Value), &Response);
+  Status = MshcSendCmd (&Instance->Controller, MMC_CMD6, MMC_SWITCH_ARG (Index, Value), &Response);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: CMD6 for Byte %u was Refused! Status = %r\n", __FUNCTION__, Index, Status));
     return Status;
@@ -45,7 +46,7 @@ MshcMmcSwitch (
     return EFI_DEVICE_ERROR;
   }
 
-  Status = MshcSendCmd (CMD13, (UINT32)gCardInfo.RCA << 16, &Response);
+  Status = MshcSendCmd (&Instance->Controller, CMD13, (UINT32)Instance->CardInfo.RCA << 16, &Response);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Read the eMMC Status! Status = %r\n", __FUNCTION__, Status));
     return Status;
@@ -64,28 +65,30 @@ MshcMmcSwitch (
 **/
 STATIC
 EFI_STATUS
-MshcMmcReadExtCsd (OUT UINT8 *ExtCsd)
+MshcMmcReadExtCsd (
+  IN OUT MSHC_INSTANCE *Instance,
+  OUT    UINT8         *ExtCsd)
 {
   EFI_STATUS Status;
 
   SetMem (ExtCsd, EXT_CSD_SIZE, 0);
 
-  Status = MshcPrepareTransfer (ExtCsd, EXT_CSD_SIZE, 1, READ);
+  Status = MshcPrepareTransfer (&Instance->Controller, ExtCsd, EXT_CSD_SIZE, 1, READ);
   if (EFI_ERROR (Status)) {
     return Status;
   }
 
-  Status = MshcSendCmd (MMC_CMD8, 0, NULL);
+  Status = MshcSendCmd (&Instance->Controller, MMC_CMD8, 0, NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Send CMD8! Status = %r\n", __FUNCTION__, Status));
-    MshcRecover ();
+    MshcRecover (&Instance->Controller);
     return Status;
   }
 
-  Status = MshcReadData (ExtCsd, EXT_CSD_SIZE);
+  Status = MshcReadData (&Instance->Controller, ExtCsd, EXT_CSD_SIZE);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Read the Extended CSD! Status = %r\n", __FUNCTION__, Status));
-    MshcRecover ();
+    MshcRecover (&Instance->Controller);
     return Status;
   }
 
@@ -93,14 +96,14 @@ MshcMmcReadExtCsd (OUT UINT8 *ExtCsd)
 }
 
 EFI_STATUS
-MshcMmcIdentify (VOID)
+MshcMmcIdentify (IN OUT MSHC_INSTANCE *Instance)
 {
   EFI_STATUS Status;
   UINT32     Response[4];
   UINTN      Elapsed;
 
   for (Elapsed = 0; ; Elapsed++) {
-    Status = MshcSendCmd (MMC_CMD1, MMC_OCR_SECTOR_MODE | MMC_OCR_VOLTAGE_WINDOW, &Response[0]);
+    Status = MshcSendCmd (&Instance->Controller, MMC_CMD1, MMC_OCR_SECTOR_MODE | MMC_OCR_VOLTAGE_WINDOW, &Response[0]);
     if (EFI_ERROR (Status)) {
       if (Elapsed == 0) {
         DEBUG ((EFI_D_ERROR, "%a: CMD1 Failed, no eMMC.\n", __FUNCTION__));
@@ -122,23 +125,23 @@ MshcMmcIdentify (VOID)
     MicroSecondDelay (1000);
   }
 
-  gCardInfo.CardType     = MMC_CARD;
-  gCardInfo.OCR          = Response[0];
-  gCardInfo.HighCapacity = !!(Response[0] & MMC_OCR_SECTOR_MODE);
+  Instance->CardInfo.CardType     = MMC_CARD;
+  Instance->CardInfo.OCR          = Response[0];
+  Instance->CardInfo.HighCapacity = !!(Response[0] & MMC_OCR_SECTOR_MODE);
 
-  Status = MshcSendCmd (CMD2, 0, gCardInfo.CID);
+  Status = MshcSendCmd (&Instance->Controller, CMD2, 0, Instance->CardInfo.CID);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Send CMD2! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  Status = MshcSendCmd (MMC_CMD3, (UINT32)MMC_RCA << 16, &Response[0]);
+  Status = MshcSendCmd (&Instance->Controller, MMC_CMD3, (UINT32)MMC_RCA << 16, &Response[0]);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Send CMD3! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  gCardInfo.RCA = MMC_RCA;
+  Instance->CardInfo.RCA = MMC_RCA;
 
   return EFI_SUCCESS;
 }
@@ -147,7 +150,7 @@ MshcMmcIdentify (VOID)
   Takes an Identified eMMC up to its Working Width and Speed.
 **/
 EFI_STATUS
-MshcMmcConfigure (VOID)
+MshcMmcConfigure (IN OUT MSHC_INSTANCE *Instance)
 {
   EFI_STATUS Status;
   UINT32     Aligned[EXT_CSD_SIZE / sizeof (UINT32)];
@@ -155,44 +158,44 @@ MshcMmcConfigure (VOID)
   UINT8      Width;
   UINT8      WidthCode;
 
-  Status = MshcSendCmd (CMD9, (UINT32)gCardInfo.RCA << 16, gCardInfo.CSD);
+  Status = MshcSendCmd (&Instance->Controller, CMD9, (UINT32)Instance->CardInfo.RCA << 16, Instance->CardInfo.CSD);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Send CMD9! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  Status = MshcSendCmd (CMD7, (UINT32)gCardInfo.RCA << 16, NULL);
+  Status = MshcSendCmd (&Instance->Controller, CMD7, (UINT32)Instance->CardInfo.RCA << 16, NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Send CMD7! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  Status = MshcSendCmd (CMD16, 0x200, NULL);
+  Status = MshcSendCmd (&Instance->Controller, CMD16, 0x200, NULL);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Send CMD16! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  Status = MshcMmcReadExtCsd (ExtCsd);
+  Status = MshcMmcReadExtCsd (Instance, ExtCsd);
   if (EFI_ERROR (Status)) {
     return Status;
   }
 
-  gCardInfo.BlockSize = 0x200;
+  Instance->CardInfo.BlockSize = 0x200;
 
   if (ExtCsd[EXT_CSD_REV] >= EXT_CSD_REV_SEC_CNT_VALID) {
-    gCardInfo.NumBlocks = (UINTN)ExtCsd[EXT_CSD_SEC_CNT]
-                        | ((UINTN)ExtCsd[EXT_CSD_SEC_CNT + 1] << 8)
-                        | ((UINTN)ExtCsd[EXT_CSD_SEC_CNT + 2] << 16)
-                        | ((UINTN)ExtCsd[EXT_CSD_SEC_CNT + 3] << 24);
+    Instance->CardInfo.NumBlocks = (UINTN)ExtCsd[EXT_CSD_SEC_CNT]
+                                 | ((UINTN)ExtCsd[EXT_CSD_SEC_CNT + 1] << 8)
+                                 | ((UINTN)ExtCsd[EXT_CSD_SEC_CNT + 2] << 16)
+                                 | ((UINTN)ExtCsd[EXT_CSD_SEC_CNT + 3] << 24);
   } else {
-    gCardInfo.NumBlocks = 0;
+    Instance->CardInfo.NumBlocks = 0;
   }
 
-  if (gCardInfo.NumBlocks == 0) {
+  if (Instance->CardInfo.NumBlocks == 0) {
     DEBUG ((EFI_D_ERROR, "%a: The Extended CSD holds no Sector Count, Falling back to the CSD.\n", __FUNCTION__));
 
-    Status = MshcDecodeCsd ();
+    Status = MshcDecodeCsd (Instance);
     if (EFI_ERROR (Status)) {
       return Status;
     }
@@ -202,29 +205,29 @@ MshcMmcConfigure (VOID)
           "%a: Extended CSD Revision %u, %lu Blocks.\n",
           __FUNCTION__,
           ExtCsd[EXT_CSD_REV],
-          (UINT64)gCardInfo.NumBlocks));
+          (UINT64)Instance->CardInfo.NumBlocks));
 
-  Width = (gMshcHost.BusWidth == 8) ? 8 : (gMshcHost.BusWidth == 4) ? 4 : 1;
+  Width = (Instance->Controller.Host.BusWidth == 8) ? 8 : (Instance->Controller.Host.BusWidth == 4) ? 4 : 1;
 
   if (Width > 1) {
     WidthCode = (Width == 8) ? EXT_CSD_BUS_WIDTH_8 : EXT_CSD_BUS_WIDTH_4;
 
-    Status = MshcMmcSwitch (EXT_CSD_BUS_WIDTH, WidthCode);
+    Status = MshcMmcSwitch (Instance, EXT_CSD_BUS_WIDTH, WidthCode);
     if (EFI_ERROR (Status)) {
       DEBUG ((EFI_D_ERROR, "%a: Staying on one Line, the eMMC would not Widen.\n", __FUNCTION__));
       Width = 1;
     }
   }
 
-  MshcSetBusWidth (Width);
+  MshcSetBusWidth (&Instance->Controller, Width);
 
-  Status = MshcMmcSwitch (EXT_CSD_HS_TIMING, EXT_CSD_HS_TIMING_HS);
+  Status = MshcMmcSwitch (Instance, EXT_CSD_HS_TIMING, EXT_CSD_HS_TIMING_HS);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: The eMMC declined High Speed, Staying Slow.\n", __FUNCTION__));
 
-    MshcSetClockFrequency (MSHC_CLK_25M);
+    MshcSetClockFrequency (&Instance->Controller, MSHC_CLK_25M);
   } else {
-    MshcSetClockFrequency (MSHC_CLK_50M);
+    MshcSetClockFrequency (&Instance->Controller, MSHC_CLK_50M);
   }
 
   DEBUG ((EFI_D_ERROR, "%a: The eMMC is Running on %u Lines.\n", __FUNCTION__, Width));

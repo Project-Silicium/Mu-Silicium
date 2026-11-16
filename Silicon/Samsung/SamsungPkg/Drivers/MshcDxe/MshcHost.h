@@ -312,78 +312,109 @@ typedef enum {
   WRITE
 } OPERATION_TYPE;
 
-extern MSHC_HOST gMshcHost;
+typedef struct {
+  MSHC_HOST         Host;
+
+  // DMA Parameters
+  BOOLEAN           DmaUsable;
+  MSHC_IDMAC_DESC  *Descriptors;
+  PHYSICAL_ADDRESS  DescriptorAddr;
+  VOID             *DescriptorMap;
+  VOID             *BufferMap;
+  UINTN             DmaBytes;
+  OPERATION_TYPE    DmaOperation;
+
+  // Voltage Switching State
+  BOOLEAN           VoltageSwitching;
+} MSHC_CONTROLLER;
 
 //
 // Function Forward Declarations
 //
 VOID
-MshcResetFifo (VOID);
+MshcResetFifo (IN OUT MSHC_CONTROLLER *Ctrl);
 
 EFI_STATUS
-MshcResetAll (VOID);
+MshcResetAll (IN OUT MSHC_CONTROLLER *Ctrl);
 
 EFI_STATUS
-MshcInitialize (VOID);
-
-EFI_STATUS
-MshcSetClockFrequency (IN UINTN Frequency);
+MshcInitialize (IN OUT MSHC_CONTROLLER *Ctrl);
 
 VOID
-MshcSetBusWidth (IN UINT32 Width);
+MshcDeinitDma (IN OUT MSHC_CONTROLLER *Ctrl);
+
+EFI_STATUS
+MshcSetClockFrequency (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINTN            Frequency
+  );
+
+VOID
+MshcSetBusWidth (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINT32           Width
+  );
 
 EFI_STATUS
 MshcSendCmd (
-  IN  UINTN   Cmd,
-  IN  UINTN   CmdArgument,
-  OUT UINT32 *Response OPTIONAL
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINTN            Cmd,
+  IN     UINTN            CmdArgument,
+  OUT    UINT32          *Response OPTIONAL
   );
 
 EFI_STATUS
 MshcPrepareTransfer (
-  IN VOID          *Buffer,
-  IN UINTN          BlockSize,
-  IN UINTN          BlockCount,
-  IN OPERATION_TYPE OperationType
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     VOID            *Buffer,
+  IN     UINTN            BlockSize,
+  IN     UINTN            BlockCount,
+  IN     OPERATION_TYPE   OperationType
   );
 
 EFI_STATUS
 MshcReadData (
-  OUT VOID  *Buffer,
-  IN  UINTN  Length
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  OUT    VOID            *Buffer,
+  IN     UINTN            Length
   );
 
 EFI_STATUS
 MshcWriteData (
-  IN VOID  *Buffer,
-  IN UINTN  Length
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     VOID            *Buffer,
+  IN     UINTN            Length
   );
 
 EFI_STATUS
-MshcWaitAutoStop (VOID);
+MshcWaitAutoStop (IN OUT MSHC_CONTROLLER *Ctrl);
 
 VOID
-MshcDumpRegisters (VOID);
+MshcDumpRegisters (IN MSHC_CONTROLLER *Ctrl);
 
 VOID
-MshcRecover (VOID);
+MshcRecover (IN OUT MSHC_CONTROLLER *Ctrl);
 
 BOOLEAN
-MshcIsDmaActive (VOID);
+MshcIsDmaActive (IN MSHC_CONTROLLER *Ctrl);
 
 BOOLEAN
-MshcIsCardBusy (VOID);
+MshcIsCardBusy (IN MSHC_CONTROLLER *Ctrl);
 
 EFI_STATUS
-MshcHostSwitchTo1V8 (VOID);
+MshcHostSwitchTo1V8 (IN OUT MSHC_CONTROLLER *Ctrl);
 
 VOID
-MshcSetSamplePhase (IN UINT32 Phase);
+MshcSetSamplePhase (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINT32           Phase
+  );
 
 EFI_STATUS
 MshcSetTiming (
-  IN UINT32 ClkSelTiming,
-  IN UINTN  Frequency
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINT32           ClkSelTiming,
+  IN     UINTN            Frequency
   );
 
 #endif /* _MSHC_HOST_H_ */

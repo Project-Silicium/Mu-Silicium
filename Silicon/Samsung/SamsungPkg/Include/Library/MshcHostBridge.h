@@ -16,6 +16,7 @@
 
 typedef struct {
   // SoC specific
+  UINTN  ControllerId;
   UINTN  BaseAddress;
   UINT32 ClkSelTiming;
   UINT32 ClkSelTimingSdr50;
@@ -36,7 +37,18 @@ typedef struct {
 } MSHC_HOST;
 
 /**
+ * Returns the number of MSHC controllers on this board.
+ *
+ * @retval UINTN                 Number of MSHC controllers.
+ **/
+UINTN
+MshcBoardGetHostCount (
+  VOID
+  );
+
+/**
  * Board specific initialization.
+ * @param[in]     Index          The MSHC controller index.
  * @param[in,out] Host           The Host which needs the board specific init.
  *
  * @retval EFI_SUCCESS           The Board has been initialized successfully.
@@ -44,6 +56,7 @@ typedef struct {
  **/
 EFI_STATUS
 MshcBoardInit (
+  IN     UINTN      Index,
   IN OUT MSHC_HOST *Host
   );
 
@@ -111,23 +124,27 @@ MshcBoardPowerCycle (
 /*
  * Checks if a Card is Present in the Slot.
  *
+ * @param[in] Host                 The Host whose Slot is being Checked.
+ *
  * @retval TRUE                    A Card is Present.
  * @retval FALSE                   No Card is Present.
  */
 BOOLEAN
 MshcBoardIsCardPresent (
-  VOID
+  IN MSHC_HOST *Host
   );
 
 /*
  * Checks if the Card is Read-Only.
+ *
+ * @param[in] Host                 The Host whose Slot is being Checked.
  *
  * @retval TRUE                    The Card is Read-Only.
  * @retval FALSE                   The Card is not Read-Only.
  */
 BOOLEAN
 MshcBoardIsReadOnly (
-  VOID
+  IN MSHC_HOST *Host
   );
 
 #endif /* _MSHC_HOST_BRIDGE_H_ */
