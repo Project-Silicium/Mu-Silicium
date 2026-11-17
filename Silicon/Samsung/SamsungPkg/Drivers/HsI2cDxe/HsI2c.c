@@ -209,9 +209,6 @@ HsI2cInitBus (IN UINT8 BusNumber)
   // Get HSI2C Bus
   EFI_HSI2C_BUS *Bus = (EFI_HSI2C_BUS *)BusAddress;
 
-  // Reset USI CON
-  MmioWrite32 ((UINTN)&Bus->usi_con, 0x0);
-
   // Reset HSI2C Controller
   ResetController (Bus);
 
