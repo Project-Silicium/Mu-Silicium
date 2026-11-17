@@ -1,0 +1,2 @@
+https://github.com/Linux4/samsung_kernel/blob/SM-T515/arch/arm64/boot/dts/exynos/dtbo/exynos7885.dts
+https://github.com/Linux4/samsung_kernel/blob/SM-T515/arch/arm64/boot/dts/exynos/dtbo/exynos7885-pinctrl.dtsi
