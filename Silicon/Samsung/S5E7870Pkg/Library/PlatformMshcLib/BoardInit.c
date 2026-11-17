@@ -20,11 +20,23 @@
 
 #include "MshcExynos.h"
 
+UINTN
+MshcBoardGetHostCount (VOID)
+{
+  return 1;
+}
+
 EFI_STATUS
-MshcBoardInit (IN OUT MSHC_HOST *Host)
+MshcBoardInit (
+  IN     UINTN      Index,
+  IN OUT MSHC_HOST *Host)
 {
   EFI_MEMORY_REGION_DESCRIPTOR MemRegion;
   EFI_STATUS                   Status;
+
+  if (Index != 0) {
+    return EFI_NOT_FOUND;
+  }
 
   Status = LocateMemoryRegionByName ("MSHC", &MemRegion);
   if (EFI_ERROR (Status)) {
@@ -32,6 +44,7 @@ MshcBoardInit (IN OUT MSHC_HOST *Host)
     return Status;
   }
 
+  Host->ControllerId  = Index;
   Host->BaseAddress   = MemRegion.Address;
   Host->CiuClockHz    = 400000000;
   Host->ClkSelDivider = 3;
@@ -82,13 +95,15 @@ MshcBoardPostReset (IN OUT MSHC_HOST *Host)
 }
 
 BOOLEAN
-MshcBoardIsCardPresent (VOID)
+MshcBoardIsCardPresent (IN MSHC_HOST *Host)
 {
+  (VOID)Host;
   return TRUE;
 }
 
 BOOLEAN
-MshcBoardIsReadOnly (VOID)
+MshcBoardIsReadOnly (IN MSHC_HOST *Host)
 {
+  (VOID)Host;
   return FALSE;
 }

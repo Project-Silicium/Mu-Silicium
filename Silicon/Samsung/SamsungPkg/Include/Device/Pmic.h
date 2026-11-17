@@ -21,7 +21,8 @@ typedef enum {
   ID_S2MPS22,
   ID_S2DOS05,
   ID_S2MPB02,
-  ID_S2MPB03
+  ID_S2MPB03,
+  ID_S2MPU08
 } EFI_PMIC_ID;
 
 //

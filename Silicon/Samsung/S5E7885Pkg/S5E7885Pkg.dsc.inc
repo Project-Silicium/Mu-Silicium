@@ -78,6 +78,11 @@
   GpioBankLib|S5E7885Pkg/Library/GpioBankLib/GpioBankLib.inf
 
   #
+  # Power Management Libraries
+  #
+  PmicLib|S5E7885Pkg/Library/PmicLib/PmicLib.inf
+
+  #
   # Storage Libraries
   #
   PlatformMshcLib|S5E7885Pkg/Library/PlatformMshcLib/PlatformMshcLib.inf

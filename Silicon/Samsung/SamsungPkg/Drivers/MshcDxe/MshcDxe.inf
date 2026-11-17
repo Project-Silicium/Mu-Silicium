@@ -26,6 +26,8 @@
   PlatformMshcLib
   BaseLib
   BaseMemoryLib
+  MemoryAllocationLib
+  DevicePathLib
   CacheMaintenanceLib
   DmaLib
   DebugLib

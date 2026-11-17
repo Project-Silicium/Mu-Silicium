@@ -44,6 +44,12 @@ InitS2mpb03 (
   IN UINT32              Slave
   );
 
+EFI_STATUS
+InitS2mpu08 (
+  IN EFI_SPEEDY_PROTOCOL *SpeedyProtocol,
+  IN UINT8                BusNumber
+  );
+
 // =========================================================================
 // PMIC Set WTSR Functions
 // =========================================================================
@@ -147,6 +153,25 @@ S2mpb03SetLdo (
   IN UINT8             LdoNumber,
   IN EFI_PMIC_LDO_MODE Mode,
   IN BOOLEAN           Enable
+  );
+
+EFI_STATUS
+S2mpu08SetLdo (
+  IN UINT8             LdoNumber,
+  IN EFI_PMIC_LDO_MODE Mode,
+  IN BOOLEAN           Enable
+  );
+
+EFI_STATUS
+S2mpu08SetLdoVoltage (
+  IN UINT8  LdoNumber,
+  IN UINT32 Microvolts
+  );
+
+EFI_STATUS
+S2mpu08GetLdoVoltage (
+  IN  UINT8   LdoNumber,
+  OUT UINT32 *Microvolts
   );
 
 // =========================================================================
@@ -263,6 +288,13 @@ struct {
     .Id      = ID_S2MPB03,
     .SetBuck = NULL,
     .SetLdo  = S2mpb03SetLdo,
+  },
+  {
+    .Id            = ID_S2MPU08,
+    .SetBuck       = NULL,
+    .SetLdo        = S2mpu08SetLdo,
+    .SetLdoVoltage = S2mpu08SetLdoVoltage,
+    .GetLdoVoltage = S2mpu08GetLdoVoltage,
   }
 };
 
@@ -334,6 +366,11 @@ struct {
     .Id         = ID_S2MPB03,
     .SpeedyInit = NULL,
     .HsI2cInit  = InitS2mpb03
+  },
+  {
+    .Id         = ID_S2MPU08,
+    .SpeedyInit = InitS2mpu08,
+    .HsI2cInit  = NULL
   }
 };
 

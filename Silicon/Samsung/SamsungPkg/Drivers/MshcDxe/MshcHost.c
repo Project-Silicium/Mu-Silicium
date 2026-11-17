@@ -23,80 +23,66 @@
 
 #include "MshcHost.h"
 
-//
-// Global Variables
-//
-
-// Host
-MSHC_HOST gMshcHost;
-
-//
-// DMA Parameters
-//
-STATIC BOOLEAN          mDmaUsable      = FALSE;
-STATIC MSHC_IDMAC_DESC *mDescriptors    = NULL;
-STATIC PHYSICAL_ADDRESS mDescriptorAddr = 0;
-STATIC VOID            *mDescriptorMap  = NULL;
-STATIC VOID            *mBufferMap      = NULL;
-STATIC UINTN            mDmaBytes       = 0;
-STATIC OPERATION_TYPE   mDmaOperation   = READ;
-
-//
-// Voltage Switching State
-//
-STATIC BOOLEAN mVoltageSwitching = FALSE;
-
 VOID
-MshcDumpRegisters (VOID)
+MshcDumpRegisters (IN MSHC_CONTROLLER *Ctrl)
 {
-  DEBUG ((EFI_D_ERROR,
-          "MSHC: CTRL=%08X PWREN=%08X CLKDIV=%08X CLKENA=%08X CLKSEL=%08X\n",
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_CTRL),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_PWREN),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_CLKDIV),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_CLKENA),
-          MmioRead32 (gMshcHost.BaseAddress + gMshcHost.ClkSelOffset)));
+  MSHC_HOST *Host = &Ctrl->Host;
 
   DEBUG ((EFI_D_ERROR,
-          "MSHC: CMD=%08X CMDARG=%08X RINTSTS=%08X STATUS=%08X\n",
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_CMD),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_CMDARG),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_RINTSTS),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_STATUS)));
+          "MSHC[%u]: CTRL=%08X PWREN=%08X CLKDIV=%08X CLKENA=%08X CLKSEL=%08X\n",
+          Host->ControllerId,
+          MmioRead32 (Host->BaseAddress + MSHCI_CTRL),
+          MmioRead32 (Host->BaseAddress + MSHCI_PWREN),
+          MmioRead32 (Host->BaseAddress + MSHCI_CLKDIV),
+          MmioRead32 (Host->BaseAddress + MSHCI_CLKENA),
+          MmioRead32 (Host->BaseAddress + Host->ClkSelOffset)));
 
   DEBUG ((EFI_D_ERROR,
-          "MSHC: CTYPE=%08X BLKSIZ=%08X BYTCNT=%08X TMOUT=%08X FIFOTH=%08X\n",
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_CTYPE),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_BLKSIZ),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_BYTCNT),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_TMOUT),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_FIFOTH)));
+          "MSHC[%u]: CMD=%08X CMDARG=%08X RINTSTS=%08X STATUS=%08X\n",
+          Host->ControllerId,
+          MmioRead32 (Host->BaseAddress + MSHCI_CMD),
+          MmioRead32 (Host->BaseAddress + MSHCI_CMDARG),
+          MmioRead32 (Host->BaseAddress + MSHCI_RINTSTS),
+          MmioRead32 (Host->BaseAddress + MSHCI_STATUS)));
 
   DEBUG ((EFI_D_ERROR,
-          "MSHC: CDETECT=%08X WRTPRT=%08X VERID=%08X HCON=%08X TCBCNT=%08X TBBCNT=%08X\n",
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_CDETECT),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_WRTPRT),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_VERID),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_HCON),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_TCBCNT),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_TBBCNT)));
+          "MSHC[%u]: CTYPE=%08X BLKSIZ=%08X BYTCNT=%08X TMOUT=%08X FIFOTH=%08X\n",
+          Host->ControllerId,
+          MmioRead32 (Host->BaseAddress + MSHCI_CTYPE),
+          MmioRead32 (Host->BaseAddress + MSHCI_BLKSIZ),
+          MmioRead32 (Host->BaseAddress + MSHCI_BYTCNT),
+          MmioRead32 (Host->BaseAddress + MSHCI_TMOUT),
+          MmioRead32 (Host->BaseAddress + MSHCI_FIFOTH)));
+
+  DEBUG ((EFI_D_ERROR,
+          "MSHC[%u]: CDETECT=%08X WRTPRT=%08X VERID=%08X HCON=%08X TCBCNT=%08X TBBCNT=%08X\n",
+          Host->ControllerId,
+          MmioRead32 (Host->BaseAddress + MSHCI_CDETECT),
+          MmioRead32 (Host->BaseAddress + MSHCI_WRTPRT),
+          MmioRead32 (Host->BaseAddress + MSHCI_VERID),
+          MmioRead32 (Host->BaseAddress + MSHCI_HCON),
+          MmioRead32 (Host->BaseAddress + MSHCI_TCBCNT),
+          MmioRead32 (Host->BaseAddress + MSHCI_TBBCNT)));
 }
 
 STATIC
 BOOLEAN
-MshcCtrlReset (IN UINT32 Reset)
+MshcCtrlReset (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINT32           Reset)
 {
-  UINT32  SavedClkSel;
-  BOOLEAN Done = FALSE;
+  MSHC_HOST *Host = &Ctrl->Host;
+  UINT32     SavedClkSel;
+  BOOLEAN    Done = FALSE;
 
-  SavedClkSel = MmioRead32 (gMshcHost.BaseAddress + gMshcHost.ClkSelOffset);
-  MmioAnd32 (gMshcHost.BaseAddress + gMshcHost.ClkSelOffset, ~(UINT32)CLKSEL_RESET_MASK);
+  SavedClkSel = MmioRead32 (Host->BaseAddress + Host->ClkSelOffset);
+  MmioAnd32 (Host->BaseAddress + Host->ClkSelOffset, ~(UINT32)CLKSEL_RESET_MASK);
 
-  MmioOr32 (gMshcHost.BaseAddress + MSHCI_CTRL, Reset);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
+  MmioOr32 (Host->BaseAddress + MSHCI_CTRL, Reset);
+  MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
 
   for (UINTN Timeout = MAX_RETRY_COUNT; Timeout > 0; Timeout--) {
-    if (!(MmioRead32 (gMshcHost.BaseAddress + MSHCI_CTRL) & Reset)) {
+    if (!(MmioRead32 (Host->BaseAddress + MSHCI_CTRL) & Reset)) {
       Done = TRUE;
       break;
     }
@@ -104,7 +90,7 @@ MshcCtrlReset (IN UINT32 Reset)
     MicroSecondDelay (1);
   }
 
-  MmioWrite32 (gMshcHost.BaseAddress + gMshcHost.ClkSelOffset, SavedClkSel);
+  MmioWrite32 (Host->BaseAddress + Host->ClkSelOffset, SavedClkSel);
 
   if (!Done) {
     DEBUG ((EFI_D_ERROR, "%a: The Block Reset 0x%X didn't Complete in Time!\n", __FUNCTION__, Reset));
@@ -115,73 +101,76 @@ MshcCtrlReset (IN UINT32 Reset)
 
 STATIC
 EFI_STATUS
-MshcUpdateClockRegisters (VOID)
+MshcUpdateClockRegisters (IN OUT MSHC_CONTROLLER *Ctrl)
 {
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CMDARG, 0);
+  MSHC_HOST *Host = &Ctrl->Host;
+
+  MmioWrite32 (Host->BaseAddress + MSHCI_CMDARG, 0);
 
   for (UINTN Retry = 10; Retry > 0; Retry--) {
-    MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CMD,
-                 CMD_ONLY_CLK | (mVoltageSwitching ? CMD_VOLT_SWITCH : 0));
+    MmioWrite32 (Host->BaseAddress + MSHCI_CMD,
+                 CMD_ONLY_CLK | (Ctrl->VoltageSwitching ? CMD_VOLT_SWITCH : 0));
 
     for (UINTN Timeout = 1000; Timeout > 0; Timeout--) {
-      if (!(MmioRead32 (gMshcHost.BaseAddress + MSHCI_CMD) & CMD_STRT_BIT)) {
+      if (!(MmioRead32 (Host->BaseAddress + MSHCI_CMD) & CMD_STRT_BIT)) {
         return EFI_SUCCESS;
       }
 
       MicroSecondDelay (1);
     }
 
-    if (MmioRead32 (gMshcHost.BaseAddress + MSHCI_RINTSTS) & INTMSK_HLE) {
-      MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_HLE);
+    if (MmioRead32 (Host->BaseAddress + MSHCI_RINTSTS) & INTMSK_HLE) {
+      MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_HLE);
       return EFI_SUCCESS;
     }
 
-    MshcCtrlReset (CTRL_RESET);
+    MshcCtrlReset (Ctrl, CTRL_RESET);
   }
 
   DEBUG ((EFI_D_ERROR, "%a: The Clock Update didn't Complete in Time!\n", __FUNCTION__));
-  MshcDumpRegisters ();
+  MshcDumpRegisters (Ctrl);
 
   return EFI_TIMEOUT;
 }
 
 VOID
-MshcResetFifo (VOID)
+MshcResetFifo (IN OUT MSHC_CONTROLLER *Ctrl)
 {
-  MshcCtrlReset (FIFO_RESET);
+  MshcCtrlReset (Ctrl, FIFO_RESET);
 }
 
 EFI_STATUS
-MshcResetAll (VOID)
+MshcResetAll (IN OUT MSHC_CONTROLLER *Ctrl)
 {
-  if (!MshcCtrlReset (CTRL_RESET_ALL)) {
+  if (!MshcCtrlReset (Ctrl, CTRL_RESET_ALL)) {
     return EFI_TIMEOUT;
   }
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
+  MmioWrite32 (Ctrl->Host.BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
 
-  return MshcUpdateClockRegisters ();
+  return MshcUpdateClockRegisters (Ctrl);
 }
 
 STATIC
 VOID
-MshcInitDma (VOID)
+MshcInitDma (IN OUT MSHC_CONTROLLER *Ctrl)
 {
+  MSHC_HOST *Host     = &Ctrl->Host;
   EFI_STATUS Status;
   UINTN      Bytes    = IDMAC_DESC_COUNT * sizeof (MSHC_IDMAC_DESC);
-  UINT32     Security = MmioRead32 (gMshcHost.BaseAddress + MSHCI_MPSECURITY);
+  UINT32     Security = MmioRead32 (Host->BaseAddress + MSHCI_MPSECURITY);
 
-  mDmaUsable = FALSE;
+  Ctrl->DmaUsable = FALSE;
 
   DEBUG ((EFI_D_ERROR,
           "%a: MPSECURITY 0x%08X, MPSCTRL0 0x%08X, MPSTAT 0x%08X\n",
           __FUNCTION__,
           Security,
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_MPSCTRL0),
-          MmioRead32 (gMshcHost.BaseAddress + MSHCI_MPSTAT)));
+          MmioRead32 (Host->BaseAddress + MSHCI_MPSCTRL0),
+          MmioRead32 (Host->BaseAddress + MSHCI_MPSTAT)));
 
   // I can't test this so PIO it is for non 64 bit DMA.
-  if (gMshcHost.ClkSelOffset != MSHCI_CLKSEL_WIDE) {
+  if (Host->ClkSelOffset != MSHCI_CLKSEL_WIDE) {
     DEBUG ((EFI_D_ERROR, "%a: The Controller uses Narrow Descriptors, Using PIO.\n", __FUNCTION__));
     return;
   }
@@ -194,42 +183,66 @@ MshcInitDma (VOID)
     return;
   }
 
-  Status = DmaAllocateBuffer (EfiBootServicesData, EFI_SIZE_TO_PAGES (Bytes), (VOID **)&mDescriptors);
+  Status = DmaAllocateBuffer (EfiBootServicesData, EFI_SIZE_TO_PAGES (Bytes), (VOID **)&Ctrl->Descriptors);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Allocate the Descriptor Ring! Status = %r\n", __FUNCTION__, Status));
     return;
   }
 
-  Status = DmaMap (MapOperationBusMasterCommonBuffer, mDescriptors, &Bytes, 0, 0, &mDescriptorAddr, &mDescriptorMap);
+  Status = DmaMap (MapOperationBusMasterCommonBuffer, Ctrl->Descriptors, &Bytes, 0, 0, &Ctrl->DescriptorAddr, &Ctrl->DescriptorMap);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Map the Descriptor Ring! Status = %r\n", __FUNCTION__, Status));
-    DmaFreeBuffer (EFI_SIZE_TO_PAGES (Bytes), mDescriptors);
-    mDescriptors = NULL;
+    DmaFreeBuffer (EFI_SIZE_TO_PAGES (Bytes), Ctrl->Descriptors);
+    Ctrl->Descriptors = NULL;
     return;
   }
 
-  mDmaUsable = TRUE;
+  Ctrl->DmaUsable = TRUE;
+}
+
+VOID
+MshcDeinitDma (IN OUT MSHC_CONTROLLER *Ctrl)
+{
+  UINTN Bytes = IDMAC_DESC_COUNT * sizeof (MSHC_IDMAC_DESC);
+
+  if (Ctrl->BufferMap != NULL) {
+    DmaUnmap (Ctrl->BufferMap);
+    Ctrl->BufferMap = NULL;
+  }
+
+  if (Ctrl->DescriptorMap != NULL) {
+    DmaUnmap (Ctrl->DescriptorMap);
+    Ctrl->DescriptorMap = NULL;
+  }
+
+  if (Ctrl->Descriptors != NULL) {
+    DmaFreeBuffer (EFI_SIZE_TO_PAGES (Bytes), Ctrl->Descriptors);
+    Ctrl->Descriptors = NULL;
+  }
+
+  Ctrl->DmaUsable = FALSE;
 }
 
 EFI_STATUS
-MshcInitialize (VOID)
+MshcInitialize (IN OUT MSHC_CONTROLLER *Ctrl)
 {
+  MSHC_HOST *Host = &Ctrl->Host;
   EFI_STATUS Status;
 
-  UINT32  Version = GET_VERID (MmioRead32 (gMshcHost.BaseAddress + MSHCI_VERID));
-  UINT32  Hcon    = MmioRead32 (gMshcHost.BaseAddress + MSHCI_HCON);
+  UINT32  Version = GET_VERID (MmioRead32 (Host->BaseAddress + MSHCI_VERID));
+  UINT32  Hcon    = MmioRead32 (Host->BaseAddress + MSHCI_HCON);
   BOOLEAN Wide    = (HCON_ADDR_CONFIG (Hcon) == HCON_ADDR_64BIT);
 
-  gMshcHost.FifoOffset   = (Version < MSHC_VERID_240A) ? MSHCI_FIFO_LEGACY : MSHCI_FIFO_240A;
-  gMshcHost.ClkSelOffset = Wide ? MSHCI_CLKSEL_WIDE : MSHCI_CLKSEL_NARROW;
+  Host->FifoOffset   = (Version < MSHC_VERID_240A) ? MSHCI_FIFO_LEGACY : MSHCI_FIFO_240A;
+  Host->ClkSelOffset = Wide ? MSHCI_CLKSEL_WIDE : MSHCI_CLKSEL_NARROW;
 
   switch (HCON_DATA_WIDTH (Hcon)) {
     case HCON_WIDTH_64:
-      gMshcHost.FifoItemBytes = 8;
+      Host->FifoItemBytes = 8;
       break;
 
     case HCON_WIDTH_32:
-      gMshcHost.FifoItemBytes = 4;
+      Host->FifoItemBytes = 4;
       break;
 
     default:
@@ -240,64 +253,67 @@ MshcInitialize (VOID)
   }
 
   // Enable MSHC Power
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_PWREN, POWER_ENABLE);
+  MmioWrite32 (Host->BaseAddress + MSHCI_PWREN, POWER_ENABLE);
 
   // Reset MSHC
-  Status = MshcResetAll ();
+  Status = MshcResetAll (Ctrl);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Reset MSHC! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
   // Call SoC specific Post Reset
-  MshcBoardPostReset (&gMshcHost);
+  MshcBoardPostReset (Host);
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_FIFOTH,
+  MmioWrite32 (Host->BaseAddress + MSHCI_FIFOTH,
                MSIZE_8 | TX_WMARK (MSHC_FIFO_DEPTH / 2) | RX_WMARK ((MSHC_FIFO_DEPTH / 2) - 1));
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_INTMSK, 0);
-  MmioWrite32 (gMshcHost.BaseAddress + (Wide ? MSHCI_IDINTEN_WIDE : MSHCI_IDINTEN_NARROW), 0);
+  MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
+  MmioWrite32 (Host->BaseAddress + MSHCI_INTMSK, 0);
+  MmioWrite32 (Host->BaseAddress + (Wide ? MSHCI_IDINTEN_WIDE : MSHCI_IDINTEN_NARROW), 0);
 
   // We are PIO.
-  MmioAnd32 (gMshcHost.BaseAddress + MSHCI_CTRL, ~(UINT32)(ENABLE_IDMAC | DMA_ENABLE | INT_ENABLE));
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_BMOD, BMOD_IDMAC_RESET);
+  MmioAnd32 (Host->BaseAddress + MSHCI_CTRL, ~(UINT32)(ENABLE_IDMAC | DMA_ENABLE | INT_ENABLE));
+  MmioWrite32 (Host->BaseAddress + MSHCI_BMOD, BMOD_IDMAC_RESET);
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_DEBNCE, 0xFFFFF);
+  MmioWrite32 (Host->BaseAddress + MSHCI_DEBNCE, 0xFFFFF);
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CTYPE, CARD_WIDTH1);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_TMOUT, 0xFFFFFFFF);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_BLKSIZ, 0x200);
+  MmioWrite32 (Host->BaseAddress + MSHCI_CTYPE, CARD_WIDTH1);
+  MmioWrite32 (Host->BaseAddress + MSHCI_TMOUT, 0xFFFFFFFF);
+  MmioWrite32 (Host->BaseAddress + MSHCI_BLKSIZ, 0x200);
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_UHS_REG, UHS_NON_DDR);
-  MmioWrite32 (gMshcHost.BaseAddress + gMshcHost.ClkSelOffset, gMshcHost.ClkSelTiming);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKSRC, 0);
+  MmioWrite32 (Host->BaseAddress + MSHCI_UHS_REG, UHS_NON_DDR);
+  MmioWrite32 (Host->BaseAddress + Host->ClkSelOffset, Host->ClkSelTiming);
+  MmioWrite32 (Host->BaseAddress + MSHCI_CLKSRC, 0);
 
-  if (mDescriptors == NULL) {
-    MshcInitDma ();
+  if (Ctrl->Descriptors == NULL) {
+    MshcInitDma (Ctrl);
   }
 
   return EFI_SUCCESS;
 }
 
 EFI_STATUS
-MshcSetClockFrequency (IN UINTN Frequency)
+MshcSetClockFrequency (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINTN            Frequency)
 {
+  MSHC_HOST *Host = &Ctrl->Host;
   EFI_STATUS Status;
   UINTN      Divider;
   UINTN      InputClock;
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKENA, CLK_DISABLE);
+  MmioWrite32 (Host->BaseAddress + MSHCI_CLKENA, CLK_DISABLE);
 
-  Status = MshcUpdateClockRegisters ();
+  Status = MshcUpdateClockRegisters (Ctrl);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Disable the Card Clock! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  MshcBoardSetCiuClock (&gMshcHost, Frequency);
+  MshcBoardSetCiuClock (Host, Frequency);
 
-  InputClock = gMshcHost.CiuClockHz / (gMshcHost.ClkSelDivider + 1);
+  InputClock = Host->CiuClockHz / (Host->ClkSelDivider + 1);
 
   if (Frequency >= InputClock) {
     Divider = 0;
@@ -309,35 +325,38 @@ MshcSetClockFrequency (IN UINTN Frequency)
     }
   }
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKDIV, Divider);
+  MmioWrite32 (Host->BaseAddress + MSHCI_CLKDIV, Divider);
 
-  Status = MshcUpdateClockRegisters ();
+  Status = MshcUpdateClockRegisters (Ctrl);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to set the Clock Divider! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
+  MmioWrite32 (Host->BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
 
-  Status = MshcUpdateClockRegisters ();
+  Status = MshcUpdateClockRegisters (Ctrl);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Enable the Card Clock! Status = %r\n", __FUNCTION__, Status));
     return Status;
   }
 
   DEBUG ((EFI_D_ERROR,
-          "%a: Requested %u Hz, Running at %u Hz (CIU %u Hz, CLKDIV %u)\n",
+          "%a[%u]: Requested %u Hz, Running at %u Hz (CIU %u Hz, CLKDIV %u)\n",
           __FUNCTION__,
+          Host->ControllerId,
           Frequency,
           Divider ? (InputClock / (2 * Divider)) : InputClock,
-          gMshcHost.CiuClockHz,
+          Host->CiuClockHz,
           Divider));
 
   return EFI_SUCCESS;
 }
 
 VOID
-MshcSetBusWidth (IN UINT32 Width)
+MshcSetBusWidth (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINT32           Width)
 {
   UINT32 Type;
 
@@ -355,59 +374,63 @@ MshcSetBusWidth (IN UINT32 Width)
       break;
   }
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CTYPE, Type);
+  MmioWrite32 (Ctrl->Host.BaseAddress + MSHCI_CTYPE, Type);
 }
 
 VOID
-MshcRecover (VOID)
+MshcRecover (IN OUT MSHC_CONTROLLER *Ctrl)
 {
-  MshcCtrlReset (FIFO_RESET);
-  MshcCtrlReset (CTRL_RESET);
+  MshcCtrlReset (Ctrl, FIFO_RESET);
+  MshcCtrlReset (Ctrl, CTRL_RESET);
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
+  MmioWrite32 (Ctrl->Host.BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
+  MmioWrite32 (Ctrl->Host.BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
 
-  MshcUpdateClockRegisters ();
+  MshcUpdateClockRegisters (Ctrl);
 }
 
 STATIC
 VOID
-MshcWaitDataBusy (VOID)
+MshcWaitDataBusy (IN OUT MSHC_CONTROLLER *Ctrl)
 {
+  MSHC_HOST *Host = &Ctrl->Host;
+
   for (UINTN Retry = 2; Retry > 0; Retry--) {
     for (UINTN Timeout = 10000; Timeout > 0; Timeout--) {
-      if (!(MmioRead32 (gMshcHost.BaseAddress + MSHCI_STATUS) & DATA_BUSY)) {
+      if (!(MmioRead32 (Host->BaseAddress + MSHCI_STATUS) & DATA_BUSY)) {
         return;
       }
 
       MicroSecondDelay (10);
     }
 
-    MshcCtrlReset (FIFO_RESET);
-    MshcCtrlReset (CTRL_RESET);
+    MshcCtrlReset (Ctrl, FIFO_RESET);
+    MshcCtrlReset (Ctrl, CTRL_RESET);
 
-    MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
-    MshcUpdateClockRegisters ();
+    MmioWrite32 (Host->BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
+    MshcUpdateClockRegisters (Ctrl);
   }
 
   DEBUG ((EFI_D_ERROR, "%a: DAT0 is still Busy, Issuing the Command anyway.\n", __FUNCTION__));
-  MshcDumpRegisters ();
+  MshcDumpRegisters (Ctrl);
 }
 
 EFI_STATUS
 MshcSendCmd (
-  IN  UINTN   Cmd,
-  IN  UINTN   CmdArgument,
-  OUT UINT32 *Response OPTIONAL)
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINTN            Cmd,
+  IN     UINTN            CmdArgument,
+  OUT    UINT32          *Response OPTIONAL)
 {
-  UINT32 CmdFlags;
-  UINT32 RawStatus = 0;
-  UINTN  Timeout;
+  MSHC_HOST *Host = &Ctrl->Host;
+  UINT32     CmdFlags;
+  UINT32     RawStatus = 0;
+  UINTN      Timeout;
 
-  MshcWaitDataBusy ();
+  MshcWaitDataBusy (Ctrl);
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CMDARG, CmdArgument);
+  MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
+  MmioWrite32 (Host->BaseAddress + MSHCI_CMDARG, CmdArgument);
 
   CmdFlags = INDX (Cmd) | CMD_STRT_BIT | CMD_USE_HOLD_REG | CMD_WAIT_PRV_DAT_BIT;
 
@@ -436,7 +459,7 @@ MshcSendCmd (
     CmdFlags |= CMD_VOLT_SWITCH;
   }
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CMD, CmdFlags);
+  MmioWrite32 (Host->BaseAddress + MSHCI_CMD, CmdFlags);
 
   // Voltage switch commands report completion in a different bit than the normal.
   UINT32 Completed = INTMSK_CDONE;
@@ -446,7 +469,7 @@ MshcSendCmd (
   }
 
   for (Timeout = MAX_RETRY_COUNT; Timeout > 0; Timeout--) {
-    RawStatus = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RINTSTS);
+    RawStatus = MmioRead32 (Host->BaseAddress + MSHCI_RINTSTS);
 
     if (RawStatus & (Completed | CMD_ERROR)) {
       break;
@@ -462,7 +485,7 @@ MshcSendCmd (
 
   if (RawStatus & INTMSK_RTO) {
     DEBUG ((EFI_D_ERROR, "%a: CMD%u got no Response.\n", __FUNCTION__, INDX (Cmd)));
-    MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
+    MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
     return EFI_NO_RESPONSE;
   }
 
@@ -470,13 +493,13 @@ MshcSendCmd (
     DEBUG ((EFI_D_ERROR,
             "%a: CMD%u Response Error! RINTSTS = 0x%08X\n",
             __FUNCTION__, INDX (Cmd), RawStatus));
-    MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
+    MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
     return EFI_DEVICE_ERROR;
   }
 
   if (Cmd & RSP_BUSY) {
     for (Timeout = MAX_RETRY_COUNT; Timeout > 0; Timeout--) {
-      if (!(MmioRead32 (gMshcHost.BaseAddress + MSHCI_STATUS) & DATA_BUSY)) {
+      if (!(MmioRead32 (Host->BaseAddress + MSHCI_STATUS) & DATA_BUSY)) {
         break;
       }
 
@@ -490,17 +513,17 @@ MshcSendCmd (
   }
 
   if (Cmd & VOLT_SWITCH) {
-    MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_VOLT_SWITCH);
+    MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_VOLT_SWITCH);
   }
 
   if (Response != NULL && (Cmd & RSP_PRESENT)) {
     if (Cmd & RSP_136) {
-      Response[0] = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RESP3);
-      Response[1] = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RESP2);
-      Response[2] = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RESP1);
-      Response[3] = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RESP0);
+      Response[0] = MmioRead32 (Host->BaseAddress + MSHCI_RESP3);
+      Response[1] = MmioRead32 (Host->BaseAddress + MSHCI_RESP2);
+      Response[2] = MmioRead32 (Host->BaseAddress + MSHCI_RESP1);
+      Response[3] = MmioRead32 (Host->BaseAddress + MSHCI_RESP0);
     } else {
-      Response[0] = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RESP0);
+      Response[0] = MmioRead32 (Host->BaseAddress + MSHCI_RESP0);
     }
   }
 
@@ -513,28 +536,30 @@ MshcSendCmd (
 STATIC
 EFI_STATUS
 MshcStartDma (
-  IN VOID          *Buffer,
-  IN UINTN          Length,
-  IN OPERATION_TYPE OperationType)
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     VOID            *Buffer,
+  IN     UINTN            Length,
+  IN     OPERATION_TYPE   OperationType)
 {
-  EFI_STATUS       Status;
-  PHYSICAL_ADDRESS DeviceAddress;
-  UINTN            Mapped     = Length;
-  UINTN            Remaining  = Length;
-  UINTN            Index      = 0;
+  MSHC_HOST        *Host      = &Ctrl->Host;
+  EFI_STATUS        Status;
+  PHYSICAL_ADDRESS  DeviceAddress;
+  UINTN             Mapped    = Length;
+  UINTN             Remaining = Length;
+  UINTN             Index     = 0;
 
   Status = DmaMap ((OperationType == READ) ? MapOperationBusMasterWrite : MapOperationBusMasterRead,
-                   Buffer, &Mapped, 0, 0, &DeviceAddress, &mBufferMap);
+                   Buffer, &Mapped, 0, 0, &DeviceAddress, &Ctrl->BufferMap);
 
   if (EFI_ERROR (Status) || Mapped != Length) {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Map the Transfer Buffer! Status = %r\n", __FUNCTION__, Status));
     return EFI_OUT_OF_RESOURCES;
   }
 
-  mDmaBytes     = Length;
-  mDmaOperation = OperationType;
+  Ctrl->DmaBytes     = Length;
+  Ctrl->DmaOperation = OperationType;
 
-  if (!gMshcHost.Coherent) {
+  if (!Host->Coherent) {
     if (OperationType == WRITE) {
       WriteBackDataCacheRange (Buffer, Length);
     } else {
@@ -545,21 +570,21 @@ MshcStartDma (
   while (Remaining > 0) {
     UINTN Chunk = MIN (Remaining, IDMAC_BYTES_PER_DESC);
 
-    mDescriptors[Index].Des0       = IDMAC_DES0_OWN | IDMAC_DES0_CH | IDMAC_DES0_DIC;
-    mDescriptors[Index].Des1       = 0;
-    mDescriptors[Index].Des2       = (UINT32)(Chunk & IDMAC_DES2_SIZE_MASK);
-    mDescriptors[Index].Des3       = 0;
-    mDescriptors[Index].BufferLow  = (UINT32)(DeviceAddress & 0xFFFFFFFF);
-    mDescriptors[Index].BufferHigh = (UINT32)RShiftU64 (DeviceAddress, 32);
+    Ctrl->Descriptors[Index].Des0       = IDMAC_DES0_OWN | IDMAC_DES0_CH | IDMAC_DES0_DIC;
+    Ctrl->Descriptors[Index].Des1       = 0;
+    Ctrl->Descriptors[Index].Des2       = (UINT32)(Chunk & IDMAC_DES2_SIZE_MASK);
+    Ctrl->Descriptors[Index].Des3       = 0;
+    Ctrl->Descriptors[Index].BufferLow  = (UINT32)(DeviceAddress & 0xFFFFFFFF);
+    Ctrl->Descriptors[Index].BufferHigh = (UINT32)RShiftU64 (DeviceAddress, 32);
 
     if (Index == 0) {
-      mDescriptors[Index].Des0 |= IDMAC_DES0_FD;
+      Ctrl->Descriptors[Index].Des0 |= IDMAC_DES0_FD;
     }
 
-    PHYSICAL_ADDRESS Next = mDescriptorAddr + ((Index + 1) * sizeof (MSHC_IDMAC_DESC));
+    PHYSICAL_ADDRESS Next = Ctrl->DescriptorAddr + ((Index + 1) * sizeof (MSHC_IDMAC_DESC));
 
-    mDescriptors[Index].NextLow  = (UINT32)(Next & 0xFFFFFFFF);
-    mDescriptors[Index].NextHigh = (UINT32)RShiftU64 (Next, 32);
+    Ctrl->Descriptors[Index].NextLow  = (UINT32)(Next & 0xFFFFFFFF);
+    Ctrl->Descriptors[Index].NextHigh = (UINT32)RShiftU64 (Next, 32);
 
     DeviceAddress += Chunk;
     Remaining     -= Chunk;
@@ -567,20 +592,20 @@ MshcStartDma (
   }
 
   // The last one closes the transfer and has nothing after it
-  mDescriptors[Index - 1].Des0 |= IDMAC_DES0_LD | IDMAC_DES0_ER;
-  mDescriptors[Index - 1].Des0 &= ~(UINT32)(IDMAC_DES0_CH | IDMAC_DES0_DIC);
+  Ctrl->Descriptors[Index - 1].Des0 |= IDMAC_DES0_LD | IDMAC_DES0_ER;
+  Ctrl->Descriptors[Index - 1].Des0 &= ~(UINT32)(IDMAC_DES0_CH | IDMAC_DES0_DIC);
 
-  if (!gMshcHost.Coherent) {
-    WriteBackDataCacheRange (mDescriptors, Index * sizeof (MSHC_IDMAC_DESC));
+  if (!Host->Coherent) {
+    WriteBackDataCacheRange (Ctrl->Descriptors, Index * sizeof (MSHC_IDMAC_DESC));
   }
 
   // Handover to controller
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_IDSTS_WIDE, INTMSK_ALL);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_DBADDRL, (UINT32)(mDescriptorAddr & 0xFFFFFFFF));
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_DBADDRU, (UINT32)RShiftU64 (mDescriptorAddr, 32));
+  MmioWrite32 (Host->BaseAddress + MSHCI_IDSTS_WIDE, INTMSK_ALL);
+  MmioWrite32 (Host->BaseAddress + MSHCI_DBADDRL, (UINT32)(Ctrl->DescriptorAddr & 0xFFFFFFFF));
+  MmioWrite32 (Host->BaseAddress + MSHCI_DBADDRU, (UINT32)RShiftU64 (Ctrl->DescriptorAddr, 32));
 
-  MmioOr32 (gMshcHost.BaseAddress + MSHCI_CTRL, ENABLE_IDMAC | DMA_ENABLE);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_BMOD, BMOD_IDMAC_ENABLE | BMOD_IDMAC_FB);
+  MmioOr32 (Host->BaseAddress + MSHCI_CTRL, ENABLE_IDMAC | DMA_ENABLE);
+  MmioWrite32 (Host->BaseAddress + MSHCI_BMOD, BMOD_IDMAC_ENABLE | BMOD_IDMAC_FB);
 
   return EFI_SUCCESS;
 }
@@ -590,13 +615,16 @@ MshcStartDma (
 **/
 STATIC
 EFI_STATUS
-MshcFinishDma (IN VOID *Buffer)
+MshcFinishDma (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     VOID            *Buffer)
 {
-  EFI_STATUS Status = EFI_TIMEOUT;
+  MSHC_HOST  *Host   = &Ctrl->Host;
+  EFI_STATUS  Status = EFI_TIMEOUT;
 
   for (UINTN Timeout = MAX_RETRY_COUNT; Timeout > 0; Timeout--) {
-    UINT32 Raw  = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RINTSTS);
-    UINT32 Idsts = MmioRead32 (gMshcHost.BaseAddress + MSHCI_IDSTS_WIDE);
+    UINT32 Raw   = MmioRead32 (Host->BaseAddress + MSHCI_RINTSTS);
+    UINT32 Idsts = MmioRead32 (Host->BaseAddress + MSHCI_IDSTS_WIDE);
 
     if ((Raw & (DATA_ERR | DATA_TOUT)) || (Idsts & IDSTS_ERROR)) {
       DEBUG ((EFI_D_ERROR,
@@ -607,7 +635,7 @@ MshcFinishDma (IN VOID *Buffer)
     }
 
     if (Raw & INTMSK_DTO) {
-      MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_DTO);
+      MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_DTO);
       Status = EFI_SUCCESS;
       break;
     }
@@ -617,71 +645,72 @@ MshcFinishDma (IN VOID *Buffer)
 
   if (Status == EFI_TIMEOUT) {
     DEBUG ((EFI_D_ERROR, "%a: The DMA Transfer never Completed!\n", __FUNCTION__));
-    MshcDumpRegisters ();
+    MshcDumpRegisters (Ctrl);
   }
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_BMOD, BMOD_IDMAC_RESET);
-  MmioAnd32 (gMshcHost.BaseAddress + MSHCI_CTRL, ~(UINT32)(ENABLE_IDMAC | DMA_ENABLE));
+  MmioWrite32 (Host->BaseAddress + MSHCI_BMOD, BMOD_IDMAC_RESET);
+  MmioAnd32 (Host->BaseAddress + MSHCI_CTRL, ~(UINT32)(ENABLE_IDMAC | DMA_ENABLE));
 
-  if (mBufferMap != NULL) {
-    DmaUnmap (mBufferMap);
-    mBufferMap = NULL;
+  if (Ctrl->BufferMap != NULL) {
+    DmaUnmap (Ctrl->BufferMap);
+    Ctrl->BufferMap = NULL;
   }
 
-  if (!gMshcHost.Coherent && mDmaOperation == READ && !EFI_ERROR (Status)) {
-    InvalidateDataCacheRange (Buffer, mDmaBytes);
+  if (!Host->Coherent && Ctrl->DmaOperation == READ && !EFI_ERROR (Status)) {
+    InvalidateDataCacheRange (Buffer, Ctrl->DmaBytes);
   }
 
   if (EFI_ERROR (Status)) {
-    MshcRecover ();
+    MshcRecover (Ctrl);
   }
 
   return Status;
 }
 
 BOOLEAN
-MshcIsDmaActive (VOID)
+MshcIsDmaActive (IN MSHC_CONTROLLER *Ctrl)
 {
-  return mDmaUsable;
+  return Ctrl->DmaUsable;
 }
 
 BOOLEAN
-MshcIsCardBusy (VOID)
+MshcIsCardBusy (IN MSHC_CONTROLLER *Ctrl)
 {
-  return !!(MmioRead32 (gMshcHost.BaseAddress + MSHCI_STATUS) & DATA_BUSY);
+  return !!(MmioRead32 (Ctrl->Host.BaseAddress + MSHCI_STATUS) & DATA_BUSY);
 }
 
 /**
   Switches Host to 1.8V
 **/
 EFI_STATUS
-MshcHostSwitchTo1V8 (VOID)
+MshcHostSwitchTo1V8 (IN OUT MSHC_CONTROLLER *Ctrl)
 {
-  EFI_STATUS Status;
+  MSHC_HOST  *Host = &Ctrl->Host;
+  EFI_STATUS  Status;
 
-  mVoltageSwitching = TRUE;
+  Ctrl->VoltageSwitching = TRUE;
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKENA, CLK_DISABLE);
-  MshcUpdateClockRegisters ();
+  MmioWrite32 (Host->BaseAddress + MSHCI_CLKENA, CLK_DISABLE);
+  MshcUpdateClockRegisters (Ctrl);
 
-  Status = MshcBoardSetVoltage (&gMshcHost, 1800);
+  Status = MshcBoardSetVoltage (Host, 1800);
   if (EFI_ERROR (Status)) {
-    MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
-    MshcUpdateClockRegisters ();
+    MmioWrite32 (Host->BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
+    MshcUpdateClockRegisters (Ctrl);
 
-    mVoltageSwitching = FALSE;
+    Ctrl->VoltageSwitching = FALSE;
 
     return Status;
   }
 
-  MmioOr32 (gMshcHost.BaseAddress + MSHCI_UHS_REG, UHS_VOLT_18);
+  MmioOr32 (Host->BaseAddress + MSHCI_UHS_REG, UHS_VOLT_18);
 
   MicroSecondDelay (10000);
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
-  MshcUpdateClockRegisters ();
+  MmioWrite32 (Host->BaseAddress + MSHCI_CLKENA, CLK_ENABLE);
+  MshcUpdateClockRegisters (Ctrl);
 
-  mVoltageSwitching = FALSE;
+  Ctrl->VoltageSwitching = FALSE;
 
   return EFI_SUCCESS;
 }
@@ -690,42 +719,52 @@ MshcHostSwitchTo1V8 (VOID)
   Puts the Bus on a new Timing and Speed together.
 **/
 VOID
-MshcSetSamplePhase (IN UINT32 Phase)
+MshcSetSamplePhase (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINT32           Phase)
 {
-  gMshcHost.ClkSelTiming &= ~(UINT32)CLKSEL_SAMPLE_MASK;
-  gMshcHost.ClkSelTiming |= CLKSEL_SAMPLE (Phase);
+  MSHC_HOST *Host = &Ctrl->Host;
 
-  MmioWrite32 (gMshcHost.BaseAddress + gMshcHost.ClkSelOffset, gMshcHost.ClkSelTiming);
+  Host->ClkSelTiming &= ~(UINT32)CLKSEL_SAMPLE_MASK;
+  Host->ClkSelTiming |= CLKSEL_SAMPLE (Phase);
+
+  MmioWrite32 (Host->BaseAddress + Host->ClkSelOffset, Host->ClkSelTiming);
 }
 
 EFI_STATUS
 MshcSetTiming (
-  IN UINT32 ClkSelTiming,
-  IN UINTN  Frequency)
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     UINT32           ClkSelTiming,
+  IN     UINTN            Frequency)
 {
-  gMshcHost.ClkSelTiming = ClkSelTiming;
+  MSHC_HOST *Host = &Ctrl->Host;
 
-  MmioWrite32 (gMshcHost.BaseAddress + gMshcHost.ClkSelOffset, ClkSelTiming);
+  Host->ClkSelTiming = ClkSelTiming;
 
-  return MshcSetClockFrequency (Frequency);
+  MmioWrite32 (Host->BaseAddress + Host->ClkSelOffset, ClkSelTiming);
+
+  return MshcSetClockFrequency (Ctrl, Frequency);
 }
 
 EFI_STATUS
 MshcPrepareTransfer (
-  IN VOID          *Buffer,
-  IN UINTN          BlockSize,
-  IN UINTN          BlockCount,
-  IN OPERATION_TYPE OperationType)
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     VOID            *Buffer,
+  IN     UINTN            BlockSize,
+  IN     UINTN            BlockCount,
+  IN     OPERATION_TYPE   OperationType)
 {
-  MshcResetFifo ();
+  MSHC_HOST *Host = &Ctrl->Host;
 
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_BLKSIZ, BlockSize);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_BYTCNT, BlockSize * BlockCount);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_TMOUT, 0xFFFFFFFF);
-  MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
+  MshcResetFifo (Ctrl);
 
-  if (mDmaUsable) {
-    return MshcStartDma (Buffer, BlockSize * BlockCount, OperationType);
+  MmioWrite32 (Host->BaseAddress + MSHCI_BLKSIZ, BlockSize);
+  MmioWrite32 (Host->BaseAddress + MSHCI_BYTCNT, BlockSize * BlockCount);
+  MmioWrite32 (Host->BaseAddress + MSHCI_TMOUT, 0xFFFFFFFF);
+  MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_ALL);
+
+  if (Ctrl->DmaUsable) {
+    return MshcStartDma (Ctrl, Buffer, BlockSize * BlockCount, OperationType);
   }
 
   return EFI_SUCCESS;
@@ -737,8 +776,8 @@ MshcPrepareTransfer (
 STATIC
 EFI_STATUS
 MshcCheckDataError (
-  IN UINT32 RawStatus,
-  IN CONST CHAR8 *Function)
+  IN UINT32        RawStatus,
+  IN CONST CHAR8  *Function)
 {
   if (RawStatus & DATA_TOUT) {
     DEBUG ((EFI_D_ERROR, "%a: The Data Transfer Timed Out! RINTSTS = 0x%08X\n", Function, RawStatus));
@@ -758,19 +797,22 @@ MshcCheckDataError (
 **/
 STATIC
 EFI_STATUS
-MshcWaitTransferDone (IN CONST CHAR8 *Function)
+MshcWaitTransferDone (
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     CONST CHAR8     *Function)
 {
-  UINT32 RawStatus = 0;
+  MSHC_HOST *Host      = &Ctrl->Host;
+  UINT32     RawStatus = 0;
 
   for (UINTN Timeout = MAX_RETRY_COUNT; Timeout > 0; Timeout--) {
-    RawStatus = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RINTSTS);
+    RawStatus = MmioRead32 (Host->BaseAddress + MSHCI_RINTSTS);
 
     if (RawStatus & (DATA_ERR | DATA_TOUT)) {
       return MshcCheckDataError (RawStatus, Function);
     }
 
     if (RawStatus & INTMSK_DTO) {
-      MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_DTO);
+      MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_DTO);
       return EFI_SUCCESS;
     }
 
@@ -783,11 +825,13 @@ MshcWaitTransferDone (IN CONST CHAR8 *Function)
 }
 
 EFI_STATUS
-MshcWaitAutoStop (VOID)
+MshcWaitAutoStop (IN OUT MSHC_CONTROLLER *Ctrl)
 {
+  MSHC_HOST *Host = &Ctrl->Host;
+
   for (UINTN Timeout = MAX_RETRY_COUNT; Timeout > 0; Timeout--) {
-    if (MmioRead32 (gMshcHost.BaseAddress + MSHCI_RINTSTS) & INTMSK_ACD) {
-      MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_ACD);
+    if (MmioRead32 (Host->BaseAddress + MSHCI_RINTSTS) & INTMSK_ACD) {
+      MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_ACD);
       return EFI_SUCCESS;
     }
 
@@ -801,43 +845,45 @@ MshcWaitAutoStop (VOID)
 
 EFI_STATUS
 MshcReadData (
-  OUT VOID  *Buffer,
-  IN  UINTN  Length)
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  OUT    VOID            *Buffer,
+  IN     UINTN            Length)
 {
-  UINT32 *Data      = (UINT32 *)Buffer;
-  UINTN   WordsEach  = gMshcHost.FifoItemBytes / sizeof (UINT32);
-  UINTN   Remaining = Length / gMshcHost.FifoItemBytes;
-  UINTN   Timeout   = MAX_RETRY_COUNT;
+  MSHC_HOST *Host      = &Ctrl->Host;
+  UINT32    *Data      = (UINT32 *)Buffer;
+  UINTN      WordsEach = Host->FifoItemBytes / sizeof (UINT32);
+  UINTN      Remaining = Length / Host->FifoItemBytes;
+  UINTN      Timeout   = MAX_RETRY_COUNT;
 
-  if (mDmaUsable) {
-    return MshcFinishDma (Buffer);
+  if (Ctrl->DmaUsable) {
+    return MshcFinishDma (Ctrl, Buffer);
   }
 
-  ASSERT ((Length % gMshcHost.FifoItemBytes) == 0);
+  ASSERT ((Length % Host->FifoItemBytes) == 0);
 
   while (Remaining > 0) {
-    UINT32 RawStatus = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RINTSTS);
+    UINT32 RawStatus = MmioRead32 (Host->BaseAddress + MSHCI_RINTSTS);
     UINTN  Available;
 
     if (RawStatus & (DATA_ERR | DATA_TOUT)) {
       MshcCheckDataError (RawStatus, __FUNCTION__);
-      MshcRecover ();
+      MshcRecover (Ctrl);
       return EFI_DEVICE_ERROR;
     }
 
-    Available = GET_FIFO_COUNT (MmioRead32 (gMshcHost.BaseAddress + MSHCI_STATUS));
+    Available = GET_FIFO_COUNT (MmioRead32 (Host->BaseAddress + MSHCI_STATUS));
 
     if (Available == 0) {
       if (RawStatus & INTMSK_DTO) {
-        DEBUG ((EFI_D_ERROR, "%a: The Card sent %u Bytes too Few!\n", __FUNCTION__, Remaining * gMshcHost.FifoItemBytes));
-        MshcRecover ();
+        DEBUG ((EFI_D_ERROR, "%a: The Card sent %u Bytes too Few!\n", __FUNCTION__, Remaining * Host->FifoItemBytes));
+        MshcRecover (Ctrl);
         return EFI_DEVICE_ERROR;
       }
 
       if (Timeout-- == 0) {
         DEBUG ((EFI_D_ERROR, "%a: The FIFO never Filled Up!\n", __FUNCTION__));
-        MshcDumpRegisters ();
-        MshcRecover ();
+        MshcDumpRegisters (Ctrl);
+        MshcRecover (Ctrl);
         return EFI_TIMEOUT;
       }
 
@@ -851,52 +897,54 @@ MshcReadData (
 
     for (UINTN i = 0; i < Available; i++) {
       for (UINTN Word = 0; Word < WordsEach; Word++) {
-        *Data++ = MmioRead32 (gMshcHost.BaseAddress + gMshcHost.FifoOffset + (Word * sizeof (UINT32)));
+        *Data++ = MmioRead32 (Host->BaseAddress + Host->FifoOffset + (Word * sizeof (UINT32)));
       }
     }
 
     Remaining -= Available;
     Timeout    = MAX_RETRY_COUNT;
 
-    MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_RXDR);
+    MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_RXDR);
   }
 
-  return MshcWaitTransferDone (__FUNCTION__);
+  return MshcWaitTransferDone (Ctrl, __FUNCTION__);
 }
 
 EFI_STATUS
 MshcWriteData (
-  IN VOID  *Buffer,
-  IN UINTN  Length)
+  IN OUT MSHC_CONTROLLER *Ctrl,
+  IN     VOID            *Buffer,
+  IN     UINTN            Length)
 {
-  UINT32 *Data      = (UINT32 *)Buffer;
-  UINTN   WordsEach  = gMshcHost.FifoItemBytes / sizeof (UINT32);
-  UINTN   Remaining = Length / gMshcHost.FifoItemBytes;
-  UINTN   Timeout   = MAX_RETRY_COUNT;
+  MSHC_HOST *Host      = &Ctrl->Host;
+  UINT32    *Data      = (UINT32 *)Buffer;
+  UINTN      WordsEach = Host->FifoItemBytes / sizeof (UINT32);
+  UINTN      Remaining = Length / Host->FifoItemBytes;
+  UINTN      Timeout   = MAX_RETRY_COUNT;
 
-  if (mDmaUsable) {
-    return MshcFinishDma (Buffer);
+  if (Ctrl->DmaUsable) {
+    return MshcFinishDma (Ctrl, Buffer);
   }
 
-  ASSERT ((Length % gMshcHost.FifoItemBytes) == 0);
+  ASSERT ((Length % Host->FifoItemBytes) == 0);
 
   while (Remaining > 0) {
-    UINT32 RawStatus = MmioRead32 (gMshcHost.BaseAddress + MSHCI_RINTSTS);
+    UINT32 RawStatus = MmioRead32 (Host->BaseAddress + MSHCI_RINTSTS);
     UINTN  Free;
 
     if (RawStatus & (DATA_ERR | DATA_TOUT)) {
       MshcCheckDataError (RawStatus, __FUNCTION__);
-      MshcRecover ();
+      MshcRecover (Ctrl);
       return EFI_DEVICE_ERROR;
     }
 
-    Free = MSHC_FIFO_DEPTH - GET_FIFO_COUNT (MmioRead32 (gMshcHost.BaseAddress + MSHCI_STATUS));
+    Free = MSHC_FIFO_DEPTH - GET_FIFO_COUNT (MmioRead32 (Host->BaseAddress + MSHCI_STATUS));
 
     if (Free == 0) {
       if (Timeout-- == 0) {
         DEBUG ((EFI_D_ERROR, "%a: The FIFO never Drained!\n", __FUNCTION__));
-        MshcDumpRegisters ();
-        MshcRecover ();
+        MshcDumpRegisters (Ctrl);
+        MshcRecover (Ctrl);
         return EFI_TIMEOUT;
       }
 
@@ -910,15 +958,15 @@ MshcWriteData (
 
     for (UINTN i = 0; i < Free; i++) {
       for (UINTN Word = 0; Word < WordsEach; Word++) {
-        MmioWrite32 (gMshcHost.BaseAddress + gMshcHost.FifoOffset + (Word * sizeof (UINT32)), *Data++);
+        MmioWrite32 (Host->BaseAddress + Host->FifoOffset + (Word * sizeof (UINT32)), *Data++);
       }
     }
 
     Remaining -= Free;
     Timeout    = MAX_RETRY_COUNT;
 
-    MmioWrite32 (gMshcHost.BaseAddress + MSHCI_RINTSTS, INTMSK_TXDR);
+    MmioWrite32 (Host->BaseAddress + MSHCI_RINTSTS, INTMSK_TXDR);
   }
 
-  return MshcWaitTransferDone (__FUNCTION__);
+  return MshcWaitTransferDone (Ctrl, __FUNCTION__);
 }
