@@ -781,6 +781,41 @@
 
 </details>
 
+<details>
+<summary><b><strong>MediaTek MT6735/MT8735 Devices</strong></b></summary>
+
+<br>
+
+<details>
+<summary><b><strong>Lenovo Devices</strong></b></summary>
+
+## Lenovo TAB 2 A8-50LC
+
+<img align="right" src="Resources/Pictures/Lenovo-TAB-2-A8-50LC.png" width="400" alt="Preview">
+
+**State:** Inactive <br>
+**Codename:** a850lc
+
+**Contributors:** [NORTCHOT](https://github.com/NORTCHOT/)
+
+### UEFI Status
+
+| Feature            | Description    | State |
+|:-------------------|:---------------|:-----:|
+| Display            |                | ✅    |
+| Internal Storage   |                | ❌    |
+| Side Buttons       |                | ✅    |
+| USB Host Mode      |                | ❌    |
+| USB Device Mode    |                | ❌    |
+| USB Power Delivery |                | ❌    |
+| SD Card            |                | ❌    |
+| Windows Boot       | No ACPI Tables | ❌    |
+| Linux Boot         |                | ❔    |
+
+</details>
+
+</details>
+
 </details>
 
 ---

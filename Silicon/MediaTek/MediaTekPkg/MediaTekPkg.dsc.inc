@@ -26,6 +26,16 @@
   #
   RamManagerLib|MediaTekPkg/Library/RamManagerLib/RamManagerLib.inf
 
+  #
+  # Clock Libraries
+  #
+  ClockImplLib|MediaTekNullPkg/Library/ClockImplNullLib/ClockImplNullLib.inf
+
+  #
+  # Storage Libraries
+  #
+  MsdcImplLib|MediaTekNullPkg/Library/MsdcImplNullLib/MsdcImplNullLib.inf
+
 [Components]
   #
   # Custom Drivers
@@ -34,4 +44,5 @@
   MediaTekPkg/Drivers/ClockDxe/ClockDxe.inf
   MediaTekPkg/Drivers/PmicWrapperDxe/PmicWrapperDxe.inf
   MediaTekPkg/Drivers/MT6358PmicDxe/MT6358PmicDxe.inf
+  MediaTekPkg/Drivers/MT6328PmicDxe/MT6328PmicDxe.inf
   MediaTekPkg/Drivers/MsdcDxe/MsdcDxe.inf

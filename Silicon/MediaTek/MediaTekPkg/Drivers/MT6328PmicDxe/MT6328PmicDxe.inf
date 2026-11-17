@@ -1,0 +1,28 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MT6328PmicDxe
+  FILE_GUID                      = 84EC9F3F-F568-4959-9E4A-1BF8B5D34E99
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitPmic
+
+[Sources]
+  MT6328PmicDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  MediaTekPkg/MediaTekPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  DebugLib
+
+[Protocols]
+  gMediaTekPmicWrapperProtocolGuid
+  gMediaTekPmicProtocolGuid
+
+[Depex]
+  TRUE

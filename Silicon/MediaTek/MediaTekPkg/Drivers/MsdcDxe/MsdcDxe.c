@@ -1370,6 +1370,10 @@ InitMsdc (
   EFI_MEMORY_REGION_DESCRIPTOR Region;
   CHAR8 MsdcName[11];
 
+  if (gPlatformInfo.NumberOfHosts == 0) {
+    return EFI_UNSUPPORTED;
+  }
+
   for (UINTN i = 0; i < gPlatformInfo.NumberOfHosts; i++) {
     Private = AllocateCopyPool (sizeof(MSDC_PRIVATE_DATA), &gMSDCPrivateDataTemplate);
     if (Private == NULL) {
