@@ -24,6 +24,8 @@ UpdateAcpiTables ()
   UINT32  SIDV                            = 0;
   UINT16  SDFE                            = 0;
   UINT16  SIDM                            = 0;
+  EFIChipInfoFamilyType ChipFamily        = 0;
+  EFIChipInfoModemType  ModemSupport      = 0;
   UINT32 PUS3                             = FixedPcdGetBool(PcdStorageIsUfs3);
   UINT32 *pSIDT                           = (UINT32 *)0x784198;
   UINT32  SIDT                            = (*pSIDT & 0xFF00000) >> 20;
@@ -61,8 +63,11 @@ UpdateAcpiTables ()
 
   mChipInfoProtocol->GetChipId       (mChipInfoProtocol, (EFIChipInfoIdType *)&SOID);
   mChipInfoProtocol->GetChipVersion  (mChipInfoProtocol, &SIDV);
-  mChipInfoProtocol->GetChipFamily   (mChipInfoProtocol, (EFIChipInfoFamilyType *)&SDFE);
-  mChipInfoProtocol->GetModemSupport (mChipInfoProtocol, (EFIChipInfoModemType *)&SIDM);
+  // Use protocol-sized outputs before writing the 16-bit AML fields.
+  mChipInfoProtocol->GetChipFamily   (mChipInfoProtocol, &ChipFamily);
+  SDFE = (UINT16)ChipFamily;
+  mChipInfoProtocol->GetModemSupport (mChipInfoProtocol, &ModemSupport);
+  SIDM = (UINT16)ModemSupport;
   mChipInfoProtocol->GetSerialNumber (mChipInfoProtocol, (EFIChipInfoSerialNumType *)&SOSN1);
   mChipInfoProtocol->GetQFPROMChipId (mChipInfoProtocol, (EFIChipInfoQFPROMChipIdType *)&SOSN2);
   mChipInfoProtocol->GetChipIdString (mChipInfoProtocol, SIDS, EFICHIPINFO_MAX_ID_LENGTH);
