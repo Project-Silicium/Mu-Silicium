@@ -53,8 +53,6 @@ OnyxUsbSupplyBootstrapEntry (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTab
 #define ONYX_MCA_READ           1U
 #define ONYX_MCA_WRITE          2U
 #define ONYX_MCA_NOTIFY         2U
-#define ONYX_MCA_PACKET_SIZE    272U
-#define ONYX_MCA_REPLY_SIZE     280U
 #define ONYX_MCA_DATA_SIZE      256U
 #define ONYX_MCA_QUEUE_SIZE     32U
 #define ONYX_MCA_TIMEOUT_US     500000ULL
@@ -69,17 +67,16 @@ typedef struct {
   UINT32 Core2;
 } ONYX_I2C_CONFIG;
 
+typedef UINT32 (EFIAPI *ONYX_I2C_REGISTER_ACCESS)(VOID *Handle, ONYX_I2C_CONFIG *Config,
+                                                UINT16 Register, UINT16 RegisterAddressSize,
+                                                UINT8 *Data, UINT16 DataSize, UINT32 *Count,
+                                                UINT32 TimeoutUs);
+
 typedef struct {
   UINT64 Revision;
   UINT32 (EFIAPI *Open)(UINT32 Instance, VOID **Handle);
-  UINT32 (EFIAPI *Read)(VOID *Handle, ONYX_I2C_CONFIG *Config,
-                        UINT16 Register, UINT16 RegisterAddressSize,
-                        UINT8 *Data, UINT16 DataSize, UINT32 *Count,
-                        UINT32 TimeoutUs);
-  UINT32 (EFIAPI *Write)(VOID *Handle, ONYX_I2C_CONFIG *Config,
-                         UINT16 Register, UINT16 RegisterAddressSize,
-                         UINT8 *Data, UINT16 DataSize, UINT32 *Count,
-                         UINT32 TimeoutUs);
+  ONYX_I2C_REGISTER_ACCESS Read;
+  ONYX_I2C_REGISTER_ACCESS Write;
   VOID *Transfer;
   UINT32 (EFIAPI *Close)(VOID *Handle);
 } ONYX_I2C;
@@ -151,6 +148,39 @@ typedef struct {
   EFI_STATUS (EFIAPI *SetOs)(UINT32 Os);
 } ONYX_PMIC_BOOT;
 
+// The transport may deliver these little-endian wire records at any alignment.
+#pragma pack(push, 1)
+typedef struct {
+  UINT32 Owner;
+  UINT32 Type;
+  UINT32 Opcode;
+  UINT32 Property;
+} ONYX_MCA_HEADER;
+
+typedef struct {
+  ONYX_MCA_HEADER Header;
+  UINT32 Sequence;
+  UINT8 Data[ONYX_MCA_DATA_SIZE];
+} ONYX_MCA_REQUEST;
+
+typedef struct {
+  ONYX_MCA_HEADER Header;
+  UINT32 Result;
+  UINT32 Sequence;
+  UINT8 Data[ONYX_MCA_DATA_SIZE];
+} ONYX_MCA_REPLY;
+
+typedef struct {
+  ONYX_MCA_HEADER Header;
+  UINT32 Value;
+  UINT8 Reserved[ONYX_MCA_DATA_SIZE - sizeof (UINT32)];
+} ONYX_MCA_NOTIFY_PACKET;
+#pragma pack(pop)
+
+STATIC_ASSERT (sizeof (ONYX_MCA_REQUEST) == 276, "MCA request length");
+STATIC_ASSERT (sizeof (ONYX_MCA_REPLY) == 280, "MCA reply length");
+STATIC_ASSERT (sizeof (ONYX_MCA_NOTIFY_PACKET) == 272, "MCA notification length");
+
 typedef struct {
   UINT32 Type;
   UINT32 Value;
@@ -206,13 +236,10 @@ STATIC EFI_STATUS mBootStatus = EFI_NOT_READY;
 STATIC ONYX_PIL *mPil;
 STATIC ONYX_PMIC_ROUTER *mPmicRouter;
 STATIC ONYX_PMIC_BOOT *mPmicBoot;
-STATIC UINT64 mPilConfig[0x238 / sizeof (UINT64)];
-STATIC UINT8 mRequest[276];
-STATIC UINT8 mResponse[280];
+STATIC ONYX_MCA_REQUEST mRequest;
+STATIC UINT32 mReplyResult;
+STATIC UINT8 mReplyValue;
 STATIC UINT32 mSequence = 0x4F4E5900U;
-STATIC UINT32 mRequestProperty;
-STATIC UINT32 mRequestSequence;
-STATIC UINT32 mRequestOpcode;
 STATIC UINT64 mRequestStarted;
 STATIC BOOLEAN mRequestBusy;
 STATIC BOOLEAN mRequestDone;
@@ -249,66 +276,43 @@ NowUs (VOID)
   return GetTimeInNanoSecond (GetPerformanceCounter ()) / 1000;
 }
 
-STATIC UINT32
-ReadLe32 (CONST UINT8 *Data)
+STATIC EFI_STATUS
+Sc8581Access (BOOLEAN Write, UINT8 Reg, UINT8 *Value)
 {
-  return (UINT32)Data[0] | ((UINT32)Data[1] << 8) |
-         ((UINT32)Data[2] << 16) | ((UINT32)Data[3] << 24);
-}
-
-STATIC VOID
-WriteLe32 (UINT8 *Data, UINT32 Value)
-{
-  Data[0] = (UINT8)Value;
-  Data[1] = (UINT8)(Value >> 8);
-  Data[2] = (UINT8)(Value >> 16);
-  Data[3] = (UINT8)(Value >> 24);
-}
-
-STATIC BOOLEAN
-StringEqual (CONST CHAR8 *Left, CONST CHAR8 *Right)
-{
-  if ((Left == NULL) || (Right == NULL)) { return FALSE; }
-  while ((*Left != 0) && (*Left == *Right)) { Left++; Right++; }
-  return *Left == *Right;
+  ONYX_I2C_REGISTER_ACCESS Transfer;
+  UINT32 Count = 0;
+  UINT32 Result;
+  if (mChargePump.Handle == NULL) { return EFI_NOT_READY; }
+  Transfer = Write ? mChargePump.Protocol->Write : mChargePump.Protocol->Read;
+  Result = Transfer (mChargePump.Handle, &mChargePump.Config, Reg, 1, Value, 1, &Count, 2500);
+  // Some revisions include the one-byte register address in the transfer count.
+  if ((Result != 0) || ((Count != 1) && (Count != 2))) {
+    DEBUG ((DEBUG_ERROR, "OnyxPower: SC8581 %a %02x result=%u count=%u\n",
+            Write ? "write" : "read", Reg, Result, Count));
+    return EFI_DEVICE_ERROR;
+  }
+  return EFI_SUCCESS;
 }
 
 STATIC EFI_STATUS
 Sc8581Read (UINT8 Reg, UINT8 *Value)
 {
-  UINT32 Count;
-  UINT32 Result;
-  if (!mChargePump.Initialized && mChargePump.Handle == NULL) {
-    return EFI_NOT_READY;
-  }
-  Count = 0;
-  Result = mChargePump.Protocol->Read (mChargePump.Handle, &mChargePump.Config,
-                                       Reg, 1, Value, 1, &Count, 2500);
-  if ((Result != 0) || (Count != 1 && Count != 2)) {
-    DEBUG ((DEBUG_ERROR, "OnyxPower: SC8581 read %02x result=%u count=%u\n",
-            Reg, Result, Count));
-    return EFI_DEVICE_ERROR;
-  }
-  return EFI_SUCCESS;
+  return Sc8581Access (FALSE, Reg, Value);
 }
 
 STATIC EFI_STATUS
 Sc8581Write (UINT8 Reg, UINT8 Value)
 {
-  UINT32 Count;
-  UINT32 Result;
-  if (!mChargePump.Initialized && mChargePump.Handle == NULL) {
-    return EFI_NOT_READY;
-  }
-  Count = 0;
-  Result = mChargePump.Protocol->Write (mChargePump.Handle, &mChargePump.Config,
-                                        Reg, 1, &Value, 1, &Count, 2500);
-  if ((Result != 0) || (Count != 1 && Count != 2)) {
-    DEBUG ((DEBUG_ERROR, "OnyxPower: SC8581 write %02x result=%u count=%u\n",
-            Reg, Result, Count));
-    return EFI_DEVICE_ERROR;
-  }
-  return EFI_SUCCESS;
+  return Sc8581Access (TRUE, Reg, &Value);
+}
+
+STATIC EFI_STATUS
+Sc8581CheckId (VOID)
+{
+  UINT8 Id;
+  EFI_STATUS Status = Sc8581Read (0x6E, &Id);
+  if (EFI_ERROR (Status)) { return Status; }
+  return Id == 0x81 ? EFI_SUCCESS : EFI_UNSUPPORTED;
 }
 
 STATIC EFI_STATUS
@@ -321,10 +325,28 @@ Sc8581Update (UINT8 Reg, UINT8 Mask, UINT8 Value)
   return Sc8581Write (Reg, (UINT8)((Old & (UINT8)~Mask) | (Value & Mask)));
 }
 
+typedef struct {
+  UINT8 Reg;
+  UINT8 Mask;
+  UINT8 Value;
+} SC8581_SETTING;
+
+STATIC EFI_STATUS
+Sc8581Apply (CONST SC8581_SETTING *Table, UINTN Count)
+{
+  UINTN Index;
+  EFI_STATUS Status;
+  for (Index = 0; Index < Count; Index++) {
+    Status = Sc8581Update (Table[Index].Reg, Table[Index].Mask, Table[Index].Value);
+    if (EFI_ERROR (Status)) { return Status; }
+  }
+  return EFI_SUCCESS;
+}
+
 STATIC EFI_STATUS
 Sc8581SetMode (UINT8 Mode)
 {
-  STATIC CONST struct { UINT8 Reg, Mask, Value; } Protection[] = {
+  STATIC CONST SC8581_SETTING Protection[] = {
     { 0x01, 0x80, 0x00 }, { 0x02, 0x80, 0x80 },
     { 0x06, 0x80, 0x00 }, { 0x07, 0x80, 0x00 },
     { 0x08, 0x80, 0x00 }, { 0x09, 0x80, 0x00 },
@@ -335,21 +357,15 @@ Sc8581SetMode (UINT8 Mode)
     { 0x04, 0x0F, 10 }, { 0x05, 0x03, 1 },
     { 0x09, 0x07, 1 }, { 0x08, 0x07, 4 }
   };
-  EFI_STATUS Status;
-  UINTN Index;
-  for (Index = 0; Index < ARRAY_SIZE (Protection); Index++) {
-    Status = Sc8581Update (Protection[Index].Reg,
-                           Protection[Index].Mask,
-                           Protection[Index].Value);
-    if (EFI_ERROR (Status)) { return Status; }
-  }
+  EFI_STATUS Status = Sc8581Apply (Protection, ARRAY_SIZE (Protection));
+  if (EFI_ERROR (Status)) { return Status; }
   return Sc8581Update (0x0E, 0x07, Mode);
 }
 
 STATIC EFI_STATUS
 Sc8581Initialize (VOID)
 {
-  STATIC CONST struct { UINT8 Reg, Mask, Value; } Init[] = {
+  STATIC CONST SC8581_SETTING Init[] = {
     {0x0E,0x08,0x08}, {0x0E,0x80,0}, {0x0B,0x38,0x38},
     {0x0D,0x38,0x28}, {0x07,0x30,0x10}, {0x7C,0x08,0x08},
     {0x0E,0x10,0}, {0x70,0x08,0}, {0x0C,0x03,0x03},
@@ -359,12 +375,8 @@ Sc8581Initialize (VOID)
     {0x16,0x02,0}, {0x16,0x01,0}, {0x15,0x80,0},
     {0x6C,0,0}, {0x6D,0,0}
   };
-  EFI_STATUS Status;
-  UINTN Index;
-  for (Index = 0; Index < ARRAY_SIZE (Init); Index++) {
-    Status = Sc8581Update (Init[Index].Reg, Init[Index].Mask, Init[Index].Value);
-    if (EFI_ERROR (Status)) { return Status; }
-  }
+  EFI_STATUS Status = Sc8581Apply (Init, ARRAY_SIZE (Init));
+  if (EFI_ERROR (Status)) { return Status; }
   Status = Sc8581SetMode (1);
   if (EFI_ERROR (Status)) { return Status; }
   Status = Sc8581Update (0x0F, 0x20, 0x20);
@@ -380,13 +392,11 @@ STATIC EFI_STATUS
 Sc8581OtgConfig (BOOLEAN Enable)
 {
   EFI_STATUS Status;
-  UINT8 Id;
   UINT8 Mode;
   UINT8 Control;
   UINTN Retry;
-  Status = Sc8581Read (0x6E, &Id);
+  Status = Sc8581CheckId ();
   if (EFI_ERROR (Status)) { return Status; }
-  if (Id != 0x81) { return EFI_UNSUPPORTED; }
   for (Retry = 0; Retry < 10; Retry++) {
     if (Enable) {
       Status = Sc8581SetMode (5);
@@ -419,9 +429,7 @@ Sc8581Open (VOID)
   ONYX_TLMM *Tlmm;
   EFI_STATUS Status;
   UINT32 Result;
-  UINT32 Count;
   UINT32 Nlpm = 0x20000000U | (126U << 4) | BIT14;
-  UINT8 Id;
   if (mChargePump.Initialized) { return EFI_SUCCESS; }
   Status = gBS->LocateProtocol (&mI2cGuid, NULL, (VOID **)&mChargePump.Protocol);
   if (EFI_ERROR (Status)) { return Status; }
@@ -447,14 +455,8 @@ Sc8581Open (VOID)
     mChargePump.Handle = NULL;
     return EFI_DEVICE_ERROR;
   }
-  Count = 0;
-  Result = mChargePump.Protocol->Read (mChargePump.Handle, &mChargePump.Config,
-                                       0x6E, 1, &Id, 1, &Count, 2500);
-  if ((Result != 0) || (Count != 1 && Count != 2)) {
-    Status = EFI_DEVICE_ERROR;
-  } else if (Id != 0x81) {
-    Status = EFI_UNSUPPORTED;
-  } else {
+  Status = Sc8581CheckId ();
+  if (!EFI_ERROR (Status)) {
     mChargePump.Initialized = TRUE;
     Status = Sc8581Initialize ();
   }
@@ -484,7 +486,7 @@ STATIC VOID EFIAPI
 RouterTransmitDone (VOID *Handle, VOID *Private, VOID *PacketPrivate,
                     CONST VOID *Packet, UINTN Length)
 {
-  if ((PacketPrivate == mRequest) && (Packet == mRequest)) {
+  if ((PacketPrivate == &mRequest) && (Packet == &mRequest)) {
     mRequestTxDone = TRUE;
     if (mRequestTimedOut) { mRequestBusy = FALSE; }
     return;
@@ -525,58 +527,44 @@ STATIC VOID EFIAPI
 RouterReceive (VOID *Handle, VOID *Private, VOID *PacketPrivate,
                CONST VOID *Packet, UINTN Length, UINTN IntentSize)
 {
-  CONST UINT8 *Data = Packet;
-  UINT32 Owner;
-  UINT32 Type;
-  UINT32 Opcode;
-  UINT32 Property;
-  UINT32 Value;
+  CONST ONYX_MCA_HEADER *Header = Packet;
+  CONST ONYX_MCA_REPLY *Reply = Packet;
+  CONST ONYX_MCA_NOTIFY_PACKET *Notify = Packet;
   INT32 Raw = 0;
   EFI_STATUS Status;
-  BOOLEAN Consumed = FALSE;
-  if ((Data != NULL) && (Length >= 12)) {
-    Owner = ReadLe32 (Data);
-    Type = ReadLe32 (Data + 4);
-    Opcode = ReadLe32 (Data + 8);
-    if ((Owner == ONYX_MCA_OWNER) && (Type == ONYX_MCA_READ) &&
-        (Length == ONYX_MCA_REPLY_SIZE) && mRequestBusy &&
-        !mRequestTimedOut && (Opcode == mRequestOpcode) &&
-        (ReadLe32 (Data + 12) == mRequestProperty) &&
-        (ReadLe32 (Data + 20) == mRequestSequence)) {
-      CopyMem (mResponse, Data, sizeof (mResponse));
+
+  if ((Packet == NULL) || (Length < sizeof (*Header)) || (Header->Owner != ONYX_MCA_OWNER)) {
+    goto Forward;
+  }
+  if ((Header->Type == ONYX_MCA_READ) && (Length == sizeof (*Reply))) {
+    if (mRequestBusy && !mRequestTimedOut && (Header->Opcode == mRequest.Header.Opcode) &&
+        (Header->Property == mRequest.Header.Property) && (Reply->Sequence == mRequest.Sequence)) {
+      mReplyResult = Reply->Result;
+      mReplyValue = Reply->Data[0];
       mRequestDone = TRUE;
-      Consumed = TRUE;
-    } else if ((Owner == ONYX_MCA_OWNER) && (Type == ONYX_MCA_READ) &&
-               (Length == ONYX_MCA_REPLY_SIZE) && mNativeRequest &&
-               (Opcode == mNativeOpcode) &&
-               (ReadLe32 (Data + 12) == mNativeProperty) &&
-               (ReadLe32 (Data + 20) == mNativeSequence)) {
+    } else if (mNativeRequest && (Header->Opcode == mNativeOpcode) &&
+               (Header->Property == mNativeProperty) && (Reply->Sequence == mNativeSequence)) {
       mRouterReceive (Handle, Private, PacketPrivate, Packet, Length, IntentSize);
       mNativeRequest = FALSE;
       return;
-    } else if ((Owner == ONYX_MCA_OWNER) && (Type == ONYX_MCA_NOTIFY) &&
-               (Length == ONYX_MCA_PACKET_SIZE)) {
-      Property = ReadLe32 (Data + 12);
-      Value = ReadLe32 (Data + 16);
-      if ((Property == 3) || (Property == 9) || (Property == 10)) {
-        QueueNotification (Property, Value);
-      }
-      Consumed = TRUE;
-    } else if ((Owner == ONYX_MCA_OWNER) && (Type == ONYX_MCA_READ) &&
-               (Length == ONYX_MCA_REPLY_SIZE)) {
-      // Drain late/unknown Android replies. The native callback sets its
-      // completion flag even for unknown packets, breaking unrelated UCSI I/O.
-      Consumed = TRUE;
     }
-  }
-  if (Consumed) {
-    Status = mGlink->RxDone (Handle, Packet, TRUE, &Raw);
-    if (EFI_ERROR (Status) || (Raw != 0)) {
-      mSupplyFault = TRUE;
-      DEBUG ((DEBUG_ERROR, "OnyxPower: GLINK RxDone failed %r raw=%d\n", Status, Raw));
+    // Also drain late/unknown MCA replies. The native callback would signal
+    // its unrelated UCSI waiter even on an unknown packet.
+  } else if ((Header->Type == ONYX_MCA_NOTIFY) && (Length == sizeof (*Notify))) {
+    if ((Header->Property == 3) || (Header->Property == 9) || (Header->Property == 10)) {
+      QueueNotification (Header->Property, Notify->Value);
     }
-    return;
+  } else {
+    goto Forward;
   }
+  Status = mGlink->RxDone (Handle, Packet, TRUE, &Raw);
+  if (EFI_ERROR (Status) || (Raw != 0)) {
+    mSupplyFault = TRUE;
+    DEBUG ((DEBUG_ERROR, "OnyxPower: GLINK RxDone failed %r raw=%d\n", Status, Raw));
+  }
+  return;
+
+Forward:
   mRouterReceive (Handle, Private, PacketPrivate, Packet, Length, IntentSize);
 }
 
@@ -584,21 +572,20 @@ STATIC EFI_STATUS EFIAPI
 RouterTransmit (VOID *Handle, VOID *Private, CONST VOID *Packet,
                 UINTN Length, UINT32 Options, INT32 *Raw)
 {
-  CONST UINT8 *Data = Packet;
-  BOOLEAN IsMcaRequest = Handle == mRouterHandle && Data != NULL &&
-    Length == sizeof (mRequest) && ReadLe32 (Data) == ONYX_MCA_OWNER &&
-    ReadLe32 (Data + 4) == ONYX_MCA_READ &&
-    (ReadLe32 (Data + 8) == ONYX_MCA_READ ||
-     ReadLe32 (Data + 8) == ONYX_MCA_WRITE);
+  CONST ONYX_MCA_REQUEST *Request = Packet;
+  BOOLEAN IsMcaRequest = (Handle == mRouterHandle) && (Request != NULL) &&
+    (Length == sizeof (*Request)) && (Request->Header.Owner == ONYX_MCA_OWNER) &&
+    (Request->Header.Type == ONYX_MCA_READ) && ((Request->Header.Opcode == ONYX_MCA_READ) ||
+                                                (Request->Header.Opcode == ONYX_MCA_WRITE));
   EFI_STATUS Status;
   if (IsMcaRequest) {
     if (mRequestBusy || mNativeRequest) {
       if (Raw != NULL) { *Raw = -6; }
       return EFI_NOT_READY;
     }
-    mNativeProperty = ReadLe32 (Data + 12);
-    mNativeSequence = ReadLe32 (Data + 16);
-    mNativeOpcode = ReadLe32 (Data + 8);
+    mNativeProperty = Request->Header.Property;
+    mNativeSequence = Request->Sequence;
+    mNativeOpcode = Request->Header.Opcode;
     mNativeStarted = NowUs ();
     mNativeRequest = TRUE;
   }
@@ -614,9 +601,10 @@ RouterOpen (ONYX_GLINK_OPEN_CONFIG *Config, VOID **Handle, INT32 *Raw)
 {
   ONYX_GLINK_OPEN_CONFIG Wrapped;
   EFI_STATUS Status;
-  if ((Config == NULL) || !StringEqual (Config->Transport, "SMEM") ||
-      !StringEqual (Config->Remote, "lpass") ||
-      !StringEqual (Config->Name, "PMIC_RTR_ADSP_APPS")) {
+  if ((Config == NULL) || (Config->Transport == NULL) || (Config->Remote == NULL) ||
+      (Config->Name == NULL) || (AsciiStrCmp (Config->Transport, "SMEM") != 0) ||
+      (AsciiStrCmp (Config->Remote, "lpass") != 0) ||
+      (AsciiStrCmp (Config->Name, "PMIC_RTR_ADSP_APPS") != 0)) {
     return mGlinkOpen (Config, Handle, Raw);
   }
   if (mRouterOpening || mRouterUp || (Config->Receive == NULL) ||
@@ -675,25 +663,21 @@ RouterBegin (UINT32 Opcode, UINT32 Property, CONST VOID *Payload, UINTN PayloadL
   if (!mRouterUp || (mRouterHandle == NULL) || mSupplyFault) { return EFI_NOT_READY; }
   if (mRequestBusy || mNativeRequest) { return EFI_NOT_READY; }
   if (PayloadLength > ONYX_MCA_DATA_SIZE) { return EFI_BAD_BUFFER_SIZE; }
-  ZeroMem (mRequest, sizeof (mRequest));
-  ZeroMem (mResponse, sizeof (mResponse));
-  WriteLe32 (mRequest, ONYX_MCA_OWNER);
-  WriteLe32 (mRequest + 4, 1);
-  WriteLe32 (mRequest + 8, Opcode);
-  WriteLe32 (mRequest + 12, Property);
-  WriteLe32 (mRequest + 16, ++mSequence);
-  mRequestProperty = Property;
-  mRequestSequence = mSequence;
-  mRequestOpcode = Opcode;
+  mRequest.Header.Owner = ONYX_MCA_OWNER;
+  mRequest.Header.Type = ONYX_MCA_READ;
+  mRequest.Header.Opcode = Opcode;
+  mRequest.Header.Property = Property;
+  mRequest.Sequence = ++mSequence;
+  ZeroMem (mRequest.Data, sizeof (mRequest.Data));
   if ((Payload != NULL) && (PayloadLength != 0)) {
-    CopyMem (mRequest + 20, Payload, PayloadLength);
+    CopyMem (mRequest.Data, Payload, PayloadLength);
   }
   mRequestBusy = TRUE;
   mRequestDone = FALSE;
   mRequestTxDone = FALSE;
   mRequestTimedOut = FALSE;
   mRequestStarted = NowUs ();
-  Status = mGlinkTransmit (mRouterHandle, mRequest, mRequest, sizeof (mRequest), 0, &Raw);
+  Status = mGlinkTransmit (mRouterHandle, &mRequest, &mRequest, sizeof (mRequest), 0, &Raw);
   if (EFI_ERROR (Status) || (Raw != 0)) {
     mRequestBusy = FALSE;
     return EFI_DEVICE_ERROR;
@@ -702,16 +686,13 @@ RouterBegin (UINT32 Opcode, UINT32 Property, CONST VOID *Payload, UINTN PayloadL
 }
 
 STATIC EFI_STATUS
-RouterFinish (VOID *Output, UINTN OutputLength)
+RouterFinish (UINT8 *Value)
 {
   if (!mRequestBusy) { return EFI_NOT_READY; }
-  if (OutputLength > ONYX_MCA_DATA_SIZE) { return EFI_BAD_BUFFER_SIZE; }
   if (mRequestDone && mRequestTxDone) {
     mRequestBusy = FALSE;
-    if (ReadLe32 (mResponse + 16) != 0) { return EFI_DEVICE_ERROR; }
-    if ((Output != NULL) && (OutputLength != 0)) {
-      CopyMem (Output, mResponse + 24, OutputLength);
-    }
+    if (mReplyResult != 0) { return EFI_DEVICE_ERROR; }
+    if (Value != NULL) { *Value = mReplyValue; }
     return EFI_SUCCESS;
   }
   if (NowUs () - mRequestStarted < ONYX_MCA_TIMEOUT_US) { return EFI_NOT_READY; }
@@ -720,45 +701,41 @@ RouterFinish (VOID *Output, UINTN OutputLength)
   mRequestTimedOut = TRUE;
   if (mRequestTxDone) { mRequestBusy = FALSE; }
   DEBUG ((DEBUG_ERROR, "[OnyxPower] MCA timeout property=%x tx=%u rx=%u\n",
-          mRequestProperty, mRequestTxDone, mRequestDone));
+          mRequest.Header.Property, mRequestTxDone, mRequestDone));
   return EFI_TIMEOUT;
 }
 
 STATIC EFI_STATUS
 SynchronizeMca (VOID)
 {
-  CONST UINT8 Present = 1;
-  CONST UINT8 EuModel = 0;
-  CONST UINT32 OtgConfig[4] = { 0, 1, MAX_UINT32, MAX_UINT32 };
-  CONST UINT32 CidConfig = 0x0704;
-  STATIC CONST UINT32 Property[4] = { 0x201C, 0x201A, 0x201B, 0x2028 };
-  CONST VOID *Payload;
-  UINTN Length;
+  // Android MCA startup properties, in their required write order.
+  STATIC CONST struct {
+    UINT32 Property;
+    UINT32 Length;
+    UINT32 Data[4];
+  } Settings[] = {
+    { 0x201C, 1,  { 1 } },                           // Charge pump present
+    { 0x201A, 16, { 0, 1, MAX_UINT32, MAX_UINT32 } }, // OTG configuration
+    { 0x201B, 4,  { 0x0704 } },                      // CID configuration
+    { 0x2028, 1,  { 0 } }                            // EU model
+  };
   EFI_STATUS Status;
   if (mMcaSynchronized) { return EFI_SUCCESS; }
   if (NowUs () < mRetryAt) { return EFI_NOT_READY; }
-  if (!mChargePump.Initialized) {
-    Status = Sc8581Open ();
-    if (EFI_ERROR (Status)) { goto Retry; }
-  }
+  // StartSupply initializes the charge pump before arming this worker.
   if (!mSyncAwaitingReply) {
-    switch (mSyncIndex) {
-      case 0: Payload = &Present; Length = sizeof (Present); break;
-      case 1: Payload = OtgConfig; Length = sizeof (OtgConfig); break;
-      case 2: Payload = &CidConfig; Length = sizeof (CidConfig); break;
-      default: Payload = &EuModel; Length = sizeof (EuModel); break;
-    }
-    Status = RouterBegin (ONYX_MCA_WRITE, Property[mSyncIndex], Payload, Length);
+    Status = RouterBegin (ONYX_MCA_WRITE, Settings[mSyncIndex].Property,
+                          Settings[mSyncIndex].Data, Settings[mSyncIndex].Length);
     if (Status == EFI_NOT_READY) { return Status; }
     if (EFI_ERROR (Status)) { goto Retry; }
     mSyncAwaitingReply = TRUE;
     return EFI_NOT_READY;
   }
-  Status = RouterFinish (NULL, 0);
+  Status = RouterFinish (NULL);
   if (Status == EFI_NOT_READY) { return Status; }
   if (EFI_ERROR (Status)) { goto Retry; }
   mSyncAwaitingReply = FALSE;
-  if (++mSyncIndex == ARRAY_SIZE (Property)) {
+  if (++mSyncIndex == ARRAY_SIZE (Settings)) {
     mMcaSynchronized = TRUE;
     return EFI_SUCCESS;
   }
@@ -805,7 +782,7 @@ BeginCpRevert (UINT32 AuthPosition)
     return EFI_NOT_READY;
   }
   if (mCpWorkPhase == 1) {
-    Status = RouterFinish (&mCpWorkPresent, sizeof (mCpWorkPresent));
+    Status = RouterFinish (&mCpWorkPresent);
     if (Status != EFI_SUCCESS) { return Status; }
     mCpWorkPhase = 2;
   }
@@ -815,8 +792,7 @@ BeginCpRevert (UINT32 AuthPosition)
       mCpWorkPhase = 6;
     } else if (mCpWorkPresent && (mCpWorkPosition == 2)) {
       Status = Sc8581Update (0x0B, 0x20, 0x20);
-      if (!EFI_ERROR (Status)) { Status = Sc8581Read (0x0D, &Byte); }
-      if (!EFI_ERROR (Status)) { Status = Sc8581Write (0x0D, 0); }
+      if (!EFI_ERROR (Status)) { Status = Sc8581Update (0x0D, 0xFF, 0); }
       if (!EFI_ERROR (Status)) { Status = Sc8581SetMode (5); }
       if (!EFI_ERROR (Status)) { Status = Sc8581Update (0x0B, 0x10, 0); }
       if (!EFI_ERROR (Status)) { Status = Sc8581Update (0x0B, 0x08, 0x08); }
@@ -829,8 +805,7 @@ BeginCpRevert (UINT32 AuthPosition)
       mCpWorkPhase = 3;
       return EFI_NOT_READY;
     } else if (!mCpWorkPresent) {
-      Status = Sc8581Read (0x0D, &Byte);
-      if (!EFI_ERROR (Status)) { Status = Sc8581Write (0x0D, 40); }
+      Status = Sc8581Update (0x0D, 0xFF, 40);
       if (EFI_ERROR (Status)) { return Status; }
       mCpWorkDue = NowUs () + 400000;
       mCpWorkPhase = 3;
@@ -848,7 +823,7 @@ BeginCpRevert (UINT32 AuthPosition)
     return EFI_NOT_READY;
   }
   if (mCpWorkPhase == 4) {
-    Status = RouterFinish (NULL, 0);
+    Status = RouterFinish (NULL);
     if (Status != EFI_SUCCESS) { return Status; }
     mCpWorkPhase = 5;
   }
@@ -922,12 +897,10 @@ ServiceNotifications (VOID)
 STATIC BOOLEAN
 PilNameMatches (CONST CHAR16 *Name)
 {
-  CONST CHAR16 *Expected = L"FULL_ADSP";
+  STATIC CONST CHAR16 Expected[] = L"FULL_ADSP";
   UINTN Index;
-  for (Index = 0; Index < 10; Index++) {
-    CHAR16 Character = Name[Index];
-    if ((Character >= L'a') && (Character <= L'z')) { Character -= L'a' - L'A'; }
-    if (Character != Expected[Index]) { return FALSE; }
+  for (Index = 0; Index < ARRAY_SIZE (Expected); Index++) {
+    if (CharToUpper (Name[Index]) != Expected[Index]) { return FALSE; }
   }
   return TRUE;
 }
@@ -938,10 +911,10 @@ ServiceBootstrap (VOID)
   EFI_STATUS Status;
   BOOLEAN Connected;
   CONST CHAR16 *Name;
-  UINTN Index;
   if (mBootPhase == 5) { return mBootStatus; }
   if (mBootPhase == 6) { return EFI_SUCCESS; }
   if (mBootPhase == 0) {
+    UINT64 PilConfig[0x238 / sizeof (UINT64)];
     Status = gBS->LocateProtocol (&mPilGuid, NULL, (VOID **)&mPil);
     if (EFI_ERROR (Status)) { return EFI_NOT_READY; }
     Status = gBS->LocateProtocol (&mPmicGlinkGuid, NULL, (VOID **)&mPmicRouter);
@@ -963,11 +936,11 @@ ServiceBootstrap (VOID)
       mBootStatus = EFI_SUCCESS;
       return EFI_SUCCESS;
     }
-    ZeroMem (mPilConfig, sizeof (mPilConfig));
-    Status = mPil->GetConfig (L"FULL_ADSP", mPilConfig);
+    ZeroMem (PilConfig, sizeof (PilConfig));
+    Status = mPil->GetConfig (L"FULL_ADSP", PilConfig);
     if (Status != EFI_SUCCESS) { goto Failed; }
-    Name = (CONST CHAR16 *)((CONST UINT8 *)mPilConfig + 0x0C);
-    if (!PilNameMatches (Name) || (mPilConfig[0] == 0)) {
+    Name = (CONST CHAR16 *)((CONST UINT8 *)PilConfig + 0x0C);
+    if (!PilNameMatches (Name) || (PilConfig[0] == 0)) {
       Status = EFI_COMPROMISED_DATA;
       goto Failed;
     }
@@ -1006,9 +979,6 @@ ServiceBootstrap (VOID)
     mBootPhase = 6;
     mBootStatus = EFI_SUCCESS;
     return EFI_SUCCESS;
-  }
-  for (Index = 0; Index < ARRAY_SIZE (mPilConfig); Index++) {
-    mPilConfig[Index] = 0;
   }
   Status = EFI_UNSUPPORTED;
 Failed:

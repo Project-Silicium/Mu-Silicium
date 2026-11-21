@@ -3,9 +3,6 @@
 // QueryConnectionChange, physical port, after a successful PMIC read.
 // x20: port context; x24: page of the native platform and policy variables.
 // Only scratch registers w8/w9 are used. All targets are image-relative.
-// To reproduce UsbConfigRoleEdge.bin:
-// llvm-mc -triple=aarch64-none-elf -filetype=obj UsbConfigRoleEdge.S -o role.o
-// llvm-objcopy -O binary --only-section=.text role.o UsbConfigRoleEdge.bin
 .text
 .balign 4
 RoleEdge:

@@ -20,7 +20,6 @@ from edk2toolext.invocables.edk2_pr_eval import PrEvalSettingsManager
 from edk2toolext.invocables.edk2_setup import (RequiredSubmodule, SetupSettingsManager)
 from edk2toolext.invocables.edk2_update import UpdateSettingsManager
 from edk2toolext.invocables.edk2_parse import ParseSettingsManager
-from edk2toollib.utility_functions import RunCmd
 
 # ####################################################################################### #
 #                                Common Configuration                                     #
@@ -166,15 +165,8 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
         return 0
 
     def PlatformPreBuild (self):
-        # Tie board-local native images to their reviewed Binary inputs.
-        # Refuse a changed firmware version instead of applying stale RVAs.
-        for script in ("prepare_pil.py", "prepare_pmic.py", "prepare_usbconfig.py"):
-            result = subprocess.run ([
-                sys.executable, str (Path (__file__).parent / "Usb" / script)
-            ]).returncode
-            if result != 0:
-                return result
-        return 0
+        script = Path (__file__).resolve ().parent / "Usb" / "prepare_firmware.py"
+        return subprocess.run ([sys.executable, script]).returncode
 
     def PlatformPostBuild (self):
         return 0
