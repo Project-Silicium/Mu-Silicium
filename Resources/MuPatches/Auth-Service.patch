@@ -1,5 +1,5 @@
 diff --git a/SecurityPkg/Library/AuthVariableLib/AuthService.c b/SecurityPkg/Library/AuthVariableLib/AuthService.c
-index b6e3d08056..cf1dbb73ef 100644
+index c60bb81939..3a333a1ca6 100644
 --- a/SecurityPkg/Library/AuthVariableLib/AuthService.c
 +++ b/SecurityPkg/Library/AuthVariableLib/AuthService.c
 @@ -29,6 +29,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -10,7 +10,7 @@ index b6e3d08056..cf1dbb73ef 100644
  
  #define SHA_DIGEST_SIZE_MAX  SHA512_DIGEST_SIZE
  
-@@ -2506,6 +2507,10 @@ VerifyTimeBasedPayloadAndUpdate (
+@@ -2632,6 +2633,10 @@ VerifyTimeBasedPayloadAndUpdate (
    AUTH_VARIABLE_INFO             OrgVariableInfo;
    BOOLEAN                        IsDel;
  
@@ -22,13 +22,13 @@ index b6e3d08056..cf1dbb73ef 100644
    FindStatus = mAuthVarLibContextIn->FindVariable (
                                         VariableName,
 diff --git a/SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf b/SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
-index 0b0f0a9f96..0f605de9b5 100644
+index 1c8421cfa5..0ee7f6a31d 100644
 --- a/SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
 +++ b/SecurityPkg/Library/AuthVariableLib/AuthVariableLib.inf
-@@ -43,6 +43,7 @@
-   BaseCryptLib
-   PlatformSecureLib
+@@ -45,6 +45,7 @@
    VariablePolicyLib
+   CryptoIndicatorRegistrationLib  # MU_CHANGE
+   EcitEncodingLib  # MU_CHANGE
 +  UefiRuntimeLib
  
  # MU_CHANGE [BEGIN] - TCBZ2506
