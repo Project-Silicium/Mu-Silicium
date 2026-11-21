@@ -21,7 +21,7 @@ APRIORI DXE {
   INF Binaries/onyx/QcomPkg/Drivers/ProjectInfoDxe/ProjectInfoDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
+  INF onyxPkg/Usb/OnyxIpccDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/CmdDbDxe/CmdDbDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PwrUtilsDxe/PwrUtilsDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/NpaDxe/NpaDxe.inf
@@ -40,7 +40,7 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
-  INF Binaries/onyx/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  INF onyxPkg/Usb/PmicOnyx.inf
 
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
@@ -65,9 +65,10 @@ APRIORI DXE {
 !endif
 
   INF Binaries/onyx/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF onyxPkg/Usb/PilOnyx.inf
   INF Binaries/onyx/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  INF onyxPkg/Usb/OnyxUsbSupplyDxe.inf
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf
@@ -82,6 +83,7 @@ APRIORI DXE {
 
   INF Binaries/onyx/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
+  INF onyxPkg/Usb/OnyxUsbSupplyBootstrapDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/onyx/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
@@ -95,7 +97,7 @@ APRIORI DXE {
 
   INF Binaries/onyx/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
+  INF onyxPkg/Usb/UsbConfigOnyx.inf
   INF Binaries/onyx/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
 !if $(USE_CUSTOM_DISPLAY_DRIVER) == 1

@@ -1,0 +1,7 @@
+# DeviceBuild.py generates these from Binaries/onyx.
+/PilOnyx.efi
+/PilOnyx.depex
+/PmicOnyx.efi
+/PmicOnyx.depex
+/UsbConfigOnyx.efi
+/UsbConfigOnyx.depex

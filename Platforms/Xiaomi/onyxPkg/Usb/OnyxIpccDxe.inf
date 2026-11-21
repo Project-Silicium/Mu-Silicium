@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: GPL-2.0-only
+[Defines]
+  INF_VERSION = 0x00010005
+  BASE_NAME = OnyxIpccDxe
+  FILE_GUID = 63D82B78-FCD5-466D-A1ED-29B65DA9ED90
+  MODULE_TYPE = DXE_DRIVER
+  ENTRY_POINT = OnyxIpccEntry
+[Sources]
+  OnyxIpccDxe.c
+[Packages]
+  MdePkg/MdePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  BaseMemoryLib
+  IoLib
+[Protocols]
+  gHardwareInterrupt2ProtocolGuid
+[Guids]
+  gEfiEventExitBootServicesGuid
+[Depex]
+  gHardwareInterrupt2ProtocolGuid

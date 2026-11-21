@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = OnyxUsbSupplyBootstrapDxe
+  FILE_GUID      = 8B0738E5-18BC-49CC-BCDF-6415291B71BB
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = OnyxUsbSupplyBootstrapEntry
+
+[Sources]
+  OnyxUsbSupplyDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[BuildOptions]
+  GCC:*_*_AARCH64_CC_FLAGS = -DONYX_SUPPLY_BOOTSTRAP_BUILD
+  CLANGDWARF:*_*_AARCH64_CC_FLAGS = -DONYX_SUPPLY_BOOTSTRAP_BUILD
+  CLANGPDB:*_*_AARCH64_CC_FLAGS = -DONYX_SUPPLY_BOOTSTRAP_BUILD
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  DebugLib
+
+[Depex]
+  TRUE

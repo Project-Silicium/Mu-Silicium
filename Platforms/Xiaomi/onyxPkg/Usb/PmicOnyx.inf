@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = PmicOnyx
+  FILE_GUID                      = 5776232E-082D-4B75-9A0E-FE1D13F7A5D9
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = EfiEntry
+
+[Binaries.AARCH64]
+  DXE_DEPEX|PmicOnyx.depex|*
+  PE32|PmicOnyx.efi|*
+
+[Depex]
+  TRUE

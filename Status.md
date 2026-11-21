@@ -1117,7 +1117,7 @@
 | Display            |                          | ✅    |
 | Internal Storage   |                          | ✅    |
 | Side Buttons       |                          | ✅    |
-| USB Host Mode      |                          | ❌    |
+| USB Host Mode      | OTG disk boot and keyboard on REDMI Turbo 4 Pro | ✅    |
 | USB Device Mode    |                          | ✅    |
 | USB Power Delivery |                          | ❌    |
 | Mass Storage       |                          | ✅    |

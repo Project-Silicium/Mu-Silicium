@@ -6,6 +6,8 @@
 import datetime
 import logging
 import os
+import subprocess
+import sys
 import uuid
 
 from io import StringIO
@@ -164,6 +166,14 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
         return 0
 
     def PlatformPreBuild (self):
+        # Tie board-local native images to their reviewed Binary inputs.
+        # Refuse a changed firmware version instead of applying stale RVAs.
+        for script in ("prepare_pil.py", "prepare_pmic.py", "prepare_usbconfig.py"):
+            result = subprocess.run ([
+                sys.executable, str (Path (__file__).parent / "Usb" / script)
+            ]).returncode
+            if result != 0:
+                return result
         return 0
 
     def PlatformPostBuild (self):
@@ -174,7 +184,6 @@ class PlatformBuilder (UefiBuilder, BuildSettingsManager):
 
 if __name__ == "__main__":
     import argparse
-    import sys
 
     from edk2toolext.invocables.edk2_platform_build import Edk2PlatformBuild
     from edk2toolext.invocables.edk2_setup import Edk2PlatformSetup

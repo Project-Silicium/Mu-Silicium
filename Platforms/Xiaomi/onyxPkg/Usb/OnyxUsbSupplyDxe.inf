@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = OnyxUsbSupplyDxe
+  FILE_GUID      = 5705AFD1-04AE-4F9C-B124-6BA4FA503EEF
+  MODULE_TYPE    = DXE_DRIVER
+  VERSION_STRING = 1.0
+  ENTRY_POINT    = OnyxUsbSupplyDxeEntry
+
+[Sources]
+  OnyxUsbSupplyDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  BaseLib
+  BaseMemoryLib
+  TimerLib
+  DebugLib
+
+[Guids]
+  gEfiEventExitBootServicesGuid
+
+[Depex]
+  TRUE

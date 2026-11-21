@@ -72,6 +72,13 @@
   ConfigurationMapLib|onyxPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
 
 [Components]
+  onyxPkg/Usb/OnyxIpccDxe.inf
+  onyxPkg/Usb/PilOnyx.inf
+  onyxPkg/Usb/PmicOnyx.inf
+  onyxPkg/Usb/UsbConfigOnyx.inf
+  onyxPkg/Usb/OnyxUsbSupplyDxe.inf
+  onyxPkg/Usb/OnyxUsbSupplyBootstrapDxe.inf
+
   #
   # ACPI Tables
   #

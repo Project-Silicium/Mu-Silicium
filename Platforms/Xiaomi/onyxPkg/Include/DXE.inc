@@ -35,7 +35,7 @@
   INF Binaries/onyx/QcomPkg/Drivers/ExFgDxe/ExFg.inf
   INF Binaries/onyx/QcomPkg/Drivers/ExCpDxe/ExCp.inf
   INF Binaries/onyx/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
+  INF onyxPkg/Usb/PmicOnyx.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
@@ -83,10 +83,12 @@
 
   INF Binaries/onyx/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
+  INF onyxPkg/Usb/OnyxIpccDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/Smp2pDxe/Smp2pDxe.inf
-  #INF Binaries/onyx/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  INF Binaries/onyx/QcomPkg/Drivers/GLinkDxe/GLinkDxe.inf
+  INF onyxPkg/Usb/OnyxUsbSupplyDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkDxe.inf
+  INF onyxPkg/Usb/OnyxUsbSupplyBootstrapDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
   INF Binaries/onyx/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
@@ -101,10 +103,10 @@
 
   INF Binaries/onyx/QcomPkg/Drivers/UsbMsdDxe/UsbMsdDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/UsbDeviceDxe/UsbDeviceDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/UsbConfigDxe/UsbConfigDxe.inf
+  INF onyxPkg/Usb/UsbConfigOnyx.inf
   INF Binaries/onyx/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  INF Binaries/onyx/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF onyxPkg/Usb/PilOnyx.inf
   INF Binaries/onyx/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/onyx/QcomPkg/Drivers/SSRDxe/SSRDxe.inf
