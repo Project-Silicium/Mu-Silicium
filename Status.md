@@ -902,6 +902,32 @@
 
 </details>
 
+<details>
+<summary><b><strong>ZTE Devices</strong></b></summary>
+
+## ZTE Nubia Z80 Ultra
+
+<img align="right" src="Resources/Pictures/ZTE-Nubia-Z80-Ultra.png" width="400" alt="Preview">
+
+**State:** Active <br>
+**Codename:** qwbarley
+
+### UEFI Status
+
+| Feature            | Description                        | State |
+|:-------------------|:-----------------------------------|:-----:|
+| Display            |                                    | ✅    |
+| Internal Storage   |                                    | ✅    |
+| Side Buttons       | Power acts as Enter                | ✅    |
+| USB Host Mode      |                                    | ❔    |
+| USB Device Mode    |                                    | ✅    |
+| USB Power Delivery |                                    | ❔    |
+| Mass Storage       |                                    | ✅    |
+| Windows Boot       |                                    | ❔    |
+| Linux Boot         |                                    | ❔    |
+
+</details>
+
 ---
 
 </details>
@@ -1885,27 +1911,6 @@
 </table>
 
 </details>
-
-## ZTE Nubia Z80 Ultra
-
-<img align="right" src="Resources/Pictures/ZTE-Nubia-Z80-Ultra.png" width="400" alt="Preview">
-
-**State:** Active <br>
-**Codename:** qwbarley
-
-### UEFI Status
-
-| Feature            | Description                        | State |
-|:-------------------|:-----------------------------------|:-----:|
-| Display            |                                    | ✅    |
-| Internal Storage   |                                    | ✅    |
-| Side Buttons       | Power acts as Enter                | ✅    |
-| USB Host Mode      |                                    | ❔    |
-| USB Device Mode    |                                    | ✅    |
-| USB Power Delivery |                                    | ❔    |
-| Mass Storage       |                                    | ✅    |
-| Windows Boot       |                                    | ❔    |
-| Linux Boot         |                                    | ❔    |
 
 </details>
 
