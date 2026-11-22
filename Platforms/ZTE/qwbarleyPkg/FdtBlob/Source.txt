@@ -1,0 +1,3 @@
+SOURCE: qwbarley.dts (decompiled FDT dumped from stock ZTE Android)
+DEVICE: ZTE Nubia Z80 Ultra, board canoe, SoC kaanapali / SM8850
+CONVERTED WITH: dtc -I dts -O dtb
