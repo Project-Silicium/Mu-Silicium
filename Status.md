@@ -921,7 +921,7 @@
 | Display            |                                    | ✅    |
 | Internal Storage   |                                    | ✅    |
 | Side Buttons       |                                    | ✅    |
-| USB Host Mode      |                                    | ❔    |
+| USB Host Mode      |                                    | ✅    |
 | USB Device Mode    |                                    | ✅    |
 | USB Power Delivery |                                    | ❔    |
 | Mass Storage       |                                    | ✅    |
@@ -931,8 +931,6 @@
 </details>
 
 ---
-
-</details>
 
 <details>
 <summary><b><strong>Snapdragon 8 Gen 5 Devices</strong></b></summary>
