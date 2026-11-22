@@ -18,9 +18,6 @@ APRIORI DXE {
   INF Binaries/qwbarley/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
-  # PlatformPei initializes XBLCore thread/TLS state (tpidr_el1
-  # and the core-0 thread object) before DXE dispatch.  HALIOMMUDxe provides the
-  # Qcom IOMMU protocol 54B6D3B4 required by SdccDxe/UFSDxe.
   INF Binaries/qwbarley/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/ULogDxe/ULogDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
@@ -43,11 +40,6 @@ APRIORI DXE {
 
   INF MdeModulePkg/Universal/ResetSystemRuntimeDxe/ResetSystemRuntimeDxe.inf
 
-  # NOTE: ZTE VendorLogfsDxe is deliberately NOT enabled.  It flushes the
-  # ZTE ULog RAM buffer, which our DEBUG output never enters.  DEBUG goes to
-  # the framebuffer via the standard SiliciumPkg FrameBufferSerialPortLib.
-
-  # PMIC chain enabled (HALIOMMUDxe SMMU/IOMMU active).
   INF Binaries/qwbarley/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
   INF Binaries/qwbarley/MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
   INF Binaries/qwbarley/MdeModulePkg/Universal/Disk/PartitionDxe/PartitionDxe.inf
@@ -65,14 +57,9 @@ APRIORI DXE {
 
   INF Binaries/qwbarley/QcomPkg/Drivers/DDRInfoDxe/DDRInfoDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/FeatureEnablerDxe/FeatureEnablerDxe.inf
-  # DISABLED (qwbarley): PIL drivers — PILDxe constructor fails with
-  # EFI_NOT_FOUND (AutoGen.c +640) and ASSERTs; they load DSP/modem firmware
-  # which is not needed to reach the payload. Re-enable once the underlying
-  # protocol/HOB is available.
-  # INF Binaries/qwbarley/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
-  # INF Binaries/qwbarley/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/qwbarley/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
+  INF Binaries/qwbarley/QcomPkg/Drivers/PILDxe/PILDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf
-  # GLinkDxe disabled in DXE.inc (PmicGlinkSoccpDxe is used instead).
 
   INF MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
   INF MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf

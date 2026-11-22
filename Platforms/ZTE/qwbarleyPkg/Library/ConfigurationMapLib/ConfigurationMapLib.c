@@ -3,7 +3,7 @@
 STATIC
 EFI_CONFIGURATION_ENTRY_DESCRIPTOR
 gConfigurationDescriptor[] = {
-  // Generated from ZTE xbl_config.img qcom,uefi int_param
+  // Configuration Map
   {"EnableShell", 0x01},
   {"SecPagePoolCount", 0xa00},
   {"SharedIMEMBaseAddr", 0x14680000},

@@ -76,11 +76,12 @@
   MemoryMapLib|qwbarleyPkg/Library/MemoryMapLib/MemoryMapLib.inf
 
   #
-  # Platform PEI (device override: avoid calling uninitialized XBLCore scheduler)
-  #
-  PlatformPeiLib|qwbarleyPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
-
-  #
   # QCOM Libraries
   #
   ConfigurationMapLib|qwbarleyPkg/Library/ConfigurationMapLib/ConfigurationMapLib.inf
+
+[Components]
+  #
+  # ACPI Tables
+  #
+  #qwbarley/AcpiTables.inf

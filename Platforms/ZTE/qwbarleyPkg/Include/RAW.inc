@@ -13,6 +13,7 @@
   SECTION RAW = Binaries/qwbarley/RawFiles/SecParti.cfg
   }
 
+!if $(USE_CUSTOM_DISPLAY_DRIVER) == 1
   FILE FREEFORM = 8CAE2C55-FC5A-410B-812B-8CA22F572F36 {
   SECTION UI = "Panel_truly_wqxga_dsc_cmd.xml"
   SECTION RAW = Binaries/qwbarley/RawFiles/Panel_truly_wqxga_dsc_cmd.xml
@@ -342,6 +343,7 @@
   SECTION UI = "PanelSimConfig.csv"
   SECTION RAW = Binaries/qwbarley/RawFiles/PanelSimConfig.csv
   }
+!endif
 
   FILE FREEFORM = 21E9BDD9-6C3F-4F10-84A5-BBEC322741F1 {
   SECTION UI = "uefipil.cfg"

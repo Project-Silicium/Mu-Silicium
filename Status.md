@@ -912,13 +912,15 @@
 **State:** Active <br>
 **Codename:** qwbarley
 
+**Contributors:** [maroo812](https://github.com/maroo812/)
+
 ### UEFI Status
 
 | Feature            | Description                        | State |
 |:-------------------|:-----------------------------------|:-----:|
 | Display            |                                    | ✅    |
 | Internal Storage   |                                    | ✅    |
-| Side Buttons       | Power acts as Enter                | ✅    |
+| Side Buttons       |                                    | ✅    |
 | USB Host Mode      |                                    | ❔    |
 | USB Device Mode    |                                    | ✅    |
 | USB Power Delivery |                                    | ❔    |

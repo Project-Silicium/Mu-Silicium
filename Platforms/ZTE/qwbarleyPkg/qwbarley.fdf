@@ -59,7 +59,7 @@ FV = FVMAIN_COMPACT
 ################################################################################
 
 [FV.FvMain]
-FvNameGuid         = 98C2FC49-3915-45E8-A666-7A01C1CAFDE4
+FvNameGuid         = CD8D4C84-20AD-4073-8A28-3400FAE05941
 BlockSize          = 0x1000
 NumBlocks          = 0        # This FV gets compressed so make it just big enough
 FvAlignment        = 8        # FV alignment and FV attributes setting.
@@ -90,6 +90,11 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
   INF SiliciumPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
+  # ACPI
+  #INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
+  #INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
+  #INF RuleOverride = ACPITABLE qwbarley/AcpiTables.inf
+
   # IORT DT
   INF QcomPkg/Drivers/IortDtDxe/IortDtDxe.inf
 
@@ -119,21 +124,6 @@ READ_ENABLED_CAP   = TRUE
 READ_STATUS        = TRUE
 READ_LOCK_CAP      = TRUE
 READ_LOCK_STATUS   = TRUE
-
-  FILE FREEFORM = FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF {
-    SECTION RAW = qwbarleyPkg/XblBlob/XblCorePad.raw
-  }
-
-  FILE FREEFORM = 8AF09F13-44C5-96EC-1437-DD899CB5EE5D {
-    SECTION RAW = Binaries/qwbarley/QcomPkg/XBLCore/XBLCore.raw
-    SECTION RAW = Binaries/qwbarley/QcomPkg/XBLCore/XBLCore.te
-  }
-
-  # XBL DTB (FDT #1 from ZTE xbl_config.img) containing /sw/mailbox/mailbox-config.
-  # Fallback for embedded XBLCore gDtbHandle init when runtime discovery fails.
-  FILE FREEFORM = 5F9D7C61-8D2A-4B1E-A3C4-0E7B6D9A2F10 {
-    SECTION RAW = qwbarleyPkg/XblBlob/XblDtbMailbox.raw
-  }
 
   INF SiliciumPkg/Sec/Sec.inf
 

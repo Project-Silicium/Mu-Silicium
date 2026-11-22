@@ -27,7 +27,6 @@
   INF Binaries/qwbarley/QcomPkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
-  # See APRIORI.inc (XBLCore TLS state initialized in PlatformPei).
   INF Binaries/qwbarley/QcomPkg/Drivers/HALIOMMUDxe/HALIOMMUDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/QupDxe/QupDxe.inf
@@ -36,8 +35,6 @@
   INF Binaries/qwbarley/QcomPkg/Drivers/I3CMasterDxe/I3CMasterDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/SPIDxe/SPIDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
-  # PMIC chain enabled (HALIOMMUDxe SMMU/IOMMU active), so SPMI
-  # arbiter MMIO access should work and PMIC rails can power UFS.
   INF Binaries/qwbarley/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
@@ -86,7 +83,6 @@
   INF Binaries/qwbarley/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/IPCCDxe/IPCCDxe.inf
-  # GLinkDxe disabled: PmicGlinkSoccpDxe provides PMIC GLink instead.
   INF Binaries/qwbarley/QcomPkg/Drivers/PmicGlinkDxe/PmicGlinkSoccpDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLAGio.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/UsbPwrCtrlDxe/UsbPwrCtrlDxe.inf
@@ -106,7 +102,6 @@
   INF Binaries/qwbarley/QcomPkg/Drivers/UsbInitDxe/UsbInitDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/UCDxe/UCDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/RNGDxe/RngDxe.inf
-  # DISABLED (qwbarley): PIL drivers; see APRIORI.inc.
-  # INF Binaries/qwbarley/QcomPkg/Drivers/PILDxe/PILDxe.inf
-  # INF Binaries/qwbarley/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
+  INF Binaries/qwbarley/QcomPkg/Drivers/PILDxe/PILDxe.inf
+  INF Binaries/qwbarley/QcomPkg/Drivers/PILProxyDxe/PILProxyDxe.inf
   INF Binaries/qwbarley/QcomPkg/Drivers/SPSSDxe/SPSSDxe.inf

@@ -8,8 +8,8 @@ requires_kernel_header = true
 # UEFI FD Configs
 #
 [uefi_fd]
-base = 0xC6800000
-size = 0x400000
+base = 0xC6900000
+size = 0x300000
 
 #
 # Android Boot Image Kernel Configs

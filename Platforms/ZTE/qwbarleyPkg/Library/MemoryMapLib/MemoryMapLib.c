@@ -5,7 +5,7 @@ EFI_MEMORY_REGION_DESCRIPTOR
 gMemoryDescriptor[] = {
   // Name, Address, Length, HobOption, ResourceAttribute, ArmAttributes, ResourceType, MemoryType
 
-  // Generated from ZTE xbl_config.img UEFI memory map (qcom,uefimem)
+  // DDR Regions
 
   {"NOMAP",                    0x80000000, 0x01960000, HobOnlyNoCacheSetting, MEM_RES, UNCACHEABLE, Reserv, UNCACHED_UNBUFFERED_XN},
   {"RSRV0",                    0x81960000, 0x000a0000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK},
@@ -20,7 +20,8 @@ gMemoryDescriptor[] = {
   {"DBI_Dump",                 0xaa980000, 0x05770000, NoHob, MMAP_IO, INITIALIZED, Conv, UNCACHED_UNBUFFERED_XN},
   {"DXE_Heap",                 0xb00f0000, 0x14710000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK},
   {"HLOS1",                    0xc4800000, 0x02000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK},
-  {"FD_Reserved",              0xc6800000, 0x00400000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+  {"FD_Reserved",              0xc6800000, 0x00100000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
+  {"UEFI_FD",                  0xc6900000, 0x00300000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"UEFI_FD_Reserved",         0xc6c00000, 0x00200000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"CPU_Vectors",              0xc6e00000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK},
   {"Info_Blk",                 0xc6e01000, 0x00001000, AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK},
