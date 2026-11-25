@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = I2cDxe
+  FILE_GUID                      = 323154DB-FECA-4481-A2FA-38B28DE02561
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = RegisterI2c
+
+[Sources]
+  I2c.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  I2cLib
+  IoLib
+  MemoryAllocationHelperLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+
+[Protocols]
+  gEfiGpioProtocolGuid
+  gEfiI2cProtocolGuid
+
+[Depex]
+  TRUE

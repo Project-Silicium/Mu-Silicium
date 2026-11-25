@@ -69,8 +69,8 @@ GpioGetState (
   UINT16     Offset;
   UINT8      CtrlNum;
 
-  // Verify Bank & Pin
-  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT) {
+  // Verify Bank, Pin & State
+  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT || State == NULL) {
     return EFI_INVALID_PARAMETER;
   }
 
@@ -106,8 +106,8 @@ GpioSetState (
   UINT16     Offset;
   UINT8      CtrlNum;
 
-  // Verify Bank & Pin
-  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT) {
+  // Verify Bank, Pin & State
+  if (BankId >= BANK_ID_MAX || Pin >= MAX_GPIO_PIN_COUNT || Enable == NULL) {
     return EFI_INVALID_PARAMETER;
   }
 
@@ -126,7 +126,7 @@ GpioSetState (
   MmioAnd32 ((UINTN)&mCtrl[CtrlNum]->dat + Offset, ~DAT_MASK (Pin));
 
   // Enable Pin
-  if (Enable) {
+  if (*Enable) {
     MmioOr32 ((UINTN)&mCtrl[CtrlNum]->dat + Offset, DAT_SET (Pin));
   }
 

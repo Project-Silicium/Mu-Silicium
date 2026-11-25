@@ -37,7 +37,7 @@
 // GPIO DAT
 //
 #define DAT_MASK(x)                   (1 << (x))
-#define DAT_SET(x)                    (0 << (x))
+#define DAT_SET(x)                    (1 << (x))
 
 //
 // GPIO Rate

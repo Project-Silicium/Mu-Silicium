@@ -76,6 +76,13 @@
   # IO Libraries
   #
   GpioBankLib|S5E7885Pkg/Library/GpioBankLib/GpioBankLib.inf
+  HsI2cLib|S5E7885Pkg/Library/HsI2cLib/HsI2cLib.inf
+  I2cLib|S5E7885Pkg/Library/I2cLib/I2cLib.inf
+
+  #
+  # Samsung Libraries
+  #
+  UsiLib|S5E7885Pkg/Library/UsiLib/UsiLib.inf
 
   #
   # Power Management Libraries

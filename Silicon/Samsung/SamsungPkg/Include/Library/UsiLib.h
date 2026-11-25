@@ -4,12 +4,26 @@
 //
 // USI Data
 //
+typedef enum {
+  UsiVersion2 = 0,
+  UsiVersion1,
+  UsiVersionNone
+} EFI_USI_VERSION;
+
+typedef enum {
+  UsiChannel0 = 0,
+  UsiChannel1
+} EFI_USI_CHANNEL;
+
 typedef struct {
   EFI_PHYSICAL_ADDRESS UsiAddress;
   EFI_PHYSICAL_ADDRESS ControllerAddress;
   UINT8                I2cBus;
   UINT8                SpiBus;
   UINT8                UartBus;
+  EFI_USI_VERSION      Version;
+  EFI_USI_CHANNEL      Channel;
+  UINT32               ActiveMode;
 } EFI_USI_DATA;
 
 /**
